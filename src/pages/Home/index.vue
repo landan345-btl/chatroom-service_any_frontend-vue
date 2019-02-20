@@ -1,7 +1,12 @@
 <template>
-  <div class="home">
+  <div class="">
+    <Header>
+    </Header>
+    <main class="home">
 
-    <Footer/>
+    </main>
+    <Footer>
+    </Footer>
   </div>
 
 
@@ -14,10 +19,10 @@ import Header from '@/commons/Header/index.vue'; // @ is an alias to /src
 
 @Component({
   components: {
-    Header,
-    Footer,
+  Footer,
+  Header,
   },
-})
+  })
 class Home extends Vue {
 }
 
