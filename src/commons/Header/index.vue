@@ -1,5 +1,5 @@
 <template>
- 	<div>
+ 	<header>
 		<div class="top">
 			<div class="nav_top">
 				<img src="@/assets/images/icon01.png"/>最新公告：
@@ -54,7 +54,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</header>
 </template>
 <style scoped lang="scss">
 	*,*:before,*:after {-webkit-box-sizing:border-box;box-sizing:border-box;}
@@ -112,7 +112,9 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-export default class Header extends Vue {
+class Header extends Vue {
 }
+
+export default Header;
 </script>
 

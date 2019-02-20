@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <Header/>
 
     <Footer/>
   </div>
@@ -19,5 +18,8 @@ import Header from '@/commons/Header/index.vue'; // @ is an alias to /src
     Footer,
   },
 })
-export default class Home extends Vue {}
+class Home extends Vue {
+}
+
+export default Home;
 </script>
