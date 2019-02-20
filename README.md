@@ -32,6 +32,19 @@ yarn --no-bin-links
 ```
 ---------------------------------------
 
+[3]. 步骤三，到 任意，全域安装 vue-cli
+```OS
+sudo yarn global add typescript
+
+```
+---------------------------------------
+
+[4]. 步骤四，到 项目目录 开发模式启动 vue
+```OS
+yarn run serve
+```
+---------------------------------------
+
 # landan-www_frontend-vue
 
 ## Project setup
