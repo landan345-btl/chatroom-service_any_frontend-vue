@@ -2,14 +2,14 @@
  	<div>
 		<div class="top">
 			<div class="nav_top">
-				<img src="../assets/images/icon01.png"/>最新公告：
+				<img src="@/assets/images/icon01.png"/>最新公告：
 			<p class="FloatRight"><span>设为首页</span>&nbsp;&nbsp;|&nbsp;&nbsp; <span>收藏本站</span></p>
 			</div>
 		</div>
 		<div class="top_logo">
 			<div class="nav_top1">
-				<img src="../assets/images/logo.png"/>
-				<img class="FloatRight" src="../assets/images/icon02.png"/>
+				<img src="@/assets/images/logo.png"/>
+				<img class="FloatRight" src="@/assets/images/icon02.png"/>
 			</div>
 		</div>
 		<div class="top_nav">
@@ -30,8 +30,8 @@
 				<div class="displayB">
 					<table border="0">
 						<tr><th>当期奖号</th><th>下期倒计时</th><th>走势图</th></tr>
-						<tr><td>Data</td><td>Data</td><td><img src="../assets/images/icon03.png"/></td></tr>
-						<tr><td>Data</td><td>Data</td><td><img src="../assets/images/icon03.png"/></td></tr>
+						<tr><td>Data</td><td>Data</td><td><img src="@/assets/images/icon03.png"/></td></tr>
+						<tr><td>Data</td><td>Data</td><td><img src="@/assets/images/icon03.png"/></td></tr>
 					</table>
 				</div>
 				<div>
