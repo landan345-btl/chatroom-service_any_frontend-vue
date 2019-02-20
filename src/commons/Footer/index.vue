@@ -5,7 +5,9 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-
+@Component({
+  name: 'Footer',
+  })
 class Footer extends Vue {
 }
 
