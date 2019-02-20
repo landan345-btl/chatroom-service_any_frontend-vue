@@ -18,7 +18,7 @@ import Header from '@/commons/Header.vue'; // @ is an alias to /src
   components: {
     HelloWorld,
     Header,
-    Footer
+    Footer,
   },
 })
 export default class Home extends Vue {}
