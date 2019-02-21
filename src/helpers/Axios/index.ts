@@ -11,7 +11,7 @@ class AxiosHelper {
 
     if (params instanceof Array) {
       let paramses = params;
-      let resJsons: any[] = []
+      let resJsons: any[] = [];
       if (isRecursive) {
         let nextPromise = (i: number ): any => {
           if (i >= paramses.length) {
@@ -38,23 +38,24 @@ class AxiosHelper {
     return axios.get(url, params);
   }
 
-  public get2(url: string, params: object | object[], isRecursive: boolean = false) {
+  public get2(request: any | any[], isRecursive: boolean = false) {
     isRecursive = !!isRecursive;
 
-    if (params instanceof Array) {
-      let paramses = params;
-      let resJsons: any[] = []
+    if (request instanceof Array) {
+      let requests: any[] = request;
+      let resJsons: any[] = [];
       if (isRecursive) {
         let nextPromise = (i: number ): any => {
-          if (i >= paramses.length) {
+          if (i >= requests.length) {
             return Promise.resolve(resJsons);
           }
-          let _params = paramses[i];
+          let _url: string = requests[i].url;
+          let _params: any = requests[i].params;
           // _reqInit.cache = 'no-cache';
           // _reqInit.mode = 'cors';
           // _reqInit.credentials = 'include';
 
-          return axios.get(url, _params).then( (resJson) => {
+          return axios.get(_url, _params).then( (resJson) => {
             resJsons.push(resJson);
             return nextPromise(i + 1);
           });
@@ -62,11 +63,15 @@ class AxiosHelper {
         return nextPromise(0);
       }
 
-      return Promise.all(paramses.map((_params) => {
-        return axios.get(url, _params);
+      return Promise.all(requests.map((_request) => {
+        let _url: string = _request.url;
+        let _params: object = _request.params;
+        return axios.get(_url, _params);
       }));
     }
 
+    let url: string = request.url;
+    let params: object = request.params;
     return axios.get(url, params);
   }
 
