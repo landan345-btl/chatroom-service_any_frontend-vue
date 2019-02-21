@@ -5,47 +5,12 @@ import BACKEND from '@/configs/BACKEND';
 let baseUrl = BACKEND.BASE_URL.replace(/\/$/, '');
 
 class AxiosHelper {
-  /**
-   * @param {string} url The URL of API laction
-   * @param {object | Array<object>} params The params of HTTP body
-   * @param {boolean} isPolling Use polling (recursive) to send the request 
-   */
-  public get(url: string, params: object | object[], isRecursive: boolean = false) {
-    isRecursive = !!isRecursive;
 
-    if (params instanceof Array) {
-      let paramses = params;
-      let resJsons: any[] = [];
-      if (isRecursive) {
-        let nextPromise = (i: number ): any => {
-          if (i >= paramses.length) {
-            return Promise.resolve(resJsons);
-          }
-          let _params = paramses[i];
-          // _reqInit.cache = 'no-cache';
-          // _reqInit.mode = 'cors';
-          // _reqInit.credentials = 'include';
-
-          return axios.get(url, _params).then( (resJson) => {
-            resJsons.push(resJson);
-            return nextPromise(i + 1);
-          });
-        };
-        return nextPromise(0);
-      }
-
-      return Promise.all(paramses.map((_params) => {
-        return axios.get(url, _params);
-      }));
-    }
-
-    return axios.get(url, params);
-  }
   /** 可以批次发送 AJAX 请求的 方法
    * @param {object | Array<object>} request The request of HTTP body
    * @param {boolean} isRecursive 使用同步模式 (递归模式), 也就是一个 AJAX 等待回应后才发下一个请求
    */
-  public get2(request: any | any[], isRecursive: boolean = false) {
+  public get(request: any | any[], isRecursive: boolean = false) {
     isRecursive = !!isRecursive;
 
     if (request instanceof Array) {
