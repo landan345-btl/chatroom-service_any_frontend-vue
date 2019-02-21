@@ -33,9 +33,29 @@ class Home extends Vue {
         path: '/lottery/all',
         params: {},
       };
+
+      debugger;
       oAxiosHelper.get(request).then((response: any) => {
-        // debugger;
-        // console.log(response);
+        debugger;
+        console.log(response);
+      }).catch((error) => {
+        debugger;
+        console.log(error);
+      });
+
+      let requests = [
+        {
+          path: '/lottery/all',
+          params: {},
+        },
+      ];
+      debugger;
+      oAxiosHelper.get(requests).then((responses: any) => {
+        debugger;
+        console.log(responses);
+      }).catch((error) => {
+        debugger;
+        console.log(error);
       });
   }
 }

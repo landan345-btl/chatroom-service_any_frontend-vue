@@ -4,6 +4,14 @@ import BACKEND from '@/configs/BACKEND';
 
 let baseUrl = BACKEND.BASE_URL.replace(/\/$/, '');
 
+let oHeaders = {
+  'Content-Type': 'application/json',
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,PUT,DELETE,PATCH',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  'Access-Control-Allow-Credentials': 'true',
+};
+
 class AxiosHelper {
 
   /** 可以批次发送 AJAX 请求的 方法
@@ -36,15 +44,19 @@ class AxiosHelper {
       }
 
       return Promise.all(requests.map((_request) => {
-        let _url: string = _request.url || baseUrl + _request.path;
-        let _params: object = _request.params;
-        return axios.get(_url, _params);
+        let _sUrl: string = _request.url || baseUrl + _request.path;
+        let _oParams: object = _request.params;
+
+        oOptions = {};
+        return axios.get(_sUrl, oOptions);
       }));
     }
 
-    let url: string = request.url || baseUrl + request.path;
-    let params: object = request.params;
-    return axios.get(url, params);
+    let sUrl: string = request.url || baseUrl + request.path;
+    let oParams: any = request.params;
+    // params.headers = oHeaders;
+    let oOptions = {};
+    return axios.get(sUrl, oOptions);
   }
 
   /**
