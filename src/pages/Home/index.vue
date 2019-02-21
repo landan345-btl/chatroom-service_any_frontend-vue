@@ -29,33 +29,40 @@ let oAxiosHelper = new AxiosHelper();
   })
 class Home extends Vue {
     public created(): void {
-      let request: {} = {
+      let oRequest: {} = {
         path: '/lottery/all',
         params: {},
       };
 
-      debugger;
-      oAxiosHelper.get(request).then((response: any) => {
+      this.$store.dispatch('LOTTERY_SHOW_ACTION').then((s) => {
         debugger;
-        console.log(response);
-      }).catch((error) => {
-        debugger;
-        console.log(error);
+        console.log(s);
+      }).catch((oError) => {
+        console.log(oError);
       });
 
-      let requests = [
+      // debugger;
+      oAxiosHelper.get(oRequest).then((oResponse: any) => {
+        // debugger;
+        // console.log(oResponse);
+      }).catch((oError) => {
+        // debugger;
+        // console.log(oError);
+      });
+
+      let aRequests = [
         {
           path: '/lottery/all',
           params: {},
         },
       ];
-      debugger;
-      oAxiosHelper.get(requests).then((responses: any) => {
-        debugger;
-        console.log(responses);
-      }).catch((error) => {
-        debugger;
-        console.log(error);
+      // debugger;
+      oAxiosHelper.get(aRequests).then((aResponses: any) => {
+        // debugger;
+        // console.log(aResponses);
+      }).catch((oError) => {
+        // debugger;
+        // console.log(oError);
       });
   }
 }
