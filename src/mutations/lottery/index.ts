@@ -6,12 +6,13 @@ let lottery = {
     debugger;
     let oLotteries: any = (mLotteries instanceof Array) ? {} : mLotteries;
     if (mLotteries instanceof Array) {
-      oLotteries = mLotteries.reduce((_oLotteries, aLottery, {}) => {
+      oLotteries = mLotteries.reduce((_oLotteries, aLottery) => {
         _oLotteries[aLottery.id] = aLottery;
         return _oLotteries;
-      });
+      }, {});
       mLotteries = oLotteries;
     }
+    debugger;
     state.lotteries = oLotteries;
   },
 };

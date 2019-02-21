@@ -8,12 +8,10 @@ let lottery = {
     let oRequest = {
       path: '/lottery/all',
     };
-
     let pProccess = Promise.resolve();
     return pProccess.then(() => {
       return oAxiosHelper.get(oRequest);
     }).then((response) => {
-      debugger;
       let aLotteries = response.data.lotteries;
       context.commit('LOTTERY_SHOW_MUTATION', aLotteries);
     });
