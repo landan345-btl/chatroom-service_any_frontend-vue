@@ -41,7 +41,9 @@ class AxiosHelper {
           // _reqInit.mode = 'cors';
           // _reqInit.credentials = 'include';
 
-          return axios.get(_sUrl, _oParams).then( (oReponse) => {
+          return axios.get(_sUrl, _oParams).then((oAxiosReponse) => {
+            // 舍弃 Axios 打包的 response 格式
+            let oReponse = oAxiosReponse.data;
             aResponses.push(oReponse);
             return fNextPromise(i + 1);
           });
@@ -54,7 +56,11 @@ class AxiosHelper {
         let _oParams: object = _oRequest.params;
 
         oOptions = {};
-        return axios.get(_sUrl, oOptions);
+        return axios.get(_sUrl, oOptions).then((oAxiosReponse) => {
+          // 舍弃 Axios 打包的 response 格式
+          let oReponse = oAxiosReponse.data;
+          return oReponse;
+        });
       }));
     }
 
@@ -62,7 +68,11 @@ class AxiosHelper {
     let oParams: any = oRequest.params;
     // params.headers = oHeaders;
     let oOptions = {};
-    return axios.get(sUrl, oOptions);
+    return axios.get(sUrl, oOptions).then((oAxiosReponse) => {
+      // 舍弃 Axios 打包的 response 格式
+      let oReponse = oAxiosReponse.data;
+      return oReponse;
+    });
   }
 
   /**
