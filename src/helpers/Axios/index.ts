@@ -10,7 +10,7 @@ class AxiosHelper {
    * @param {object | Array<object>} request The request of HTTP body
    * @param {boolean} isRecursive 使用同步模式 (递归模式), 也就是一个 AJAX 等待回应后才发下一个请求
    */
-  public get(request: any | any[], isRecursive: boolean = false) {
+  public get(request: any | any[], isRecursive: boolean = false): Promise<any> {
     isRecursive = !!isRecursive;
 
     if (request instanceof Array) {
@@ -75,4 +75,3 @@ class AxiosHelper {
   }
 }
 export default AxiosHelper;
-
