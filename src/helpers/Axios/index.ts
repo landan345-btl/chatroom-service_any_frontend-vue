@@ -42,8 +42,7 @@ class AxiosHelper {
     return axios.get(url, params);
   }
   /** 可以批次发送 AJAX 请求的 方法
-   * @param {string} url The URL of API laction
-   * @param {object | Array<object>} params The params of HTTP body
+   * @param {object | Array<object>} request The request of HTTP body
    * @param {boolean} isRecursive 使用同步模式 (递归模式), 也就是一个 AJAX 等待回应后才发下一个请求
    */
   public get2(request: any | any[], isRecursive: boolean = false) {
