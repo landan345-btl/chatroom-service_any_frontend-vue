@@ -1,9 +1,9 @@
 import Home from '@/pages/Home/index.vue';
 
-let aRoutes = [{
+let aHomeRoutes = [{
   path: '/',
   name: 'home',
   component: Home,
 }];
 
-export default aRoutes;
+export default aHomeRoutes;

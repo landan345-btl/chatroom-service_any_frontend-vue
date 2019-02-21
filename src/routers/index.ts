@@ -4,7 +4,8 @@ import Home from '@/pages/Home/index.vue';
 
 import aHomeRoutes from '@/routers/home/index';
 import aAboutRoutes from '@/routers/about/index';
-import oRoute from './about';
+
+// index 是所有 资料夹的入口文件，
 
 Vue.use(Router);
 
