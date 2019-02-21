@@ -1,20 +1,16 @@
 <template>
   <div class="">
-    <Nav>
-    </Nav>
-    <Header>
-    </Header>
+    <Header />
+    <Nav />
     <main class="home">
-      <div v-for="aLottery in oLotteries" :key="aLottery.id">
-        ID: {{aLottery.id}}, name: {{aLottery.name}}
-      </div>
       <div class="top_content">
         <div class="content">
           <div class="displayB">
             <table border="0">
               <tr><th>当期奖号</th><th>下期倒计时</th><th>走势图</th></tr>
-              <tr><td>Data</td><td>Data</td><td><img src="@/assets/images/icon03.png"/></td></tr>
-              <tr><td>Data</td><td>Data</td><td><img src="@/assets/images/icon03.png"/></td></tr>
+              <tr v-for="aLottery in oLotteries" :key="aLottery.id">
+                <td>ID: {{aLottery.id}}</td><td>{{aLottery.name}}</td><td><img src="@/assets/images/icon03.png"/></td>
+              </tr>
             </table>
           </div>
           <div>
@@ -38,8 +34,7 @@
         </div>
       </div>
     </main>
-    <Footer>
-    </Footer>
+    <Footer />
   </div>
 
 
