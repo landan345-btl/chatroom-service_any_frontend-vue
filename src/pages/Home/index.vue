@@ -1,5 +1,7 @@
 <template>
   <div class="">
+    <Nav>
+    </Nav>
     <Header>
     </Header>
     <main class="home">
@@ -14,6 +16,10 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import 'reset-css';
+
+
+import Nav from '@/commons/Nav/index.vue'; // @ is an alias to /src
 import Footer from '@/commons/Footer/index.vue'; // @ is an alias to /src
 import Header from '@/commons/Header/index.vue'; // @ is an alias to /src
 
@@ -25,6 +31,7 @@ let oAxiosHelper = new AxiosHelper();
   components: {
   Footer,
   Header,
+  Nav,
   },
   })
 class Home extends Vue {
