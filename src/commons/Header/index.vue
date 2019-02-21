@@ -83,7 +83,7 @@
 	body,textarea,input,button,select,keygen,legend{outline:0;}
 	a{color:#033d8e;color:rgba(3,61,142,1);transition:color .2s ease;}
 	a:hover{}
-	a{blr:expression(this.onFocus=this.blur());}
+	a{blr:expression(this.onFocus=this.blur())}
 	input,button,select,textarea,input:focus,button:focus,select:focus,textarea:focus{outline:none;}
 	input,button,select,textarea{outline:none;border-radius:0;}
 	input[type="search"]{-webkit-appearance:none;}
