@@ -1,5 +1,5 @@
 const BACKEND = {
-  BASE_URL: 'http://127.0.0.1:4001',
+  BASE_URL: 'http://fea.admin.landan.com',
 };
 
 export default BACKEND;

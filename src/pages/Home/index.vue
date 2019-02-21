@@ -5,7 +5,9 @@
     <Header>
     </Header>
     <main class="home">
-
+      <div v-for="aLottery in oLotteries" :key="aLottery.id">
+        ID: {{aLottery.id}}, name: {{aLottery.name}}
+      </div>
     </main>
     <Footer>
     </Footer>
@@ -36,14 +38,41 @@ let oAxiosHelper = new AxiosHelper();
   })
 class Home extends Vue {
     public created(): void {
-      let request: {} = {
+      let oRequest: {} = {
         path: '/lottery/all',
         params: {},
       };
-      oAxiosHelper.get(request).then((response: any) => {
+
+      this.$store.dispatch('LOTTERY_SHOW_ACTION');
+
+      // debugger;
+      oAxiosHelper.get(oRequest).then((oResponse: any) => {
         // debugger;
-        // console.log(response);
+        // console.log(oResponse);
+      }).catch((oError) => {
+        // debugger;
+        // console.log(oError);
       });
+
+      let aRequests = [
+        {
+          path: '/lottery/all',
+          params: {},
+        },
+      ];
+      // debugger;
+      oAxiosHelper.get(aRequests).then((aResponses: any) => {
+        // debugger;
+        // console.log(aResponses);
+      }).catch((oError) => {
+        // debugger;
+        // console.log(oError);
+      });
+  }
+
+  public get oLotteries(): object {
+    debugger;
+    return this.$store.state.lotteries;
   }
 }
 

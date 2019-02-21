@@ -2,7 +2,21 @@ import axios from 'axios';
 
 import BACKEND from '@/configs/BACKEND';
 
-let baseUrl = BACKEND.BASE_URL.replace(/\/$/, '');
+let sBaseUrl = BACKEND.BASE_URL.replace(/\/$/, '');
+
+let oHeaders = {
+  'Content-Type': 'application/json',
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,PUT,DELETE,PATCH',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  'Access-Control-Allow-Credentials': 'true',
+};
+
+/**
+ * AixosHelper
+ * 利用 Axios 改写，
+ * 能过批次处理 AJAX 的 类模组
+ */
 
 class AxiosHelper {
 
@@ -10,41 +24,55 @@ class AxiosHelper {
    * @param {object | Array<object>} request The request of HTTP body
    * @param {boolean} isRecursive 使用同步模式 (递归模式), 也就是一个 AJAX 等待回应后才发下一个请求
    */
-  public get(request: any | any[], isRecursive: boolean = false): Promise<any> {
-    isRecursive = !!isRecursive;
+  public get(oRequest: any | any[], bRecursive: boolean = false): Promise<any> {
+    bRecursive = !!bRecursive;
 
-    if (request instanceof Array) {
-      let requests: any[] = request;
-      let resJsons: any[] = [];
-      if (isRecursive) {
-        let nextPromise = (i: number ): any => {
-          if (i >= requests.length) {
-            return Promise.resolve(resJsons);
+    if (oRequest instanceof Array) {
+      let aRequests: any[] = oRequest;
+      let aResponses: any[] = [];
+      if (bRecursive) {
+        let fNextPromise = (i: number ): any => {
+          if (i >= aRequests.length) {
+            return Promise.resolve(aResponses);
           }
-          let _url: string = requests[i].url || baseUrl + requests[i].path;
-          let _params: any = requests[i].params;
+          let _sUrl: string = aRequests[i].url || sBaseUrl + aRequests[i].path;
+          let _oParams: any = aRequests[i].params;
           // _reqInit.cache = 'no-cache';
           // _reqInit.mode = 'cors';
           // _reqInit.credentials = 'include';
 
-          return axios.get(_url, _params).then( (resJson) => {
-            resJsons.push(resJson);
-            return nextPromise(i + 1);
+          return axios.get(_sUrl, _oParams).then((oAxiosReponse) => {
+            // 舍弃 Axios 打包的 response 格式
+            let oReponse = oAxiosReponse.data;
+            aResponses.push(oReponse);
+            return fNextPromise(i + 1);
           });
         };
-        return nextPromise(0);
+        return fNextPromise(0);
       }
 
-      return Promise.all(requests.map((_request) => {
-        let _url: string = _request.url || baseUrl + _request.path;
-        let _params: object = _request.params;
-        return axios.get(_url, _params);
+      return Promise.all(aRequests.map((_oRequest) => {
+        let _sUrl: string = _oRequest.url || sBaseUrl + _oRequest.path;
+        let _oParams: object = _oRequest.params;
+
+        oOptions = {};
+        return axios.get(_sUrl, oOptions).then((oAxiosReponse) => {
+          // 舍弃 Axios 打包的 response 格式
+          let oReponse = oAxiosReponse.data;
+          return oReponse;
+        });
       }));
     }
 
-    let url: string = request.url || baseUrl + request.path;
-    let params: object = request.params;
-    return axios.get(url, params);
+    let sUrl: string = oRequest.url || sBaseUrl + oRequest.path;
+    let oParams: any = oRequest.params;
+    // params.headers = oHeaders;
+    let oOptions = {};
+    return axios.get(sUrl, oOptions).then((oAxiosReponse) => {
+      // 舍弃 Axios 打包的 response 格式
+      let oReponse = oAxiosReponse.data;
+      return oReponse;
+    });
   }
 
   /**
