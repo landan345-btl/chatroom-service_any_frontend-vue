@@ -64,10 +64,9 @@
 import { Component, Watch, Vue } from 'vue-property-decorator';
 import 'reset-css';
 
-
+import Header from '@/commons/Header/index.vue'; // @ is an alias to /src
 import Nav from '@/commons/Nav/index.vue'; // @ is an alias to /src
 import Footer from '@/commons/Footer/index.vue'; // @ is an alias to /src
-import Header from '@/commons/Header/index.vue'; // @ is an alias to /src
 
 import AxiosHelper from '@/helpers/Axios';
 
@@ -75,11 +74,11 @@ let oAxiosHelper = new AxiosHelper();
 @Component({
   name: 'Home',
   components: {
-  Footer,
-  Header,
-  Nav,
+    Header,
+    Nav,
+    Footer,
   },
-  })
+})
 class Home extends Vue {
     public created(): void {
       let oRequest: {} = {
