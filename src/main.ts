@@ -9,7 +9,7 @@ Vue.config.productionTip = false;
 // 这里必须要用 Vue Javascript 写法，非 Vue Typescript 写法
 new Vue({
   data: {
-    test: 99,
+    test: 77,
   },
   computed: {
     bTest(): any {

@@ -84,7 +84,6 @@ let oAxiosHelper = new AxiosHelper();
 class Home extends Vue {
   public created(): void {
     let $root: any = this.$root;
-    $root.test = 0;
     let oRequest: {} = {
       path: '/lottery/all',
       params: {},
