@@ -6,7 +6,8 @@
         <div class="top_content">
           <div class="content">
             <div class="displayB">
-              <table border="0">
+              <table border="0" v-on:click="handleTest">
+                {{ this.$root.test }} {{ this.$root.bTest }}
                 <tr><th>当期奖号</th><th>下期倒计时</th><th>走势图</th></tr>
                 <tr v-for="aLottery in oLotteries" :key="aLottery.id">
                   <td>ID: {{aLottery.id}}</td><td>{{aLottery.name}}</td><td><img src="@/assets/images/icon03.png"/></td>
