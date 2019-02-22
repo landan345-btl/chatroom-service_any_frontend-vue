@@ -7,6 +7,9 @@ import './registerServiceWorker';
 Vue.config.productionTip = false;
 
 new Vue({
+  data: {
+    showAllLottery: true,
+  },
   router,
   store,
   render: (h) => h(App),
