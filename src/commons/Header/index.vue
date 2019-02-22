@@ -1,5 +1,5 @@
 <template>
-  <nav class="">
+  <header class="">
    		<div class="top">
 			<div class="nav_top">
 				<img src="@/assets/images/icon01.png"/>最新公告：
@@ -13,7 +13,7 @@
 			</div>
 		</div>
 		
-  </nav>
+  </header>
 </template>
 <style scoped lang="scss">
 	.top{background-color: #ebebeb;height: 30px;}

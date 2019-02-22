@@ -1,5 +1,5 @@
 <template>
- 	<header>
+ 	<nav>
 		<div class="top_nav">
 			<div class="nav_top2">
 				<ul class="nav_ul">
@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		
-	</header>
+	</nav>
 </template>
 <style scoped lang="scss">
 .top_nav{height: 50px;background-color: #37b0e9;}
