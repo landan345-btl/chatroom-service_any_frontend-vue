@@ -3,36 +3,36 @@
     <Header />
     <Nav />
     <main class="home">
-      <div class="top_content">
-        <div class="content">
-          <div class="displayB">
-            <table border="0">
-              <tr v-on:click="handleTest"><th>当期奖号 {{ this.$root.test }}</th><th>下期倒计时 {{ this.$root.bTest }}</th><th>走势图</th></tr>
-              <tr v-for="aLottery in oLotteries" :key="aLottery.id">
-                <td>ID: {{aLottery.id}}</td><td>{{aLottery.name}}</td><td><img src="@/assets/images/icon03.png"/></td>
-              </tr>
-            </table>
-          </div>
-          <div>
-            2
-          </div>
-          <div>
-            3
-          </div>
-          <div>
-            4
-          </div>
-          <div>
-            5
-          </div>
-          <div>
-            6
-          </div>
-          <div>
-            7
+        <div class="top_content">
+          <div class="content">
+            <div class="displayB">
+              <table border="0">
+                <tr><th>当期奖号</th><th>下期倒计时</th><th>走势图</th></tr>
+                <tr v-for="aLottery in oLotteries" :key="aLottery.id">
+                  <td>ID: {{aLottery.id}}</td><td>{{aLottery.name}}</td><td><img src="@/assets/images/icon03.png"/></td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              2
+            </div>
+            <div>
+              3
+            </div>
+            <div>
+              4
+            </div>
+            <div>
+              5
+            </div>
+            <div>
+              6
+            </div>
+            <div>
+              7
+            </div>
           </div>
         </div>
-      </div>
     </main>
     <Footer />
   </div>
