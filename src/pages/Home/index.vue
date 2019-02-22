@@ -5,32 +5,32 @@
     <main class="home">
         <div class="top_content">
           <div class="content">
-            <div class="displayB">
-              <table border="0" v-on:click="handleTest">
+            <div  v-show="bShowedAllLottery">
+             <!--  <table border="0" v-on:click="handleTest">
                 {{ this.$root.showedAllLottery }} -- {{ this.$root.test }} -- {{ this.$root.bTest }}
                 <tr><th>当期奖号</th><th>下期倒计时</th><th>走势图</th></tr>
-                <tr v-show="bShowedAllLottery" v-for="aLottery in oLotteries" :key="aLottery.id">
+                <tr v-for="aLottery in oLotteries" :key="aLottery.id">
                   <td>ID: {{aLottery.id}}</td><td>{{aLottery.name}}</td><td><img src="@/assets/images/icon03.png"/></td>
                 </tr>
                 
-              </table>
+              </table> -->
             </div>
-            <div>
+            <div v-show="bShowedPapularLottery">
               2
             </div>
-            <div>
+            <div v-show="bShowedInstantLottery">
               3
             </div>
-            <div>
+            <div v-show="bShowedPKTenLottery">
               4
             </div>
-            <div>
+            <div v-show="bShowedFiveOfElevenLottery">
               5
             </div>
-            <div>
+            <div v-show="bShowedFastThreeLottery">
               6
             </div>
-            <div>
+            <div v-show="bShowedOtherLottery">
               7
             </div>
           </div>
@@ -52,7 +52,7 @@
     .displayB{display: block !important;}
   .top_content{background-color: #ebebeb;padding-bottom: 30px;}
     .content{width: 1200px; margin: 0 auto;padding-top: 20px;}
-      .content>div{display: none;background: #FFFFFF;border-top: 2px solid #37b0e9;padding: 20px;margin-bottom: 20px;}
+      .content>div{background: #FFFFFF;border-top: 2px solid #37b0e9;padding: 20px;margin-bottom: 20px;}
         .content>div table th{height: 50px;background-color: #ebebeb;width: 400px;text-align: center;    line-height: 50px;}
         .content>div>table th:first-child{width: 600px;}
         .content>div>table th:last-child{width: 200px;}
@@ -129,6 +129,30 @@ class Home extends Vue {
   public get bShowedAllLottery(): boolean {
     let $root: any = this.$root;
     return $root.showedAllLottery;
+  }
+  public get bShowedPapularLottery(): boolean {
+    let $root: any = this.$root;
+    return $root.showedPapularLottery;
+  }
+   public get bShowedInstantLottery(): boolean {
+    let $root: any = this.$root;
+    return $root.showedInstantLottery;
+  }
+  public get bShowedPKTenLottery(): boolean {
+    let $root: any = this.$root;
+    return $root.showedPKTenLottery;
+  }
+  public get bShowedFiveOfElevenLottery(): boolean {
+    let $root: any = this.$root;
+    return $root.showedFiveOfElevenLottery;
+  }
+  public get bShowedFastThreeLottery(): boolean {
+    let $root: any = this.$root;
+    return $root.showedFastThreeLottery;
+  }
+  public get bShowedOtherLottery(): boolean {
+    let $root: any = this.$root;
+    return $root.showedOtherLottery;
   }
 }
 
