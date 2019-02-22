@@ -6,13 +6,14 @@ import './registerServiceWorker';
 
 Vue.config.productionTip = false;
 
+// 这里必须要用 Vue Javascript 写法，非 Vue Typescript 写法
 new Vue({
-  watch: {
-    showAllLottery: {
-      handler(val, oldVal) {
-        console.log('$root watch');
-      },
-      immediate: true,
+  data: {
+    test: 99,
+  },
+  computed: {
+    bTest(): any {
+      return this.test;
     },
   },
   router,

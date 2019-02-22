@@ -7,7 +7,7 @@
         <div class="content">
           <div class="displayB">
             <table border="0">
-              <tr><th>当期奖号</th><th>下期倒计时</th><th>走势图</th></tr>
+              <tr v-on:click="handleTest"><th>当期奖号 {{ this.$root.test }}</th><th>下期倒计时 {{ this.$root.bTest }}</th><th>走势图</th></tr>
               <tr v-for="aLottery in oLotteries" :key="aLottery.id">
                 <td>ID: {{aLottery.id}}</td><td>{{aLottery.name}}</td><td><img src="@/assets/images/icon03.png"/></td>
               </tr>
@@ -69,6 +69,7 @@ import Nav from '@/commons/Nav/index.vue'; // @ is an alias to /src
 import Footer from '@/commons/Footer/index.vue'; // @ is an alias to /src
 
 import AxiosHelper from '@/helpers/Axios';
+import { warn } from 'vue-class-component/lib/util';
 
 let oAxiosHelper = new AxiosHelper();
 @Component({
@@ -80,37 +81,39 @@ let oAxiosHelper = new AxiosHelper();
   },
 })
 class Home extends Vue {
-    public created(): void {
-      let oRequest: {} = {
+  public created(): void {
+    let $root: any = this.$root;
+    $root.test = 0;
+    let oRequest: {} = {
+      path: '/lottery/all',
+      params: {},
+    };
+
+    this.$store.dispatch('LOTTERY_SHOW_ACTION');
+
+    // debugger;
+    oAxiosHelper.get(oRequest).then((oResponse: any) => {
+      // debugger;
+      // console.log(oResponse);
+    }).catch((oError) => {
+      // debugger;
+      // console.log(oError);
+    });
+
+    let aRequests = [
+      {
         path: '/lottery/all',
         params: {},
-      };
-
-      this.$store.dispatch('LOTTERY_SHOW_ACTION');
-
+      },
+    ];
+    // debugger;
+    oAxiosHelper.get(aRequests).then((aResponses: any) => {
       // debugger;
-      oAxiosHelper.get(oRequest).then((oResponse: any) => {
-        // debugger;
-        // console.log(oResponse);
-      }).catch((oError) => {
-        // debugger;
-        // console.log(oError);
-      });
-
-      let aRequests = [
-        {
-          path: '/lottery/all',
-          params: {},
-        },
-      ];
+      // console.log(aResponses);
+    }).catch((oError) => {
       // debugger;
-      oAxiosHelper.get(aRequests).then((aResponses: any) => {
-        // debugger;
-        // console.log(aResponses);
-      }).catch((oError) => {
-        // debugger;
-        // console.log(oError);
-      });
+      // console.log(oError);
+    });
   }
 
   public get oLotteries(): object {
@@ -118,7 +121,12 @@ class Home extends Vue {
     return this.$store.state.lotteries;
   }
 
-  @Watch ('$root.showedAllLottery', { immediate: false, deep: true })
+  public handleTest(): void {
+    let $root: any = this.$root;
+    $root.test = $root.test + 1;
+    console.log($root.test);
+  }
+
   public get bShowedAllLottery(): boolean {
     debugger;
     let $root: any = this.$root;

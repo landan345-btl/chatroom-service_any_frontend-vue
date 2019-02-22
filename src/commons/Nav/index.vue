@@ -46,6 +46,7 @@ class Nav extends Vue {
     console.log('你按了首页！');
     let $root: any = this.$root;
     $root.showedAllLottery = !$root.showedAllLottery;
+    console.log($root.showedAllLottery);
   }
   public handlePapularLottery() {
     console.log('你按了热门彩种！');
