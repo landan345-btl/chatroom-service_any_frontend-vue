@@ -1,5 +1,5 @@
 let lottery = {
-  lotteries: [],
+  lotteries: {},
 };
 
 export default lottery;

@@ -7,7 +7,7 @@ import oLotteryAction from '@/actions/lottery/index';
 
 Vue.use(Vuex);
 
-let store = new Vuex.Store({
+let oStore = new Vuex.Store({
   state: {
     ...oLotteryState,
   },
@@ -19,4 +19,4 @@ let store = new Vuex.Store({
   },
 });
 
-export default store;
+export default oStore;

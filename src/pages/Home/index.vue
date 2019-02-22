@@ -1,18 +1,16 @@
 <template>
   <div class="">
-    <Nav>
-    </Nav>
-    <Header>
-    </Header>
+    <Header />
+    <Nav />
     <main class="home">
-      <div v-for="aLottery in oLotteries" :key="aLottery.id">
-    
         <div class="top_content">
           <div class="content">
             <div class="displayB">
-              <table border="0" v-on:click="ff">
+              <table border="0">
                 <tr><th>当期奖号</th><th>下期倒计时</th><th>走势图</th></tr>
-                <tr><td> ID: {{aLottery.id}}</td><td> name: {{aLottery.name}}</td><td><img src="@/assets/images/icon03.png"/></td></tr>
+                <tr v-for="aLottery in oLotteries" :key="aLottery.id">
+                  <td>ID: {{aLottery.id}}</td><td>{{aLottery.name}}</td><td><img src="@/assets/images/icon03.png"/></td>
+                </tr>
               </table>
             </div>
             <div>
@@ -35,11 +33,8 @@
             </div>
           </div>
         </div>
-      </div>
-      
     </main>
-    <Footer>
-    </Footer>
+    <Footer />
   </div>
 
 
@@ -66,13 +61,12 @@
 </style>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Watch, Vue } from 'vue-property-decorator';
 import 'reset-css';
 
-
+import Header from '@/commons/Header/index.vue'; // @ is an alias to /src
 import Nav from '@/commons/Nav/index.vue'; // @ is an alias to /src
 import Footer from '@/commons/Footer/index.vue'; // @ is an alias to /src
-import Header from '@/commons/Header/index.vue'; // @ is an alias to /src
 
 import AxiosHelper from '@/helpers/Axios';
 
@@ -80,11 +74,11 @@ let oAxiosHelper = new AxiosHelper();
 @Component({
   name: 'Home',
   components: {
-  Footer,
-  Header,
-  Nav,
+    Header,
+    Nav,
+    Footer,
   },
-  })
+})
 class Home extends Vue {
     public created(): void {
       let oRequest: {} = {
@@ -124,8 +118,11 @@ class Home extends Vue {
     return this.$store.state.lotteries;
   }
 
-  public ff(): void {
-    console.log('ff');
+  @Watch ('$root.showedAllLottery', { immediate: false, deep: true })
+  public get bShowedAllLottery(): boolean {
+    debugger;
+    let $root: any = this.$root;
+    return $root.showedAllLottery;
   }
 }
 
