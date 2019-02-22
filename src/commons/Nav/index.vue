@@ -38,44 +38,48 @@ import { Component, Vue } from 'vue-property-decorator';
   name: 'Nav',
 })
 class Nav extends Vue {
+  public created(): void {
+    let $root: any = this.$root;
+    $root.showedAllLottery = true;
+  }
   public handleHome() {
     console.log('你按了首页！');
-    let root: any = this.$root;
-    root.showedAllLottery = !root.showedAllLottery;
+    let $root: any = this.$root;
+    $root.showedAllLottery = !$root.showedAllLottery;
   }
   public handlePapularLottery() {
     console.log('你按了热门彩种！');
-    let root: any = this.$root;
-    root.showedPapularLottery = !root.showedPapularLottery;
+    let $root: any = this.$root;
+    $root.showedPapularLottery = !$root.showedPapularLottery;
   }
   public handleInstantLottery() {
     console.log('你按了时时彩种！');
-    let root: any = this.$root;
-    root.showedInstantLottery = !root.showedInstantLottery;
+    let $root: any = this.$root;
+    $root.showedInstantLottery = !$root.showedInstantLottery;
   }
 
   public handlePKTenLottery() {
     console.log('你按了PK10彩种！');
-    let root: any = this.$root;
-    root.showedPKTenLottery = !root.showedPKTenLottery;
+    let $root: any = this.$root;
+    $root.showedPKTenLottery = !$root.showedPKTenLottery;
   }
 
   public handleFiveOfElevenLottery() {
     console.log('你按了11选5彩种！');
-    let root: any = this.$root;
-    root.showedFiveOfElevenLottery = !root.showedFiveOfElevenLottery;
+    let $root: any = this.$root;
+    $root.showedFiveOfElevenLottery = !$root.showedFiveOfElevenLottery;
   }
 
   public handleFastThreeLottery() {
     console.log('你按了快三彩种！');
-    let root: any = this.$root;
-    root.showedFastThreeLottery = !root.showedFastThreeLottery;
+    let $root: any = this.$root;
+    $root.showedFastThreeLottery = !$root.showedFastThreeLottery;
   }
 
   public handleOtherLottery() {
     console.log('你按了其他彩种！');
-    let root: any = this.$root;
-    root.showedOtherLottery = !root.showedOtherLottery;
+    let $root: any = this.$root;
+    $root.showedOtherLottery = !$root.showedOtherLottery;
   }
 }
 

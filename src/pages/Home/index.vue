@@ -61,7 +61,7 @@
 </style>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Watch, Vue } from 'vue-property-decorator';
 import 'reset-css';
 
 
@@ -117,6 +117,13 @@ class Home extends Vue {
   public get oLotteries(): object {
     debugger;
     return this.$store.state.lotteries;
+  }
+
+  @Watch ('$root.showedAllLottery', { immediate: false, deep: true })
+  public get bShowedAllLottery(): boolean {
+    debugger;
+    let $root: any = this.$root;
+    return $root.showedAllLottery;
   }
 }
 

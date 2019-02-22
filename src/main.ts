@@ -7,8 +7,13 @@ import './registerServiceWorker';
 Vue.config.productionTip = false;
 
 new Vue({
-  data: {
-    showAllLottery: true,
+  watch: {
+    showAllLottery: {
+      handler(val, oldVal) {
+        console.log('$root watch');
+      },
+      immediate: true,
+    },
   },
   router,
   store,
