@@ -10,11 +10,16 @@ Vue.config.productionTip = false;
 new Vue({
   data: {
     test: 77,
+    showedAllLottery: true,
+    showedPapularLottery: false,
+    showedInstantLottery: false,
+    showedPKTenLottery: false,
+    showedFiveOfElevenLottery: false,
+    showedFastThreeLottery: false,
+    showedOtherLottery: false,
   },
   computed: {
-    bTest(): any {
-      return this.test;
-    },
+
   },
   router,
   store,
