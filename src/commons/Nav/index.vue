@@ -25,11 +25,12 @@
 		.top .nav_top img{margin-right: 5px; margin-top: -3px;}
 			.FloatRight{float: right;}
 	.top_logo{height: 100px;}
-	.top_nav{height: 50px;background-color: #37b0e9;}
-		.nav_top2 ul li{text-align: center;height: 50px;width: 170px;float: left;font-size: 16px;color: white;line-height: 50px;}
-		.displayN{display: none !important;}
-		.displayB{display: block !important;}
-	
+
+	 @media all and (max-width: 820px) {
+        .top_nav {height: 100px; width:100% } 
+        .nav_top2 ul li{text-align: center; height: 100px; width: 14%; float: left; font-size: 41px; color: white; line-height: 100px;}
+       
+        }
 </style>
 
 <script lang="ts">

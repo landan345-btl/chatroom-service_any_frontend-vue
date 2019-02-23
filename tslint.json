@@ -19,6 +19,6 @@
     "comma-dangle": ["error", "always"],
     "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
     "no-console": [true, "warning"],
-    "no-debugger": false
+    "no-debugger": true
   }
 }
