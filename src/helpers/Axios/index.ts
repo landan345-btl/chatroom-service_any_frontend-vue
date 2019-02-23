@@ -31,7 +31,7 @@ class AxiosHelper {
       let aRequests: any[] = oRequest;
       let aResponses: any[] = [];
       if (bRecursive) {
-        let fNextPromise = (i: number ): any => {
+        let pNextPromise = (i: number ): any => {
           if (i >= aRequests.length) {
             return Promise.resolve(aResponses);
           }
@@ -45,10 +45,10 @@ class AxiosHelper {
             // 舍弃 Axios 打包的 response 格式
             let oReponse = oAxiosReponse.data;
             aResponses.push(oReponse);
-            return fNextPromise(i + 1);
+            return pNextPromise(i + 1);
           });
         };
-        return fNextPromise(0);
+        return pNextPromise(0);
       }
 
       return Promise.all(aRequests.map((_oRequest) => {
