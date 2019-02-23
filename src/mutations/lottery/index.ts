@@ -3,7 +3,7 @@
 
 let lottery = {
   LOTTERY_SHOW_MUTATION(state: any, mLotteries: any[]) {
-    //debugger;
+    // debugger;
     let oLotteries: any = (mLotteries instanceof Array) ? {} : mLotteries;
     if (mLotteries instanceof Array) {
       oLotteries = mLotteries.reduce((_oLotteries, aLottery) => {
@@ -12,7 +12,7 @@ let lottery = {
       }, {});
       mLotteries = oLotteries;
     }
-    //debugger;
+    // debugger;
     state.lotteries = oLotteries;
   },
 };

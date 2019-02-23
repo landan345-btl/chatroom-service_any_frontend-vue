@@ -146,7 +146,7 @@ class Home extends Vue {
   }
 
   public get oLotteries(): object {
-    //debugger;
+    // debugger;
     return this.$store.state.lotteries;
   }
 
