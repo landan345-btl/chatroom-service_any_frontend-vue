@@ -99,6 +99,22 @@ yarn run build
 ```
 ---------------------------------------
 
+[*]. 注意，匈牙利命名
+```OS
+m: Mixed,
+i: Int,
+f: Float,
+s: String,
+d: Date,
+t: Time,
+a: Array,
+o: Object,
+c: callable,
+p: Promise
+
+```
+---------------------------------------
+
 # landan-www_frontend-vue
 
 ## Project setup
