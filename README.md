@@ -109,7 +109,7 @@ d: Date,
 t: Time,
 a: Array,
 o: Object,
-c: callable,
+c: Callable,
 p: Promise
 
 ```

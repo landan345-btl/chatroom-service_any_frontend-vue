@@ -1,15 +1,26 @@
 import Vue from 'vue';
+import VueI18n from 'vue-i18n';
+
 import App from './App.vue';
-import router from './routers/index';
-import store from '@/store/index';
-import './registerServiceWorker';
+import oRouter from '@/routers/index';
+import oStore from '@/store/index';
+
+import '@/registerServiceWorker';
+
+import oMessages from '@/langs/index';
+
+Vue.use(VueI18n);
+
+let oI18n = new VueI18n({
+  locale: 'zh',
+  messages: oMessages,
+});
 
 Vue.config.productionTip = false;
 
 // 这里必须要用 Vue Javascript 写法，非 Vue Typescript 写法
 new Vue({
   data: {
-    test: 77,
     showedAllLottery: true,
     showedPapularLottery: false,
     showedInstantLottery: false,
@@ -21,7 +32,8 @@ new Vue({
   computed: {
 
   },
-  router,
-  store,
+  i18n: oI18n,
+  router: oRouter,
+  store: oStore,
   render: (h) => h(App),
 }).$mount('#app');
