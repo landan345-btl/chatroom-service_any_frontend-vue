@@ -47,52 +47,46 @@ class Nav extends Vue {
   public handleHome() {
     console.log('你按了首页！');
     let $root: any = this.$root;
-    $root.showedAllLottery = true;
-    $root.showedPapularLottery = true;
-    $root.showedInstantLottery = true;
-    $root.showedPKTenLottery = true;
-    $root.showedFiveOfElevenLottery = true;
-    $root.showedFastThreeLottery = true;
-    $root.showedOtherLottery = true;
+    this.__show();
   }
   public handlePapularLottery() {
     console.log('你按了热门彩种！');
-    this.__stop();
+    this.__hide();
     let $root: any = this.$root;
     $root.showedPapularLottery = true;
   }
   public handleInstantLottery() {
     console.log('你按了时时彩种！');
-    this.__stop();
+    this.__hide();
     let $root: any = this.$root;
     $root.showedInstantLottery = true;
   }
   public handlePKTenLottery() {
     console.log('你按了PK10彩种！');
-    this.__stop();
+    this.__hide();
     let $root: any = this.$root;
     $root.showedPKTenLottery = true;
   }
   public handleFiveOfElevenLottery() {
     console.log('你按了11选5彩种！');
-    this.__stop();
+    this.__hide();
     let $root: any = this.$root;
     $root.showedFiveOfElevenLottery = true;
   }
   public handleFastThreeLottery() {
     console.log('你按了快三彩种！');
-    this.__stop();
+    this.__hide();
     let $root: any = this.$root;
     $root.showedFastThreeLottery = true;
   }
   public handleOtherLottery() {
     console.log('你按了其他彩种！');
-    this.__stop();
+    this.__hide();
     let $root: any = this.$root;
     $root.showedOtherLottery = true;
   }
 
-  private __stop() {
+  private __hide() {
     let $root: any = this.$root;
     $root.showedAllLottery = false;
     $root.showedPapularLottery = false;
@@ -101,6 +95,17 @@ class Nav extends Vue {
     $root.showedFiveOfElevenLottery = false;
     $root.showedFastThreeLottery = false;
     $root.showedOtherLottery = false;
+  }
+
+  private __show() {
+    let $root: any = this.$root;
+    $root.showedAllLottery = true;
+    $root.showedPapularLottery = true;
+    $root.showedInstantLottery = true;
+    $root.showedPKTenLottery = true;
+    $root.showedFiveOfElevenLottery = true;
+    $root.showedFastThreeLottery = true;
+    $root.showedOtherLottery = true;
   }
 }
 
