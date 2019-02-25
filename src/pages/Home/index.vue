@@ -52,7 +52,6 @@
   </div>
 </template>
 <style scoped lang="scss">
-@import 'reset-css';
 
 .top{background-color: #ebebeb;height: 30px;}
     .nav_top,.nav_top1,.nav_top2{width: 1200px; margin: 0 auto;}
@@ -115,7 +114,7 @@ class Home extends Vue {
   public created(): void {
     let $root: any = this.$root;
     let oRequest: {} = {
-      path: '/lottery/all',
+      path: '/lottery/show',
       params: {},
     };
 
@@ -132,7 +131,7 @@ class Home extends Vue {
 
     let aRequests = [
       {
-        path: '/lottery/all',
+        path: '/lottery/show',
         params: {},
       },
     ];

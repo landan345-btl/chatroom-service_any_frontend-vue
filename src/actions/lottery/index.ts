@@ -6,7 +6,7 @@ let oAxiosHelper = new AxiosHelper();
 let lottery = {
   LOTTERY_SHOW_ACTION(context: any) {
     let oRequest = {
-      path: '/lottery/all',
+      path: '/lottery/show',
     };
     let pProccess = Promise.resolve();
     return pProccess.then(() => {
