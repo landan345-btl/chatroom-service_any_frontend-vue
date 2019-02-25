@@ -13,7 +13,7 @@
                   <td>
                   <!--   <img class="img"  :src="require('@/assets/images/'+ ${aLottery.name} + '.png)'"> -->
                     <img class="img"  :src="require(`@/assets/images/` + `${sImage}` + `.png`)">
-                    <p>{{ $t('CQSSC') }}第1901290969 期</p>
+                    <p>{{ $t('CQSSC') }} 第1901290969 期</p>
                      <div>
                       <span>1</span>
                       <span>2</span>
@@ -52,6 +52,8 @@
   </div>
 </template>
 <style scoped lang="scss">
+@import 'reset-css';
+
 .top{background-color: #ebebeb;height: 30px;}
     .nav_top,.nav_top1,.nav_top2{width: 1200px; margin: 0 auto;}
     .top .nav_top{font-size: 14px;line-height: 30px;}
@@ -92,7 +94,6 @@
 
 <script lang="ts">
 import { Component, Watch, Vue } from 'vue-property-decorator';
-import 'reset-css';
 
 import Header from '@/commons/Header/index.vue'; // @ is an alias to /src
 import Nav from '@/commons/Nav/index.vue'; // @ is an alias to /src
