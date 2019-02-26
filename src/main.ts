@@ -6,10 +6,12 @@ import oRouter from '@/routers/index';
 import oStore from '@/store/index';
 
 import '@/registerServiceWorker';
+import VCharts from 'v-charts';
 
 import oMessages from '@/langs/index';
 
 Vue.use(VueI18n);
+Vue.use(VCharts);
 
 let oI18n = new VueI18n({
   locale: 'zh',
