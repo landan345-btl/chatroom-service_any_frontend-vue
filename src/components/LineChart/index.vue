@@ -1,5 +1,5 @@
 <template>
-  <ve-line :data="oData"></ve-line>
+  <ve-line :data="chartData"></ve-line>
 </template>
 
 <style scoped lang="scss">
@@ -12,8 +12,11 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
   name: 'LineChart',
 })
 class LineChart extends Vue {
-  @Prop({ default: '' })
-  public oData: any = null;
+  @Prop({ default: null })
+  public chartData: any;
+  public created() {
+    // console.log(this.chartData);
+  }
 }
 
 export default LineChart;
