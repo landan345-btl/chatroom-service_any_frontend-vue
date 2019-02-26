@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
+import VCharts from 'v-charts';
 
 import App from './App.vue';
 import oRouter from '@/routers/index';
 import oStore from '@/store/index';
 
 import '@/registerServiceWorker';
-import VCharts from 'v-charts';
 
 import oMessages from '@/langs/index';
 
