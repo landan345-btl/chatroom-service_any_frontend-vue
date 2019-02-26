@@ -1,5 +1,5 @@
-let lottery = {
+let oLotteryState = {
   lotteries: {},
 };
 
-export default lottery;
+export default oLotteryState;

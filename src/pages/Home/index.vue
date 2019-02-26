@@ -118,8 +118,8 @@ class Home extends Vue {
       params: {},
     };
 
-    this.$store.dispatch('LOTTERY_SHOW_ACTION');
-
+    this.$store.dispatch('LOTTERY_ACTION_SHOW');
+    this.$store.dispatch('ISSUE_ACTION_SHOW', 7);
     // debugger;
     oAxiosHelper.get(oRequest).then((oResponse: any) => {
       // debugger;

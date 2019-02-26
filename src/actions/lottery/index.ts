@@ -4,7 +4,7 @@ let oAxiosHelper = new AxiosHelper();
 
 // VUEX 的 Action，一连串的业务逻辑动作，类似 PHP 的 service 或 Angular 的 service
 let oLotteryAction = {
-  LOTTERY_SHOW_ACTION(context: any) {
+  LOTTERY_ACTION_SHOW(context: any) {
     let oRequest = {
       path: '/lottery/show',
     };
@@ -13,7 +13,7 @@ let oLotteryAction = {
       return oAxiosHelper.get(oRequest);
     }).then((response) => {
       let aLotteries = response.data.lotteries;
-      context.commit('LOTTERY_SHOW_MUTATION', aLotteries);
+      context.commit('LOTTERY_MUTATION_SHOW', aLotteries);
     });
   },
 };
