@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import LineChart from '@/components/LineChart/index.vue'; // @ is an alias to /src
+import LineChart from '@/components/LineChart/index.ts'; // @ is an alias to /src
 
 @Component({
   components: {

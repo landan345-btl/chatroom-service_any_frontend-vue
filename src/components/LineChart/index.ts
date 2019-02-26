@@ -1,20 +1,10 @@
-<template>
-  <div>TTTTTTTTTTTTTTT</div>
-</template>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
- 
-</style>
-
-<script lang="ts">
-
-
 import { Component, Prop, Vue } from 'vue-property-decorator';
-/// import { Line as VueLine } from 'vue-chartjs';
+import { Line as VueLine } from 'vue-chartjs';
 
+import VeLine from 'v-charts/lib/line.common';
 @Component({
 })
-class LineChart extends Vue {
+class LineChart extends VueLine {
 
   @Prop({ default: null })
   public data!: object;
@@ -27,10 +17,9 @@ class LineChart extends Vue {
   }
 
   public renderChart(aData: any, oOptions: object): void {
-    // super.renderChart(aData, oOptions);
+    super.renderChart(aData, oOptions);
   }
 
 }
 
 export default LineChart;
-</script>
