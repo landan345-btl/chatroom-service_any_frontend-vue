@@ -9,26 +9,27 @@
 
 
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { Line as VueLine } from 'vue-chartjs';
+import { Line } from 'vue-chartjs';
 
-@Component
-class Line extends VueLine {
+@Component({
+})
+class Lines extends Vue {
 
-  @Prop({ default: null })
-  public data!: object;
+  // @Prop({ default: null })
+  // public data!: object;
 
-  @Prop({ default: null })
-  public options!: object;
+  // @Prop({ default: null })
+  // public options!: object;
 
-  public created(): void {
-    this.renderChart(this.data, this.options);
-  }
+  // public created(): void {
+  //   this.renderChart(this.data, this.options);
+  // }
 
-  public renderChart(aData: any, oOptions: object): void {
-    super.renderChart(aData, oOptions);
-  }
+  // public renderChart(aData: any, oOptions: object): void {
+  //   super.renderChart(aData, oOptions);
+  // }
 
 }
 
-export default Line;
+export default Lines;
 </script>
