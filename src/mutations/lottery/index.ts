@@ -1,7 +1,7 @@
 // VUEX 的 Mutation, 在业务逻辑动作后，
 // 将 数据转换 成 vuex 仓库 （store） 格式的机制
 
-let lottery = {
+let oLotteryMutation = {
   LOTTERY_SHOW_MUTATION(state: any, mLotteries: any[]) {
     // debugger;
     let oLotteries: any = (mLotteries instanceof Array) ? {} : mLotteries;
@@ -17,4 +17,4 @@ let lottery = {
   },
 };
 
-export default lottery;
+export default oLotteryMutation;

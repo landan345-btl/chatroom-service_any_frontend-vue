@@ -3,7 +3,7 @@ import AxiosHelper from '@/helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
 
 // VUEX 的 Action，一连串的业务逻辑动作，类似 PHP 的 service 或 Angular 的 service
-let lottery = {
+let oLotteryAction = {
   LOTTERY_SHOW_ACTION(context: any) {
     let oRequest = {
       path: '/lottery/show',
@@ -17,4 +17,4 @@ let lottery = {
     });
   },
 };
-export default lottery;
+export default oLotteryAction;
