@@ -22,7 +22,7 @@
                       <span>5</span>
                     </div>
                   </td><td>距离<span>728525</span>期开奖时间：<span>00:24</span></td>
-                  <td><img src="@/assets/images/icon03.png"/></td>
+                  <td><router-link :to="{ name: 'about_test', query: { lottery_id: aLottery.id }}"><img src="@/assets/images/icon03.png"/></router-link></td>
                 </tr>
                 
               </table> 

@@ -1,6 +1,6 @@
 <template>
   <div class="test">
-    <h1>This is an /about/test page</h1>
+    <h1>This is an /about/test page !! {{ $route.query.lottery_id }}</h1>
     <Line-chart v-bind:chartData="oData"/>
   </div>
 </template>
@@ -16,8 +16,9 @@ import LineChart from '@/components/LineChart/index.vue'; // @ is an alias to /s
 })
 class Test extends Vue {
 
-  public created() {
-    //
+  public created(): void {
+    let lotterId = this.$route.query.lottery_id || 1;
+    this.$store.dispatch('ISSUE_ACTION_SHOW', lotterId);
   }
   public get oData(): object {
     return {
