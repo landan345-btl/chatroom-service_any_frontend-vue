@@ -1,8 +1,7 @@
 <template>
-  <div class="about">
+  <div class="trend">
     <Header/>
-  <!--   <h1>This is an /about page</h1> -->
-    <router-view></router-view>
+    <h1>trend </h1>
     <Footer/>
   </div>
 </template>
@@ -18,8 +17,9 @@ import Header from '@/commons/Header/index.vue'; // @ is an alias to /src
     Footer,
   },
 })
-class About extends Vue {
+class Trend extends Vue {
+
 }
 
-export default About;
+export default Trend;
 </script>

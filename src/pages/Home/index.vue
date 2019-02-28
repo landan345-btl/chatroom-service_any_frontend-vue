@@ -13,7 +13,7 @@
                   <td>
                   <!--   <img class="img"  :src="require('@/assets/images/'+ ${aLottery.name} + '.png)'"> -->
                     <img class="img"  :src="require(`@/assets/images/` + `${sImage}` + `.png`)">
-                    <p>{{ $t('CQSSC') }} 第1901290969 期</p>
+                    <p>{{ $t(`${aLottery.name}`)}} 第1901290969 期</p>
                      <div>
                       <span>1</span>
                       <span>2</span>

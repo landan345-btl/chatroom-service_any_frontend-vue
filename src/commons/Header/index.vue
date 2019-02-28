@@ -8,7 +8,7 @@
 		</div>
 		<div class="top_logo">
 			<div class="nav_top1">
-				<img src="@/assets/images/logo.png"/>
+				<a href="/"><img src="@/assets/images/logo.png"/></a>
 				<img class="img" src="@/assets/images/icon02.png"/>
 			</div>
 		</div>
