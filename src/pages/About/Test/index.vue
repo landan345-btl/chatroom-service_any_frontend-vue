@@ -1,8 +1,8 @@
 <template>
   <div class="test" style="overflow: hidden;">
 <!--     <h1>This is an /about/test page !! {{ $route.query.lottery_id }}</h1> -->
-    <Line-chart v-bind:chartData="oData"/>
-    <Table class="Table"/>
+    <V-line v-bind:chartData="oData"/>
+    <E-table class="Table"/>
   </div>
 </template>
 <style scoped lang="scss">
@@ -14,12 +14,12 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
-import LineChart from '@/components/LineChart/index.vue'; // @ is an alias to /src
-import Table from '@/components/Table/index.vue'; 
+import VLine from '@/components/VLine/index.vue'; // @ is an alias to /src
+import ETable from '@/components/ETable/index.vue'; 
 @Component({
   components: {
-    LineChart,
-    Table,
+    VLine,
+    ETable,
   },
 })
 class Test extends Vue {
@@ -29,15 +29,16 @@ class Test extends Vue {
     this.$store.dispatch('ISSUE_ACTION_SHOW', lotterId);
   }
   public get oData(): object {
-    let issues = this.$store.state.issues;
-    let data = [];
-    for (let key of Object.keys(issues)) {
-      let mealName = issues[key];
-      data.push({'期数':key,'号码':mealName.wn_number.substring(0, 1)});
+    let oIssues = this.$store.state.issues;
+    let aRows = [];
+    for (let key of Object.keys(oIssues)) {
+      let mealName = oIssues[key];
+      let oRow = {'期数':key,'号码':mealName.wn_number.substring(0, 1)};
+      aRows.push(oRow);
     }
     return {
       columns: ['期数', '号码'],
-      rows: data,
+      rows: aRows,
     };
   }
 }
