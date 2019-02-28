@@ -17,6 +17,7 @@
     "axios": "^0.18.0",
     "chart.js": "^2.7.3",
     "echarts": "^4.1.0",
+    "element-ui": "^2.5.4",
     "node-sass": "^4.11.0",
     "nuxt": "^2.4.3",
     "register-service-worker": "^1.5.2",
