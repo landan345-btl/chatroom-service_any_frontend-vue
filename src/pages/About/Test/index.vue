@@ -1,10 +1,16 @@
 <template>
-  <div class="test">
+  <div class="test" style="overflow: hidden;">
 <!--     <h1>This is an /about/test page !! {{ $route.query.lottery_id }}</h1> -->
     <Line-chart v-bind:chartData="oData"/>
-    <Table/>
+    <Table class="Table"/>
   </div>
 </template>
+<style scoped lang="scss">
+.Table{
+  padding: 50px;
+  text-align: center;
+}
+</style>
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
