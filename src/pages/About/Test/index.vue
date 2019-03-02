@@ -3,7 +3,8 @@
 <!--     <h1>This is an /about/test page !! {{ $route.query.lottery_id }}</h1> -->
     <V-line v-bind:chartData="oData"/>
     <E-table class="Table"/>
-    <E-radio/>
+    <E-radio>A</E-radio>
+    <E-radio>B</E-radio>
   </div>
 </template>
 <style scoped lang="scss">

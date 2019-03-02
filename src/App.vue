@@ -7,5 +7,4 @@
 
 <style lang="scss">
 @import 'reset-css';
-// @import 'element-theme-default';
 </style>
