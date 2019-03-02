@@ -113,10 +113,36 @@ class Home extends Vue {
   public sImage = 'CQSSC';
   public created(): void {
     let $root: any = this.$root;
+    let oRequest: {} = {
+      path: '/lottery/show',
+      params: {},
+    };
 
     this.$store.dispatch('LOTTERY_ACTION_SHOW');
     this.$store.dispatch('ISSUE_ACTION_SHOW', 7);
     // debugger;
+    oAxiosHelper.get(oRequest).then((oResponse: any) => {
+      // debugger;
+      // console.log(oResponse);
+    }).catch((oError) => {
+      // debugger;
+      // console.log(oError);
+    });
+
+    let aRequests = [
+      {
+        path: '/lottery/show',
+        params: {},
+      },
+    ];
+    // debugger;
+    oAxiosHelper.get(aRequests).then((aResponses: any) => {
+      // debugger;
+      // console.log(aResponses);
+    }).catch((oError) => {
+      // debugger;
+      // console.log(oError);
+    });
   }
 
   public get oLotteries(): object {

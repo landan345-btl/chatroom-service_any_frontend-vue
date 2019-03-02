@@ -1,9 +1,9 @@
-import Trend from '@/pages/Trend/index.vue';
+// import aTrendChildren from '@/pages/Trend/index.vue';
 
 let aTrendRoutes = [{
   path: '/trend',
   name: 'trend',
-  component: Trend,
+  component: () => import( '@/pages/Trend/index.vue'),
   // children: aTrendChildren,
 }];
 

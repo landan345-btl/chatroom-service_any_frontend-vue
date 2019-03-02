@@ -11,7 +11,7 @@ import oIssueAction from '@/actions/issue/index';
 
 Vue.use(Vuex);
 
-let oStore: any = () => (new Vuex.Store({
+let oStore = new Vuex.Store({
   state: {
     ...oLotteryState,
     ...oIssueState,
@@ -24,6 +24,6 @@ let oStore: any = () => (new Vuex.Store({
     ...oLotteryAction,
     ...oIssueAction,
   },
-}));
+});
 
 export default oStore;
