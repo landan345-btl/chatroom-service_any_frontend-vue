@@ -1,16 +1,10 @@
 <template>
-  <html class="">
-    <head>
-      <meta name="description" content="免费在线教程">
-      <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-      <meta name="author" content="runoob">
-      <meta charset="UTF-8">
-    </head>
+  <div class="about">
     <Header/>
   <!--   <h1>This is an /about page</h1> -->
     <router-view></router-view>
     <Footer/>
-  </html>
+  </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';

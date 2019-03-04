@@ -1,15 +1,9 @@
 <template>
-  <html class="">
-    <head>
-      <meta name="description" content="免费在线教程">
-      <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-      <meta name="author" content="runoob">
-      <meta charset="UTF-8">
-    </head>
+  <div class="trend">
     <Header/>
     <h1>trend </h1>
     <Footer/>
-  </html>
+  </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
