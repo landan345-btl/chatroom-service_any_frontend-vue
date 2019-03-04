@@ -1,39 +1,12 @@
 <template>
   <html class="home">
-    <head>
-      <meta name="description" content="home page">
-      <meta name="keywords" content="HTML,CSS,XML,JavaScript">
-      <meta name="author" content="runoob">
-      <meta charset="UTF-8">
-    </head>
-    <Header />
-    <Nav />
+
     <main class="home">
         <div class="top_content">
           <div class="content">
-            <div  v-show="bShowedAllLottery || true">
-               <table border="0" v-on:click="handleTest">
-                {{ this.$root.showedAllLottery }} -- {{ this.$root.test }} -- {{ this.$root.bTest }}
-                <tr><th>当期奖号</th><th>下期倒计时</th><th>走势图</th></tr>
-                <tr v-for="aLottery in oLotteries" :key="aLottery.id">
-                  <td>
-                  <!--   <img class="img"  :src="require('@/assets/images/'+ ${aLottery.name} + '.png)'"> -->
-                    <img class="img"  :src="require(`@/assets/images/` + `${sImage}` + `.png`)">
-                    <p>{{ $t(`${aLottery.name}`)}} 第1901290969 期</p>
-                     <div>
-                      <span>1</span>
-                      <span>2</span>
-                      <span>3</span>
-                      <span>4</span>
-                      <span>5</span>
-                    </div>
-                  </td><td>距离<span>728525</span>期开奖时间：<span>00:24</span></td>
-                  <td><router-link :to="{ name: 'about_test', query: { lottery_id: aLottery.id }}"><img src="@/assets/images/icon03.png"/></router-link></td>
-                </tr>
-                
-              </table> 
+            <div>
             </div>
-            <div v-show="bShowedPapularLottery">
+            <!-- <div v-show="bShowedPapularLottery">
               2
             </div>
             <div v-show="bShowedInstantLottery">
@@ -50,11 +23,10 @@
             </div>
             <div v-show="bShowedOtherLottery">
               7
-            </div>
+            </div> -->
           </div>
         </div>
     </main>
-    <Footer />
   </html>
 </template>
 <style scoped lang="scss">
