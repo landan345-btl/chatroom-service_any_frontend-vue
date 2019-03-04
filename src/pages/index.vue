@@ -26,13 +26,76 @@
 
 </template>
 
-<script>
-import { Component, Vue } from 'vue-property-decorator';
+<script lang="ts">
+import { Component, Watch, Vue } from 'vue-property-decorator';
 
-class Index extends Vue {
+import Header from '@/commons/Header/index.vue'; // @ is an alias to /src
+import Nav from '@/commons/Nav/index.vue'; // @ is an alias to /src
+import Footer from '@/commons/Footer/index.vue'; // @ is an alias to /src
 
+import AxiosHelper from '@/helpers/Axios';
+import { warn } from 'vue-class-component/lib/util';
+let oAxiosHelper = new AxiosHelper();
+@Component({
+  name: 'Home',
+  components: {
+    Header,
+    Nav,
+    Footer,
+  },
+})
+class Home extends Vue {
+  public sImage = 'CQSSC';
+  public created(): void {
+    let $root: any = this.$root;
+
+    this.$store.dispatch('LOTTERY_ACTION_SHOW');
+    this.$store.dispatch('ISSUE_ACTION_SHOW', 7);
+    // debugger;
+  }
+
+  public get oLotteries(): object {
+    // debugger;
+    return this.$store.state.lotteries;
+  }
+
+  public handleTest(): void {
+    let $root: any = this.$root;
+    $root.test = $root.test + 1;
+    console.log($root.test);
+  }
+
+  public get bShowedAllLottery(): boolean {
+    let $root: any = this.$root;
+    return $root.showedAllLottery;
+  }
+  public get bShowedPapularLottery(): boolean {
+    let $root: any = this.$root;
+    return $root.showedPapularLottery;
+  }
+   public get bShowedInstantLottery(): boolean {
+    let $root: any = this.$root;
+    return $root.showedInstantLottery;
+  }
+  public get bShowedPKTenLottery(): boolean {
+    let $root: any = this.$root;
+    return $root.showedPKTenLottery;
+  }
+  public get bShowedFiveOfElevenLottery(): boolean {
+    let $root: any = this.$root;
+    return $root.showedFiveOfElevenLottery;
+  }
+  public get bShowedFastThreeLottery(): boolean {
+    let $root: any = this.$root;
+    return $root.showedFastThreeLottery;
+  }
+  public get bShowedOtherLottery(): boolean {
+    let $root: any = this.$root;
+    return $root.showedOtherLottery;
+  }
 }
-export default Index;
+
+export default Home;
 </script>
 
 <style scoped lang="scss">
