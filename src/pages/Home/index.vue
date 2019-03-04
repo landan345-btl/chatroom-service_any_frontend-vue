@@ -1,11 +1,17 @@
 <template>
-  <div class="">
+  <html class="home">
+    <head>
+      <meta name="description" content="home page">
+      <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+      <meta name="author" content="runoob">
+      <meta charset="UTF-8">
+    </head>
     <Header />
     <Nav />
     <main class="home">
         <div class="top_content">
           <div class="content">
-            <div  v-show="bShowedAllLottery">
+            <div  v-show="bShowedAllLottery || true">
                <table border="0" v-on:click="handleTest">
                 {{ this.$root.showedAllLottery }} -- {{ this.$root.test }} -- {{ this.$root.bTest }}
                 <tr><th>当期奖号</th><th>下期倒计时</th><th>走势图</th></tr>
@@ -49,7 +55,7 @@
         </div>
     </main>
     <Footer />
-  </div>
+  </html>
 </template>
 <style scoped lang="scss">
 

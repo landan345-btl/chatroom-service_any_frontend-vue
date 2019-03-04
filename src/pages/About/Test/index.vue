@@ -1,11 +1,17 @@
 <template>
-  <div class="test" style="overflow: hidden;">
+  <html class="test">
+    <head>
+      <meta name="description" content="免费在线教程">
+      <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+      <meta name="author" content="runoob">
+      <meta charset="UTF-8">
+    </head>
 <!--     <h1>This is an /about/test page !! {{ $route.query.lottery_id }}</h1> -->
     <V-line v-bind:chartData="oData"/>
     <E-table class="Table"/>
     <E-radio>A</E-radio>
     <E-radio>B</E-radio>
-  </div>
+  </html>
 </template>
 <style scoped lang="scss">
 .Table{
