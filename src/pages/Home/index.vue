@@ -1,33 +1,51 @@
 <template>
-  <html class="home">
-
-    <main class="home">
-        <div class="top_content">
-          <div class="content">
-            <div>
-            </div>
-            <!-- <div v-show="bShowedPapularLottery">
-              2
-            </div>
-            <div v-show="bShowedInstantLottery">
-              3
-            </div>
-            <div v-show="bShowedPKTenLottery">
-              4
-            </div>
-            <div v-show="bShowedFiveOfElevenLottery">
-              5
-            </div>
-            <div v-show="bShowedFastThreeLottery">
-              6
-            </div>
-            <div v-show="bShowedOtherLottery">
-              7
-            </div> -->
+  <main class="home">
+      <div class="top_content">
+        <div class="content">
+          <div  v-show="bShowedAllLottery || true">
+              <table border="0" v-on:click="handleTest">
+              {{ this.$root.showedAllLottery }} -- {{ this.$root.test }} -- {{ this.$root.bTest }}
+              <tr><th>当期奖号</th><th>下期倒计时</th><th>走势图</th></tr>
+              <tr v-for="aLottery in oLotteries" :key="aLottery.id">
+                <td>
+                <!--   <img class="img"  :src="require('@/assets/images/'+ ${aLottery.name} + '.png)'"> -->
+                  <img class="img"  :src="require(`@/assets/images/` + `${sImage}` + `.png`)">
+                  <!-- <p>{{ $t(`${aLottery.name}`)}} 第1901290969 期</p> -->
+                  <p> ---- 第1901290969 期</p>
+                    <div>
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                  </div>
+                </td><td>距离<span>728525</span>期开奖时间：<span>00:24</span></td>
+                <td><router-link :to="{ name: 'about_test', query: { lottery_id: aLottery.id }}"><img src="@/assets/images/icon03.png"/></router-link></td>
+              </tr>
+              
+            </table> 
+          <div v-show="bShowedPapularLottery">
+            2
+          </div>
+          <div v-show="bShowedInstantLottery">
+            3
+          </div>
+          <div v-show="bShowedPKTenLottery">
+            4
+          </div>
+          <div v-show="bShowedFiveOfElevenLottery">
+            5
+          </div>
+          <div v-show="bShowedFastThreeLottery">
+            6
+          </div>
+          <div v-show="bShowedOtherLottery">
+            7
           </div>
         </div>
-    </main>
-  </html>
+      </div>
+    </div>
+  </main>
 </template>
 <style scoped lang="scss">
 
@@ -70,7 +88,8 @@
 </style>
 
 <script lang="ts">
-import { Component, Watch, Vue } from 'vue-property-decorator';
+import { Watch, Vue } from 'vue-property-decorator';
+import Component from "nuxt-class-component"
 
 import Header from '@/commons/Header/index.vue'; // @ is an alias to /src
 import Nav from '@/commons/Nav/index.vue'; // @ is an alias to /src
@@ -92,13 +111,31 @@ class Home extends Vue {
   public created(): void {
     let $root: any = this.$root;
 
-    this.$store.dispatch('LOTTERY_ACTION_SHOW');
-    this.$store.dispatch('ISSUE_ACTION_SHOW', 7);
+    // this.$store.dispatch('LOTTERY_ACTION_SHOW');
+    // this.$store.dispatch('ISSUE_ACTION_SHOW', 7);
     // debugger;
   }
 
+  public fetch ({ store } : any) {
+    let pProccess = Promise.resolve();
+    return pProccess.then(() => {
+      return new Promise((resolve, reject) => {
+        resolve();
+      });
+    }).then(() => {
+      //store.dispatch('LOTTERY_ACTION_SHOW');
+    });
+  }
+
+
+  public asyncData ({ store }: any) {
+    // 触发 action 后，会返回 Promise
+    console.log('132');
+    return store.dispatch('LOTTERY_ACTION_SHOW');
+  }
   public get oLotteries(): object {
     // debugger;
+    console.log(this.$store.state.lotteries);
     return this.$store.state.lotteries;
   }
 
