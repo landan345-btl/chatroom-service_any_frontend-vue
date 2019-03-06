@@ -11,18 +11,5 @@ export default {
       max: 1000,
       maxAge: 900000
     },
-    subFolders: false,
-    vue: {
-      config: {
-        productionTip: false,
-        devtools: true
-      }
-    },
-    // router: {
-    //   middleware: 'i18n'
-    // },
-    // plugins: ['~/plugins/i18n/index.ts'],
-    // router: {
-    //   middleware: 'i18n',
-    // }
-}
+    subFolders: false
+  }
