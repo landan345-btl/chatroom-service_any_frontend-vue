@@ -4,12 +4,9 @@
 			<div class="nav_top2">
 				<ul class="nav_ul">
 					<li v-on:click="handleHome">首页</li>
-					<li v-on:click="handlePapularLottery">热门彩种</li>
-					<li v-on:click="handleInstantLottery">时时彩</li>
-					<li v-on:click="handlePKTenLottery">PK10</li>
-					<li v-on:click="handleFiveOfElevenLottery">11选5</li>
-					<li v-on:click="handleFastThreeLottery">快三</li>
-					<li v-on:click="handleOtherLottery">其他</li>
+					<li v-on:click="handlePapularLottery">彩票大厅</li>
+					<li v-on:click="handleInstantLottery">走势图表</li>
+					<li v-on:click="handlePKTenLottery">追号计划</li>
 				</ul>
 			</div>
 		</div>
