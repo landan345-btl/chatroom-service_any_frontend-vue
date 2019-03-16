@@ -16,9 +16,14 @@
   </footer>
 </template>
 <style scoped lang="scss">
-	footer{background-color: #e9e9e9;text-align: center;color:#7c8797;
+	footer{
+		background-color: #e9e9e9;text-align: center;color:#7c8797;
+		position: fixed;
+		bottom: 0;
 		div{
-			width: 1200px; margin: 0 auto;background-color: #FFFFFF;padding-bottom: 20px;
+			margin: 0 auto;
+			background-color: #FFFFFF;
+			padding-bottom: 20px;
 			img{
 				margin:10px 0;
 			}
