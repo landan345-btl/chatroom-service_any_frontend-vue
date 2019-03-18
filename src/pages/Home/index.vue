@@ -3,6 +3,7 @@
     <Header />
     <Nav />
     <main class="home">
+      <E-radio/>
         <div class="top_content">
           <div class="content">
             <div  v-show="bShowedAllLottery">
@@ -92,20 +93,23 @@
 
 <script lang="ts">
 import { Component, Watch, Vue } from 'vue-property-decorator';
+import { warn } from 'vue-class-component/lib/util';
 
-import Header from '@/commons/Header/index.vue'; // @ is an alias to /src
-import Nav from '@/commons/Nav/index.vue'; // @ is an alias to /src
-import Footer from '@/commons/Footer/index.vue'; // @ is an alias to /src
+import Header from '@/commons/Header/index.vue';
+import Nav from '@/commons/Nav/index.vue';
+import Footer from '@/commons/Footer/index.vue';
+import ERadio from '@/components/ERadio/index.vue';
 
 import AxiosHelper from '@/helpers/Axios';
-import { warn } from 'vue-class-component/lib/util';
 let oAxiosHelper = new AxiosHelper();
+
 @Component({
   name: 'Home',
   components: {
     Header,
     Nav,
     Footer,
+    ERadio,
   },
 })
 class Home extends Vue {

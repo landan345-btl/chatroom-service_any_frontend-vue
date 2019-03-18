@@ -5,12 +5,17 @@
   </div>
 </template>
 
-<script>
-  export default {
-    data() {
-      return {
-        radio: '1',
-      };
-    },
-  };
+<script lang="ts">
+
+import { Component, Prop, Vue } from 'vue-property-decorator';
+@Component({
+  name: 'ERadio',
+})
+class ERadio extends Vue {
+  @Prop({ default: '1' })
+  public radio: any;
+}
+
+export default ERadio;
+
 </script>
