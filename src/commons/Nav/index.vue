@@ -14,8 +14,20 @@
 	</nav>
 </template>
 <style scoped lang="scss">
-.top_nav{height: 50px;background-color: #37b0e9;}
-		.nav_top2 ul li{text-align: center;height: 50px;width: 170px;float: left;font-size: 16px;color: white;line-height: 50px; cursor: pointer;}
+.top_nav{
+  height: 50px;
+  background-color: #ff7b00;
+}
+	.nav_top2 ul li{
+    text-align: center;
+    height: 50px;
+    width: 90px;
+    float: left;
+    font-size: 16px;
+    color: white;
+    line-height: 50px;
+    cursor: pointer;
+  }
 	.top{background-color: #ebebeb;height: 30px;}
 		.nav_top,.nav_top1,.nav_top2{width: 1200px; margin: 0 auto;}
 		.top .nav_top{font-size: 14px;line-height: 30px;}

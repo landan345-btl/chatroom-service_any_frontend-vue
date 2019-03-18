@@ -26,10 +26,16 @@
 	header {
 		.top {
 			background: #ebebeb;
+      height: 30px;
       font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
       color: #666666;
-      font-size: 2rem;
+      font-size: 1vmin;
+      line-height: 2.5;
 		}
+    img {
+      vertical-align: middle;
+      margin-right: 3px;
+    }
 	}
 
 </style>
