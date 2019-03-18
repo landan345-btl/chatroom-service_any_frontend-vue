@@ -3,7 +3,6 @@
     <Header />
     <Nav />
     <main class="home">
-      <E-radio/>
         <div class="top_content">
           <div class="content">
             <div  v-show="bShowedAllLottery">
@@ -99,6 +98,7 @@ import Header from '@/commons/Header/index.vue';
 import Nav from '@/commons/Nav/index.vue';
 import Footer from '@/commons/Footer/index.vue';
 import ERadio from '@/components/ERadio/index.vue';
+import ESelect from '@/components/ESelect/index.vue';
 
 import AxiosHelper from '@/helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
@@ -110,6 +110,7 @@ let oAxiosHelper = new AxiosHelper();
     Nav,
     Footer,
     ERadio,
+    ESelect,
   },
 })
 class Home extends Vue {
