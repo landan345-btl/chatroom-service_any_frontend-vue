@@ -12,12 +12,14 @@
    			<li>联系我们</li> 	
    			<li>代理加盟</li> 	 			
   		</ul><br>
-  		<p>© 2019 www.168kai.com All rights reserved 彩票开奖网 版权所有 粤ICP备09298233号站长统计</p>
   	</div>
+		<div class="bottom">
+  		<p>© 2019 www.168kai.com All rights reserved 彩票开奖网 版权所有 粤ICP备09298233号站长统计</p>
+		</div>
   </footer>
 </template>
 <style scoped lang="scss">
-	footer{
+	footer {
 		position: absolute;
 		width: 100%;
 		bottom: 0;

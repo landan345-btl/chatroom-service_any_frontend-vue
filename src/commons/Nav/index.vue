@@ -15,8 +15,11 @@
 <style scoped lang="scss">
 .menu {
   height: 50px;
-  background-color: #ff7b00;
+  background: #ff7b00;
   ul {
+    li:first-child {
+      width: 50px;
+    }
     li {
       text-align: center;
       height: 50px;
@@ -28,7 +31,7 @@
       cursor: pointer;
     }
     li:hover {
-      background-color: #eb7100;
+      background: #eb7100;
     }
   }
 }
