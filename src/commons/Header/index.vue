@@ -31,6 +31,13 @@
       color: #666666;
       font-size: 1vmin;
       line-height: 2.5;
+
+      .notification {
+        img {
+          vertical-align: middle;
+          margin-right: 3px;
+        }
+      }
       .tool {
         float: right;
         span {
@@ -46,10 +53,9 @@
       }
 		}
     .qrcode {
-      vertical-align: middle;
-      margin-right: 3px;
       float: right;
     }
+
 	}
 
 </style>
