@@ -17,16 +17,19 @@
   height: 50px;
   background-color: #ff7b00;
   ul {
-    li{
-    text-align: center;
-    height: 50px;
-    width: 90px;
-    float: left;
-    font-size: 16px;
-    color: white;
-    line-height: 50px;
-    cursor: pointer;
-  }
+    li {
+      text-align: center;
+      height: 50px;
+      width: 90px;
+      float: left;
+      font-size: 16px;
+      color: white;
+      line-height: 50px;
+      cursor: pointer;
+    }
+    li:hover {
+      background-color: #eb7100;
+    }
   }
 }
 

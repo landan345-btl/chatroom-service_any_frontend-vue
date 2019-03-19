@@ -52,6 +52,11 @@
         }
       }
 		}
+    .images {
+      margin-top: 1vmin;
+      margin-bottom: 1vmin; 
+    }
+
     .qrcode {
       float: right;
     }
