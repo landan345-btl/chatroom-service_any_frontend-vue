@@ -18,12 +18,12 @@
   background: #ff7b00;
   ul {
     li:first-child {
-      width: 50px;
+      width: 5vmin;
     }
     li {
       text-align: center;
       height: 50px;
-      width: 90px;
+      width: 11vmin;
       float: left;
       font-size: 16px;
       color: white;
