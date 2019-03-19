@@ -1,20 +1,23 @@
 <template>
  	<nav>
-		<div class="menu">
-      <ul>
-        <li v-on:click="handleHome">首页</li>
-        <li v-on:click="handlePapularLottery">彩票大厅</li>
-        <li v-on:click="handleInstantLottery">走势图表</li>
-        <li v-on:click="handlePKTenLottery">追号计划</li>
-      </ul>
-		</div>
+    <el-row :gutter="0" class="menu">
+      <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
+        <ul>
+          <li v-on:click="handleHome">首页</li>
+          <li v-on:click="handlePapularLottery">彩票大厅</li>
+          <li v-on:click="handleInstantLottery">走势图表</li>
+          <li v-on:click="handlePKTenLottery">追号计划</li>
+        </ul>
+      </el-col>
+    </el-row>
 	</nav>
 </template>
 <style scoped lang="scss">
 .menu {
   height: 50px;
   background-color: #ff7b00;
-  ul li{
+  ul {
+    li{
     text-align: center;
     height: 50px;
     width: 90px;
@@ -23,6 +26,7 @@
     color: white;
     line-height: 50px;
     cursor: pointer;
+  }
   }
 }
 
