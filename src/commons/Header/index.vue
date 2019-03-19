@@ -31,6 +31,18 @@
       color: #666666;
       font-size: 1vmin;
       line-height: 2.5;
+      .tool {
+        span {
+          margin-left: 1vmin;
+        }
+        span::after {
+          content: "|";
+          margin-left: 1vmin;
+        }
+        span:last-child:after { 
+          content: ""; 
+        }
+      }
 		}
     img {
       vertical-align: middle;
