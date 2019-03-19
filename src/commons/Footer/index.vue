@@ -1,8 +1,9 @@
 <template>
   <footer>
   	<div>
-  		<img src="@/assets/images/icon04.png"/>
-  		<p>诺亚是在菲律宾马卡蒂注册的合法博彩公司 ，由菲律宾政府PAGCOR (Philippine Amusement and Gaming Corporation)所颁发的离岸博彩许可证，并受其监管。</p>
+  		<img src="@/assets/images/logo-bottom.png"/>
+  		<p>最专业的彩票开奖网站</p>
+			<p>数据分析最全面的开奖数据平台</p>
   		<ul>
   			<li>新手帮助</li>
    			<li>博彩责任</li>
@@ -11,32 +12,18 @@
    			<li>联系我们</li> 	
    			<li>代理加盟</li> 	 			
   		</ul><br>
-  		<p>© 2017诺亚娱乐版权所菲律宾政府PAGCOR博彩牌照认证</p>
+  		<p>© 2019 www.168kai.com All rights reserved 彩票开奖网 版权所有 粤ICP备09298233号站长统计</p>
   	</div>
   </footer>
 </template>
 <style scoped lang="scss">
 	footer{
-		background-color: #e9e9e9;text-align: center;color:#7c8797;
-		position: fixed;
+		position: absolute;
+		width: 100%;
 		bottom: 0;
-		div{
-			margin: 0 auto;
-			background-color: #FFFFFF;
-			padding-bottom: 20px;
-			img{
-				margin:10px 0;
-			}
-			ul {
-				width: 530px;
-				margin:20px auto;
-				height:1px;
-				li{
-					float:left;
-					margin-left:20px;
-				}
-			}
-		}
+		background-color: #3f404f;
+		text-align: center;
+		color:#999999;
 	}
 </style>
 <script lang="ts">
