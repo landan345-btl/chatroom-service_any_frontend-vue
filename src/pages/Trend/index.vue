@@ -8,8 +8,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import Footer from '@/commons/Footer/index.vue'; // @ is an alias to /src
-import Header from '@/commons/Header/index.vue'; // @ is an alias to /src
+import Footer from '@/commons/Footer/Index.vue'; // @ is an alias to /src
+import Header from '@/commons/Header/Index.vue'; // @ is an alias to /src
 
 @Component({
   components: {

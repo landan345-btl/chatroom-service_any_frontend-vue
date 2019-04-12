@@ -15,9 +15,9 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
-import VLine from '@/components/VLine/index.vue'; // @ is an alias to /src
-import ETable from '@/components/ETable/index.vue';
-import ERadio from '@/components/ERadio/index.vue';
+import VLine from '@/components/VLine/Index.vue'; // @ is an alias to /src
+import ETable from '@/components/ETable/Index.vue';
+import ERadio from '@/components/ERadio/Index.vue';
 
 @Component({
   components: {
