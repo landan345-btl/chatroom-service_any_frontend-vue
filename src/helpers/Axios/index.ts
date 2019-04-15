@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import BACKEND from '@/configs/BACKEND';
+import BACKEND from '@/CONFIGS/BACKEND';
 
 let sBaseUrl = BACKEND.BASE_URL.replace(/\/$/, '');
 

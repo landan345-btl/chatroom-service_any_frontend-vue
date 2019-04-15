@@ -1,4 +1,4 @@
-import AxiosHelper from '@/helpers/Axios';
+import AxiosHelper from '@/Helpers/Axios';
 
 let oAxiosHelper = new AxiosHelper();
 

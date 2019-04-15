@@ -15,13 +15,13 @@
 import { Component, Watch, Vue } from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
 
-import Header from '@/commons/Header/Index.vue';
-import Nav from '@/commons/Nav/Index.vue';
-import Footer from '@/commons/Footer/Index.vue';
-import ERadio from '@/components/ERadio/Index.vue';
-import ESelect from '@/components/ESelect/Index.vue';
+import Header from '@/Commons/Header/Index.vue';
+import Nav from '@/Commons/Nav/Index.vue';
+import Footer from '@/Commons/Footer/Index.vue';
+import ERadio from '@/Components/ERadio/Index.vue';
+import ESelect from '@/Components/ESelect/Index.vue';
 
-import AxiosHelper from '@/helpers/Axios';
+import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
 
 @Component({

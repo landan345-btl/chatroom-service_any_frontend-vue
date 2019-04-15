@@ -1,4 +1,4 @@
-declare module '@/helpers/Axios/index' {
+declare module '@/Helpers/Axios/index' {
   const content: AxiosHelper
   export default content
 }
