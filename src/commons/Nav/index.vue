@@ -90,74 +90,17 @@
     </el-row>
 	</nav>
 </template>
+
 <style scoped lang="scss">
-
-  .nav-background {
-    background-color: #ff7b00;
-  }
-  /deep/ .el-menu--horizontal > .el-menu-item:not(.is-disabled):hover, 
-  /deep/ .el-menu--horizontal > .el-submenu .el-submenu__title:hover,
-  /deep/ .el-menu--horizontal > .el-menu-item:not(.is-disabled):focus, 
-  /deep/ .el-menu--horizontal > .el-submenu .el-submenu__title:focus {
-    background: #eb7100;
-    color: #ffffff;
-  }
-
-  /deep/ .el-menu-item:not(.is-disabled):hover, 
-  /deep/ .el-submenu .el-submenu__title:hover,
-  /deep/ .el-menu-item:not(.is-disabled):focus, 
-  /deep/ .el-submenu .el-submenu__title:focus {
-    background: #eb7100;
-    color: #ffffff;
-  }
-
-  /deep/ .el-menu.el-menu--horizontal{
-    border: solid 0px #e6e6e6;
-  }
-  /deep/ .el-submenu__title i {
-    border-bottom: solid 0px #e6e6e6;
-    color: #ffffff;
-  }
-  /deep/ .el-menu--horizontal > .el-menu-item {
-    color: #ffffff;
-    height: 51px;
-    line-height: 51px;
-  }
-  /deep/ .el-menu--horizontal > .el-submenu .el-submenu__title  {
-    height: 51px;
-    line-height: 51px;
-    background-color: #ff7b00;
-    color: #ffffff;
-  }
-  /deep/ .el-menu-item, 
-  /deep/ .el-submenu__title {
-    font-size: 2vmin;
-  }
-  /deep/ .el-menu-item * {
-   vertical-align: top;
-  }
-
-  /deep/ .el-submenu__title:hover {
-    background: #eb7100;
-    color: #ffffff;
-  }
+@import 'Index-scoped.scss';
 </style>
+
 <style lang="scss">
-
-  .el-menu--horizontal .el-menu .el-menu-item, 
-  .el-menu--horizontal .el-menu .el-submenu__title {
-    color: #909399;
-  }
-
-  .el-menu--horizontal .el-menu .el-menu-item:hover, 
-  .el-menu--horizontal .el-menu .el-submenu__title:hover {
-    background: #eb7100;
-    color: #ffffff;
-  }
-
+@import 'Index.scss';
 </style>
 
 <script lang="ts">
+
 import { Component, Vue } from 'vue-property-decorator';
 @Component({
   name: 'Nav',
