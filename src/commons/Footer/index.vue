@@ -14,9 +14,9 @@
   		</ul><br>
   	</div>
     <div class="bottom">
-      <el-row :gutter="0" type="flex" justify="space-between" class="top">
+      <el-row :gutter="0" type="flex" justify="space-between">
         <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
-          <p>© 2019 www.168kai.com All rights reserved 彩票开奖网 版权所有 粤ICP备09298233号站长统计</p>
+          <p class="content"><span>© 2019 www.168kai.com All rights reserved 彩票开奖网 版权所有 粤ICP备09298233</span> <span>号站长统计</span></p>
         </el-col>
       </el-row>
     </div>

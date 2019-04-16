@@ -10,6 +10,12 @@ footer {
     height: 60px;
     line-height: 60px;
     color: #999;
-    font-size: 1.6vmin;
+    font-size: 1.4vmin;
+    .content {
+      span:last-child {
+        margin-left: 1vmin;
+        color: #000000;
+      }
+    }
   }
 }
