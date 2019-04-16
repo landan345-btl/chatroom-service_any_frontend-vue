@@ -91,11 +91,7 @@
 	</nav>
 </template>
 <style scoped lang="scss">
-  // nav {
-  //   height: 51px;
-  // }
-  /deep/ .el-menu-item:first-child {
-  }
+
   .nav-background {
     background-color: #ff7b00;
   }
@@ -141,6 +137,23 @@
    vertical-align: top;
   }
 
+  /deep/ .el-submenu__title:hover {
+    background: #eb7100;
+    color: #ffffff;
+  }
+</style>
+<style lang="scss">
+
+  .el-menu--horizontal .el-menu .el-menu-item, 
+  .el-menu--horizontal .el-menu .el-submenu__title {
+    color: #909399;
+  }
+
+  .el-menu--horizontal .el-menu .el-menu-item:hover, 
+  .el-menu--horizontal .el-menu .el-submenu__title:hover {
+    background: #eb7100;
+    color: #ffffff;
+  }
 
 </style>
 
