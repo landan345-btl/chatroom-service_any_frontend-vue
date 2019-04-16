@@ -1,14 +1,15 @@
 <template>
-  <div id="app">
+  <div id="app" class="namespace">
 
     <router-view/>
   </div>
 </template>
 
 <style lang="scss">
-@import 'reset-css';
-  html {
-    font-size: 16px; /* The font-size of root HTML is 16px; */
-  }
+@import 'styles/index.scss';
+
+html {
+  font-size: 16px; /* The font-size of root HTML is 16px; */
+}
 
 </style>

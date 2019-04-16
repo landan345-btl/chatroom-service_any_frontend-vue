@@ -29,16 +29,19 @@
     background-color: #ff7b00;
   }
   .namespace {
-    .el-menu--horizontal>.el-menu-item:not(.is-disabled):hover {
+    .el-menu--horizontal > .el-menu-item:not(.is-disabled):hover {
       background: #eb7100;
+      
     }
-    .el-menu--horizontal >.el-menu-item {
+    .el-menu--horizontal > .el-menu-item {
       height: 51px;
     }
-
+    .el-menu--horizontal > .el-submenu .el-submenu__title  {
+      height: 51px;
+    }
   }
 
-  .namespace .el-menu--horizontal>.el-submenu .el-submenu__title {
+  .namespace .el-menu--horizontal>.el-submenu .el-submenu__title  {
       height: 51px;
     }
   .font-vmin {
