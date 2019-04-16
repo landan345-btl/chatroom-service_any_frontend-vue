@@ -2,8 +2,19 @@
   <div class="">
     <Header />
     <Nav />
-    <main class="home">
-    </main>
+    <el-row :gutter="0">
+      <el-col :xs="{span: 22, offset: 1}" :sm="{span: 15, offset: 2}" :md="{span: 12, offset: 3}" :lg="{span: 11, offset: 4}">
+        <main class="home">
+          MAIN
+        </main>
+      </el-col>
+      <el-col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 5}">
+        <aside>
+          ASIDE
+        </aside>
+      </el-col>
+    </el-row>
+
     <Footer />
   </div>
 </template>
