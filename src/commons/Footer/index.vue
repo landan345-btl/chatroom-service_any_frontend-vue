@@ -1,6 +1,6 @@
 <template>
   <footer>
-  	<div>
+  	<div class="middle">
       <el-row :gutter="0">
         <el-col :xs="{span: 22, offset: 1}" :sm="{span: 5, offset: 2}" :md="{span: 4, offset: 4}" :lg="{span: 4, offset: 4}">
           <img src="@/assets/images/logo-bottom.png"/>
@@ -10,8 +10,8 @@
           </div>
         </el-col>
         <el-col :xs="{span: 0, offset: 0}" :sm="{span: 5, offset: 0}" :md="{span: 4, offset: 0}" :lg="{span: 4, offset: 0}">
-          <div class="title">
-            <font-awesome-icon icon="info-circle" class="d-inline-block"/><span>关于我们</span>
+          <div class="title color-white">
+            <font-awesome-icon icon="users" class="d-inline-block"/>&nbsp;<span>关于我们</span>
           </div>
           <ul class="content">
             <li><a href="/">关于我们</a></li>
@@ -21,8 +21,8 @@
           </ul>
         </el-col>
         <el-col :xs="{span: 0, offset: 0}" :sm="{span: 5, offset: 0}" :md="{span: 4, offset: 0}" :lg="{span: 4, offset: 0}">
-          <div class="title">
-            <font-awesome-icon icon="trophy" class="d-inline-block"/><span>中奖神器</span>
+          <div class="title color-white">
+            <font-awesome-icon icon="trophy" class="d-inline-block"/>&nbsp;<span>中奖神器</span>
           </div>
           <ul class="content">
             <li><a href="/">开奖号码</a></li>
@@ -31,8 +31,8 @@
           </ul>
         </el-col>
         <el-col :xs="{span: 0, offset: 0}" :sm="{span: 5, offset: 0}" :md="{span: 4, offset: 0}" :lg="{span: 4, offset: 0}">
-          <div class="title">
-            <font-awesome-icon icon="server" class="d-inline-block"/><span>免费调用</span>
+          <div class="title color-white">
+            <font-awesome-icon icon="server" class="d-inline-block"/>&nbsp;<span>免费调用</span>
           </div>
           <ul class="content">
             <li><a href="/">自助网址导航</a></li>

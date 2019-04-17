@@ -3,27 +3,33 @@ footer {
   width: 100%;
   bottom: 0;
   background-color: #3f404f;
-  text-align: center;
   color:#999999;
 
   .title {
     font-size: 2vmin;
+    margin: 0 0 10px 0;
+  }
+  .middle {
+    text-align: left;
+    margin: 40px 0 40px 0;
+    font-size: 5vmin;
+    /deep/ .el-row > div:first-child {
+      .content * {
+        margin: 0 0 0 0;
+      }
+    }
   }
 
   .content {
-    margin-left: 13.6vmin;
     font-size: 1.6vmin;
   }
 
-  .content:first-child  {
-    margin-left: 6vmin;
-  }
-
-
   .content * {
-    text-align: left;
+    line-height: 3vmin;
+    margin: 0 0 0 1.4vmin;
   }
   .bottom {
+    text-align: center;
     background: #f0f0f0;
     height: 60px;
     line-height: 60px;

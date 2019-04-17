@@ -9,7 +9,7 @@ import oStore from '@/store/index';
 
 import '@/registerServiceWorker';
 
-import { faTrophy, faInfoCircle, faServer } from '@fortawesome/free-solid-svg-icons';
+import { faTrophy, faInfoCircle, faServer, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
@@ -18,6 +18,7 @@ import oMessages from '@/langs/index';
 library.add(faInfoCircle);
 library.add(faTrophy);
 library.add(faServer);
+library.add(faUsers);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.use(VueI18n);
