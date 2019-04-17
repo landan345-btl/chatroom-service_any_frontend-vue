@@ -4,7 +4,7 @@
       <el-row :gutter="0">
         <el-col :xs="{span: 22, offset: 1}" :sm="{span: 5, offset: 2}" :md="{span: 4, offset: 4}" :lg="{span: 4, offset: 4}">
           <img src="@/assets/images/logo-bottom.png"/>
-          <div class="content">
+          <div class="content font-weight-light">
             <p>最专业的彩票开奖网站</p>
             <p>数据分析最全面的开奖数据平台</p>
           </div>
