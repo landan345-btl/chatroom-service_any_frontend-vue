@@ -103,9 +103,9 @@
 
 import { Component, Vue } from 'vue-property-decorator';
 @Component({
-  name: 'Nav',
+  name: 'NavTop',
 })
-class Nav extends Vue {
+class NavTop extends Vue {
 
   public created(): void {
     let $root: any = this.$root;
@@ -176,5 +176,5 @@ class Nav extends Vue {
   }
 }
 
-export default Nav;
+export default NavTop;
 </script>

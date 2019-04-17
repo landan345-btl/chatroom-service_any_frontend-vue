@@ -1,10 +1,11 @@
 <template>
-  <div class="">
+  <div class="home">
     <Header />
-    <Nav />
+    <NavTop />
+    <NavRight />
     <el-row :gutter="0">
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 15, offset: 2}" :md="{span: 12, offset: 3}" :lg="{span: 11, offset: 4}">
-        <main class="home">
+        <main>
           MAIN
         </main>
       </el-col>
@@ -19,6 +20,7 @@
   </div>
 </template>
 <style scoped lang="scss">
+@import 'Index-scoped.scss';
 
 </style>
 
@@ -27,7 +29,8 @@ import { Component, Watch, Vue } from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
 
 import Header from '@/Commons/Header/Index.vue';
-import Nav from '@/Commons/Nav/Index.vue';
+import NavTop from '@/Commons/NavTop/Index.vue';
+import NavRight from '@/Commons/NavRight/Index.vue';
 import Footer from '@/Commons/Footer/Index.vue';
 import ERadio from '@/Components/ERadio/Index.vue';
 import ESelect from '@/Components/ESelect/Index.vue';
@@ -39,7 +42,8 @@ let oAxiosHelper = new AxiosHelper();
   name: 'Home',
   components: {
     Header,
-    Nav,
+    NavTop,
+    NavRight,
     Footer,
     ERadio,
     ESelect,
