@@ -5,6 +5,24 @@ footer {
   background-color: #3f404f;
   text-align: center;
   color:#999999;
+
+  .title {
+    font-size: 2vmin;
+  }
+
+  .content {
+    margin-left: 13.6vmin;
+    font-size: 1.6vmin;
+  }
+
+  .content:first-child  {
+    margin-left: 6vmin;
+  }
+
+
+  .content * {
+    text-align: left;
+  }
   .bottom {
     background: #f0f0f0;
     height: 60px;
