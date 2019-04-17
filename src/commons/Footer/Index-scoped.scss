@@ -14,7 +14,7 @@ footer {
     margin: 40px 0 40px 0;
     font-size: 5vmin;
     /deep/ .el-row > div:first-child {
-      .content * {
+      .list * {
         margin: 0 0 0 0;
       }
     }
@@ -25,11 +25,11 @@ footer {
     }
   }
 
-  .content {
+  .list, .content {
     font-size: 1.6vmin;
   }
 
-  .content * {
+  .list *, .content * {
     line-height: 3vmin;
     margin: 0 0 0 1.4vmin;
   }

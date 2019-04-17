@@ -13,7 +13,7 @@
           <div class="title color-white">
             <font-awesome-icon icon="users" class="d-inline-block"/>&nbsp;<span>关于我们</span>
           </div>
-          <ul class="content">
+          <ul class="list">
             <li><a href="/">关于我们</a></li>
             <li><a href="/">客服中心</a></li>
             <li><a href="/">商务合作</a></li>
@@ -24,7 +24,7 @@
           <div class="title color-white">
             <font-awesome-icon icon="trophy" class="d-inline-block"/>&nbsp;<span>中奖神器</span>
           </div>
-          <ul class="content">
+          <ul class="list">
             <li><a href="/">开奖号码</a></li>
             <li><a href="/">走势图表</a></li>
             <li><a href="/">玩法规则</a></li>
@@ -34,7 +34,7 @@
           <div class="title color-white">
             <font-awesome-icon icon="server" class="d-inline-block"/>&nbsp;<span>免费调用</span>
           </div>
-          <ul class="content">
+          <ul class="list">
             <li><a href="/">自助网址导航</a></li>
             <li><a href="/">开奖调用</a></li>
           </ul>
