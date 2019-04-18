@@ -11,7 +11,7 @@
       </el-col>
       <el-col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 5}">
         <aside>
-          ASIDE
+          <Recommended-lottery/>
         </aside>
       </el-col>
     </el-row>
@@ -34,9 +34,12 @@ import NavRight from '@/Commons/NavRight/Index.vue';
 import Footer from '@/Commons/Footer/Index.vue';
 import ERadio from '@/Components/ERadio/Index.vue';
 import ESelect from '@/Components/ESelect/Index.vue';
+import RecommendedLottery from './RecommendedLottery.vue';
 
 import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
+
+import LOTTERIES from '@/CONFIGS/LOTTERIES/';
 
 @Component({
   name: 'Home',
@@ -47,6 +50,7 @@ let oAxiosHelper = new AxiosHelper();
     Footer,
     ERadio,
     ESelect,
+    RecommendedLottery,
   },
 })
 class Home extends Vue {
@@ -123,6 +127,25 @@ class Home extends Vue {
   public get bShowedOtherLottery(): boolean {
     let $root: any = this.$root;
     return $root.showedOtherLottery;
+  }
+
+  public get recommendedLotteries(): object {
+    let oLotteries: any = this.$store.state.lotteries;
+    let _oLotteries: {} = {};
+    let lotteryId: string = 'PCDD';
+    for(lotteryId in oLotteries) {
+
+      if (lotteryId in oLotteries) {
+        let oLottery = oLotteries[lotteryId];
+
+      }
+      type LOTTERIES = any;
+      if (lotteryId in LOTTERIES) {
+        _oLotteries = Object.assign(_oLotteries, LOTTERIES['PCDD']);
+
+      }
+    }
+    return _oLotteries;
   }
 }
 

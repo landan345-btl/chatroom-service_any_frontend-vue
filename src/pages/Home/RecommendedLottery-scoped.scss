@@ -1,0 +1,24 @@
+.recommended-lottery {
+  padding: 2vmin 1vmin 1vmin 2vmin;
+  background-image: linear-gradient(#ffffff 0%,#ffffff 75%, #dddddd 100%);
+  .title {
+    div:first-child {
+      font-size: 2vmin;
+    }
+    div {
+      font-size: 1vmin;
+      span {
+        margin: 0 0.4vmin 0 0.4vmin;
+      }
+    }
+    div:nth-child(2) {
+      color: #999999;
+    }
+    .line {
+      display: inline-block;
+      width: 20px;
+      border-bottom: 1px solid #dddddd;
+      margin-bottom: 0.4vmin;
+    }
+  }
+}

@@ -1,7 +1,10 @@
 <template>
-  <div class="recommend-lottery">
+  <div class="recommended-lottery text-center">
     <div class="title">
-
+      <div class="font-weight-bold">推荐采种</div>
+      <div class="mt-1">
+        <span class="line"></span>RECOMMENDED LOTTERY<span class="line"></span>
+      </div>
     </div>
     <div class="lotteries">
       <div class="lottery">
@@ -14,6 +17,7 @@
   </div>
 </template>
 <style scoped lang="scss">
+@import 'RecommendedLottery-scoped.scss';
 
 </style>
 
@@ -25,13 +29,13 @@ import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
 
 @Component({
-  name: 'RecommendLottery',
+  name: 'RecommendedLottery',
   components: {
   },
 })
-class RecommendLottery extends Vue {
-
+class RecommendedLottery extends Vue {
+  public recommendedLotteries:object = {};
 }
 
-export default RecommendLottery;
+export default RecommendedLottery;
 </script>
