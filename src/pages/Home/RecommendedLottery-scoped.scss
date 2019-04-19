@@ -1,5 +1,5 @@
 .recommended-lottery {
-  padding: 2vmin 1vmin 1vmin 2vmin;
+  padding: 2vmin 1vmin 2vmin 1vmin;
   background-image: linear-gradient(#ffffff 0%,#ffffff 75%, #dddddd 100%);
   .title {
     margin-bottom: 2.4vmin;
@@ -23,10 +23,17 @@
     }
   }
   .lottery {
-    margin-block-end: 2vmin;
+    margin-bottom: 2.5vmin;
     width: 30%;
     .icon img{
       width: 50px;
+    }
+    .name {
+      margin-top: 0.6vmin;
+      font-size: 1vmin;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 }
