@@ -2,6 +2,7 @@
   padding: 2vmin 1vmin 1vmin 2vmin;
   background-image: linear-gradient(#ffffff 0%,#ffffff 75%, #dddddd 100%);
   .title {
+    margin-bottom: 2.4vmin;
     div:first-child {
       font-size: 2vmin;
     }
@@ -19,6 +20,13 @@
       width: 20px;
       border-bottom: 1px solid #dddddd;
       margin-bottom: 0.4vmin;
+    }
+  }
+  .lottery {
+    margin-block-end: 2vmin;
+    width: 30%;
+    .icon img{
+      width: 50px;
     }
   }
 }

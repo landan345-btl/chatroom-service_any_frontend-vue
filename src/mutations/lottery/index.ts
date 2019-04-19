@@ -10,7 +10,7 @@ let oLotteryMutation = {
     let oLotteries: any = (mLotteries instanceof Array) ? {} : mLotteries;
     if (mLotteries instanceof Array) {
       oLotteries = mLotteries.reduce((_oLotteries, aLottery) => {
-        _oLotteries[aLottery.id] = aLottery;
+        _oLotteries[aLottery.lottery_id] = aLottery;
         return _oLotteries;
       }, {});
       mLotteries = oLotteries;

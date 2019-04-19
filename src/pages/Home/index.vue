@@ -11,7 +11,7 @@
       </el-col>
       <el-col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 5}">
         <aside>
-          <Recommended-lottery/>
+          <Recommended-lottery v-bind:lotteries="recommendedLotteries"/>
         </aside>
       </el-col>
     </el-row>
@@ -132,18 +132,25 @@ class Home extends Vue {
   public get recommendedLotteries(): object {
     let oLotteries: any = this.$store.state.lotteries;
     let _oLotteries: {} = {};
-    let lotteryId: string = 'PCDD';
-    for(lotteryId in oLotteries) {
+    let iLotteryId: string;
+    let sLotteryCode;
+    type sLotteryCode = 'SGFT' | 'BJPK10' | 'JSPK10' | 'PCDD' | 'CQKLSF' | 'JX11X5' | 'SD11X5' | 'JSK3';
+    for (iLotteryId in oLotteries) {
+      if (oLotteries.hasOwnProperty(Number(iLotteryId))) {
+        sLotteryCode = oLotteries[iLotteryId].code;
+        if (sLotteryCode in LOTTERIES) {
+          let _lottery = {
+            name: LOTTERIES[sLotteryCode].NAME,
+            src: LOTTERIES[sLotteryCode].SRC,
+          };
+          let __oLotteries = {
+            [sLotteryCode]: _lottery,
+          };
+          _oLotteries = Object.assign(_oLotteries, __oLotteries);
 
-      if (lotteryId in oLotteries) {
-        let oLottery = oLotteries[lotteryId];
-
+        }
       }
-      type LOTTERIES = any;
-      if (lotteryId in LOTTERIES) {
-        _oLotteries = Object.assign(_oLotteries, LOTTERIES['PCDD']);
 
-      }
     }
     return _oLotteries;
   }

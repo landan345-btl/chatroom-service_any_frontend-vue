@@ -7,11 +7,15 @@
       </div>
     </div>
     <div class="lotteries">
-      <div class="lottery">
+      <div class="lottery d-inline-block" v-for="(oLottery, sCode) in lotteries" :key="sCode">
         <div class="icon">
+          <!-- <img src="@/assets/images/SGFT.png"/> -->
+          <img :src="require(`@/assets/images/JX11X5-md.png`)" />
+
         </div>
-        <div class="name">
-        </div>
+          <div class="name">
+            {{ oLottery.name }}
+          </div>
       </div>
     </div>
   </div>
@@ -22,7 +26,7 @@
 </style>
 
 <script lang="ts">
-import { Component, Watch, Vue } from 'vue-property-decorator';
+import { Component, Watch, Vue, Prop } from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
 
 import AxiosHelper from '@/Helpers/Axios';
@@ -34,7 +38,9 @@ let oAxiosHelper = new AxiosHelper();
   },
 })
 class RecommendedLottery extends Vue {
-  public recommendedLotteries:object = {};
+
+  @Prop()
+  public lotteries: object = {};
 }
 
 export default RecommendedLottery;
