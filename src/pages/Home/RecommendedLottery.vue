@@ -7,17 +7,19 @@
       </div>
     </div>
     <div class="lotteries">
-      <div class="lottery d-inline-block" v-for="(oLottery, sCode) in lotteries" :key="sCode">
+      
+      <router-link class="lottery d-inline-block" :to="{ path: '/lottery', query: { code: `${sCode}` }}"  v-for="(oLottery, sCode) in lotteries" :key="sCode">
         <div class="icon">
           <!-- <img src="@/assets/images/SGFT.png"/> -->
           <!-- {{ oLottery.src}} -->
           <img :src="require(`@/assets/images/` + `${sCode}` + `-md.png`)" />
 
         </div>
-          <div class="name">
-            {{ oLottery.name }}
-          </div>
-      </div>
+        <div class="name">
+          {{ oLottery.name }}
+        </div>
+      </router-link>
+
     </div>
   </div>
 </template>

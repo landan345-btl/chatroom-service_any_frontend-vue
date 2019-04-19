@@ -17,7 +17,7 @@
     "no-consecutive-blank-lines": false,
     "prefer-const": false,
     "comma-dangle": ["error", "always"],
-    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
+    "variable-name": [false, "ban-keywords", "check-format", "allow-leading-underscore"],
     "no-console": [true, "warning"],
     "no-debugger": true,
     "quote-props": ["error", "always"] 
