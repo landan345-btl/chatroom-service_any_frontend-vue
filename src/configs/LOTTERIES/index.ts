@@ -23,10 +23,10 @@ const LOTTERIES: I_LOTTERIES = {
     NAME: '广东快乐十分',
     SRC: '@/assets/images/GDKLSF-md.png',
   },
-  JX11X5: {
-    NAME: '江西11选5',
-    SRC: '@/assets/images/JX11X5-md.png',
-  },
+  // JX11X5: {
+  //   NAME: '江西11选5',
+  //   SRC: '@/assets/images/JX11X5-md.png',
+  // },
   SD11X5: {
     NAME: '十一运夺金',
     SRC: '@/assets/images/SD11X5-md.png',
@@ -38,6 +38,10 @@ const LOTTERIES: I_LOTTERIES = {
   BJ11X5: {
     NAME: '北京11选5',
     SRC: '@/assets/images/BJ11X5-md.png',
+  },
+  KRYSU: {
+    NAME: '韩国音速',
+    SRC: '@/assets/images/KRYSU-md.png',
   },
 };
 
