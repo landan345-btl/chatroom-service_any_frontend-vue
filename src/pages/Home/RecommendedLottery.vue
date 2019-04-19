@@ -10,7 +10,8 @@
       <div class="lottery d-inline-block" v-for="(oLottery, sCode) in lotteries" :key="sCode">
         <div class="icon">
           <!-- <img src="@/assets/images/SGFT.png"/> -->
-          <img :src="require(`@/assets/images/JX11X5-md.png`)" />
+          <!-- {{ oLottery.src}} -->
+          <img :src="require(`@/assets/images/` + `${sCode}` + `-md.png`)" />
 
         </div>
           <div class="name">

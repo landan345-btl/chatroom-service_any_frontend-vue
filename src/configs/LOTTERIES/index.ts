@@ -1,8 +1,8 @@
 const LOTTERIES: I_LOTTERIES = {
-  SGFT: {
-    NAME : 'SG飞艇',
-    SRC: '@/assets/images/SGFT-md.png',
-  },
+  // SGFT: {
+  //   NAME : 'SG飞艇',
+  //   SRC: '@/assets/images/SGFT-md.png',
+  // },
   BJPK10: {
     NAME: '北京PK10',
     SRC: '@/assets/images/BJPK10-md.png',
