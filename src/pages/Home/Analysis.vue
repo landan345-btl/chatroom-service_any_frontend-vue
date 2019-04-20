@@ -1,16 +1,27 @@
 <template>
   <div class="analysis">
-    <div class="head position-relative">
+    <div class="top position-relative">
       <span class="title font-weight-bold">分析工具</span>
       <span class="more position-absolute">更多</span>
     </div>
     <div class="line">
-
     </div>
-    <div class="messages">
-      <a class="message d-block" v-for="(sMessage, iIndex) in messages" :key=iIndex>
-        {{ sMessage }}
-      </a>
+    <div class="lotteries">
+      <div class="lottery">
+        <div class="head">
+          <div class="icon">
+            <img src="" />
+          </div>
+          <div class="title">
+          </div>
+        </div>
+        <div class="trend">
+          <font-awesome-icon icon="chart-line" class="d-inline-block"/>
+        </div>
+        <div class="candlestick">
+          <font-awesome-icon icon="search-dollar" class="d-inline-block"/>
+        </div>
+      </div>
     </div>
   </div>
 </template>
