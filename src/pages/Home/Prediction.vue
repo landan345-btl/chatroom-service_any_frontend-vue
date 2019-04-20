@@ -1,13 +1,16 @@
 <template>
   <div class="prediction">
     <div>
-      <span class="title">方案预测</span>
+      <span class="title font-weight-bold">方案预测</span>
       <span class="more">更多</span>
     </div>
+    <div class="line">
+
+    </div>
     <div class="messages">
-      <p class="message" v-for="(sMessage, iIndex) in messages" :key=iIndex>
+      <a class="message d-block" v-for="(sMessage, iIndex) in messages" :key=iIndex>
         {{ sMessage }}
-      </p>
+      </a>
     </div>
   </div>
 </template>
@@ -29,11 +32,6 @@ let oAxiosHelper = new AxiosHelper();
   },
 })
 class Prediction extends Vue {
-  public created(): void {
-    let $root: any = this.$root;
-
-  }
-
   public messages: string[] = [
     '山西11选5号码推荐4月19日上午',
     '辽宁11选5号码推荐4月19日上午',
@@ -45,6 +43,12 @@ class Prediction extends Vue {
     '浙江11选5号码推荐4月17日下午',
     '湖北11选5号码推荐4月17日上午',
   ];
+  public created(): void {
+    let $root: any = this.$root;
+
+  }
+
+
 
 }
 

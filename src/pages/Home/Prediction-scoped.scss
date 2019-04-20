@@ -1,4 +1,22 @@
 .prediction {
   background-color: #ffffff;
   padding: 2vmin 2vmin 2vmin 2vmin;
+  .line {
+    margin: 1vmin 0 2vmin 0;
+    border-bottom: 1px solid #eeeeee;
+  }
+  .title {
+    font-size: 2vmin;
+  }
+  .message {
+    font-size: 1vmin;
+    color: #666666;
+    line-height: 2;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .message:hover {
+    color: #f9982e;
+  }
 }
