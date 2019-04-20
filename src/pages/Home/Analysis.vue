@@ -16,26 +16,31 @@
             北京PK10
           </span>
         </div>
+        <div class="line">
+        </div>
         <div class="trend">
           <div class="top">          
-            <font-awesome-icon icon="chart-line" class="d-inline-block color-deepskyblue"/>
-            <span>走势</span>
+            <font-awesome-icon icon="chart-line" class="d-inline-block color-deepskyblue font-size-2p5"/>
+            <span>&nbsp;走势</span>
           </div>
           <ul class="middle list">
             <li>冠亚和走势</li>
-            <li>位置走势势</li>
+            <li>位置走势</li>
             <li>号码走势</li>
           </ul>
         </div>
+        <div class="line">
+        </div>
         <div class="candlestick">
           <div class="top">
-            <font-awesome-icon icon="search-dollar" class="d-inline-block color-red"/>
-            <span>遗漏</span>
+            <font-awesome-icon icon="search-dollar" class="d-inline-block color-red font-size-2p5"/>
+            <span>&nbsp;遗漏</span>
           </div>
           <ul class="middle list">
             <li>综合分析</li>
             <li>定位走势</li>
             <li>第二球走势</li>
+            <br/>
             <li>第三球走势</li>
             <li>第四球走势</li>
           </ul>

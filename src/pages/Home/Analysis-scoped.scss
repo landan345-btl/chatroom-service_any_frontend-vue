@@ -23,11 +23,23 @@
   .lotteries {
     padding: 1.6vmin 2vmin 1.6vmin 2vmin;
   }
+
+  .lottery .top, .lottery .trend, .lottery .candlestick {
+    margin-bottom: 2vmin; 
+    margin-top: 2vmin;
+  }
+
+  .lottery .trend .top *, .lottery .candlestick .top *{
+    vertical-align: middle;
+  }
+
   .list li {
     display: inline-block;
+    color: #999999;
+    line-height: 1.5;
   }
-  .list li:nth-child(n+1) {
-    margin-left: 1vmin;
+  .list li {
+    margin-right: 1vmin;
   }
   .more:hover, .message:hover {
     color: #f9982e;
