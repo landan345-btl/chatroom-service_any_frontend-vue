@@ -1,6 +1,6 @@
 .analysis {
   background-color: #ffffff;
-  .top {
+  > .top {
     padding: 1.6vmin 2vmin 1.6vmin 2vmin;
   }
   .line {
@@ -9,24 +9,25 @@
   .title {
     font-size: 2vmin;
   }
+  .icon {
+    width: 6vmin;
+    img {
+      width: 100%;
+    }
+  }
   .more {
     font-size: 1vmin;
     right: 2vmin;
     color: #999999;
   }
-  .messages {
-    padding: 2vmin 2vmin 2vmin 2vmin;
+  .lotteries {
+    padding: 1.6vmin 2vmin 1.6vmin 2vmin;
   }
-  .message {
-    font-size: 1.6vmin;
-    color: #666666;
-    line-height: 2;
-    white-space: nowrap; 
-    overflow: hidden;
-    text-overflow: ellipsis;
-    @media screen and (max-width: 1199.98px) {
-      font-size: 1vmin;
-    }
+  .list li {
+    display: inline-block;
+  }
+  .list li:nth-child(n+1) {
+    margin-left: 1vmin;
   }
   .more:hover, .message:hover {
     color: #f9982e;

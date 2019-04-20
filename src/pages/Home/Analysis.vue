@@ -8,18 +8,37 @@
     </div>
     <div class="lotteries">
       <div class="lottery">
-        <div class="head">
-          <div class="icon">
-            <img src="" />
-          </div>
-          <div class="title">
-          </div>
+        <div class="top">
+          <span class="icon d-inline-block align-middle">
+            <img src="@/assets/images/BJPK10-md.png" />
+          </span>
+          <span class="title align-middle">
+            北京PK10
+          </span>
         </div>
         <div class="trend">
-          <font-awesome-icon icon="chart-line" class="d-inline-block"/>
+          <div class="top">          
+            <font-awesome-icon icon="chart-line" class="d-inline-block color-deepskyblue"/>
+            <span>走势</span>
+          </div>
+          <ul class="middle list">
+            <li>冠亚和走势</li>
+            <li>位置走势势</li>
+            <li>号码走势</li>
+          </ul>
         </div>
         <div class="candlestick">
-          <font-awesome-icon icon="search-dollar" class="d-inline-block"/>
+          <div class="top">
+            <font-awesome-icon icon="search-dollar" class="d-inline-block color-red"/>
+            <span>遗漏</span>
+          </div>
+          <ul class="middle list">
+            <li>综合分析</li>
+            <li>定位走势</li>
+            <li>第二球走势</li>
+            <li>第三球走势</li>
+            <li>第四球走势</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -33,7 +52,7 @@
 <script lang="ts">
 import { Component, Watch, Vue } from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
-
+import LOTTERIES from '@/CONFIGS/LOTTERIES';
 import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
 

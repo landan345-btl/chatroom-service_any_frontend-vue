@@ -34,6 +34,10 @@ a {
   display: flex;
 }
 
+.align-middle {
+  vertical-align: middle;
+}
+
 .position-relative {
   position: relative;
 }
@@ -42,6 +46,14 @@ a {
 }
 .color-white {
   color: white;
+}
+
+.color-deepskyblue {
+  color: DeepSkyBlue ;
+}
+
+.color-red {
+  color: red;
 }
 
 .font-weight-bold {
