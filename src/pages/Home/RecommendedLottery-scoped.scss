@@ -7,7 +7,7 @@
       font-size: 2vmin;
     }
     div {
-      font-size: 1vmin;
+      font-size: 0.6vmin;
       span {
         margin: 0 0.4vmin 0 0.4vmin;
       }
@@ -27,7 +27,11 @@
     width: 30%;
     .icon img{
       width: 50px;
+      @media screen and (max-width: 991.98px) {
+        width: 4vmin;
+      }
     }
+
     .name {
       margin-top: 0.6vmin;
       font-size: 1vmin;

@@ -3,7 +3,7 @@
     <div class="title">
       <div class="font-weight-bold">推荐采种</div>
       <div class="mt-1">
-        <span class="line"></span>RECOMMENDED LOTTERY<span class="line"></span>
+        <span class="line"></span><span class="subtile">RECOMMENDED LOTTERY</span><span class="line"></span>
       </div>
     </div>
     <div class="lotteries">

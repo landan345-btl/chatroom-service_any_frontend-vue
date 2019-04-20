@@ -8,6 +8,11 @@
   .title {
     font-size: 2vmin;
   }
+  .more {
+    font-size: 1vmin;
+    right: 0;
+    color: #999999;
+  }
   .message {
     font-size: 1vmin;
     color: #666666;
@@ -16,7 +21,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .message:hover {
+  .more:hover, .message:hover {
     color: #f9982e;
   }
 }

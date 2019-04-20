@@ -1,8 +1,8 @@
 <template>
   <div class="prediction">
-    <div>
+    <div class="position-relative">
       <span class="title font-weight-bold">方案预测</span>
-      <span class="more">更多</span>
+      <span class="more position-absolute">更多</span>
     </div>
     <div class="line">
 
