@@ -1,7 +1,6 @@
 <template>
   <div class="block">
-    <span class="demonstration">默认 Hover 指示器触发</span>
-    <el-carousel height="150px">
+    <el-carousel>
       <el-carousel-item v-for="iNumber in 3" :key="iNumber" >
         <img :src="require(`@/assets/images/banner-` + `1` + `.jpg`)" />
       </el-carousel-item>
@@ -17,9 +16,9 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component({
-  name: 'ESelect',
+  name: 'ECarousel',
 })
-class ESelect extends Vue {
+class ECarousel extends Vue {
   @Prop({ default: null })
   public options: any = [{
     value: '选项1',
@@ -38,6 +37,6 @@ class ESelect extends Vue {
     label: '北京烤鸭',
   }];
 }
-export default ESelect;
+export default ECarousel;
 
 </script>
