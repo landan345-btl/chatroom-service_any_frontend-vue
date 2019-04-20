@@ -1,21 +1,22 @@
 <template>
   <div class="advertisment-a">
     <div class="advertisments">
-      <div class="advertisment d-inline-block">
+
+      <router-link class="advertisment d-inline-block" :to="{ path: '/plan', query: { code: 'PK10' }}">
         <img src="@/assets/images/advertisment-pk10.png"/>
-      </div>
-      <div class="advertisment  d-inline-block">
+      </router-link>
+      <router-link class="advertisment d-inline-block" :to="{ path: '/plan', query: { code: 'CCS' }}">
         <img src="@/assets/images/advertisment-ccs.png"/>
-      </div>
-      <div class="advertisment  d-inline-block">
+      </router-link>
+      <router-link class="advertisment d-inline-block" :to="{ path: '/plan', query: { code: '11X5' }}">
         <img src="@/assets/images/advertisment-11x5.png"/>
-      </div>
-      <div class="advertisment  d-inline-block">
+      </router-link>
+      <router-link class="advertisment d-inline-block" :to="{ path: '/plan', query: { code: 'K3' }}">
         <img src="@/assets/images/advertisment-k3.png"/>
-      </div>
-      <div class="advertisment  d-inline-block">
+      </router-link>
+      <router-link class="advertisment d-inline-block" :to="{ path: '/plan', query: { code: 'PCDD' }}">
         <img src="@/assets/images/advertisment-pcdd.png"/>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
