@@ -7,13 +7,13 @@
     <div class="line">
     </div>
     <div class="lotteries">
-      <div class="lottery">
+      <div class="lottery" v-if="iIndex <= 1" v-for="(oLottery, sCode, iIndex) in lotteries" :key="sCode">
         <div class="top">
           <span class="icon d-inline-block align-middle">
-            <img src="@/assets/images/BJPK10-md.png" />
+            <img :src="require(`@/assets/images/` + `${sCode}` + `-md.png`)"  />
           </span>
           <span class="title align-middle">
-            北京PK10
+            {{oLottery.name}}
           </span>
         </div>
         <div class="line">
@@ -24,9 +24,15 @@
             <span>&nbsp;走势</span>
           </div>
           <ul class="middle list">
-            <li>冠亚和走势</li>
-            <li>位置走势</li>
-            <li>号码走势</li>
+            <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 1 }}">
+              <li>冠亚和走势</li>
+            </router-link>
+            <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 2 }}">
+              <li>位置走势</li>
+            </router-link>
+            <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 3 }}">
+              <li>号码走势</li>
+            </router-link>
           </ul>
         </div>
         <div class="line">
@@ -37,15 +43,28 @@
             <span>&nbsp;遗漏</span>
           </div>
           <ul class="middle list">
-            <li>综合分析</li>
-            <li>定位走势</li>
-            <li>第二球走势</li>
-            <br/>
-            <li>第三球走势</li>
-            <li>第四球走势</li>
+            <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 4 }}">
+              <li>综合分析</li>
+            </router-link>
+            <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 5 }}">
+              <li>定位走势</li>
+            </router-link>
+            <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 6 }}">
+              <li>第二球走势</li>
+            </router-link>
+            <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 7 }}">
+              <li>第三球走势</li>
+            </router-link>
+            <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 8 }}">
+              <li>第四球走势</li>
+            </router-link>
+              <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 9 }}">
+              <li>综合分析</li>
+            </router-link>
           </ul>
         </div>
       </div>
+      <div class="line"></div>
     </div>
   </div>
 </template>
@@ -55,7 +74,7 @@
 </style>
 
 <script lang="ts">
-import { Component, Watch, Vue } from 'vue-property-decorator';
+import { Component, Watch, Vue, Prop } from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
 import LOTTERIES from '@/CONFIGS/LOTTERIES';
 import AxiosHelper from '@/Helpers/Axios';
@@ -67,6 +86,8 @@ let oAxiosHelper = new AxiosHelper();
   },
 })
 class Prediction extends Vue {
+  @Prop()
+  public lotteries: object = {};
   public messages: string[] = [
     '山西11选5号码推荐4月19日上午',
     '辽宁11选5号码推荐4月19日上午',
@@ -82,7 +103,6 @@ class Prediction extends Vue {
     let $root: any = this.$root;
 
   }
-
 
 
 }

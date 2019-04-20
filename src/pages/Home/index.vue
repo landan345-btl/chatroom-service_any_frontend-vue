@@ -11,11 +11,11 @@
       </el-col>
       <el-col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 5}">
         <aside>
-          <Recommended-lottery v-bind:lotteries="recommendedLotteries"/>
+          <Recommended-lottery v-bind:lotteries="lotteries"/>
           <Advertisment-a />
           <Prediction />
           <Advertisment-b />
-          <Analysis />
+          <Analysis v-bind:lotteries="lotteries"/>
         </aside>
       </el-col>
     </el-row>
@@ -141,7 +141,7 @@ class Home extends Vue {
     return $root.showedOtherLottery;
   }
 
-  public get recommendedLotteries(): object {
+  public get lotteries(): object {
     let oLotteries: any = this.$store.state.lotteries;
     let _oLotteries: {} = {};
     let iLotteryId: string;

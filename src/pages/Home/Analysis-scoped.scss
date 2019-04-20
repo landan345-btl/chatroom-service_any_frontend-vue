@@ -10,7 +10,7 @@
     font-size: 2vmin;
   }
   .icon {
-    width: 6vmin;
+    width: 5vmin;
     img {
       width: 100%;
     }
@@ -20,13 +20,12 @@
     right: 2vmin;
     color: #999999;
   }
-  .lotteries {
+  .lottery {
     padding: 1.6vmin 2vmin 1.6vmin 2vmin;
   }
-
   .lottery .top, .lottery .trend, .lottery .candlestick {
-    margin-bottom: 2vmin; 
-    margin-top: 2vmin;
+    margin-bottom: 1.6vmin; 
+    margin-top: 1.6vmin;
   }
 
   .lottery .trend .top *, .lottery .candlestick .top *{
