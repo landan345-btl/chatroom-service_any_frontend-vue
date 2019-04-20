@@ -1,6 +1,6 @@
 <template>
   <div class="analysis">
-    <div class="position-relative">
+    <div class="head position-relative">
       <span class="title font-weight-bold">分析工具</span>
       <span class="more position-absolute">更多</span>
     </div>
@@ -27,11 +27,11 @@ import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
 
 @Component({
-  name: 'Analysis',
+  name: 'Prediction',
   components: {
   },
 })
-class Analysis extends Vue {
+class Prediction extends Vue {
   public messages: string[] = [
     '山西11选5号码推荐4月19日上午',
     '辽宁11选5号码推荐4月19日上午',
@@ -52,5 +52,5 @@ class Analysis extends Vue {
 
 }
 
-export default Analysis;
+export default Prediction;
 </script>

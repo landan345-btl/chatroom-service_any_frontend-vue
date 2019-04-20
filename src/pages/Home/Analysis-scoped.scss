@@ -1,8 +1,9 @@
 .analysis {
   background-color: #ffffff;
-  padding: 2vmin 2vmin 2vmin 2vmin;
+  .head {
+    padding: 1.6vmin 2vmin 1.6vmin 2vmin;
+  }
   .line {
-    margin: 1vmin 0 2vmin 0;
     border-bottom: 1px solid #eeeeee;
   }
   .title {
@@ -10,8 +11,11 @@
   }
   .more {
     font-size: 1vmin;
-    right: 0;
+    right: 2vmin;
     color: #999999;
+  }
+  .messages {
+    padding: 2vmin 2vmin 2vmin 2vmin;
   }
   .message {
     font-size: 1.6vmin;
