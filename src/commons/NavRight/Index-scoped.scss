@@ -26,10 +26,8 @@ nav {
   .app-icon {
     background: #fff url('~@/assets/images/nav-right.png') no-repeat 0 -162px;
   }
-}
 
-@media screen and (max-width: 766.98px) {
-  nav {
-    margin-left: -10vmin;
+  @media screen and (max-width: 766.98px) {
+    right: 80px;
   }
 }
