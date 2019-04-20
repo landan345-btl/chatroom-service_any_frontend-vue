@@ -1,0 +1,16 @@
+.advertisment-a{
+  .advertisment:nth-child(1) {
+    width: 100%;
+  }
+  .advertisment img {
+    width: 100%;
+  }
+
+  .advertisment:nth-child(2n + 3) {
+    margin-left: 4%;
+  }
+  .advertisment {
+    width: 48%;
+    margin-bottom: 2%;
+  }
+}

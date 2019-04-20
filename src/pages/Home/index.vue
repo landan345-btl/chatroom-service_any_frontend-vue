@@ -12,6 +12,7 @@
       <el-col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 5}">
         <aside>
           <Recommended-lottery v-bind:lotteries="recommendedLotteries"/>
+          <Advertisment-a />
         </aside>
       </el-col>
     </el-row>
@@ -35,6 +36,7 @@ import Footer from '@/Commons/Footer/Index.vue';
 import ERadio from '@/Components/ERadio/Index.vue';
 import ESelect from '@/Components/ESelect/Index.vue';
 import RecommendedLottery from './RecommendedLottery.vue';
+import AdvertismentA from './AdvertismentA.vue';
 
 import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
@@ -51,6 +53,7 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/';
     ERadio,
     ESelect,
     RecommendedLottery,
+    AdvertismentA,
   },
 })
 class Home extends Vue {
