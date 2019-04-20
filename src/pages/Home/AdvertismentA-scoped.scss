@@ -9,6 +9,10 @@
   .advertisment:nth-child(2n + 3) {
     margin-left: 4%;
   }
+
+  .advertisment:nth-last-child(1), .advertisment:nth-last-child(2) {
+    margin-bottom: 0;
+  }
   .advertisment {
     width: 48%;
     margin-bottom: 3%;

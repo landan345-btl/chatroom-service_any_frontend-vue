@@ -13,6 +13,7 @@
         <aside>
           <Recommended-lottery v-bind:lotteries="recommendedLotteries"/>
           <Advertisment-a />
+          <Prediction />
         </aside>
       </el-col>
     </el-row>
@@ -37,6 +38,7 @@ import ERadio from '@/Components/ERadio/Index.vue';
 import ESelect from '@/Components/ESelect/Index.vue';
 import RecommendedLottery from './RecommendedLottery.vue';
 import AdvertismentA from './AdvertismentA.vue';
+import Prediction from './Prediction.vue';
 
 import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
@@ -54,6 +56,7 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/';
     ESelect,
     RecommendedLottery,
     AdvertismentA,
+    Prediction,
   },
 })
 class Home extends Vue {

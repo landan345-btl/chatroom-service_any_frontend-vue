@@ -1,24 +1,18 @@
 <template>
-  <div class="">
-    <Header />
-    <Nav />
-    <el-row :gutter="0">
-      <el-col :xs="{span: 22, offset: 1}" :sm="{span: 15, offset: 2}" :md="{span: 12, offset: 3}" :lg="{span: 11, offset: 4}">
-        <main class="home">
-          MAIN
-        </main>
-      </el-col>
-      <el-col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 5}">
-        <aside>
-          ASIDE
-        </aside>
-      </el-col>
-    </el-row>
-
-    <Footer />
+  <div class="prediction">
+    <div>
+      <span class="title">方案预测</span>
+      <span class="more">更多</span>
+    </div>
+    <div class="messages">
+      <p class="message" v-for="(sMessage, iIndex) in messages" :key=iIndex>
+        {{ sMessage }}
+      </p>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">
+@import 'Prediction-scoped.scss';
 
 </style>
 
@@ -26,36 +20,33 @@
 import { Component, Watch, Vue } from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
 
-import Header from '@/Commons/Header/Index.vue';
-import Nav from '@/Commons/Nav/Index.vue';
-import Footer from '@/Commons/Footer/Index.vue';
-import ERadio from '@/Components/ERadio/Index.vue';
-import ESelect from '@/Components/ESelect/Index.vue';
-
 import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
 
 @Component({
-  name: 'Home',
+  name: 'Prediction',
   components: {
-    Header,
-    Nav,
-    Footer,
-    ERadio,
-    ESelect,
   },
 })
-class Home extends Vue {
-  public sImage = 'CQSSC';
+class Prediction extends Vue {
   public created(): void {
     let $root: any = this.$root;
-    let oRequest: {} = {
-      path: '/lottery/show',
-      params: {},
-    };
+
   }
+
+  public messages: string[] = [
+    '山西11选5号码推荐4月19日上午',
+    '辽宁11选5号码推荐4月19日上午',
+    '吉林11选5号码推荐4月19日上午',
+    '安徽快三出号分析对子11转热 4月18日',
+    '吉林快三出号分析对子11转热 4月18日',
+    '江西快三出号分析对子22转热 4月18日',
+    '广东11选5号码推荐4月17日下午',
+    '浙江11选5号码推荐4月17日下午',
+    '湖北11选5号码推荐4月17日上午',
+  ];
 
 }
 
-export default Home;
+export default Prediction;
 </script>
