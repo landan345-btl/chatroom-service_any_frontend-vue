@@ -14,6 +14,7 @@
           <Recommended-lottery v-bind:lotteries="recommendedLotteries"/>
           <Advertisment-a />
           <Prediction />
+          <Advertisment-b />
         </aside>
       </el-col>
     </el-row>
@@ -39,6 +40,7 @@ import ESelect from '@/Components/ESelect/Index.vue';
 import RecommendedLottery from './RecommendedLottery.vue';
 import AdvertismentA from './AdvertismentA.vue';
 import Prediction from './Prediction.vue';
+import AdvertismentB from './AdvertismentB.vue';
 
 import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
@@ -57,6 +59,7 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/';
     RecommendedLottery,
     AdvertismentA,
     Prediction,
+    AdvertismentB,
   },
 })
 class Home extends Vue {
