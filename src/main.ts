@@ -9,12 +9,12 @@ import oStore from '@/store/index';
 
 import '@/registerServiceWorker';
 
-import { 
-  faTrophy, 
-  faInfoCircle, 
-  faServer, 
-  faUsers, 
-  faChartLine, 
+import {
+  faTrophy,
+  faInfoCircle,
+  faServer,
+  faUsers,
+  faChartLine,
   faSearchDollar,
 } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';

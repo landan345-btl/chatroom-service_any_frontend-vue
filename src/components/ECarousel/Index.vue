@@ -1,6 +1,6 @@
 <template>
   <div class="block">
-    <el-carousel>
+    <el-carousel height="300px">
       <el-carousel-item v-for="iNumber in 3" :key="iNumber" >
         <img :src="require(`@/assets/images/banner-` + `1` + `.jpg`)" />
       </el-carousel-item>
