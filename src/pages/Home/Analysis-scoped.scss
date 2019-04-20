@@ -1,9 +1,8 @@
-.prediction {
+.analysis {
   background-color: #ffffff;
-  .head {
-    padding: 1.6vmin 2vmin 1.6vmin 2vmin;
-  }
+  padding: 2vmin 2vmin 2vmin 2vmin;
   .line {
+    margin: 1vmin 0 2vmin 0;
     border-bottom: 1px solid #eeeeee;
   }
   .title {
@@ -11,11 +10,8 @@
   }
   .more {
     font-size: 1vmin;
-    right: 2vmin;
+    right: 0;
     color: #999999;
-  }
-  .messages {
-    padding: 2vmin 2vmin 2vmin 2vmin;
   }
   .message {
     font-size: 1.6vmin;

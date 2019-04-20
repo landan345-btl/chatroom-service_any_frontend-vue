@@ -15,6 +15,7 @@
           <Advertisment-a />
           <Prediction />
           <Advertisment-b />
+          <Analysis />
         </aside>
       </el-col>
     </el-row>
@@ -41,6 +42,7 @@ import RecommendedLottery from './RecommendedLottery.vue';
 import AdvertismentA from './AdvertismentA.vue';
 import Prediction from './Prediction.vue';
 import AdvertismentB from './AdvertismentB.vue';
+import Analysis from './Analysis.vue';
 
 import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
@@ -60,6 +62,7 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/';
     AdvertismentA,
     Prediction,
     AdvertismentB,
+    Analysis,
   },
 })
 class Home extends Vue {
