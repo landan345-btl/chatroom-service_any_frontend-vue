@@ -1,7 +1,7 @@
 <template>
   <div class="live">
     <span class="left d-inline-block">
-      <E-carousel v-bind:images="images"/>
+      <!-- <E-carousel v-bind:images="images"/> -->
     </span>
     <span class="right d-inline-block align-top">
       <div class="top position-relative">
@@ -26,7 +26,7 @@
 <script lang="ts">
 import { Component, Watch, Vue } from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
-import ECarousel from '@/Components/ECarousel/Index.vue';
+// import ECarousel from '@/Components/ECarousel/Index.vue';
 
 import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
@@ -34,7 +34,7 @@ let oAxiosHelper = new AxiosHelper();
 @Component({
   name: 'Live',
   components: {
-    ECarousel,
+    // ECarousel,
   },
 })
 class Live extends Vue {
@@ -55,5 +55,5 @@ class Live extends Vue {
   ];
 }
 
-export default Lottery;
+export default Live;
 </script>
