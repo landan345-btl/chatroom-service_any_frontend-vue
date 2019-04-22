@@ -1,9 +1,6 @@
 <template>
   <div class="lottery">
-    <div class="title">
-      <p>推荐采种</p>
-      <p>RECOMMEND LOTTERY</p>
-    </div>
+    <E-tabs/>
   </div>
 </template>
 <style scoped lang="scss">
@@ -14,6 +11,7 @@
 <script lang="ts">
 import { Component, Watch, Vue } from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
+import ETabs from '@/Components/ETabs/Index.vue';
 
 import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
@@ -21,6 +19,7 @@ let oAxiosHelper = new AxiosHelper();
 @Component({
   name: 'Lottery',
   components: {
+    ETabs,
   },
 })
 class Lottery extends Vue {

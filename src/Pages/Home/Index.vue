@@ -8,6 +8,7 @@
         <main>
           <News />
           <Live />
+          <Lottery />
         </main>
       </el-col>
       <el-col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 5}">
@@ -43,6 +44,7 @@ import ERadio from '@/Components/ERadio/Index.vue';
 import ESelect from '@/Components/ESelect/Index.vue';
 import News from './News.vue';
 import Live from './Live.vue';
+import Lottery from './Lottery.vue';
 import RecommendedLottery from './RecommendedLottery.vue';
 import AdvertismentA from './AdvertismentA.vue';
 import Prediction from './Prediction.vue';
@@ -65,6 +67,7 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/';
     ESelect,
     News,
     Live,
+    Lottery,
     RecommendedLottery,
     AdvertismentA,
     Prediction,
