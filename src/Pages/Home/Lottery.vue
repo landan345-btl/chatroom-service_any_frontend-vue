@@ -1,6 +1,6 @@
 <template>
   <div class="lottery">
-    <E-tabs/>
+    <E-tabs />
   </div>
 </template>
 <style scoped lang="scss">
