@@ -1,0 +1,10 @@
+.el-menu--horizontal .el-menu .el-menu-item, 
+.el-menu--horizontal .el-menu .el-submenu__title {
+  color: #909399;
+}
+
+.el-menu--horizontal .el-menu .el-menu-item:hover, 
+.el-menu--horizontal .el-menu .el-submenu__title:hover {
+  background: #eb7100;
+  color: #ffffff;
+}

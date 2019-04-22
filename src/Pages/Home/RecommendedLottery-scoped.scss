@@ -1,0 +1,44 @@
+.recommended-lottery {
+  padding: 2vmin 1vmin 2vmin 1vmin;
+  background-image: linear-gradient(#ffffff 0%,#ffffff 75%, #dddddd 100%);
+  .title {
+    margin-bottom: 2.4vmin;
+    div:first-child {
+      font-size: 2vmin;
+    }
+    div {
+      font-size: 0.6vmin;
+      span {
+        margin: 0 0.4vmin 0 0.4vmin;
+      }
+    }
+    div:nth-child(2) {
+      color: #999999;
+    }
+    .line {
+      display: inline-block;
+      width: 20px;
+      border-bottom: 1px solid #dddddd;
+      margin-bottom: 0.4vmin;
+    }
+  }
+  .lottery {
+    margin-bottom: 2.5vmin;
+    width: 30%;
+    .icon img{
+      width: 5vmin;
+      @media screen and (max-width: 991.98px) {
+        width: 4vmin;
+      }
+    }
+
+    .name {
+      margin-top: 0.6vmin;
+      font-size: 1vmin;
+      color: #000000;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

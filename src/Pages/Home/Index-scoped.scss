@@ -1,0 +1,13 @@
+.home {
+  background: #f0f0f0;
+  main, aside > *:nth-child(n+2) {
+    margin-top: 2vmin;
+  }
+  main, aside {
+    margin-top: 2vmin;
+    margin-bottom: 2vmin;
+  }
+  aside {
+    margin-left: 2vmin;
+  }
+}
