@@ -1,7 +1,10 @@
 <template>
   <div class="live">
     <div class="lotteries"> 
-      <img :src="require(`@/` + `${sImage}`)" class="lottery" v-for="(sImage, iIndex) in images" :key="iIndex"/>
+      <span class="lottery d-inline-block" v-for="(sImage, iIndex) in images" :key="iIndex">
+        <img :src="require(`@/` + `${sImage}`)"/>
+        <div class="content text-center mt-1">倒数 03:01</div>
+      </span>
     </div>
   </div>
 </template>

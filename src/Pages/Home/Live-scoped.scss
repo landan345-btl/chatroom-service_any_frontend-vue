@@ -1,9 +1,11 @@
 .live {
-  padding: 2vmin 2vmin 2vmin 2vmin;
+  padding: 2vmin 2vmin 1.6vmin 2vmin;
   background-color: #ffffff;
   border-top: 2px solid #f0f0f0;
-  height: 110px;
   .lottery:nth-child(n + 2) {
     margin-left: 1.1vmin;
+  }
+  .content {
+    font-size: 1.4vmin;
   }
 }
