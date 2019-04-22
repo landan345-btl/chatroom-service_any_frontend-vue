@@ -1,11 +1,21 @@
-.el-carousel__item h3 {
+.el-carousel__item img {
   color: #475669;
-  font-size: 14px;
+  font-size: 18px;
   opacity: 0.75;
-  line-height: 150px;
+  line-height: 262px;
+  height: 262px;
   margin: 0;
 }
 
-.el-carousel__item:nth-child(2n) {
+.el-carousel__item {
+  line-height: 262px;
+  height: 262px;
+}
+
+/deep/ .el-carousel__container {
+  height: 262px;
+}
+
+.el-carousel__item {
    background-color: #99a9bf;
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="block">
 
-    <el-carousel v-bind:height="height">
+    <el-carousel>
       <el-carousel-item v-for="(sImage, iIndex) in images" :key="iIndex" >
         <!-- @ 要在 reuqire 语句中 -->
         <img :src="require(`@/` + `${sImage}`)" />
