@@ -1,5 +1,5 @@
 <template>
-  <div class="news">
+  <div class="live">
     <span class="left d-inline-block">
       <E-carousel v-bind:images="images"/>
     </span>
@@ -19,7 +19,7 @@
   </div>
 </template>
 <style scoped lang="scss">
-@import 'News-scoped.scss';
+@import 'Live-scoped.scss';
 
 </style>
 
@@ -32,12 +32,12 @@ import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
 
 @Component({
-  name: 'News',
+  name: 'Live',
   components: {
     ECarousel,
   },
 })
-class News extends Vue {
+class Live extends Vue {
   public messages: string[] = [
     '山西11选5号码推荐4月19日上午',
     '辽宁11选5号码推荐4月19日上午',
@@ -55,5 +55,5 @@ class News extends Vue {
   ];
 }
 
-export default News;
+export default Lottery;
 </script>

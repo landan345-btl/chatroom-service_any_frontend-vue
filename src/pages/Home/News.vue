@@ -32,12 +32,12 @@ import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
 
 @Component({
-  name: 'Lottery',
+  name: 'News',
   components: {
     ECarousel,
   },
 })
-class Lottery extends Vue {
+class News extends Vue {
   public messages: string[] = [
     '山西11选5号码推荐4月19日上午',
     '辽宁11选5号码推荐4月19日上午',
@@ -55,5 +55,5 @@ class Lottery extends Vue {
   ];
 }
 
-export default Lottery;
+export default News;
 </script>
