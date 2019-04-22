@@ -3,7 +3,8 @@
     <el-carousel>
       <el-carousel-item v-for="(sImage, iIndex) in images" :key="iIndex" >
         <!-- @ 要在 reuqire 语句中 -->
-        <img :src="require(`@/` + `${sImage}`)" />
+        <img :src="require(`@/assets/images/banner-default.jpg`)" />
+        <span>{{sImage}}</span>
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -21,7 +22,9 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 })
 class ECarousel extends Vue {
   @Prop()
-  public images!: string[];
+  public images: string[] = [
+    'assets/images/banner-default.jpg',
+  ];
   @Prop()
   public height!: string;
   // @Prop()
