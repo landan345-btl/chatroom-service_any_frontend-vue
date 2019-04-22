@@ -3,12 +3,12 @@
     <span class="left d-inline-block">
       <E-carousel v-bind:images="images"/>
     </span>
-    <span class="right d-inline-block">
+    <span class="right d-inline-block align-top">
       <div class="top position-relative">
         <span class="title font-weight-bold">行业新闻</span>
         <span class="more position-absolute">更多</span>
       </div>
-      <div class="messages" v-for="(sMessage, iIndex) in messages" :key="iIndex">
+      <div class="messages align-top" v-for="(sMessage, iIndex) in messages" :key="iIndex">
         <div class="message">
           {{sMessage}}
         </div>
@@ -46,9 +46,9 @@ class Lottery extends Vue {
   ];
 
   public images: string[] = [
-    '@/assets/images/banner-1.jpg',
-    '@/assets/images/banner-2.jpg',
-    '@/assets/images/banner-3.jpg',
+    'assets/images/banner-1.jpg',
+    'assets/images/banner-2.jpg',
+    'assets/images/banner-3.jpg',
   ];
 }
 

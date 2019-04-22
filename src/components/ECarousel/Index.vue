@@ -1,10 +1,10 @@
 <template>
   <div class="block">
 
-    <el-carousel height="300px">
+    <el-carousel v-bind:height="height">
       <el-carousel-item v-for="(sImage, iIndex) in images" :key="iIndex" >
-        <img :src="require(`${sImage}`)" />
-              {{sImage}}
+        <!-- @ 要在 reuqire 语句中 -->
+        <img :src="require(`@/` + `${sImage}`)" />
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -22,7 +22,9 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 })
 class ECarousel extends Vue {
   @Prop()
-  public images: any;
+  public images!: string[];
+  @Prop()
+  public height!: string;
 }
 export default ECarousel;
 
