@@ -11,7 +11,7 @@
 <script lang="ts">
 import { Component, Watch, Vue } from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
-// import ECarousel from '@/Components/ECarousel/Index.vue';
+import ECarousel from '@/Components/ECarousel/Index.vue';
 
 import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
@@ -19,15 +19,19 @@ let oAxiosHelper = new AxiosHelper();
 @Component({
   name: 'Live',
   components: {
-    // ECarousel,
+    ECarousel,
   },
 })
 class Live extends Vue {
 
   public images: string[] = [
-    'assets/images/banner-1.jpg',
-    'assets/images/banner-2.jpg',
-    'assets/images/banner-3.jpg',
+    'assets/images/live-CQKLSF.jpg',
+    'assets/images/live-FC3D.jpg',
+    'assets/images/live-GSKLSF.png',
+    'assets/images/live-K3.png',
+    'assets/images/live-PK10.png',
+    'assets/images/live-TJKSF.jpg',
+    'assets/images/live-SD11X5.png',
   ];
 }
 
