@@ -7,6 +7,7 @@
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 15, offset: 2}" :md="{span: 12, offset: 3}" :lg="{span: 11, offset: 4}">
         <main>
           <News />
+          <Live />
         </main>
       </el-col>
       <el-col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 5}">
@@ -41,6 +42,7 @@ import Footer from '@/Commons/Footer/Index.vue';
 import ERadio from '@/Components/ERadio/Index.vue';
 import ESelect from '@/Components/ESelect/Index.vue';
 import News from './News.vue';
+import Live from './Live.vue';
 import RecommendedLottery from './RecommendedLottery.vue';
 import AdvertismentA from './AdvertismentA.vue';
 import Prediction from './Prediction.vue';
@@ -62,6 +64,7 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/';
     ERadio,
     ESelect,
     News,
+    Live,
     RecommendedLottery,
     AdvertismentA,
     Prediction,
