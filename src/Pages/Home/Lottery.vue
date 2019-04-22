@@ -2,7 +2,19 @@
   <div class="lottery">
     <E-tabs>
       <el-tab-pane label="热门彩">
-        热门彩
+        <div class="lotteries">
+          <div class="lottery">
+            <div class="top">
+
+            </div>
+            <div class="middle">
+              
+            </div>
+            <div class="bottom">
+              
+            </div>
+          </div>
+        </div>
       </el-tab-pane>
       <el-tab-pane label="PK10">
         PK10
