@@ -1,11 +1,30 @@
 .news {
+  padding: 2vmin 2vmin 2vmin 2vmin;
   background-color: #ffffff;
   .left {
     width: 492px;
     // height: 260px;
   }
   .right{
-    // width: 40%
-    // height: 260px;
+    margin-left: 2vmin;
+    width: calc(100% - 6vmin - 454px);
+  }
+  .title {
+    font-size: 2vmin;
+  }
+
+  .more {
+    font-size: 1vmin;
+    right: 2vmin;
+    color: #999999;
+  }
+  .messages {
+    .message {
+      line-height: 2;
+    }
+  }
+  .line {
+    margin: 1vmin 0 1vmin 0; 
+    border-bottom: 1px solid #eeeeee;
   }
 }

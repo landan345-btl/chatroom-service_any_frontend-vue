@@ -8,6 +8,8 @@
         <span class="title font-weight-bold">行业新闻</span>
         <span class="more position-absolute">更多</span>
       </div>
+      <div class="line">
+      </div>
       <div class="messages align-top" v-for="(sMessage, iIndex) in messages" :key="iIndex">
         <div class="message">
           {{sMessage}}
@@ -43,6 +45,7 @@ class Lottery extends Vue {
     '安徽快三出号分析对子11转热 4月18日',
     '吉林快三出号分析对子11转热 4月18日',
     '江西快三出号分析对子22转热 4月18日',
+    '湖北11选5号码推荐4月17日上午',
   ];
 
   public images: string[] = [
