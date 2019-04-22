@@ -1,6 +1,8 @@
 <template>
   <div class="live">
-    <E-carousel v-bind:images="images"/>
+    <div class="lotteries"> 
+      <img :src="require(`@/` + `${sImage}`)" class="lottery" v-for="(sImage, iIndex) in images" :key="iIndex"/>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">
@@ -30,8 +32,8 @@ class Live extends Vue {
     'assets/images/live-GSKLSF.png',
     'assets/images/live-K3.png',
     'assets/images/live-PK10.png',
-    'assets/images/live-TJKSF.jpg',
-    'assets/images/live-SD11X5.png',
+    // 'assets/images/live-TJKSF.jpg',
+    // 'assets/images/live-SD11X5.png',
   ];
 }
 
