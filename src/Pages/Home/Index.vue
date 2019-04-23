@@ -199,7 +199,9 @@ class Home extends Vue {
           let nextTime = 0;
           aRangeTimes.forEach((oRangeTime: any) => {
             let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.started_time).getTime();
-            let iEndedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime() < iStartedTime ? new Date(iFullYear + '-' + iMonth + '-' + (iDate + 1) + ' ' +  oRangeTime.ended_time).getTime() : new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime();
+            let iEndedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime() < iStartedTime
+                           ? new Date(iFullYear + '-' + iMonth + '-' + (iDate + 1) + ' ' +  oRangeTime.ended_time).getTime()
+                           : new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime();
             if (iNowTime >= iStartedTime && iNowTime <= iEndedTime) {
               let iDifferentTime = (iNowTime - iStartedTime) / 1000;
               nextTime = Math.floor(iDifferentTime % oLottery.interval_time);
@@ -218,7 +220,7 @@ class Home extends Vue {
           };
           let __oLotteryIssues = {
             [sLotteryIssueId]: _oLotteryIssue,
-          }
+          };
           _oLotteryIssues = Object.assign(_oLotteryIssues, __oLotteryIssues);
 
         }
