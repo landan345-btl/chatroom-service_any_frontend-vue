@@ -31,8 +31,19 @@
                 <ChenCountdown />
               </span>
             </div>
-            <div class="middle">
-              
+            <div class="middle mb-2" >
+              <E-table :data="[19, '单', '小', '虎', '对子', '豹子', '对子']">
+                <el-table-column prop="date" label="总和">
+                </el-table-column>
+                <el-table-column label="龙虎">
+                </el-table-column>
+                <el-table-column label="前三">
+                </el-table-column>
+                <el-table-column label="中三">
+                </el-table-column>
+                <el-table-column label="后三">
+                </el-table-column>
+              </E-table>
             </div>
             <div class="bottom text-right">
               <span>开奖视频</span>
@@ -90,6 +101,7 @@ import { Component, Watch, Vue } from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
 import ETabs from '@/Components/ETabs/Index.vue';
 import ETabPane from '@/Components/ETabPane/Index.vue';
+import ETable from '@/Components/ETable/Index.vue';
 import Numbers from '@/Components/Numbers/Index.vue';
 import ChenCountdown from '@/Components/ChenCountdown/Index.vue';
 
@@ -101,6 +113,7 @@ let oAxiosHelper = new AxiosHelper();
   components: {
     ETabs,
     ETabPane,
+    ETable,
     Numbers,
     ChenCountdown,
   },

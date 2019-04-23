@@ -176,6 +176,10 @@ class Home extends Vue {
     }
     return _oLotteries;
   }
+
+  public beforeDestroy(): void {
+    console.log(181);
+  }
 }
 
 export default Home;

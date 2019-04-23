@@ -1,16 +1,6 @@
 <template>
   <el-table :data="tableData" style="width: 100%">
-    <el-table-column prop="date" label="期号" width="180"> </el-table-column>
-    <el-table-column prop="0" label="0"> </el-table-column>
-    <el-table-column prop="1" label="1"> </el-table-column>
-    <el-table-column prop="2" label="2"> </el-table-column>
-    <el-table-column prop="3" label="3"> </el-table-column>
-    <el-table-column prop="4" label="4"> </el-table-column>
-    <el-table-column prop="5" label="5"> </el-table-column>
-    <el-table-column prop="6" label="6"> </el-table-column>
-    <el-table-column prop="7" label="7"> </el-table-column>
-    <el-table-column prop="8" label="8"> </el-table-column>
-    <el-table-column prop="9" label="9"> </el-table-column>
+    <slot></slot>
   </el-table>
 </template>
 
