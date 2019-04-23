@@ -4,7 +4,7 @@
       <el-tab-pane label="全部">
         <div class="lotteries">
           <div class="lottery">
-            <div class="top">
+            <div class="top position-relative">
               <span class="icon align-middle d-inline-block">
                 <img :src="require(`@/assets/images/` + `CQKLSF-sm.png`)" />
               </span>
@@ -27,14 +27,14 @@
                   <Numbers :code="'CQKLSF'" :numbers="[1,4,5,7,0, 2]"/>
                 </div>
               </span>
-              <span class="countdown d-inline-block align-bottom">
+              <span class="countdown d-inline-block align-bottom position-absolute">
                 <ChenCountdown />
               </span>
             </div>
             <div class="middle">
               
             </div>
-            <div class="bottom">
+            <div class="bottom text-right">
               <span>开奖视频</span>
               <span>路珠分析</span>
               <span>定位走势</span>

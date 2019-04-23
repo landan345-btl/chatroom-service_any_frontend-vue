@@ -1,9 +1,24 @@
 <template>
   <countdown :time="59 * 60 * 1000" class="chen-countdown">
     <template slot-scope="props">
-      <span class="square d-inline-block" v-show="props.days > 0 || props.hours > 0">{{ props.hours }} </span> <span v-show="props.days > 0 || props.hours > 0"> 时 </span>
-      <span class="square d-inline-block">{{ props.minutes }} </span> <span> 分 </span>
-      <span class="square d-inline-block">{{ props.seconds }} </span> <span> 秒 </span>
+      <span class="square d-inline-block align-middle ml-0p5" v-show="props.days > 0 || props.hours > 0">
+        <span class="align-middle">{{ props.hours }} </span> 
+      </span> 
+      <span class="align-middle ml-0p5" v-show="props.days > 0 || props.hours > 0"> 
+        <span class="align-middle ">时 </span> 
+      </span>
+      <span class="square d-inline-block align-middle ml-0p5">
+        <span class="align-middle">{{ props.minutes }} </span> 
+      </span> 
+      <span class="align-middle ml-0p5"> 
+        <span class="align-middle">分 </span> 
+      </span>
+      <span class="square d-inline-block align-middle ml-0p5">
+        <span class="align-middle">{{ props.seconds }} </span> 
+      </span>
+      <span class="align-middle ml-0p5"> 
+        <span class="align-middle">秒</span> 
+      </span>
     </template>
   </countdown>
 </template>

@@ -1,7 +1,7 @@
 <template>
   <div class="numbers">
-    <span class="number" v-for="(iNumber, sKey) in numbers" :key=sKey>
-      {{iNumber}}
+    <span class="number ccs" v-for="(iNumber, sKey) in numbers" :key=sKey>
+      <span>{{iNumber}}</span>
     </span>
   </div>
 </template>

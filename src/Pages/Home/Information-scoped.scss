@@ -21,6 +21,12 @@
     padding: 2vmin 2vmin 2vmin 2vmin;
   }
   .lottery {
+
+
+    .countdown {
+      right: 0vmin;
+      top: 5vmin;
+    }
     .icon {
       width: 9.5vmin;
       img {
@@ -30,6 +36,9 @@
     .name-issue_no-numbers {
       margin-left: 1.6vmin; 
       line-height: 2.2;
+      .top {
+        margin-top: -1vmin; 
+      }
     }
     .name {
       font-size: 2vmin;
@@ -43,10 +52,13 @@
       color: #8c8c8c;
     }
   }
+
   .bottom {
     span:nth-child(n+2) {
       margin-left: 2vmin;
     }
+    color: #666666;
+    font-size: 1.4vmin;
   }
 }
 
