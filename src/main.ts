@@ -6,6 +6,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import App from '@/App.vue';
 import oRouter from '@/routers/index';
 import oStore from '@/store/index';
+import VueCountdown from '@chenfengyuan/vue-countdown';
 
 import '@/registerServiceWorker';
 
@@ -30,6 +31,7 @@ library.add(faChartLine);
 library.add(faSearchDollar);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.component(VueCountdown.name, VueCountdown);
 Vue.use(VueI18n);
 Vue.use(VCharts);
 Vue.use(Element);

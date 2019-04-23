@@ -13,6 +13,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "@chenfengyuan/vue-countdown": "^1.1.2",
     "@vue/cli": "^3.4.0",
     "axios": "^0.18.0",
     "chart.js": "^2.7.3",
