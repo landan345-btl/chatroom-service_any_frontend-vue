@@ -1,8 +1,12 @@
 const LOTTERIES: I_LOTTERIES = {
-  // SGFT: {
-  //   NAME : 'SG飞艇',
-  //   SRC: '@/assets/images/SGFT-md.png',
-  // },
+  MLAFT: {
+    NAME : '幸运飞艇',
+    SRC: '@/assets/images/MLAFT-md.png',
+  },
+  JSAFT: {
+    NAME : '极速飞艇',
+    SRC: '@/assets/images/JSAFT-md.png',
+  },
   BJPK10: {
     NAME: '北京PK10',
     SRC: '@/assets/images/BJPK10-md.png',

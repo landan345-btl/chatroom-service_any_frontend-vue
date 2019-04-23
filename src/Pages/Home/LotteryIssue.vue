@@ -3,7 +3,7 @@
     <E-tabs>
       <el-tab-pane label="全部">
         <div class="lotteries">
-          <div class="lottery" v-for="(oLotteryIssue, iLotteryIssueId) in lotteryIssues" :key="iLotteryIssueId" >
+          <div class="lottery mb-4" v-for="(oLotteryIssue, iLotteryIssueId) in lotteryIssues" :key="iLotteryIssueId" >
             <div class="pseudo">
               <div class="top position-relative">
                 <span class="icon align-middle d-inline-block">
@@ -15,7 +15,7 @@
                       重庆幸运农场
                     </span>
                     <span class="no font-weight-bold">
-                      20190423025
+                      {{ oLotteryIssue.no }}
                     </span>
                     <span class="name font-weight-bold">
                       期
@@ -25,11 +25,11 @@
                     </span>
                   </div>
                   <div class="bottom">
-                    <Numbers :code="'CQKLSF'" :numbers="[1,4,5,7,0, 2]"/>
+                    <Numbers :code="oLotteryIssue.code" :numbers="oLotteryIssue.numbers"/>
                   </div>
                 </span>
                 <span class="countdown d-inline-block align-bottom position-absolute">
-                  <ChenCountdown />
+                  <ChenCountdown :time="oLotteryIssue.next_time * 1000"/>
                 </span>
               </div>
               <div class="middle mb-2" >

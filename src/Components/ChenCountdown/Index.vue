@@ -1,5 +1,5 @@
 <template>
-  <countdown :time="59 * 60 * 1000" class="chen-countdown">
+  <countdown :time="time" class="chen-countdown">
     <template slot-scope="props">
       <span class="square d-inline-block align-middle ml-0p5" v-show="props.days > 0 || props.hours > 0">
         <span class="align-middle">{{ props.hours }} </span> 
@@ -35,7 +35,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 })
 class ChenCountdown extends Vue {
   @Prop()
-  public time: number = 0;
+  public time!: number;
 }
 export default ChenCountdown;
 

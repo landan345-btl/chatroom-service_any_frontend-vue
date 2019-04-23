@@ -189,6 +189,23 @@ class Home extends Vue {
         sLotteryId = oLotteryIssues[sLotteryIssueId].lottery_id;
         if (sLotteryId in oLotteries) {
           let oLottery = oLotteries[sLotteryId];
+          let aRangeTimes = JSON.parse(oLottery.range_times);
+          let iNowTime = new Date().getTime();
+
+          let iFullYear = Number(new Date().getFullYear());
+          let iMonth = Number(new Date().getMonth() + 1);
+          let iDate = Number(new Date().getDate());
+          
+          debugger;
+          let nextTime = 0;
+          aRangeTimes.forEach((oRangeTime: any) => {
+            let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.started_time).getTime();
+            let iEndedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime() < iStartedTime ? new Date(iFullYear + '-' + iMonth + '-' + (iDate + 1) + ' ' +  oRangeTime.ended_time).getTime() : new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime();
+            if (iNowTime >= iStartedTime && iNowTime <= iEndedTime) {
+              let iDifferentTime = (iNowTime - iStartedTime) / 1000;
+              nextTime = Math.floor(iDifferentTime % oLottery.interval_time);
+            }
+          });
           let _oLotteryIssue = {
             date: oLotteryIssues[sLotteryIssueId].date,
             lottery_id: oLotteryIssues[sLotteryIssueId].lottery_id,
@@ -197,6 +214,7 @@ class Home extends Vue {
             no: oLotteryIssues[sLotteryIssueId].no,
             time: oLotteryIssues[sLotteryIssueId].time,
             code: oLottery.code,
+            next_time: nextTime,
           };
           let __oLotteryIssues = {
             [sLotteryIssueId]: _oLotteryIssue,
