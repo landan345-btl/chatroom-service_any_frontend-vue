@@ -3,7 +3,7 @@
     <E-tabs>
       <el-tab-pane label="全部">
         <div class="lotteries">
-          <div class="lottery">
+          <div class="lottery" v-for="(oLotteryIssue, iLotteryIssueId) in lotteryIssues" :key="iLotteryIssueId" >
             <div class="pseudo">
               <div class="top position-relative">
                 <span class="icon align-middle d-inline-block">

@@ -190,7 +190,12 @@ class Home extends Vue {
         if (sLotteryId in oLotteries) {
           let oLottery = oLotteries[sLotteryId];
           let _oLotteryIssue = {
-            ...oLotteryIssues[sLotteryIssueId],
+            date: oLotteryIssues[sLotteryIssueId].date,
+            lottery_id: oLotteryIssues[sLotteryIssueId].lottery_id,
+            lottery_issue_id: oLotteryIssues[sLotteryIssueId].lottery_issue_id,
+            numbers: JSON.parse(oLotteryIssues[sLotteryIssueId].numbers),
+            no: oLotteryIssues[sLotteryIssueId].no,
+            time: oLotteryIssues[sLotteryIssueId].time,
             code: oLottery.code,
           };
           let __oLotteryIssues = {
