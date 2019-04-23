@@ -8,7 +8,7 @@
         <main>
           <News />
           <Live />
-          <Information />
+          <LotteryIssue :lotteryIssues="lotteryIssues" />
         </main>
       </el-col>
       <el-col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 5}">
@@ -44,7 +44,7 @@ import ERadio from '@/Components/ERadio/Index.vue';
 import ESelect from '@/Components/ESelect/Index.vue';
 import News from './News.vue';
 import Live from './Live.vue';
-import Information from './Information.vue';
+import LotteryIssue from './LotteryIssue.vue';
 import RecommendedLottery from './RecommendedLottery.vue';
 import AdvertismentA from './AdvertismentA.vue';
 import Prediction from './Prediction.vue';
@@ -85,7 +85,7 @@ class Home extends Vue {
     };
 
     this.$store.dispatch('LOTTERY_ACTION_SHOW');
-    this.$store.dispatch('ISSUE_ACTION_SHOW', 7);
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', 7);
     // debugger;
     oAxiosHelper.get(oRequest).then((oResponse: any) => {
       // debugger;
@@ -175,6 +175,31 @@ class Home extends Vue {
 
     }
     return _oLotteries;
+  }
+
+    public get lotteryIssues(): object {
+    let oLotteryIssues: any = this.$store.state.lottery_issues;
+    let oLotteries: any = this.$store.state.lotteries;
+    let _oLotteryIssues: {} = {};
+    let sLotteryIssueId: string;
+    let sLotteryId;
+    type sLotteryCode = 'SGFT' | 'BJPK10' | 'JSPK10' | 'PCDD' | 'CQKLSF' | 'JX11X5' | 'SD11X5' | 'JSK3';
+    for (sLotteryIssueId in oLotteryIssues) {
+      if (oLotteryIssues.hasOwnProperty(Number(sLotteryIssueId))) {
+        sLotteryId = oLotteryIssues[sLotteryIssueId].lottery_id;
+        if (sLotteryId in oLotteries) {
+          let oLottery = oLotteries[sLotteryId];
+          let _oLotteryIssue = {
+            ...oLotteryIssues[sLotteryIssueId],
+            code: oLottery.code,
+          }
+          _oLotteryIssues = Object.assign(_oLotteryIssues, _oLotteryIssue);
+
+        }
+      }
+
+    }
+    return _oLotteryIssues;
   }
 
   public beforeDestroy(): void {
