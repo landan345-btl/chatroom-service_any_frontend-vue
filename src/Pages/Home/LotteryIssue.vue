@@ -134,7 +134,7 @@ let oAxiosHelper = new AxiosHelper();
     ChenCountdown,
   },
 })
-class Information extends Vue {
+class LotteryIssue extends Vue {
   @Prop()
   public lotteryIssues: object = {};
 }

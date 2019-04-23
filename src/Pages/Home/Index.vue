@@ -67,7 +67,7 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/';
     ESelect,
     News,
     Live,
-    Information,
+    LotteryIssue,
     RecommendedLottery,
     AdvertismentA,
     Prediction,
@@ -192,8 +192,11 @@ class Home extends Vue {
           let _oLotteryIssue = {
             ...oLotteryIssues[sLotteryIssueId],
             code: oLottery.code,
+          };
+          let __oLotteryIssues = {
+            [sLotteryIssueId]: _oLotteryIssue,
           }
-          _oLotteryIssues = Object.assign(_oLotteryIssues, _oLotteryIssue);
+          _oLotteryIssues = Object.assign(_oLotteryIssues, __oLotteryIssues);
 
         }
       }
