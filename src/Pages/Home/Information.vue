@@ -32,16 +32,20 @@
               </span>
             </div>
             <div class="middle mb-2" >
-              <E-table :data="[19, '单', '小', '虎', '对子', '豹子', '对子']">
-                <el-table-column prop="date" label="总和">
+              <E-table :data="[{'sum1': 19, 'sum2': '单', 'sum3': '小', 'dragon_tiger': '虎', 'top_three': '对子', 'middle_three': '豹子', 'last_three': '对子'}]">
+                <el-table-column prop="sum1" label="-">
                 </el-table-column>
-                <el-table-column label="龙虎">
+                <el-table-column prop="sum2" label="总和">
                 </el-table-column>
-                <el-table-column label="前三">
+                <el-table-column prop="sum3" label="-">
                 </el-table-column>
-                <el-table-column label="中三">
+                <el-table-column prop="dragon_tiger" label="龙虎">
                 </el-table-column>
-                <el-table-column label="后三">
+                <el-table-column prop="top_three" label="前三">
+                </el-table-column>
+                <el-table-column prop="middle_three" label="中三">
+                </el-table-column>
+                <el-table-column prop="last_three" label="后三">
                 </el-table-column>
               </E-table>
             </div>
