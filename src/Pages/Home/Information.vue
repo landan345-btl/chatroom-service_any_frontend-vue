@@ -1,6 +1,21 @@
 <template>
-  <div class="lottery">
+  <div class="information">
     <E-tabs>
+      <el-tab-pane label="全部">
+        <div class="lotteries">
+          <div class="lottery">
+            <div class="top">
+
+            </div>
+            <div class="middle">
+              
+            </div>
+            <div class="bottom">
+              
+            </div>
+          </div>
+        </div>
+      </el-tab-pane>
       <el-tab-pane label="热门彩">
         <div class="lotteries">
           <div class="lottery">
@@ -38,7 +53,7 @@
   </div>
 </template>
 <style scoped lang="scss">
-@import 'Lottery-scoped.scss';
+@import 'Information-scoped.scss';
 
 </style>
 
@@ -58,9 +73,9 @@ let oAxiosHelper = new AxiosHelper();
     ETabPane,
   },
 })
-class Lottery extends Vue {
+class Information extends Vue {
 
 }
 
-export default Lottery;
+export default Information;
 </script>
