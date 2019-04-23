@@ -50,11 +50,21 @@
               </E-table>
             </div>
             <div class="bottom text-right">
-              <span>开奖视频</span>
-              <span>路珠分析</span>
-              <span>定位走势</span>
-              <span>长龙提醒</span>
-              <span>冷热分析</span>
+              <router-link class="" :to="{ path: '/trend', query: { type: 1 }}">
+                开奖视频
+              </router-link>
+              <router-link class="" :to="{ path: '/trend', query: { type: 2 }}">
+                路珠分析
+              </router-link>
+              <router-link class="" :to="{ path: '/trend', query: { type: 3 }}">
+                定位走势
+              </router-link>
+              <router-link class="" :to="{ path: '/trend', query: { type: 4 }}">
+                长龙提醒
+              </router-link>
+              <router-link class="" :to="{ path: '/trend', query: { type: 5 }}">
+                冷热分析
+              </router-link>
             </div>
           </div>
         </div>

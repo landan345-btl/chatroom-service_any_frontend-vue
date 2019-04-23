@@ -54,8 +54,11 @@
   }
 
   .bottom {
-    span:nth-child(n+2) {
+    & > *:nth-child(n+2) {
       margin-left: 2vmin;
+    }
+    & > *:hover {
+      color: #ff7324;
     }
     color: #666666;
     font-size: 1.4vmin;
