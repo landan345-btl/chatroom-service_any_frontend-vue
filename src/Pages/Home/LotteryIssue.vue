@@ -7,12 +7,12 @@
             <div class="pseudo">
               <div class="top position-relative">
                 <span class="icon align-middle d-inline-block">
-                  <img :src="require(`@/assets/images/` + `CQKLSF-sm.png`)" />
+                  <img :src="require(`@/assets/images/` + `PAOMA` + `-sm.png`)" />
                 </span>
                 <span class="name-issue_no-numbers align-middle d-inline-block">
                   <div class="top">
                     <span class="name font-weight-bold ">
-                      重庆幸运农场
+                      {{ oLotteryIssue.name }}
                     </span>
                     <span class="no font-weight-bold">
                       {{ oLotteryIssue.no }}

@@ -196,7 +196,6 @@ class Home extends Vue {
           let iMonth = Number(new Date().getMonth() + 1);
           let iDate = Number(new Date().getDate());
           
-          debugger;
           let nextTime = 0;
           aRangeTimes.forEach((oRangeTime: any) => {
             let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.started_time).getTime();
@@ -215,6 +214,7 @@ class Home extends Vue {
             time: oLotteryIssues[sLotteryIssueId].time,
             code: oLottery.code,
             next_time: nextTime,
+            name: LOTTERIES[oLottery.code].NAME || '-',
           };
           let __oLotteryIssues = {
             [sLotteryIssueId]: _oLotteryIssue,
