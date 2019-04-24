@@ -7,17 +7,20 @@
       <span class="align-middle ml-0p5" v-show="props.days > 0 || props.hours > 0"> 
         <span class="align-middle ">时 </span> 
       </span>
-      <span class="square d-inline-block align-middle ml-0p5">
+      <span class="square d-inline-block align-middle ml-0p5" v-show="0 <= props.days && 0 <= props.hours && 0 <= props.minutes && 0 < props.seconds">
         <span class="align-middle">{{ props.minutes }} </span> 
       </span> 
-      <span class="align-middle ml-0p5"> 
+      <span class="align-middle ml-0p5" v-show="0 <= props.days && 0 <= props.hours && 0 <= props.minutes && 0 < props.seconds"> 
         <span class="align-middle">分 </span> 
       </span>
-      <span class="square d-inline-block align-middle ml-0p5">
+      <span class="square d-inline-block align-middle ml-0p5" v-show="0 <= props.days && 0 <= props.hours && 0 <= props.minutes && 0 < props.seconds">
         <span class="align-middle">{{ props.seconds }} </span> 
       </span>
-      <span class="align-middle ml-0p5"> 
+      <span class="align-middle ml-0p5" v-show="0 <= props.days && 0 <= props.hours && 0 <= props.minutes && 0 < props.seconds"> 
         <span class="align-middle">秒</span> 
+      </span>
+      <span class="text-danger" v-show="0 == props.days && 0 == props.hours && 0 == props.minutes && 0 == props.seconds">
+        开奖中...
       </span>
     </template>
   </countdown>
