@@ -1,5 +1,5 @@
 <template>
- 	<nav class="">
+ 	<nav class="right">
     <el-row :gutter="12" class="">
       <el-col :xs="{span: 24, offset: 24}" :sm="{span: 2, offset: 22}" :md="{span: 3, offset: 21}" :lg="{span: 4, offset: 20}">
         <ul class="list">

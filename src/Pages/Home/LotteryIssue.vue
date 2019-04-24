@@ -3,7 +3,7 @@
     <E-tabs>
       <el-tab-pane label="全部">
         <div class="lotteries">
-          <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
+          <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId" />
         </div>
       </el-tab-pane>
       <el-tab-pane label="热门彩">
@@ -14,22 +14,34 @@
         </div>
       </el-tab-pane>
       <el-tab-pane label="PK10">
-        PK10
+        <div class="lotteries">
+          <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-show="'PK10' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
+        </div>
       </el-tab-pane>
       <el-tab-pane label="时时彩">
-        CCS
+        <div class="lotteries">
+          <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-show="'CCS' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
+        </div>
       </el-tab-pane>
       <el-tab-pane label="11选5">
-        11X5
+        <div class="lotteries">
+          <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-show="'11X5' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
+        </div>
       </el-tab-pane>
       <el-tab-pane label="快乐十分">
-        KLSF
+        <div class="lotteries">
+          <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-show="'KLSF' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
+        </div>
       </el-tab-pane>
       <el-tab-pane label="快3">
-        K3
+        <div class="lotteries">
+          <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-show="'K3' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
+        </div>
       </el-tab-pane>
       <el-tab-pane label="其它">
-        Other
+        <div class="lotteries">
+          <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-show="'KL8' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
+        </div>
       </el-tab-pane>
     </E-tabs>
   </div>

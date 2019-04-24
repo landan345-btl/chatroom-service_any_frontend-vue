@@ -71,6 +71,10 @@
 @import 'Index-scoped.scss';
 </style>
 
+<style lang="scss">
+@import 'Index.scss';
+</style>
+
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import ETabs from '@/Components/ETabs/Index.vue';
