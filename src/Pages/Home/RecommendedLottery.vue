@@ -8,12 +8,12 @@
     </div>
     <div class="lotteries">
       
-      <router-link class="lottery d-inline-block" :to="{ path: '/lottery', query: { code: `${sCode}` }}"  v-for="(oLottery, sCode, iIndex) in lotteries" :key="sCode">
-        <div class="icon" v-show="12 > iIndex">
+      <router-link class="lottery d-inline-block" :to="{ path: '/lottery', query: { code: `${sCode}` }}"  v-for="(oLottery, sCode, iIndex) in lotteries" :key="sCode"  v-show="15 > iIndex">
+        <div class="icon">
           <img :src="require(`@/assets/images/` + `${sCode}` + `-md.png`)" />
 
         </div>
-        <div class="name" v-show="12 > iIndex">
+        <div class="name">
           {{ oLottery.name }}
         </div>
       </router-link>
