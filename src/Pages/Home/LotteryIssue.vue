@@ -1,6 +1,6 @@
 <template>
   <div class="lottery-issue">
-    <E-tabs>
+    <E-tabs :type="'border-card'">
       <!-- <el-tab-pane label="全部">
         <div class="lotteries">
           <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId" />

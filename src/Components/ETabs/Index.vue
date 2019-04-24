@@ -1,5 +1,5 @@
 <template>
-  <el-tabs type="border-card">
+  <el-tabs :type="type">
     <slot></slot>
   </el-tabs>
 </template>
@@ -20,7 +20,7 @@ class ETabs extends Vue {
   @Prop()
   public height!: string;
   @Prop()
-  public type: string = '';
+  public type: string = 'border-card';
 }
 export default ETabs;
 
