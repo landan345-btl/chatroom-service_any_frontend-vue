@@ -9,7 +9,7 @@
       <el-tab-pane label="热门彩">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-if="['CCS'].includes(oLotteryIssue.types)"/>
+            <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-if="['SSC'].includes(oLotteryIssue.types)"/>
           </div>
         </div>
       </el-tab-pane>
@@ -40,7 +40,7 @@
       </el-tab-pane>
       <el-tab-pane label="其它">
         <div class="lotteries">
-          <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-show="'KL8' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
+          <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-show="'KL8' == oLotteryIssue.types || 'XY28' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
         </div>
       </el-tab-pane>
     </E-tabs>
