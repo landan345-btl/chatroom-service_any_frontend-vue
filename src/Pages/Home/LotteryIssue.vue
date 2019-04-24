@@ -1,11 +1,11 @@
 <template>
   <div class="lottery-issue">
     <E-tabs>
-      <el-tab-pane label="全部">
+      <!-- <el-tab-pane label="全部">
         <div class="lotteries">
           <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId" />
         </div>
-      </el-tab-pane>
+      </el-tab-pane> -->
       <el-tab-pane label="热门彩">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
@@ -20,7 +20,7 @@
       </el-tab-pane>
       <el-tab-pane label="时时彩">
         <div class="lotteries">
-          <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-show="'CCS' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
+          <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-show="'SSC' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
         </div>
       </el-tab-pane>
       <el-tab-pane label="11选5">
