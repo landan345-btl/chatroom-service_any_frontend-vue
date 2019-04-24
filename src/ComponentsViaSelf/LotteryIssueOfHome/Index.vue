@@ -29,14 +29,116 @@
         </span>
       </div>
       <div class="middle mb-2" >
-        <E-table :data="[{'sum1': 19, 'sum2': '单', 'sum3': '小', 'dragon_tiger': '虎', 'top_three': '对子', 'middle_three': '豹子', 'last_three': '对子'}]">
-          <el-table-column prop="sum1" label="-">
+        <E-table :data="[{
+          'tiger_or_dragon_1': '龙', 
+          'tiger_or_dragon_2': '虎', 
+          'tiger_or_dragon_3': '龙', 
+          'tiger_or_dragon_4': '虎', 
+          'tiger_or_dragon_5': '龙', 
+          'sum_1': '17', 
+          'sum_2': '大',
+          'sum_3': '单',
+          }]" v-if="'PK10' == lotteryIssue.types">
+          <el-table-column prop="tiger_or_dragon_1" label="">
           </el-table-column>
-          <el-table-column prop="sum2" label="总和">
+          <el-table-column prop="tiger_or_dragon_2" label="">
           </el-table-column>
-          <el-table-column prop="sum3" label="-">
+          <el-table-column prop="tiger_or_dragon_3" label="1-5龙虎">
+          </el-table-column>
+          <el-table-column prop="tiger_or_dragon_4" label="">
+          </el-table-column>
+          <el-table-column prop="tiger_or_dragon_5" label="">
+          </el-table-column>
+          <el-table-column prop="sum_1" label="">
+          </el-table-column>
+          <el-table-column prop="sum_2" label="冠亚和">
+          </el-table-column>
+          <el-table-column prop="sum_3" label="">
+          </el-table-column>
+        </E-table>
+        <E-table :data="[{
+          'sum_1': 19, 
+          'sum_2': '单', 
+          'sum_3': '小', 
+          'dragon_tiger': '虎', 
+          'top_three': '对子', 
+          'middle_three': '豹子', 
+          'last_three': '对子'
+          }]" v-if="'SSC' == lotteryIssue.types">
+          <el-table-column prop="sum_1" label="">
+          </el-table-column>
+          <el-table-column prop="sum_2" label="总和">
+          </el-table-column>
+          <el-table-column prop="sum_3" label="">
           </el-table-column>
           <el-table-column prop="dragon_tiger" label="龙虎">
+          </el-table-column>
+          <el-table-column prop="top_three" label="前三">
+          </el-table-column>
+          <el-table-column prop="middle_three" label="中三">
+          </el-table-column>
+          <el-table-column prop="last_three" label="后三">
+          </el-table-column>
+        </E-table>
+        <E-table :data="[{
+          'sum_1': 19, 
+          'sum_2': '单', 
+          'sum_3': '小', 
+          'top_three': '对子', 
+          'middle_three': '豹子', 
+          'last_three': '对子'
+          }]" v-if="'11X5' == lotteryIssue.types">
+          <el-table-column prop="sum_1" label="">
+          </el-table-column>
+          <el-table-column prop="sum_2" label="总和">
+          </el-table-column>
+          <el-table-column prop="sum_3" label="">
+          </el-table-column>
+          <el-table-column prop="top_three" label="前三">
+          </el-table-column>
+          <el-table-column prop="middle_three" label="中三">
+          </el-table-column>
+          <el-table-column prop="last_three" label="后三">
+          </el-table-column>
+        </E-table>
+        <E-table :data="[{
+          'sum_1': 19, 
+          'sum_2': '单', 
+          'sum_3': '小', 
+          'top_three': '对子', 
+          'middle_three': '豹子', 
+          'last_three': '对子'
+          }]" v-if="'KLSF' == lotteryIssue.types">
+          <el-table-column prop="sum_1" label="">
+          </el-table-column>
+          <el-table-column prop="sum_2" label="总">
+          </el-table-column>
+          <el-table-column prop="sum_3" label="和">
+          </el-table-column>
+          <el-table-column prop="sum_4" label="">
+          </el-table-column>
+          <el-table-column prop="tiger_or_dragon_1" label="">
+          </el-table-column>
+          <el-table-column prop="tiger_or_dragon_2" label="1-4">
+          </el-table-column>
+          <el-table-column prop="tiger_or_dragon_3" label="龙虎">
+          </el-table-column>
+          <el-table-column prop="tiger_or_dragon_4" label="">
+          </el-table-column>
+        </E-table>
+        <E-table :data="[{
+          'sum_1': 19, 
+          'sum_2': '单', 
+          'sum_3': '小', 
+          'top_three': '对子', 
+          'middle_three': '豹子', 
+          'last_three': '对子'
+          }]" v-if="'K3' == lotteryIssue.types">
+          <el-table-column prop="sum_1" label="">
+          </el-table-column>
+          <el-table-column prop="sum_2" label="总和">
+          </el-table-column>
+          <el-table-column prop="sum_3" label="">
           </el-table-column>
           <el-table-column prop="top_three" label="前三">
           </el-table-column>
