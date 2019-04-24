@@ -19,16 +19,16 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
   name: 'Numbers',
 })
 class Numbers extends Vue {
-
-  public created(): void {
-    console.log(this.types);
-  }
   @Prop()
   public code!: string;
   @Prop()
   public numbers!: number[];
   @Prop()
   public types: string = 'SSC';
+  public created(): void {
+    console.log(this.types);
+  }
+
 }
 export default Numbers;
 

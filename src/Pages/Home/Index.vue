@@ -52,9 +52,11 @@ import AdvertismentB from './AdvertismentB.vue';
 import Analysis from './Analysis.vue';
 
 import AxiosHelper from '@/Helpers/Axios';
-let oAxiosHelper = new AxiosHelper();
 
 import LOTTERIES from '@/CONFIGS/LOTTERIES/';
+import BACKEND from '@/CONFIGS/BACKEND/';
+let oAxiosHelper = new AxiosHelper();
+
 
 @Component({
   name: 'Home',
@@ -76,79 +78,30 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/';
   },
 })
 class Home extends Vue {
-  public sImage = 'CQSSC';
+  public timer: any;
   public created(): void {
     let $root: any = this.$root;
-    let oRequest: {} = {
-      path: '/lottery/show',
-      params: {},
-    };
+    this.$store.dispatch('LOTTERY_ACTION_SHOW', {} );
+    this.setIntervalLotteryIssueActionShow();
+  }
 
-    this.$store.dispatch('LOTTERY_ACTION_SHOW');
-    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', 7);
-    // debugger;
-    oAxiosHelper.get(oRequest).then((oResponse: any) => {
-      // debugger;
-      // console.log(oResponse);
-    }).catch((oError) => {
-      // debugger;
-      // console.log(oError);
-    });
+  public setIntervalLotteryIssueActionShow() {
+    this.timer = setInterval(() => {
+      // let sDateNow = moment().format('YYYY-MM-DD'); // 本地时间 年 月 日
+      // let oQueries = {
+      //   date: sDateNow ,
+      // };
+      this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', {} );
+    } , BACKEND.INTERVAL_TIME );
+  }
 
-    let aRequests = [
-      {
-        path: '/lottery/show',
-        params: {},
-      },
-    ];
-    // debugger;
-    oAxiosHelper.get(aRequests).then((aResponses: any) => {
-      // debugger;
-      // console.log(aResponses);
-    }).catch((oError) => {
-      // debugger;
-      // console.log(oError);
-    });
+  public beforeDestroy() {  // 组件销毁之前调用
+    clearInterval( this.timer );
   }
 
   public get oLotteries(): object {
     // debugger;
     return this.$store.state.lotteries;
-  }
-
-  public handleTest(): void {
-    let $root: any = this.$root;
-    $root.test = $root.test + 1;
-    console.log($root.test);
-  }
-
-  public get bShowedAllLottery(): boolean {
-    let $root: any = this.$root;
-    return $root.showedAllLottery;
-  }
-  public get bShowedPapularLottery(): boolean {
-    let $root: any = this.$root;
-    return $root.showedPapularLottery;
-  }
-   public get bShowedInstantLottery(): boolean {
-    let $root: any = this.$root;
-    return $root.showedInstantLottery;
-  }
-  public get bShowedPKTenLottery(): boolean {
-    let $root: any = this.$root;
-    return $root.showedPKTenLottery;
-  }
-  public get bShowedFiveOfElevenLottery(): boolean {
-    let $root: any = this.$root;
-    return $root.showedFiveOfElevenLottery;
-  }
-  public get bShowedFastThreeLottery(): boolean {
-    let $root: any = this.$root;
-    return $root.showedFastThreeLottery;
-  }
-  public get bShowedOtherLottery(): boolean {
-    let $root: any = this.$root;
-    return $root.showedOtherLottery;
   }
 
   public get lotteries(): object {
@@ -178,6 +131,7 @@ class Home extends Vue {
   }
 
     public get lotteryIssues(): object {
+      debugger;
     let oLotteryIssues: any = this.$store.state.lottery_issues;
     let oLotteries: any = this.$store.state.lotteries;
     let _oLotteryIssues: {} = {};
@@ -210,6 +164,7 @@ class Home extends Vue {
             if (iNowTime >= iStartedTime && iNowTime <= iEndedTime) {
               iLotteryIssueOrderNoInThisDay += Math.floor(iDifferentTime / oLottery.interval_time);
               iNextTime = Math.floor(iDifferentTime % oLottery.interval_time);
+              debugger;
             }
           });
           let _oLotteryIssue = {
@@ -236,10 +191,6 @@ class Home extends Vue {
 
     }
     return _oLotteryIssues;
-  }
-
-  public beforeDestroy(): void {
-    console.log(181);
   }
 }
 
