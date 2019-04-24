@@ -3,7 +3,7 @@
     <div class="pseudo">
       <div class="top position-relative">
         <span class="icon align-middle d-inline-block">
-          <img :src="require(`@/assets/images/` + `PAOMA` + `-sm.png`)" />
+          <img :src="require(`@/assets/images/` + `${lotteryIssue.code}` + `-sm.png`)" />
         </span>
         <span class="name-issue_no-numbers align-middle d-inline-block">
           <div class="top">

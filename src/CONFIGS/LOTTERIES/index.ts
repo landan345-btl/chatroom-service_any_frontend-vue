@@ -47,10 +47,6 @@ const LOTTERIES: I_LOTTERIES = {
     NAME: '新疆时时彩',
     SRC: '@/assets/images/XJSSC-md.png',
   },
-  'HLJSSC': {
-    NAME: '黑龙江时时彩',
-    SRC: '@/assets/images/HLJSSC-md.png',
-  },
   'AFGH90': {
     NAME: '加纳1.5分彩',
     SRC: '@/assets/images/AFGH90-md.png',
