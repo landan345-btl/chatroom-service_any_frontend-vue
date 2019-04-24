@@ -17,7 +17,7 @@
               期
             </span>
             <span class="this-and-next">
-              当前25期，剩34期
+              当前{{ lotteryIssue.order_no_in_this_day }}期，剩{{ lotteryIssue.order_no_total_in_this_day - lotteryIssue.order_no_in_this_day }}期
             </span>
           </div>
           <div class="bottom">

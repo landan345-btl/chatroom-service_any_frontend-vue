@@ -196,15 +196,20 @@ class Home extends Vue {
           let iMonth = Number(new Date().getMonth() + 1);
           let iDate = Number(new Date().getDate());
           
-          let nextTime = 0;
+          let iNextTime = 0;
+          let iLotteryIssueOrderNoInThisDay = 0;
+          let iLotteryIssueOrderNoTotalInThisDay = 0;
+
           aRangeTimes.forEach((oRangeTime: any) => {
             let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.started_time).getTime();
             let iEndedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime() < iStartedTime
                            ? new Date(iFullYear + '-' + iMonth + '-' + (iDate + 1) + ' ' +  oRangeTime.ended_time).getTime()
                            : new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime();
+            let iDifferentTime = (iNowTime - iStartedTime) / 1000;
+            iLotteryIssueOrderNoTotalInThisDay +=  Math.floor((iEndedTime - iStartedTime) / (1000 * oLottery.interval_time));
             if (iNowTime >= iStartedTime && iNowTime <= iEndedTime) {
-              let iDifferentTime = (iNowTime - iStartedTime) / 1000;
-              nextTime = Math.floor(iDifferentTime % oLottery.interval_time);
+              iLotteryIssueOrderNoInThisDay += Math.floor(iDifferentTime / oLottery.interval_time);
+              iNextTime = Math.floor(iDifferentTime % oLottery.interval_time);
             }
           });
           let _oLotteryIssue = {
@@ -215,9 +220,11 @@ class Home extends Vue {
             no: oLotteryIssues[sLotteryIssueId].no,
             time: oLotteryIssues[sLotteryIssueId].time,
             code: oLottery.code,
-            next_time: nextTime,
+            next_time: iNextTime,
             name: LOTTERIES[oLottery.code].NAME || '-',
             types: oLottery.types,
+            order_no_total_in_this_day: iLotteryIssueOrderNoTotalInThisDay,
+            order_no_in_this_day: iLotteryIssueOrderNoInThisDay + 1,
           };
           let __oLotteryIssues = {
             [sLotteryIssueId]: _oLotteryIssue,

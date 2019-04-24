@@ -3,9 +3,7 @@
     <E-tabs>
       <el-tab-pane label="全部">
         <div class="lotteries">
-          <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue"/>
-          </div>
+          <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
         </div>
       </el-tab-pane>
       <el-tab-pane label="热门彩">
