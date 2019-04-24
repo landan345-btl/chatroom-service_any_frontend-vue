@@ -140,19 +140,24 @@ class Home extends Vue {
     type sLotteryCode = 'SGFT' | 'BJPK10' | 'JSPK10' | 'PCDD' | 'CQKLSF' | 'JX11X5' | 'SD11X5' | 'JSK3';
     for (sLotteryIssueId in oLotteryIssues) {
       if (oLotteryIssues.hasOwnProperty(Number(sLotteryIssueId))) {
+        let oLotteryIssue = oLotteryIssues[sLotteryIssueId];
         sLotteryId = oLotteryIssues[sLotteryIssueId].lottery_id;
         if (sLotteryId in oLotteries) {
           let oLottery = oLotteries[sLotteryId];
           let aRangeTimes = JSON.parse(oLottery.range_times);
           let iNowTime = new Date().getTime();
+          let iNextTime = 0;
 
           let iFullYear = Number(new Date().getFullYear());
           let iMonth = Number(new Date().getMonth() + 1);
           let iDate = Number(new Date().getDate());
           
-          let iNextTime = 0;
+          iNextTime = (new Date(oLotteryIssue.date + ' ' + oLotteryIssue.time).getTime() + oLottery.interval_time * 1000 - iNowTime) / 1000;
+          debugger;
           let iLotteryIssueOrderNoInThisDay = 0;
           let iLotteryIssueOrderNoTotalInThisDay = 0;
+
+
 
           aRangeTimes.forEach((oRangeTime: any) => {
             let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.started_time).getTime();
@@ -163,8 +168,6 @@ class Home extends Vue {
             iLotteryIssueOrderNoTotalInThisDay +=  Math.floor((iEndedTime - iStartedTime) / (1000 * oLottery.interval_time));
             if (iNowTime >= iStartedTime && iNowTime <= iEndedTime) {
               iLotteryIssueOrderNoInThisDay += Math.floor(iDifferentTime / oLottery.interval_time);
-              iNextTime = Math.floor(iDifferentTime % oLottery.interval_time);
-              debugger;
             }
           });
           let _oLotteryIssue = {
