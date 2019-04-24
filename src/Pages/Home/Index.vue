@@ -131,7 +131,6 @@ class Home extends Vue {
   }
 
     public get lotteryIssues(): object {
-      debugger;
     let oLotteryIssues: any = this.$store.state.lottery_issues;
     let oLotteries: any = this.$store.state.lotteries;
     let _oLotteryIssues: {} = {};
@@ -153,11 +152,8 @@ class Home extends Vue {
           let iDate = Number(new Date().getDate());
           
           iNextTime = (new Date(oLotteryIssue.date + ' ' + oLotteryIssue.time).getTime() + oLottery.interval_time * 1000 - iNowTime) / 1000;
-          debugger;
           let iLotteryIssueOrderNoInThisDay = 0;
           let iLotteryIssueOrderNoTotalInThisDay = 0;
-
-
 
           aRangeTimes.forEach((oRangeTime: any) => {
             let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.started_time).getTime();
