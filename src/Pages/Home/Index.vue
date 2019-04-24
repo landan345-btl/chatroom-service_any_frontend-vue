@@ -217,6 +217,7 @@ class Home extends Vue {
             code: oLottery.code,
             next_time: nextTime,
             name: LOTTERIES[oLottery.code].NAME || '-',
+            types: oLottery.types,
           };
           let __oLotteryIssues = {
             [sLotteryIssueId]: _oLotteryIssue,

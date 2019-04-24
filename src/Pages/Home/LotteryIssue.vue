@@ -10,16 +10,8 @@
       </el-tab-pane>
       <el-tab-pane label="热门彩">
         <div class="lotteries">
-          <div class="lottery">
-            <div class="top">
-
-            </div>
-            <div class="middle">
-              
-            </div>
-            <div class="bottom">
-              
-            </div>
+          <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
+            <LotteryIssueOfHome v-bind:lotteryIssue="oLotteryIssue" v-if="['CCS'].includes(oLotteryIssue.types)"/>
           </div>
         </div>
       </el-tab-pane>
