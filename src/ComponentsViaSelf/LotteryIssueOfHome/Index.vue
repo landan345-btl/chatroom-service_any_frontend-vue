@@ -17,11 +17,11 @@
               期
             </span>
             <span class="this-and-next">
-              当前{{ lotteryIssue.order_no_in_this_day }}期，剩{{ lotteryIssue.order_no_total_in_this_day - lotteryIssue.order_no_in_this_day }}期
+              当前&nbsp;{{ lotteryIssue.order_no_in_this_day }}&nbsp;期，剩&nbsp;{{ lotteryIssue.order_no_total_in_this_day - lotteryIssue.order_no_in_this_day }}&nbsp;期
             </span>
           </div>
           <div class="bottom">
-            <Numbers :code="lotteryIssue.code" :numbers="lotteryIssue.numbers"/>
+            <Numbers :code="lotteryIssue.code" :numbers="lotteryIssue.numbers" :types="lotteryIssue.types"/>
           </div>
         </span>
         <span class="countdown d-inline-block align-bottom position-absolute">
