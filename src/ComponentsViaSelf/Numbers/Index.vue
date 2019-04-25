@@ -1,8 +1,6 @@
 <template>
   <div class="numbers">
-    <span class="number kl8" :class="{ 
-      'kl8': True,
-      }" v-for="(iNumber, sKey) in numbers" :key="sKey">
+    <span class="number kl8" v-for="(iNumber, sKey) in numbers" :key="sKey">
       <span>{{iNumber}}</span>
     </span>
   </div>
