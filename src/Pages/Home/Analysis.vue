@@ -103,9 +103,7 @@ class Analysis extends Vue {
     let $root: any = this.$root;
 
   }
-
-
 }
 
-export default Prediction;
+export default Analysis;
 </script>
