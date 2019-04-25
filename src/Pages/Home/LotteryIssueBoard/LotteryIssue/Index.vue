@@ -182,11 +182,11 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import ETabs from '@/Components/ETabs/Index.vue';
 import ETabPane from '@/Components/ETabPane/Index.vue';
 import ETable from '@/Components/ETable/Index.vue';
-import Numbers from '@/ComponentsViaSelf/Numbers/Index.vue';
+import Numbers from './Numbers/Index.vue';
 import ChenCountdown from '@/Components/ChenCountdown/Index.vue';
 
 @Component({
-  name: 'LotteryIssueOfHome',
+  name: 'LotteryIssue',
   components: {
     ETabs,
     ETabPane,
@@ -195,10 +195,10 @@ import ChenCountdown from '@/Components/ChenCountdown/Index.vue';
     ChenCountdown,
   },
 })
-class LotteryIssueOfHome extends Vue {
+class LotteryIssue extends Vue {
   @Prop()
   public lotteryIssue!: object;
 }
-export default LotteryIssueOfHome;
+export default LotteryIssue;
 
 </script>

@@ -9,38 +9,38 @@
       <el-tab-pane label="热门彩">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <Lottery-issue-of-home v-bind:lotteryIssue="oLotteryIssue" v-if="['SSC'].includes(oLotteryIssue.types)"/>
+            <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-if="['SSC'].includes(oLotteryIssue.types)"/>
           </div>
         </div>
       </el-tab-pane>
       <el-tab-pane label="PK10">
         <div class="lotteries">
-          <Lottery-issue-of-home v-bind:lotteryIssue="oLotteryIssue" v-show="'PK10' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
+          <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-show="'PK10' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
         </div>
       </el-tab-pane>
       <el-tab-pane label="时时彩">
         <div class="lotteries">
-          <Lottery-issue-of-home v-bind:lotteryIssue="oLotteryIssue" v-show="'SSC' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
+          <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-show="'SSC' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
         </div>
       </el-tab-pane>
       <el-tab-pane label="11选5">
         <div class="lotteries">
-          <Lottery-issue-of-home v-bind:lotteryIssue="oLotteryIssue" v-show="'11X5' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
+          <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-show="'11X5' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
         </div>
       </el-tab-pane>
       <el-tab-pane label="快乐十分">
         <div class="lotteries">
-          <Lottery-issue-of-home v-bind:lotteryIssue="oLotteryIssue" v-show="'KLSF' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
+          <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-show="'KLSF' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
         </div>
       </el-tab-pane>
       <el-tab-pane label="快3">
         <div class="lotteries">
-          <Lottery-issue-of-home v-bind:lotteryIssue="oLotteryIssue" v-show="'K3' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
+          <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-show="'K3' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
         </div>
       </el-tab-pane>
       <el-tab-pane label="其它">
         <div class="lotteries">
-          <Lottery-issue-of-home v-bind:lotteryIssue="oLotteryIssue" v-show="'KL8' == oLotteryIssue.types || 'XY28' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
+          <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-show="'KL8' == oLotteryIssue.types || 'XY28' == oLotteryIssue.types"  v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId"/>
         </div>
       </el-tab-pane>
     </E-tabs>
@@ -57,24 +57,24 @@ import { warn } from 'vue-class-component/lib/util';
 import ETabs from '@/Components/ETabs/Index.vue';
 import ETabPane from '@/Components/ETabPane/Index.vue';
 import ETable from '@/Components/ETable/Index.vue';
-import LotteryIssueOfHome from '@/ComponentsViaSelf/LotteryIssueOfHome/Index.vue';
+import LotteryIssue from './LotteryIssue/Index.vue';
 
 import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
 
 @Component({
-  name: 'LotteryIssue',
+  name: 'LotteryIssueBaord',
   components: {
     ETabs,
     ETabPane,
     ETable,
-    LotteryIssueOfHome,
+    LotteryIssue,
   },
 })
-class LotteryIssue extends Vue {
+class LotteryIssueBaord extends Vue {
   @Prop()
   public lotteryIssues!: object;
 }
 
-export default LotteryIssue;
+export default LotteryIssueBaord;
 </script>
