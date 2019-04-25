@@ -1,6 +1,6 @@
 <template>
   <div class="block">
-    <el-carousel :type="type" interval="6000">
+    <el-carousel :type="type" :interval="6000">
       <el-carousel-item v-for="(sImage, iIndex) in images" :key="iIndex" >
         <!-- @ 要在 reuqire 语句中 -->
         <img :src="require(`@/` + `${sImage}`)" />
@@ -25,7 +25,7 @@ class ECarousel extends Vue {
   @Prop()
   public height!: string;
   @Prop()
-  public type: string = '';
+  public type!: string;
 }
 export default ECarousel;
 
