@@ -5,7 +5,7 @@
       <span class="more position-absolute">更多</span>
     </div>
     <div class="lotteries">
-      <div v-for="(oLottery, sCode) in lotteries" :key="sCode">
+      <div v-for="(oLottery, sCode, iIndex) in lotteries" :key="sCode">
         <div class="line" v-if="(iIndex - Math.floor((Math.random() * 8) + 1)) >= -1 && (iIndex - Math.floor((Math.random() * 8) + 1)) <= 1"></div>
         <div class="lottery" v-if="(iIndex - Math.floor((Math.random() * 8) + 1)) >= -1 && (iIndex - Math.floor((Math.random() * 8) + 1)) <= 1">
           <div class="top">

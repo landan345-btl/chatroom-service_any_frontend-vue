@@ -41,7 +41,7 @@ let oAxiosHelper = new AxiosHelper();
 class RecommendedLottery extends Vue {
 
   @Prop()
-  public lotteries: object = {};
+  public lotteries!: object;
 }
 
 export default RecommendedLottery;
