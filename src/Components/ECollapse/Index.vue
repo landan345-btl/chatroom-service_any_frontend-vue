@@ -1,0 +1,22 @@
+<template>
+  <el-collapse>
+    <slot></slot>
+  </el-collapse>
+</template>
+
+<style scoped lang="scss">
+
+</style>
+
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component({
+  name: 'ECollapse',
+})
+class ECollapse extends Vue {
+
+}
+export default ECollapse;
+
+</script>
