@@ -22,9 +22,8 @@ class Numbers extends Vue {
   @Prop()
   public numbers!: number[];
   @Prop()
-  public types: string = 'SSC';
+  public types!: string;
   public created(): void {
-    console.log(this.types);
   }
 
 }
