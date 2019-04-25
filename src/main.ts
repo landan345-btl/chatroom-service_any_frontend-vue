@@ -7,6 +7,8 @@ import App from '@/App.vue';
 import oRouter from '@/routers/index';
 import oStore from '@/store/index';
 import VueCountdown from '@chenfengyuan/vue-countdown';
+import iView from 'iview';
+import 'iview/dist/styles/iview.css';
 
 import '@/registerServiceWorker';
 
@@ -35,6 +37,7 @@ Vue.component(VueCountdown.name, VueCountdown);
 Vue.use(VueI18n);
 Vue.use(VCharts);
 Vue.use(Element);
+Vue.use(iView);
 
 let oI18n = new VueI18n({
   locale: 'zh',
