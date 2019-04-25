@@ -5,9 +5,9 @@
       <span class="more position-absolute">更多</span>
     </div>
     <div class="lotteries">
-      <div  v-if="(iIndex - Math.floor((Math.random() * 8) + 1)) >= -1 && (iIndex - Math.floor((Math.random() * 8) + 1)) <= 1" v-for="(oLottery, sCode, iIndex) in lotteries" :key="sCode">
-        <div class="line"></div>
-        <div class="lottery">
+      <div v-for="(oLottery, sCode) in lotteries" :key="sCode">
+        <div class="line" v-if="(iIndex - Math.floor((Math.random() * 8) + 1)) >= -1 && (iIndex - Math.floor((Math.random() * 8) + 1)) <= 1"></div>
+        <div class="lottery" v-if="(iIndex - Math.floor((Math.random() * 8) + 1)) >= -1 && (iIndex - Math.floor((Math.random() * 8) + 1)) <= 1">
           <div class="top">
             <span class="icon d-inline-block align-middle">
               <img :src="require(`@/assets/images/` + `${sCode}` + `-md.png`)"  />
@@ -86,8 +86,10 @@ let oAxiosHelper = new AxiosHelper();
   },
 })
 class Analysis extends Vue {
+  // Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Instead, use a data or computed property based on the prop's value. Prop being mutated:
+  // 子 component 不能改变 父 compoent 传来的 Props
   @Prop()
-  public lotteries: object = {};
+  public lotteries!: object;
   public messages: string[] = [
     '山西11选5号码推荐4月19日上午',
     '辽宁11选5号码推荐4月19日上午',
@@ -103,6 +105,10 @@ class Analysis extends Vue {
     let $root: any = this.$root;
 
   }
+
+  // public get getLotteries(): any {
+  //   return this.lotteries;
+  // }
 }
 
 export default Analysis;
