@@ -8,7 +8,7 @@
         <main>
           <News />
           <Live />
-          <LotteryIssue :lotteryIssues="lotteryIssues" />
+          <Lottery-issue :lotteryIssues="lotteryIssues" />
         </main>
       </el-col>
       <el-col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 5}">
