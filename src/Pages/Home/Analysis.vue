@@ -81,11 +81,11 @@ import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
 
 @Component({
-  name: 'Prediction',
+  name: 'Analysis',
   components: {
   },
 })
-class Prediction extends Vue {
+class Analysis extends Vue {
   @Prop()
   public lotteries: object = {};
   public messages: string[] = [
