@@ -1,7 +1,6 @@
 <template>
   <div class="advertisment-a">
     <div class="advertisments">
-
       <router-link class="advertisment d-inline-block" :to="{ path: '/plan', query: { code: 'PK10' }}">
         <img src="@/assets/images/advertisment-pk10.png"/>
       </router-link>
@@ -40,7 +39,7 @@ let oAxiosHelper = new AxiosHelper();
 class AdvertismentA extends Vue {
 
   @Prop()
-  public lotteries: object = {};
+  public lotteries!: object;
 }
 
 export default AdvertismentA;
