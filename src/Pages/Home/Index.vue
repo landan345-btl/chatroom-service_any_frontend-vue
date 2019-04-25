@@ -8,7 +8,7 @@
         <main>
           <News />
           <Live />
-          <Lottery-issue :lotteryIssues="lotteryIssues" />
+          <Lottery-issue-board :lotteryIssues="lotteryIssues" />
         </main>
       </el-col>
       <el-col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 5}">
@@ -44,7 +44,7 @@ import ERadio from '@/Components/ERadio/Index.vue';
 import ESelect from '@/Components/ESelect/Index.vue';
 import News from './News/Index.vue';
 import Live from './Live/Index.vue';
-import LotteryIssue from './LotteryIssue/Index.vue';
+import LotteryIssueBoard from './LotteryIssueBoard/Index.vue';
 import RecommendedLottery from './RecommendedLottery/Index.vue';
 import AdvertismentA from './AdvertismentA/Index.vue';
 import Prediction from './Prediction/Index.vue';
@@ -69,7 +69,7 @@ let oAxiosHelper = new AxiosHelper();
     ESelect,
     News,
     Live,
-    LotteryIssue,
+    LotteryIssueBoard,
     RecommendedLottery,
     AdvertismentA,
     Prediction,
