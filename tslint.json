@@ -20,6 +20,7 @@
     "variable-name": [false, "ban-keywords", "check-format", "allow-leading-underscore"],
     "no-console": [true, "warning"],
     "no-debugger": true,
-    "quote-props": ["error", "always"] 
+    "quote-props": ["error", "always"],
+    "max-len": false
   }
 }

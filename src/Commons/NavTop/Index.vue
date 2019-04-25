@@ -83,7 +83,7 @@
               <el-menu-item index="2-5-3" class="font-2-vmin"><a href="/lottery?code=CQCCS">七星彩</a></el-menu-item>
             </el-submenu>
           </el-submenu>
-          <el-menu-item index="3" class="font-2-vmin">长龙提醒</el-menu-item>
+          <el-menu-item index="3" class="font-2-vmin"><a href="/statistics" target="_blank">长龙提醒</a></el-menu-item>
           <el-menu-item index="4" class="font-2-vmin"><a href="/trend" target="_blank">走势图表</a></el-menu-item>
         </el-menu>
       </el-col>
