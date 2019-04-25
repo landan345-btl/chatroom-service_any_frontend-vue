@@ -2,7 +2,7 @@
  	<nav class="nav-background">
     <el-row :gutter="0">
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
-        <el-menu :default-active="activeIndex2" class="el-menu-demo nav-background" mode="horizontal" @select="handleSelect" active-text-color="#ffd04b">
+        <el-menu :default-active="'1'" class="el-menu-demo nav-background" mode="horizontal" active-text-color="#ffd04b">
           <el-menu-item index="1" class="font-2-vmin"><a href="/">首页</a></el-menu-item>
           <el-submenu index="2">
             <template slot="title">彩票大厅</template>
