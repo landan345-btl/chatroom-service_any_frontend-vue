@@ -130,7 +130,7 @@ class Home extends Vue {
     return _oLotteries;
   }
 
-    public get lotteryIssues(): object {
+  public get lotteryIssues(): object {
     let oLotteryIssues: any = this.$store.state.lottery_issues;
     let oLotteries: any = this.$store.state.lotteries;
     let _oLotteryIssues: {} = {};
