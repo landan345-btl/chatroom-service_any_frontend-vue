@@ -192,8 +192,8 @@ import ChenCountdown from '@/Components/ChenCountdown/Index.vue';
     ETabPane,
     ETable,
     Numbers,
-    ChenCountdown
-  }
+    ChenCountdown,
+  },
 })
 class LotteryIssueOfHome extends Vue {
   @Prop()

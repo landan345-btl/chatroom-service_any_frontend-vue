@@ -146,11 +146,10 @@ class Home extends Vue {
           let aRangeTimes = JSON.parse(oLottery.range_times);
           let iNowTime = new Date().getTime();
           let iNextTime = 0;
-
           let iFullYear = Number(new Date().getFullYear());
           let iMonth = Number(new Date().getMonth() + 1);
           let iDate = Number(new Date().getDate());
-          
+
           iNextTime = (new Date(oLotteryIssue.date + ' ' + oLotteryIssue.time).getTime() + oLottery.interval_time * 1000 - iNowTime) / 1000;
           let iLotteryIssueOrderNoInThisDay = 0;
           let iLotteryIssueOrderNoTotalInThisDay = 0;

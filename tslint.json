@@ -21,6 +21,6 @@
     "no-console": [true, "warning"],
     "no-debugger": true,
     "quote-props": ["error", "always"],
-    "max-len": false
+    "max-line-length": [true, 240]
   }
 }
