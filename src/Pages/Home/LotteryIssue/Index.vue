@@ -47,7 +47,7 @@
   </div>
 </template>
 <style scoped lang="scss">
-@import 'LotteryIssue-scoped.scss';
+@import 'Index-scoped.scss';
 
 </style>
 

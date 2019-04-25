@@ -22,7 +22,7 @@
   </div>
 </template>
 <style scoped lang="scss">
-@import 'RecommendedLottery-scoped.scss';
+@import 'Index-scoped.scss';
 
 </style>
 

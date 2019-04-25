@@ -9,7 +9,7 @@
   </div>
 </template>
 <style scoped lang="scss">
-@import 'Live-scoped.scss';
+@import 'Index-scoped.scss';
 
 </style>
 

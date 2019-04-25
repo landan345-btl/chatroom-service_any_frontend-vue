@@ -42,14 +42,14 @@ import NavRight from '@/Commons/NavRight/Index.vue';
 import Footer from '@/Commons/Footer/Index.vue';
 import ERadio from '@/Components/ERadio/Index.vue';
 import ESelect from '@/Components/ESelect/Index.vue';
-import News from './News.vue';
-import Live from './Live.vue';
-import LotteryIssue from './LotteryIssue.vue';
-import RecommendedLottery from './RecommendedLottery.vue';
-import AdvertismentA from './AdvertismentA.vue';
-import Prediction from './Prediction.vue';
-import AdvertismentB from './AdvertismentB.vue';
-import Analysis from './Analysis.vue';
+import News from './News/Index.vue';
+import Live from './Live/Index.vue';
+import LotteryIssue from './LotteryIssue/Index.vue';
+import RecommendedLottery from './RecommendedLottery/Index.vue';
+import AdvertismentA from './AdvertismentA/Index.vue';
+import Prediction from './Prediction/Index.vue';
+import AdvertismentB from './AdvertismentB/Index.vue';
+import Analysis from './Analysis/Index.vue';
 
 import AxiosHelper from '@/Helpers/Axios';
 

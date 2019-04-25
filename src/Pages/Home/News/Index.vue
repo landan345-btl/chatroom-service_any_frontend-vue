@@ -19,7 +19,7 @@
   </div>
 </template>
 <style scoped lang="scss">
-@import 'News-scoped.scss';
+@import 'Index-scoped.scss';
 
 </style>
 

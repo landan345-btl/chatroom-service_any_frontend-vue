@@ -9,7 +9,7 @@
   </div>
 </template>
 <style scoped lang="scss">
-@import 'AdvertismentB-scoped.scss';
+@import 'Index-scoped.scss';
 
 </style>
 

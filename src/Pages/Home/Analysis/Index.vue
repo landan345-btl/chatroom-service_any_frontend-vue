@@ -69,7 +69,7 @@
   </div>
 </template>
 <style scoped lang="scss">
-@import 'Analysis-scoped.scss';
+@import 'Index-scoped.scss';
 
 </style>
 

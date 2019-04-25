@@ -15,7 +15,7 @@
   </div>
 </template>
 <style scoped lang="scss">
-@import 'Prediction-scoped.scss';
+@import 'Index-scoped.scss';
 
 </style>
 
