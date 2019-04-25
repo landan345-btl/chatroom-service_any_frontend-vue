@@ -1,5 +1,5 @@
 <template>
-  <countdown :time="time" class="chen-countdown" :class="{ 'theme-b': theme == 'theme-a'}">
+  <countdown :time="0 <= time ? time : 0" class="chen-countdown" :class="{ 'theme-b': theme == 'theme-a'}">
     <template slot-scope="props">
       <span class="square d-inline-block align-middle ml-0p5" v-show="props.days > 0 || props.hours > 0">
         <span class="align-middle">{{ props.hours }} </span> 
