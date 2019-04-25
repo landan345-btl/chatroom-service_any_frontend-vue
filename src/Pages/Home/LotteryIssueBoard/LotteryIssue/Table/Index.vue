@@ -1,8 +1,5 @@
 <template>
   <div class="table">
-    <span class="number kl8" v-for="(iNumber, sKey) in numbers" :key="sKey">
-      <span>{{iNumber}}</span>
-    </span>
   </div>
 </template>
 
@@ -18,12 +15,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 })
 class Table extends Vue {
   @Prop()
-  public code!: string;
-  @Prop()
-  public numbers!: number[];
-  @Prop()
-  public types!: string;
-
+  public lotteryIssue!: object;
 }
 export default Table;
 
