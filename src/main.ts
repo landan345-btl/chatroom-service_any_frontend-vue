@@ -1,13 +1,21 @@
 import Vue from 'vue';
+
 import VueI18n from 'vue-i18n';
 import VCharts from 'v-charts';
 import Element from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+import VueCountdown from '@chenfengyuan/vue-countdown';
+import iView from 'iview';
+
 import App from '@/App.vue';
 import oRouter from '@/routers/index';
 import oStore from '@/store/index';
-import VueCountdown from '@chenfengyuan/vue-countdown';
-import iView from 'iview';
+
+import isOddOrEven from '@/filters/isOddOrEven/index';
+import isLargeOrSmall from '@/filters/isLargeOrSmall/index';
+import isDragonOrTiger from '@/filters/isDragonOrTiger/index';
+import sum from '@/filters/sum/index';
+
+import 'element-ui/lib/theme-chalk/index.css';
 import 'iview/dist/styles/iview.css';
 
 import '@/registerServiceWorker';
@@ -38,6 +46,11 @@ Vue.use(VueI18n);
 Vue.use(VCharts);
 Vue.use(Element);
 Vue.use(iView);
+
+Vue.filter('isOddOrEven' , isOddOrEven);
+Vue.filter('isLargeOrSmall' , isLargeOrSmall);
+Vue.filter('isDragonOrTiger' , isDragonOrTiger);
+Vue.filter('sum' , sum);
 
 let oI18n = new VueI18n({
   locale: 'zh',

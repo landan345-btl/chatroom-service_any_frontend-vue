@@ -24,10 +24,10 @@
       <th>后三</th>
     </tr>
     <tr>
-      <td>27</td>
-      <td>单</td>
-      <td>大</td>
-      <td>龙</td>
+      <td>{{ lotteryIssue.numbers | sum }}</td>
+      <td>{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
+      <td>{{ lotteryIssue.numbers | sum | isLargeOrSmall(lotteryIssue.types) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger(0, 1) }}</td>
       <td>杂六</td>
       <td>半顺</td>
       <td>半顺</td>
@@ -138,6 +138,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 class Table extends Vue {
   @Prop()
   public lotteryIssue!: object;
+  
 }
 export default Table;
 
