@@ -152,7 +152,7 @@ class Home extends Vue {
 
           iNextTime = (new Date(oLotteryIssue.date + ' ' + oLotteryIssue.time).getTime() + oLottery.interval_time * 1000 - iNowTime) / 1000;
           let iLotteryIssueOrderNoInThisDay = 0;
-          let iLotteryIssueOrderNoTotalInThisDay = 0;
+          let iLotteryIssueOrderNoTotalInThisDay = 1;
 
           aRangeTimes.forEach((oRangeTime: any) => {
             let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.started_time).getTime();
@@ -160,9 +160,13 @@ class Home extends Vue {
                            ? new Date(iFullYear + '-' + iMonth + '-' + (iDate + 1) + ' ' +  oRangeTime.ended_time).getTime()
                            : new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime();
             let iDifferentTime = (iNowTime - iStartedTime) / 1000;
-            iLotteryIssueOrderNoTotalInThisDay +=  Math.floor((iEndedTime - iStartedTime) / (1000 * oLottery.interval_time));
+            iLotteryIssueOrderNoTotalInThisDay +=  Math.floor((iEndedTime - iStartedTime) / (0 !== oLottery.interval_time ? 1000 * oLottery.interval_time : 1));
             if (iNowTime >= iStartedTime && iNowTime <= iEndedTime) {
               iLotteryIssueOrderNoInThisDay += Math.floor(iDifferentTime / oLottery.interval_time);
+            }
+            if(0 === Number(oLottery.interval_time)) {
+              iNextTime = (new Date(oLotteryIssue.date + ' ' + oLotteryIssue.time).getTime() + 24 * 60 * 60 * 1000 - iNowTime) / 1000;
+
             }
           });
           let _oLotteryIssue = {
