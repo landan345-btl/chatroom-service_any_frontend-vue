@@ -5,14 +5,14 @@
       <th colspan=3>冠亚和</th>
     </tr>
     <tr>
-      <td>龙</td>
-      <td>虎</td>
-      <td>龙</td>
-      <td>龙</td>
-      <td>龙</td>
-      <td>12</td>
-      <td>大</td>
-      <td>双</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger(0, 9) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger(1, 8) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger(2, 7) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger(3, 6) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger(4, 5) }}</td>
+      <td>{{ lotteryIssue.numbers | sum([0, 1]) }}</td>
+      <td>{{ lotteryIssue.numbers | sum([0, 1]) | isLargeOrSmall(11) }}</td>
+      <td>{{ lotteryIssue.numbers | sum([0, 1]) | isOddOrEven }}</td>
     </tr>
   </table>
   <table class="text-center" v-else-if="'SSC' === lotteryIssue.types">

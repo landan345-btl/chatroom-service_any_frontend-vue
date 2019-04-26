@@ -12,7 +12,6 @@ let cDetermineSequence = (aNumbers: number[], aPositions: number[]): string => {
   let iStraightCount:number = 0;
   let iSameCount:number = 0;
 
-  debugger;
   _aNumbers = aPositions.map((iPosition) => {
     let iNumber = aNumbers[iPosition];
     return iNumber;
