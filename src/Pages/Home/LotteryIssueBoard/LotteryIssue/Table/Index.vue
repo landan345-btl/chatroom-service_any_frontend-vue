@@ -78,7 +78,51 @@
       <td>葫芦</td>
       <td>鸡</td>
     </tr>
-  </table> 
+  </table>
+  <table class="text-center" v-else-if="'PL3' === lotteryIssue.types">
+    <tr>
+      <th colspan=3>佰拾和</th>
+      <th colspan=3>佰个和</th>
+      <th colspan=3>拾个和</th>
+      <th colspan=3>总和</th>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>单</td>
+      <td>尾小</td>
+      <td>12</td>
+      <td>双</td>
+      <td>尾小</td>
+      <td>9</td>
+      <td>单</td>
+      <td>尾大</td>
+      <td>12</td>
+      <td>双</td>
+      <td>小</td>
+    </tr>
+  </table>
+  <table class="text-center" v-else-if="'3D' === lotteryIssue.types">
+    <tr>
+      <th colspan=3>佰拾和</th>
+      <th colspan=3>佰个和</th>
+      <th colspan=3>拾个和</th>
+      <th colspan=3>总和</th>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>单</td>
+      <td>尾小</td>
+      <td>12</td>
+      <td>双</td>
+      <td>尾小</td>
+      <td>9</td>
+      <td>单</td>
+      <td>尾大</td>
+      <td>12</td>
+      <td>双</td>
+      <td>小</td>
+    </tr>
+  </table>
 </template>
 
 <style scoped lang="scss">
