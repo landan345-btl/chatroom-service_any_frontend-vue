@@ -1,5 +1,5 @@
 <template>
-  <div class="lottery-issue">
+  <div class="lottery-issue-board">
     <I-tabs>
       <!-- <TabPane label="全部" name="all">
         <div class="lotteries">

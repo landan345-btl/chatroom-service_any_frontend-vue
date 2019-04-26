@@ -1,8 +1,10 @@
 /deep/ .ivu-tabs-ink-bar {
   color: #ff7b00;
+  background-color: #ff7b00;
 }
 
 /deep/ .ivu-tabs-nav .ivu-tabs-tab-active {
+  font-size: 2.2vmin;
   color: #ff7b00;
 }
 
@@ -13,6 +15,10 @@
 /deep/ .ivu-tabs-nav .ivu-tabs-tab-active:hover {
   color: #ff7b00;
 }
-.ivu-tabs-nav .ivu-tabs-tab:hover {
+/deep/ .ivu-tabs-nav .ivu-tabs-tab:hover {
   color: #ff7b00;
+}
+
+/deep/ .ivu-tabs-nav-container {
+  font-size: 2vmin;
 }
