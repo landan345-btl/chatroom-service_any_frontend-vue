@@ -1,6 +1,27 @@
 <template>
-  <div class="table">
-  </div>
+  <table class="text-center">
+    <tr>
+      <th></th>
+      <th></th>
+      <th>1-5龙虎</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>冠亚和</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>龙</td>
+      <td>虎</td>
+      <td>龙</td>
+      <td>龙</td>
+      <td>龙</td>
+      <td>12</td>
+      <td>大</td>
+      <td>双</td>
+    </tr>
+
+  </table> 
 </template>
 
 <style scoped lang="scss">

@@ -1,5 +1,5 @@
 <template>
-  <Tabs value="name1">
+  <Tabs>
     <slot></slot>
   </Tabs>
 </template>
