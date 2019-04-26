@@ -1,6 +1,6 @@
 <template>
   <div class="lottery-issue-board">
-    <I-tabs>
+    <I-tabs @on-click="console.log('I-tabs')">
       <!-- <TabPane label="全部" name="all">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
@@ -52,7 +52,7 @@
       <TabPane label="其它" name="other">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-if="['KL8', 'XY28'].includes(oLotteryIssue.types)"/>
+            <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-if="!['PK10', 'SSC','KL8', '11X5', 'KLSF', 'K3'].includes(oLotteryIssue.types)"/>
           </div>
         </div>
       </TabPane>

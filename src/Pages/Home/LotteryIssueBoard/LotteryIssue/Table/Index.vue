@@ -51,34 +51,32 @@
   </table>
   <table class="text-center" v-else-if="'KLSF' === lotteryIssue.types">
     <tr>
-      <th colspan=5>1-5龙虎</th>
-      <th colspan=3>冠亚和</th>
+      <th colspan=4>总和</th>
+      <th colspan=4>1-4龙虎</th>
     </tr>
     <tr>
-      <td>龙</td>
+      <td>102</td>
+      <td>双</td>
+      <td>大</td>
+      <td>尾小</td>
+      <td>虎</td>
       <td>虎</td>
       <td>龙</td>
-      <td>龙</td>
-      <td>龙</td>
-      <td>12</td>
-      <td>大</td>
-      <td>双</td>
+      <td>虎</td>
     </tr>
   </table>
   <table class="text-center" v-else-if="'K3' === lotteryIssue.types">
     <tr>
-      <th colspan=5>1-5龙虎</th>
-      <th colspan=3>冠亚和</th>
+      <th colspan=3>总和</th>
+      <th colspan=3>鱼虾蟹</th>
     </tr>
     <tr>
-      <td>龙</td>
-      <td>虎</td>
-      <td>龙</td>
-      <td>龙</td>
-      <td>龙</td>
-      <td>12</td>
-      <td>大</td>
+      <td>10</td>
       <td>双</td>
+      <td>小</td>
+      <td>鱼</td>
+      <td>葫芦</td>
+      <td>鸡</td>
     </tr>
   </table> 
 </template>
