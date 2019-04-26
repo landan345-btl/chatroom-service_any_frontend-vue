@@ -7,40 +7,20 @@ const SAME: string = '豹子';
 const MESS: string = '杂六'; 
 const UNKNOWN: string = '未知';
 
-let cDetermineSequence = (aNumbers: number[], aa: number, ...aPositions: number[]): string => {
+let cDetermineSequence = (aNumbers: number[], aPositions: number[]): string => {
   let _aNumbers: number[] = [];
   let iStraightCount:number = 0;
   let iSameCount:number = 0;
 
   debugger;
-  aPositions.forEach((iPosition: number): void => {
+  _aNumbers = aPositions.map((iPosition) => {
     let iNumber = aNumbers[iPosition];
-
-    if(0 === _aNumbers.length) {
-      _aNumbers.push(iNumber);
-      return;
-    }
-    if(1 === _aNumbers.length && iNumber <= _aNumbers[0]) {
-      _aNumbers.unshift(iNumber);
-      return;
-    }
-
-    if(1 === _aNumbers.length && iNumber >= _aNumbers[0]) {
-      _aNumbers.push(iNumber);
-      return;
-    }
-
-    if(2 <= _aNumbers.length && iNumber <= _aNumbers[0]) {
-      _aNumbers.unshift(iNumber);
-      return;
-    }
-
-    if(2 <= _aNumbers.length && iNumber >= _aNumbers[_aNumbers.length - 1]) {
-      _aNumbers.push(iNumber);
-      return;
-    }
+    return iNumber;
   });
   
+  _aNumbers = _aNumbers.sort((iPreviousNumber: number, iNextNumber: number) => {
+    return iPreviousNumber - iNextNumber;
+  });
 
   _aNumbers.reduce((iPreviousNumber: number, iNextNumber: number): number => {
     if (undefined === iPreviousNumber) {
@@ -72,6 +52,10 @@ let cDetermineSequence = (aNumbers: number[], aa: number, ...aPositions: number[
 
   if (0 === iSameCount && 0 === iStraightCount) {
     return MESS;
+  }
+
+  if (2 == iSameCount && _aNumbers.length > iSameCount) {
+    return PAIR; // 对子的优先级高于 半顺
   }
 
   if (2 <= iStraightCount && _aNumbers.length > iStraightCount) {
