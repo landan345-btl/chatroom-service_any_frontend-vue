@@ -13,6 +13,8 @@ import oStore from '@/store/index';
 import isOddOrEven from '@/filters/isOddOrEven/index';
 import isLargeOrSmall from '@/filters/isLargeOrSmall/index';
 import isDragonOrTiger from '@/filters/isDragonOrTiger/index';
+import determineSequence from '@/filters/determineSequence/index';
+
 import sum from '@/filters/sum/index';
 
 import 'element-ui/lib/theme-chalk/index.css';
@@ -50,6 +52,7 @@ Vue.use(iView);
 Vue.filter('isOddOrEven' , isOddOrEven);
 Vue.filter('isLargeOrSmall' , isLargeOrSmall);
 Vue.filter('isDragonOrTiger' , isDragonOrTiger);
+Vue.filter('determineSequence' , determineSequence);
 Vue.filter('sum' , sum);
 
 let oI18n = new VueI18n({

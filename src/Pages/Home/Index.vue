@@ -192,7 +192,6 @@ class Home extends Vue {
       }
 
     }
-    debugger;
     return _oLotteryIssues;
   }
 }
