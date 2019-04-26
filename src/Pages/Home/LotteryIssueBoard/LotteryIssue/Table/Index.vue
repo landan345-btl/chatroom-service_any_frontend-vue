@@ -26,7 +26,7 @@
     <tr>
       <td>{{ lotteryIssue.numbers | sum }}</td>
       <td>{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
-      <td>{{ lotteryIssue.numbers | sum | isLargeOrSmall(lotteryIssue.types) }}</td>
+      <td>{{ lotteryIssue.numbers | sum | isLargeOrSmall(23) }}</td>
       <td>{{ lotteryIssue.numbers | isDragonOrTiger(0, 1) }}</td>
       <td>{{ lotteryIssue.numbers | determineSequence([0, 1, 2]) }}</td>
       <td>{{ lotteryIssue.numbers | determineSequence([1, 2, 3]) }}</td>
