@@ -6,8 +6,7 @@
     <el-row :gutter="0">
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
         <main class="mt-2 align-top">
-          LOTTERY ISSUE
-          <Toolbar/>
+          <Lottery :code="getCode"/>
           <Table />
         </main>
       </el-col>
@@ -29,6 +28,7 @@ import NavRight from '@/Commons/NavRight/Index.vue';
 import ETabs from '@/Components/ETabs/Index.vue';
 import Lottery from './Lottery/Index.vue';
 import Table from './Table/Index.vue';
+import LOTTERIES from '@/CONFIGS/LOTTERIES/';
 
 @Component({
   components: {
@@ -42,7 +42,13 @@ import Table from './Table/Index.vue';
   },
 })
 class LotteryIssue extends Vue {
-
+  public get getCode() {
+    let sCode = this.$route.query.code;
+    if (!(sCode in LOTTERIES)) {
+      this.$router.push( { name: '/home'});
+    }
+    return sCode;
+  }
 }
 
 export default LotteryIssue;

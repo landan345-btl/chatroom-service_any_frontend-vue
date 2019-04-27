@@ -1,5 +1,20 @@
 <template>
   <div class="lottery">
+    <div class="icon">
+      <img :src="require(`@/assets/images/` + `${code}` + `-sm.png`)"/>
+    </div>
+    <div class="name-issue_no-numbers">
+      code: {{code}}
+    </div>
+    <div class="countdown">
+      
+    </div>
+    <div class="audio">
+      
+    </div>
+    <div class="live">
+      
+    </div>
   </div>
 </template>
 <style scoped lang="scss">
@@ -7,7 +22,7 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 import Footer from '@/Commons/Footer/Index.vue'; // @ is an alias to /src
 import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
@@ -23,7 +38,8 @@ import ECollapse from '@/Components/ECollapse/Index.vue';
   },
 })
 class Lottery extends Vue {
-
+  @Prop()
+  public code!: string;
 }
 
 export default Lottery;
