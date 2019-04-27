@@ -1,10 +1,10 @@
 <template>
   <div class="live">
-    <div class="lotteries"> 
-      <span class="lottery d-inline-block" v-for="(sImage, iIndex) in images" :key="iIndex" v-bind:second="1">
+    <div class="lotteries d-flex justify-content-between"> 
+      <div class="lottery" v-for="(sImage, iIndex) in images" :key="iIndex" v-bind:second="1">
         <img :src="require(`@/` + `${sImage}`)"/>
-        <div class="content text-center mt-1">倒数&nbsp;&nbsp;&nbsp; 03:05</div>
-      </span>
+        <div class="content text-center">倒数&nbsp;&nbsp;&nbsp; 03:05</div>
+      </div>
     </div>
   </div>
 </template>

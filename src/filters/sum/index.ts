@@ -1,6 +1,5 @@
 let cSum = (aNumbers: number[], aPositions: number[] | null) => {
   if (Array.isArray(aPositions)) {
-    debugger;
     let iSumation = aPositions.reduce((iSumation: number, iCurrentPosition: number) => {
       iSumation += aNumbers[iCurrentPosition];
       return iSumation;
