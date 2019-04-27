@@ -16,10 +16,20 @@
     height: 4vmin;
     font-size: 1.6vmin;
     border-radius: 2vmin;
+    color: #ffffff;
     background-color: #0092dd;
   }
 
-  .kl8 {
+  .num-11x5 {
+    width: 4vmin;
+    height: 4vmin;
+    font-size: 1.6vmin;
+    border-radius: 2vmin;
+    color: #ffffff;
+    background-color: #0092dd;
+  }
+
+  .num-kl8 {
     width: 2.5vmin;
     height: 2.5vmin;
     font-size: 0.8vmin;
@@ -27,7 +37,7 @@
     background-color: #0092dd;
   }
 
-  .pk10 {
+  .num-pk10 {
     width: 40px;
     height: 40px;
     font-size: 0.8vmin;
@@ -44,7 +54,7 @@
     }
   }
 
-  .pk10-1, .pk10-01 {
+  .num-pk10-1, .num-pk10-01 {
     background: url('~@/assets/images/numbers.png') no-repeat -246px 0;
     background-size: 468px 279px;
     @media only screen and (max-width: 767.98px) {
