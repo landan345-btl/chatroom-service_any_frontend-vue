@@ -67,16 +67,16 @@
   </table>
   <table class="text-center" v-else-if="'K3' === lotteryIssue.types">
     <tr>
-      <th colspan=3>总和</th>
-      <th colspan=3>鱼虾蟹</th>
+      <th class="w-50" colspan=3>总和</th>
+      <th class="w-50" colspan=3>鱼虾蟹</th>
     </tr>
     <tr>
-      <td>10</td>
-      <td>双</td>
-      <td>小</td>
-      <td>鱼</td>
-      <td>葫芦</td>
-      <td>鸡</td>
+      <td>{{ lotteryIssue.numbers | sum }}</td>
+      <td>{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
+      <td>{{ lotteryIssue.numbers | sum | isSmallOrLarge(10, 11) }}</td>
+      <td>{{ lotteryIssue.numbers | isFishOrShrimpOrCrab(0) }}</td>
+      <td>{{ lotteryIssue.numbers | isFishOrShrimpOrCrab(1) }}</td>
+      <td>{{ lotteryIssue.numbers | isFishOrShrimpOrCrab(2) }}</td>
     </tr>
   </table>
   <table class="text-center" v-else-if="'PL3' === lotteryIssue.types">

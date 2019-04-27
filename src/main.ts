@@ -13,6 +13,8 @@ import oStore from '@/store/index';
 import isOddOrEven from '@/filters/isOddOrEven/index';
 import isSmallOrLarge from '@/filters/isSmallOrLarge/index';
 import isDragonOrTiger from '@/filters/isDragonOrTiger/index';
+import isFishOrShrimpOrCrab from '@/filters/isFishOrShrimpOrCrab/index';
+
 import determineSequence from '@/filters/determineSequence/index';
 import substr from '@/filters/substr/index';
 
@@ -53,6 +55,7 @@ Vue.use(iView);
 Vue.filter('isOddOrEven' , isOddOrEven);
 Vue.filter('isSmallOrLarge' , isSmallOrLarge);
 Vue.filter('isDragonOrTiger' , isDragonOrTiger);
+Vue.filter('isFishOrShrimpOrCrab' , isFishOrShrimpOrCrab);
 Vue.filter('determineSequence' , determineSequence);
 Vue.filter('substr' , substr);
 Vue.filter('sum' , sum);
