@@ -5,11 +5,11 @@
       <th colspan=3>冠亚和</th>
     </tr>
     <tr>
-      <td>{{ lotteryIssue.numbers | isDragonOrTiger(0, 9) }}</td>
-      <td>{{ lotteryIssue.numbers | isDragonOrTiger(1, 8) }}</td>
-      <td>{{ lotteryIssue.numbers | isDragonOrTiger(2, 7) }}</td>
-      <td>{{ lotteryIssue.numbers | isDragonOrTiger(3, 6) }}</td>
-      <td>{{ lotteryIssue.numbers | isDragonOrTiger(4, 5) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger([0, 9]) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger([1, 8]) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger([2, 7]) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger([3, 6]) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger([4, 5]) }}</td>
       <td>{{ lotteryIssue.numbers | sum([0, 1]) }}</td>
       <td>{{ lotteryIssue.numbers | sum([0, 1]) | isSmallOrLarge(10, 12) }}</td>
       <td>{{ lotteryIssue.numbers | sum([0, 1]) | isOddOrEven }}</td>
@@ -27,7 +27,7 @@
       <td>{{ lotteryIssue.numbers | sum }}</td>
       <td>{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
       <td>{{ lotteryIssue.numbers | sum | isSmallOrLarge(22, 23) }}</td>
-      <td>{{ lotteryIssue.numbers | isDragonOrTiger(0, 1) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger([0, 1]) }}</td>
       <td>{{ lotteryIssue.numbers | determineSequence([0, 1, 2]) }}</td>
       <td>{{ lotteryIssue.numbers | determineSequence([1, 2, 3]) }}</td>
       <td>{{ lotteryIssue.numbers | determineSequence([2, 3, 4]) }}</td>
@@ -59,10 +59,10 @@
       <td>{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
       <td>{{ lotteryIssue.numbers | sum | isSmallOrLarge(83, 85) }}</td>
       <td>{{ lotteryIssue.numbers | sum | substr(-1, 1) | isSmallOrLarge(4, 5) }}</td>
-      <td>{{ lotteryIssue.numbers | isDragonOrTiger(0, 7) }}</td>
-      <td>{{ lotteryIssue.numbers | isDragonOrTiger(1, 6) }}</td>
-      <td>{{ lotteryIssue.numbers | isDragonOrTiger(2, 5) }}</td>
-      <td>{{ lotteryIssue.numbers | isDragonOrTiger(3, 4) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger([0, 7]) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger([1, 6]) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger([2, 5]) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger([3, 4]) }}</td>
     </tr>
   </table>
   <table class="text-center" v-else-if="'K3' === lotteryIssue.types">
