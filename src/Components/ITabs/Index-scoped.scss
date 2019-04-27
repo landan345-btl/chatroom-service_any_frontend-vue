@@ -4,9 +4,29 @@
 }
 
 /deep/ .ivu-tabs-nav .ivu-tabs-tab-active {
-  font-size: 2.2vmin;
   color: #ff7b00;
+  
+  @media only screen and (min-width: 992px) {
+    font-size: 1.2vmin;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 2vmin;
+  }
+
+
 }
+
+/deep/ .ivu-tabs-nav .ivu-tabs-tab {
+  @media only screen and (min-width: 992px) {
+    padding: 0.6vmin 0.6vmin;
+  }
+  
+  @media only screen and (min-width: 1200px) {
+    padding: 1vmin 1vmin;
+  }
+
+} 
 
 /deep/ .ivu-tabs-ink-bar:hover {
   color: #ff7b00;
@@ -20,5 +40,12 @@
 }
 
 /deep/ .ivu-tabs-nav-container {
-  font-size: 2vmin;
+  @media only screen and (min-width: 992px) {
+    font-size: 1vmin;
+  }
+
+  @media only screen and (min-width: 1200px) {
+    font-size: 1.8vmin;
+  }
+
 }

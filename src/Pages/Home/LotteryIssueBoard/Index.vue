@@ -11,48 +11,62 @@
       <TabPane label="热门彩" name="popular">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-if="['SSC'].includes(oLotteryIssue.types)"/>
+            <div v-if="['SSC'].includes(oLotteryIssue.types)">
+              <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-if="['SSC'].includes(oLotteryIssue.types)"/>
+            </div>
           </div>
         </div>
       </TabPane>
       <TabPane label="PK10" name="pk10">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-if="['PK10'].includes(oLotteryIssue.types)"/>
+            <div v-if="['PK10'].includes(oLotteryIssue.types)">
+              <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" />
+            </div>
           </div>
         </div>      </TabPane>
       <TabPane label="时时彩" name="ssc">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-if="['SSC'].includes(oLotteryIssue.types)"/>
+            <div v-if="['SSC'].includes(oLotteryIssue.types)">
+              <Lottery-issue v-bind:lotteryIssue="oLotteryIssue"/>
+            </div>
           </div>
         </div>
       </TabPane>
       <TabPane label="11选5" name="11x5">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-if="['11X5'].includes(oLotteryIssue.types)"/>
+            <div v-if="['11X5'].includes(oLotteryIssue.types)">
+              <Lottery-issue v-bind:lotteryIssue="oLotteryIssue"/>
+            </div>
           </div>
         </div>
       </TabPane>
       <TabPane label="快乐十分" name="klsf">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-if="['KLSF'].includes(oLotteryIssue.types)"/>
+            <div v-if="['KLSF'].includes(oLotteryIssue.types)">
+              <Lottery-issue v-bind:lotteryIssue="oLotteryIssue"/>
+            </div>
           </div>
         </div>
       </TabPane>
       <TabPane label="快3" name="k3">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-if="['K3'].includes(oLotteryIssue.types)"/>
+            <div v-if="['K3'].includes(oLotteryIssue.types)">
+              <Lottery-issue v-bind:lotteryIssue="oLotteryIssue"/>
+            </div>
           </div>
         </div>
       </TabPane>
       <TabPane label="其它" name="other">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-if="!['PK10', 'SSC','KL8', '11X5', 'KLSF', 'K3'].includes(oLotteryIssue.types)"/>
+            <div v-if="!['PK10', 'SSC','KL8', '11X5', 'KLSF', 'K3'].includes(oLotteryIssue.types)">
+              <Lottery-issue v-bind:lotteryIssue="oLotteryIssue"/>
+            </div>
           </div>
         </div>
       </TabPane>
