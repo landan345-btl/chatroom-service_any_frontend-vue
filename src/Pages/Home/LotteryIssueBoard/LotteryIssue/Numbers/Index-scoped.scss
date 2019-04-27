@@ -31,59 +31,104 @@
     width: 40px;
     height: 40px;
     font-size: 0.8vmin;
-    border-radius: 1vmin;
     background-color: #127252;
     color: rgba($color: #000000, $alpha: 0);
+    @media only screen and (max-width: 767.98px) {
+      width: 32px;
+      height: 32px;
+    }
   }
 
   .pk10-1 {
-    background: url('~@/assets/images/numbers.png') -246px 0!important;
-    background-repeat: no-repeat;
-    background-size: 300px 100px;
+    background: url('~@/assets/images/numbers.png') no-repeat -246px 0;
+    background-size: 468px 279px;
+    @media only screen and (max-width: 767.98px) {
+      background: url('~@/assets/images/numbers.png') no-repeat -196.8px 0;
+      background-size: 374.4px 223.2px;
+    }
+
+    @media only screen and (max-width: 545.98px) {
+      background: url('~@/assets/images/numbers.png') no-repeat -147.8px 0;
+      background-size: 280.8px 167.4px;
+    }
   }
 
   .pk10-2 {
-    background: url('~@/assets/images/numbers.png') -42px 0!important;
-    background-repeat: no-repeat;
-    background-size: 300px 100px;
+    background: url('~@/assets/images/numbers.png') no-repeat -42px 0;
+    background-size: 468px 279px;
+    @media only screen and (max-width: 767.98px) {
+      background: url('~@/assets/images/numbers.png') no-repeat -33.6px 0;
+      background-size: 374.4px 223.2px;
+    }
   }
 
   .pk10-3 {
-    background: url('~@/assets/images/numbers.png') no-repeat -83px 0!important;
-    background-size: 3px 3px;
-
+    background: url('~@/assets/images/numbers.png') no-repeat -83px 0;
+    background-size: 468px 279px;
+    @media only screen and (max-width: 767.98px) {
+      background: url('~@/assets/images/numbers.png') no-repeat -66.4px 0;
+      background-size: 374.4px 223.2px;
+    }
   }
 
   .pk10-4 {
-    background: url('~@/assets/images/numbers.png') no-repeat -123px 0!important;
-    background-size: 3px 3px;
-
+    background: url('~@/assets/images/numbers.png') no-repeat -123px 0;
+    background-size: 468px 279px;
+    @media only screen and (max-width: 767.98px) {
+      background: url('~@/assets/images/numbers.png') no-repeat -98.4px 0;
+      background-size: 374.4px 223.2px;
+    }
   }
 
   .pk10-5 {
-    background: url('~@/assets/images/numbers.png') no-repeat -286px 0!important;
-    background-size: 3px 3px;
-
+    background: url('~@/assets/images/numbers.png') no-repeat -286px 0;
+    background-size: 468px 279px;
+    @media only screen and (max-width: 767.98px) {
+      background: url('~@/assets/images/numbers.png') no-repeat -228.8px 0;
+      background-size: 374.4px 223.2px;
+    }
   }
 
   .pk10-6 {
-    background: url('~@/assets/images/numbers.png') no-repeat -1px 0!important;
+    background: url('~@/assets/images/numbers.png') no-repeat -1px 0;
+    background-size: 468px 279px;
+    @media only screen and (max-width: 767.98px) {
+      background: url('~@/assets/images/numbers.png') no-repeat -0.8px 0;
+      background-size: 374.4px 223.2px;
+    }
   }
 
   .pk10-7 {
-    background: url('~@/assets/images/numbers.png') no-repeat -205px 0!important;
+    background: url('~@/assets/images/numbers.png') no-repeat -205px 0;
+    background-size: 468px 279px;
+    @media only screen and (max-width: 767.98px) {
+      background: url('~@/assets/images/numbers.png') no-repeat -164px 0;
+      background-size: 374.4px 223.2px;
+    }
   }
 
   .pk10-8 {
-    background: url('~@/assets/images/numbers.png') no-repeat -164px 0!important;
+    background: url('~@/assets/images/numbers.png') no-repeat -164px 0;
+    @media only screen and (max-width: 767.98px) {
+      background: url('~@/assets/images/numbers.png') no-repeat -131.2px 0;
+      background-size: 374.4px 223.2px;
+    }
   }
 
   .pk10-9 {
-    background: url('~@/assets/images/numbers.png') no-repeat -327px 0!important;
+    background: url('~@/assets/images/numbers.png') no-repeat -327px 0;
+    @media only screen and (max-width: 767.98px) {
+      background: url('~@/assets/images/numbers.png') no-repeat -261.6px 0;
+      background-size: 374.4px 223.2px;
+    }
   }
 
   .pk10-10 {
-    background: url('~@/assets/images/numbers.png') no-repeat -368px 0!important;
+    background: url('~@/assets/images/numbers.png') no-repeat -368px 0;
+        @media only screen and (max-width: 767.98px) {
+          background: url('~@/assets/images/numbers.png') no-repeat -294.4px 0;
+          background-size: 374.4px 223.2px;
+    }
   }
 
   .six {
