@@ -87,13 +87,13 @@ class Home extends Vue {
   }
 
   public setIntervalLotteryIssueActionShow() {
-    this.timer = setInterval(() => {
-      // let sDateNow = moment().format('YYYY-MM-DD'); // 本地时间 年 月 日
-      // let oQueries = {
-      //   date: sDateNow ,
-      // };
-      this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', {} );
-    } , BACKEND.INTERVAL_TIME );
+    // this.timer = setInterval(() => {
+    //   // let sDateNow = moment().format('YYYY-MM-DD'); // 本地时间 年 月 日
+    //   // let oQueries = {
+    //   //   date: sDateNow ,
+    //   // };
+    //   this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', {} );
+    // } , BACKEND.INTERVAL_TIME );
   }
 
   public beforeDestroy() {  // 组件销毁之前调用

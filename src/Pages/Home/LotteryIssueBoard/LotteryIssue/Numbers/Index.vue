@@ -1,8 +1,10 @@
 <template>
   <div class="numbers">
-    <span class="number kl8" v-for="(iNumber, sKey) in numbers" :key="sKey">
+    <div class="number" :class="[types.toLowerCase(), types.toLowerCase() + '-' + iNumber]" v-for="(iNumber, sKey) in numbers" :key="sKey">
       <span>{{iNumber}}</span>
-    </span>
+    </div>
+    <div class="pk10 pk10-2">
+    </div>
   </div>
 </template>
 
