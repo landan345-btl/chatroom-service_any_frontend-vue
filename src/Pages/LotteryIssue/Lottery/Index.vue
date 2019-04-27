@@ -1,10 +1,9 @@
 <template>
-  <span class="table d-inline-block">
-    TABLE
-  </span>
+  <div class="lottery">
+  </div>
 </template>
 <style scoped lang="scss">
-@import 'Table-scoped.scss';
+@import 'Index-scoped.scss';
 
 </style>
 <script lang="ts">
@@ -15,15 +14,17 @@ import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
 import NavTop from '@/Commons/NavTop/Index.vue';
 import NavRight from '@/Commons/NavRight/Index.vue';
 import ETabs from '@/Components/ETabs/Index.vue';
+import ECollapse from '@/Components/ECollapse/Index.vue';
 
 @Component({
-  name: 'List',
+  name: 'Lottery',
   components: {
+    ECollapse,
   },
 })
-class List extends Vue {
+class Lottery extends Vue {
 
 }
 
-export default List;
+export default Lottery;
 </script>

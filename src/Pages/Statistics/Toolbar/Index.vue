@@ -20,7 +20,7 @@
   </span>
 </template>
 <style scoped lang="scss">
-@import 'Toolbar-scoped.scss';
+@import 'Index-scoped.scss';
 
 </style>
 <script lang="ts">

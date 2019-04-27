@@ -81,7 +81,8 @@ class Home extends Vue {
   public timer: any;
   public created(): void {
     let $root: any = this.$root;
-    this.$store.dispatch('LOTTERY_ACTION_SHOW', {} );
+    this.$store.dispatch('LOTTERY_ACTION_SHOW', {});
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', {} );
     this.setIntervalLotteryIssueActionShow();
   }
 
@@ -137,6 +138,7 @@ class Home extends Vue {
     let sLotteryIssueId: string;
     let sLotteryId;
     type sLotteryCode = 'SGFT' | 'BJPK10' | 'JSPK10' | 'PCDD' | 'CQKLSF' | 'JX11X5' | 'SD11X5' | 'JSK3';
+
     for (sLotteryIssueId in oLotteryIssues) {
       if (oLotteryIssues.hasOwnProperty(Number(sLotteryIssueId))) {
         let oLotteryIssue = oLotteryIssues[sLotteryIssueId];
@@ -164,7 +166,7 @@ class Home extends Vue {
             if (iNowTime >= iStartedTime && iNowTime <= iEndedTime) {
               iLotteryIssueOrderNoInThisDay += Math.floor(iDifferentTime / oLottery.interval_time);
             }
-            if(0 === Number(oLottery.interval_time)) {
+            if (0 === Number(oLottery.interval_time)) {
               iNextTime = (new Date(oLotteryIssue.date + ' ' + oLotteryIssue.time).getTime() + 24 * 60 * 60 * 1000 - iNowTime) / 1000;
 
             }
@@ -192,7 +194,6 @@ class Home extends Vue {
       }
 
     }
-    debugger;
     return _oLotteryIssues;
   }
 }

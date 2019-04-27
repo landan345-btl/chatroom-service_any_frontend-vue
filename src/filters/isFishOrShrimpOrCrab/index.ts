@@ -1,9 +1,9 @@
-const FISH: string = '鱼'; // 1
-const SHRIMP: string = '虾'; // 2
+const FISH: string = '鱼';    // 1
+const SHRIMP: string = '虾';  // 2
 const GOURD: string = '葫芦'; // 3
-const GOLD:string = '金钱'; // 4
-const CRAB: string = '蟹'; // 5
-const COCK: string = '鸡'; // 6
+const GOLD: string = '金钱';  // 4
+const CRAB: string = '蟹';    // 5
+const COCK: string = '鸡';    // 6
 const UNKNOWN: string = '未知';
 
 let cIsFishOrShrimpOrCrab = (aNumbers: number[], iPosition: number): string => {
@@ -28,7 +28,7 @@ let cIsFishOrShrimpOrCrab = (aNumbers: number[], iPosition: number): string => {
       return COCK;
       break;
     default:
-  } 
+  }
   return UNKNOWN;
 };
 

@@ -131,7 +131,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 class Table extends Vue {
   @Prop()
   public lotteryIssue!: object;
-  
 }
 export default Table;
 

@@ -18,7 +18,7 @@ let cIsSmallOrLarge = (iNumber: number, iSmallUpperBound: number, iLargeLowerBou
 
   if (iNumber > iSmallUpperBound && iNumber < iLargeLowerBound) {
     return DEUCE;
-  } 
+  }
   return UNKNOWN;
 };
 

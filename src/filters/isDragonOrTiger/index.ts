@@ -1,6 +1,6 @@
 const DRAGON: string = '龙';
 const TIGER: string = '虎';
-const DEUCE: string = '和'; 
+const DEUCE: string = '和';
 const UNKNOWN: string = '未知';
 
 let cIsDragonOrTiger = (aNumbers: number[], iDragonPosition: number, iTigerPosition: number): string => {

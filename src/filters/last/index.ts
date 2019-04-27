@@ -8,7 +8,6 @@ const K3: string = 'K3';
 const KLSF: string = 'KLSF';
 
 let cLast = (aNumbers: number[]): number | undefined => {
-  debugger;
   let iLength = aNumbers.length;
   let iNumber = aNumbers[iLength - 1 ];
   return iNumber;

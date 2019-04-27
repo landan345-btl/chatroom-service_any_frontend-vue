@@ -6,6 +6,7 @@
     <el-row :gutter="0">
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
         <main class="mt-2 align-top">
+          LOTTERY ISSUE
           <Toolbar/>
           <Table />
         </main>
@@ -26,7 +27,7 @@ import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
 import NavTop from '@/Commons/NavTop/Index.vue';
 import NavRight from '@/Commons/NavRight/Index.vue';
 import ETabs from '@/Components/ETabs/Index.vue';
-import Toolbar from './Toolbar/Index.vue';
+import Lottery from './Lottery/Index.vue';
 import Table from './Table/Index.vue';
 
 @Component({
@@ -36,13 +37,13 @@ import Table from './Table/Index.vue';
     NavRight,
     Footer,
     ETabs,
-    Toolbar,
+    Lottery,
     Table,
   },
 })
-class Trend extends Vue {
+class LotteryIssue extends Vue {
 
 }
 
-export default Trend;
+export default LotteryIssue;
 </script>
