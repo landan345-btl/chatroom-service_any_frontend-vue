@@ -59,17 +59,20 @@
             </el-submenu>
             <el-submenu index="2-5">
               <template slot="title">11选5</template>
-              <el-menu-item index="2-3-17" class="font-2-vmin"><a href="/lottery-issue?code=GD11X5">广东11选5</a></el-menu-item>
-              <el-menu-item index="2-3-18" class="font-2-vmin"><a href="/lottery-issue?code=SH11X5">上海11选5</a></el-menu-item>
-              <el-menu-item index="2-3-19" class="font-2-vmin"><a href="/lottery-issue?code=AH11X5">安徽11选5</a></el-menu-item>
-              <el-menu-item index="2-3-20" class="font-2-vmin"><a href="/lottery-issue?code=JX11X5">江西11选5</a></el-menu-item>
-              <el-menu-item index="2-3-21" class="font-2-vmin"><a href="/lottery-issue?code=JL11X5">吉林11选5</a></el-menu-item>
-              <el-menu-item index="2-3-22" class="font-2-vmin"><a href="/lottery-issue?code=GX11X5">广西11选5</a></el-menu-item>
-              <el-menu-item index="2-3-23" class="font-2-vmin"><a href="/lottery-issue?code=HUB11X5">湖北11选5</a></el-menu-item>
-              <el-menu-item index="2-3-24" class="font-2-vmin"><a href="/lottery-issue?code=LN11X5">辽宁11选5</a></el-menu-item>
-              <el-menu-item index="2-3-25" class="font-2-vmin"><a href="/lottery-issue?code=JS11X5">江苏11选5</a></el-menu-item>
-              <el-menu-item index="2-3-26" class="font-2-vmin"><a href="/lottery-issue?code=ZJ11X5">浙江11选5</a></el-menu-item>
-              <el-menu-item index="2-3-27" class="font-2-vmin"><a href="/lottery-issue?code=NMG11X5">内蒙古11选5</a></el-menu-item>
+              <el-menu-item index="2-5-1" class="font-2-vmin"><a href="/lottery-issue?code=GD11X5">广东11选5</a></el-menu-item>
+              <el-menu-item index="2-5-2" class="font-2-vmin"><a href="/lottery-issue?code=JS11X5">江苏11选5</a></el-menu-item>
+              <el-menu-item index="2-5-3" class="font-2-vmin"><a href="/lottery-issue?code=FJ11X5">福建11选5</a></el-menu-item>
+              <el-menu-item index="2-5-4" class="font-2-vmin"><a href="/lottery-issue?code=XJ11X5">新疆11选5</a></el-menu-item>
+              <el-menu-item index="2-5-5" class="font-2-vmin"><a href="/lottery-issue?code=HLJ11X5">黑龙江11选5</a></el-menu-item>
+              <el-menu-item index="2-5-6" class="font-2-vmin"><a href="/lottery-issue?code=SD11X5">十一运夺金</a></el-menu-item>
+              <el-menu-item index="2-5-7" class="font-2-vmin"><a href="/lottery-issue?code=ZJ11X5">浙江11选5</a></el-menu-item>
+              <el-menu-item index="2-5-8" class="font-2-vmin"><a href="/lottery-issue?code=SH11X5">上海11选5</a></el-menu-item>
+              <el-menu-item index="2-5-9" class="font-2-vmin"><a href="/lottery-issue?code=BJ11X5">北京11选5</a></el-menu-item>
+              <el-menu-item index="2-5-10" class="font-2-vmin"><a href="/lottery-issue?code=JX11X5">江西11选5</a></el-menu-item>
+              <el-menu-item index="2-5-11" class="font-2-vmin"><a href="/lottery-issue?code=AH11X5">安徽11选5</a></el-menu-item>
+              <el-menu-item index="2-5-12" class="font-2-vmin"><a href="/lottery-issue?code=JL11X5">吉林11选5</a></el-menu-item>
+              <el-menu-item index="2-5-13" class="font-2-vmin"><a href="/lottery-issue?code=FF11X5">幸运11选5</a></el-menu-item>
+              <el-menu-item index="2-5-14" class="font-2-vmin"><a href="/lottery-issue?code=GX11X5">广西11选5</a></el-menu-item>
             </el-submenu>
             <el-submenu index="2-6">
               <template slot="title"></template>
