@@ -10,6 +10,17 @@
   display: block;
 }
 
+.d-none {
+  display: none;
+}
+
+.d-xs-none {
+  @media only screen and (max-width: 767.98px) {
+    display: none;
+  }
+}
+
+
 .d-flex {
   display: flex;
 }
@@ -123,6 +134,12 @@
 .mt-xs-4 {
   @media only screen and (max-width: 767.98px) {
     margin-top: 4vmin !important;
+  }
+}
+
+.mt-xs-5 {
+  @media only screen and (max-width: 767.98px) {
+    margin-top: 5vmin !important;
   }
 }
 
@@ -259,6 +276,12 @@
 .mb-xs-4 {
   @media only screen and (max-width: 767.98px) {
     margin-bottom: 4vmin !important;
+  }
+}
+
+.mb-xs-5 {
+  @media only screen and (max-width: 767.98px) {
+    margin-bottom: 5vmin !important;
   }
 }
 
