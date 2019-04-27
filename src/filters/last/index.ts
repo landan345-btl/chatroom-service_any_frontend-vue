@@ -7,9 +7,11 @@ const PK10: string = 'PK10';
 const K3: string = 'K3';
 const KLSF: string = 'KLSF';
 
-let cSubstr = (mString: string | number, iPosition: number, iLength: number): string => {
-  let sSubString = mString.toString().substr(iPosition, iLength);
-  return sSubString;
+let cLast = (aNumbers: number[]): number | undefined => {
+  debugger;
+  let iLength = aNumbers.length;
+  let iNumber = aNumbers[iLength - 1 ];
+  return iNumber;
 };
 
-export default cSubstr;
+export default cLast;

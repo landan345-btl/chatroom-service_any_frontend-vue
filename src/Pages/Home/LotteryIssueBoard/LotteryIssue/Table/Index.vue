@@ -26,7 +26,7 @@
     <tr>
       <td>{{ lotteryIssue.numbers | sum }}</td>
       <td>{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
-      <td>{{ lotteryIssue.numbers | sum | isSmallOrLarge(23) }}</td>
+      <td>{{ lotteryIssue.numbers | sum | isSmallOrLarge(22, 23) }}</td>
       <td>{{ lotteryIssue.numbers | isDragonOrTiger(0, 1) }}</td>
       <td>{{ lotteryIssue.numbers | determineSequence([0, 1, 2]) }}</td>
       <td>{{ lotteryIssue.numbers | determineSequence([1, 2, 3]) }}</td>
@@ -58,7 +58,7 @@
       <td>{{ lotteryIssue.numbers | sum }}</td>
       <td>{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
       <td>{{ lotteryIssue.numbers | sum | isSmallOrLarge(83, 85) }}</td>
-      <td>{{ lotteryIssue.numbers | sum | substr(-1, 1) | isSmallOrLarge(4, 5)}}</td>
+      <td>{{ lotteryIssue.numbers | sum | substr(-1, 1) | isSmallOrLarge(4, 5) }}</td>
       <td>{{ lotteryIssue.numbers | isDragonOrTiger(0, 7) }}</td>
       <td>{{ lotteryIssue.numbers | isDragonOrTiger(1, 6) }}</td>
       <td>{{ lotteryIssue.numbers | isDragonOrTiger(2, 5) }}</td>
@@ -71,56 +71,49 @@
       <th class="w-50" colspan=3>鱼虾蟹</th>
     </tr>
     <tr>
-      <td>{{ lotteryIssue.numbers | sum }}</td>
-      <td>{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
-      <td>{{ lotteryIssue.numbers | sum | isSmallOrLarge(10, 11) }}</td>
-      <td>{{ lotteryIssue.numbers | isFishOrShrimpOrCrab(0) }}</td>
-      <td>{{ lotteryIssue.numbers | isFishOrShrimpOrCrab(1) }}</td>
-      <td>{{ lotteryIssue.numbers | isFishOrShrimpOrCrab(2) }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum | isSmallOrLarge(10, 11) }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | isFishOrShrimpOrCrab(0) }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | isFishOrShrimpOrCrab(1) }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | isFishOrShrimpOrCrab(2) }}</td>
     </tr>
   </table>
-  <table class="text-center" v-else-if="'PL3' === lotteryIssue.types">
+  <table class="text-center" v-else-if="['3D', 'XY28'].includes(lotteryIssue.types)">
     <tr>
-      <th colspan=3>佰拾和</th>
-      <th colspan=3>佰个和</th>
-      <th colspan=3>拾个和</th>
-      <th colspan=3>总和</th>
+      <th class="w-25" colspan=3>佰拾和</th>
+      <th class="w-25" colspan=3>佰个和</th>
+      <th class="w-25" colspan=3>拾个和</th>
+      <th class="w-25" colspan=3>总和</th>
     </tr>
     <tr>
-      <td>3</td>
-      <td>单</td>
-      <td>尾小</td>
-      <td>12</td>
-      <td>双</td>
-      <td>尾小</td>
-      <td>9</td>
-      <td>单</td>
-      <td>尾大</td>
-      <td>12</td>
-      <td>双</td>
-      <td>小</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum([0, 1]) }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum([0, 1]) | isOddOrEven }}</td>
+      <td class="w-1_3">尾{{ lotteryIssue.numbers | sum([0, 1]) | substr(-1, 1) | isSmallOrLarge(4, 5) }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum([0, 2]) }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum([0, 2]) | isOddOrEven }}</td>
+      <td class="w-1_3">尾{{ lotteryIssue.numbers | sum([0, 2]) | substr(-1, 1) | isSmallOrLarge(4, 5) }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum([1, 2]) }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum([1, 2]) | isOddOrEven }}</td>
+      <td class="w-1_3">尾{{ lotteryIssue.numbers | sum([1, 2]) | substr(-1, 1) | isSmallOrLarge(4, 5) }}</td>
+      <td class="w-1_3" >{{ lotteryIssue.numbers | sum }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum | isSmallOrLarge(13, 14) }}</td>
     </tr>
   </table>
-  <table class="text-center" v-else-if="'3D' === lotteryIssue.types">
+  <table class="text-center" v-else-if="['SIX'].includes(lotteryIssue.types)">
     <tr>
-      <th colspan=3>佰拾和</th>
-      <th colspan=3>佰个和</th>
-      <th colspan=3>拾个和</th>
-      <th colspan=3>总和</th>
+      <th class="w-25" colspan=3>总和</th>
+      <th class="w-25" colspan=4>特码</th>
     </tr>
     <tr>
-      <td>3</td>
-      <td>单</td>
-      <td>尾小</td>
-      <td>12</td>
-      <td>双</td>
-      <td>尾小</td>
-      <td>9</td>
-      <td>单</td>
-      <td>尾大</td>
-      <td>12</td>
-      <td>双</td>
-      <td>小</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum | isSmallOrLarge(174, 175) }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | last }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | last | isOddOrEven }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | last | isSmallOrLarge(24, 25)}}</td>
+      <td class="w-1_3">尾{{ lotteryIssue.numbers | last | substr(-1, 1) | isSmallOrLarge(4, 5)}}</td>
     </tr>
   </table>
 </template>
