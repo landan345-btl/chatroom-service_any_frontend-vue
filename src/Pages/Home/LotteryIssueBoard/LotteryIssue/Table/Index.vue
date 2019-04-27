@@ -11,7 +11,7 @@
       <td>{{ lotteryIssue.numbers | isDragonOrTiger(3, 6) }}</td>
       <td>{{ lotteryIssue.numbers | isDragonOrTiger(4, 5) }}</td>
       <td>{{ lotteryIssue.numbers | sum([0, 1]) }}</td>
-      <td>{{ lotteryIssue.numbers | sum([0, 1]) | isLargeOrSmall(11) }}</td>
+      <td>{{ lotteryIssue.numbers | sum([0, 1]) | isSmallOrLarge(10, 12) }}</td>
       <td>{{ lotteryIssue.numbers | sum([0, 1]) | isOddOrEven }}</td>
     </tr>
   </table>
@@ -26,7 +26,7 @@
     <tr>
       <td>{{ lotteryIssue.numbers | sum }}</td>
       <td>{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
-      <td>{{ lotteryIssue.numbers | sum | isLargeOrSmall(23) }}</td>
+      <td>{{ lotteryIssue.numbers | sum | isSmallOrLarge(23) }}</td>
       <td>{{ lotteryIssue.numbers | isDragonOrTiger(0, 1) }}</td>
       <td>{{ lotteryIssue.numbers | determineSequence([0, 1, 2]) }}</td>
       <td>{{ lotteryIssue.numbers | determineSequence([1, 2, 3]) }}</td>
@@ -41,12 +41,12 @@
       <th>后三</th>
     </tr>
     <tr>
-      <td>36</td>
-      <td>大</td>
-      <td>双</td>
-      <td>半顺</td>
-      <td>杂六</td>
-      <td>半顺</td>
+      <td>{{ lotteryIssue.numbers | sum }}</td>
+      <td>{{ lotteryIssue.numbers | sum | isSmallOrLarge(29, 30) }}</td>
+      <td>{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
+      <td>{{ lotteryIssue.numbers | determineSequence([0, 1, 2]) }}</td>
+      <td>{{ lotteryIssue.numbers | determineSequence([1, 2, 3]) }}</td>
+      <td>{{ lotteryIssue.numbers | determineSequence([2, 3, 4]) }}</td>
     </tr>
   </table>
   <table class="text-center" v-else-if="'KLSF' === lotteryIssue.types">
@@ -55,14 +55,14 @@
       <th colspan=4>1-4龙虎</th>
     </tr>
     <tr>
-      <td>102</td>
-      <td>双</td>
-      <td>大</td>
-      <td>尾小</td>
-      <td>虎</td>
-      <td>虎</td>
-      <td>龙</td>
-      <td>虎</td>
+      <td>{{ lotteryIssue.numbers | sum }}</td>
+      <td>{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
+      <td>{{ lotteryIssue.numbers | sum | isSmallOrLarge(83, 85) }}</td>
+      <td>{{ lotteryIssue.numbers | sum | substr(-1, 1) | isSmallOrLarge(4, 5)}}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger(0, 7) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger(1, 6) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger(2, 5) }}</td>
+      <td>{{ lotteryIssue.numbers | isDragonOrTiger(3, 4) }}</td>
     </tr>
   </table>
   <table class="text-center" v-else-if="'K3' === lotteryIssue.types">

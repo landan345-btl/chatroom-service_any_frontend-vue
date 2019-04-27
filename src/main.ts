@@ -11,9 +11,10 @@ import oRouter from '@/routers/index';
 import oStore from '@/store/index';
 
 import isOddOrEven from '@/filters/isOddOrEven/index';
-import isLargeOrSmall from '@/filters/isLargeOrSmall/index';
+import isSmallOrLarge from '@/filters/isSmallOrLarge/index';
 import isDragonOrTiger from '@/filters/isDragonOrTiger/index';
 import determineSequence from '@/filters/determineSequence/index';
+import substr from '@/filters/substr/index';
 
 import sum from '@/filters/sum/index';
 
@@ -50,9 +51,10 @@ Vue.use(Element);
 Vue.use(iView);
 
 Vue.filter('isOddOrEven' , isOddOrEven);
-Vue.filter('isLargeOrSmall' , isLargeOrSmall);
+Vue.filter('isSmallOrLarge' , isSmallOrLarge);
 Vue.filter('isDragonOrTiger' , isDragonOrTiger);
 Vue.filter('determineSequence' , determineSequence);
+Vue.filter('substr' , substr);
 Vue.filter('sum' , sum);
 
 let oI18n = new VueI18n({
