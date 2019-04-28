@@ -11,7 +11,7 @@
   & > *:nth-child(n + 2) {
     margin-left: 0.23vmin;
   }
-  .ssc {
+  .number-ssc {
     width: 4vmin;
     height: 4vmin;
     font-size: 1.6vmin;
@@ -20,7 +20,7 @@
     background-color: #0092dd;
   }
 
-  .11x5 {
+  .number-11x5 {
     width: 4vmin;
     height: 4vmin;
     font-size: 1.6vmin;
@@ -29,7 +29,7 @@
     background-color: #0092dd;
   }
 
-  .num-kl8 {
+  .number-kl8 {
     width: 2.5vmin;
     height: 2.5vmin;
     font-size: 0.8vmin;
@@ -37,7 +37,7 @@
     background-color: #0092dd;
   }
 
-  .pk10 {
+  .number-pk10 {
     width: 40px;
     height: 40px;
     font-size: 0.8vmin;
@@ -54,7 +54,7 @@
     }
   }
 
-  .pk10-1, .pk10-01 {
+  .number-pk10-1, .number-pk10-01 {
     background: url('~@/assets/images/numbers.png') no-repeat -246px 0;
     background-size: 468px 279px;
     @media only screen and (max-width: 767.98px) {
@@ -68,7 +68,7 @@
     }
   }
 
-  .pk10-2, .pk10-02 {
+  .number-pk10-2, .number-pk10-02 {
     background: url('~@/assets/images/numbers.png') no-repeat -42px 0;
     background-size: 468px 279px;
     @media only screen and (max-width: 767.98px) {
@@ -82,7 +82,7 @@
     }
   }
 
-  .pk10-3, .pk10-03 {
+  .number-pk10-3, .number-pk10-03 {
     background: url('~@/assets/images/numbers.png') no-repeat -83px 0;
     background-size: 468px 279px;
     @media only screen and (max-width: 767.98px) {
@@ -96,7 +96,7 @@
     }
   }
 
-  .pk10-4, .pk10-04 {
+  .number-pk10-4, .number-pk10-04 {
     background: url('~@/assets/images/numbers.png') no-repeat -123px 0;
     background-size: 468px 279px;
     @media only screen and (max-width: 767.98px) {
@@ -110,7 +110,7 @@
     }
   }
 
-  .pk10-5, .pk10-05 {
+  .number-pk10-5, .number-pk10-05 {
     background: url('~@/assets/images/numbers.png') no-repeat -286px 0;
     background-size: 468px 279px;
     @media only screen and (max-width: 767.98px) {
@@ -124,7 +124,7 @@
     }
   }
 
-  .pk10-6, .pk10-06 {
+  .number-pk10-6, .number-pk10-06 {
     background: url('~@/assets/images/numbers.png') no-repeat -1px 0;
     background-size: 468px 279px;
     @media only screen and (max-width: 767.98px) {
@@ -138,7 +138,7 @@
     }
   }
 
-  .pk10-7, .pk10-07 {
+  .number-pk10-7, .number-pk10-07 {
     background: url('~@/assets/images/numbers.png') no-repeat -205px 0;
     background-size: 468px 279px;
     @media only screen and (max-width: 767.98px) {
@@ -152,7 +152,7 @@
     }
   }
 
-  .pk10-8, .pk10-08 {
+  .number-pk10-8, .number-pk10-08 {
     background: url('~@/assets/images/numbers.png') no-repeat -164px 0;
     @media only screen and (max-width: 767.98px) {
       background: url('~@/assets/images/numbers.png') no-repeat -131.2px 0;
@@ -165,7 +165,7 @@
     }
   }
 
-  .pk10-9, .pk10-09 {
+  .number-pk10-9, .number-pk10-09 {
     background: url('~@/assets/images/numbers.png') no-repeat -327px 0;
     @media only screen and (max-width: 767.98px) {
       background: url('~@/assets/images/numbers.png') no-repeat -261.6px 0;
@@ -178,7 +178,7 @@
     }
   }
 
-  .pk10-10 {
+  .number-pk10-10 {
     background: url('~@/assets/images/numbers.png') no-repeat -368px 0;
         @media only screen and (max-width: 767.98px) {
           background: url('~@/assets/images/numbers.png') no-repeat -294.4px 0;
@@ -191,7 +191,7 @@
     }
   }
 
-  .six {
+  .number-six {
     width: 2vmin;
     height: 2vmin;
     font-size: 0.8vmin;
@@ -199,11 +199,11 @@
     background-color: #0092dd;
   }
 
-  .six:last-child {
+  .number-six:last-child {
     background-color: red;
   }
 
-  & > .3d {
+  & > .number-3d {
     width: 2vmin;
     height: 2vmin;
     font-size: 0.8vmin;
@@ -211,34 +211,34 @@
     background-color: #127252;
   }
 
-  .k3 {
+  .number-k3 {
     width: 43px;
     height: 43px;
     color: rgba($color: #000000, $alpha: 0);
     background-size: auto;
   }
     
-  .k3-1 {
+  .number-k3-1 {
     background: url('~@/assets/images/numbers.png') no-repeat -424px 0;
   }
   
-  .k3-2 {
+  .number-k3-2 {
     background: url('~@/assets/images/numbers.png') no-repeat -424px -43px;
   }
   
-  .k3-3 {
+  .number-k3-3 {
     background: url('~@/assets/images/numbers.png') no-repeat -424px -86px;
   }
   
-  .k3-4 {
+  .number-k3-4 {
     background: url('~@/assets/images/numbers.png') no-repeat -424px -129px;
   }
   
-  .k3-5 {
+  .number-k3-5 {
     background: url('~@/assets/images/numbers.png') no-repeat -424px -172px;
   }
   
-  .k3-6 {
+  .number-k3-6 {
     background: url('~@/assets/images/numbers.png') no-repeat -424px -215px;
   }
 }
