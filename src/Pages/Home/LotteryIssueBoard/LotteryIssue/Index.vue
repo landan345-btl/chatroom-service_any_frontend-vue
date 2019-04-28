@@ -1,7 +1,7 @@
 <template>
   <div class="lottery-issue mt-sm-2 mb-sm-2 mt-md-2 mb-md-2 mt-lg-2 mb-lg-2 mt-xl-2 mb-xl-2">
     <div class="pseudo">
-      <div class="top position-relative">
+      <div class="top mb-1 position-relative">
         <span class="icon align-middle d-inline-block d-xs-none">
           <img :src="require(`@/assets/images/` + `${lotteryIssue.code}` + `-sm.png`)"/>
         </span>
