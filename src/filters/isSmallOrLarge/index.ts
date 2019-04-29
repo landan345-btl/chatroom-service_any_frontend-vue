@@ -2,23 +2,37 @@ const LARGE: string = '大';
 const SMALL: string = '小';
 const DEUCE: string = '和';
 const UNKNOWN: string = '未知';
-const SSC: string = 'SSC';
-const PK10: string = 'PK10';
-const K3: string = 'K3';
-const KLSF: string = 'KLSF';
 
-let cIsSmallOrLarge = (iNumber: number, iSmallUpperBound: number, iLargeLowerBound: number): string => {
-  if (iNumber <= iSmallUpperBound) {
-    return SMALL;
+let cIsSmallOrLarge = (aNumbers: number[] | number, iSmallUpperBound: number, iLargeLowerBound: number): string => {
+  let iCountSmall = 0;
+  let iCountLarge = 0;
+  if (!(aNumbers instanceof Array)) {
+    aNumbers = [aNumbers];
   }
 
-  if (iNumber >= iLargeLowerBound) {
+  aNumbers.forEach((iNumber) => {
+    if (iNumber <= iSmallUpperBound) {
+      iCountSmall ++;
+      return;
+    }
+    if (iNumber >= iLargeLowerBound) {
+      iCountLarge ++;
+      return;
+    }
+  });
+
+
+  if (0 < iCountSmall - iCountLarge) {
+    return SMALL;
+  }
+  if (0 > iCountSmall - iCountLarge) {
     return LARGE;
   }
 
-  if (iNumber > iSmallUpperBound && iNumber < iLargeLowerBound) {
+  if (0 === iCountSmall - iCountLarge) {
     return DEUCE;
   }
+
   return UNKNOWN;
 };
 

@@ -18,6 +18,9 @@ import isSmallOrLarge from '@/filters/isSmallOrLarge/index';
 import isDragonOrTiger from '@/filters/isDragonOrTiger/index';
 import isFishOrShrimpOrCrab from '@/filters/isFishOrShrimpOrCrab/index';
 import determineSequence from '@/filters/determineSequence/index';
+import count from '@/filters/count/index';
+
+import randomNumber from '@/directives/randomNumber/index';
 
 import 'element-ui/lib/theme-chalk/index.css';
 import 'iview/dist/styles/iview.css';
@@ -56,9 +59,13 @@ Vue.filter('isSmallOrLarge' , isSmallOrLarge);
 Vue.filter('isDragonOrTiger' , isDragonOrTiger);
 Vue.filter('isFishOrShrimpOrCrab' , isFishOrShrimpOrCrab);
 Vue.filter('determineSequence' , determineSequence);
+Vue.filter('count' , count);
+Vue.filter('tcount' , count);
 Vue.filter('last' , last);
 Vue.filter('substr' , substr);
 Vue.filter('sum' , sum);
+
+Vue.directive('randomNumber', randomNumber);
 
 let oI18n = new VueI18n({
   locale: 'zh',

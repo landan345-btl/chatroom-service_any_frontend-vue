@@ -112,8 +112,22 @@
       <td class="w-1_3">{{ lotteryIssue.numbers | sum | isSmallOrLarge(174, 175) }}</td>
       <td class="w-1_3">{{ lotteryIssue.numbers | last }}</td>
       <td class="w-1_3">{{ lotteryIssue.numbers | last | isOddOrEven }}</td>
-      <td class="w-1_3">{{ lotteryIssue.numbers | last | isSmallOrLarge(24, 25)}}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | last | isSmallOrLarge(24, 25) }}</td>
       <td class="w-1_3">尾{{ lotteryIssue.numbers | last | substr(-1, 1) | isSmallOrLarge(4, 5)}}</td>
+    </tr>
+  </table>
+  <table class="text-center" v-else-if="['KL8'].includes(lotteryIssue.types)">
+    <tr>
+      <th class="w-50" colspan=3>总合</th>
+      <th class="w-25" colspan=1>单双</th>
+      <th class="w-25" colspan=1>大小</th>
+    </tr>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
+      <td class="w-1_3">{{ lotteryIssue.numbers | sum | isSmallOrLarge(809, 811) }}</td>
+      <td class="">{{ lotteryIssue.numbers | isOddOrEven }} 多</td>
+      <td class="">{{ lotteryIssue.numbers | isSmallOrLarge(39, 40)}} 多</td>
+    <tr>
     </tr>
   </table>
 </template>

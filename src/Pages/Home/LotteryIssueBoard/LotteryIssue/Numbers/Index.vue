@@ -1,6 +1,6 @@
 <template>
   <div class="numbers">
-    <div class="number" :class="['number-' + types.toLowerCase(), 'number-'+ types.toLowerCase() + '-' + iNumber]" v-for="(iNumber, sKey) in numbers" :key="sKey">
+    <div class="number" :class="['number-' + types.toLowerCase(), 'number-'+ code.toLowerCase(), 'number-'+ types.toLowerCase() + '-' + iNumber]" v-for="(iNumber, sKey) in numbers" :key="sKey" v-randomNumber>
       <span>{{iNumber}}</span>
     </div>
   </div>

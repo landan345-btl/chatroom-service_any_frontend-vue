@@ -1,5 +1,5 @@
 <template>
-  <div class="trend">
+  <div class="lottery-issue">
     <Header/>
     <Nav-top/>
     <Nav-right/>

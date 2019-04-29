@@ -1,5 +1,5 @@
 <template>
-  <div class="lottery">
+  <div class="lottery w-100">
     <div class="icon">
       <img :src="require(`@/assets/images/` + `${code}` + `-sm.png`)"/>
     </div>
