@@ -4,6 +4,7 @@ import Home from '@/Pages/Home/Index.vue';
 
 import aHomeRoutes from '@/routers/home/index';
 import aAboutRoutes from '@/routers/about/index';
+import aTrendBoardRoutes from '@/routers/trendBoard/index';
 import aTrendRoutes from '@/routers/trend/index';
 import alotteryIssuesRoutes from '@/routers/lotteryIssue/index';
 import aStatisticsRoutes from '@/routers/statistics/index';
@@ -22,6 +23,7 @@ let oRouter = new Router({
     },
     ...aHomeRoutes,
     ...aAboutRoutes,
+    ...aTrendBoardRoutes,
     ...aTrendRoutes,
     ...alotteryIssuesRoutes,
     ...aStatisticsRoutes,
