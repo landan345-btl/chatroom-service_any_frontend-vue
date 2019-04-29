@@ -17,7 +17,6 @@ let oHeaders = {
  * 利用 Axios 改写，
  * 能过批次处理 AJAX 的 类模组
  */
-
 class AxiosHelper {
 
   /** 可以批次发送 AJAX 请求的 方法
