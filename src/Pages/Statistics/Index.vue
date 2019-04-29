@@ -1,5 +1,5 @@
 <template>
-  <div class="trend">
+  <div class="Statistics">
     <Header/>
     <Nav-top/>
     <Nav-right/>
