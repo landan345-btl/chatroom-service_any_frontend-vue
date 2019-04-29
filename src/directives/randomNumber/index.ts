@@ -1,6 +1,7 @@
 let oRandomNumber =  {   // 开奖时间进度条  时间倒数
   inserted: (oElement: any) => {
     let sClassName = oElement.className;
+    console.log(sClassName);
     let pProcess = Promise.resolve();
     pProcess.then(() => {
       return new Promise((cResolve, cReject) => {
