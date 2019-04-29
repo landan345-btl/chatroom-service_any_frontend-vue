@@ -18,7 +18,7 @@
     border-radius: 2vmin;
     color: #ffffff;
     background-color: #0092dd;
-    line-height: 2.5;
+    line-height: 4vmin;
   }
 
   .number-11x5 {
@@ -28,7 +28,7 @@
     border-radius: 2vmin;
     color: #ffffff;
     background-color: #0092dd;
-    line-height: 2.5;
+    line-height: 4vmin;
   }
 
   .number-xy28 {
@@ -38,7 +38,7 @@
     border-radius: 2vmin;
     color: #ffffff;
     background-color: #0092dd;
-    line-height: 2.5;
+    line-height: 4vmin;
   }
 
   
@@ -49,16 +49,17 @@
     border-radius: 2vmin;
     color: #ffffff;
     background-color: #0092dd;
-    line-height: 2.5;
+    line-height: 4vmin;
   }
 
   .number-kl8 {
-    width: 2.5vmin;
-    height: 2.5vmin;
-    font-size: 0.8vmin;
-    border-radius: 1.25vmin;
+    width: 2.6vmin;
+    height: 2.6vmin;
+    font-size: 1vmin;
+    border-radius: 1.3vmin;
+    color: #ffffff;
     background-color: #0092dd;
-    line-height: 2.5;
+    line-height: 2.6vmin;
   }
 
   .number-pk10 {
@@ -216,11 +217,13 @@
   }
 
   .number-six {
-    width: 2vmin;
-    height: 2vmin;
-    font-size: 0.8vmin;
-    border-radius: 1vmin;
+    width: 4vmin;
+    height: 4vmin;
+    font-size: 1.6vmin;
+    border-radius: 2vmin;
+    color: #ffffff;
     background-color: #0092dd;
+    line-height: 4vmin;
   }
 
   .number-six:last-child {
@@ -234,7 +237,7 @@
     border-radius: 2vmin;
     color: #ffffff;
     background-color: #0092dd;
-    line-height: 2.5;
+    line-height: 4vmin;
   }
 
   .number-klsf {
@@ -244,7 +247,7 @@
     border-radius: 2vmin;
     color: #ffffff;
     background-color: #0092dd;
-    line-height: 2.5;
+    line-height: 4vmin;
   }
 
   .number-k3 {
@@ -254,27 +257,27 @@
     background-size: auto;
   }
     
-  .number-k3-1 {
+  .number-k3-1, .number-k3-01 {
     background: url('~@/assets/images/numbers.png') no-repeat -424px 0;
   }
   
-  .number-k3-2 {
+  .number-k3-2, .number-k3-02 {
     background: url('~@/assets/images/numbers.png') no-repeat -424px -43px;
   }
   
-  .number-k3-3 {
+  .number-k3-3, .number-k3-03 {
     background: url('~@/assets/images/numbers.png') no-repeat -424px -86px;
   }
   
-  .number-k3-4 {
+  .number-k3-4, .number-k3-04 {
     background: url('~@/assets/images/numbers.png') no-repeat -424px -129px;
   }
   
-  .number-k3-5 {
+  .number-k3-5, .number-k3-05 {
     background: url('~@/assets/images/numbers.png') no-repeat -424px -172px;
   }
   
-  .number-k3-6 {
+  .number-k3-6, .number-k3-06 {
     background: url('~@/assets/images/numbers.png') no-repeat -424px -215px;
   }
 }
