@@ -7,7 +7,7 @@ import aAboutRoutes from '@/routers/about/index';
 import aTrendBoardRoutes from '@/routers/trendBoard/index';
 import aTrendRoutes from '@/routers/trend/index';
 import alotteryIssuesRoutes from '@/routers/lotteryIssue/index';
-import aStatisticsRoutes from '@/routers/statistics/index';
+import aAccumulationRoutes from '@/routers/accumulation/index';
 // index 是所有 资料夹的入口文件，
 
 Vue.use(Router);
@@ -26,7 +26,7 @@ let oRouter = new Router({
     ...aTrendBoardRoutes,
     ...aTrendRoutes,
     ...alotteryIssuesRoutes,
-    ...aStatisticsRoutes,
+    ...aAccumulationRoutes,
   ],
 });
 
