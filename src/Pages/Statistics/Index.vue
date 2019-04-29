@@ -1,9 +1,9 @@
 <template>
   <div class="Statistics">
-    <Header/>
-    <Nav-top/>
+    <Header class="z-1001"/>
+    <Nav-top  class="z-1001"/>
     <Nav-right/>
-    <el-row :gutter="0">
+    <el-row :gutter="0" class="z-1001">
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
         <main class="mt-2 align-top">
           <Toolbar/>
@@ -11,7 +11,7 @@
         </main>
       </el-col>
     </el-row>
-    <Footer/>
+    <Footer class="z-1001"/>
   </div>
 </template>
 <style scoped lang="scss">
