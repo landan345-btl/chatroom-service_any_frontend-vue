@@ -2,10 +2,10 @@
   <div class="lottery-issue mt-sm-2 mb-sm-2 mt-md-2 mb-md-2 mt-lg-2 mb-lg-2 mt-xl-2 mb-xl-2">
     <div class="pseudo">
       <div class="top mb-1 position-relative">
-        <span class="icon align-middle d-inline-block d-xs-none">
+        <router-link class="icon align-middle d-inline-block d-xs-none" :to="{ path: '/lottery-issue', query: { code: lotteryIssue.code }}">
           <img :src="require(`@/assets/images/` + `${lotteryIssue.code}` + `-sm.png`)"/>
-        </span>
-        <span class="name-issue_no-numbers align-middle d-inline-block">
+        </router-link>
+        <router-link class="name-issue_no-numbers align-middle d-inline-block" :to="{ path: '/lottery-issue', query: { code: lotteryIssue.code }}">
           <div class="top">
             <span class="name font-weight-bold ">
               {{ lotteryIssue.name }}
@@ -23,7 +23,7 @@
           <div class="bottom">
             <Numbers :code="lotteryIssue.code" :numbers="lotteryIssue.numbers" :types="lotteryIssue.types"/>
           </div>
-        </span>
+        </router-link>
         <span class="countdown d-inline-block align-bottom position-absolute">
           <Chen-countdown :time="lotteryIssue.next_time * 1000" :theme="'theme-a'"/>
         </span>
