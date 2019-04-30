@@ -88,9 +88,8 @@ class Table extends Vue {
  public olotteryIssues: any = {};
 
  @Prop({ default: null })
-  public olotterys !: any ;   //  组件接收到的值
-//  @Watch( 'olotterys' )
-//  }
+ public olotterys !: any ;
+ 
  public dataScreen() {
     let _olotterys: any = {};
     for ( let olottery in this.olotterys ) {
