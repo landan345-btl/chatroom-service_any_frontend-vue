@@ -20,7 +20,7 @@ class ETabs extends Vue {
   @Prop()
   public height!: string;
   @Prop()
-  public type: string = 'border-card';
+  public type!: string;
 }
 export default ETabs;
 
