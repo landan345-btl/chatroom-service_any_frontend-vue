@@ -1,5 +1,5 @@
 <template>
-  <span class="board d-inline-block">
+  <span class="board d-inline-block ml-2">
     <E-tabs>
       <el-tab-pane label="连续开出">
        <table class="tables">

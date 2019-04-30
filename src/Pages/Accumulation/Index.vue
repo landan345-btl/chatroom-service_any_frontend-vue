@@ -4,8 +4,11 @@
     <Nav-top  class="z-1001"/>
     <Nav-right/>
     <el-row :gutter="0" class="z-1001">
-      <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}" class="backgroud-white p-2 mt-2 mb-2">
+      <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}" class="backgroud-white pl-2 pr-2 mt-2 mb-2">
         <main class="align-top">
+          <div>
+            长龙提醒
+          </div>
           <Toolbar/>
           <Board />
         </main>
