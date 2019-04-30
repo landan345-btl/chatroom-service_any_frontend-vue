@@ -1,5 +1,5 @@
 <template>
-  <div class="Statistics">
+  <div class="accumulation">
     <Header class="z-1001"/>
     <Nav-top  class="z-1001"/>
     <Nav-right/>
@@ -40,9 +40,9 @@ import Table from './Table/Index.vue';
     Table,
   },
 })
-class Trend extends Vue {
+class Accumulation extends Vue {
 
 }
 
-export default Trend;
+export default Accumulation;
 </script>
