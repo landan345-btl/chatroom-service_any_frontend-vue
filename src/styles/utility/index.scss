@@ -57,11 +57,12 @@
 }
 
 .position-relative {
-  position: relative;
+  position: relative !important;
 }
 .position-absolute {
-  position: absolute;
+  position: absolute !important;
 }
+
 .color-white {
   color: white;
 }

@@ -1,5 +1,5 @@
 <template>
-  <span class="board d-inline-block ml-2">
+  <span class="board d-inline-block ml-2 position-relative">
     <E-tabs>
       <el-tab-pane label="连续开出">
        <table class="tables">
@@ -46,26 +46,7 @@
        </table>
       </el-tab-pane>
     </E-tabs>
-    <span>
-       只显示
-      <select>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-      </select>
-        期及以上的长龙
-    </span>
+    <E-select :options="options" class="position-absolute select"/>
   </span>
 </template>
 <style scoped lang="scss">
@@ -77,11 +58,13 @@ import { Component , Prop , Vue , Watch, Model} from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
 
 import ETabs from '@/Components/ETabs/Index.vue';
+import ESelect from '@/Components/ESelect/Index.vue';
 
 @Component({
   name: 'Board',
   components: {
     ETabs,
+    ESelect,
   },
 })
 class Board extends Vue {
@@ -91,7 +74,49 @@ class Board extends Vue {
 
  @Prop({ default: null })
  public olotterys !: any ;
-
+ public options: any = [{
+    value: '2',
+    label: '2期',
+  }, {
+    value: '3',
+    label: '3期',
+  }, {
+    value: '4',
+    label: '4期',
+  }, {
+    value: '5',
+    label: '5期',
+  }, {
+    value: '6',
+    label: '6期',
+  }, {
+    value: '7',
+    label: '7期',
+  }, {
+    value: '8',
+    label: '8期',
+  }, {
+    value: '9',
+    label: '9期',
+  }, {
+    value: '10',
+    label: '10期',
+  }, {
+    value: '11',
+    label: '11期',
+  }, {
+    value: '12',
+    label: '12期',
+  }, {
+    value: '13',
+    label: '13期',
+  }, {
+    value: '14',
+    label: '14期',
+  }, {
+    value: '15',
+    label: '15期',
+  }];
  public dataScreen() {
     let _olotterys: any = {};
     for ( let olottery in this.olotterys ) {
