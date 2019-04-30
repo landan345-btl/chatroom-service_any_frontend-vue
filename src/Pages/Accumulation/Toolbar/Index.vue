@@ -6,27 +6,27 @@
    <el-collapse class="accordion-nav" v-model="activeOpen">
       <el-collapse-item title="热门彩" name="1">
         <div class="lotteries" v-for=" (oLottery , oIndex) in olotterysType" :key="oIndex">
-          <el-checkbox v-bind:olotterysType="oLottery" @change ="checkbox" v-show="['热门彩'].includes(oLottery.lotteryRange)">{{ oLottery.name }}</el-checkbox>      
+          <el-checkbox v-bind:olotterysType="oLottery" @change="checkbox" v-show="['热门彩'].includes(oLottery.lotteryRange)">{{ oLottery.name }}</el-checkbox>      
         </div>
       </el-collapse-item>
       <el-collapse-item title="极速彩" name="2">
         <div class="lotteries" v-for=" (oLottery , oIndex) in olotterysType" :key="oIndex">
-          <el-checkbox v-bind:olotterysType="oLottery" @change ="checkbox" v-show="['极速彩'].includes(oLottery.lotteryRange)">{{ oLottery.name }}{{oLottery.oIndex}}</el-checkbox>
+          <el-checkbox v-bind:olotterysType="oLottery" @change="checkbox" v-show="['极速彩'].includes(oLottery.lotteryRange)">{{ oLottery.name }}{{oLottery.oIndex}}</el-checkbox>
         </div>
       </el-collapse-item>
       <el-collapse-item title="高频彩" name="3">
         <div class="lotteries" v-for=" (oLottery , oIndex) in olotterysType" :key="oIndex">
-          <el-checkbox v-bind:olotterysType="oLottery" @change ="checkbox" v-show="['高频彩'].includes(oLottery.lotteryRange)">{{ oLottery.name }}</el-checkbox>
+          <el-checkbox v-bind:olotterysType="oLottery" @change="checkbox" v-show="['高频彩'].includes(oLottery.lotteryRange)">{{ oLottery.name }}</el-checkbox>
         </div>
       </el-collapse-item>
       <el-collapse-item title="境外彩" name="4">
         <div class="lotteries" v-for=" (oLottery , oIndex) in olotterysType" :key="oIndex">
-          <el-checkbox v-bind:olotterysType="oLottery" @change ="checkbox" v-show="['境外彩'].includes(oLottery.lotteryRange)">{{ oLottery.name }}</el-checkbox>
+          <el-checkbox v-bind:olotterysType="oLottery" @change="checkbox" v-show="['境外彩'].includes(oLottery.lotteryRange)">{{ oLottery.name }}</el-checkbox>
         </div>
       </el-collapse-item>
       <el-collapse-item title="全国彩" name="5">
        <div class="lotteries" v-for=" (oLottery , oIndex) in olotterysType" :key="oIndex">
-          <el-checkbox v-bind:olotterysType="oLottery" @change ="checkbox" v-show="['全国彩'].includes(oLottery.lotteryRange)">{{ oLottery.name }}</el-checkbox>
+          <el-checkbox v-bind:olotterysType="oLottery" @change="checkbox" v-show="['全国彩'].includes(oLottery.lotteryRange)">{{ oLottery.name }}</el-checkbox>
         </div>  
       </el-collapse-item>
    </el-collapse >
@@ -38,8 +38,8 @@
 </style>
 <script lang="ts">
 import { Component , Prop , Vue} from 'vue-property-decorator';
-import LOTERIES from '@/CONFIGS/LOTTERS/index';
-import bus from '@/CONFIGS/BUS/index';
+import LOTTERIES from '@/CONFIGS/LOTTERS/index';
+
 @Component({
   name: 'Toolbar',
   components: {
@@ -47,14 +47,14 @@ import bus from '@/CONFIGS/BUS/index';
   },
 })
 class Toolbar extends Vue {
-  public oLotteryRanges = LOTERIES.OLOTTERYRENGES;  //   彩种类型
-  public olotterysType = LOTERIES.OLOTTERYTYPE;  //  彩种页面数据
+  public oLotteryRanges = LOTTERIES.OLOTTERYRENGES;  //   彩种类型
+  public olotterysType = LOTTERIES.OLOTTERYTYPE;  //  彩种页面数据
 
-  public activeOpen = [ '1' , '2' ];
+  public activeOpen = ['1', '2'];
 
   public checkbox(active: any , e: any) {
     let solottery = e.target.parentNode.nextSibling.innerHTML.split('<')[0] ;
-    bus.$emit('lotteryName' , solottery );
+    this.$emit('lotteryName' , solottery );
    }
  }
 export default Toolbar;

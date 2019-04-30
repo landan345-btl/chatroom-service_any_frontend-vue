@@ -1,6 +1,6 @@
 <template>
   <span class="table d-inline-block">
-    <el-tabs type="border-card">
+    <E-tabs>
       <el-tab-pane label="连续开出">
        <table class="tables">
          <thead>
@@ -45,7 +45,7 @@
          </tbody>
        </table>
       </el-tab-pane>
-    </el-tabs>
+    </E-tabs>
     <span>
        只显示
       <select>
@@ -75,11 +75,13 @@
 <script lang="ts">
 import { Component , Prop , Vue , Watch, Model} from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
-import bus from '@/CONFIGS/BUS/index';
+
+import ETabs from '@/Components/ETabs/Index.vue';
 
 @Component({
   name: 'Table',
   components: {
+    ETabs,
   },
 })
 class Table extends Vue {
@@ -89,7 +91,7 @@ class Table extends Vue {
 
  @Prop({ default: null })
  public olotterys !: any ;
- 
+
  public dataScreen() {
     let _olotterys: any = {};
     for ( let olottery in this.olotterys ) {
@@ -107,7 +109,7 @@ class Table extends Vue {
  }
 
 public getName() {
-  bus.$on('lotteryName' , ( data: any) => {
+  this.$on('lotteryName' , ( data: any) => {
    this.lotteryName = data;
   });
  }
