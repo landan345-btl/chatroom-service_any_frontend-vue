@@ -12,7 +12,11 @@
       <td>{{ lotteryIssue.numbers | isDragonOrTiger([4, 5]) }}</td>
       <td>{{ lotteryIssue.numbers | sum([0, 1]) }}</td>
       <td>{{ lotteryIssue.numbers | sum([0, 1]) | isSmallOrLarge(10, 12) }}</td>
-      <td>{{ lotteryIssue.numbers | sum([0, 1]) | isOddOrEven }}</td>
+      <td :class="{ 
+        'even': '双' === isOddOrEven(sum(lotteryIssue.numbers, [0, 1])),
+        'odd': '单' === isOddOrEven(sum(lotteryIssue.numbers, [0, 1])),
+        }
+        ">{{ lotteryIssue.numbers | sum([0, 1]) | isOddOrEven }}</td>
     </tr>
   </table>
   <table class="text-center" v-else-if="'SSC' === lotteryIssue.types">

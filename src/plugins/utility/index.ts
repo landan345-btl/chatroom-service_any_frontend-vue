@@ -1,3 +1,8 @@
+import isOddOrEven from '@/utilities/isOddOrEven';
+import isDragonOrTiger from '@/utilities/isDragonOrTiger';
+import isSmallOrLarge from '@/utilities/isSmallOrLarge';
+import sum from '@/utilities/sum/index';
+
 let ultilityPlugin = {
   // The install method is all that needs to exist on the plugin object.
   // It takes the global Vue object as well as user-defined options.
@@ -15,10 +20,10 @@ let ultilityPlugin = {
         },
       },
     });
-    Vue.prototype.sayHi = () => {
-      console.log('sayHi');
-      return 'sayHi';
-    };
+    Vue.prototype.isOddOrEven = isOddOrEven;
+    Vue.prototype.isDragonOrTiger = isDragonOrTiger;
+    Vue.prototype.isSmallOrLarge = isSmallOrLarge;
+    Vue.prototype.sum = sum;
   },
 };
 
