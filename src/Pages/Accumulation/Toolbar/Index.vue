@@ -25,7 +25,8 @@
         </div>
       </el-collapse-item>
       <el-collapse-item title="全国彩" name="5">
-       <div class="lotteries" v-for=" (oLottery , oIndex) in olotterysType" :key="oIndex">
+        <div class="lotteries" v-for=" (oLottery , oIndex) in olotterysType" :key="oIndex">
+
           <el-checkbox v-bind:olotterysType="oLottery" @change="checkbox" v-show="['全国彩'].includes(oLottery.lotteryRange)">{{ oLottery.name }}</el-checkbox>
         </div>  
       </el-collapse-item>
@@ -39,12 +40,15 @@
 <script lang="ts">
 import { Component , Prop , Vue} from 'vue-property-decorator';
 import ECollapse from '@/Components/ECollapse/Index.vue';
+import ECheckbox from '@/Components/ECheckbox/Index.vue';
+
 import LOTTERIES from '@/CONFIGS/LOTTERS/index';
 
 @Component({
   name: 'Toolbar',
   components: {
     ECollapse,
+    ECheckbox,
   },
 })
 class Toolbar extends Vue {

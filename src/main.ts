@@ -22,6 +22,8 @@ import count from '@/filters/count/index';
 
 import randomNumber from '@/directives/randomNumber/index';
 
+import utilityPlugin from '@/plugins/utility/index';
+
 import 'element-ui/lib/theme-chalk/index.css';
 import 'iview/dist/styles/iview.css';
 
@@ -53,6 +55,8 @@ Vue.use(VueI18n);
 Vue.use(VCharts);
 Vue.use(Element);
 Vue.use(iView);
+
+Vue.use(utilityPlugin);
 
 Vue.filter('isOddOrEven' , isOddOrEven);
 Vue.filter('isSmallOrLarge' , isSmallOrLarge);
