@@ -1,6 +1,3 @@
-let cSubstr = (mString: string | number, iPosition: number, iLength: number): string => {
-  let sSubString = mString.toString().substr(iPosition, iLength);
-  return sSubString;
-};
+import substr from '@/utilities/substr/index';
 
-export default cSubstr;
+export default substr;
