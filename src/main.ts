@@ -10,10 +10,10 @@ import App from '@/App.vue';
 import oRouter from '@/routers/index';
 import oStore from '@/store/index';
 
-import randomNumber from '@/directives/randomNumber/index';
 
 import utilityPlugin from '@/plugins/utility/index';
 import filterPlugin from '@/plugins/filter/index';
+import directivePlugin from '@/plugins/directive/index';
 
 import 'element-ui/lib/theme-chalk/index.css';
 import 'iview/dist/styles/iview.css';
@@ -49,7 +49,7 @@ Vue.use(iView);
 
 Vue.use(utilityPlugin);
 Vue.use(filterPlugin);
-Vue.directive('randomNumber', randomNumber);
+Vue.use(directivePlugin);
 
 let oI18n = new VueI18n({
   locale: 'zh',

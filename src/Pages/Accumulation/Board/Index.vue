@@ -1,6 +1,6 @@
 <template>
   <span class="board d-inline-block ml-2 position-relative">
-    <E-tabs>
+    <E-tabs class="mt-1">
       <el-tab-pane label="连续开出">
        <table class="tables">
          <thead>
