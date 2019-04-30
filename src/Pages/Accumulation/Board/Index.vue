@@ -1,5 +1,5 @@
 <template>
-  <span class="table d-inline-block">
+  <span class="board d-inline-block">
     <E-tabs>
       <el-tab-pane label="连续开出">
        <table class="tables">
@@ -79,12 +79,12 @@ import { warn } from 'vue-class-component/lib/util';
 import ETabs from '@/Components/ETabs/Index.vue';
 
 @Component({
-  name: 'Table',
+  name: 'Board',
   components: {
     ETabs,
   },
 })
-class Table extends Vue {
+class Board extends Vue {
  public lotteryName = {};
  public olotterysScreen: any = {};
  public olotteryIssues: any = {};
@@ -115,5 +115,5 @@ public getName() {
  }
 }
 
-export default Table;
+export default Board;
 </script>

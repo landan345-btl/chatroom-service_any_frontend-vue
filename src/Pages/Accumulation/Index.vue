@@ -4,10 +4,10 @@
     <Nav-top  class="z-1001"/>
     <Nav-right/>
     <el-row :gutter="0" class="z-1001">
-      <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
-        <main class="mt-2 align-top">
+      <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}" class="backgroud-white p-2 mt-2 mb-2">
+        <main class="align-top">
           <Toolbar/>
-          <Table />
+          <Board />
         </main>
       </el-col>
     </el-row>
@@ -27,7 +27,7 @@ import NavTop from '@/Commons/NavTop/Index.vue';
 import NavRight from '@/Commons/NavRight/Index.vue';
 import ETabs from '@/Components/ETabs/Index.vue';
 import Toolbar from './Toolbar/Index.vue';
-import Table from './Table/Index.vue';
+import Board from './Board/Index.vue';
 
 @Component({
   components: {
@@ -37,7 +37,7 @@ import Table from './Table/Index.vue';
     Footer,
     ETabs,
     Toolbar,
-    Table,
+    Board,
   },
 })
 class Accumulation extends Vue {

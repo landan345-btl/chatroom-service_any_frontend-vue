@@ -5,6 +5,7 @@
 </template>
 
 <style scoped lang="scss">
+@import 'Index-scoped.scss';
 
 </style>
 

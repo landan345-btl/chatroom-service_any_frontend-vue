@@ -3,7 +3,7 @@
    <p>
     <span>选择彩种</span>
    </p> 
-   <el-collapse class="accordion-nav" v-model="activeOpen">
+   <E-collapse class="accordion-nav" v-model="activeOpen">
       <el-collapse-item title="热门彩" name="1">
         <div class="lotteries" v-for=" (oLottery , oIndex) in olotterysType" :key="oIndex">
           <el-checkbox v-bind:olotterysType="oLottery" @change="checkbox" v-show="['热门彩'].includes(oLottery.lotteryRange)">{{ oLottery.name }}</el-checkbox>      
@@ -29,7 +29,7 @@
           <el-checkbox v-bind:olotterysType="oLottery" @change="checkbox" v-show="['全国彩'].includes(oLottery.lotteryRange)">{{ oLottery.name }}</el-checkbox>
         </div>  
       </el-collapse-item>
-   </el-collapse >
+   </E-collapse >
   </span>
 </template>
 <style scoped lang="scss">
@@ -38,12 +38,13 @@
 </style>
 <script lang="ts">
 import { Component , Prop , Vue} from 'vue-property-decorator';
+import ECollapse from '@/Components/ECollapse/Index.vue';
 import LOTTERIES from '@/CONFIGS/LOTTERS/index';
 
 @Component({
   name: 'Toolbar',
   components: {
-
+    ECollapse,
   },
 })
 class Toolbar extends Vue {

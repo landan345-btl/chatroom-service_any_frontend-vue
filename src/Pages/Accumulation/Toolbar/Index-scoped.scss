@@ -1,18 +1,14 @@
 .toolbar {
-  margin-top:2vmin;
+  background-color: #ffffff;
   width: 16%;
   border: 1px solid #e7e7e7;
-  margin-left:3vmin;
   float: left;
   & > p {
     margin: 0 auto;
     text-align: center;
-    padding: 1.8vmin 0;
+    padding: 1.2vmin 0;
     span {
       font-size: 2vmin;
     }
-  }
-  & > .accordion-nav {
-    padding-left: 3vmin; 
   }
 }
