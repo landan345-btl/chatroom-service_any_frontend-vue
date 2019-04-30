@@ -1,5 +1,5 @@
 <template>
-  <Tabs>
+  <Tabs :type="type">
     <slot></slot>
   </Tabs>
 </template>
