@@ -12,7 +12,7 @@
                 <el-tab-pane label="北京PK拾" name="bjpk10" class="Rank">
                   <p>
                     <ul class="rank-list">
-                      <li v-for="(tab , Tindex) in tabRank" :key ="Tindex" 
+                      <li v-for="(tab , Tindex) in ranks" :key ="Tindex" 
                       :class=" { ischecked:ischecked==Tindex } "
                       @click="tabShow(Tindex)">{{tab}}</li>
                     </ul>
@@ -46,28 +46,28 @@
                 <el-tab-pane label="辛运飞艇" name="mlaft">
                   <p>
                     <ul class="rank-list">
-                      <li v-for="(tab , Tindex) in tabRank" :key ="Tindex">{{tab}}</li>
+                      <li v-for="(tab , Tindex) in ranks" :key ="Tindex">{{tab}}</li>
                     </ul>
                   </p>
                 </el-tab-pane>
                 <el-tab-pane label="极速飞艇" name="third">
                   <p>
                     <ul class="rank-list">
-                      <li v-for="(tab , Tindex) in tabRank" :key ="Tindex">{{tab}}</li>
+                      <li v-for="(tab , Tindex) in ranks" :key ="Tindex">{{tab}}</li>
                     </ul>
                   </p>
                 </el-tab-pane>
                 <el-tab-pane label="极速赛车" name="four">
                   <p>
                     <ul class="rank-list">
-                      <li v-for="(tab , Tindex) in tabRank" :key ="Tindex">{{tab}}</li>
+                      <li v-for="(tab , Tindex) in ranks" :key ="Tindex">{{tab}}</li>
                     </ul>
                   </p>
                 </el-tab-pane>
                 <el-tab-pane label="澳洲辛运10" name="fou">
                   <p>
                     <ul class="rank-list">
-                      <li v-for="(tab , Tindex) in tabRank" :key ="Tindex">{{tab}}</li>
+                      <li v-for="(tab , Tindex) in ranks" :key ="Tindex">{{tab}}</li>
                     </ul>
                   </p>
                 </el-tab-pane>
@@ -138,7 +138,7 @@ import ETabs from '@/Components/ETabs/Index.vue';
 class Trend extends Vue {
 public activeLottery = 'bjpk10';
 public ischecked = 0;
-public tabRank = ['冠军' , '亚军' , '第三名' , '第四名' , '第五名' , '第六名' , '第七名' , '第八名' , '第九名' , '第十名'];
+public ranks = ['冠军' , '亚军' , '第三名' , '第四名' , '第五名' , '第六名' , '第七名' , '第八名' , '第九名' , '第十名'];
 
 public tabShow(Tindex: number) {
     this.ischecked = Tindex;
