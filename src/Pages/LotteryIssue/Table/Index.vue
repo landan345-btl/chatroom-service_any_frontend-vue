@@ -290,13 +290,13 @@
 </style>
 <script lang="ts">
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
-import LOTERIES from '@/CONFIGS/LOTTERIES/index';
+import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
 
 @Component({
   name: 'LoteryTable',
   })
 class LotteryTable extends Vue {
-  public lotteryTypes = LOTERIES;
+  public lotteryTypes = LOTTERIES;
   public titles = ['显示号码', '显示大小', '显示单双'];
   public titleStatus: any = 0;
   public switcher: any = '0';

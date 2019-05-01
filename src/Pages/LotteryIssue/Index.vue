@@ -22,7 +22,7 @@
                 </div>
                 <div class="lottery-number">
                   <div class="card-title">
-                    <span>{{ olotteryName }}</span>第<span>{{ openNumber }}</span>期开奖号码
+                    <span>{{ lotteryTypes[lotterycode].NAME}}</span>第<span>{{  openNumber.no }}</span>期开奖号码
                   </div>
                     <Lotterynumber  :olotterys="openNumber" :code="getCode"/>
                 </div>
@@ -169,7 +169,7 @@ import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
 import NavTop from '@/Commons/NavTop/Index.vue';
 import NavRight from '@/Commons/NavRight/Index.vue';
 import ETabs from '@/Components/ETabs/Index.vue';
-import LOTTERIES from '@/CONFIGS/LOTTERIES/';
+// import LOTTERIES from '@/CONFIGS/LOTTERIES/';
 
 import LotteryTable from '@/Pages/LotteryIssue/Table/index.vue';
 import Changlong from '@/Pages/LotteryIssue/Changlong/index.vue';
@@ -177,6 +177,7 @@ import NumberDisribution from '@/Pages/LotteryIssue/NumberDisribution/index.vue'
 import Statistics from '@/Pages/LotteryIssue/Statistics/index.vue';
 import Lotterynumber from '@/Pages/LotteryIssue/Lotterynumber/index.vue';
 
+import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
 import { navTable , navnumber } from '@/const';
 import moment from 'moment';
 @Component({
@@ -345,7 +346,7 @@ class LotteryIssue extends Vue {
  public timer: any;
  public olotterysScreen = {};
  public lotteryIamges = '' ; // 接受详情彩票背景图
- public olotteryName = '' ; // 接受彩种名称
+ public lotteryTypes = LOTTERIES;
  public lotterycode: any = '' ; // 接受code
  public lotteryNumberBox = ''; // 号码盒子
  public lotteryTabletype = '';  // 表格赋值
@@ -397,6 +398,7 @@ class LotteryIssue extends Vue {
       }
     }
     let _olotterys: any = {};
+    let lotteryNumber = _olotterys;
     for ( let olottery in olotteryIssues ) {
       if ( olotteryIssues[ olottery ].numbers == null ) {
         continue;

@@ -48,7 +48,7 @@ class LotteryNumber extends Vue {
   public lottery: any = {};
 
   @Prop({ default: null })
-  public olotteryNumber !: any ;   //  组件接收到的值
+  public olotterys !: any ;   //  组件接收到的值
   public name: any = '';  // 接受code
 
   public created() {
@@ -59,7 +59,7 @@ class LotteryNumber extends Vue {
 
   public dataScreen() {  // 对数据进行筛选 并取最新的值
     let _olotterys: any = {};
-    let lotteryNumber = this.olotteryNumber;
+    let lotteryNumber = this.olotterys;
     for ( let olottery in lotteryNumber ) {
       if ( lotteryNumber[ olottery ].numbers == null ) {
         continue ;
@@ -69,7 +69,6 @@ class LotteryNumber extends Vue {
     lotteryNumber = _olotterys;
     this.lottery  = JSON.parse(lotteryNumber[ Object.keys( lotteryNumber )
       [ Object.keys( lotteryNumber ).length - 1 ] ]);
-    // console.log(this.lottery);
     return _olotterys;
   }
 
