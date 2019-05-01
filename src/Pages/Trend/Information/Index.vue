@@ -1,6 +1,11 @@
 <template>
   <div class="information">
-    information
+    <div class="top">
+    </div>
+    <I-tabs>
+      <TabPane label="即时开奖" name="即时开奖">
+      </TabPane>
+    </I-tabs>
   </div>
 </template>
 <style scoped lang="scss">
@@ -9,10 +14,11 @@
 </style>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-
+import ITabs from '@/Components/ITabs/Index.vue';
 @Component({
+  name: 'Information',
   components: {
-
+   ITabs,
   },
 })
 class Information extends Vue {
