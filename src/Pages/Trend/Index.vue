@@ -9,21 +9,8 @@
           <E-tabs>
             <el-tab-pane label="PK10" name="ss">
               <E-tabs :type="'card'">
-                <el-tab-pane label="幸运飞艇">
-                  <E-tabs>
-                    <el-tab-pane label="冠军" name="1">
-                    </el-tab-pane>
-                    <el-tab-pane label="亚军" name="2">
-                    </el-tab-pane>
-                  </E-tabs>
-                </el-tab-pane>
-                <el-tab-pane label="北京赛车">
-                  <E-tabs>
-                    <el-tab-pane label="冠军" name="1">
-                    </el-tab-pane>
-                    <el-tab-pane label="亚军" name="2">
-                    </el-tab-pane>
-                  </E-tabs>
+                <el-tab-pane :label="oLottery.code" v-for="(oLottery, sLotterId) in getLotteries" :key="sLotterId">
+                  {{ oLottery.name }} , {{ oLottery.types }}
                 </el-tab-pane>
               </E-tabs>
             </el-tab-pane>
@@ -73,12 +60,20 @@ import ETabs from '@/Components/ETabs/Index.vue';
   },
 })
 class Trend extends Vue {
-public activeLottery = 'bjpk10';
-public ischecked = 0;
-public ranks = ['冠军' , '亚军' , '第三名' , '第四名' , '第五名' , '第六名' , '第七名' , '第八名' , '第九名' , '第十名'];
-
-public tabShow(Tindex: number) {
+  public activeLottery = 'bjpk10';
+  public ischecked = 0;
+  public ranks = ['冠军' , '亚军' , '第三名' , '第四名' , '第五名' , '第六名' , '第七名' , '第八名' , '第九名' , '第十名'];
+  public created(): void {
+    let $root: any = this.$root;
+    this.$store.dispatch('LOTTERY_ACTION_SHOW', {});
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', {} );
+  }
+  public tabShow(Tindex: number) {
     this.ischecked = Tindex;
+  }
+  public get getLotteries(): any {
+    let oLotteries: any = this.$store.state.lotteries;
+    return oLotteries;
   }
 }
 
