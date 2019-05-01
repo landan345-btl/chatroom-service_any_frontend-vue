@@ -9,8 +9,10 @@
           <E-tabs>
             <el-tab-pane label="PK10" name="ss">
               <E-tabs :type="'card'">
-                <el-tab-pane :label="oLottery.code" v-for="(oLottery, sLotterId) in getLotteries" :key="sLotterId">
+                <el-tab-pane :label="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId">
                   {{ oLottery.name }} , {{ oLottery.types }}
+                </el-tab-pane>
+                <el-tab-pane label="重庆时时彩" name="SSC-2">
                 </el-tab-pane>
               </E-tabs>
             </el-tab-pane>
