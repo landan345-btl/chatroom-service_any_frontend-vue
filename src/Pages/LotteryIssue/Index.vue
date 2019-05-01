@@ -171,11 +171,11 @@ import NavRight from '@/Commons/NavRight/Index.vue';
 import ETabs from '@/Components/ETabs/Index.vue';
 // import LOTTERIES from '@/CONFIGS/LOTTERIES/';
 
-import LotteryTable from '@/Pages/LotteryIssue/Table/index.vue';
-import Changlong from '@/Pages/LotteryIssue/Changlong/index.vue';
-import NumberDisribution from '@/Pages/LotteryIssue/NumberDisribution/index.vue';
-import Statistics from '@/Pages/LotteryIssue/Statistics/index.vue';
-import Lotterynumber from '@/Pages/LotteryIssue/Lotterynumber/index.vue';
+import LotteryTable from '@/Pages/LotteryIssue/Table/Index.vue';
+import Changlong from '@/Pages/LotteryIssue/Changlong/Index.vue';
+import NumberDisribution from '@/Pages/LotteryIssue/NumberDisribution/Index.vue';
+import Statistics from '@/Pages/LotteryIssue/Statistics/Index.vue';
+import Lotterynumber from '@/Pages/LotteryIssue/Lotterynumber/Index.vue';
 
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
 import { navTable , navnumber } from '@/const';
