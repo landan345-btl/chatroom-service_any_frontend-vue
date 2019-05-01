@@ -236,7 +236,7 @@ const LOTTERIES: I_LOTTERIES = {
   '5FSIX': {
     NAME: '幸运六合彩',
     SRC: '@/assets/images/5FSIX-md.png',
-    TYPES: 'KL8',
+    TYPES: 'SIX',
   },
   '5F28': {
     NAME: '吉利28',

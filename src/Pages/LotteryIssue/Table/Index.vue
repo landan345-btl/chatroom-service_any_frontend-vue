@@ -308,7 +308,7 @@ class LotteryTable extends Vue {
   public code !: any ;   //  组件接收到的code
 
   public get  dataScreen() {  // 对数据进行筛选
-  console.log(this.code + '-----' + this.lotteryTypes);
+  // console.log(this.code + '-----' + this.lotteryTypes);
     let _olotterys: any = {};
     for ( let olottery in this.olotterys ) {
       if ( this.olotterys[ olottery ].numbers == null ) {
