@@ -206,24 +206,25 @@
           <th width="150">时间</th>
           <th width="130">期数</th>
           <th class="number-btns">号码</th>
+          <th colspan="2">试机号</th>
           <th colspan="3">佰拾和</th>
           <th colspan="3">佰个和</th>
           <th colspan="3">拾个和</th>
           <th colspan="3">总和</th>
         </tr>
-        <tr v-for="number in 25" :key="number" v-addColor>
-          <td>2019-03-29 20:35:00</td>
-          <td>20190329247</td>
-          <td class="blue-ball">
-            <ul>
-              <li class="number-red"><i>3</i></li>
-              <li class="number-red"><i>8</i></li>
-              <li class="number-red"><i>4</i></li>
-            </ul> 
+        <tr v-for=" ( olottery , lotteryid ) in dataScreen" :key="lotteryid">
+          <td>{{ olottery.added_time }}</td>
+          <td>{{ olottery.no}}</td>
+          <td>
+            <ul class="numbers h-4">
+              <li v-for="( number , i ) in JSON.parse(olottery.numbers)" :key="i" 
+              class="number-red ml-1"><i class="font-size-2p5">{{ number }}</i></li>
+            </ul>
           </td>
-          <td>16</td>
-          <td class="text-danger">双</td>
-          <td>尾小</td>
+          <td>6,3,6</td>
+          <td>{{ JSON.parse(olottery.numbers) | sum}}</td>
+          <td>{{ JSON.parse(olottery.numbers) | sum | isOddOrEven }}</td>
+          <td>尾{{ JSON.parse(olottery.numbers) | sum | substr(-1, 1) | isSmallOrLarge(3,5) }}</td>
           <td>16</td>
           <td>单</td>
           <td>尾小</td>
@@ -251,7 +252,7 @@
           <th colspan="3">冠亚和</th>
           <th colspan="5">1-5龙虎</th>
         </tr>
-        <tr  v-for=" ( olottery , lotteryid ) in dataScreen" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in dataScreen" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -300,7 +301,7 @@ class LotteryTable extends Vue {
   public code !: any ;   //  组件接收到的code
 
   public get  dataScreen() {  // 对数据进行筛选
-  // console.log(this.code + '-----' + this.lotteryTypes);
+   // console.log(this.code);
     let _olotterys: any = {};
     for ( let olottery in this.olotterys ) {
       if ( this.olotterys[ olottery ].numbers == null ) {
