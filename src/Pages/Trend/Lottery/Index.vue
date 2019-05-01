@@ -1,9 +1,9 @@
 <template>
-  <div class="lottery pt-2 pl-2 pr-2 w-50 align-middle">
+  <div class="lottery pt-2 pl-2 pr-2 w-xs-100 w-50 align-middle">
     <span class="icon p-1 d-inline-block align-middle">
       <img :src="require(`@/assets/images/` + `${code}` + `-sm.png`)"  />
     </span>
-    <div class="list p-2 d-inline-block w-50 align-middle" >
+    <div class="list p-2 d-inline-block align-middle" >
       <router-link class="d-inline-block mr-1" :to="{ path: '/trend/information', query: { code: code, tab: 'BASIC' }}">
         路珠分析
       </router-link>
