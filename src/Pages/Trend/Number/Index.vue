@@ -1,6 +1,6 @@
 <template>
-  <div class="information">
-    information
+  <div class="number">
+    号吗走势
   </div>
 </template>
 <style scoped lang="scss">
@@ -15,9 +15,9 @@ import { Component, Vue } from 'vue-property-decorator';
 
   },
 })
-class Information extends Vue {
+class Number extends Vue {
 
 }
 
-export default Information;
+export default Number;
 </script>

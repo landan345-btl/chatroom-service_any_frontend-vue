@@ -1,6 +1,6 @@
 <template>
-  <div class="information">
-    information
+  <div class="history">
+    单双大小历史
   </div>
 </template>
 <style scoped lang="scss">
@@ -15,9 +15,9 @@ import { Component, Vue } from 'vue-property-decorator';
 
   },
 })
-class Information extends Vue {
+class History extends Vue {
 
 }
 
-export default Information;
+export default History;
 </script>

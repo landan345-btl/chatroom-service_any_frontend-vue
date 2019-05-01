@@ -1,6 +1,6 @@
 <template>
-  <div class="information">
-    information
+  <div class="accumulation">
+    每日长龙统计
   </div>
 </template>
 <style scoped lang="scss">
@@ -15,9 +15,9 @@ import { Component, Vue } from 'vue-property-decorator';
 
   },
 })
-class Information extends Vue {
+class Accumulation extends Vue {
 
 }
 
-export default Information;
+export default Accumulation;
 </script>
