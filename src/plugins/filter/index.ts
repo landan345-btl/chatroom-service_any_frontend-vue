@@ -8,6 +8,7 @@ import isDragonOrTiger from '@/filters/isDragonOrTiger/index';
 import isFishOrShrimpOrCrab from '@/filters/isFishOrShrimpOrCrab/index';
 import determineSequence from '@/filters/determineSequence/index';
 import count from '@/filters/count/index';
+import firstAdd from '@/filters/firstAdd/index';
 
 let filterPlugin = {
   // The install method is all that needs to exist on the plugin object.
@@ -24,6 +25,7 @@ let filterPlugin = {
     Vue.filter('last' , last);
     Vue.filter('substr' , substr);
     Vue.filter('sum' , sum);
+    Vue.filter('firstAdd' , firstAdd);
   },
 };
 

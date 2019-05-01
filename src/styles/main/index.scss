@@ -57,7 +57,9 @@ html {
     background-color: #0092dd;
     line-height: 4.5vmin;
   }
-
+  .ssc-height-4 {
+    height:4.1vmin;
+  }
   .number-cqssc.number-ssc-0, .number-cqssc.number-ssc-00 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -488px 0;
     color: rgba($color: #000000, $alpha: 0);
@@ -517,4 +519,24 @@ html {
   .num-08 {background: url("~@/assets/images/square.png") no-repeat -163px -284px;width:34px!important;height:34px!important;}
   .num-09 {background: url("~@/assets/images/square.png") no-repeat -326px -284px;width:34px!important;height:34px!important;}
   .num-010 {background: url("~@/assets/images/square.png") no-repeat -367px -284px;width:34px!important;height:34px!important;}
+
+  .round-odd {background: url("~@/assets/images/square.png") no-repeat -138px -327px;width:36px!important;height:36px!important;}/*圆形背景单*/ 
+  .round-even {background: url("~@/assets/images/square.png") no-repeat -90px -327px;width:36px!important;height:36px!important;} /*圆形背景双*/
+
+  .background-round-sm {background: url("~@/assets/images/square.png") no-repeat -46px -327px;width:36px!important;height:36px!important;}/*圆形背景小*/
+  .background-round-lg {background: url("~@/assets/images/square.png") no-repeat 0 -327px;width:36px!important;height:36px!important;} /*圆形背景大*/
+  .background-round-sum {background: url("~@/assets/images/square.png") no-repeat -318px -326px;width:36px!important;height:36px!important;} /*圆形背景和*/
+
+  
+  .number-red {background: url("~@/assets/images/square.png") no-repeat 0 -373px;width:36px!important;height:36px!important;}   /*红圈*/
+  .number-blue {background: url("~@/assets/images/square.png") no-repeat -46px -373px;width:36px!important;height:36px!important;}   /*蓝圈*/
+
+  .k3-01 {background: url("~@/assets/images/square.png") no-repeat -424px 0;width:36px!important;height:40px!important;}
+  .k3-02 {background: url("~@/assets/images/square.png") no-repeat -424px -43px;width:36px!important;height:40px!important;}
+  .k3-03 {background: url("~@/assets/images/square.png") no-repeat -424px -86px;width:36px!important;height:40px!important;}
+  .k3-04 {background: url("~@/assets/images/square.png") no-repeat -424px -129px;width:36px!important;height:40px!important;}
+  .k3-05 {background: url("~@/assets/images/square.png") no-repeat -424px -172px;width:36px!important;height:40px!important;}
+  .k3-06 {background: url("~@/assets/images/square.png") no-repeat -424px -215px;width:36px!important;height:40px!important;}
+  .number-blue-fine {background: url("~@/assets/images/square.png") no-repeat -138px -373px;width:36px!important;height:36px!important;}   /*蓝圈细*/ 
+  .number-light-fine {background: url("~@/assets/images/square.png") no-repeat -199px -373px;width:36px!important;height:36px!important;}   /*浅蓝圈细*/
 }
