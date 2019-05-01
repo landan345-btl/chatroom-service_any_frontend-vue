@@ -27,11 +27,11 @@
         <table class="tables">
          <thead>
            <tr>
-            <td>彩种</td>
-            <td>位置</td>
-            <td>连续未开出期数</td>
-            <td>路珠</td>
-            <td>长龙统计</td>
+            <th>彩种</th>
+            <th>位置</th>
+            <th>连续未开出期数</th>
+            <th>路珠</th>
+            <th>长龙统计</th>
            </tr>
          </thead>
          <tbody>

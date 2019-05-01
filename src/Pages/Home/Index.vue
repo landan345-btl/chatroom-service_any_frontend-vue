@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <Header />
-    <NavTop class="z-1000"/>
+    <NavTop/>
     <NavRight />
-    <el-row :gutter="0" class="z-1001">
+    <el-row :gutter="0">
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 15, offset: 2}" :md="{span: 12, offset: 3}" :lg="{span: 11, offset: 4}">
         <main>
           <News />

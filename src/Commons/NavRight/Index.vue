@@ -1,7 +1,7 @@
 <template>
- 	<nav class="right z-1000">
+ 	<nav class="right z-xs-1001 z-sm-0">
     <el-row :gutter="12" class="">
-      <el-col :xs="{span: 24, offset: 24}" :sm="{span: 2, offset: 22}" :md="{span: 3, offset: 21}" :lg="{span: 4, offset: 20}">
+      <el-col :xs="{span: 24, offset: 0}" :sm="{span: 2, offset: 22}" :md="{span: 3, offset: 21}" :lg="{span: 4, offset: 20}">
         <ul class="list">
           <li class="icon home-icon"><a href="/"></a></li>
           <li class="icon qq-icon"><a href=""></a></li>

@@ -483,12 +483,27 @@
   margin-right: 4vmin !important;
 }
 
+.z-0 {
+  z-index: 0;
+}
 .z-1000 {
   z-index: 1000;
 }
 
 .z-1001 {
   z-index: 1001;
+}
+
+.z-xs-1001 {
+  
+  @media only screen and (max-width: 767.98px) {
+    z-index: 1001;
+  }
+} 
+.z-sm-0 {
+  @media only screen and (min-width: 768px) {
+    z-index: 0;
+  }
 }
 
 .backgroud-white {

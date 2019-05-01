@@ -22,7 +22,11 @@ import ITabs from '@/Components/ITabs/Index.vue';
   },
 })
 class Information extends Vue {
-
+  public created(): void {
+    let $root: any = this.$root;
+    this.$store.dispatch('LOTTERY_ACTION_SHOW', {});
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', {} );
+  }
 }
 
 export default Information;
