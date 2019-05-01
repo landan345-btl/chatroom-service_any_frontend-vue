@@ -9,7 +9,7 @@ import isFishOrShrimpOrCrab from '@/filters/isFishOrShrimpOrCrab/index';
 import determineSequence from '@/filters/determineSequence/index';
 import count from '@/filters/count/index';
 
-let filterPlugin = {
+let oFilterPlugin = {
   // The install method is all that needs to exist on the plugin object.
   // It takes the global Vue object as well as user-defined options.
   install(Vue: any, options: any) {
@@ -27,4 +27,4 @@ let filterPlugin = {
   },
 };
 
-export default filterPlugin;
+export default oFilterPlugin;

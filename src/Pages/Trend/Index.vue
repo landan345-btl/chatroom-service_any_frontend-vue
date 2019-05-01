@@ -9,56 +9,56 @@
           <E-tabs :type="'card'">
             <el-tab-pane label="PK拾" name="PK10">
               <E-tabs>
-                <el-tab-pane :label="oLottery.code" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'PK10' === oLottery.types">
+                <el-tab-pane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'PK10' === oLottery.types">
                 </el-tab-pane>
               </E-tabs>
               <Lottery :code="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'PK10' === oLottery.types" class="d-inline-block"/>
             </el-tab-pane>
             <el-tab-pane label="时时彩" name="SSC">
               <E-tabs>
-                <el-tab-pane :label="oLottery.code" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SSC' === oLottery.types">
+                <el-tab-pane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SSC' === oLottery.types">
                 </el-tab-pane>
               </E-tabs>
               <Lottery :code="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SSC' === oLottery.types" class="d-inline-block"/>
             </el-tab-pane>
             <el-tab-pane label="11选5" name="11X5">
               <E-tabs>
-                <el-tab-pane :label="oLottery.code" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'11X5' === oLottery.types">
+                <el-tab-pane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'11X5' === oLottery.types">
                 </el-tab-pane>
               </E-tabs>
               <Lottery :code="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'11X5' === oLottery.types" class="d-inline-block"/>
             </el-tab-pane>
             <el-tab-pane label="快三" name="K3">
               <E-tabs>
-                <el-tab-pane :label="oLottery.code" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'K3' === oLottery.types">
+                <el-tab-pane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'K3' === oLottery.types">
                 </el-tab-pane>
               </E-tabs>
               <Lottery :code="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'K3' === oLottery.types" class="d-inline-block"/>
             </el-tab-pane>
             <el-tab-pane label="快乐十分" name="KLSF">
               <E-tabs>
-                <el-tab-pane :label="oLottery.code" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KLSF' === oLottery.types">
+                <el-tab-pane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KLSF' === oLottery.types">
                 </el-tab-pane>
               </E-tabs>
               <Lottery :code="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KLSF' === oLottery.types" class="d-inline-block"/>
             </el-tab-pane>
             <el-tab-pane label="快乐8" name="KL8">
               <E-tabs>
-                <el-tab-pane :label="oLottery.code" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KL8' === oLottery.types">
+                <el-tab-pane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KL8' === oLottery.types">
                 </el-tab-pane>
               </E-tabs>
               <Lottery :code="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KL8' === oLottery.types" class="d-inline-block"/>
             </el-tab-pane>
             <el-tab-pane label="六合彩" name="SIX">
               <E-tabs>
-                <el-tab-pane :label="oLottery.code" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SIX' === oLottery.types">
+                <el-tab-pane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SIX' === oLottery.types">
                 </el-tab-pane>
               </E-tabs>
               <Lottery :code="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SIX' === oLottery.types" class="d-inline-block"/>
             </el-tab-pane>
             <el-tab-pane label="幸运28" name="XY28">
               <E-tabs>
-                <el-tab-pane :label="oLottery.code" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'XY28' === oLottery.types">
+                <el-tab-pane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'XY28' === oLottery.types">
                 </el-tab-pane>
               </E-tabs>
               <Lottery :code="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'XY28' === oLottery.types" class="d-inline-block"/>
