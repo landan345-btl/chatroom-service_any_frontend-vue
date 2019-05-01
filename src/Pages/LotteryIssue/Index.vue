@@ -24,7 +24,7 @@
                   <div class="card-title">
                     <span>{{ lotteryTypes[lotterycode].NAME}}</span>第<span>{{  openNumber.no }}</span>期开奖号码
                   </div>
-                    <Lotterynumber  :olotterys="openNumber" :code="getCode"/>
+                    <Lottery-number  :olotterys="openNumber" :code="getCode"/>
                 </div>
               </div>
               <!-- <div class=""></div> -->
@@ -175,7 +175,7 @@ import LotteryTable from '@/Pages/LotteryIssue/Table/Index.vue';
 import Changlong from '@/Pages/LotteryIssue/Changlong/Index.vue';
 import NumberDisribution from '@/Pages/LotteryIssue/NumberDisribution/Index.vue';
 import Statistics from '@/Pages/LotteryIssue/Statistics/Index.vue';
-import Lotterynumber from '@/Pages/LotteryIssue/Lotterynumber/Index.vue';
+import LotteryNumber from '@/Pages/LotteryIssue/LotteryNumber/Index.vue';
 
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
 import { navTable , navnumber } from '@/const';
@@ -191,7 +191,7 @@ import moment from 'moment';
     Changlong,
     Statistics,
     NumberDisribution,
-    Lotterynumber,
+    LotteryNumber,
   },
 })
 class LotteryIssue extends Vue {
