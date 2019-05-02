@@ -1,0 +1,9 @@
+.lottery {
+  font-size: 1.5vmin;
+  .list {
+    width: calc(100% - 124px);
+  }
+  .line {
+    border-bottom: 1px solid #eeeeee;
+  }
+}

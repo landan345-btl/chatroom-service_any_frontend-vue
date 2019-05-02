@@ -28,13 +28,7 @@
 .justify-content-between {
   justify-content: space-between;
 }
-.w-100 {
-  width: 100%;
-}
 
-.w-50 {
-  width: 50%;
-}
 
 .w-1_3 {
   width: cacl( 100% / 3 );
@@ -54,6 +48,46 @@
 
 .w-42 {
   width: 42%!important;
+.w-50 {
+  width: 50%;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-xs-1_3 {
+  @media only screen and (max-width: 767.98px) {
+    width: cacl( 100% / 3 );
+  }
+}
+
+.w-xs-25 {
+  @media only screen and (max-width: 767.98px) {
+    width: 25%;
+  }
+}
+
+.w-xs-50 {
+  @media only screen and (max-width: 767.98px) {
+    width: 50%;
+  }
+}
+
+.w-xs-75 {
+  @media only screen and (max-width: 767.98px) {
+    width: 75%;
+  }
+}
+
+.w-xs-100 {
+  @media only screen and (max-width: 767.98px) {
+    width: 100%;
+  }
 }
 
 .align-top {

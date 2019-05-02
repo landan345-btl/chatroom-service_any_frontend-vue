@@ -22,8 +22,6 @@
     "no-debugger": true,
     "quote-props": ["error", "always"],
     "max-line-length": [true, 240],
-    "vue/no-use-v-if-with-v-for": [ false, {
-      "allowUsingIterationVar": false
-    }]
+    "vue/no-use-v-if-with-v-for": "off"
   }
 }

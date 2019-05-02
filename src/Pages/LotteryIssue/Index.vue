@@ -6,7 +6,7 @@
     <el-row :gutter="0" class="z-1000">
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
         <main class="mt-2 align-top">
-            <div class="lottery-box">
+          <div class="lottery-box">
          <div class="warm-prompt">
            <div class="flash">
              <i></i>
@@ -24,7 +24,7 @@
                   <div class="card-title">
                     <span>{{ lotteryTypes[lotterycode].NAME}}</span>第<span>{{  openNumber.no }}</span>期开奖号码
                   </div>
-                    <Lottery-number  :olotterys="openNumber" :code="getCode"/>
+                    <Lottery-number :olotterys="openNumber" :code="getCode"/>
                 </div>
               </div>
               <!-- <div class=""></div> -->
@@ -47,7 +47,7 @@
                 <div class="close-bell">
                   <div class="setopen">
                     <i @click="onClick" v-text=" open == true ? '打开声音' : '关闭声音'"></i>
-                    <div class="bell-icon " :class=" open == true ? 'stopsound': ''"></div>
+                    <div class="bell-icon" :class=" open == true ? 'stopsound': ''"></div>
                   </div>
                 </div>
                 <div class="set-bell">
@@ -146,7 +146,7 @@
             <Statistics v-show="showStatistics"/>
             <Changlong v-show="showChanglong"/>
             <NumberDisribution v-show="showNumber"/>         
-              <LotteryTable :olotterys="openNumber" :code="getCode"/> <!-- 表格动态切换  -->
+            <LotteryTable :olotterys="openNumber" :code="getCode"/> <!-- 表格动态切换  -->
          </div> 
        </div>
           <!-- <Lottery :code="getCode"/>

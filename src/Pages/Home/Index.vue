@@ -10,7 +10,6 @@
           <Live />
           <Lottery-issue-board :lotteryIssues="lotteryIssues" />
         </main>
-        CC
       </el-col>
       <el-col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 5}">
         <aside>
