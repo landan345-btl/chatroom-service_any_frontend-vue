@@ -1,5 +1,5 @@
 <template>
-  <div class="lottery pt-2 pl-2 pr-2 w-xs-100 w-50 align-middle">
+  <div class="lottery pt-2 pl-2 pr-2 w-xs-100 align-middle">
     <span class="icon p-1 d-inline-block align-middle">
       <img :src="require(`@/assets/images/` + `${lottery.code}` + `-sm.png`)"  />
     </span>
@@ -199,8 +199,6 @@
         路珠分析
       </router-link>
     </div>
-    <div class="line mt-1">
-    </div>
   </div>
 </template>
 <style scoped lang="scss">
@@ -222,13 +220,3 @@ class Lottery extends Vue {
 
 export default Lottery;
 </script>
-
-
-
-
-
-
-
-
-
-
