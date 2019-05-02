@@ -277,8 +277,8 @@
     <table cellpadding="1" cellspacing="1" v-if="lotteryTypes[ code ].TYPES === 'XY28'">
       <tbody>
         <tr>
-          <th>时间</th>
-          <th>期数</th>
+          <th class="w-15">时间</th>
+          <th class="w-15">期数</th>
           <th class="number-btns w-30">号码</th>
           <th colspan="3">总和</th>
         </tr>
@@ -287,14 +287,16 @@
           <td>{{ olottery.no}}</td>
           <td>
             <ul class="numbers h-4">
-              <li v-for="( number , i ) in JSON.parse(olottery.numbers)" :key="i" 
-                class="number-red ml-1"><i class="font-size-2p5">{{ number }}</i></li>
+              <li v-for="( number , i ) in JSON.parse(olottery.numbers)" :key="i" class="number-blue ml-3">
+                <i class="font-size-2p5">{{ number }}</i>
+              </li>
+              <span></span>
+              <span></span>
             </ul>
-            </td>
-            <td>6,3,6</td>
-            <td>{{ JSON.parse(olottery.numbers) | sum([0, 1])}}</td>
-            <td>{{ JSON.parse(olottery.numbers) | sum([0, 1]) | isOddOrEven }}</td>
-            <td style="width:60px;">尾{{ JSON.parse(olottery.numbers) | sum([0, 1]) | substr(-1, 1) | isSmallOrLarge(4, 5) }}</td>
+          </td>
+          <td class="w-10">{{ JSON.parse(olottery.numbers) | sum }}</td>
+          <td class="w-10">{{ JSON.parse(olottery.numbers) | sum | isOddOrEven }}</td>
+          <td class="w-10">{{ JSON.parse(olottery.numbers) | sum |isSmallOrLarge(12,14) }}</td>
         </tr>
       </tbody>
     </table>
