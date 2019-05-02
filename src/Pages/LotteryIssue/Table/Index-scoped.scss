@@ -26,8 +26,32 @@
           li {
             display: inline-block;
             margin:0.2vmin 0.05vmin 0 0;
-         }
+          }
+          .hk6 li:last-child {
+            font-size:22px;
+             background: url('~@/assets/images/square.png') no-repeat 0 -373px;width:36px!important;height:36px!important;
+          }
         }
+        .pcdd em {
+          position: absolute;
+          display: inline-block;
+          width: 36px;
+          height: 40px;
+          line-height: 36px;
+          font-size: 20px;
+          text-align: center;
+          color: #fff;
+          border-radius: 5px;
+          z-index: 2;
+          top: 0;
+          background: url('~@/assets/images/nav-8kai.png') no-repeat -376px -373px;
+        }
+        em:nth-child(4) { 
+          left: 220px;
+         }
+        em:last-child { 
+          left: 155px;
+         }
         .background-color {
           background:transparent!important;
         }
@@ -69,5 +93,4 @@
       background:#fff;
     }
   }
-  // .odd, .small,  
 }

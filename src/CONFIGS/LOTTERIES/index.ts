@@ -231,7 +231,7 @@ const LOTTERIES: I_LOTTERIES = {
   'HK6': {
     NAME: '香港六合彩',
     SRC: '@/assets/images/HK6-md.png',
-    TYPES: 'KL8',
+    TYPES: 'SIX',
   },
   '5FSIX': {
     NAME: '幸运六合彩',
