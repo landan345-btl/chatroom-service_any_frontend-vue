@@ -1,5 +1,5 @@
 <template>
-  <ve-line :data="data"></ve-line>
+  <ve-line :data="chartData"></ve-line>
 </template>
 
 <style scoped lang="scss">
@@ -14,7 +14,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 })
 class VLine extends Vue {
   @Prop({ default: null })
-  public data: any;
+  public chartData: any;
   public created() {
     // console.log(this.chartData);
   }

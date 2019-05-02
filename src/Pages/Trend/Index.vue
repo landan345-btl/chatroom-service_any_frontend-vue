@@ -10,10 +10,9 @@
             <el-tab-pane label="PK拾" name="PK10">
               <E-tabs>
                 <el-tab-pane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'PK10' === oLottery.types">
-                  <V-line :data="vLineData"/>
                 </el-tab-pane>
-                BB
               </E-tabs>
+              <V-line :chartData="vLineData"/>
               <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'PK10' === oLottery.types" class="d-inline-block"/>
             </el-tab-pane>
             <el-tab-pane label="时时彩" name="SSC">
@@ -99,10 +98,16 @@ import Lottery from './Lottery/Index.vue';
   },
 })
 class Trend extends Vue {
+  public activeLottery = 'bjpk10';
+  public ischecked = 0;
+  public ranks = ['冠军' , '亚军' , '第三名' , '第四名' , '第五名' , '第六名' , '第七名' , '第八名' , '第九名' , '第十名'];
   public created(): void {
     let $root: any = this.$root;
     this.$store.dispatch('LOTTERY_ACTION_SHOW', {});
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', {} );
+  }
+  public tabShow(Tindex: number) {
+    this.ischecked = Tindex;
   }
   public get getLotteries(): any {
     let oLotteries: any = this.$store.state.lotteries;
@@ -111,14 +116,14 @@ class Trend extends Vue {
 
   public get vLineData(): any {
     let oData = {
-      columns: ['date', 'view users', 'order users', 'rate'],
+      columns: ['日期', '访问用户', '下单用户', '下单率'],
       rows: [
-        { 'date': '1/1', 'view users': 1393, 'order users': 1093, 'rate': 0.32 },
-        { 'date': '1/2', 'view users': 3530, 'order users': 3230, 'rate': 0.26 },
-        { 'date': '1/3', 'view users': 2923, 'order users': 2623, 'rate': 0.76 },
-        { 'date': '1/4', 'view users': 1723, 'order users': 1423, 'rate': 0.49 },
-        { 'date': '1/5', 'view users': 3792, 'order users': 3492, 'rate': 0.323 },
-        { 'date': '1/6', 'view users': 4593, 'order users': 4293, 'rate': 0.78 },
+        { '日期': '1/1', '访问用户': 1393, '下单用户': 1093, '下单率': 0.32 },
+        { '日期': '1/2', '访问用户': 3530, '下单用户': 3230, '下单率': 0.26 },
+        { '日期': '1/3', '访问用户': 2923, '下单用户': 2623, '下单率': 0.76 },
+        { '日期': '1/4', '访问用户': 1723, '下单用户': 1423, '下单率': 0.49 },
+        { '日期': '1/5', '访问用户': 3792, '下单用户': 3492, '下单率': 0.323 },
+        { '日期': '1/6', '访问用户': 4593, '下单用户': 4293, '下单率': 0.78 },
       ],
     };
     return oData;
