@@ -53,9 +53,6 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 class Lottery extends Vue {
   @Prop()
   public code!: any;
-  public created(): void {
-  }
-
 }
 
 export default Lottery;
