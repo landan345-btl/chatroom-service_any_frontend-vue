@@ -62,7 +62,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KL8' === oLottery.types">
                 </TabPane>
               </I-tabs>
-              <V-line :chartData="vLineData" class="ml-4 mr-4"/>
+              <V-line :chartData="vLineData" class="background-white"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
                 <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KL8' === oLottery.types" class="mt-2 background-white"/>
               </div>
@@ -72,7 +72,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SIX' === oLottery.types">
                 </TabPane>
               </I-tabs>
-              <V-line :chartData="vLineData" class="ml-4 mr-4"/>
+              <V-line :chartData="vLineData" class="background-white"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
               <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SIX' === oLottery.types" class="mt-2 background-white"/>
               </div>
@@ -82,7 +82,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'XY28' === oLottery.types">
                 </TabPane>
               </I-tabs>
-              <V-line :chartData="vLineData" class="ml-4 mr-4"/>
+              <V-line :chartData="vLineData" class="background-white"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
                 <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'XY28' === oLottery.types" class="mt-2 background-white"/>
               </div>
