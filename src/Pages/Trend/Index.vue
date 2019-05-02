@@ -6,7 +6,7 @@
     <el-row :gutter="0">
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
         <main class="mt-2 mb-2">
-          <E-tabs :type="'card'">
+          <E-tabs :type="'card'" :model="'PK10'">
             <el-tab-pane label="PK拾" name="PK10">
               <E-tabs>
                 <el-tab-pane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'PK10' === oLottery.types">

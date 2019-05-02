@@ -1,5 +1,5 @@
 <template>
-  <el-tabs :type="type">
+  <el-tabs :type="type" v-model="model">
     <slot></slot>
   </el-tabs>
 </template>
@@ -21,6 +21,8 @@ class ETabs extends Vue {
   public height!: string;
   @Prop()
   public type!: string;
+  @Prop()
+  public model!: any;
 }
 export default ETabs;
 
