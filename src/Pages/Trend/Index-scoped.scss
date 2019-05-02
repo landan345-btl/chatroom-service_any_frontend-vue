@@ -19,4 +19,15 @@
     // color: #303133;
     // position: relative;
   }
+  /deep/ .ivu-tabs-nav .ivu-tabs-tab-active {
+    font-size: 1.5vmin;
+  }
+  /deep/ .ivu-tabs-card >　.ivu-tabs-bar {
+    border-bottom: 0px solid #dcdee2;
+    background-color: #ffffff;
+    margin-bottom: 16px;
+  }
+  /deep/ .ivu-tabs-nav-container {
+    background-color: #ffffff;
+  }
 }
