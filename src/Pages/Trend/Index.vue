@@ -8,8 +8,8 @@
         <main class="mt-2 mb-2">
           <I-tabs :type="'card'" class="parent">
             <TabPane label="PK拾" name="PK10">
-              <I-tabs class="son">
-                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'PK10' === oLottery.types">
+              <I-tabs @on-click="handleShowLotteryIssues" class="son">
+                <TabPane v-on-click="handleShowLotteryIssues(oLottery.code)" :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'PK10' === oLottery.types">
                 </TabPane>
               </I-tabs>
               <V-line :chartData="vLineData" class="background-white"/>
@@ -150,6 +150,12 @@ class Trend extends Vue {
       ],
     };
     return oData;
+  }
+
+  public handleShowLotteryIssues(sCode: string): void {
+    debugger;
+    let sString = '你按了 ' + sCode;
+    console.log(sString);
   }
 }
 
