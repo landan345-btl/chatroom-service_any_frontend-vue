@@ -27,7 +27,7 @@ const LOTTERIES: I_LOTTERIES = {
   'PCDD': {
     NAME: 'PC蛋蛋28',
     SRC: '@/assets/images/PCDD-md.png',
-    TYPES: 'KL8',
+    TYPES: 'XY28',
   },
   'CQKLSF': {
     NAME: '重庆幸运农场',
@@ -241,7 +241,7 @@ const LOTTERIES: I_LOTTERIES = {
   '5F28': {
     NAME: '吉利28',
     SRC: '@/assets/images/5F28-md.png',
-    TYPES: 'KL8',
+    TYPES: 'XY28',
   },
 };
 
