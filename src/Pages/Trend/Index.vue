@@ -20,6 +20,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SSC' === oLottery.types">
                 </TabPane>
               </I-tabs>
+              <V-line :chartData="vLineData" class="ml-4 mr-4"/>
               <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SSC' === oLottery.types" class="d-inline-block"/>
             </TabPane>
             <TabPane class="background-white" label="11选5" name="11X5">
@@ -27,6 +28,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'11X5' === oLottery.types">
                 </TabPane>
               </I-tabs>
+              <V-line :chartData="vLineData" class="ml-4 mr-4"/>
               <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'11X5' === oLottery.types" class="d-inline-block"/>
             </TabPane>
             <TabPane class="background-white" label="快三" name="K3">
@@ -34,6 +36,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'K3' === oLottery.types">
                 </TabPane>
               </I-tabs>
+              <V-line :chartData="vLineData" class="ml-4 mr-4"/>
               <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'K3' === oLottery.types" class="d-inline-block"/>
             </TabPane>
             <TabPane class="background-white" label="快乐十分" name="KLSF">
@@ -41,6 +44,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KLSF' === oLottery.types">
                 </TabPane>
               </I-tabs>
+              <V-line :chartData="vLineData" class="ml-4 mr-4"/>
               <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KLSF' === oLottery.types" class="d-inline-block"/>
             </TabPane>
             <TabPane class="background-white" label="快乐8" name="KL8">
@@ -48,6 +52,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KL8' === oLottery.types">
                 </TabPane>
               </I-tabs>
+              <V-line :chartData="vLineData" class="ml-4 mr-4"/>
               <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KL8' === oLottery.types" class="d-inline-block"/>
             </TabPane>
             <TabPane class="background-white" label="六合彩" name="SIX">
@@ -55,6 +60,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SIX' === oLottery.types">
                 </TabPane>
               </I-tabs>
+              <V-line :chartData="vLineData" class="ml-4 mr-4"/>
               <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SIX' === oLottery.types" class="d-inline-block"/>
             </TabPane>
             <TabPane class="background-white" label="幸运28" name="XY28">
@@ -62,6 +68,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'XY28' === oLottery.types">
                 </TabPane>
               </I-tabs>
+              <V-line :chartData="vLineData" class="ml-4 mr-4"/>
               <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'XY28' === oLottery.types" class="d-inline-block"/>
             </TabPane>
           </I-tabs>
