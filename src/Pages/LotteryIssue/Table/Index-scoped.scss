@@ -27,18 +27,24 @@
             display: inline-block;
             margin:0.2vmin 0.05vmin 0 0;
           }
-          .hk6 li:last-child {
-            font-size:22px;
+          .six-lottery:last-child {
              background: url('~@/assets/images/square.png') no-repeat 0 -373px;width:36px!important;height:36px!important;
+          }
+          .ssc-lottery i {
+            line-height: 3.6vmin;
+            color: black;
+          }
+          .number-cqssc {
+            width:4.8vmin;
           }
         }
         .pcdd em {
           position: absolute;
           display: inline-block;
-          width: 36px;
-          height: 40px;
-          line-height: 36px;
-          font-size: 20px;
+          width: 3.6vmin;
+          height: 4vmin;
+          line-height: 3.8vmin;
+          font-size: 2vmin;
           text-align: center;
           color: #fff;
           border-radius: 5px;

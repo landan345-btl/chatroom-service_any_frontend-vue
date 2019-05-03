@@ -32,7 +32,7 @@ const LOTTERIES: I_LOTTERIES = {
   'CQKLSF': {
     NAME: '重庆幸运农场',
     SRC: '@/assets/images/CQKLSF-md.png',
-    TYPES: 'KL10F',
+    TYPES: 'KLSF',
   },
   'GDKLSF': {
     NAME: '广东快乐十分',
@@ -122,12 +122,12 @@ const LOTTERIES: I_LOTTERIES = {
   'TJKLSF': {
     NAME: '天津快乐十分',
     SRC: '@/assets/images/TJKLSF-md.png',
-    TYPES: 'KL10F',
+    TYPES: 'KLSF',
   },
   'HUNKLSF': {
     NAME: '湖南快乐十分',
     SRC: '@/assets/images/HUNKLSF-md.png',
-    TYPES: 'KL10F',
+    TYPES: 'KLSF',
   },
   'GD11X5': {
     NAME: '广东11选5',

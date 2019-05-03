@@ -11,7 +11,7 @@ let oRandomNumber =  {   // 开奖时间进度条  时间倒数
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 500 );
+        }, 100 );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
@@ -20,7 +20,7 @@ let oRandomNumber =  {   // 开奖时间进度条  时间倒数
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 200 );
+        }, 100 );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
