@@ -8,8 +8,8 @@
         <main class="mt-2 mb-2">
           <I-tabs :type="'card'" class="parent">
             <TabPane label="PK拾" name="PK10">
-              <I-tabs @on-click="handleShowLotteryIssues" class="son">
-                <TabPane v-on-click="handleShowLotteryIssues(oLottery.code)" :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'PK10' === oLottery.types">
+              <I-tabs v-on:handle-click="handleShowLotteryIssues" class="son">
+                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'PK10' === oLottery.types">
                 </TabPane>
               </I-tabs>
               <V-line :chartData="vLineData" class="background-white"/>
@@ -18,7 +18,7 @@
               </div>
             </TabPane>
             <TabPane label="时时彩" name="SSC">
-              <I-tabs class="son">
+              <I-tabs v-on:handle-click="handleShowLotteryIssues" class="son">
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SSC' === oLottery.types">
                 </TabPane>
               </I-tabs>
@@ -28,7 +28,7 @@
               </div>
             </TabPane>
             <TabPane label="11选5" name="11X5">
-              <I-tabs class="son">
+              <I-tabs v-on:handle-click="handleShowLotteryIssues" class="son">
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'11X5' === oLottery.types">
                 </TabPane>
               </I-tabs>
@@ -38,7 +38,7 @@
               </div>
             </TabPane>
             <TabPane label="快三" name="K3">
-              <I-tabs class="son">
+              <I-tabs v-on:handle-click="handleShowLotteryIssues" class="son">
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'K3' === oLottery.types">
                 </TabPane>
               </I-tabs>
@@ -48,7 +48,7 @@
               </div>
             </TabPane>
             <TabPane label="快乐十分" name="KLSF">
-              <I-tabs class="son">
+              <I-tabs v-on:handle-click="handleShowLotteryIssues" class="son">
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KLSF' === oLottery.types">
                 </TabPane>
               </I-tabs>
@@ -58,7 +58,7 @@
               </div>   
             </TabPane>
             <TabPane label="快乐8" name="KL8">
-              <I-tabs class="son">
+              <I-tabs v-on:handle-click="handleShowLotteryIssues" class="son">
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KL8' === oLottery.types">
                 </TabPane>
               </I-tabs>
@@ -68,7 +68,7 @@
               </div>
             </TabPane>
             <TabPane label="六合彩" name="SIX">
-              <I-tabs class="son">
+              <I-tabs v-on:handle-click="handleShowLotteryIssues" class="son">
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SIX' === oLottery.types">
                 </TabPane>
               </I-tabs>
@@ -78,7 +78,7 @@
               </div>
             </TabPane>
             <TabPane label="幸运28" name="XY28">
-              <I-tabs class="son">
+              <I-tabs v-on:handle-click="handleShowLotteryIssues" class="son">
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'XY28' === oLottery.types">
                 </TabPane>
               </I-tabs>
@@ -121,17 +121,12 @@ import Lottery from './Lottery/Index.vue';
   },
 })
 class Trend extends Vue {
-  public activeLottery = 'bjpk10';
-  public ischecked = 0;
-  public ranks = ['冠军' , '亚军' , '第三名' , '第四名' , '第五名' , '第六名' , '第七名' , '第八名' , '第九名' , '第十名'];
   public created(): void {
     let $root: any = this.$root;
     this.$store.dispatch('LOTTERY_ACTION_SHOW', {});
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', {} );
   }
-  public tabShow(Tindex: number) {
-    this.ischecked = Tindex;
-  }
+
   public get getLotteries(): any {
     let oLotteries: any = this.$store.state.lotteries;
     return oLotteries;
@@ -153,9 +148,11 @@ class Trend extends Vue {
   }
 
   public handleShowLotteryIssues(sCode: string): void {
-    debugger;
     let sString = '你按了 ' + sCode;
-    console.log(sString);
+    let oQueries = {
+      code: sCode,
+    };
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
   }
 }
 

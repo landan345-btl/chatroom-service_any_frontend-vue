@@ -1,5 +1,5 @@
 <template>
-  <Tabs :type="type">
+  <Tabs :type="type" @on-click="handleClick">
     <slot></slot>
   </Tabs>
 </template>
@@ -9,7 +9,7 @@
 </style>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
 
 @Component({
   name: 'ITabs',
@@ -17,6 +17,11 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 class ITabs extends Vue {
   @Prop()
   public type!: string;
+
+  @Emit('handle-click')
+  public handleClick(sName: string) {
+    return sName;
+  }
 }
 export default ITabs;
 
