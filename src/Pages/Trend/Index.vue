@@ -12,7 +12,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'PK10' === oLottery.types">
                 </TabPane>
               </I-tabs>
-              <V-line :data="vLineData" :settings="vLineSettings" class="background-white"/>
+              <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
                 <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'PK10' === oLottery.types" class="mt-2 background-white"/>
               </div>
@@ -109,6 +109,8 @@ import ITabs from '@/Components/ITabs/Index.vue';
 import VLine from '@/Components/VLine/Index.vue';
 import Lottery from './Lottery/Index.vue';
 
+import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
+
 @Component({
   components: {
     Header,
@@ -124,6 +126,10 @@ class Trend extends Vue {
   public created(): void {
     let $root: any = this.$root;
     this.$store.dispatch('LOTTERY_ACTION_SHOW', {});
+    let oQueries = {
+      code: 'MLAFT',
+    };
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
   }
 
   public get getLotteries(): any {
@@ -135,8 +141,6 @@ class Trend extends Vue {
     axisSite: {
       right: ['号码'],
     },
-    // metrics: ['冠军'],
-    // extraMetrics: ['亚军'],
   }
 
   public get vLineData(): any {
@@ -148,9 +152,13 @@ class Trend extends Vue {
     for( let sLotteryIssueId in oLotteryIssues) {
       let oLotteryIssue = oLotteryIssues[sLotteryIssueId];
       let iLotteryId = oLotteryIssue.lottery_id;
+      let sCode = oLotteries[iLotteryId].code;
       let sTypes = oLotteries[iLotteryId].types || void 0;
+      let iBeforeUntilNowTime = LOTTERTIES[sCode].LOTTERY_ISSUE.BEFORE_UNTIL_NOW_TIME;
+      let iOpenedTime = new Date(oLotteryIssue.opened_time).getTime();
+      let iNowTime = new Date().getTime();
 
-      if ('PK10' === sTypes.toUpperCase() && JSON.parse(oLotteryIssue.numbers) instanceof Array && 0 <= JSON.parse(oLotteryIssue.numbers).length) {
+      if ('PK10' === sTypes.toUpperCase() && JSON.parse(oLotteryIssue.numbers) instanceof Array && 0 <= JSON.parse(oLotteryIssue.numbers).length && iBeforeUntilNowTime > iNowTime - iOpenedTime) {
         aColums = ['期号', '冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名' ];
         let oRow = {
           '期号': oLotteryIssue.no,
