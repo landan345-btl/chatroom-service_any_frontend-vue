@@ -5,7 +5,7 @@
 // 遵守 isomorphism 设计原则
 
 let oLotteryMutation = {
-  LOTTERY_ISSUE_MUTATION_SHOW(state: any, mLotteryIssues: any[]): void {
+  LOTTERY_ISSUE_MUTATION_SHOW(state: any, mLotteryIssues: any[], oOptions: object): void {
     let oLotteryIssues: any = (mLotteryIssues instanceof Array) ? {} : mLotteryIssues;
     // debugger;
     if (mLotteryIssues instanceof Array) {
