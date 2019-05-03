@@ -95,16 +95,7 @@
             </div>
           </div>
          </div> 
-         <div class="instant-lottery">
-            <div class="text-center">
-              <div class="m-30">
-                <ul>
-                  <li v-for="(oMenu , iIndex) in menus" :key="iIndex"><a href="javascript:alert('敬请期待...')">{{oMenu}}</a></li>
-                </ul>
-              </div>
-              <div class="clear"></div>
-            </div>
-         </div> 
+         <Instant />
          <div class="lottery-record">
           <div class="record-head">
             <ul>
@@ -176,6 +167,7 @@ import Changlong from '@/Pages/LotteryIssue/Changlong/Index.vue';
 import NumberDisribution from '@/Pages/LotteryIssue/NumberDisribution/Index.vue';
 import Statistics from '@/Pages/LotteryIssue/Statistics/Index.vue';
 import LotteryNumber from '@/Pages/LotteryIssue/LotteryNumber/Index.vue';
+import Instant from '@/Pages/LotteryIssue/Instant/Index.vue';
 
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
 import { navTable , navnumber } from '@/const';
@@ -192,6 +184,7 @@ import moment from 'moment';
     Statistics,
     NumberDisribution,
     LotteryNumber,
+    Instant,
   },
 })
 class LotteryIssue extends Vue {
@@ -340,9 +333,7 @@ class LotteryIssue extends Vue {
     {value: 3, isCheck: false, option: '铃声四(打鼓声)'},
     {value: 4, isCheck: false, option: '铃声五(点滴声)'},
  ];
- public menus = ['即将开奖', '路珠分析', '冷热分析', '冠亚和走势', '单双大小历史',
-     '龙虎统计', '每日长龙统计', '龙虎路珠', '号码前后路珠', '冠亚和路珠', '单双大小路珠',
-      '号码规律统计', '今日号码统计', '位置走势', '俩面数据统计', '俩面数据统计', '冠亚和两面历史'];
+
  public timer: any;
  public olotterysScreen = {};
  public lotteryIamges = '' ; // 接受详情彩票背景图

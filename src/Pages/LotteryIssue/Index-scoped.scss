@@ -300,45 +300,6 @@
       }
      }
   }
-  .instant-lottery {
-    width:100%;
-    margin: 0 auto;
-    background: #fff;
-    margin-top: 0.2vmin;
-    padding: 3% 0;
-    .text-center {
-      width:96%;
-      margin: 0 auto;
-      position: relative;
-      .m-30 {
-        margin: auto;
-        position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        ul {
-          width: 100%;
-          li {
-            float: left;
-            height: 3vmin;
-            line-height: 3vmin;
-            white-space: nowrap;
-            overflow: ellipsis;
-            a {
-              display: inline-block;
-              height: 3vmin;
-              padding: 0 1vmin;
-              box-sizing: border-box;
-              width: 100%;
-              font-size: 1.4vmin;
-              color: #333; 
-            }
-            a:hover {color: orange;}
-          }
-        }
-      }
-    }
-  }
   .lottery-record {
     clear: both;
     width:100%;

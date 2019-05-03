@@ -23,8 +23,10 @@
         vertical-align: middle;
         ul{
           li {
-            display: inline-block;
             margin:0.2vmin 0.05vmin 0 0;
+          }
+          .pk10-mb {
+            margin-bottom: -0.4vmin;
           }
           .six-lottery:last-child {
              background: url('~@/assets/images/square.png') no-repeat 0 -373px;width:36px!important;height:36px!important;

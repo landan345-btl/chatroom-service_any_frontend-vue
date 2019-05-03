@@ -37,7 +37,7 @@ const LOTTERIES: I_LOTTERIES = {
   'GDKLSF': {
     NAME: '广东快乐十分',
     SRC: '@/assets/images/GDKLSF-md.png',
-    TYPES: 'KL10F',
+    TYPES: 'KLSF',
   },
   'PAOMA': {
     NAME: '香港跑马',
