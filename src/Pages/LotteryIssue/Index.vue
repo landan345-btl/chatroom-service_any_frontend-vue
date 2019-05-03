@@ -27,7 +27,6 @@
                     <Lottery-number :olotterys="openNumber" :code="getCode"/>
                 </div>
               </div>
-              <!-- <div class=""></div> -->
             </div>
             <div class="lottery-right">
               <div class="next-issue">
@@ -188,135 +187,8 @@ import moment from 'moment';
   },
 })
 class LotteryIssue extends Vue {
-  public lotterytype = [
-    { code: 'MLAFT' , lotteryName: '幸运飞艇'},
-    { code: 'JSPK10' , lotteryName: '极速赛车'},
-    { code: 'JSAFT' , lotteryName: '极速飞艇'},
-    { code: 'BJPK10' , lotteryName: '北京PK10'},
-    { code: 'KRYSU' , lotteryName: '韩国音速'},
-    { code: 'FFPK10' , lotteryName: '分分PK10'},
-    { code: 'PAOMA' , lotteryName: '香港跑马'},
-    { code: '3FPK10' , lotteryName: '三分PK10'},
-    { code: 'CQSSC' , lotteryName: '重庆生肖乐'},
-    { code: 'XJSSC' , lotteryName: '新疆时时彩'},
-    { code: 'HLJSSC' , lotteryName: '黑龙江时时彩'},
-    { code: 'AFGH90' , lotteryName: '加纳1.5分彩'},
-    { code: 'TW5FC' , lotteryName: '台湾5分彩'},
-    { code: 'FFSSC' , lotteryName: '幸运分分彩'},
-    { code: 'BJ5FC' , lotteryName: '北京5分彩'},
-    { code: '3FSSC' , lotteryName: '幸运三分彩'},
-    { code: 'JSK3' , lotteryName: '江苏快3'},
-    { code: 'JLK3' , lotteryName: '吉林快3'},
-    { code: 'AHK3' , lotteryName: '安徽快3'},
-    { code: 'HUBK3' , lotteryName: '湖北快3'},
-    { code: 'HEBK3' , lotteryName: '河北快3'},
-    { code: 'GXK3' , lotteryName: '广西快3'},
-    { code: 'FFK3' , lotteryName: '幸运快3'},
-    { code: 'CQKLSF' , lotteryName: '重庆幸运农场'},
-    { code: 'GDKLSF' , lotteryName: '广东快乐十分'},
-    { code: 'TJKLSF' , lotteryName: '天津快乐十分'},
-    { code: 'HUNKLSF' , lotteryName: '湖南快乐十分'},
-    { code: 'GD11X5' , lotteryName: '广东11选5'},
-    { code: 'SD11X5' , lotteryName: '山东11选5'},
-    { code: 'SH11X5' , lotteryName: '上海11选5'},
-    { code: 'AH11X5' , lotteryName: '安徽11选5'},
-    { code: 'JX11X5' , lotteryName: '江西11选5'},
-    { code: 'BJ11X5' , lotteryName: '北京11选5'},
-    { code: 'JS11X5' , lotteryName: '江苏11选5'},
-    { code: 'ZJ11X5' , lotteryName: '浙江11选5'},
-    { code: 'FF11X5' , lotteryName: '幸运11选5'},
-    { code: 'XJ11X5' , lotteryName: '新疆11选5'},
-    { code: 'HLJ11X5' , lotteryName: '黑龙江11选5'},
-    { code: 'FJ11X5' , lotteryName: '福建11选5'},
-    { code: 'TWBG' , lotteryName: '台湾宾果'},
-    { code: 'FC3D' , lotteryName: '福彩3D'},
-    { code: 'QLT' , lotteryName: '福彩七乐彩'},
-    { code: 'DLT' , lotteryName: '上海时时乐'},
-    { code: 'PL3' , lotteryName: '体彩排列3'},
-    { code: 'BJKL8' , lotteryName: '北京快乐8'},
-    { code: 'TW3D' , lotteryName: '台湾3D'},
-    { code: 'HK6' , lotteryName: '香港六合彩'},
-    { code: '5FSIX' , lotteryName: '幸运六合彩'},
-    { code: 'PCDD' , lotteryName: '幸运28'},
-    { code: '5F28' , lotteryName: '吉利28'},
- ];
 
- public lotterytypeFT = [
-    'MLAFT',
-    'JSPK10',
-    'JSAFT',
-    'BJPK10',
-    'KRYSU',
-    'FFPK10',
-    'PAOMA',
-    '3FPK10',
- ];
- public lotterytypeSSC = [
-    '3FSSC',
-    'XJSSC',
-    'HLJSSC',
-    'AFGH90',
-    'TW5FC',
-    'FFSSC',
-    'BJ5FC',
- ];
- public lotterytypeK3 = [
-  'JSK3',
-  'JLK3',
-  'ANK3',
-  'HUBK3',
-  'HEBK3',
-  'GXK3',
-  'FFK3',
- ];
- public lotterytypeSSQ = [
-    '5FSIX',
- ];
- public lotterytypeKLSF = [
-    'CQKLSF',
-    'GDKLSF',
-    'TJKLSF',
-    'HUNKLSF',
- ];
- public lotterytypeKL8 = [
-    'BJKL8',
-    'TWBG',
-    'HK6',
-    '5FSIX',
- ];
- public lotterytype11X5 = [
-    'GD11X5',
-    'SH11X5',
-    'AH11X5',
-    'JX11X5',
-    'FJ11X5',
-    'BJ11X5',
-    'JS11X5',
-    'ZJ11X5',
-    'SD11X5',
-    'HLJ11X5',
-    'XJ11X5',
-    'FF11X5',
- ];
- public lotterytypePL3 = [
-    'FC3D',
-    'PL3',
-    'SHSSL',
-    'TW3D',
- ];
- public lotterytypePCDD = [
-   'PCDD',
-   '5F28',
- ];
- public lotterytypeCQSXL = [
-    'CQSSC',
- ];
-
- public recordHeads = [
-   {title: '今日双面/号码统计', on: false},
-   {title: '长龙提醒', on: false},
-   {title: '号码分布', on: false},
-    ];
+ public recordHeads = [{title: '今日双面/号码统计', on: false}, {title: '长龙提醒', on: false}, {title: '号码分布', on: false},];
  public showStatistics = false;
  public showChanglong = false;
  public showNumber = false;
@@ -347,7 +219,6 @@ class LotteryIssue extends Vue {
  public created() {
   this.getLotteryName(); // 接受彩种名称
   this.getName();
-  this.getLotteryNumber(); // 判断彩票号码组件
   this.get();
   let sDateNow = moment().format('YYYY-MM-DD'); // 本地时间 年 月 日
   let oQueries = {
@@ -415,35 +286,6 @@ class LotteryIssue extends Vue {
      return;
   }
   this.lotterycode = name;
- }
-
-
- public getLotteryNumber(): void {  // 判断彩种 动态选择号码盒子
-    let slotteryName = this.lotterycode;
-    this.lotterytype.forEach((val , index ) => {
-    let lotteryTypeName: any = val.code;
-    if ( this.lotterytypeFT.indexOf( slotteryName) !== -1) {
-       this.lotteryNumberBox =  navnumber[0].component ;
-      } else if (this.lotterytypeSSC.indexOf( slotteryName) !== -1) {
-        this.lotteryNumberBox =  navnumber[4].component ;
-      } else if (this.lotterytypeK3.indexOf( lotteryTypeName) !== -1) {
-        this.lotteryNumberBox =  navnumber[2].component ;
-      } else if (this.lotterytypeSSQ.indexOf( slotteryName) !== -1) {
-        this.lotteryNumberBox =  navnumber[0].component ;
-      } else if (this.lotterytypeKLSF.indexOf( slotteryName) !== -1) {
-        this.lotteryNumberBox =  navnumber[0].component ;
-      } else if (this.lotterytypeKL8.indexOf( slotteryName) !== -1) {
-        this.lotteryNumberBox =  navnumber[4].component ;
-      } else if (this.lotterytype11X5.indexOf( slotteryName) !== -1) {
-        this.lotteryNumberBox =  navnumber[4].component ;
-      } else if (this.lotterytypePL3.indexOf( slotteryName) !== -1) {
-        this.lotteryNumberBox =  navnumber[4].component ;
-      } else if (this.lotterytypePCDD.indexOf( slotteryName) !== -1) {
-        this.lotteryNumberBox =  navnumber[3].component ;
-      } else if (this.lotterytypeCQSXL.indexOf( slotteryName) !== -1) {
-        this.lotteryNumberBox =  navnumber[1].component ;
-      }
-   });
  }
 
  public toggleHand(i: number) {

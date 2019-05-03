@@ -4,9 +4,6 @@
       <div class="text-center">
         <div class="m-30">
           <span  v-for="(oMenu , iIndex) in menus" :key="iIndex"><a href="javascript:alert('敬请期待...')">{{oMenu}}</a></span>
-          <!-- <ul>
-            <li v-for="(oMenu , iIndex) in menus" :key="iIndex"><a href="javascript:alert('敬请期待...')">{{oMenu}}</a></li>
-          </ul> -->
         </div>
         <div class="clear"></div>
       </div>

@@ -65,8 +65,7 @@
           <td>{{ olottery.no}}</td>
           <td>
             <ul class="numbers">
-             <li v-for="( number , i ) in JSON.parse(olottery.numbers)" :key="i" 
-                class="ml-1"
+             <li v-for="( number , i ) in JSON.parse(olottery.numbers)" :key="i" class="ml-1"
                 :class="{'number-blue-fine' : (number>40), 'number-light-fine' : (number<=40)}">
                 <i class="font-size-2p5 font-weight-bold" :class="{'color-black' : (number>40), 'color-deepskyblue' : (number<=40)}">{{ number | padStart(2, "0")}}</i>
               </li>
@@ -86,7 +85,7 @@
         </tr>
       </tbody>
     </table>
-    <table  v-if="lotteryTypes[ code ].TYPES === 'K3'">
+    <table v-if="lotteryTypes[ code ].TYPES === 'K3'">
       <tbody>
         <tr>
           <th>时间</th>
@@ -268,7 +267,7 @@
         </tr>
       </tbody>
     </table>
-    <table  v-if="lotteryTypes[ code ].TYPES === 'SSC'">   
+    <table v-if="lotteryTypes[ code ].TYPES === 'SSC'">   
      <tbody>
         <tr>
           <th>时间</th>
