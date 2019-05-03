@@ -25,6 +25,10 @@
   display: flex;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .justify-content-between {
   justify-content: space-between;
 }
@@ -567,6 +571,11 @@
     z-index: 0;
   }
 }
+
+.background-white {
+  background-color: #ffffff;
+}
+
 
 .background-white {
   background-color: #ffffff;

@@ -19,4 +19,57 @@
     // color: #303133;
     // position: relative;
   }
+  /deep/ .ivu-tabs-nav-container {
+    background-color: #ffffff;
+  }
+
+  /deep/ .parent .ivu-tabs-bar {
+    border-bottom: 0px solid #dcdee2;
+  }
+  .ivu-tabs-nav .ivu-tabs-tab-active {
+    font-size: 2.2vmin;
+  }
+
+  /deep/ .parent .ivu-tabs-nav-container {
+    font-size: 2vmin;
+  }
+
+  /deep/ .parent.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-nav-container {
+    height: 5vmin;
+  }
+
+  /* .parent ivu-tabs 同级别*/
+  /deep/ .parent.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-tab {
+    border: 0px solid #dcdee2;
+    border-radius: 0 0 0 0;
+    background: #ffffff;
+  }
+
+  /deep/ .parent.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-tab-active {
+    // height: 52px;
+    // padding-bottom: 5px;
+    // background: #fff;
+    // transform: translateZ(0);
+    // border-color: #dcdee2;
+    color: #ff7b00;
+    line-height: 2;
+}
+
+  /deep/ .son .ivu-tabs-bar {
+    border-bottom: 2px solid #dcdee2;
+    margin-bottom: 0;
+  }
+
+  /deep/ .son .ivu-tabs-nav-container {
+    font-size: 1.5vmin;
+  }
+  /deep/ .son .ivu-tabs-nav .ivu-tabs-tab-active {
+    font-size: 1.8vmin;
+  }
+  /deep/ .son .ivu-tabs-card >　.ivu-tabs-bar {
+    // border-bottom: 0px solid #dcdee2;
+    background-color: #ffffff;
+    margin-bottom: 16px;
+  }
+
 }
