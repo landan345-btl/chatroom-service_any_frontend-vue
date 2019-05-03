@@ -60,7 +60,7 @@ const LOTTERIES: I_LOTTERIES = {
     SRC: '@/assets/images/GDKLSF-md.png',
     TYPES: 'KL10F',
     LOTTERY_ISSUE: {
-      BEFORE_UNTIL_NOW_TIME: 1 * 60 * 60 * 1000,
+      BEFORE_UNTIL_NOW_TIME: 24 * 60 * 60 * 1000,
     },
   },
   'PAOMA': {
@@ -188,7 +188,7 @@ const LOTTERIES: I_LOTTERIES = {
     SRC: '@/assets/images/FFK3-md.png',
     TYPES: 'K3',
     LOTTERY_ISSUE: {
-      BEFORE_UNTIL_NOW_TIME: 24 * 60 * 60 * 1000,
+      BEFORE_UNTIL_NOW_TIME: 1 * 60 * 60 * 1000,
     },
   },
   'TJKLSF': {

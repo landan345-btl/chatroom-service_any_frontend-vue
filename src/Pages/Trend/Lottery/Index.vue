@@ -195,6 +195,11 @@
         路珠分析
       </router-link>
     </div>
+    <div class="list p-2 d-inline-block align-middle" v-else-if="'3D'===lottery.types.toUpperCase()">
+      <router-link class="d-inline-block mr-1" :to="{ path: '/trend/information', query: { code: lottery.code, tab: 'ssc-1' }}">
+        路珠分析
+      </router-link>
+    </div>
     <div class="list p-2 d-inline-block align-middle" v-else-if="'XY28'===lottery.types.toUpperCase()">
       <router-link class="d-inline-block mr-1" :to="{ path: '/trend/information', query: { code: lottery.code, tab: 'ssc-1' }}">
         路珠分析
