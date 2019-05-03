@@ -7,6 +7,8 @@ import determineSequence from '@/utilities/determineSequence/index';
 import substr from '@/utilities/substr/index';
 import isFishOrShrimpOrCrab from '@/utilities/isFishOrShrimpOrCrab/index';
 import last from '@/utilities/last/index';
+import isFrontOrBack from '@/utilities/isFrontOrBack/index';
+import FiveRow from '@/utilities/FiveRow/index';
 
 let oUltilityPlugin = {
   // The install method is all that needs to exist on the plugin object.
@@ -34,6 +36,8 @@ let oUltilityPlugin = {
     Vue.prototype.substr = substr;
     Vue.prototype.isFishOrShrimpOrCrab = isFishOrShrimpOrCrab;
     Vue.prototype.last = last;
+    Vue.prototype.isFrontOrBack = isFrontOrBack;
+    Vue.prototype.FiveRow = FiveRow;
   },
 };
 

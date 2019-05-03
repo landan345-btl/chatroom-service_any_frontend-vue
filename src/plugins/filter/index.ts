@@ -9,6 +9,9 @@ import isFishOrShrimpOrCrab from '@/filters/isFishOrShrimpOrCrab/index';
 import determineSequence from '@/filters/determineSequence/index';
 import count from '@/filters/count/index';
 import padStart from '@/filters/padStart/index';
+import isFrontOrBack from '@/filters/isFrontOrBack/index';
+import FiveRow from '@/filters/FiveRow/index';
+
 
 let oFilterPlugin = {
   // The install method is all that needs to exist on the plugin object.
@@ -26,6 +29,8 @@ let oFilterPlugin = {
     Vue.filter('substr' , substr);
     Vue.filter('sum' , sum);
     Vue.filter('padStart' , padStart);
+    Vue.filter('isFrontOrBack' , isFrontOrBack);
+    Vue.filter('FiveRow' , FiveRow);
   },
 };
 

@@ -33,6 +33,9 @@
 .w-1_3 {
   width: cacl( 100% / 3 );
 }
+.w-0p5 {
+  width: 5% !important;
+}
 .w-10 {
   width: 10% !important;
 }
@@ -113,10 +116,9 @@
   color: white;
 }
 
-.color-deepskyblue {
-  color: DeepSkyBlue ;
+.color-deepskyblue,.deuce-multiple{
+  color: DeepSkyBlue !important;
 }
-
 .color-red {
   color: red;
 }

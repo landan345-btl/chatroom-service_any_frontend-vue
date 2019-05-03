@@ -54,8 +54,8 @@
           <th>期数</th>
           <th class="number-btns w-42">显示号码</th>
           <th colspan="3">总和</th>
-          <th>单双</th>
-          <th>前后</th>
+          <th class="w-0p5">单双</th>
+          <th class="w-0p5">前后</th>
           <th>总和组合</th>
           <th>五行</th>
         </tr>
@@ -63,21 +63,25 @@
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
-            <ul class="numbers" style="height:78px;">
+            <ul class="numbers">
              <li v-for="( number , i ) in JSON.parse(olottery.numbers)" :key="i" 
                 class="ml-1"
-                :class="{'number-blue-fine' : (number>40), 'number-light-fine' : (number<=40),}">
-                <i class="font-size-2p5 font-weight-bold">{{ number | padStart(2, "0")}}</i>
+                :class="{'number-blue-fine' : (number>40), 'number-light-fine' : (number<=40)}">
+                <i class="font-size-2p5 font-weight-bold" :class="{'color-black' : (number>40), 'color-deepskyblue' : (number<=40)}">{{ number | padStart(2, "0")}}</i>
               </li>
             </ul> 
           </td>
           <td>{{ JSON.parse(olottery.numbers) | sum }}</td>
-          <td>{{ JSON.parse(olottery.numbers) | sum | isSmallOrLarge(849, 851) }}</td>
-          <td>{{ JSON.parse(olottery.numbers) | sum | isOddOrEven }}</td>
-          <td>双多</td>
-          <td>前后和</td>
-          <td>总单小</td>
-          <td>水</td>
+          <td :class="{'text-big': '大' === isSmallOrLarge(sum(JSON.parse(olottery.numbers)),849,851)}">{{ JSON.parse(olottery.numbers) | sum | isSmallOrLarge(849, 851) }}</td>
+          <td :class="{'text-even': '双'===isOddOrEven(sum(JSON.parse(olottery.numbers)))}">{{ JSON.parse(olottery.numbers) | sum | isOddOrEven }}</td>
+          <td :class="{
+            'deuce-multiple':'单双和' === isOddOrEven( JSON.parse(olottery.numbers)),
+            'text-danger':'双多' === isOddOrEven( JSON.parse(olottery.numbers))}">
+            {{ JSON.parse(olottery.numbers) | isOddOrEven }}
+          </td>
+          <td :class="{'text-even':'后多' === isFrontOrBack( JSON.parse(olottery.numbers))}">{{ JSON.parse(olottery.numbers) | isFrontOrBack }}</td>
+          <td>总{{ JSON.parse(olottery.numbers) | sum |isSmallOrLarge(809,811)}}{{ JSON.parse(olottery.numbers) | sum |isOddOrEven }}</td>
+          <td>{{ JSON.parse(olottery.numbers) | sum | FiveRow }}</td>
         </tr>
       </tbody>
     </table>
