@@ -5,7 +5,6 @@ let cCodeToName = (sCode: string, sDefaultName: string) => {
   if(sCode in LOTTERIES) {
     sName = LOTTERIES[sCode].NAME || sName;
   }
-
   return sName;
 };
 export default cCodeToName;

@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="live align-middle">
-      <div :class="[lotteryIssue && lotteryIssue.lottery_id ? 'live-' + lotteries[lotteryIssue.lottery_id].types.toLowerCase() : '']">
+      <div :class="[types ? 'live-' + types.toLowerCase() : '']">
       </div>
     </div>
   </div>
@@ -63,6 +63,9 @@ class Top extends Vue {
 
   @Prop()
   public code!: any;
+
+  @Prop()
+  public types!: any;
 }
 
 export default Top;

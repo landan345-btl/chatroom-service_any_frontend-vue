@@ -6,7 +6,7 @@
     <el-row :gutter="0">
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
         <main class="mt-2 mb-2">
-          <Top :lotteryIssue="getLastLotteryIssue" :lotteries="getLotteries" :code="getCode"/>
+          <Top :lotteryIssue="getLastLotteryIssue" :lotteries="getLotteries" :code="getCode" :types="getTypes"/>
         </main>
       </el-col>
     </el-row>
@@ -47,10 +47,11 @@ class Lottery extends Vue {
     let $root: any = this.$root;
     let sCode = this.$route.query.code;
     this._redirecteIfWithoutCode();
-    this.$store.dispatch('LOTTERY_ACTION_SHOW', {});
     let oQueries = {
       code: sCode,
     };
+    this.$store.dispatch('LOTTERY_ACTION_SHOW', oQueries);
+
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
   }
 
@@ -71,6 +72,14 @@ class Lottery extends Vue {
     let mCode = this.$route.query.code;
     let sCode = mCode.toString();
     return sCode;
+  }
+
+    public get getTypes(): string {
+    let oLotteries: any = this.$store.state.lotteries;
+    let aLotteries = Object.values(oLotteries);
+    let oLottery: any  = aLotteries.pop();
+    let sTypes = oLottery.types;
+    return sTypes;
   }
 
   public get getLotteryIssues() {
