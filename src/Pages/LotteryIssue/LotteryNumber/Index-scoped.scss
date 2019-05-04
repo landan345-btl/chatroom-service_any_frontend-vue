@@ -12,7 +12,11 @@
         margin-right: 0.3vmin;            
         text-align: center;
         border-radius: 3px;
+        line-height: 3.7vmin;
         box-sizing: border-box;
+      }
+      .number-cqssc {
+        width:5vmin!important;
       }
       .six:last-child {
         background: url("~@/assets/images/square.png") no-repeat -91px -49px;width:37px!important;height:37px!important;
@@ -27,23 +31,17 @@
       display: inline-block;
       width: 3.6vmin;
       height: 4vmin;
-      line-height: 3.8vmin;
-      font-size: 2vmin;
-      text-align: center;
-      color: #fff;
-      border-radius: 5px;
-      z-index: 2;
       top: 0;
       background: url('~@/assets/images/nav-8kai.png') no-repeat -376px -373px;
     }
     em:nth-child(4) { 
-      left: 3vmin;
+      left: 3.3vmin;
     }
     em:nth-child(5) { 
-      left: 10vmin;
+      left: 11vmin;
     }
     em:nth-child(6) {
-      left: 18vmin;
+      left: 20vmin;
       background: url('~@/assets/images/nav-8kai.png') no-repeat -407px -373px !important;
     }
   }

@@ -15,7 +15,7 @@
           <th colspan="3">冠亚和</th>
           <th colspan="5">1-5龙虎</th>
         </tr>
-        <tr  v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
+        <tr  v-for=" ( olottery , lotteryid ) in oLotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -60,7 +60,7 @@
           <th>总和组合</th>
           <th>五行</th>
         </tr>
-        <tr v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in oLotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -94,7 +94,7 @@
           <th colspan="3">总和</th>
           <th colspan="5">鱼虾蟹</th>
         </tr>
-        <tr v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in oLotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -147,7 +147,7 @@
           <th>尾大小</th>
           <th colspan="4" >龙虎</th>
         </tr>
-        <tr v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in oLotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -205,7 +205,7 @@
           <th>中三</th>
           <th>后三</th>
         </tr>
-        <tr v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in oLotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -243,7 +243,7 @@
           <th colspan="3">拾个和</th>
           <th colspan="3">总和</th>
         </tr>
-        <tr v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in oLotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -282,7 +282,7 @@
           <th colspan="3">冠亚和</th>
           <th colspan="5">1-5龙虎</th>
         </tr>
-        <tr v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in oLotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -310,9 +310,8 @@
           </td>
           <td :class="{
             'text-danger' : '龙' === isDragonOrTiger(JSON.parse(olottery.numbers),[0,4]),
-            'text-sum' : '和' === isDragonOrTiger(JSON.parse(olottery.numbers),[0,4]),
-            }"
-          >{{ JSON.parse(olottery.numbers) | isDragonOrTiger([0, 4]) }}</td>
+            'text-sum' : '和' === isDragonOrTiger(JSON.parse(olottery.numbers),[0,4])}">
+            {{ JSON.parse(olottery.numbers) | isDragonOrTiger([0, 4]) }}</td>
         </tr>
       </tbody>
     </table>
@@ -324,7 +323,7 @@
           <th class="number-btns w-30">号码</th>
           <th colspan="3">总和</th>
         </tr>
-        <tr v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in oLotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -351,7 +350,7 @@
           <th colspan="3">总和</th>
           <th colspan="4">特码</th>
         </tr>
-        <tr v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in oLotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -377,6 +376,7 @@
 @import 'Index-scoped.scss';
 </style>
 <script lang="ts">
+ // import _ from 'lodash';
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
 
@@ -398,6 +398,15 @@ class Table extends Vue {
   @Prop({ default: null })
   public code !: any;
 
+  public sortLottery( aNumber: any , bNumber: any) {
+    return aNumber - bNumber;
+  }
+  public get oLotteryIssues(): object {
+    let oLotteryIssues = this.lotteryIssues;
+    let aLotteryIssues = Object.values(oLotteryIssues);
+    let oLotteryIssue = aLotteryIssues.reverse();
+    return oLotteryIssue;
+  }
   public showTitle(index: number) {
     this.titleStatus = index;
     if ( this.titleStatus === 0 ) {

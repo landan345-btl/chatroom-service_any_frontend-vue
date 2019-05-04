@@ -51,7 +51,7 @@
           </ul>
         </div>
       </div>
-      <p class="card-count">已开144期，还有144期</p>
+      <p class="card-count">已开{{'dddd' }}期，还有{{ 'ddd'}}期</p>
     </div>
     <div v-if="lotteryTypes[ code ].TYPES === '11X5'">
       <div class="card-body">
@@ -81,8 +81,9 @@
       <div class="card-body">
         <div class="nums-box">
           <ul class="numbers">
-            <li v-for="(number,i) in JSON.parse(getLastLotteryIssues.numbers)" :key="i" class="numblue">
-              <i class="font-size-2p5 color-white">{{ number }}</i>
+            <li v-for="(number,i) in JSON.parse(getLastLotteryIssues.numbers)" :key="i" 
+               :class="['number-' + lotteryTypes[ code ].TYPES.toLowerCase(), 'number-'+ code.toLowerCase(), 'number-'+ lotteryTypes[ code ].TYPES.toLowerCase() + '-' + number]" class="numblue">
+              <i class="font-size-2p5 color-white"  v-if=" code !=='CQSSC'">{{ number }}</i>
             </li>
           </ul>
         </div>
