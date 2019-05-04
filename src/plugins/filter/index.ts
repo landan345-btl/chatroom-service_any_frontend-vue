@@ -10,6 +10,7 @@ import determineSequence from '@/filters/determineSequence/index';
 import count from '@/filters/count/index';
 import firstAdd from '@/filters/firstAdd/index';
 import codeToName from '@/filters/codeToName/index';
+import or from '@/filters/or/index';
 
 let oFilterPlugin = {
   // The install method is all that needs to exist on the plugin object.
@@ -28,6 +29,7 @@ let oFilterPlugin = {
     Vue.filter('sum' , sum);
     Vue.filter('firstAdd' , firstAdd);
     Vue.filter('codeToName' , codeToName);
+    Vue.filter('or' , or);
   },
 };
 
