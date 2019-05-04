@@ -3,8 +3,9 @@
     <div class="pseudo">
       <div class="top mb-1 position-relative">
         <router-link class="icon align-middle d-inline-block d-xs-none" :to="{ path: '/lottery-issue', query: { code: lotteryIssue.code }}">
-          <img :src="require(`@/assets/images/` + `${lotteryIssue.code}` + `-sm.png`)"/>
-        </router-link>
+          <div :class="['icon-' + lotteryIssue.code.toLowerCase() + '-circle']">
+          </div>
+          </router-link>
         <router-link class="name-issue_no-numbers align-middle d-inline-block" :to="{ path: '/lottery-issue', query: { code: lotteryIssue.code }}">
           <div class="top">
             <span class="name font-weight-bold ">

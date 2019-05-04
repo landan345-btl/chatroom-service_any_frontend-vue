@@ -35,7 +35,7 @@ html {
       width: 15px;
       background: url("~@/assets/images/numbers.png") no-repeat -386px -58px;
      }
-  } 
+  }
 }
 
 .numbers {
@@ -538,4 +538,744 @@ html {
   /* 六合彩 快乐十分 专用蓝色背景圆*/
   .numblue { background: url("~@/assets/images/square.png") no-repeat -1px -47px;width:40px!important;height:37px!important; } 
   .numred { background: url("~@/assets/images/square.png") no-repeat -91px -49px;width:37px!important;height:37px!important; }
+}
+
+.icon-3fpk10 {
+  background: url("~@/assets/images/3FPK10.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-3fpk10-circle {
+  background: url("~@/assets/images/3FPK10-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-3fssc {
+  background: url("~@/assets/images/3FSSC.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-3fssc-circle {
+  background: url("~@/assets/images/3FSSC-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-5f28 {
+  background: url("~@/assets/images/5F28.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-5f28-circle {
+  background: url("~@/assets/images/5F28-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-5fsix {
+  background: url("~@/assets/images/5FSIX.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-5fsix-circle {
+  background: url("~@/assets/images/5FSIX-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-5fssc {
+  background: url("~@/assets/images/5FSSC.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-5fssc-circle {
+  background: url("~@/assets/images/5FSSC-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-afgh90 {
+  background: url("~@/assets/images/AFGH90.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-afgh90-circle {
+  background: url("~@/assets/images/AFGH90-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-ah11x5 {
+  background: url("~@/assets/images/AH11X5.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-ah11x5-circle {
+  background: url("~@/assets/images/AH11X5-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-ahk3 {
+  background: url("~@/assets/images/AHK3.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-ahk3-circle {
+  background: url("~@/assets/images/AHK3-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-bj5fc {
+  background: url("~@/assets/images/BJ5FC.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-bj5fc-circle {
+  background: url("~@/assets/images/BJ5FC-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-bj11x5 {
+  background: url("~@/assets/images/BJ11X5.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-bj11x5-circle {
+  background: url("~@/assets/images/BJ11X5-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-bjkl8 {
+  background: url("~@/assets/images/BJKL8.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-bjkl8-circle {
+  background: url("~@/assets/images/BJKL8-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-bjpk10 {
+  background: url("~@/assets/images/BJPK10.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-bjpk10-circle {
+  background: url("~@/assets/images/BJPK10-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-cqklsf {
+  background: url("~@/assets/images/CQKLSF.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-cqklsf-circle {
+  background: url("~@/assets/images/CQKLSF-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-cqssc {
+  background: url("~@/assets/images/CQSSC.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-cqssc-circle {
+  background: url("~@/assets/images/CQSSC-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-fc3d {
+  background: url("~@/assets/images/FC3D.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-fc3d-circle {
+  background: url("~@/assets/images/FC3D-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-ff11x5 {
+  background: url("~@/assets/images/FF11X5.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-ff11x5-circle {
+  background: url("~@/assets/images/FF11X5-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-ffk3 {
+  background: url("~@/assets/images/FFK3.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-ffk3-circle {
+  background: url("~@/assets/images/FFK3-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-ffpk10 {
+  background: url("~@/assets/images/FFPK10.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-ffpk10-circle {
+  background: url("~@/assets/images/FFPK10-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-ffssc {
+  background: url("~@/assets/images/FFSSC.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-ffssc-circle {
+  background: url("~@/assets/images/FFSSC-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-fj11x5 {
+  background: url("~@/assets/images/FJ11X5.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-fj11x5-circle {
+  background: url("~@/assets/images/FJ11X5-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-gd11x5 {
+  background: url("~@/assets/images/GD11X5.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-gd11x5-circle {
+  background: url("~@/assets/images/GD11X5-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-gdklsf {
+  background: url("~@/assets/images/GDKLSF.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-gdklsf-circle {
+  background: url("~@/assets/images/GDKLSF-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+
+.icon-gxk3 {
+  background: url("~@/assets/images/GXK3.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-gxk3-circle {
+  background: url("~@/assets/images/GXK3-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-hebk3 {
+  background: url("~@/assets/images/HEBK3.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-hebk3-circle {
+  background: url("~@/assets/images/HEBK3-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-hk6 {
+  background: url("~@/assets/images/HK6.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-hk6-circle {
+  background: url("~@/assets/images/HK6-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-hlj11x5 {
+  background: url("~@/assets/images/HLJ11X5.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-hlj11x5-circle {
+  background: url("~@/assets/images/HLJ11X5-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-hubk3 {
+  background: url("~@/assets/images/HUBK3.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-hubk3-circle {
+  background: url("~@/assets/images/HUBK3-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-hunklsf {
+  background: url("~@/assets/images/HUNKLSF.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-hunklsf-circle {
+  background: url("~@/assets/images/HUNKLSF-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-jshk6 {
+  background: url("~@/assets/images/JSHK6.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-jshk6-circle {
+  background: url("~@/assets/images/JSHK6-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-jlk3 {
+  background: url("~@/assets/images/JLK3.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-jlk3-circle {
+  background: url("~@/assets/images/JLK3-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-js11x5 {
+  background: url("~@/assets/images/JS11X5.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-js11x5-circle {
+  background: url("~@/assets/images/JS11X5-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-jsaft {
+  background: url("~@/assets/images/JSAFT.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-jsaft-circle {
+  background: url("~@/assets/images/JSAFT-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-jsk3 {
+  background: url("~@/assets/images/JSK3.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-jsk3-circle {
+  background: url("~@/assets/images/JSK3-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-jspk10 {
+  background: url("~@/assets/images/JSPK10.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-jspk10-circle {
+  background: url("~@/assets/images/JSPK10-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-jx11x5 {
+  background: url("~@/assets/images/JX11X5.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-jx11x5-circle {
+  background: url("~@/assets/images/JX11X5-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-krysu {
+  background: url("~@/assets/images/KRYSU.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-krysu-circle {
+  background: url("~@/assets/images/KRYSU-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-mlaft {
+  background: url("~@/assets/images/MLAFT.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-mlaft-circle {
+  background: url("~@/assets/images/MLAFT-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-paoma {
+  background: url("~@/assets/images/PAOMA.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-paoma-circle {
+  background: url("~@/assets/images/PAOMA-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-pcdd {
+  background: url("~@/assets/images/PCDD.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-pcdd-circle {
+  background: url("~@/assets/images/PCDD-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-pl3 {
+  background: url("~@/assets/images/PL3.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-pl3-circle {
+  background: url("~@/assets/images/PL3-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-qqssc {
+  background: url("~@/assets/images/QQSSC.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-qqssc-circle {
+  background: url("~@/assets/images/QQSSC-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-sd11x5 {
+  background: url("~@/assets/images/SD11X5.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-sd11x5-circle {
+  background: url("~@/assets/images/SD11X5-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-sh11x5 {
+  background: url("~@/assets/images/SH11X5.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-sh11x5-circle {
+  background: url("~@/assets/images/SH11X5-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-shssl {
+  background: url("~@/assets/images/SHSSL.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-shssl-circle {
+  background: url("~@/assets/images/SHSSL-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-tw3d {
+  background: url("~@/assets/images/TW3D.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-tw3d-circle {
+  background: url("~@/assets/images/TW3D-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-tw5fc {
+  background: url("~@/assets/images/TW5FC.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-tw5fc-circle {
+  background: url("~@/assets/images/TW5FC-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-twbg {
+  background: url("~@/assets/images/TWBG.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-twbg-circle {
+  background: url("~@/assets/images/TWBG-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-txffc {
+  background: url("~@/assets/images/TXFFC.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-txffc-circle {
+  background: url("~@/assets/images/TXFFC-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-xj11x5 {
+  background: url("~@/assets/images/XJ11X5.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-xj11x5-circle {
+  background: url("~@/assets/images/XJ11X5-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-xjssc {
+  background: url("~@/assets/images/XJSSC.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-xjssc-circle {
+  background: url("~@/assets/images/XJSSC-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
+}
+
+
+.icon-zj11x5 {
+  background: url("~@/assets/images/ZJ11X5.png") no-repeat 0 0;
+  width: 10vmin;
+  height: 10vmin;
+  background-size: 100% 100%;
+}
+
+.icon-zj11x5-circle {
+  background: url("~@/assets/images/ZJ11X5-circle.png") no-repeat 0 0;
+  height: 10vmin;
+  width: 10vmin;
+  background-size: 100% 100%;
 }

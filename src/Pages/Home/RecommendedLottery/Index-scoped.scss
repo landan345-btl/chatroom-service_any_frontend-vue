@@ -25,11 +25,10 @@
   .lottery {
     margin-bottom: 2.5vmin;
     width: 30%;
-    .icon img{
-      width: 5vmin;
-      @media screen and (max-width: 991.98px) {
-        width: 4vmin;
-      }
+    .icon > * {
+      margin: auto;
+      width: 6vmin;
+      height: 6vmin;
     }
 
     .name {
