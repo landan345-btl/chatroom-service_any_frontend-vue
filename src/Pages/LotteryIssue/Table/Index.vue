@@ -398,13 +398,10 @@ class Table extends Vue {
   @Prop({ default: null })
   public code !: any;
 
-  public sortLottery( aNumber: any , bNumber: any) {
-    return aNumber - bNumber;
-  }
   public get oLotteryIssues(): object {
     let oLotteryIssues = this.lotteryIssues;
     let aLotteryIssues = Object.values(oLotteryIssues);
-    let oLotteryIssue = aLotteryIssues.reverse();
+    let oLotteryIssue = aLotteryIssues.reverse().slice(0 , 99);
     return oLotteryIssue;
   }
   public showTitle(index: number) {

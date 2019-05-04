@@ -98,12 +98,11 @@
         }
       }
       .lottery-right {      
-        width:49%;
+        width:50%;
         float: right;
         .next-issue {
-          width:31%;
+          width:32%;
           float: left;
-          margin-left:1.5%;
           font-size:0.9rem;
           .line-title {
             overflow: hidden;
@@ -115,39 +114,6 @@
               margin: 0 0.5vmin;
               color: #ff7b00;
             }
-          }
-          .line-time {
-             height: 40px;
-             line-height: 40px;
-            .lotterying {
-              width: 95%;
-              background: #212224;
-              border-radius: 2px;
-              color: #f7f200;
-              box-sizing: border-box;
-              font-size: 2vmin;
-              text-align: center; 
-              display: none;
-            }
-            .count-down {
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;   
-              span {
-                display: inline-block;
-                color: #666;
-              }
-              span:nth-child(odd) {    
-                height:4vmin;
-                width:4vmin;
-                background: #444553;
-                color: #ffd200;
-                text-align: center;
-                font-size:1.8vmin;
-                border-radius: 3px;
-              }
-              span:nth-child(even) {margin:0 0.5vmin; }
-            } 
           }
         }
         .bell-set {
@@ -246,7 +212,7 @@
                   right: 10px;
                   float:right;
                   cursor: pointer;
-                  // background: url("../../assets/images/bjpknum3.png") no-repeat -289px -334px;
+                  background: url("../../assets/images/square.png") no-repeat -289px -334px;
                 }
                 .sound-list {
                   width: 100%;

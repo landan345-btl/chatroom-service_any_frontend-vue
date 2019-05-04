@@ -30,17 +30,8 @@
                 </div>
                 <div class="lottery-right">
                   <div class="next-issue">
-                    <div class="line-title line">距离下一期开奖</div>
-                    <div class="line-time">
-                        <div class="lotterying">开奖中...</div>
-                        <div class="count-down">
-                          <span>00</span>
-                          <span>分</span>
-                          <span>00</span>
-                          <span>秒</span>
-                          <i class="d-none">{{s}}</i>
-                        </div>
-                    </div>
+                    <div class="line-title">距离下一期开奖时间</div>
+                    <CountDownTime :time="getLastLotteryIssues.interval_time * 1000" :theme="'theme-a'"/>
                   </div>
                   <div class="bell-set">
                     <div class="close-bell">
@@ -51,8 +42,8 @@
                     </div>
                     <div class="set-bell">
                       <div class="set-btn" :class=" open == true ? 'disabled': ''">
-                      <i>铃声设置</i>
-                      <div class="sound-icon start-icon" @click="checkSite" :class=" open == true ? 'stop-icon':''" :disabled=" open == true">
+                      <i @click="checkSite">铃声设置</i>
+                      <div class="sound-icon start-icon" :class=" open == true ? 'stop-icon':''" :disabled=" open == true">
                         <!-- <audio src="../../audio/RING_01.wav" controls="controls"></audio> -->
                       </div>
                       <div class="sound-panel" :class="[this.flag?'d-block':'d-none']">
@@ -165,6 +156,7 @@ import NumberDisribution from '@/Pages/LotteryIssue/NumberDisribution/Index.vue'
 import Statistics from '@/Pages/LotteryIssue/Statistics/Index.vue';
 import LotteryNumber from '@/Pages/LotteryIssue/LotteryNumber/Index.vue';
 import Instant from '@/Pages/LotteryIssue/Instant/Index.vue';
+import CountDownTime from '@/Pages/LotteryIssue/CountDownTime/Index.vue';
 
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
 import { navTable , navnumber } from '@/const';
@@ -182,6 +174,7 @@ import moment from 'moment';
     NumberDisribution,
     LotteryNumber,
     Instant,
+    CountDownTime,
   },
 })
 class LotteryIssue extends Vue {
