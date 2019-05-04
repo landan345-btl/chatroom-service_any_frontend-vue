@@ -4,7 +4,7 @@
       <div class="card-body">
         <div class="nums-box">
           <ul class="numbers">
-            <li v-for="(number,i) in lottery" :key="i" :class="['num-0'+number]">
+            <li v-for="(number,i) in JSON.parse(getLastLotteryIssues.numbers)" :key="i" :class="['num-0'+number]">
               </li>
           </ul>
         </div>
@@ -15,7 +15,7 @@
       <div class="card-body">
         <div class="nums-box">
           <ul class="numbers">
-            <li v-for="(number,i) in lottery" :key="i" class="kl8-mt mt-0"
+            <li v-for="(number,i) in JSON.parse(getLastLotteryIssues.numbers)" :key="i" class="kl8-mt mt-0"
                 :class="{'number-blue-fine' : (number>40), 'number-light-fine' : (number<=40)}">
               <i class="font-size-2p5 font-weight-bold" :class="{'color-black' : (number>40), 'color-deepskyblue' : (number<=40)}">{{ number | padStart(2, "0")}}</i>
               </li>
@@ -28,7 +28,7 @@
       <div class="card-body">
         <div class="nums-box">
           <ul class="numbers">
-            <li v-for="(number,i) in lottery" :key="i" class="mr-2" :class="['k3-0'+number]"></li>
+            <li v-for="(number,i) in JSON.parse(getLastLotteryIssues.numbers)" :key="i" class="mr-2" :class="['k3-0'+number]"></li>
           </ul>
         </div>
       </div>
@@ -38,13 +38,13 @@
       <div class="card-body">
         <div class="nums-box"> 
           <ul class="numbers" v-show="code !=='CQKLSF'">
-            <li v-for="(number,i) in lottery" :key="i"  class="ml-0p5"
+            <li v-for="(number,i) in JSON.parse(getLastLotteryIssues.numbers)" :key="i"  class="ml-0p5"
                 :class="{'numred' : (number>18), 'numblue' : (number<=18)}">
                 <i class="font-size-2p5 color-white">{{ number | padStart(2,'0') }}</i>
               </li>
           </ul>
           <ul class="numbers"  v-show="code ==='CQKLSF'">
-            <li v-for="(number,i) in lottery" :key="i"  class="number"
+            <li v-for="(number,i) in JSON.parse(getLastLotteryIssues.numbers)" :key="i"  class="number"
                 :class="['number-' +  lotteryTypes[ code ].TYPES.toLowerCase(), 'number-'+ code.toLowerCase(), 'number-'+ lotteryTypes[ code ].TYPES.toLowerCase() + '-' + number]"
                  v-show="code==='CQKLSF'">
               </li>
@@ -57,7 +57,7 @@
       <div class="card-body">
         <div class="nums-box">
           <ul class="numbers">
-            <li v-for="(number,i) in lottery" :key="i" class="numblue">
+            <li v-for="(number,i) in JSON.parse(getLastLotteryIssues.numbers)" :key="i" class="numblue">
               <i class="font-size-2p5 color-white">{{ number }}</i>
               </li>
           </ul>
@@ -69,7 +69,7 @@
       <div class="card-body">
         <div class="nums-box">
           <ul class="numbers">
-            <li v-for="(number,i) in lottery" :key="i" class="numred">
+            <li v-for="(number,i) in JSON.parse(getLastLotteryIssues.numbers)" :key="i" class="numred">
               <i class="font-size-2p5 color-white">{{ number }}</i>
             </li>
           </ul>
@@ -81,7 +81,7 @@
       <div class="card-body">
         <div class="nums-box">
           <ul class="numbers">
-            <li v-for="(number,i) in lottery" :key="i" class="numblue">
+            <li v-for="(number,i) in JSON.parse(getLastLotteryIssues.numbers)" :key="i" class="numblue">
               <i class="font-size-2p5 color-white">{{ number }}</i>
             </li>
           </ul>
@@ -93,15 +93,14 @@
       <div class="card-body">
         <div class="nums-box">
           <ul class="numbers position-relative pcdd">
-            <li v-for="(number,i) in lottery" :key="i" class="numblue mr-3">
+            <li v-for="(number,i) in JSON.parse(getLastLotteryIssues.numbers)" :key="i" class="numblue mr-3">
               <i class="font-size-2p5 color-white">{{ number }}</i>
             </li>
             <em></em>
             <em></em>
             <em></em>
-            <!-- <span class="numred color-white">{{ number }}</span>  -->
-             <span v-for="(number,i) in lottery" :key="i" class="numred">
-              <i class="font-size-2p5 color-white">{{ number }}</i>
+            <span :key="i" class="numred">
+            <i class="font-size-2p5 color-white">{{ JSON.parse(getLastLotteryIssues.numbers) | sum  }}</i>
             </span>
           </ul>
         </div>   
@@ -112,7 +111,7 @@
       <div class="card-body">
         <div class="nums-box">
           <ul class="numbers">
-            <li v-for="(number,i) in lottery" :key="i" class="numblue six">
+            <li v-for="(number,i) in JSON.parse(getLastLotteryIssues.numbers)" :key="i" class="numblue six">
               <i class="font-size-2p5 color-white">{{ number }}</i>
             </li>
           </ul>
@@ -122,42 +121,34 @@
     </div>
   </div>   
 </template>
+
 <style scoped lang="scss">
   @import 'Index-scoped.scss';
 </style>
+
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
+
 @Component({
   name: 'LotteryNumber',
   })
 class LotteryNumber extends Vue {
- public lotteryTypes = LOTTERIES;
- public lottery: any = {};
- @Prop({ default: null })
- public olotterys !: any ;   //  组件接收到的值
- @Prop({ default: null })
- public code !: any ;
+  public lotteryTypes = LOTTERIES;
 
- public created() {
-    this.dataScreen();
-   // let lotteryName = localStorage.getItem('lotteryName');
-  //  this.name = lotteryName;
+  @Prop({ default: null })
+  public oLotterys!: any;
+
+  @Prop({ default: null })
+  public code!: any;
+
+  public get getLastLotteryIssues(): object {
+    let oLotteryIssues = this.oLotterys;
+    let aLotteryIssues = Object.values(oLotteryIssues);
+    let oLotteryIssue = aLotteryIssues.pop() || {};
+    return oLotteryIssue;
   }
 
- public dataScreen() {
-  let _olotterys: any = {};
-  let lotteryNumber = this.olotterys;
-  for ( let olottery in lotteryNumber ) {
-    if ( lotteryNumber[ olottery ].numbers == null ) {
-      continue ;
-    }
-    let lotteryArray = lotteryNumber[olottery];
-    this.lottery  = lotteryArray[ Object.keys( lotteryArray )[ Object.keys( lotteryArray ).length - 1 ] ];
-    console.log(this.lottery);
-  }
-  return _olotterys;
- }
 }
 
 export default LotteryNumber;

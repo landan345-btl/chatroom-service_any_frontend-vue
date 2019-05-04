@@ -15,7 +15,7 @@
           <th colspan="3">冠亚和</th>
           <th colspan="5">1-5龙虎</th>
         </tr>
-        <tr  v-for=" ( olottery , lotteryid ) in dataScreen" :key="lotteryid">
+        <tr  v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -60,7 +60,7 @@
           <th>总和组合</th>
           <th>五行</th>
         </tr>
-        <tr v-for=" ( olottery , lotteryid ) in dataScreen" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -94,7 +94,7 @@
           <th colspan="3">总和</th>
           <th colspan="5">鱼虾蟹</th>
         </tr>
-        <tr v-for=" ( olottery , lotteryid ) in dataScreen" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -147,7 +147,7 @@
           <th>尾大小</th>
           <th colspan="4" >龙虎</th>
         </tr>
-        <tr v-for=" ( olottery , lotteryid ) in dataScreen" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -205,7 +205,7 @@
           <th>中三</th>
           <th>后三</th>
         </tr>
-        <tr v-for=" ( olottery , lotteryid ) in dataScreen" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -243,7 +243,7 @@
           <th colspan="3">拾个和</th>
           <th colspan="3">总和</th>
         </tr>
-        <tr v-for=" ( olottery , lotteryid ) in dataScreen" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -282,7 +282,7 @@
           <th colspan="3">冠亚和</th>
           <th colspan="5">1-5龙虎</th>
         </tr>
-        <tr v-for=" ( olottery , lotteryid ) in dataScreen" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -324,7 +324,7 @@
           <th class="number-btns w-30">号码</th>
           <th colspan="3">总和</th>
         </tr>
-        <tr v-for=" ( olottery , lotteryid ) in dataScreen" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -351,7 +351,7 @@
           <th colspan="3">总和</th>
           <th colspan="4">特码</th>
         </tr>
-        <tr v-for=" ( olottery , lotteryid ) in dataScreen" :key="lotteryid">
+        <tr v-for=" ( olottery , lotteryid ) in lotteryIssues" :key="lotteryid">
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
@@ -381,32 +381,23 @@ import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
 
 @Component({
-  name: 'LoteryTable',
+  name: 'Table',
   })
-class LotteryTable extends Vue {
+class Table extends Vue {
   public lotteryTypes = LOTTERIES;
+
   public titles = ['显示号码', '显示大小', '显示单双'];
+
   public titleStatus: any = 0;
+
   public switcher: any = '0';
-  public name: any = '';  // 接受code
 
   @Prop({ default: null })
-  public olotterys !: any ;   //  组件接收到的值
-  @Prop({ default: null })
-  public code !: any ;   //  组件接收到的code
+  public lotteryIssues !: any;
 
-  public get  dataScreen() {  // 对数据进行筛选
-    let _olotterys: any = {};
-   // debugger;
-    for ( let olottery in this.olotterys ) {
-      if ( this.olotterys[ olottery ].numbers == null ) {
-        continue;
-      }
-      _olotterys[ olottery ] = this.olotterys[ olottery ];
-    }
-   // debugger;
-    return _olotterys;
-  }
+  @Prop({ default: null })
+  public code !: any;
+
   public showTitle(index: number) {
     this.titleStatus = index;
     if ( this.titleStatus === 0 ) {
@@ -417,8 +408,7 @@ class LotteryTable extends Vue {
       this.switcher = '2';
     }
   }
-
 }
 
-export default LotteryTable;
+export default Table;
 </script>

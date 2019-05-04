@@ -45,12 +45,10 @@
               <template slot="title">快3</template>
               <el-menu-item index="2-3-9" class="font-2-vmin"><a href="/lottery-issue?code=HEBK3">河北快3</a></el-menu-item>
               <el-menu-item index="2-3-10" class="font-2-vmin"><a href="/lottery-issue?code=AHK3">安徽快3</a></el-menu-item>
-              <el-menu-item index="2-3-12" class="font-2-vmin"><a href="/lottery-issue?code=FJK3">福建快3</a></el-menu-item>
-              <el-menu-item index="2-3-13" class="font-2-vmin"><a href="/lottery-issue?code=HUBK3">湖北快3</a></el-menu-item>
-              <el-menu-item index="2-3-14" class="font-2-vmin"><a href="/lottery-issue?code=BJK3">北京快3</a></el-menu-item>
-              <el-menu-item index="2-3-15" class="font-2-vmin"><a href="/lottery-issue?code=GXK3">广西快3</a></el-menu-item>
-              <el-menu-item index="2-3-15" class="font-2-vmin"><a href="/lottery-issue?code=JLK3">吉林快3</a></el-menu-item>
-              <el-menu-item index="2-3-15" class="font-2-vmin"><a href="/lottery-issue?code=JSK3">江苏快3</a></el-menu-item>
+              <el-menu-item index="2-3-11" class="font-2-vmin"><a href="/lottery-issue?code=HUBK3">湖北快3</a></el-menu-item>
+              <el-menu-item index="2-3-12" class="font-2-vmin"><a href="/lottery-issue?code=GXK3">广西快3</a></el-menu-item>
+              <el-menu-item index="2-3-13" class="font-2-vmin"><a href="/lottery-issue?code=JLK3">吉林快3</a></el-menu-item>
+              <el-menu-item index="2-3-14" class="font-2-vmin"><a href="/lottery-issue?code=JSK3">江苏快3</a></el-menu-item>
               <el-menu-item index="2-3-15" class="font-2-vmin"><a href="/lottery-issue?code=FFK3">幸运快3</a></el-menu-item>
 
             </el-submenu>
@@ -66,7 +64,7 @@
               <el-menu-item index="2-5-8" class="font-2-vmin"><a href="/lottery-issue?code=SH11X5">上海11选5</a></el-menu-item>
               <el-menu-item index="2-5-9" class="font-2-vmin"><a href="/lottery-issue?code=BJ11X5">北京11选5</a></el-menu-item>
               <el-menu-item index="2-5-10" class="font-2-vmin"><a href="/lottery-issue?code=AH11X5">安徽11选5</a></el-menu-item>
-              <el-menu-item index="2-5-11" class="font-2-vmin"><a href="/lottery-issue?code=JL11X5">吉林11选5</a></el-menu-item>
+              <el-menu-item index="2-5-11" class="font-2-vmin"><a href="/lottery-issue?code=JX11X5">江西11选5</a></el-menu-item>
               <el-menu-item index="2-5-12" class="font-2-vmin"><a href="/lottery-issue?code=FF11X5">幸运11选5</a></el-menu-item>
             </el-submenu>
             <el-submenu index="2-6">
@@ -101,73 +99,6 @@ import { Component, Vue } from 'vue-property-decorator';
 })
 class NavTop extends Vue {
 
-  public created(): void {
-    let $root: any = this.$root;
-    $root.showedAllLottery = true;
-  }
-  public handleHome() {
-    console.log('你按了首页！');
-    let $root: any = this.$root;
-    this.__show();
-  }
-  public handlePapularLottery() {
-    console.log('你按了热门彩种！');
-    this.__hide();
-    let $root: any = this.$root;
-    $root.showedPapularLottery = true;
-  }
-  public handleInstantLottery() {
-    console.log('你按了时时彩种！');
-    this.__hide();
-    let $root: any = this.$root;
-    $root.showedInstantLottery = true;
-  }
-  public handlePKTenLottery() {
-    console.log('你按了PK10彩种！');
-    this.__hide();
-    let $root: any = this.$root;
-    $root.showedPKTenLottery = true;
-  }
-  public handleFiveOfElevenLottery() {
-    console.log('你按了11选5彩种！');
-    this.__hide();
-    let $root: any = this.$root;
-    $root.showedFiveOfElevenLottery = true;
-  }
-  public handleFastThreeLottery() {
-    console.log('你按了快三彩种！');
-    this.__hide();
-    let $root: any = this.$root;
-    $root.showedFastThreeLottery = true;
-  }
-  public handleOtherLottery() {
-    console.log('你按了其他彩种！');
-    this.__hide();
-    let $root: any = this.$root;
-    $root.showedOtherLottery = true;
-  }
-
-  private __hide() {
-    let $root: any = this.$root;
-    $root.showedAllLottery = false;
-    $root.showedPapularLottery = false;
-    $root.showedInstantLottery = false;
-    $root.showedPKTenLottery = false;
-    $root.showedFiveOfElevenLottery = false;
-    $root.showedFastThreeLottery = false;
-    $root.showedOtherLottery = false;
-  }
-
-  private __show() {
-    let $root: any = this.$root;
-    $root.showedAllLottery = true;
-    $root.showedPapularLottery = true;
-    $root.showedInstantLottery = true;
-    $root.showedPKTenLottery = true;
-    $root.showedFiveOfElevenLottery = true;
-    $root.showedFastThreeLottery = true;
-    $root.showedOtherLottery = true;
-  }
 }
 
 export default NavTop;
