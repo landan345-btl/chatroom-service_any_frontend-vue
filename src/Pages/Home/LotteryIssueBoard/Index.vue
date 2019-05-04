@@ -4,7 +4,7 @@
       <!-- <TabPane label="全部" name="all">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <Lottery-issue v-bind:lotteryIssue="oLotteryIssue"/>
+            <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
           </div>
         </div>
       </TabPane> -->
@@ -12,7 +12,7 @@
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
             <div v-if="['SSC'].includes(oLotteryIssue.types)">
-              <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" v-if="['SSC'].includes(oLotteryIssue.types)"/>
+              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries" v-if="['SSC'].includes(oLotteryIssue.types)"/>
             </div>
           </div>
         </div>
@@ -21,7 +21,7 @@
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
             <div v-if="['PK10'].includes(oLotteryIssue.types)">
-              <Lottery-issue v-bind:lotteryIssue="oLotteryIssue" />
+              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries" />
             </div>
           </div>
         </div>      </TabPane>
@@ -29,7 +29,7 @@
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
             <div v-if="['SSC'].includes(oLotteryIssue.types)">
-              <Lottery-issue v-bind:lotteryIssue="oLotteryIssue"/>
+              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -38,7 +38,7 @@
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
             <div v-if="['11X5'].includes(oLotteryIssue.types)">
-              <Lottery-issue v-bind:lotteryIssue="oLotteryIssue"/>
+              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
             <div v-if="['KLSF'].includes(oLotteryIssue.types)">
-              <Lottery-issue v-bind:lotteryIssue="oLotteryIssue"/>
+              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
             <div v-if="['K3'].includes(oLotteryIssue.types)">
-              <Lottery-issue v-bind:lotteryIssue="oLotteryIssue"/>
+              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
             <div v-if="['SIX'].includes(oLotteryIssue.types)">
-              <Lottery-issue v-bind:lotteryIssue="oLotteryIssue"/>
+              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
             <div v-if="!['PK10', 'SSC', '11X5', 'KLSF', 'K3', 'SIX'].includes(oLotteryIssue.types)">
-              <Lottery-issue v-bind:lotteryIssue="oLotteryIssue"/>
+              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -112,6 +112,9 @@ let oAxiosHelper = new AxiosHelper();
 class LotteryIssueBaord extends Vue {
   @Prop()
   public lotteryIssues!: object;
+
+  @Prop()
+  public lotteries!: object;
 }
 
 export default LotteryIssueBaord;

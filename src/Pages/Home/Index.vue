@@ -7,17 +7,17 @@
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 15, offset: 2}" :md="{span: 12, offset: 3}" :lg="{span: 11, offset: 4}">
         <main>
           <News />
-          <Live class=""/>
-          <Lottery-issue-board :lotteryIssues="lotteryIssues" />
+          <Live :lotteries="lotteries"/>
+          <Lottery-issue-board :lotteryIssues="lotteryIssues" :lotteries="lotteries"/>
         </main>
       </el-col>
       <el-col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 5}">
         <aside>
-          <Recommended-lottery v-bind:lotteries="lotteries"/>
+          <Recommended-lottery :lotteries="lotteries"/>
           <Advertisment-a />
           <Prediction />
           <Advertisment-b />
-          <Analysis v-bind:lotteries="lotteries"/>
+          <Analysis :lotteries="lotteries"/>
         </aside>
       </el-col>
       <el-col :xs="{span: 1}" :sm="{span: 2}" :md="{span: 3}" :lg="{span: 4}">
@@ -107,27 +107,7 @@ class Home extends Vue {
 
   public get lotteries(): object {
     let oLotteries: any = this.$store.state.lotteries;
-    let _oLotteries: {} = {};
-    let iLotteryId: string;
-    let sLotteryCode;
-    type sLotteryCode = 'SGFT' | 'BJPK10' | 'JSPK10' | 'PCDD' | 'CQKLSF' | 'JX11X5' | 'SD11X5' | 'JSK3';
-    for (iLotteryId in oLotteries) {
-      if (oLotteries.hasOwnProperty(Number(iLotteryId))) {
-        sLotteryCode = oLotteries[iLotteryId].code;
-        if (sLotteryCode in LOTTERIES) {
-          let _lottery = {
-            name: LOTTERIES[sLotteryCode].NAME,
-          };
-          let __oLotteries = {
-            [sLotteryCode]: _lottery,
-          };
-          _oLotteries = Object.assign(_oLotteries, __oLotteries);
-
-        }
-      }
-
-    }
-    return _oLotteries;
+    return oLotteries;
   }
 
   public get lotteryIssues(): object {

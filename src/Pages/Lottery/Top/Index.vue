@@ -7,7 +7,7 @@
     <div class="name-lottery_issue_no align-middle">
       <div>
         <span class="name font-weight-bold" v-if="lotteryIssue && lotteryIssue.lottery_id">
-          {{ code | codeToName(lotteries[lotteryIssue.lottery_id].name) }}
+          {{ LOTTERIES[code].NAME | or(lotteries[lotteryIssue.lottery_id].name) }}
         </span>
         <span class="no font-weight-bold" v-if="lotteryIssue && lotteryIssue.no">
           第 {{ lotteryIssue.no }}
