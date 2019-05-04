@@ -30,7 +30,7 @@
             </div>
             <div class="lottery-right">
               <div class="next-issue">
-                <div class="line-title line">距<span>10000000</span>期开奖</div>
+                <div class="line-title line">距离下一期开奖</div>
                 <div class="line-time">
                     <div class="lotterying">开奖中...</div>
                     <div class="count-down">

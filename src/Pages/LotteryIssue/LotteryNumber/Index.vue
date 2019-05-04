@@ -36,11 +36,11 @@
     </div>
     <div v-if="lotteryTypes[ code ].TYPES === 'KLSF'">
       <div class="card-body">
-        <div class="nums-box">
+        <div class="nums-box"> 
           <ul class="numbers" v-show="code !=='CQKLSF'">
             <li v-for="(number,i) in lottery" :key="i"  class="ml-0p5"
-                :class="{'number-red' : (number>18), 'number-blue' : (number<=18)}">
-                <i class="font-size-2p5 font-weight-bold">{{ number | padStart(2,'0') }}</i>
+                :class="{'numred' : (number>18), 'numblue' : (number<=18)}">
+                <i class="font-size-2p5 color-white">{{ number | padStart(2,'0') }}</i>
               </li>
           </ul>
           <ul class="numbers"  v-show="code ==='CQKLSF'">
@@ -57,8 +57,8 @@
       <div class="card-body">
         <div class="nums-box">
           <ul class="numbers">
-            <li v-for="(num,i) in lottery" :key="i" :class="['num-0'+num]">
-              <i class="d-none">{{ num }}</i>
+            <li v-for="(number,i) in lottery" :key="i" class="numblue">
+              <i class="font-size-2p5 color-white">{{ number }}</i>
               </li>
           </ul>
         </div>
@@ -69,9 +69,9 @@
       <div class="card-body">
         <div class="nums-box">
           <ul class="numbers">
-            <li v-for="(num,i) in lottery" :key="i" :class="['num-0'+num]">
-              <i class="d-none">{{ num }}</i>
-              </li>
+            <li v-for="(number,i) in lottery" :key="i" class="numred">
+              <i class="font-size-2p5 color-white">{{ number }}</i>
+            </li>
           </ul>
         </div>
       </div>
@@ -81,9 +81,9 @@
       <div class="card-body">
         <div class="nums-box">
           <ul class="numbers">
-            <li v-for="(num,i) in lottery" :key="i" :class="['num-0'+num]">
-              <i class="d-none">{{ num }}</i>
-              </li>
+            <li v-for="(number,i) in lottery" :key="i" class="numblue">
+              <i class="font-size-2p5 color-white">{{ number }}</i>
+            </li>
           </ul>
         </div>
       </div>
@@ -92,12 +92,19 @@
     <div v-if="lotteryTypes[ code ].TYPES === 'XY28'">
       <div class="card-body">
         <div class="nums-box">
-          <ul class="numbers">
-            <li v-for="(num,i) in lottery" :key="i" :class="['num-0'+num]">
-              <i class="d-none">{{ num }}</i>
-              </li>
+          <ul class="numbers position-relative pcdd">
+            <li v-for="(number,i) in lottery" :key="i" class="numblue mr-3">
+              <i class="font-size-2p5 color-white">{{ number }}</i>
+            </li>
+            <em></em>
+            <em></em>
+            <em></em>
+            <!-- <span class="numred color-white">{{ number }}</span>  -->
+             <span v-for="(number,i) in lottery" :key="i" class="numred">
+              <i class="font-size-2p5 color-white">{{ number }}</i>
+            </span>
           </ul>
-        </div>
+        </div>   
       </div>
       <p class="card-count">已开144期，还有144期</p>
     </div>
@@ -105,9 +112,9 @@
       <div class="card-body">
         <div class="nums-box">
           <ul class="numbers">
-            <li v-for="(num,i) in lottery" :key="i" :class="['num-0'+num]">
-              <i class="d-none">{{ num }}</i>
-              </li>
+            <li v-for="(number,i) in lottery" :key="i" class="numblue six">
+              <i class="font-size-2p5 color-white">{{ number }}</i>
+            </li>
           </ul>
         </div>
       </div>
@@ -127,7 +134,6 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
 class LotteryNumber extends Vue {
  public lotteryTypes = LOTTERIES;
  public lottery: any = {};
- public name: any = '';  // 接受code
  @Prop({ default: null })
  public olotterys !: any ;   //  组件接收到的值
  @Prop({ default: null })
@@ -135,22 +141,22 @@ class LotteryNumber extends Vue {
 
  public created() {
     this.dataScreen();
-    let lotteryName = localStorage.getItem('lotteryName');
-    this.name = lotteryName;
+   // let lotteryName = localStorage.getItem('lotteryName');
+  //  this.name = lotteryName;
   }
 
- public dataScreen() {  // 对数据进行筛选 并取最新的值
+ public dataScreen() {
   let _olotterys: any = {};
   let lotteryNumber = this.olotterys;
   for ( let olottery in lotteryNumber ) {
-     if ( lotteryNumber[ olottery ].numbers == null ) {
-       continue ;
-     }
-     _olotterys[ olottery ] = lotteryNumber[ olottery ].numbers;
-   }
-  lotteryNumber = _olotterys;
-  this.lottery  = JSON.parse(lotteryNumber[ Object.keys( lotteryNumber )
-     [ Object.keys( lotteryNumber ).length - 1 ] ]);
+    if ( lotteryNumber[ olottery ].numbers == null ) {
+      continue ;
+    }
+    let lotteryArray = lotteryNumber[olottery].numbers;
+    console.log(lotteryArray);
+    this.lottery  = JSON.parse(lotteryArray[ Object.keys( lotteryArray )[ Object.keys( lotteryArray ).length - 1 ] ]);
+    console.log(this.lottery);
+  }
   return _olotterys;
  }
 }

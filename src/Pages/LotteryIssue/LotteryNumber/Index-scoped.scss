@@ -10,14 +10,41 @@
       li {
         float: left;
         margin-right: 0.3vmin;            
-        color: #555;
         text-align: center;
         border-radius: 3px;
         box-sizing: border-box;
       }
+      .six:last-child {
+        background: url("~@/assets/images/square.png") no-repeat -91px -49px;width:37px!important;height:37px!important;
+      }
       .kl8-mt {
         margin-right:0.35vmin !important;
       }
+      
+    }
+    .pcdd em {
+      position: absolute;
+      display: inline-block;
+      width: 3.6vmin;
+      height: 4vmin;
+      line-height: 3.8vmin;
+      font-size: 2vmin;
+      text-align: center;
+      color: #fff;
+      border-radius: 5px;
+      z-index: 2;
+      top: 0;
+      background: url('~@/assets/images/nav-8kai.png') no-repeat -376px -373px;
+    }
+    em:nth-child(4) { 
+      left: 3vmin;
+    }
+    em:nth-child(5) { 
+      left: 10vmin;
+    }
+    em:nth-child(6) {
+      left: 18vmin;
+      background: url('~@/assets/images/nav-8kai.png') no-repeat -407px -373px !important;
     }
   }
 }

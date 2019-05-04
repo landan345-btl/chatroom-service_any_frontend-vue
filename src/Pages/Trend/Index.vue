@@ -12,7 +12,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'PK10' === oLottery.types">
                 </TabPane>
               </I-tabs>
-              <V-line :data="vLineData" class="background-white"/>
+              <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
                 <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'PK10' === oLottery.types" class="mt-2 background-white"/>
               </div>
@@ -22,7 +22,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SSC' === oLottery.types">
                 </TabPane>
               </I-tabs>
-              <V-line :data="vLineData" class="background-white"/>
+              <V-line :data="vLineData" :settings="vLineSettings" class="background-white"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
                 <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SSC' === oLottery.types" class="mt-2 background-white"/>
               </div>
@@ -109,6 +109,8 @@ import ITabs from '@/Components/ITabs/Index.vue';
 import VLine from '@/Components/VLine/Index.vue';
 import Lottery from './Lottery/Index.vue';
 
+import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
+
 @Component({
   components: {
     Header,
@@ -124,7 +126,10 @@ class Trend extends Vue {
   public created(): void {
     let $root: any = this.$root;
     this.$store.dispatch('LOTTERY_ACTION_SHOW', {});
-    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', {} );
+    let oQueries = {
+      code: 'MLAFT',
+    };
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
   }
 
   public get getLotteries(): any {
@@ -132,25 +137,49 @@ class Trend extends Vue {
     return oLotteries;
   }
 
+  public vLineSettings = {
+    axisSite: {
+      right: ['号码'],
+    },
+  }
+
   public get vLineData(): any {
     let oLotteryIssues = this.$store.state.lottery_issues;
+    let oLotteries = this.$store.state.lotteries;
     let oData: object = {};
     let aColums: any[] = [];
     let aRows: any[] = [];
-    // for( let oLotteryIssue in oLotteryIssues) {
+    for( let sLotteryIssueId in oLotteryIssues) {
+      let oLotteryIssue = oLotteryIssues[sLotteryIssueId];
+      let iLotteryId = oLotteryIssue.lottery_id;
+      let sCode = oLotteries[iLotteryId].code;
+      let sTypes = oLotteries[iLotteryId].types || void 0;
+      let iBeforeUntilNowTime = LOTTERTIES[sCode].LOTTERY_ISSUE.BEFORE_UNTIL_NOW_TIME;
+      let iOpenedTime = new Date(oLotteryIssue.opened_time).getTime();
+      let iNowTime = new Date().getTime();
 
-    // }
-    // let oData = {
-    //   columns: ['日期', '访问用户', '下单用户', '下单率'],
-    //   rows: [
-    //     { '日期': '1/1', '访问用户': 1393, '下单用户': 1093, '下单率': 0.32 },
-    //     { '日期': '1/2', '访问用户': 3530, '下单用户': 3230, '下单率': 0.26 },
-    //     { '日期': '1/3', '访问用户': 2923, '下单用户': 2623, '下单率': 0.76 },
-    //     { '日期': '1/4', '访问用户': 1723, '下单用户': 1423, '下单率': 0.49 },
-    //     { '日期': '1/5', '访问用户': 3792, '下单用户': 3492, '下单率': 0.323 },
-    //     { '日期': '1/6', '访问用户': 4593, '下单用户': 4293, '下单率': 0.78 },
-    //   ],
-    // };
+      if ('PK10' === sTypes.toUpperCase() && JSON.parse(oLotteryIssue.numbers) instanceof Array && 0 <= JSON.parse(oLotteryIssue.numbers).length && iBeforeUntilNowTime > iNowTime - iOpenedTime) {
+        aColums = ['期号', '冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名' ];
+        let oRow = {
+          '期号': oLotteryIssue.no,
+          '冠军': JSON.parse(oLotteryIssue.numbers)[0] || void 0, 
+          '亚军': JSON.parse(oLotteryIssue.numbers)[1] || void 0, 
+          '第三名': JSON.parse(oLotteryIssue.numbers)[2] || void 0, 
+          '第四名': JSON.parse(oLotteryIssue.numbers)[3] || void 0, 
+          '第五名': JSON.parse(oLotteryIssue.numbers)[4] || void 0, 
+          '第六名': JSON.parse(oLotteryIssue.numbers)[5] || void 0, 
+          '第七名': JSON.parse(oLotteryIssue.numbers)[6] || void 0, 
+          '第八名': JSON.parse(oLotteryIssue.numbers)[7] || void 0, 
+          '第九名': JSON.parse(oLotteryIssue.numbers)[8] || void 0, 
+          '第十名': JSON.parse(oLotteryIssue.numbers)[9] || void 0,
+        };
+        aRows.push(oRow);
+      }
+    }
+    oData = {
+      columns: aColums,
+      rows: aRows,
+    };
     return oData;
   }
 
