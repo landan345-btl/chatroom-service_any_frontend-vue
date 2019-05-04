@@ -18,7 +18,7 @@
                 <div class="lottery-left">
                   <div class="lottery-line">
                     <div class="lottery-img">
-                      <img :src="require(`@/assets/images/` + `${lotterycode}` + `-sm.png`)"/>
+                      <img :src="require(`@/assets/images/` + `${lotterycode}` + `-circle.png`)"/>
                     </div>
                     <div class="lottery-number">
                       <div class="card-title">

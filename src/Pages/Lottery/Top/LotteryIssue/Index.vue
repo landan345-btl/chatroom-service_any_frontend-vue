@@ -46,7 +46,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import ETabs from '@/Components/ETabs/Index.vue';
 import ETabPane from '@/Components/ETabPane/Index.vue';
 import ETable from '@/Components/ETable/Index.vue';
-import Numbers from './Numbers/Index.vue';
+// import Numbers from './Numbers/Index.vue';
 import Table from './Table/Index.vue';
 import ChenCountdown from '@/Components/ChenCountdown/Index.vue';
 
@@ -56,7 +56,7 @@ import ChenCountdown from '@/Components/ChenCountdown/Index.vue';
     ETabs,
     ETabPane,
     ETable,
-    Numbers,
+   // Numbers,
     Table,
     ChenCountdown,
   },
