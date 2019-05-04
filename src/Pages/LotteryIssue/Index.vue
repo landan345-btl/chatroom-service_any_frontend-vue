@@ -80,7 +80,7 @@
                     </div>
                   </div>
                   <div class="lottery-video">
-                    <img src="@/assets/images/live-SD11X5.png" alt="">
+                    <img src="@/assets/images/live-11X5.png" alt="">
                   </div>
                 </div>
               </div>
@@ -91,9 +91,9 @@
                 <ul>
                   <li class="title">开奖记录</li>
                   <li :class="{'active' :oHead.on}" 
-                      @click="toggleHand(index)" v-for="(oHead,index) in recordHeads" 
-                      :key="index">{{oHead.title}}
-                      <i></i>
+                    @click="toggleHand(index)" v-for="(oHead,index) in recordHeads" 
+                    :key="index">{{oHead.title}}
+                    <i></i>
                   </li>
                 </ul>
                 <div><a href="/">开奖历史</a></div>

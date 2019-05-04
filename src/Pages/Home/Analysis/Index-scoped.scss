@@ -11,8 +11,9 @@
   }
   .icon {
     width: 5vmin;
-    img {
-      width: 100%;
+    & > * {
+      width: 6vmin;
+      height: 6vmin;
     }
   }
   .more {
