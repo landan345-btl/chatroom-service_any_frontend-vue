@@ -14,7 +14,7 @@
         </span>
       </el-col>
     </el-row>
-    <el-row :gutter="0" class="images">
+    <el-row :gutter="0" class="images pt-1 pb-1">
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
         <a href="/"><img src="@/assets/images/logo-top.png"/></a>
         <img class="qrcode" src="@/assets/images/icon-qrcode.png"/>
