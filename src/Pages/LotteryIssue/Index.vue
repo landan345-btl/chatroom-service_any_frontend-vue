@@ -18,7 +18,8 @@
             <div class="lottery-left">
               <div class="lottery-line">
                 <div class="lottery-img">
-                   <img :src="require(`@/assets/images/` + `${lotterycode}` + `-sm.png`)"/>
+                  <div :class="['icon-' + lotteries[lotteryIssue.lottery_id].code.toLowerCase() + '-circle']">
+                  </div>                
                 </div>
                 <div class="lottery-number">
                   <div class="card-title">
