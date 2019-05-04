@@ -30,9 +30,9 @@ let oAxiosHelper = new AxiosHelper();
 class Live extends Vue {
 
   public images: string[] = [
-    'assets/images/live-CQKLSF.jpg',
-    'assets/images/live-FC3D.jpg',
-    'assets/images/live-GSKLSF.png',
+    'assets/images/live-JSFT.png',
+    'assets/images/live-3D.jpg',
+    'assets/images/live-KLSF.png',
     'assets/images/live-K3.png',
     'assets/images/live-PK10.png',
     // 'assets/images/live-TJKSF.jpg',
