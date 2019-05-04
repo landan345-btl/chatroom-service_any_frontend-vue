@@ -10,19 +10,16 @@
               <template slot="title">热门彩</template>
               <el-menu-item index="2-1-1" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">重庆欢乐生肖</a></el-menu-item>
               <el-menu-item index="2-1-2" class="font-2-vmin"><a href="/lottery-issue?code=FFSSC">幸运分分彩</a></el-menu-item>
-              <el-menu-item index="2-1-3" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">SG飞艇</a></el-menu-item>
-              <el-menu-item index="2-1-4" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">幸运飞艇</a></el-menu-item>
-              <el-menu-item index="2-1-5" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">香港彩</a></el-menu-item>
-              <el-menu-item index="2-1-6" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">北京PK10</a></el-menu-item>
-              <el-menu-item index="2-1-7" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">重庆时时彩</a></el-menu-item>
-              <el-menu-item index="2-1-7" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">极速赛车</a></el-menu-item>
-              <el-menu-item index="2-1-7" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">极速时时彩</a></el-menu-item>
-              <el-menu-item index="2-1-7" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">江苏快3</a></el-menu-item>
-              <el-menu-item index="2-1-7" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">极速飞艇</a></el-menu-item>
-              <el-menu-item index="2-1-7" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">新疆时时彩</a></el-menu-item>
-              <el-menu-item index="2-1-7" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">广西快乐十分</a></el-menu-item>
-              <el-menu-item index="2-1-7" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">天津时时彩</a></el-menu-item>
-              <el-menu-item index="2-1-7" class="font-2-vmin"><a href="/lottery-issue?code=PCDD">PC蛋蛋幸运28</a></el-menu-item>
+              <el-menu-item index="2-1-3" class="font-2-vmin"><a href="/lottery-issue?code=3FSSC">幸运三分彩</a></el-menu-item>
+              <el-menu-item index="2-1-4" class="font-2-vmin"><a href="/lottery-issue?code=AFGH90">加纳1.5分彩</a></el-menu-item>
+              <el-menu-item index="2-1-5" class="font-2-vmin"><a href="/lottery-issue?code=XJSSC">新疆时时彩</a></el-menu-item>
+              <el-menu-item index="2-1-6" class="font-2-vmin"><a href="/lottery-issue?code=BJ5FC">北京5分彩</a></el-menu-item>
+              <el-menu-item index="2-1-7" class="font-2-vmin"><a href="/lottery-issue?code=TW5FC">台湾5分彩</a></el-menu-item>
+              <el-menu-item index="2-1-8" class="font-2-vmin"><a href="/lottery-issue?code=JSPK10">极速赛车</a></el-menu-item>
+              <el-menu-item index="2-1-9" class="font-2-vmin"><a href="/lottery-issue?code=JSK3">江苏快3</a></el-menu-item>
+              <el-menu-item index="2-1-10" class="font-2-vmin"><a href="/lottery-issue?code=JSAFT">极速飞艇</a></el-menu-item>
+              <el-menu-item index="2-1-11" class="font-2-vmin"><a href="/lottery-issue?code=TJSSC">天津时时彩</a></el-menu-item>
+              <el-menu-item index="2-1-12" class="font-2-vmin"><a href="/lottery-issue?code=PCDD">PC蛋蛋幸运28</a></el-menu-item>
             </el-submenu>
             <el-submenu index="2-2">
               <template slot="title">PK10</template>
@@ -72,17 +69,13 @@
               <el-menu-item index="2-5-11" class="font-2-vmin"><a href="/lottery-issue?code=AH11X5">安徽11选5</a></el-menu-item>
               <el-menu-item index="2-5-12" class="font-2-vmin"><a href="/lottery-issue?code=JL11X5">吉林11选5</a></el-menu-item>
               <el-menu-item index="2-5-13" class="font-2-vmin"><a href="/lottery-issue?code=FF11X5">幸运11选5</a></el-menu-item>
-              <el-menu-item index="2-5-14" class="font-2-vmin"><a href="/lottery-issue?code=GX11X5">广西11选5</a></el-menu-item>
             </el-submenu>
             <el-submenu index="2-6">
-              <template slot="title"></template>
-              <el-menu-item index="2-5-1" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">福彩双色球</a></el-menu-item>
-              <el-menu-item index="2-5-2" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">福彩3D</a></el-menu-item>
-              <el-menu-item index="2-5-3" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">福彩七乐彩</a></el-menu-item>
-              <el-menu-item index="2-5-3" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">超级大乐透</a></el-menu-item>
-              <el-menu-item index="2-5-3" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">排列3</a></el-menu-item>
-              <el-menu-item index="2-5-3" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">排列5</a></el-menu-item>
-              <el-menu-item index="2-5-3" class="font-2-vmin"><a href="/lottery-issue?code=CQSSC">七星彩</a></el-menu-item>
+              <template slot="title">3D</template>
+              <el-menu-item index="2-5-1" class="font-2-vmin"><a href="/lottery-issue?code=FC3D">福彩3D</a></el-menu-item>
+              <el-menu-item index="2-5-2" class="font-2-vmin"><a href="/lottery-issue?code=SHSSL">上海时时彩</a></el-menu-item>
+              <el-menu-item index="2-5-3" class="font-2-vmin"><a href="/lottery-issue?code=PL3">排列3</a></el-menu-item>
+              <el-menu-item index="2-5-4" class="font-2-vmin"><a href="/lottery-issue?code=TW3D">台湾3D</a></el-menu-item>
             </el-submenu>
           </el-submenu>
           <el-menu-item index="3" class="font-2-vmin"><a href="/accumulation" target="_blank">长龙提醒</a></el-menu-item>
