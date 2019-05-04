@@ -117,7 +117,6 @@ class Home extends Vue {
         if (sLotteryCode in LOTTERIES) {
           let _lottery = {
             name: LOTTERIES[sLotteryCode].NAME,
-            src: LOTTERIES[sLotteryCode].SRC,
           };
           let __oLotteries = {
             [sLotteryCode]: _lottery,
