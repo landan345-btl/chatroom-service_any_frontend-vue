@@ -10,9 +10,10 @@
         <div class="lottery" v-if="(iIndex - Math.floor((Math.random() * 8) + 1)) >= -1 && (iIndex - Math.floor((Math.random() * 8) + 1)) <= 1">
           <div class="top">
             <span class="icon d-inline-block align-middle">
-              <img :src="require(`@/assets/images/` + `${sCode}` + `-md.png`)"  />
+              <div :class="['icon-' + sCode.toLowerCase() ]">
+              </div>
             </span>
-            <span class="title align-middle">
+            <span class="title align-middle ml-2">
               {{oLottery.name}}
             </span>
           </div>

@@ -91,7 +91,7 @@
                 </div>
               </div>
               <div class="lottery-video">
-                <img src="@/assets/images/live-SD11X5.png" alt="">
+                <img src="@/assets/images/live-11X5.png" alt="">
               </div>
             </div>
           </div>
