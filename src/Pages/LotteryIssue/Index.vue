@@ -188,14 +188,14 @@ import moment from 'moment';
 })
 class LotteryIssue extends Vue {
 
- public recordHeads = [{title: '今日双面/号码统计', on: false}, {title: '长龙提醒', on: false}, {title: '号码分布', on: false},];
- public showStatistics = false;
- public showChanglong = false;
- public showNumber = false;
+  public recordHeads = [{title: '今日双面/号码统计', on: false}, {title: '长龙提醒', on: false}, {title: '号码分布', on: false},];
+  public showStatistics = false;
+  public showChanglong = false;
+  public showNumber = false;
 
- public numbgColor: number = 0;
+  public numbgColor: number = 0;
 
- public s = 100;
+  public s = 100;
  public open = false;
  public flag: boolean = false;
  public selectbell = [
@@ -208,14 +208,13 @@ class LotteryIssue extends Vue {
 
  public timer: any;
  public olotterysScreen = {};
- public lotteryIamges = '' ; // 接受详情彩票背景图
  public lotteryTypes = LOTTERIES;
  public lotterycode: any = '' ; // 接受code
- public lotteryNumberBox = ''; // 号码盒子
- public lotteryTabletype = '';  // 表格赋值
 
  public olotterys: any = {};
-
+ public beforeMount(): void {
+  this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY');
+ }
  public created() {
   this.getLotteryName(); // 接受彩种名称
   this.getName();

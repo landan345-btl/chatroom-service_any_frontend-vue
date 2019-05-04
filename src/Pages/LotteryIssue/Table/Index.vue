@@ -397,12 +397,14 @@ class LotteryTable extends Vue {
 
   public get  dataScreen() {  // 对数据进行筛选
     let _olotterys: any = {};
+   // debugger;
     for ( let olottery in this.olotterys ) {
       if ( this.olotterys[ olottery ].numbers == null ) {
         continue;
       }
       _olotterys[ olottery ] = this.olotterys[ olottery ];
     }
+   // debugger;
     return _olotterys;
   }
   public showTitle(index: number) {

@@ -152,9 +152,8 @@ class LotteryNumber extends Vue {
     if ( lotteryNumber[ olottery ].numbers == null ) {
       continue ;
     }
-    let lotteryArray = lotteryNumber[olottery].numbers;
-    console.log(lotteryArray);
-    this.lottery  = JSON.parse(lotteryArray[ Object.keys( lotteryArray )[ Object.keys( lotteryArray ).length - 1 ] ]);
+    let lotteryArray = lotteryNumber[olottery];
+    this.lottery  = lotteryArray[ Object.keys( lotteryArray )[ Object.keys( lotteryArray ).length - 1 ] ];
     console.log(this.lottery);
   }
   return _olotterys;

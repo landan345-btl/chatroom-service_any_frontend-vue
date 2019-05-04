@@ -27,6 +27,9 @@ let oLotteryMutation = {
   LOTTERY_MUTATION_REMOVE(state: any, mLotteries: any[]): void {
     // debugger;
   },
+  LOTTERY_MUTATION_EMPTY(state: any, mLotteries: any[]): void {
+    state.lottery_issues = {};
+  },
 };
 
 export default oLotteryMutation;
