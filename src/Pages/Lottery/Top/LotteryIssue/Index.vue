@@ -2,8 +2,8 @@
   <div class="lottery-issue mt-sm-2 mb-sm-2 mt-md-2 mb-md-2 mt-lg-2 mb-lg-2 mt-xl-2 mb-xl-2">
     <div class="pseudo">
       <div class="top mb-1 position-relative">
-        <div class="icon align-middle d-inline-block d-xs-none">
-          <div :class="['icon-' + lotteries[lotteryIssue.lottery_id].code.toLowerCase() + '-sm' ]">
+        <div class="icon p-2 align-middle d-inline-block d-xs-none">
+          <div :class="['icon-' + lotteries[lotteryIssue.lottery_id].code.toLowerCase() + '-sm']">
           </div>
         </div>
         <!-- <router-link class="name-issue_no-numbers align-middle d-inline-block" :to="{ path: '/lottery-issue', query: { code: lotteries[lotteryIssue.lottery_id].code }}">
