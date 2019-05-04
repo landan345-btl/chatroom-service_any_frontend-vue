@@ -6,7 +6,7 @@
     <el-row :gutter="0">
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
         <main class="mt-2 mb-2">
-          <Top :lotteryIssue="getLastLotteryIssue" :lotteries="getLotteries"/>
+          <Top :lotteryIssue="getLastLotteryIssue" :lotteries="getLotteries" :code="getCode"/>
         </main>
       </el-col>
     </el-row>

@@ -1,33 +1,38 @@
 <template>
-  <div class="top background-white">
+  <div class="top background-white d-flex justify-content-between align-self-center">
     <div class="icon p-2 align-middle d-inline-block d-xs-none">
-      <div :class="['icon-' + lotteries[lotteryIssue.lottery_id].code.toLowerCase() + '-circle']">
+      <div :class="['icon-' + code.toLowerCase() + '-circle']">
       </div>
     </div>
-    <div class="name-lottery_issue_no d-inline-block">
-      <span class="name font-weight-bold ">
-        {{ lotteryIssue.name }}
-      </span>
-      <span class="no font-weight-bold">
-        {{ lotteryIssue.no }}
-      </span>
-      <span class="name font-weight-bold">
-        期
-      </span>
-      <span class="this-and-next">
-        当前&nbsp;{{ lotteryIssue.order_no_in_this_day }}&nbsp;期，剩&nbsp;{{ lotteryIssue.order_no_total_in_this_day - lotteryIssue.order_no_in_this_day }}&nbsp;期
-      </span>
+    <div class="name-lottery_issue_no align-middle">
+      <div>
+        <span class="name font-weight-bold" v-if="lotteryIssue && lotteryIssue.lottery_id">
+          {{ code | codeToName(lotteries[lotteryIssue.lottery_id].name) }}
+        </span>
+        <span class="no font-weight-bold" v-if="lotteryIssue && lotteryIssue.no">
+          第 {{ lotteryIssue.no }}
+        </span>
+        <span class="no font-weight-bold">
+          期开奖号码
+        </span>
+      </div>
+      <div class="numbers">
+      </div>
     </div>
-    <div class="countdown d-inline-block">
+    <div class="countdown align-middle">
       距733036期开奖仅有
     </div>
 
-    <div class="sounds d-inline-block">
-      <I-button :type="'warning'" class="d-block mb-1">关闭声音</I-button>
-      <I-button :type="'warning'" class="d-block">铃声设置</I-button>
+    <div class="sounds align-middle">
+      <div>
+        <I-button :type="'warning'" class="d-inline-block mb-1">关闭声音</I-button><font-awesome-icon icon="volume-up" class="d-inline-block ml-1"/>
+      </div>
+      <div>
+        <I-button :type="'warning'" class="d-inline-block">铃声设置</I-button><font-awesome-icon icon="file-audio" class="d-inline-block ml-1"/>
+      </div>
     </div>
-    <div class="live d-inline-block">
-      <div :class="['live-' + lotteries[lotteryIssue.lottery_id].type.toLowerCase()]">
+    <div class="live align-middle">
+      <div :class="[lotteryIssue && lotteryIssue.lottery_id ? 'live-' + lotteries[lotteryIssue.lottery_id].types.toLowerCase() : '']">
       </div>
     </div>
   </div>
@@ -55,6 +60,9 @@ class Top extends Vue {
    */
   @Prop()
   public lotteries!: any;
+
+  @Prop()
+  public code!: any;
 }
 
 export default Top;

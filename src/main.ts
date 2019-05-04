@@ -28,6 +28,8 @@ import {
   faUsers,
   faChartLine,
   faSearchDollar,
+  faVolumeUp,
+  faFileAudio,
 } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -40,6 +42,8 @@ library.add(faServer);
 library.add(faUsers);
 library.add(faChartLine);
 library.add(faSearchDollar);
+library.add(faVolumeUp);
+library.add(faFileAudio);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component(VueCountdown.name, VueCountdown);
