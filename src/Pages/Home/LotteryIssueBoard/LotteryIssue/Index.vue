@@ -3,7 +3,7 @@
     <div class="pseudo">
       <div class="top mb-1 position-relative">
         <router-link class="icon align-middle d-inline-block d-xs-none" :to="{ path: '/lottery-issue', query: { code: lotteryIssue.code }}">
-          <div :class="['icon-' + lotteryIssue.code + '-circle']">
+          <div :class="['icon-' + lotteryIssue.code.toLowerCase() + '-circle']">
           </div>
           </router-link>
         <router-link class="name-issue_no-numbers align-middle d-inline-block" :to="{ path: '/lottery-issue', query: { code: lotteryIssue.code }}">

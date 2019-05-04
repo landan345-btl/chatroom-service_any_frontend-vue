@@ -10,7 +10,7 @@
       
       <router-link class="lottery d-inline-block" :to="{ path: '/lottery', query: { code: `${sCode}` }}"  v-for="(oLottery, sCode, iIndex) in lotteries" :key="sCode"  v-show="15 > iIndex">
         <div class="icon">
-          <div :class="['icon-' + sCode]">
+          <div :class="['icon-' + sCode.toLowerCase() ]">
           </div>
         </div>
         <div class="name">
