@@ -94,7 +94,7 @@
             </div>
           </div>
          </div> 
-         <Instant />
+         <Instant :code="getCode"/> <!---->
          <div class="lottery-record">
           <div class="record-head">
             <ul>

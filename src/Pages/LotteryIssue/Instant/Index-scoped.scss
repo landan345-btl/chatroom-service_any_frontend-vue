@@ -20,7 +20,13 @@
         float: left;
         margin-right:3vmin;
         font-size:1.4vmin; 
+        /deep/ .el-button--text {
+          color: #666666;
+          padding: 0px 0px;
+        }
       }
     }
   }
 }
+
+

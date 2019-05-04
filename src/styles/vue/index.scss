@@ -1,0 +1,21 @@
+
+.el-message-box__content {
+  position: relative;
+  padding: 1.2vmin 1.5vmin;
+  color: orangered;
+  font-size: 26vmin;
+  .el-message-box__message {
+    text-align: center;
+ }
+}
+.el-message-box__btns .el-button--primary {
+  color: #FFF;
+  background-color: orangered;
+  border-color: orangered;
+}
+.el-message-box__btns .el-button--primary:hover {
+  color: #FFF;
+  background-color: #FFA482;
+  border-color: #FFA482;
+}
+
