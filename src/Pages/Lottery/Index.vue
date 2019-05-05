@@ -6,7 +6,7 @@
     <el-row :gutter="0">
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
         <main class="mt-2 mb-2">
-          <Top :lotteryIssue="getLastLotteryIssue" :lotteries="getLotteries" :code="getCode" :types="getTypes"/>
+          <Top :lotteryIssue="getLastLotteryIssue" :lottery="getLottery" :code="getCode" :types="getTypes"/>
         </main>
       </el-col>
     </el-row>
@@ -63,9 +63,11 @@ class Lottery extends Vue {
     }
   }
 
-  public get getLotteries(): any {
+  public get getLottery(): any {
     let oLotteries: any = this.$store.state.lotteries;
-    return oLotteries;
+    let aLotteries = Object.values(oLotteries);
+    let oLottery = aLotteries.pop();
+    return oLottery;
   }
 
   public get getCode(): string {

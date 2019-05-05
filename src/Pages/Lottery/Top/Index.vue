@@ -4,20 +4,22 @@
       <div :class="['icon-' + code.toLowerCase() + '-circle']">
       </div>
     </div>
-    <div class="name-lottery_issue_no align-middle">
+    <div class="name-lottery_issue_no align-middle text-left">
       <div>
-        <span class="name font-weight-bold" v-if="lotteryIssue && lotteryIssue.lottery_id">
-          {{ LOTTERIES[code].NAME | or(lotteries[lotteryIssue.lottery_id].name) }}
+        <span class="name font-weight-bold">
+          {{ LOTTERIES[code].NAME | or(lottery.name) }}
         </span>
-        <span class="no font-weight-bold" v-if="lotteryIssue && lotteryIssue.no">
-          第 {{ lotteryIssue.no }}
+        <span class="text" v-if="lotteryIssue && lotteryIssue.no">
+          第
         </span>
-        <span class="no font-weight-bold">
+        <span class="no" v-if="lotteryIssue && lotteryIssue.no">
+          &nbsp; {{ lotteryIssue.no }} &nbsp;
+        </span>
+        <span class="text">
           期开奖号码
         </span>
       </div>
-      <div class="numbers">
-      </div>
+      <Numbers v-if="lotteryIssue" :code="code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lotteries[lotteryIssue.lottery_id].types"/>
     </div>
     <div class="countdown align-middle">
       距733036期开奖仅有
@@ -44,11 +46,13 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import IButton from '@/Components/IButton/Index.vue';
+import Numbers from '@/Components/Numbers/Index.vue';
 import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 
 @Component({
   components: {
     IButton,
+    Numbers,
   },
 })
 class Top extends Vue {
@@ -59,7 +63,7 @@ class Top extends Vue {
    * 后端所有的 API lottery 数据
    */
   @Prop()
-  public lotteries!: any;
+  public lottery!: any;
 
   @Prop()
   public code!: any;
