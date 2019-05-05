@@ -7,6 +7,7 @@
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
         <main class="mt-2 mb-2">
           <Top :lotteryIssue="getLastLotteryIssue" :lottery="getLottery" :code="getCode" :types="getTypes"/>
+          <Board />
         </main>
       </el-col>
     </el-row>
@@ -24,9 +25,8 @@ import Footer from '@/Commons/Footer/Index.vue'; // @ is an alias to /src
 import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
 import NavTop from '@/Commons/NavTop/Index.vue';
 import NavRight from '@/Commons/NavRight/Index.vue';
-import ITabs from '@/Components/ITabs/Index.vue';
 import Top from './Top/Index.vue';
-import TabsAndTabPanes from './TabsAndTabPanes/Index.vue';
+import Board from './Board/Index.vue';
 
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
 // TODO
@@ -38,8 +38,8 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
     NavTop,
     NavRight,
     Footer,
-    ITabs,
     Top,
+    Board,
   },
 })
 class Lottery extends Vue {
