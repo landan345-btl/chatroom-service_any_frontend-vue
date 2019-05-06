@@ -24,11 +24,11 @@
                 :class="['num-0'+number]" class="pk10-mb"></li>
             </ul>
             <ul class="numbers" v-else-if="switcher==='1'">
-              <li :class="{'background-sm' : (number % 2==1), 'background-lg' : (number % 2==0)}" 
+              <li :class="{'background-sm' : (number<=5), 'background-lg' : (number>5)}" 
                 v-for="( number , i ) in JSON.parse(olottery.numbers)" :key="i" class="pk10-mb"></li>
             </ul>
             <ul class="numbers" v-else-if="switcher==='2'">
-              <li :class="{'odd' : (number<=5), 'even' : (number>5)}" 
+              <li :class="{'odd' : (number % 2==1), 'even' : (number % 2==0)}" 
                 v-for="( number , i ) in JSON.parse(olottery.numbers)" :key="i" class="pk10-mb">
               </li> 
             </ul>
@@ -214,11 +214,11 @@
               class="number-blue-fine"><i class="font-size-2p5">{{ number }}</i></li>
             </ul>
             <ul v-else-if="switcher==='1'" class="numbers background-color h-4">
-             <li :class="{'background-round-sm' : (number % 2==1), 'background-round-lg' : (number % 2==0)}" 
+             <li :class="{'background-round-sm' : (number<=5), 'background-round-lg' : (number>5)}" 
              v-for="(number,i) in JSON.parse(olottery.numbers)" :key="i"></li>
             </ul>
             <ul v-else-if="switcher==='2'" class="numbers background-color h-4">
-             <li :class="{'round-odd' : (number<=5), 'round-even' : (number>5),'background-round-sum' : (number==11)}" 
+             <li :class="{'round-odd' : (number % 2==1), 'round-even' : (number % 2==0),'background-round-sum' : (number==11)}" 
               v-for="(number,i) in JSON.parse(olottery.numbers)" :key="i"></li>
             </ul>
           </td>
@@ -293,11 +293,11 @@
               </li>
             </ul>
             <ul class="numbers h-4" v-else-if="switcher==='1'">
-              <li :class="{'background-round-sm' : (number % 2==1), 'background-round-lg' : (number % 2==0)}" 
+              <li :class="{'background-round-sm' : (number<=5), 'background-round-lg' : (number>5)}" 
               v-for="( number , i ) in JSON.parse(olottery.numbers)" :key="i"></li>
             </ul>
             <ul class="numbers h-4" v-else-if="switcher==='2'">
-              <li :class="{'round-odd' : (number<=5), 'round-even' : (number>5)}" 
+              <li :class="{'round-odd' : (number % 2==1), 'round-even' : (number % 2==0)}" 
                v-for="( number , i ) in JSON.parse(olottery.numbers)" :key="i"></li> 
             </ul>
           </td>
