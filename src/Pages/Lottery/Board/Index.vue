@@ -5,6 +5,7 @@
         <ResultAnalysis/>
       </TabPane>
       <TabPane :label="'综合分析'" :name="'summary-anaylysis'">
+        <SummaryAnalysis />
       </TabPane>
       <TabPane :label="'基本走势'" :name="'basic-trend'">
       </TabPane>
@@ -48,6 +49,7 @@ import NavTop from '@/Commons/NavTop/Index.vue';
 import NavRight from '@/Commons/NavRight/Index.vue';
 import ITabs from '@/Components/ITabs/Index.vue';
 import ResultAnalysis from './ResultAnalysis/Index.vue';
+import SummaryAnalysis from './SummaryAnalysis/Index.vue';
 
 import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 // TODO
@@ -61,6 +63,7 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
     Footer,
     ITabs,
     ResultAnalysis,
+    SummaryAnalysis,
   },
 })
 class Board extends Vue {

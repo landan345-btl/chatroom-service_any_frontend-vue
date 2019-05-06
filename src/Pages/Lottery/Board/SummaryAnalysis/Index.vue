@@ -1,6 +1,6 @@
 <template>
   <div class="result-analysis">
-    路珠分析
+    综合分析
   </div>
 </template>
 <style scoped lang="scss">
