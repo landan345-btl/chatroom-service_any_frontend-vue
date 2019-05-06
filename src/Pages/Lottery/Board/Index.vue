@@ -1,13 +1,17 @@
 <template>
   <div class="board">
     <I-tabs :type="'card'">
+      <TabPane :label="'即使开奖'" :name="'lottery-issue'">
+        <Lottery-issue />
+      </TabPane>
       <TabPane :label="'路珠分析'" :name="'result-analysis'">
-        <ResultAnalysis/>
+        <Result-analysis/>
       </TabPane>
       <TabPane :label="'综合分析'" :name="'summary-anaylysis'">
-        <SummaryAnalysis />
+        <Summary-analysis />
       </TabPane>
       <TabPane :label="'基本走势'" :name="'basic-trend'">
+        <BasicTrend />
       </TabPane>
       <TabPane :label="'冷热分析'" :name="'popular-anaylysis'">
       </TabPane>
@@ -48,8 +52,10 @@ import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
 import NavTop from '@/Commons/NavTop/Index.vue';
 import NavRight from '@/Commons/NavRight/Index.vue';
 import ITabs from '@/Components/ITabs/Index.vue';
+import LotteryIssue from './LotteryIssue/Index.vue';
 import ResultAnalysis from './ResultAnalysis/Index.vue';
 import SummaryAnalysis from './SummaryAnalysis/Index.vue';
+import BasicTrend from './BasicTrend/Index.vue';
 
 import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 // TODO
@@ -62,8 +68,10 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
     NavRight,
     Footer,
     ITabs,
+    LotteryIssue,
     ResultAnalysis,
     SummaryAnalysis,
+    BasicTrend,
   },
 })
 class Board extends Vue {
