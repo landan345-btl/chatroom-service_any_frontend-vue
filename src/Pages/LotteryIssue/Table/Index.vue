@@ -398,6 +398,9 @@ class Table extends Vue {
   @Prop({ default: null })
   public code !: any;
 
+  @Prop({ default: null })
+  public numbers !: any;
+
   public get oLotteryIssues(): object {
     let oLotteryIssues = this.lotteryIssues;
     let aLotteryIssues = Object.values(oLotteryIssues);
@@ -410,9 +413,7 @@ class Table extends Vue {
  }
 
   public getName() {
-  this.$on('numbers' , ( data: any) => {
-   console.log(data);
-   });
+ // console.log(this.numbers);
   }
 
   public showTitle(index: number) {

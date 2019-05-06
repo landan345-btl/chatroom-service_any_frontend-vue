@@ -41,6 +41,7 @@ class CountDownTime extends Vue {
   public time!: number;
   @Prop()
   public theme: string = 'theme-a';
+
 }
 export default CountDownTime;
 

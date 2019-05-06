@@ -33,6 +33,7 @@
                     <div class="line-title">距离下一期开奖时间</div>
                     <CountDownTime :time="getLastLotteryIssues.interval_time * 1000" :theme="'theme-a'"/>
                   </div>
+                  
                   <div class="bell-set">
                     <div class="close-bell">
                       <div class="setopen">
@@ -124,7 +125,8 @@
                   </div> 
                 </div>
               </div>
-                <Statistics v-show="showStatistics" :lotteryIssues="openNumber" :code="getCode" />
+                <Statistics v-show="showStatistics" :lotteryIssues="openNumber" :code="getCode" 
+                  @bind-send="shownumbers" />
                 <Changlong v-show="showChanglong" />
                 <NumberDisribution v-show="showNumber" :lotteryIssues="openNumber" :code="getCode" />         
                 <Table :lotteryIssues="openNumber" :code="getCode" /> <!-- 表格动态切换  -->
@@ -208,6 +210,7 @@ class LotteryIssue extends Vue {
    let oQueries = {
       date : sDateNow,
       code : this.lotterycode,
+      limit: 100,
     };
    this.$store.dispatch('LOTTERY_ACTION_SHOW');
    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries  ); // 当天的 开奖号码 请求
@@ -217,12 +220,12 @@ class LotteryIssue extends Vue {
     let oQueries = {
       date : sDateNow,
       code : this.lotterycode,
-      limit: 1000,
+      limit: 100,
     };
     this.timer = setInterval(() => {
       this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries); // 当天的 开奖号码 请求
       let sTime = moment().format().split('T')[1].split('+')[0]; // 本地时间  时 分 秒
-    } , 2000 );
+    } , 3000 );
    }
 
   public beforeDestroy() {  // 组件销毁之前调用 停止定时器
@@ -337,6 +340,10 @@ class LotteryIssue extends Vue {
       this.$router.push( { name: '/home'});
      }
     return sCode;
+  }
+  public shownumbers(index: any) {
+    alert(index);
+ //  this.number = i;
   }
 }
 export default LotteryIssue;
