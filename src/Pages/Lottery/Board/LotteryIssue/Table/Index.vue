@@ -1,5 +1,5 @@
 <template>
-<div class="table">
+<div class="table text-center">
   <table>
     <tr>
       <th>时间</th>
