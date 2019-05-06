@@ -19,7 +19,7 @@
           期开奖号码
         </span>
       </div>
-      <Numbers v-if="lotteryIssue" :code="code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lotteries[lotteryIssue.lottery_id].types"/>
+      <Numbers v-if="lotteryIssue" :code="code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lottery.types"/>
     </div>
     <div class="countdown align-middle">
       距733036期开奖仅有
@@ -30,7 +30,7 @@
         <I-button :type="'warning'" class="d-inline-block mb-1">关闭声音</I-button><font-awesome-icon icon="volume-up" class="d-inline-block ml-1"/>
       </div>
       <div>
-        <I-button :type="'warning'" class="d-inline-block">铃声设置</I-button><font-awesome-icon icon="file-audio" class="d-inline-block ml-1"/>
+        <I-button :type="'warning'" class="d-inline-block">铃声设置</I-button><font-awesome-icon icon="music" class="d-inline-block ml-1"/>
       </div>
     </div>
     <div class="live align-middle">

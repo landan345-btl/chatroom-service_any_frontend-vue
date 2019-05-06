@@ -10,7 +10,7 @@
 </style>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, Emit } from 'vue-property-decorator';
 
 @Component({
   name: 'IButton',
@@ -18,6 +18,11 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 class IButton extends Vue {
   @Prop({ default: null })
   public type!: any;
+
+  @Emit('handle-click')
+  public handleClick(sName: string) {
+    return sName;
+  }
 }
 export default IButton;
 
