@@ -1,6 +1,8 @@
 <template>
   <div class="summation-result">
-    这是总和路珠
+    <div class="top p-1 font-weight-bold">
+      <span class="title">总和路珠</span>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">

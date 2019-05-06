@@ -1,6 +1,8 @@
 <template>
   <div class="everyday-accumulation-statics">
-    每日长龙统计
+    <div class="top p-1 font-weight-bold">
+      <span class="title">每日长龙统计</span>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">

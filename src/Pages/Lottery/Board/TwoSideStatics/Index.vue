@@ -1,6 +1,8 @@
 <template>
   <div class="two-side-statics">
-    这是两面统计
+    <div class="top p-1 font-weight-bold">
+      <span class="title">两面统计</span>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">

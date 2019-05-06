@@ -1,6 +1,8 @@
 <template>
   <div class="result-analysis">
-    这是路珠分析
+    <div class="top p-1 font-weight-bold">
+      <span class="title">路珠分析</span>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">

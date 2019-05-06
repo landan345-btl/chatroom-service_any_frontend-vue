@@ -1,6 +1,8 @@
 <template>
   <div class="positon-trend">
-    这是定位走势
+    <div class="top p-1 font-weight-bold">
+      <span class="title">定位走势</span>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">

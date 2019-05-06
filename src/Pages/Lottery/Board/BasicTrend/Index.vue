@@ -1,6 +1,8 @@
 <template>
   <div class="basic-trend">
-    这是基本走势
+    <div class="top p-1 font-weight-bold">
+      <span class="title">基本走势</span>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">

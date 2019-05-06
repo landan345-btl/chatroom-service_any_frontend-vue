@@ -1,6 +1,8 @@
 <template>
   <div class="history-number-statics">
-    这是历史号码统计
+    <div class="top p-1 font-weight-bold">
+      <span class="title">历史号码统计</span>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">

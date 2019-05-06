@@ -1,6 +1,8 @@
 <template>
   <div class="today-number-statics">
-    这是今日号码统计
+    <div class="top p-1 font-weight-bold">
+      <span class="title">今日号码统计</span>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">

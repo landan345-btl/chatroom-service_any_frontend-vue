@@ -1,6 +1,8 @@
 <template>
-  <div class="basic-trend">
-    这是形态走势
+  <div class="state-trend">
+    <div class="top p-1 font-weight-bold">
+      <span class="title">形态走势</span>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">

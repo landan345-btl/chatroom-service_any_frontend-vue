@@ -1,6 +1,8 @@
 <template>
   <div class="summary-analysis">
-    这是综合分析
+    <div class="top p-1 font-weight-bold">
+      <span class="title">综合分析</span>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">
