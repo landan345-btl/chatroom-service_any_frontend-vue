@@ -1,5 +1,5 @@
 <template>
-  <Button :type="type">
+  <Button :type="type" @click="handleClick">
     <slot></slot>
   </Button>
 </template>
@@ -20,8 +20,8 @@ class IButton extends Vue {
   public type!: any;
 
   @Emit('handle-click')
-  public handleClick(sName: string) {
-    return sName;
+  public handleClick(mValue: any) {
+    return mValue;
   }
 }
 export default IButton;
