@@ -1,36 +1,36 @@
 <template>
   <div class="board">
     <I-tabs :type="'card'">
-      <TabPane :label="'路珠分析'" :name="'result'">
-        <Result />
+      <TabPane :label="'路珠分析'" :name="'result-analysis'">
+        <ResultAnalysis/>
       </TabPane>
-      <TabPane :label="'综合分析'" :name="'anaylysis'">
+      <TabPane :label="'综合分析'" :name="'summary-anaylysis'">
       </TabPane>
-      <TabPane :label="'基本走势'" :name="'anaylysis'">
+      <TabPane :label="'基本走势'" :name="'basic-trend'">
       </TabPane>
-      <TabPane :label="'冷热分析'" :name="'anaylysis'">
+      <TabPane :label="'冷热分析'" :name="'popular-anaylysis'">
       </TabPane>
-      <TabPane :label="'龙虎走势'" :name="'anaylysis'">
+      <TabPane :label="'龙虎走势'" :name="'dragon-or-Tiger-trend'">
       </TabPane>
-      <TabPane :label="'今日号码统计'" :name="'anaylysis'">
+      <TabPane :label="'今日号码统计'" :name="'today-number-statics'">
       </TabPane>
-      <TabPane :label="'单双大小历史'" :name="'anaylysis'">
+      <TabPane :label="'单双大小历史'" :name="'odd-or-even-small-or-large-history'">
       </TabPane>
-      <TabPane :label="'形态走势'" :name="'anaylysis'">
+      <TabPane :label="'形态走势'" :name="'state-trend'">
       </TabPane>
-      <TabPane :label="'单双大小路珠'" :name="'anaylysis'">
+      <TabPane :label="'单双大小路珠'" :name="'odd-or-even-small-or-large-result'">
       </TabPane>
-      <TabPane :label="'历史号码统计'" :name="'anaylysis'">
+      <TabPane :label="'历史号码统计'" :name="'history-number-statics'">
       </TabPane>
-      <TabPane :label="'两面统计'" :name="'anaylysis'">
+      <TabPane :label="'两面统计'" :name="'two-side-statics'">
       </TabPane>
-      <TabPane :label="'每日长龙统计'" :name="'anaylysis'">
+      <TabPane :label="'每日长龙统计'" :name="'everyday-accumulation-statics'">
       </TabPane>
-      <TabPane :label="'定位走势'" :name="'anaylysis'">
+      <TabPane :label="'定位走势'" :name="'position-trend'">
       </TabPane>
-      <TabPane :label="'总和路珠'" :name="'anaylysis'">
+      <TabPane :label="'总和路珠'" :name="'sumation-result'">
       </TabPane>
-      <TabPane :label="'玩法规则'" :name="'anaylysis'">
+      <TabPane :label="'玩法规则'" :name="'rule'">
       </TabPane>
     </I-tabs>
   </div>
@@ -47,7 +47,7 @@ import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
 import NavTop from '@/Commons/NavTop/Index.vue';
 import NavRight from '@/Commons/NavRight/Index.vue';
 import ITabs from '@/Components/ITabs/Index.vue';
-import Result from './Result/Index.vue';
+import ResultAnalysis from './ResultAnalysis/Index.vue';
 
 import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 // TODO
@@ -60,7 +60,7 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
     NavRight,
     Footer,
     ITabs,
-    Result,
+    ResultAnalysis,
   },
 })
 class Board extends Vue {
