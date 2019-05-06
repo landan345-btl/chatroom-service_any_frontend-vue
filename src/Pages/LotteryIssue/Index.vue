@@ -126,7 +126,7 @@
               </div>
                 <Statistics v-show="showStatistics" :lotteryIssues="openNumber" :code="getCode" />
                 <Changlong v-show="showChanglong" />
-                <NumberDisribution v-show="showNumber" />         
+                <NumberDisribution v-show="showNumber" :lotteryIssues="openNumber" :code="getCode" />         
                 <Table :lotteryIssues="openNumber" :code="getCode" /> <!-- 表格动态切换  -->
             </div> 
           </div>
@@ -177,7 +177,7 @@ import moment from 'moment';
   },
 })
 class LotteryIssue extends Vue {
-  public recordHeads = [{title: '今日双面/号码统计', on: false}, {title: '长龙提醒', on: false}, {title: '号码分布', on: false},];
+  public recordHeads = [{title: '今日双面/号码统计', on: false}, {title: '长龙提醒', on: false}, {title: '号码分布', on: false}];
   public showStatistics = false;
   public showChanglong = false;
   public showNumber = false;
@@ -206,22 +206,23 @@ class LotteryIssue extends Vue {
    this.get();
    let sDateNow = moment().format('YYYY-MM-DD'); // 本地时间 年 月 日
    let oQueries = {
-        date : sDateNow ,
-        code : this.lotterycode ,
-      };
+      date : sDateNow,
+      code : this.lotterycode,
+    };
    this.$store.dispatch('LOTTERY_ACTION_SHOW');
    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries  ); // 当天的 开奖号码 请求
   }
   public get() {
     let sDateNow = moment().format('YYYY-MM-DD'); // 本地时间 年 月 日
     let oQueries = {
-      date : sDateNow ,
-      code : this.lotterycode ,
+      date : sDateNow,
+      code : this.lotterycode,
+      limit: 1000,
     };
     this.timer = setInterval(() => {
-      this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries  ); // 当天的 开奖号码 请求
+      this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries); // 当天的 开奖号码 请求
       let sTime = moment().format().split('T')[1].split('+')[0]; // 本地时间  时 分 秒
-    } , 10000 );
+    } , 2000 );
    }
 
   public beforeDestroy() {  // 组件销毁之前调用 停止定时器

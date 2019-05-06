@@ -1,3 +1,3 @@
-import FiveRow from '@/utilities/FiveRow';
+import fiveRow from '@/utilities/fiveRow';
 
-export default FiveRow;
+export default fiveRow;

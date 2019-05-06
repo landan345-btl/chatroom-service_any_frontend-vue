@@ -59,48 +59,48 @@
         <td>大</td>
         <td>小</td>
       </tr>
-      <tr v-for="(num,index) in oLotteryIssues" :key='index'>
+      <tr>
         <td>出现次数</td>
-        <td>{{ JSON.parse(num.numbers) | first }}</td>
-        <!-- <td>11</td>
-        <td>45</td>
-        <td>54</td>
-        <td>45</td>
-        <td>85</td>
-        <td>55</td>
-        <td>52</td>
-        <td>22</td>
-        <td>10</td>
-        <td>03</td>
-        <td>13</td>
-        <td>03</td>
-        <td>10</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>103</td>
-        <td>13</td>
-        <td>03</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>03</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>03</td>
-        <td>13</td>
-        <td>13</td> -->
+        <td></td>
+        <!-- <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isSmallOrLarge}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isSmallOrLarge}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td> -->
       </tr>
       </tbody>
     </table>  

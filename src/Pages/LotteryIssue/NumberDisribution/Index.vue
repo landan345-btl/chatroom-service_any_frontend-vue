@@ -2,24 +2,19 @@
   <div class="number-distribution">
     <div class="head">
       <span>查看号码分布:</span>
-      <span class="active">号码1<i></i></span>
-      <span>号码1<i></i></span>
-      <span>号码1<i></i></span>
-      <span>号码1<i></i></span>
-      <span>号码1<i></i></span>
-      <span>号码1<i></i></span>
-      <span>号码1<i></i></span>
-      <span>号码1<i></i></span>
-      <span>号码1<i></i></span>
-      <span>号码10<i></i></span>
+      <span :class="{'active' :oHead.on}" 
+        @click="showNumber(index)" v-for="(oHead,index) in recordHeads" 
+        :key="index">{{oHead.title}}
+        <i></i>
+      </span>
     </div>
     <div class="head">
       <span>查看号码分布:</span>
-      <span class="active">单<i></i></span>
-      <span>双<i></i></span>
-      <span>大<i></i></span>
-      <span>小<i></i></span>
-      <span>对子号<i></i></span>
+      <span :class="{'active' :oHead.on}" 
+        @click="showNumber1(index)" v-for="(oHead,index) in recordHeads1" 
+        :key="index">{{oHead.title}}
+        <i></i>
+      </span>
       <span class="reset">还原</span>
     </div>
   </div>
@@ -55,15 +50,35 @@
         } 
      }
   
-  }
-        
+  }     
 </style>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 @Component({
   name: 'NumberDisribution',
   })
 class NumberDisribution extends Vue {
+  public recordHeads = [
+    {title: '号码1', on: false}, {title: '号码2', on: false}, {title: '号码3', on: false}, {title: '号码4', on: false}, {title: '号码5', on: false},
+    {title: '号码6', on: false}, {title: '号码7', on: false}, {title: '号码8', on: false}, {title: '号码9', on: false}, {title: '号码9', on: false},
+    ];
+  public recordHeads1 = [
+    {title: '单', on: false}, {title: '双', on: false}, {title: '大', on: false}, {title: '小', on: false}, {title: '对子号', on: false},
+    ];
+  @Prop({ default: null })
+  public lotteryIssues !: any;
+
+  @Prop({ default: null })
+  public code !: any;
+
+  public showNumber(i: number) {
+   this.recordHeads[i].on = !this.recordHeads[i].on;
+   let a = this.$parent.$children;
+   console.log(a);
+  }
+  public showNumber1(i: number) {
+   this.recordHeads1[i].on = !this.recordHeads1[i].on;
+  }
 }
 
 export default NumberDisribution;
