@@ -1,5 +1,6 @@
 <template>
-  <table class="table">
+<div class="table">
+  <table>
     <tr>
       <th>时间</th>
       <th>期数</th>
@@ -17,6 +18,7 @@
       <td>虎</td>
     </tr>
   </table>
+</div>
 </template>
 <style scoped lang="scss">
 @import 'Index-scoped.scss';
