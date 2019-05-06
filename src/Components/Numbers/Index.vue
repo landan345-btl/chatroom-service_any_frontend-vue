@@ -1,15 +1,17 @@
 <template>
   <div class="numbers">
     <div class="number" 
-      :class="['单' === isOddOrEven(iNumber) ? 'number-odd' : '',
+      :class="[size, 
+               '单' === isOddOrEven(iNumber) ? 'number-odd' : '',
                '双' === isOddOrEven(iNumber) ? 'number-even' : '',
                '小' === isSmallOrLarge(smallUpperBound, largelowerBound) ? 'number-small' : '',
                '大' === isSmallOrLarge(smallUpperBound, largelowerBound) ? 'number-large' : '',
                'number-' + types.toLowerCase(), 
                'number-'+ code.toLowerCase(), 
-               'number-'+ types.toLowerCase() + '-' + iNumber ]" v-for="(iNumber, sKey) in numbers" :key="sKey" v-randomNumber>
+               'number-'+ types.toLowerCase() + '-' + iNumber]" v-for="(iNumber, sKey) in numbers" :key="sKey" v-randomNumber>
       <span>{{iNumber}}</span>
     </div>
+      <font-awesome-icon icon="plus" class=""/>
   </div>
 </template>
 
@@ -34,6 +36,8 @@ class Numbers extends Vue {
   public smallUpperBound!: number;
   @Prop()
   public largelowerBound!: number;
+  @Prop()
+  public size!: string;
 
 }
 export default Numbers;

@@ -125,11 +125,10 @@
                   </div> 
                 </div>
               </div>
-                <Statistics v-show="showStatistics" :lotteryIssues="openNumber" :code="getCode" 
-                  @bind-send="shownumbers" />
+                <Statistics v-show="showStatistics" :lotteryIssues="openNumber" :code="getCode" />
                 <Changlong v-show="showChanglong" />
-                <NumberDisribution v-show="showNumber" :lotteryIssues="openNumber" :code="getCode" />         
-                <Table :lotteryIssues="openNumber" :code="getCode" /> <!-- 表格动态切换  -->
+                <NumberDisribution v-show="showNumber" :lotteryIssues="openNumber" :code="getCode" @bind-send="showNumbers"/>         
+                <Table :lotteryIssues="openNumber" :code="getCode" :number="getNumber"/> <!-- 表格动态切换  -->
             </div> 
           </div>
         </main>
@@ -184,7 +183,6 @@ class LotteryIssue extends Vue {
   public showChanglong = false;
   public showNumber = false;
   public numbgColor: number = 0;
-  public s = 100;
   public open = false;
   public flag: boolean = false;
   public selectbell = [
@@ -199,6 +197,7 @@ class LotteryIssue extends Vue {
   public lotteryTypes = LOTTERIES;
   public lotterycode: any = '' ; // 接受code
 
+  public number: any ;
   public olotterys: any = {};
   public beforeMount(): void {
    this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY');
@@ -214,6 +213,9 @@ class LotteryIssue extends Vue {
     };
    this.$store.dispatch('LOTTERY_ACTION_SHOW');
    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries  ); // 当天的 开奖号码 请求
+  }
+  public get getNumber() {
+    return this.number;
   }
   public get() {
     let sDateNow = moment().format('YYYY-MM-DD'); // 本地时间 年 月 日
@@ -330,7 +332,7 @@ class LotteryIssue extends Vue {
   public test() {
    this.selectbell.map((select, i) => {
     if (select.isCheck) {
-      console.log(select.value);
+     // console.log(select.value);
     }
    });
   }
@@ -341,9 +343,8 @@ class LotteryIssue extends Vue {
      }
     return sCode;
   }
-  public shownumbers(index: any) {
-    alert(index);
- //  this.number = i;
+  public showNumbers(index: any) {
+    this.number = index;
   }
 }
 export default LotteryIssue;

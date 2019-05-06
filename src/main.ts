@@ -31,6 +31,7 @@ import {
   faVolumeUp,
   faFileAudio,
   faMusic,
+  faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
@@ -46,6 +47,7 @@ library.add(faSearchDollar);
 library.add(faVolumeUp);
 library.add(faFileAudio);
 library.add(faMusic);
+library.add(faPlus);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component(VueCountdown.name, VueCountdown);

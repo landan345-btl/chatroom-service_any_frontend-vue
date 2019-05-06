@@ -3,7 +3,7 @@
     <div class="head">
       <span>查看号码分布:</span>
       <span :class="{'active' :oHead.on}" 
-        @click="shownumbers(index)" v-for="(oHead,index) in recordHeads" 
+        @click="showNumbers(index)" v-for="(oHead,index) in recordHeads" 
         :key="index">{{oHead.title}}
         <i></i>
       </span>
@@ -67,11 +67,11 @@ class NumberDisribution extends Vue {
 
   @Emit('bind-send')
   public send(index: any ) {
-   // console.log(index);
+    return index;
   }
-  public shownumbers(index: number) {
+  public showNumbers(index: number) {
    this.recordHeads[index].on = !this.recordHeads[index].on;
-   this.send(index);
+   this.send(index + 1);
   }
 }
 

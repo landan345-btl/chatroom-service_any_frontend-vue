@@ -399,7 +399,7 @@ class Table extends Vue {
   public code !: any;
 
   @Prop({ default: null })
-  public numbers !: any;
+  public number !: any;
 
   public get oLotteryIssues(): object {
     let oLotteryIssues = this.lotteryIssues;
@@ -413,7 +413,7 @@ class Table extends Vue {
  }
 
   public getName() {
- // console.log(this.numbers);
+  // console.log(this.number);
   }
 
   public showTitle(index: number) {
