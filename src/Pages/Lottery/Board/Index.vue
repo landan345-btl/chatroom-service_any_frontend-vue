@@ -1,7 +1,8 @@
 <template>
   <div class="board">
     <I-tabs :type="'card'">
-      <TabPane :label="'路珠分析'" :name="'anaylysis'">
+      <TabPane :label="'路珠分析'" :name="'result'">
+        <Result />
       </TabPane>
       <TabPane :label="'综合分析'" :name="'anaylysis'">
       </TabPane>
@@ -46,6 +47,7 @@ import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
 import NavTop from '@/Commons/NavTop/Index.vue';
 import NavRight from '@/Commons/NavRight/Index.vue';
 import ITabs from '@/Components/ITabs/Index.vue';
+import Result from './Result/Index.vue';
 
 import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 // TODO
@@ -58,6 +60,7 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
     NavRight,
     Footer,
     ITabs,
+    Result,
   },
 })
 class Board extends Vue {
