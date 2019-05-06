@@ -23,6 +23,11 @@
     background-color: #ffffff;
   }
 
+  /deep/ .ivu-tabs-nav .ivu-tabs-tab-active {  
+    @media only screen and (min-width: 1200px) {
+      font-size: 2vmin;
+    }
+  }
   /deep/ .parent .ivu-tabs-bar {
     border-bottom: 0px solid #dcdee2;
   }
@@ -44,16 +49,6 @@
     border-radius: 0 0 0 0;
     background: #ffffff;
   }
-
-  /deep/ .parent.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-tab-active {
-    // height: 52px;
-    // padding-bottom: 5px;
-    // background: #fff;
-    // transform: translateZ(0);
-    // border-color: #dcdee2;
-    color: #ff7b00;
-    line-height: 2;
-}
 
   /deep/ .son .ivu-tabs-bar {
     border-bottom: 2px solid #dcdee2;

@@ -1,7 +1,8 @@
 <template>
   <div class="lottery pt-2 pl-2 pr-2 w-xs-100 align-middle">
     <span class="icon p-1 d-inline-block align-middle">
-      <img :src="require(`@/assets/images/` + `${lottery.code}` + `-sm.png`)" class="d-block" />
+      <div :class="['icon-' + lottery.code.toLowerCase() + '-circle']">
+      </div>
       <div class="name mt-1 text-center font-weight-bold">{{ LOTTERIES[lottery.code].NAME || lottery.name }}</div>
     </span>
     <div class="list p-2 d-inline-block align-middle" v-if="'PK10'===lottery.types.toUpperCase()">

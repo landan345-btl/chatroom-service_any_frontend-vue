@@ -7,13 +7,13 @@
       </div>
     </div>
     <div class="lotteries">
-      <router-link class="lottery d-inline-block" :to="{ path: '/lottery', query: { code: `${sCode}` }}"  v-for="(oLottery, sCode, iIndex) in lotteries" :key="sCode"  v-show="15 > iIndex">
+      <router-link class="lottery d-inline-block" :to="{ path: '/lottery', query: { code: `${oLottery.code}` }}"  v-for="(oLottery, iLotteryId, iIndex) in lotteries" :key="iLotteryId"  v-show="15 > iIndex">
         <div class="icon">
-          <div :class="['icon-' + sCode.toLowerCase() ]">
+          <div :class="['icon-' + oLottery.code.toLowerCase() ]">
           </div>
         </div>
         <div class="name">
-          {{ oLottery.name }}
+          {{ LOTTERIES[oLottery.code].NAME | or(oLottery.name) }}
         </div>
       </router-link>
 

@@ -1,12 +1,15 @@
 import AxiosHelper from '@/Helpers/Axios';
+import cObjectQueriesToStringQueries from '@/utilities/objectQueriesToStringQueries';
 
 let oAxiosHelper = new AxiosHelper();
 
 // VUEX 的 Action，一连串的业务逻辑动作，类似 PHP 的 service 或 Angular 的 service
 let oLotteryAction = {
-  LOTTERY_ACTION_SHOW(context: any) {
+  LOTTERY_ACTION_SHOW(context: any, oQueries: object) {
+    let sQueries: string = cObjectQueriesToStringQueries(oQueries);
+
     let oRequest = {
-      path: '/lottery/show' + '?limit=100&offset=0',
+      path: '/lottery/show' + sQueries,
     };
     let pProccess = Promise.resolve();
     return pProccess.then(() => {

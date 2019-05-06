@@ -33,6 +33,26 @@
   justify-content: space-between;
 }
 
+.align-self-start {
+  align-items: flex-start;
+}
+
+.align-self-start {
+  align-items: flex-end ;
+}
+
+.align-self-center {
+  align-items: center ;
+}
+
+.align-self-baseline {
+  align-items: baseline;
+}
+
+.align-self-stretch {
+  align-items: stretch;
+}
+
 
 .w-1_3 {
   width: cacl( 100% / 3 );

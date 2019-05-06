@@ -6,7 +6,8 @@
     <el-row :gutter="0">
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
         <main class="mt-2 mb-2">
-          <Top :lotteryIssue="getLastLotteryIssue" :lotteries="getLotteries"/>
+          <Top :lotteryIssue="getLastLotteryIssue" :lottery="getLottery" :code="getCode" :types="getTypes"/>
+          <Board />
         </main>
       </el-col>
     </el-row>
@@ -24,9 +25,8 @@ import Footer from '@/Commons/Footer/Index.vue'; // @ is an alias to /src
 import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
 import NavTop from '@/Commons/NavTop/Index.vue';
 import NavRight from '@/Commons/NavRight/Index.vue';
-import ITabs from '@/Components/ITabs/Index.vue';
 import Top from './Top/Index.vue';
-import TabsAndTabPanes from './TabsAndTabPanes/Index.vue';
+import Board from './Board/Index.vue';
 
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
 // TODO
@@ -38,8 +38,8 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
     NavTop,
     NavRight,
     Footer,
-    ITabs,
     Top,
+    Board,
   },
 })
 class Lottery extends Vue {
@@ -47,10 +47,11 @@ class Lottery extends Vue {
     let $root: any = this.$root;
     let sCode = this.$route.query.code;
     this._redirecteIfWithoutCode();
-    this.$store.dispatch('LOTTERY_ACTION_SHOW', {});
     let oQueries = {
       code: sCode,
     };
+    this.$store.dispatch('LOTTERY_ACTION_SHOW', oQueries);
+
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
   }
 
@@ -62,15 +63,25 @@ class Lottery extends Vue {
     }
   }
 
-  public get getLotteries(): any {
+  public get getLottery(): any {
     let oLotteries: any = this.$store.state.lotteries;
-    return oLotteries;
+    let aLotteries = Object.values(oLotteries);
+    let oLottery = aLotteries.pop();
+    return oLottery;
   }
 
   public get getCode(): string {
     let mCode = this.$route.query.code;
     let sCode = mCode.toString();
     return sCode;
+  }
+
+    public get getTypes(): string {
+    let oLotteries: any = this.$store.state.lotteries;
+    let aLotteries = Object.values(oLotteries);
+    let oLottery: any  = aLotteries.pop();
+    let sTypes = oLottery.types;
+    return sTypes;
   }
 
   public get getLotteryIssues() {
