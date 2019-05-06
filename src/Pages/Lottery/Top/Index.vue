@@ -30,7 +30,7 @@
         <I-button :type="'warning'" class="d-inline-block mb-1">关闭声音</I-button><font-awesome-icon icon="volume-up" class="d-inline-block ml-1"/>
       </div>
       <div>
-        <I-button :type="'warning'" class="d-inline-block">铃声设置</I-button><font-awesome-icon icon="cog" class="d-inline-block ml-1"/>
+        <I-button :type="'warning'" class="d-inline-block">铃声设置</I-button><font-awesome-icon icon="music" class="d-inline-block ml-1"/>
       </div>
     </div>
     <div class="live align-middle">
