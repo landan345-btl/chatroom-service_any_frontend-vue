@@ -14,8 +14,10 @@
         <BasicTrend />
       </TabPane>
       <TabPane :label="'冷热分析'" :name="'popular-anaylysis'">
+        <PopularAnalysis />
       </TabPane>
       <TabPane :label="'龙虎走势'" :name="'dragon-or-Tiger-trend'">
+        <Dragon-or-tiger-trend />
       </TabPane>
       <TabPane :label="'今日号码统计'" :name="'today-number-statics'">
       </TabPane>
@@ -56,6 +58,8 @@ import LotteryIssue from './LotteryIssue/Index.vue';
 import ResultAnalysis from './ResultAnalysis/Index.vue';
 import SummaryAnalysis from './SummaryAnalysis/Index.vue';
 import BasicTrend from './BasicTrend/Index.vue';
+import PopularAnalysis from './PopularAnalysis/Index.vue';
+import DragonOrTigerTrend from './DragonOrTigerTrend/Index.vue';
 
 import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 // TODO
@@ -72,6 +76,8 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
     ResultAnalysis,
     SummaryAnalysis,
     BasicTrend,
+    PopularAnalysis,
+    DragonOrTigerTrend,
   },
 })
 class Board extends Vue {

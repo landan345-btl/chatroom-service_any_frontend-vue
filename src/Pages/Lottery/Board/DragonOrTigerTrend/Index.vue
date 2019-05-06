@@ -1,6 +1,6 @@
 <template>
-  <div class="lottery-issue">
-    即时开奖
+  <div class="dragon-or-tiger-trend">
+    龙虎走势
   </div>
 </template>
 <style scoped lang="scss">
@@ -20,9 +20,9 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
     ITabs,
   },
 })
-class LotteryIssue extends Vue {
+class DragonOrTigerTrend extends Vue {
 
 }
 
-export default LotteryIssue;
+export default DragonOrTigerTrend;
 </script>
