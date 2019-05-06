@@ -1,12 +1,13 @@
 <template>
   <div class="lottery-issue">
     <div class="top p-1 font-weight-bold">
-      <span>即时开奖</span>
+      <span class="title">即时开奖</span>
       <I-button class="ml-2" v-on:click="toggleTodayTwoSideNumberStatics()">今日双面/号码统计</I-button>
       <I-button class="ml-2">长龙提醒</I-button>
       <I-button class="ml-2">号码分析</I-button>
     </div>
-    <Today-two-side-number-statics v-show="isTodayTwoSideNumberStatic"/>
+    <Today-two-side-number-statics v-show="isTodayTwoSideNumberStatic" class="p-1"/>
+    <Accumulation-remider class="p-1"/>
   </div>
 </template>
 <style scoped lang="scss">
@@ -18,6 +19,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import ITabs from '@/Components/ITabs/Index.vue';
 import IButton from '@/Components/IButton/Index.vue';
 import TodayTwoSideNumberStatics from './TodayTwoSideNumberStatics/Index.vue';
+import AccumulationRemider from './AccumulationRemider/Index.vue';
 
 import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 // TODO
@@ -28,6 +30,7 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
     ITabs,
     IButton,
     TodayTwoSideNumberStatics,
+    AccumulationRemider,
   },
 })
 class LotteryIssue extends Vue {
