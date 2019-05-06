@@ -1,7 +1,7 @@
 <template>
    <div class="statistics">
     <div class="title">今日双面统计</div>
-    <table cellpadding="1" cellspacing="1">
+    <table>
       <tbody>
       <tr>
         <th>名次</th>
@@ -61,8 +61,8 @@
       </tr>
       <tr>
         <td>出现次数</td>
-        <td>103</td>
-        <td>54</td>
+        <td></td>
+        <td>11</td>
         <td>45</td>
         <td>54</td>
         <td>45</td>
@@ -104,7 +104,7 @@
       </tr>
       </tbody>
     </table>  
-    <table cellpadding="1" cellspacing="1" class="m-t-1vmin">
+    <table class="m-t-1vmin">
       <tr>
         <th>冠亚龙虎</th>
         <th colspan="4">冠亚和</th>
@@ -193,6 +193,18 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
   name: 'Statistics',
   })
 class Statistics extends Vue {
+  @Prop({ default: null })
+  public lotteryIssues !: any;
+
+  @Prop({ default: null })
+  public code !: any;
+
+  public get oLotteryIssues(): object {
+    let oLotteryIssues = this.lotteryIssues;
+    let aLotteryIssues = Object.values(oLotteryIssues);
+    let oLotteryIssue = aLotteryIssues;
+    return oLotteryIssue;
+  }
 }
 
 export default Statistics;

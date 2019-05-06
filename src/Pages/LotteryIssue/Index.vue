@@ -124,7 +124,7 @@
                   </div> 
                 </div>
               </div>
-                <Statistics v-show="showStatistics"/>
+                <Statistics v-show="showStatistics" :lotteryIssues="openNumber" :code="getCode"/>
                 <Changlong v-show="showChanglong"/>
                 <NumberDisribution v-show="showNumber"/>         
                 <Table :lotteryIssues="openNumber" :code="getCode"/> <!-- 表格动态切换  -->
