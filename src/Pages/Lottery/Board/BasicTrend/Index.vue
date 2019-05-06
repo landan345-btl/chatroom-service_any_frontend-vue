@@ -18,6 +18,7 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 // 2. Chart 要有 loading 动画
 // 3. 号码 为 0 折线会断
 @Component({
+  name: 'BasicTrend',
   components: {
     ITabs,
   },

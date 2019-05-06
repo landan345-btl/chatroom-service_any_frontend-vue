@@ -11,10 +11,10 @@
         <Summary-analysis />
       </TabPane>
       <TabPane :label="'基本走势'" :name="'basic-trend'">
-        <BasicTrend />
+        <Basic-trend />
       </TabPane>
       <TabPane :label="'冷热分析'" :name="'popular-anaylysis'">
-        <PopularAnalysis />
+        <Popular-analysis />
       </TabPane>
       <TabPane :label="'龙虎走势'" :name="'dragon-or-Tiger-trend'">
         <Dragon-or-tiger-trend />
@@ -84,6 +84,7 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 // 2. Chart 要有 loading 动画
 // 3. 号码 为 0 折线会断
 @Component({
+  name: 'Board',
   components: {
     Header,
     NavTop,
