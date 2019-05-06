@@ -11,6 +11,7 @@ import count from '@/filters/count/index';
 import padStart from '@/filters/padStart/index';
 import isFrontOrBack from '@/filters/isFrontOrBack/index';
 import FiveRow from '@/filters/FiveRow/index';
+import first from '@/filters/first/index';
 
 
 let oFilterPlugin = {
@@ -31,6 +32,7 @@ let oFilterPlugin = {
     Vue.filter('padStart' , padStart);
     Vue.filter('isFrontOrBack' , isFrontOrBack);
     Vue.filter('FiveRow' , FiveRow);
+    Vue.filter('first' , first);
   },
 };
 

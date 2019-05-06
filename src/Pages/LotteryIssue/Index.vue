@@ -124,10 +124,10 @@
                   </div> 
                 </div>
               </div>
-                <Statistics v-show="showStatistics" :lotteryIssues="openNumber" :code="getCode"/>
-                <Changlong v-show="showChanglong"/>
-                <NumberDisribution v-show="showNumber"/>         
-                <Table :lotteryIssues="openNumber" :code="getCode"/> <!-- 表格动态切换  -->
+                <Statistics v-show="showStatistics" :lotteryIssues="openNumber" :code="getCode" />
+                <Changlong v-show="showChanglong" />
+                <NumberDisribution v-show="showNumber" />         
+                <Table :lotteryIssues="openNumber" :code="getCode" /> <!-- 表格动态切换  -->
             </div> 
           </div>
         </main>
@@ -159,7 +159,6 @@ import Instant from '@/Pages/LotteryIssue/Instant/Index.vue';
 import CountDownTime from '@/Pages/LotteryIssue/CountDownTime/Index.vue';
 
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
-import { navTable , navnumber } from '@/const';
 import moment from 'moment';
 @Component({
   components: {

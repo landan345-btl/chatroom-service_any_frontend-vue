@@ -59,10 +59,10 @@
         <td>大</td>
         <td>小</td>
       </tr>
-      <tr>
+      <tr v-for="(num,index) in oLotteryIssues" :key='index'>
         <td>出现次数</td>
-        <td></td>
-        <td>11</td>
+        <td>{{ JSON.parse(num.numbers) | first }}</td>
+        <!-- <td>11</td>
         <td>45</td>
         <td>54</td>
         <td>45</td>
@@ -100,7 +100,7 @@
         <td>13</td>
         <td>03</td>
         <td>13</td>
-        <td>13</td>
+        <td>13</td> -->
       </tr>
       </tbody>
     </table>  
@@ -146,46 +146,46 @@
         <td>98</td>
         <td>77</td>
         <td>82</td>
-        <td>93</td>
+        <td></td>
       </tr>
     </table>   
    </div>
 </template>
 <style lang="scss">
-   .statistics {
-      width: 100%;
-      padding: 0 2vmin 2vmin;
-      border-bottom: 2px solid #e7e7e7;
-      box-sizing: border-box;
-        table {
-          background: #e6e6e6;
-          width: 100%;
-          tr {
-            height:4.5vmin;
-            line-height:4.5vmin;
-            th {
-              font-size: 1rem;
-              background: #f5f5f5;
-              text-align: center;
-              border:1px solid #e6e6e6;
-            }
-            td {
-              background:#fff;
-              color:#666;
-              text-align:center;
-              border:1px solid #e6e6e6;
-              font-size:0.8rem;
-              }
+  .statistics {
+    width: 100%;
+    padding: 0 2vmin 2vmin;
+    border-bottom: 2px solid #e7e7e7;
+    box-sizing: border-box;
+      table {
+        background: #e6e6e6;
+        width: 100%;
+        tr {
+          height:4.5vmin;
+          line-height:4.5vmin;
+          th {
+            font-size: 1rem;
+            background: #f5f5f5;
+            text-align: center;
+            border:1px solid #e6e6e6;
           }
+          td {
+            background:#fff;
+            color:#666;
+            text-align:center;
+            border:1px solid #e6e6e6;
+            font-size:0.8rem;
+            }
         }
-        .title {
-          width: 100%;
-          font-size: 1rem; 
-        } 
-        .m-t-1vmin {
-          margin-top:1vmin;
-      }  
-   }
+      }
+      .title {
+        width: 100%;
+        font-size: 1rem; 
+      } 
+      .m-t-1vmin {
+        margin-top:1vmin;
+    }  
+  }
 </style>
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
