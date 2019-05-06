@@ -1,6 +1,6 @@
 <template>
-  <div class="state-trend">
-    形态走势
+  <div class="history-number-statics">
+    历史号码统计
   </div>
 </template>
 <style scoped lang="scss">
@@ -20,9 +20,9 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
     ITabs,
   },
 })
-class BasicTrend extends Vue {
+class PopularAnalysis extends Vue {
 
 }
 
-export default BasicTrend;
+export default PopularAnalysis;
 </script>

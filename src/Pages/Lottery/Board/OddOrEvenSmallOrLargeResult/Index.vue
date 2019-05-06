@@ -1,6 +1,6 @@
 <template>
-  <div class="state-trend">
-    形态走势
+  <div class="odd-or-even-small-or-large-result">
+    单双大小路珠
   </div>
 </template>
 <style scoped lang="scss">
@@ -20,9 +20,9 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
     ITabs,
   },
 })
-class BasicTrend extends Vue {
+class Board extends Vue {
 
 }
 
-export default BasicTrend;
+export default Board;
 </script>

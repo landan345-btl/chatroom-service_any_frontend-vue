@@ -1,6 +1,6 @@
 <template>
-  <div class="state-trend">
-    形态走势
+  <div class="positon-trend">
+    定位走势
   </div>
 </template>
 <style scoped lang="scss">
@@ -9,6 +9,7 @@
 </style>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+
 import ITabs from '@/Components/ITabs/Index.vue';
 
 import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
@@ -20,9 +21,9 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
     ITabs,
   },
 })
-class BasicTrend extends Vue {
+class PositionTrend extends Vue {
 
 }
 
-export default BasicTrend;
+export default PositionTrend;
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="state-trend">
+  <div class="basic-trend">
     形态走势
   </div>
 </template>

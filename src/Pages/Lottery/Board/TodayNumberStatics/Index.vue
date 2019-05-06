@@ -1,5 +1,6 @@
 <template>
-  <div class="board">
+  <div class="today-number-statics">
+    今日号码统计
   </div>
 </template>
 <style scoped lang="scss">
@@ -9,10 +10,6 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import Footer from '@/Commons/Footer/Index.vue'; // @ is an alias to /src
-import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
-import NavTop from '@/Commons/NavTop/Index.vue';
-import NavRight from '@/Commons/NavRight/Index.vue';
 import ITabs from '@/Components/ITabs/Index.vue';
 
 import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
@@ -21,10 +18,6 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 // 3. 号码 为 0 折线会断
 @Component({
   components: {
-    Header,
-    NavTop,
-    NavRight,
-    Footer,
     ITabs,
   },
 })
