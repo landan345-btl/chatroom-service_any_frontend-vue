@@ -23,6 +23,11 @@
     background-color: #ffffff;
   }
 
+  /deep/ .ivu-tabs-nav .ivu-tabs-tab-active {  
+    @media only screen and (min-width: 1200px) {
+      font-size: 2vmin;
+    }
+  }
   /deep/ .parent .ivu-tabs-bar {
     border-bottom: 0px solid #dcdee2;
   }
