@@ -49,3 +49,24 @@
   }
 
 }
+
+.ivu-tabs.ivu-tabs-card { 
+  /deep/ .ivu-tabs-bar .ivu-tabs-tab-active {
+  // height: 52px;
+  // padding-bottom: 5px;
+  // background: #fff;
+  // transform: translateZ(0);
+  // border-color: #dcdee2;
+    color: #ff7b00;
+    line-height: 2;
+  }
+}
+
+// /deep/ .ivu-tabs.ivu-tabs-card {
+//   .ivu-tabs-bar {
+//     .ivu-tabs-tab-active {
+//       color: #ff7b00;
+//       line-height: 2;
+//     }
+//   }
+// }

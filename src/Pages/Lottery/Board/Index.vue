@@ -1,7 +1,35 @@
 <template>
   <div class="board">
-    <I-tabs>
-      <TabPane :label="'basic'" :name="'basic'">
+    <I-tabs :type="'card'">
+      <TabPane :label="'路珠分析'" :name="'anaylysis'">
+      </TabPane>
+      <TabPane :label="'综合分析'" :name="'anaylysis'">
+      </TabPane>
+      <TabPane :label="'基本走势'" :name="'anaylysis'">
+      </TabPane>
+      <TabPane :label="'冷热分析'" :name="'anaylysis'">
+      </TabPane>
+      <TabPane :label="'龙虎走势'" :name="'anaylysis'">
+      </TabPane>
+      <TabPane :label="'今日号码统计'" :name="'anaylysis'">
+      </TabPane>
+      <TabPane :label="'单双大小历史'" :name="'anaylysis'">
+      </TabPane>
+      <TabPane :label="'形态走势'" :name="'anaylysis'">
+      </TabPane>
+      <TabPane :label="'单双大小路珠'" :name="'anaylysis'">
+      </TabPane>
+      <TabPane :label="'历史号码统计'" :name="'anaylysis'">
+      </TabPane>
+      <TabPane :label="'两面统计'" :name="'anaylysis'">
+      </TabPane>
+      <TabPane :label="'每日长龙统计'" :name="'anaylysis'">
+      </TabPane>
+      <TabPane :label="'定位走势'" :name="'anaylysis'">
+      </TabPane>
+      <TabPane :label="'总和路珠'" :name="'anaylysis'">
+      </TabPane>
+      <TabPane :label="'玩法规则'" :name="'anaylysis'">
       </TabPane>
     </I-tabs>
   </div>
