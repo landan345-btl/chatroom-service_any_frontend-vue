@@ -1,6 +1,6 @@
 <template>
-  <div class="result-analysis">
-    这是路珠分析
+  <div class="today-two-side-number-statics">
+    今日双面统计......
   </div>
 </template>
 <style scoped lang="scss">
@@ -18,9 +18,8 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
   components: {
   },
 })
-class Result extends Vue {
-
+class TodayTwoSideNumberStatics extends Vue {
 }
 
-export default Result;
+export default TodayTwoSideNumberStatics;
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <div class="state-trend">
-    形态走势
+  <div class="basic-trend">
+    这是基本走势
   </div>
 </template>
 <style scoped lang="scss">

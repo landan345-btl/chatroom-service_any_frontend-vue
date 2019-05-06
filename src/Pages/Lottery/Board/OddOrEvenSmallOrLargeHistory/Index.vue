@@ -1,6 +1,6 @@
 <template>
   <div class="odd-or-even-small-or-large-history">
-    单双大小历史
+    这是单双大小历史
   </div>
 </template>
 <style scoped lang="scss">

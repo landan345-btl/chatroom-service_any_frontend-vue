@@ -1,6 +1,6 @@
 <template>
   <div class="two-side-statics">
-    两面统计
+    这是两面统计
   </div>
 </template>
 <style scoped lang="scss">

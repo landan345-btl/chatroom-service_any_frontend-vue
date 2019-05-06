@@ -1,6 +1,6 @@
 <template>
   <div class="dragon-or-tiger-trend">
-    龙虎走势
+    这是龙虎走势
   </div>
 </template>
 <style scoped lang="scss">

@@ -1,6 +1,6 @@
 <template>
   <div class="summation-result">
-    总和路珠
+    这是总和路珠
   </div>
 </template>
 <style scoped lang="scss">

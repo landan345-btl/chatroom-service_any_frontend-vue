@@ -1,6 +1,12 @@
 <template>
   <div class="lottery-issue">
-    即时开奖
+    <div class="top p-1 font-weight-bold">
+      <span>即时开奖</span>
+      <I-button class="ml-2" v-on:click="toggleTodayTwoSideNumberStatics()">今日双面/号码统计</I-button>
+      <I-button class="ml-2">长龙提醒</I-button>
+      <I-button class="ml-2">号码分析</I-button>
+    </div>
+    <Today-two-side-number-statics v-show="isTodayTwoSideNumberStatic"/>
   </div>
 </template>
 <style scoped lang="scss">
@@ -10,6 +16,8 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ITabs from '@/Components/ITabs/Index.vue';
+import IButton from '@/Components/IButton/Index.vue';
+import TodayTwoSideNumberStatics from './TodayTwoSideNumberStatics/Index.vue';
 
 import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 // TODO
@@ -18,10 +26,16 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 @Component({
   components: {
     ITabs,
+    IButton,
+    TodayTwoSideNumberStatics,
   },
 })
 class LotteryIssue extends Vue {
-
+  public isTodayTwoSideNumberStatic: boolean = true;
+  public toggleTodayTwoSideNumberStatics (): void{
+    debugger;
+    this.isTodayTwoSideNumberStatic = !this.isTodayTwoSideNumberStatic;
+  }
 }
 
 export default LotteryIssue;

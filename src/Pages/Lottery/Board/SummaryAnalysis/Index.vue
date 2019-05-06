@@ -1,6 +1,6 @@
 <template>
-  <div class="result-analysis">
-    综合分析
+  <div class="summary-analysis">
+    这是综合分析
   </div>
 </template>
 <style scoped lang="scss">

@@ -1,6 +1,6 @@
 <template>
   <div class="popular-analysis">
-    冷热分析
+    这是冷热分析
   </div>
 </template>
 <style scoped lang="scss">

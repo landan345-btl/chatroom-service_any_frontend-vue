@@ -1,6 +1,6 @@
 <template>
   <div class="odd-or-even-small-or-large-result">
-    单双大小路珠
+    这是单双大小路珠
   </div>
 </template>
 <style scoped lang="scss">
