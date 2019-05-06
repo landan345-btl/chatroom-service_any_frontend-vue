@@ -1,5 +1,9 @@
 <template>
   <div class="board">
+    <I-tabs>
+      <TabPane :label="'basic'" :name="'basic'">
+      </TabPane>
+    </I-tabs>
   </div>
 </template>
 <style scoped lang="scss">
