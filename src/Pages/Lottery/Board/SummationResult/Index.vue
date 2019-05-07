@@ -3,6 +3,14 @@
     <div class="top p-1 font-weight-bold">
       <span class="title">总和路珠</span>
     </div>
+    <div class="middle">
+      <div v-for="(oLotteryIssue, sKey) in lotteryIssues" :key="sKey">
+        {{ oLotteryIssue.numbers | JSONparse | sum | isOddOrEven }}
+      </div>
+      <div v-for="(oLotteryIssue, sKey) in lotteryIssues" :key="sKey">
+        {{ oLotteryIssue.numbers | JSONparse | sum | isSmallOrLarge(22, 23) }}
+      </div>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">
@@ -10,7 +18,7 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 
 import ITabs from '@/Components/ITabs/Index.vue';
 
@@ -25,7 +33,8 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
   },
 })
 class SummationResult extends Vue {
-
+  @Prop()
+  public lotteryIssues! :any;
 }
 
 export default SummationResult;
