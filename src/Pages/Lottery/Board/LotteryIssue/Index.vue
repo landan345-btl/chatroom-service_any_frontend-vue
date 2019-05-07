@@ -6,10 +6,10 @@
       <I-button class="ml-2">长龙提醒</I-button>
       <I-button class="ml-2">号码分析</I-button>
     </div>
-    <Today-two-side-number-statics v-show="isTodayTwoSideNumberStatic" class="p-1"/>
-    <Accumulation-remider class="p-1"/>
-    <Number-analysis class="p-1"/>
-    <Table class="p-1"/>
+    <Today-two-side-number-statics v-show="isTodayTwoSideNumberStatic" class="p-2"/>
+    <Accumulation-remider class="p-2"/>
+    <Number-analysis class="p-2"/>
+    <Table class="p-2"/>
   </div>
 </template>
 <style scoped lang="scss">

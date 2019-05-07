@@ -14,7 +14,7 @@
               </div>
             </span>
             <span class="title align-middle ml-2">
-              {{oLottery.name}}
+              {{ LOTTERIES[code].NAME| or(oLottery.name) }}
             </span>
           </div>
           <div class="line">
