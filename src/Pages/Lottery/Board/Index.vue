@@ -14,7 +14,7 @@
         <Basic-trend />
       </TabPane>
       <TabPane :label="'冷热分析'" :name="'popular-anaylysis'">
-        <Popular-analysis :lotteryIssues="lotteryIssues"/>
+        <Popular-analysis :hotWarnColdPositions="hotWarnColdPositions"/>
       </TabPane>
       <TabPane :label="'龙虎走势'" :name="'dragon-or-Tiger-trend'">
         <Dragon-or-tiger-trend />
@@ -111,6 +111,8 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 class Board extends Vue {
   @Prop()
   public lotteryIssues!: any;
+  @Prop()
+  public hotWarnColdPositions!: any;
 }
 
 export default Board;
