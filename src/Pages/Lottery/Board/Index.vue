@@ -1,8 +1,8 @@
 <template>
   <div class="board">
     <I-tabs :type="'card'" class="">
-      <TabPane :label="'即使开奖'" :name="'lottery-issue'">
-        <Lottery-issue />
+      <TabPane :label="'即使开奖'" :name="'lottery-issue'"> 
+        <Lottery-issue :lotteryIssue="lotteryIssue" :lottery="lottery" :code="code" :types="types"/>
       </TabPane>
       <TabPane :label="'路珠分析'" :name="'result-analysis'">
         <Result-analysis/>
@@ -56,7 +56,7 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 
 import Footer from '@/Commons/Footer/Index.vue'; // @ is an alias to /src
 import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
@@ -109,7 +109,17 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
   },
 })
 class Board extends Vue {
+  @Prop()
+  public lotteryIssue!: any;
 
+  @Prop()
+  public lottery!: any;
+
+  @Prop()
+  public code!: any;
+
+  @Prop()
+  public types!: any;
 }
 
 export default Board;
