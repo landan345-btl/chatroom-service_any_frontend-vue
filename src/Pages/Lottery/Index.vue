@@ -7,7 +7,7 @@
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
         <main class="mt-2 mb-2">
           <Top :lotteryIssue="getLastLotteryIssue" :lottery="getLottery" :code="getCode" :types="getTypes" v-if="getLastLotteryIssue && getLottery && getTypes"/>
-          <Board :lotteryIssues="getLotteryIssues" :hotWarnColdPositions="getHotWarnColdPositions"/>
+          <Board :lotteryIssue="getLotteryIssues" :hotWarnColdPositions="getHotWarnColdPositions" :lottery="getLottery" :code="getCode" :types="getTypes"  v-if="getLastLotteryIssue && getLottery && getTypes"/>
         </main>
       </el-col>
     </el-row>
@@ -135,6 +135,7 @@ class Lottery extends Vue {
       let aNumbers = oLotteryIssue.numbers;
       
     });
+    return false;
   }
 }
 

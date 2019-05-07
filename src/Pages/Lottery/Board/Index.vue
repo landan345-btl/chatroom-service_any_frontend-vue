@@ -1,11 +1,11 @@
 <template>
   <div class="board">
     <I-tabs :type="'card'" class="">
-      <TabPane :label="'即使开奖'" :name="'lottery-issue'">
-        <Lottery-issue :lotteryIssues="lotteryIssues"/>
+      <TabPane :label="'即使开奖'" :name="'lottery-issue'"> 
+        <Lottery-issue :lotteryIssue="lotteryIssue" :lottery="lottery" :code="code" :types="types"/>
       </TabPane>
       <TabPane :label="'路珠分析'" :name="'result-analysis'">
-        <Result-analysis/>
+        <Result-analysis />
       </TabPane>
       <TabPane :label="'综合分析'" :name="'summary-anaylysis'">
         <Summary-analysis />
@@ -113,6 +113,16 @@ class Board extends Vue {
   public lotteryIssues!: any;
   @Prop()
   public hotWarnColdPositions!: any;
+  public lotteryIssue!: any;
+
+  @Prop()
+  public lottery!: any;
+
+  @Prop()
+  public code!: any;
+
+  @Prop()
+  public types!: any;
 }
 
 export default Board;

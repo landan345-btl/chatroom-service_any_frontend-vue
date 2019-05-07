@@ -80,7 +80,7 @@
           </td>
           <td :class="{'text-even':'后多' === isFrontOrBack( JSON.parse(olottery.numbers))}">{{ JSON.parse(olottery.numbers) | isFrontOrBack }}</td>
           <td>总{{ JSON.parse(olottery.numbers) | sum |isSmallOrLarge(809,811)}}{{ JSON.parse(olottery.numbers) | sum |isOddOrEven }}</td>
-          <td>{{ JSON.parse(olottery.numbers) | sum | fiveRow }}</td>
+          <td>{{ JSON.parse(olottery.numbers) | sum | isFiveRow }}</td>
         </tr>
       </tbody>
     </table>
