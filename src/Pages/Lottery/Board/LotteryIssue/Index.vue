@@ -2,13 +2,13 @@
   <div class="lottery-issue">
     <div class="top p-1 font-weight-bold">
       <span class="title">即时开奖</span>
-      <I-button class="ml-2" @click="toggleTodayTwoSideNumberStatics()">今日双面/号码统计</I-button>
-      <I-button class="ml-2">长龙提醒</I-button>
-      <I-button class="ml-2">号码分析</I-button>
+      <I-button class="ml-2" v-on:handle-click="toggleTodayTwoSideNumberStatics()">今日双面/号码统计</I-button>
+      <I-button class="ml-2" v-on:handle-click="toggleAccumulationRemider()">长龙提醒</I-button>
+      <I-button class="ml-2" v-on:handle-click="toggleNumberAnalysis()">号码分析</I-button>
     </div>
-    <Today-two-side-number-statics v-show="isTodayTwoSideNumberStatic" class="p-2"/>
-    <Accumulation-remider class="p-2"/>
-    <Number-analysis class="p-2"/>
+    <Today-two-side-number-statics v-show="isTodayTwoSideNumberStaticShowed" class="p-2"/>
+    <Accumulation-remider v-show="isAccumulationRemiderShowed" class="p-2"/>
+    <Number-analysis v-show="isNumberAnalysisShowed" class="p-2"/>
     <Table class="p-2"/>
   </div>
 </template>
@@ -41,10 +41,20 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
   },
 })
 class LotteryIssue extends Vue {
-  public isTodayTwoSideNumberStatic: boolean = true;
+  public isTodayTwoSideNumberStaticShowed: boolean = false;
+  public isAccumulationRemiderShowed: boolean = false;
+  public isNumberAnalysisShowed: boolean = false;
+
   public toggleTodayTwoSideNumberStatics (): void{
-    debugger;
-    this.isTodayTwoSideNumberStatic = !this.isTodayTwoSideNumberStatic;
+    this.isTodayTwoSideNumberStaticShowed = !this.isTodayTwoSideNumberStaticShowed;
+  }
+
+  public toggleAccumulationRemider (): void{
+    this.isAccumulationRemiderShowed = !this.isAccumulationRemiderShowed;
+  }
+
+  public toggleNumberAnalysis (): void{
+    this.isNumberAnalysisShowed = !this.isNumberAnalysisShowed;
   }
 }
 
