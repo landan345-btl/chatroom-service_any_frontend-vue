@@ -58,7 +58,6 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 class Top extends Vue {
   @Prop()
   public lotteryIssue!: any;
-  
   /**
    * 后端所有的 API lottery 数据
    */

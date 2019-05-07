@@ -151,7 +151,7 @@ class Trend extends Vue {
 
   public handleParentLotteryIssues(sType: string): void {
     // 预设读取的彩种
-    const TYPES_TO_CODE:any = {
+    const TYPES_TO_CODE: any = {
       'PK10': 'MLAFT',
       'SSC': '3FSSC',
       '11X5': 'FF11X5',

@@ -58,9 +58,9 @@ const LOTTERIES: I_LOTTERIES = {
   'GDKLSF': {
     NAME: '广东快乐十分',
     SRC: '@/assets/images/GDKLSF-md.png',
-    TYPES: 'KL10F',
+    TYPES: 'KLSF',
     LOTTERY_ISSUE: {
-      BEFORE_UNTIL_NOW_TIME: 24 * 60 * 60 * 1000,
+      BEFORE_UNTIL_NOW_TIME: 1 * 60 * 60 * 1000,
     },
   },
   'PAOMA': {
@@ -188,13 +188,13 @@ const LOTTERIES: I_LOTTERIES = {
     SRC: '@/assets/images/FFK3-md.png',
     TYPES: 'K3',
     LOTTERY_ISSUE: {
-      BEFORE_UNTIL_NOW_TIME: 1 * 60 * 60 * 1000,
+      BEFORE_UNTIL_NOW_TIME: 24 * 60 * 60 * 1000,
     },
   },
   'TJKLSF': {
     NAME: '天津快乐十分',
     SRC: '@/assets/images/TJKLSF-md.png',
-    TYPES: 'KL10F',
+    TYPES: 'KLSF',
     LOTTERY_ISSUE: {
       BEFORE_UNTIL_NOW_TIME: 24 * 60 * 60 * 1000,
     },
@@ -202,7 +202,7 @@ const LOTTERIES: I_LOTTERIES = {
   'HUNKLSF': {
     NAME: '湖南快乐十分',
     SRC: '@/assets/images/HUNKLSF-md.png',
-    TYPES: 'KL10F',
+    TYPES: 'KLSF',
     LOTTERY_ISSUE: {
       BEFORE_UNTIL_NOW_TIME: 24 * 60 * 60 * 1000,
     },
@@ -366,7 +366,7 @@ const LOTTERIES: I_LOTTERIES = {
   'HK6': {
     NAME: '香港六合彩',
     SRC: '@/assets/images/HK6-md.png',
-    TYPES: 'KL8',
+    TYPES: 'SIX',
     LOTTERY_ISSUE: {
       BEFORE_UNTIL_NOW_TIME: 24 * 60 * 60 * 1000,
     },

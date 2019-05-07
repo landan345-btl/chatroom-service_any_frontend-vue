@@ -18,5 +18,8 @@ let oLotteryIssueAction = {                 // 时间
       oContext.commit('LOTTERY_ISSUE_MUTATION_SHOW', aLotteryIssues);
     });
   },
+  LOTTERY_ISSUE_ACTION_EMPTY(oContext: any, oQueries: object) {
+    return oContext.commit('LOTTERY_ISSUE_MUTATION_EMPTY');
+  },
 };
 export default oLotteryIssueAction;

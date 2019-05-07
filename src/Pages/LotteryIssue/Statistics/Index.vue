@@ -1,7 +1,7 @@
 <template>
    <div class="statistics">
     <div class="title">今日双面统计</div>
-    <table cellpadding="1" cellspacing="1">
+    <table>
       <tbody>
       <tr>
         <th>名次</th>
@@ -61,50 +61,50 @@
       </tr>
       <tr>
         <td>出现次数</td>
-        <td>103</td>
-        <td>54</td>
-        <td>45</td>
-        <td>54</td>
-        <td>45</td>
-        <td>85</td>
-        <td>55</td>
-        <td>52</td>
-        <td>22</td>
-        <td>10</td>
-        <td>03</td>
-        <td>13</td>
-        <td>03</td>
-        <td>10</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>103</td>
-        <td>13</td>
-        <td>03</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>03</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>13</td>
-        <td>03</td>
-        <td>13</td>
-        <td>13</td>
+        <td></td>
+        <!-- <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isSmallOrLarge}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isSmallOrLarge}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td>
+        <td>{{ JSON.parse(num.numbers) | substr(0,1) | isOddOrEven}}</td> -->
       </tr>
       </tbody>
     </table>  
-    <table cellpadding="1" cellspacing="1" class="m-t-1vmin">
+    <table class="m-t-1vmin">
       <tr>
         <th>冠亚龙虎</th>
         <th colspan="4">冠亚和</th>
@@ -146,46 +146,46 @@
         <td>98</td>
         <td>77</td>
         <td>82</td>
-        <td>93</td>
+        <td></td>
       </tr>
     </table>   
    </div>
 </template>
 <style lang="scss">
-   .statistics {
-      width: 100%;
-      padding: 0 2vmin 2vmin;
-      border-bottom: 2px solid #e7e7e7;
-      box-sizing: border-box;
-        table {
-          background: #e6e6e6;
-          width: 100%;
-          tr {
-            height:4.5vmin;
-            line-height:4.5vmin;
-            th {
-              font-size: 1rem;
-              background: #f5f5f5;
-              text-align: center;
-              border:1px solid #e6e6e6;
-            }
-            td {
-              background:#fff;
-              color:#666;
-              text-align:center;
-              border:1px solid #e6e6e6;
-              font-size:0.8rem;
-              }
+  .statistics {
+    width: 100%;
+    padding: 0 2vmin 2vmin;
+    border-bottom: 2px solid #e7e7e7;
+    box-sizing: border-box;
+      table {
+        background: #e6e6e6;
+        width: 100%;
+        tr {
+          height:4.5vmin;
+          line-height:4.5vmin;
+          th {
+            font-size: 1rem;
+            background: #f5f5f5;
+            text-align: center;
+            border:1px solid #e6e6e6;
           }
+          td {
+            background:#fff;
+            color:#666;
+            text-align:center;
+            border:1px solid #e6e6e6;
+            font-size:0.8rem;
+            }
         }
-        .title {
-          width: 100%;
-          font-size: 1rem; 
-        } 
-        .m-t-1vmin {
-          margin-top:1vmin;
-      }  
-   }
+      }
+      .title {
+        width: 100%;
+        font-size: 1rem; 
+      } 
+      .m-t-1vmin {
+        margin-top:1vmin;
+    }  
+  }
 </style>
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
@@ -193,6 +193,18 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
   name: 'Statistics',
   })
 class Statistics extends Vue {
+  @Prop({ default: null })
+  public lotteryIssues !: any;
+
+  @Prop({ default: null })
+  public code !: any;
+
+  public get oLotteryIssues(): object {
+    let oLotteryIssues = this.lotteryIssues;
+    let aLotteryIssues = Object.values(oLotteryIssues);
+    let oLotteryIssue = aLotteryIssues;
+    return oLotteryIssue;
+  }
 }
 
 export default Statistics;

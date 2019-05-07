@@ -33,7 +33,7 @@ html {
       display: inline-block;
       height: 15px;
       width: 15px;
-      background: url("~@/assets/images/numbers.png") no-repeat -386px -58px;
+      background: url("~@/assets/images/numbers.png") no-repeat -386px -59px;
      }
   }
 }
@@ -525,7 +525,7 @@ html {
 
   
   .number-red {background: url("~@/assets/images/square.png") no-repeat 0 -373px;width:36px!important;height:36px!important;}   /*红圈*/
-  .number-blue {background: url("~@/assets/images/square.png") no-repeat -46px -373px;width:36px!important;height:36px!important;}   /*蓝圈*/
+  .number-blue {background: url("~@/assets/images/square.png") no-repeat -46px -373px;width:36px;height:36px!important;}   /*蓝圈*/
 
   .k3-01 {background: url("~@/assets/images/square.png") no-repeat -424px 0;width:36px!important;height:40px!important;}
   .k3-02 {background: url("~@/assets/images/square.png") no-repeat -424px -43px;width:36px!important;height:40px!important;}
@@ -535,6 +535,9 @@ html {
   .k3-06 {background: url("~@/assets/images/square.png") no-repeat -424px -215px;width:36px!important;height:40px!important;}
   .number-blue-fine {background: url("~@/assets/images/square.png") no-repeat -138px -373px;width:36px!important;height:36px!important;}   /*蓝圈细*/ 
   .number-light-fine {background: url("~@/assets/images/square.png") no-repeat -199px -373px;width:36px!important;height:36px!important;}   /*浅蓝圈细*/
+  /* 六合彩 快乐十分 专用蓝色背景圆*/
+  .numblue { background: url("~@/assets/images/square.png") no-repeat -1px -47px;width:40px!important;height:37px!important; } 
+  .numred { background: url("~@/assets/images/square.png") no-repeat -91px -49px;width:37px!important;height:37px!important; }
 }
 
 .icon-3fpk10 {

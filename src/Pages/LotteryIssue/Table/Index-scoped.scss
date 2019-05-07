@@ -21,13 +21,44 @@
         padding: 0 7px;
         border:1px #B9B9B9 solid;
         vertical-align: middle;
-        ul{
-          height:37px;
-          li {
-            display: inline-block;
+        span{
+          div{
             margin:0.2vmin 0.05vmin 0 0;
-         }
+          }
+          // .pk10-mb {
+          //   margin-bottom: -0.4vmin;
+          // }
+          .six-lottery:last-child {
+             background: url('~@/assets/images/square.png') no-repeat 0 -373px;width:36px!important;height:36px!important;
+          }
+          .ssc-lottery i {
+            line-height: 3.6vmin;
+            color: black;
+          }
+          .number-cqssc {
+            width:4.8vmin;
+          }
         }
+        .pcdd em {
+          position: absolute;
+          display: inline-block;
+          width: 3.6vmin;
+          height: 4vmin;
+          line-height: 3.8vmin;
+          font-size: 2vmin;
+          text-align: center;
+          color: #fff;
+          border-radius: 5px;
+          z-index: 2;
+          top: 0;
+          background: url('~@/assets/images/nav-8kai.png') no-repeat -376px -373px;
+        }
+        em:nth-child(4) { 
+          left: 220px;
+         }
+        em:last-child { 
+          left: 155px;
+         }
         .background-color {
           background:transparent!important;
         }
@@ -69,5 +100,4 @@
       background:#fff;
     }
   }
-  // .odd, .small,  
 }

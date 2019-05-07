@@ -1,0 +1,32 @@
+.instant-lottery {
+  width:100%;
+  margin: 0 auto;
+  background: #fff;
+  margin-top: 0.2vmin;
+  padding: 3.5vmin 0;
+  .text-center {
+    width:96%;
+    margin: 0 auto;
+    position: relative;
+    .m-30 {
+      margin: auto;
+      position: absolute;
+      top: 50%; 
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      padding:1vmin 0;
+      span {
+        float: left;
+        margin-right:3vmin;
+        font-size:1.4vmin; 
+        /deep/ .el-button--text {
+          color: #666666;
+          padding: 0px 0px;
+        }
+      }
+    }
+  }
+}
+
+

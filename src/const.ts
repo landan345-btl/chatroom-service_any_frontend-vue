@@ -39,26 +39,6 @@ export const lotteryNumber = {   //  详情页用来切换数字组件
    PCDD : [ 'PC蛋蛋' ], // 特殊 有加号
 };
 
-export const navnumber = [  // 号码盒子类型
-  {name: 'number' , component: 'Lotterynumber'},
-  {name: 'numberCQSXL' , component: 'LotterynumberCQSXL'},
-  {name: 'numberK3' , component: 'LotterynumberK3'},
-  {name: 'numberPCDD' , component: 'LotterynumberPCDD'},
-  {name: 'numberSSC' , component: 'LotterynumberSSC'},
-];
-
-export const navTable = [ // 表格类型
-   {name: 'SG' , component: 'LotteryTable'},
-   {name: 'BJKL8' , component: 'LotteryTableBJKL8'},
-   {name: 'K3' , component: 'LotteryTableK3'},
-   {name: 'PCDD' , component: 'LotteryTablePCDD'},
-   {name: 'SYX5' , component: 'LotteryTableSYX5'},
-   {name: 'TC' , component: 'LotteryTableTC'},
-   {name: 'XY' , component: 'LotteryTableXY'},
-   {name: 'SSC' , component: 'LotteryTableSSC'},
-   {name: 'KLSF' , component: 'LotteryTableKLSF'},
-];
-
 
 
 
