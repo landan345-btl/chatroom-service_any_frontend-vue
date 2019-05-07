@@ -493,51 +493,55 @@ html {
     background: url('~@/assets/images/numbers.png') no-repeat -424px -215px;
   }
   
-  .odd {
-    background: url("~@/assets/images/square.png") no-repeat -119px -237px;
-    width:34px;height:34px;
+  .number-odd {
+    background: url("~@/assets/images/numbers-2.png") no-repeat -119px -237px;
+    width:34px;
+    height:34px;
+    color: rgba($color: #000000, $alpha: 0);
   }/*方形背景单*/ 
-  .even {
-    background: url("~@/assets/images/square.png") no-repeat -79px -237px;
-     width:34px;height:34px;
+  .number-even {
+    background: url("~@/assets/images/numbers-2.png") no-repeat -79px -237px;
+    width:34px;
+    height:34px;
+    color: rgba($color: #000000, $alpha: 0);
   } /*方形背景双*/
-  .background-sm {background: url("~@/assets/images/square.png") no-repeat -40px -237px;width:34px;height:34px;}/*方形背景小*/
-  .background-lg {background: url("~@/assets/images/square.png") no-repeat 0 -237px;width:34px;height:34px;}/*方形背景大*/
+  .background-sm {background: url("~@/assets/images/numbers-2.png") no-repeat -40px -237px;width:34px;height:34px;}/*方形背景小*/
+  .background-lg {background: url("~@/assets/images/numbers-2.png") no-repeat 0 -237px;width:34px;height:34px;}/*方形背景大*/
 
   /*详情页小方片数字*/
-  .num-01 {background: url("~@/assets/images/square.png") no-repeat -245px -284px;width:34px!important;height:34px!important;}
-  .num-02 {background: url("~@/assets/images/square.png") no-repeat -41px -284px;width:34px!important;height:34px!important;}
-  .num-03 {background: url("~@/assets/images/square.png") no-repeat -82px -284px;width:34px!important;height:34px!important;}
-  .num-04 {background: url("~@/assets/images/square.png") no-repeat -122px -284px;width:34px!important;height:34px!important;}
-  .num-05 {background: url("~@/assets/images/square.png") no-repeat -285px -284px;width:34px!important;height:34px!important;}
-  .num-06 {background: url("~@/assets/images/square.png") no-repeat 0 -284px;width:34px!important;height:34px!important;}
-  .num-07 {background: url("~@/assets/images/square.png") no-repeat -204px -284px;width:34px!important;height:34px!important;}
-  .num-08 {background: url("~@/assets/images/square.png") no-repeat -163px -284px;width:34px!important;height:34px!important;}
-  .num-09 {background: url("~@/assets/images/square.png") no-repeat -326px -284px;width:34px!important;height:34px!important;}
-  .num-010 {background: url("~@/assets/images/square.png") no-repeat -367px -284px;width:34px!important;height:34px!important;}
+  .num-01 {background: url("~@/assets/images/numbers-2.png") no-repeat -245px -284px;width:34px!important;height:34px!important;}
+  .num-02 {background: url("~@/assets/images/numbers-2.png") no-repeat -41px -284px;width:34px!important;height:34px!important;}
+  .num-03 {background: url("~@/assets/images/numbers-2.png") no-repeat -82px -284px;width:34px!important;height:34px!important;}
+  .num-04 {background: url("~@/assets/images/numbers-2.png") no-repeat -122px -284px;width:34px!important;height:34px!important;}
+  .num-05 {background: url("~@/assets/images/numbers-2.png") no-repeat -285px -284px;width:34px!important;height:34px!important;}
+  .num-06 {background: url("~@/assets/images/numbers-2.png") no-repeat 0 -284px;width:34px!important;height:34px!important;}
+  .num-07 {background: url("~@/assets/images/numbers-2.png") no-repeat -204px -284px;width:34px!important;height:34px!important;}
+  .num-08 {background: url("~@/assets/images/numbers-2.png") no-repeat -163px -284px;width:34px!important;height:34px!important;}
+  .num-09 {background: url("~@/assets/images/numbers-2.png") no-repeat -326px -284px;width:34px!important;height:34px!important;}
+  .num-010 {background: url("~@/assets/images/numbers-2.png") no-repeat -367px -284px;width:34px!important;height:34px!important;}
 
-  .round-odd {background: url("~@/assets/images/square.png") no-repeat -138px -327px;width:36px!important;height:36px!important;}/*圆形背景单*/ 
-  .round-even {background: url("~@/assets/images/square.png") no-repeat -90px -327px;width:36px!important;height:36px!important;} /*圆形背景双*/
+  .round-odd {background: url("~@/assets/images/numbers-2.png") no-repeat -138px -327px;width:36px!important;height:36px!important;}/*圆形背景单*/ 
+  .round-even {background: url("~@/assets/images/numbers-2.png") no-repeat -90px -327px;width:36px!important;height:36px!important;} /*圆形背景双*/
 
-  .background-round-sm {background: url("~@/assets/images/square.png") no-repeat -46px -327px;width:36px!important;height:36px!important;}/*圆形背景小*/
-  .background-round-lg {background: url("~@/assets/images/square.png") no-repeat 0 -327px;width:36px!important;height:36px!important;} /*圆形背景大*/
-  .background-round-sum {background: url("~@/assets/images/square.png") no-repeat -318px -326px;width:36px!important;height:36px!important;} /*圆形背景和*/
+  .background-round-sm {background: url("~@/assets/images/numbers-2.png") no-repeat -46px -327px;width:36px!important;height:36px!important;}/*圆形背景小*/
+  .background-round-lg {background: url("~@/assets/images/numbers-2.png") no-repeat 0 -327px;width:36px!important;height:36px!important;} /*圆形背景大*/
+  .background-round-sum {background: url("~@/assets/images/numbers-2.png") no-repeat -318px -326px;width:36px!important;height:36px!important;} /*圆形背景和*/
 
   
-  .number-red {background: url("~@/assets/images/square.png") no-repeat 0 -373px;width:36px!important;height:36px!important;}   /*红圈*/
-  .number-blue {background: url("~@/assets/images/square.png") no-repeat -46px -373px;width:36px;height:36px!important;}   /*蓝圈*/
+  .number-red {background: url("~@/assets/images/numbers-2.png") no-repeat 0 -373px;width:36px!important;height:36px!important;}   /*红圈*/
+  .number-blue {background: url("~@/assets/images/numbers-2.png") no-repeat -46px -373px;width:36px;height:36px!important;}   /*蓝圈*/
 
-  .k3-01 {background: url("~@/assets/images/square.png") no-repeat -424px 0;width:36px!important;height:40px!important;}
-  .k3-02 {background: url("~@/assets/images/square.png") no-repeat -424px -43px;width:36px!important;height:40px!important;}
-  .k3-03 {background: url("~@/assets/images/square.png") no-repeat -424px -86px;width:36px!important;height:40px!important;}
-  .k3-04 {background: url("~@/assets/images/square.png") no-repeat -424px -129px;width:36px!important;height:40px!important;}
-  .k3-05 {background: url("~@/assets/images/square.png") no-repeat -424px -172px;width:36px!important;height:40px!important;}
-  .k3-06 {background: url("~@/assets/images/square.png") no-repeat -424px -215px;width:36px!important;height:40px!important;}
-  .number-blue-fine {background: url("~@/assets/images/square.png") no-repeat -138px -373px;width:36px!important;height:36px!important;}   /*蓝圈细*/ 
-  .number-light-fine {background: url("~@/assets/images/square.png") no-repeat -199px -373px;width:36px!important;height:36px!important;}   /*浅蓝圈细*/
+  .k3-01 {background: url("~@/assets/images/numbers-2.png") no-repeat -424px 0;width:36px!important;height:40px!important;}
+  .k3-02 {background: url("~@/assets/images/numbers-2.png") no-repeat -424px -43px;width:36px!important;height:40px!important;}
+  .k3-03 {background: url("~@/assets/images/numbers-2.png") no-repeat -424px -86px;width:36px!important;height:40px!important;}
+  .k3-04 {background: url("~@/assets/images/numbers-2.png") no-repeat -424px -129px;width:36px!important;height:40px!important;}
+  .k3-05 {background: url("~@/assets/images/numbers-2.png") no-repeat -424px -172px;width:36px!important;height:40px!important;}
+  .k3-06 {background: url("~@/assets/images/numbers-2.png") no-repeat -424px -215px;width:36px!important;height:40px!important;}
+  .number-blue-fine {background: url("~@/assets/images/numbers-2.png") no-repeat -138px -373px;width:36px!important;height:36px!important;}   /*蓝圈细*/ 
+  .number-light-fine {background: url("~@/assets/images/numbers-2.png") no-repeat -199px -373px;width:36px!important;height:36px!important;}   /*浅蓝圈细*/
   /* 六合彩 快乐十分 专用蓝色背景圆*/
-  .numblue { background: url("~@/assets/images/square.png") no-repeat -1px -47px;width:40px!important;height:37px!important; } 
-  .numred { background: url("~@/assets/images/square.png") no-repeat -91px -49px;width:37px!important;height:37px!important; }
+  .numblue { background: url("~@/assets/images/numbers-2.png") no-repeat -1px -47px;width:40px!important;height:37px!important; } 
+  .numred { background: url("~@/assets/images/numbers-2.png") no-repeat -91px -49px;width:37px!important;height:37px!important; }
 }
 
 .icon-3fpk10 {

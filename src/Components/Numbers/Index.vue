@@ -4,11 +4,12 @@
       :class="[size, 
                '单' === isOddOrEven(iNumber) ? 'number-odd' : '',
                '双' === isOddOrEven(iNumber) ? 'number-even' : '',
-               '小' === isSmallOrLarge(smallUpperBound, largelowerBound) ? 'number-small' : '',
-               '大' === isSmallOrLarge(smallUpperBound, largelowerBound) ? 'number-large' : '',
-               'number-' + types.toLowerCase(), 
+               // '小' === isSmallOrLarge(smallUpperBound, largelowerBound) ? 'number-small' : '',
+               //'大' === isSmallOrLarge(smallUpperBound, largelowerBound) ? 'number-large' : '',
+               // 'number-' + types.toLowerCase(), 
                'number-'+ code.toLowerCase(), 
-               'number-'+ types.toLowerCase() + '-' + iNumber]" v-for="(iNumber, sKey) in numbers" :key="sKey" v-randomNumber="{ isRandom: isRandom }">
+               //'number-'+ types.toLowerCase() + '-' + iNumber
+               ]" v-for="(iNumber, sKey) in numbers" :key="sKey" v-randomNumber="{ isRandom: isRandom }">
       <span>{{iNumber}}</span>
     </div>
   </div>
