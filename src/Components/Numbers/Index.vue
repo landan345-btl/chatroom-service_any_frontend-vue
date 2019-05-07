@@ -1,16 +1,19 @@
 <template>
-  <div class="numbers">
+  <div class="numbers" 
+    :class="[ 'NUMBER' === status ? 'status-number' : '', 
+              'SMALL_LARGE' === status ? 'status-small-large' : '',
+              'ODD_EVEN' === status ? 'status-odd-even' : '', ]">
     <div class="number" 
       :class="[size, 
                '单' === isOddOrEven(iNumber) ? 'number-odd' : '',
                '双' === isOddOrEven(iNumber) ? 'number-even' : '',
-               // '小' === isSmallOrLarge(smallUpperBound, largelowerBound) ? 'number-small' : '',
-               //'大' === isSmallOrLarge(smallUpperBound, largelowerBound) ? 'number-large' : '',
-               // 'number-' + types.toLowerCase(), 
+               '小' === isSmallOrLarge(smallUpperBound, largelowerBound) ? 'number-small' : '',
+               '大' === isSmallOrLarge(smallUpperBound, largelowerBound) ? 'number-large' : '',
+               'number-' + types.toLowerCase(), 
                'number-'+ code.toLowerCase(), 
-               //'number-'+ types.toLowerCase() + '-' + iNumber
+               'number-'+ types.toLowerCase() + '-' + iNumber
                ]" v-for="(iNumber, sKey) in numbers" :key="sKey" v-randomNumber="{ isRandom: isRandom }">
-      <span>{{iNumber}}</span>
+      <span>{{iNumber}} {{status}}</span>
     </div>
   </div>
 </template>
@@ -42,6 +45,8 @@ class Numbers extends Vue {
   @Prop()
   public isRandom!: boolean;
 
+  @Prop()
+  public status!: string;
 
 }
 export default Numbers;

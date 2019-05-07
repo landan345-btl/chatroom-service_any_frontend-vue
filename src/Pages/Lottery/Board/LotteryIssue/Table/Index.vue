@@ -16,13 +16,12 @@
         <td>{{lotterys.no}}</td>
         <td>
           <span v-if="switcher==='SHOW_NUMBER'">
-            <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false"/>
+            <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" :status="'NUMBER'"/>
           </span>
           <span v-else-if="switcher==='SHOW_SMALL_LARGE'">
-            <Numbers :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false"/>
           </span>
           <span v-else-if="switcher==='SHOW_ODD_EVEN'">
-           33
+            <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" :status="'ODD_EVEN'"/>
           </span>
         </td>
         <td>{{ JSON.parse(lotterys.numbers) | sum([0, 1])}}</td>
