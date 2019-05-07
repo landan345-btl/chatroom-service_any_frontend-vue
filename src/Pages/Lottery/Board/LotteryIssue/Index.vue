@@ -45,15 +45,15 @@ class LotteryIssue extends Vue {
   public isAccumulationRemiderShowed: boolean = false;
   public isNumberAnalysisShowed: boolean = false;
 
-  public toggleTodayTwoSideNumberStatics (): void{
+  public toggleTodayTwoSideNumberStatics(): void {
     this.isTodayTwoSideNumberStaticShowed = !this.isTodayTwoSideNumberStaticShowed;
   }
 
-  public toggleAccumulationRemider (): void{
+  public toggleAccumulationRemider(): void {
     this.isAccumulationRemiderShowed = !this.isAccumulationRemiderShowed;
   }
 
-  public toggleNumberAnalysis (): void{
+  public toggleNumberAnalysis(): void {
     this.isNumberAnalysisShowed = !this.isNumberAnalysisShowed;
   }
 }

@@ -11,8 +11,8 @@
     <div class="head">
       <span>查看大小分布:</span>
       <span :class="{'active' :oHead.on}" 
-        @click="showNumber1(index)" v-for="(oHead,index) in recordHeads1" 
-        :key="index">{{oHead.title}}
+        @click="showSmallOrLarge(oindex)" v-for="(oHead,oindex) in recordHeads1" 
+        :key="oindex">{{oHead.title}}
         <i></i>
       </span>
       <span class="reset">还原</span>
@@ -51,6 +51,10 @@ class TodayTwoSideNumberStatics extends Vue {
   public showNumbers(index: number) {
    this.recordHeads[index].on = !this.recordHeads[index].on;
    this.send(index + 1);
+  }
+  public showSmallOrLarge(oindex: number) {
+   this.recordHeads1[oindex].on = !this.recordHeads1[oindex].on;
+   this.send(oindex + 1);
   }
 }
 
