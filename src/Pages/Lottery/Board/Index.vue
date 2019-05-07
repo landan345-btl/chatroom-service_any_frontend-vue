@@ -2,7 +2,7 @@
   <div class="board">
     <I-tabs :type="'card'" class="">
       <TabPane :label="'即使开奖'" :name="'lottery-issue'">
-        <Lottery-issue />
+        <Lottery-issue :lotteryIssues="lotteryIssues"/>
       </TabPane>
       <TabPane :label="'路珠分析'" :name="'result-analysis'">
         <Result-analysis/>
@@ -14,7 +14,7 @@
         <Basic-trend />
       </TabPane>
       <TabPane :label="'冷热分析'" :name="'popular-anaylysis'">
-        <Popular-analysis />
+        <Popular-analysis :lotteryIssues="lotteryIssues"/>
       </TabPane>
       <TabPane :label="'龙虎走势'" :name="'dragon-or-Tiger-trend'">
         <Dragon-or-tiger-trend />
@@ -56,7 +56,7 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 
 import Footer from '@/Commons/Footer/Index.vue'; // @ is an alias to /src
 import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
@@ -109,7 +109,8 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
   },
 })
 class Board extends Vue {
-
+  @Prop()
+  public lotteryIssues!: any;
 }
 
 export default Board;
