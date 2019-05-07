@@ -11,7 +11,7 @@
                'number-'+ types.toLowerCase() + '-' + iNumber]" v-for="(iNumber, sKey) in numbers" :key="sKey" v-randomNumber>
       <span>{{iNumber}}</span>
     </div>
-      <font-awesome-icon icon="plus" class=""/>
+      <!-- <font-awesome-icon icon="plus" class=""/> -->
   </div>
 </template>
 

@@ -6,11 +6,7 @@
           <th>时间</th>
           <th>期数</th>
           <th class="number-btns">
-            <span @click="showTitle(index)" 
-              :class="{spanselect:index==titleStatus}" 
-              v-for="(item,index) in titles" 
-              :key="index">{{item}}
-            </span>
+            <span @click="showTitle(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
           </th>
           <th colspan="3">冠亚和</th>
           <th colspan="5">1-5龙虎</th>
@@ -19,19 +15,22 @@
           <td>{{ olottery.added_time }}</td>
           <td>{{ olottery.no}}</td>
           <td>
-            <ul class="numbers" v-if="switcher==='0'">
-              <li v-for="( number , i ) in JSON.parse(olottery.numbers)" :key="i" 
-                :class="['num-0'+number]" class="pk10-mb"></li>
-            </ul>
-            <ul class="numbers" v-else-if="switcher==='1'">
-              <li :class="{'background-sm' : (number<=5), 'background-lg' : (number>5)}" 
-                v-for="( number , i ) in JSON.parse(olottery.numbers)" :key="i" class="pk10-mb"></li>
-            </ul>
-            <ul class="numbers" v-else-if="switcher==='2'">
-              <li :class="{'odd' : (number % 2==1), 'even' : (number % 2==0)}" 
+            <span v-if="switcher==='0'">
+              <Numbers :code="code" :numbers="JSON.parse(olottery.numbers)" :types="lotteryTypes[ code ].TYPES" />
+              <!-- <li v-for="( number , i ) in JSON.parse(olottery.numbers)" :key="i" 
+                :class="['num-0'+number]" class="pk10-mb"></li> -->
+            </span>
+            <span v-else-if="switcher==='1'">
+              <Numbers :code="code" :numbers="isSmallOrLarge(JSON.parse(olottery.numbers),4,5)" :types="lotteryTypes[ code ].TYPES" />
+              <!-- <li :class="{'background-sm' : (number<=5), 'background-lg' : (number>5)}" 
+                v-for="( number , i ) in JSON.parse(olottery.numbers)" :key="i" class="pk10-mb"></li> -->
+            </span>
+            <span v-else-if="switcher==='2'">
+              <Numbers :code="code" :numbers="isOddOrEven(iNumber)(JSON.parse(olottery.numbers) )" :types="lotteryTypes[ code ].TYPES" />
+              <!-- <li :class="{'odd' : (number % 2==1), 'even' : (number % 2==0)}" 
                 v-for="( number , i ) in JSON.parse(olottery.numbers)" :key="i" class="pk10-mb">
-              </li> 
-            </ul>
+              </li>  -->
+            </span>
           </td>
           <td>{{ JSON.parse(olottery.numbers) | sum([0, 1])}}</td>
           <td :class="{
@@ -379,9 +378,13 @@
  // import _ from 'lodash';
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
+import Numbers from '@/Components/Numbers/Index.vue';
 
 @Component({
   name: 'Table',
+    components: {
+      Numbers,
+    },
   })
 class Table extends Vue {
   public lotteryTypes = LOTTERIES;

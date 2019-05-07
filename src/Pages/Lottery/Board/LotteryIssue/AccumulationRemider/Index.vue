@@ -1,6 +1,19 @@
 <template>
   <div class="accumulation-remider">
-    长龙提醒......
+    <div class="mg-l-2">
+    <div class="title">长龙连开提醒</div>
+    <div class="remind">
+      <ul>
+        <li v-for=" item in 13" :key="item">
+          <span>亚军</span>:
+            &nbsp;&nbsp;
+          <span>双</span>
+            &nbsp;&nbsp;
+          <span class="color-red">6&nbsp;&nbsp;</span>期
+        </li>
+      </ul>
+    </div>
+  </div>
   </div>
 </template>
 <style scoped lang="scss">

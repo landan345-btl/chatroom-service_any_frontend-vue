@@ -1,3 +1,31 @@
 .today-two-side-number-statics {
-
-}
+    width: 100%;
+    padding: 0 2vmin 2vmin;
+    border-bottom: 2px solid #e7e7e7;
+    box-sizing: border-box;
+      table {
+        background: #e6e6e6;
+        width: 100%;
+        tr {
+          height:4.5vmin;
+          line-height:4.5vmin;
+          th {
+            font-size: 1rem;
+            background: #f5f5f5;
+            text-align: center;
+            border:1px solid #e6e6e6;
+          }
+          td {
+            background:#fff;
+            color:#666;
+            text-align:center;
+            border:1px solid #e6e6e6;
+            font-size:0.8rem;
+          }
+        }
+      }
+      .title {
+        width: 100%;
+        font-size: 1rem; 
+      }  
+  }
