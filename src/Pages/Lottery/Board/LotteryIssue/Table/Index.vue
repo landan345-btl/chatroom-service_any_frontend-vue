@@ -15,14 +15,7 @@
         <td>{{lotterys.added_time}}</td>
         <td>{{lotterys.no}}</td>
         <td>
-          <span v-if="switcher==='SHOW_NUMBER'">
-            <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" :status="'NUMBER'"/>
-          </span>
-          <span v-else-if="switcher==='SHOW_SMALL_LARGE'">
-          </span>
-          <span v-else-if="switcher==='SHOW_ODD_EVEN'">
-            <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" :status="'ODD_EVEN'"/>
-          </span>
+          <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" :status="switcher"/>
         </td>
         <td>{{ JSON.parse(lotterys.numbers) | sum([0, 1])}}</td>
           <td :class="{'text-big' : '大' === isSmallOrLarge(sum(JSON.parse(lotterys.numbers),[0,1]),11,12)}">
@@ -94,11 +87,11 @@ class Table extends Vue {
   public switchStatus(index: number) {
     this.titleStatus = index;
     if ( this.titleStatus === 0 ) {
-      this.switcher = 'SHOW_NUMBER';
+      this.switcher = 'NUMBER';
     } else if ( this.titleStatus === 1 ) {
-      this.switcher = 'SHOW_SMALL_LARGE';
+      this.switcher = 'SMALL_LARGE';
     } else {
-      this.switcher = 'SHOW_ODD_EVEN';
+      this.switcher = 'ODD_EVEN';
     }
   }
 }

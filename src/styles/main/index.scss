@@ -528,7 +528,18 @@ html {
 }
 
 .status-small-large {
-
+  .number-small {
+    background: url("~@/assets/images/numbers-2.png") no-repeat -40px -237px;
+    width:34px;
+    height:34px;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-large {
+    background: url("~@/assets/images/numbers-2.png") no-repeat 0 -237px;
+    width:34px;
+    height:34px;
+    color: rgba($color: #000000, $alpha: 0);
+  } 
 }
 
 .status-odd-even {
