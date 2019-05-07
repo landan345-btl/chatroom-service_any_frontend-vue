@@ -1,9 +1,10 @@
 let oRandomNumber =  {   // 开奖时间进度条  时间倒数
-  inserted: (oElement: any) => {
+  inserted: (oElement: any, oBinding: any) => {
     let sClassName = oElement.className;
-
     let pProcess = Promise.resolve();
-    
+    if (oBinding.value.isRandom === false ) {
+      return;
+    }
     pProcess.then(() => {
       return new Promise((cResolve, cReject) => {
         setTimeout(() => {
