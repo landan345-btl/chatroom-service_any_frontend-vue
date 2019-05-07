@@ -16,7 +16,7 @@
         <td>{{lotterys.no}}</td>
         <td>
           <span v-if="switcher==='0'">
-          11
+            <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" />
           </span>
           <span v-else-if="switcher==='1'">
            22
@@ -57,6 +57,7 @@ import Numbers from '@/Components/Numbers/Index.vue';
 @Component({
   name: 'Table',
   components: {
+    Numbers,
   },
 })
 class Table extends Vue {
