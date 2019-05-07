@@ -6,7 +6,7 @@
         <th>时间</th>
         <th>期数</th>
         <th class="number-btns">
-           <span @click="showTitle(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
+          <span @click="showTitle(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
         </th>
         <th colspan="3">冠亚和</th>
         <th colspan="5">1-5龙虎</th>
@@ -16,7 +16,7 @@
         <td>{{lotterys.no}}</td>
         <td>
           <span v-if="switcher==='0'">
-            <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" />
+            <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false"/>
           </span>
           <span v-else-if="switcher==='1'">
            22
@@ -51,9 +51,6 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 import Numbers from '@/Components/Numbers/Index.vue';
 
-// TODO
-// 2. Chart 要有 loading 动画
-// 3. 号码 为 0 折线会断
 @Component({
   name: 'Table',
   components: {
@@ -79,7 +76,6 @@ class Table extends Vue {
 
   public titleStatus: any = 0;
   public switcher: any = '0';
-
 
   public get oLotteryIssues(): object {
     let oLotteryIssues = this.lotteryIssue;

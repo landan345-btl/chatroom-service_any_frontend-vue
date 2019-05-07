@@ -5,7 +5,7 @@
         <Lottery-issue :lotteryIssue="lotteryIssue" :lottery="lottery" :code="code" :types="types"/>
       </TabPane>
       <TabPane :label="'路珠分析'" :name="'result-analysis'">
-        <Result-analysis/>
+        <Result-analysis />
       </TabPane>
       <TabPane :label="'综合分析'" :name="'summary-anaylysis'">
         <Summary-analysis />
@@ -14,7 +14,7 @@
         <Basic-trend />
       </TabPane>
       <TabPane :label="'冷热分析'" :name="'popular-anaylysis'">
-        <Popular-analysis :lotteryIssues="lotteryIssues"/>
+        <Popular-analysis />
       </TabPane>
       <TabPane :label="'龙虎走势'" :name="'dragon-or-Tiger-trend'">
         <Dragon-or-tiger-trend />
