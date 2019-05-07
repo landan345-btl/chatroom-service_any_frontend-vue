@@ -53,6 +53,7 @@ class PopularAnalysis extends Vue {
         });
 
     }
+    return false;
   }
 }
 
