@@ -6,7 +6,7 @@
         <th>时间</th>
         <th>期数</th>
         <th class="number-btns">
-          <span @click="showTitle(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
+          <span @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
         </th>
         <th colspan="3">冠亚和</th>
         <th colspan="5">1-5龙虎</th>
@@ -15,13 +15,13 @@
         <td>{{lotterys.added_time}}</td>
         <td>{{lotterys.no}}</td>
         <td>
-          <span v-if="switcher==='0'">
+          <span v-if="switcher==='SHOW_NUMBER'">
             <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false"/>
           </span>
-          <span v-else-if="switcher==='1'">
-           22
+          <span v-else-if="switcher==='SHOW_SMALL_LARGE'">
+            <Numbers :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false"/>
           </span>
-          <span v-else-if="switcher==='2'">
+          <span v-else-if="switcher==='SHOW_ODD_EVEN'">
            33
           </span>
         </td>
@@ -92,14 +92,14 @@ class Table extends Vue {
   // console.log(this.number);
   }
 
-  public showTitle(index: number) {
+  public switchStatus(index: number) {
     this.titleStatus = index;
     if ( this.titleStatus === 0 ) {
-      this.switcher = '0';
+      this.switcher = 'SHOW_NUMBER';
     } else if ( this.titleStatus === 1 ) {
-      this.switcher = '1';
+      this.switcher = 'SHOW_SMALL_LARGE';
     } else {
-      this.switcher = '2';
+      this.switcher = 'SHOW_ODD_EVEN';
     }
   }
 }
