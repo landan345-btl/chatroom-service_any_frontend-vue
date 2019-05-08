@@ -4,6 +4,7 @@
       <span class="title font-weight-bold">分析工具</span>
       <span class="more position-absolute">更多</span>
     </div>
+    <div class="line"> </div>
     <div class="lotteries">
       <div v-for="(oLottery, iLotteryId, iIndex) in lotteries" :key="iIndex">
         <div class="line" v-if="(iIndex - Math.floor((Math.random() * 8) + 1)) >= -1 && (iIndex - Math.floor((Math.random() * 8) + 1)) <= 1"></div>
