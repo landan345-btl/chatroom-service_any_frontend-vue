@@ -79,6 +79,9 @@ let oAxiosHelper = new AxiosHelper();
 })
 class Home extends Vue {
   public timer: any;
+  public beforeCreate(): void {
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
+  }
   public created(): void {
     let $root: any = this.$root;
     this.$store.dispatch('LOTTERY_ACTION_SHOW', {});

@@ -18,16 +18,16 @@ let oLotteryMutation = {
      // debugger;
     state.lottery_issues = mLotteryIssues;
   },
-  LOTTERY_MUTATION_ADD(state: any, mLotteries: any[]): void {
+  LOTTERY_ISSUE_MUTATION_ADD(state: any, mLotteries: any[]): void {
     // debugger;
   },
-  LOTTERY_MUTATION_EDIT(state: any, mLotteries: any[]): void {
+  LOTTER_ISSUE_MUTATION_EDIT(state: any, mLotteries: any[]): void {
     // debugger;
   },
-  LOTTERY_MUTATION_REMOVE(state: any, mLotteries: any[]): void {
+  LOTTERY_ISSUE_MUTATION_REMOVE(state: any, mLotteries: any[]): void {
     // debugger;
   },
-  LOTTERY_MUTATION_EMPTY(state: any, mLotteries: any[]): void {
+  LOTTERY_ISSUE_MUTATION_EMPTY(state: any, mLotteries: any[]): void {
     state.lottery_issues = {};
   },
 };
