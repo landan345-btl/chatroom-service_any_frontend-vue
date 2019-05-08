@@ -9,7 +9,7 @@
         <span class="name font-weight-bold">
           {{ LOTTERIES[code].NAME | or(lottery.name) }}
         </span>
-        <span class="text" v-if="lotteryIssue && lotteryIssue.no">
+        <span class="text ml-0p5" v-if="lotteryIssue && lotteryIssue.no">
           第
         </span>
         <span class="no" v-if="lotteryIssue && lotteryIssue.no">
@@ -18,6 +18,7 @@
         <span class="text">
           期开奖号码
         </span>
+          &nbsp;
       </div>
       <Numbers v-if="lotteryIssue" :code="code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lottery.types" class="status-number"/>
     </div>
@@ -27,7 +28,6 @@
         <Chen-countdown :time="lotteryIssue.next_time * 1000" :theme="'theme-a'"/>
       </div>
     </div>
-      
     <div class="sounds align-middle">
       <div>
         <I-button :type="'warning'" class="d-inline-block mb-1">关闭声音</I-button><font-awesome-icon icon="volume-up" class="d-inline-block ml-1"/>
