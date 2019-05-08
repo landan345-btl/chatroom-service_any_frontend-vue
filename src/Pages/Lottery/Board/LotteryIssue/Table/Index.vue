@@ -307,7 +307,7 @@ class Table extends Vue {
   public titles = ['显示号码', '显示大小', '显示单双'];
 
   public titleStatus: any = 0;
-  public switcher: any = '0';
+  public switcher: any = 'NUMBER';
 
   public get oLotteryIssues(): object {
     let oLotteryIssues = this.lotteryIssues;
