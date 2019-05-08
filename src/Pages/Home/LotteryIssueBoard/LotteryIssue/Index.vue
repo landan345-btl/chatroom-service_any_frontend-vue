@@ -22,7 +22,7 @@
             </span>
           </div>
           <div class="bottom">
-            <Numbers :code="lotteries[lotteryIssue.lottery_id].code" :numbers="lotteryIssue.numbers" :types="lotteries[lotteryIssue.lottery_id].types"/>
+            <Numbers :code="lotteries[lotteryIssue.lottery_id].code" :numbers="lotteryIssue.numbers" :types="lotteries[lotteryIssue.lottery_id].types" class="status-number"/>
           </div>
         </router-link>
         <span class="countdown d-inline-block align-bottom position-absolute">

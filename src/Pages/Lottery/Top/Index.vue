@@ -19,7 +19,7 @@
           期开奖号码
         </span>
       </div>
-      <Numbers v-if="lotteryIssue" :code="code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lottery.types"/>
+      <Numbers v-if="lotteryIssue" :code="code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lottery.types" class="status-number"/>
     </div>
     <div class="countdown align-middle">
       距733036期开奖仅有
