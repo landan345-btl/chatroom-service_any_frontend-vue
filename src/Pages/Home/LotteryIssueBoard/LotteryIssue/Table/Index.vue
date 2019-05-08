@@ -129,8 +129,8 @@
       <td class="w-1_3">{{ lotteryIssue.numbers | sum }}</td>
       <td class="w-1_3">{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
       <td class="w-1_3">{{ lotteryIssue.numbers | sum | isSmallOrLarge(809, 811) }}</td>
-      <td class="">{{ lotteryIssue.numbers | isOddOrEven }} 多</td>
-      <td class="">{{ lotteryIssue.numbers | isSmallOrLarge(39, 40)}} 多</td>
+      <td class="">{{ lotteryIssue.numbers | isFrontOrBack }}</td>
+      <td class="">{{ lotteryIssue.numbers | isSmallOrLarge(39, 40)}}多</td>
     <tr>
     </tr>
   </table>

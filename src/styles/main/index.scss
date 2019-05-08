@@ -170,6 +170,7 @@ html {
     color: #ffffff;
     background-color: #0092dd;
     line-height: 2.6vmin;
+    margin: 0 0.1vmin;
   }
 
   .number-kl8-1, .number-kl8-01, .number-kl8-3, .number-kl8-03, .number-kl8-5, .number-kl8-05, .number-kl8-7, .number-kl8-07, .number-kl8-9, .number-kl8-09, 
@@ -373,9 +374,8 @@ html {
     border-radius: 2vmin;
     color: #ffffff;
     background-color: #0092dd;
-    line-height: 4vmin;
   }
-
+  
   .number-cqklsf.number-klsf-1, .number-cqklsf.number-klsf-01 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat 0 0;
     width:4.2vmin;
@@ -499,7 +499,7 @@ html {
     color: rgba($color: #000000, $alpha: 0);
     background-size: auto;
   }
-    
+
   .number-k3-1, .number-k3-01 {
     background: url('~@/assets/images/numbers.png') no-repeat -424px 1.3px;
   }
