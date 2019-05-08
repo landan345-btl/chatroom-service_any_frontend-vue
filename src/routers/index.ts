@@ -21,7 +21,7 @@ let oRouter = new Router({
       name: 'index',
       component: Home,
     },
-    ...aHomeRoutes,
+    //...aHomeRoutes,
     ...aAboutRoutes,
     ...aTrendRoutes,
     ...alotteryRoutes,
