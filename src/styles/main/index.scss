@@ -39,15 +39,15 @@ html {
 }
 
 .number {
-  margin-top:0.2vmin;
+  margin-top:0.5vmin;
   display: inline-block;
   text-align: center;
 }
 .status-number {
 
   .number-ssc {
-    width: 4.5vmin;
-    height: 4.5vmin;
+    width: 4vmin;
+    height: 4vmin;
     font-size: 1.8vmin;
     border-radius: 2.25vmin;
     color: #ffffff;
@@ -59,54 +59,64 @@ html {
   }
   .number-cqssc.number-ssc-0, .number-cqssc.number-ssc-00 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -488px 0;
+    width: 4.3vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-1, .number-cqssc.number-ssc-01 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat 0 0;
+    width: 4.3vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-2, .number-cqssc.number-ssc-02 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -52px 0;
+    width: 4.3vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-3, .number-cqssc.number-ssc-03 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -106px 0;
+    width: 4.3vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-4, .number-cqssc.number-ssc-04 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -161px 0;
+    width: 4.3vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-5, .number-cqssc.number-ssc-05 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -215px 0;
+    width: 4.3vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
 
   .number-cqssc.number-ssc-6, .number-cqssc.number-ssc-06 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -270px 0;
+    width: 4.3vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
 
   .number-cqssc.number-ssc-7, .number-cqssc.number-ssc-07 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -324px 0;
+    width: 4.3vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
 
   .number-cqssc.number-ssc-8, .number-cqssc.number-ssc-08 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -379px 0;
+    width: 4.3vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-9, .number-cqssc.number-ssc-09 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -433px 0;
+    width: 4.3vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
@@ -176,8 +186,8 @@ html {
   }
 
   .number-pk10 {
-    width: 38px;
-    height: 34px;
+    width: 3.8vmin;
+    height: 3.8vmin;
     font-size: 0.8vmin;
     background-color: #127252;
     color: rgba($color: #000000, $alpha: 0);
@@ -520,14 +530,14 @@ html {
 .status-small-large {
   .number-small {
     background: url("~@/assets/images/numbers-2.png") no-repeat -40px -237px;
-    width:38px;
-    height:34px;
+    width:4vmin;
+    height:4vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
   .number-large {
     background: url("~@/assets/images/numbers-2.png") no-repeat 0 -237px;
-    width:38px;
-    height:34px;
+    width:4vmin;
+    height:4vmin;
     color: rgba($color: #000000, $alpha: 0);
   } 
 }
@@ -535,14 +545,14 @@ html {
 .status-odd-even {
   .number-odd {
     background: url("~@/assets/images/numbers-2.png") no-repeat -120px -237px;
-    width:38px;
-    height:34px;
+    width:4vmin;
+    height:4vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
   .number-even {
     background: url("~@/assets/images/numbers-2.png") no-repeat -80px -237px;
-    width:38px;
-    height:34px;
+    width:4vmin;
+    height:4vmin;
     color: rgba($color: #000000, $alpha: 0);
   } 
 }

@@ -1,6 +1,6 @@
 <template>
 <div class="history-number text-center">
-  <table>
+  <table v-if="lotteryTypes[ code ].TYPES === 'PK10'">
     <tbody>
       <tr>
         <th>时间</th>
@@ -28,6 +28,37 @@
           <td :class="{'text-danger' : '龙' === isDragonOrTiger(JSON.parse(lotterys.numbers),[2,7])}">{{ JSON.parse(lotterys.numbers) | isDragonOrTiger([2, 7]) }}</td>
           <td :class="{'text-danger' : '龙' === isDragonOrTiger(JSON.parse(lotterys.numbers),[3,6])}">{{ JSON.parse(lotterys.numbers) | isDragonOrTiger([3, 6]) }}</td>
           <td :class="{'text-danger' : '龙' === isDragonOrTiger(JSON.parse(lotterys.numbers),[4,5])}">{{ JSON.parse(lotterys.numbers) | isDragonOrTiger([4, 5]) }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <table v-if="lotteryTypes[ code ].TYPES === 'SSC'">
+    <tbody>
+      <tr>
+        <th>时间</th>
+        <th>期数</th>
+        <th class="number-btns">
+          <span @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
+        </th>
+        <th colspan="3">总和</th>
+        <th colspan="5">1-5龙虎</th>
+      </tr>
+      <tr v-for="(lotterys,Index) in oLotteryIssues" :key="Index">
+        <td>{{lotterys.added_time}}</td>
+        <td>{{lotterys.no}}</td>
+        <td>
+          <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" :status="switcher"/>
+        </td>
+        <td>{{ JSON.parse(lotterys.numbers) | sum }}</td>
+          <td :class="{'text-big' : '大' === isSmallOrLarge(sum(JSON.parse(lotterys.numbers)),20,21)}">
+            {{ JSON.parse(lotterys.numbers) | sum | isSmallOrLarge(20,21) }}
+          </td>
+          <td :class="{'text-even' : '双' === isOddOrEven(sum(JSON.parse(lotterys.numbers)))}">{{ JSON.parse(lotterys.numbers) | sum | isOddOrEven }}
+          </td>
+          <td :class="{
+            'text-sum' : '和' === isDragonOrTiger(JSON.parse(lotterys.numbers),[0,4]),
+            'text-danger' : '龙' === isDragonOrTiger(JSON.parse(lotterys.numbers),[0,4])}">
+            {{ JSON.parse(lotterys.numbers) | isDragonOrTiger([0, 4]) }}
+          </td>
       </tr>
     </tbody>
   </table>

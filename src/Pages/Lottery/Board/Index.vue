@@ -110,10 +110,9 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 })
 class Board extends Vue {
   @Prop()
-  public lotteryIssues!: any;
+  public lotteryIssue!: any;
   @Prop()
   public hotWarnColdPositions!: any;
-  public lotteryIssue!: any;
 
   @Prop()
   public lottery!: any;

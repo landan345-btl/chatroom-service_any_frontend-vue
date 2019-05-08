@@ -119,7 +119,7 @@ class Lottery extends Vue {
     while (20 > iLoopCount && 1 <= aLotteryIssues.length) {
       oLotteryIssue = aLotteryIssues.pop();
       let aNumbers = JSON.parse(oLotteryIssue.numbers);
-        aNumbers.forEach((iNumber: number, iIndex: number) => {
+      aNumbers.forEach((iNumber: number, iIndex: number) => {
           let oHotWarnColdPosition = aHotWarnColdPositions[iIndex];
           aHotWarnColdPositions[iIndex][iNumber] = oHotWarnColdPosition[iNumber] + 1;
         });
@@ -133,7 +133,7 @@ class Lottery extends Vue {
     let aLotteryIssues = Object.values(oLotteryIssues);
     aLotteryIssues.forEach((oLotteryIssue: any) => {
       let aNumbers = oLotteryIssue.numbers;
-      
+
     });
     return false;
   }
