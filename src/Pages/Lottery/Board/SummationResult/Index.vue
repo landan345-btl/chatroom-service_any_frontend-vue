@@ -3,7 +3,7 @@
     <div class="top p-1 font-weight-bold">
       <span class="title">总和路珠</span>
     </div>
-    <div class="middle">
+    <div class="middle p-2">
       <div class="odd-even-pannel d-flex flex-column flex-wrap align-self-end align-content-end mb-2">
         <div 
           v-for="(oLotteryIssue, sKey, iIndex) in lotteryIssues" :key="iIndex" 

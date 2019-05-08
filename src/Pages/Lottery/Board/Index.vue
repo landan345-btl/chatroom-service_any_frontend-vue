@@ -44,7 +44,7 @@
         <Position-trend />
       </TabPane>
       <TabPane :label="'总和路珠'" :name="'summation-result'">
-        <Summation-result :lotteryIssues="lotteryIssues" class="p-2"/>
+        <Summation-result :lotteryIssues="lotteryIssues"/>
       </TabPane>
       <TabPane :label="'玩法规则'" :name="'rule'">
       </TabPane>
