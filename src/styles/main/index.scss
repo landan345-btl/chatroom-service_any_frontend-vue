@@ -38,22 +38,16 @@ html {
   }
 }
 
-.numbers {
-  & > * {
-    display: inline-block;
-    text-align: center;
-    background-color: #5f5f5f;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-  }
+.number {
+  margin:0.5vmin 0;
+  display: inline-block;
+  text-align: center;
+}
+.status-number {
 
-  & > *:nth-child(n + 2) {
-    margin-left: 0.23vmin;
-  }
   .number-ssc {
-    width: 4.5vmin;
-    height: 4.5vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
     font-size: 1.8vmin;
     border-radius: 2.25vmin;
     color: #ffffff;
@@ -65,66 +59,76 @@ html {
   }
   .number-cqssc.number-ssc-0, .number-cqssc.number-ssc-00 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -488px 0;
+    width: 4.5vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-1, .number-cqssc.number-ssc-01 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat 0 0;
+    width: 4.5vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-2, .number-cqssc.number-ssc-02 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -52px 0;
+    width: 4.5vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-3, .number-cqssc.number-ssc-03 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -106px 0;
+    width: 4.5vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-4, .number-cqssc.number-ssc-04 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -161px 0;
+    width: 4.5vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-5, .number-cqssc.number-ssc-05 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -215px 0;
+    width: 4.5vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
 
   .number-cqssc.number-ssc-6, .number-cqssc.number-ssc-06 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -270px 0;
+    width: 4.5vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
 
   .number-cqssc.number-ssc-7, .number-cqssc.number-ssc-07 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -324px 0;
+    width: 4.5vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
 
   .number-cqssc.number-ssc-8, .number-cqssc.number-ssc-08 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -379px 0;
+    width: 4.5vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-9, .number-cqssc.number-ssc-09 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -433px 0;
+    width: 4.5vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
 
   .number-11x5 {
-    width: 4vmin;
-    height: 4vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
     font-size: 1.6vmin;
     border-radius: 2vmin;
     color: #ffffff;
     background-color: #0092dd;
-    line-height: 4vmin;
+    line-height: 3.8vmin;
   }
 
   .number-xy28 {
@@ -182,8 +186,8 @@ html {
   }
 
   .number-pk10 {
-    width: 40px;
-    height: 40px;
+    width: 3.8vmin;
+    height: 3.8vmin;
     font-size: 0.8vmin;
     background-color: #127252;
     color: rgba($color: #000000, $alpha: 0);
@@ -199,131 +203,131 @@ html {
   }
 
   .number-pk10-1, .number-pk10-01 {
-    background: url('~@/assets/images/numbers.png') no-repeat -246px 0;
+    background: url('~@/assets/images/numbers-2.png') no-repeat -245px -281px;
     @media only screen and (max-width: 767.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -196.8px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -196.8px -281px;
       background-size: 409.6px 223.2px;
     }
 
     @media only screen and (max-width: 545.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -147.8px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -147.8px -281px;
       background-size: 307.2px 167.4px;
     }
   }
 
   .number-pk10-2, .number-pk10-02 {
-    background: url('~@/assets/images/numbers.png') no-repeat -42px 0;
+    background: url('~@/assets/images/numbers-2.png') no-repeat -42px -281px;
     @media only screen and (max-width: 767.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -33.6px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -33.6px -281px;
       background-size: 409.6px 223.2px;
     }
 
     @media only screen and (max-width: 545.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -25.2px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -25.2px -281px;
       background-size: 307.2px 167.4px;
     }
   }
 
   .number-pk10-3, .number-pk10-03 {
-    background: url('~@/assets/images/numbers.png') no-repeat -83px 0;
+    background: url('~@/assets/images/numbers-2.png') no-repeat -83px -281px;
     @media only screen and (max-width: 767.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -66.4px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -66.4px -281px;
       background-size: 409.6px 223.2px;
     }
 
     @media only screen and (max-width: 545.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -49.8px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -49.8px -281px;
       background-size: 307.2px 167.4px;
     }
   }
 
   .number-pk10-4, .number-pk10-04 {
-    background: url('~@/assets/images/numbers.png') no-repeat -123px 0;
+    background: url('~@/assets/images/numbers-2.png') no-repeat -123px -281px;
     @media only screen and (max-width: 767.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -98.4px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -98.4px -281px;
       background-size: 409.6px 223.2px;
     }
 
     @media only screen and (max-width: 545.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -73.8px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -73.8px -281px;
       background-size: 307.2px 167.4px;
     }
   }
 
   .number-pk10-5, .number-pk10-05 {
-    background: url('~@/assets/images/numbers.png') no-repeat -286px 0;
+    background: url('~@/assets/images/numbers-2.png') no-repeat -286px -281px;
     @media only screen and (max-width: 767.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -228.8px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -228.8px -281px;
       background-size: 409.6px 223.2px;
     }
 
     @media only screen and (max-width: 545.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -171.6px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -171.6px -281px;
       background-size: 307.2px 167.4px;
     }
   }
 
   .number-pk10-6, .number-pk10-06 {
-    background: url('~@/assets/images/numbers.png') no-repeat -1px 0;
+    background: url('~@/assets/images/numbers-2.png') no-repeat -1px -281px;
     @media only screen and (max-width: 767.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -0.8px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -0.8px -281px;
       background-size: 409.6px 223.2px;
     }
 
     @media only screen and (max-width: 545.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -0.6px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -0.6px -281px;
       background-size: 307.2px 167.4px;
     }
   }
 
   .number-pk10-7, .number-pk10-07 {
-    background: url('~@/assets/images/numbers.png') no-repeat -205px 0;
+    background: url('~@/assets/images/numbers-2.png') no-repeat -205px -281px;
     @media only screen and (max-width: 767.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -164px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -164px -281px;
       background-size: 409.6px 223.2px;
     }
 
     @media only screen and (max-width: 545.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -123px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -123px -281px;
       background-size: 307.2px 167.4px;
     }
   }
 
   .number-pk10-8, .number-pk10-08 {
-    background: url('~@/assets/images/numbers.png') no-repeat -164px 0;
+    background: url('~@/assets/images/numbers-2.png') no-repeat -164px -281px;
     @media only screen and (max-width: 767.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -131.2px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -131.2px -281px;
       background-size: 409.6px 223.2px;
     }
 
     @media only screen and (max-width: 545.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -98.4px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -98.4px -281px;
       background-size: 307.2px 167.4px;
     }
   }
 
   .number-pk10-9, .number-pk10-09 {
-    background: url('~@/assets/images/numbers.png') no-repeat -327px 0;
+    background: url('~@/assets/images/numbers-2.png') no-repeat -327px -281px;
     @media only screen and (max-width: 767.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -261.6px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -261.6px -281px;
       background-size: 409.6px 223.2px;
     }
 
     @media only screen and (max-width: 545.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -196.2px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -196.2px -281px;
       background-size: 307.2px 167.4px;
     }
   }
 
   .number-pk10-10 {
-    background: url('~@/assets/images/numbers.png') no-repeat -368px 0;
+    background: url('~@/assets/images/numbers-2.png') no-repeat -368px -281px;
     @media only screen and (max-width: 767.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -294.4px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -294.4px -281px;
       background-size: 307.2px 167.4px;
     }
 
     @media only screen and (max-width: 545.98px) {
-      background: url('~@/assets/images/numbers.png') no-repeat -220.8px 0;
+      background: url('~@/assets/images/numbers-2.png') no-repeat -220.8px -281px;
       background-size: 280.8px 167.4px;
     }
   }
@@ -353,8 +357,8 @@ html {
   }
 
   .number-klsf {
-    width: 4vmin;
-    height: 4vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
     font-size: 1.6vmin;
     border-radius: 2vmin;
     color: #ffffff;
@@ -364,16 +368,19 @@ html {
 
   .number-cqklsf.number-klsf-1, .number-cqklsf.number-klsf-01 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat 0 0;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-2, .number-cqklsf.number-klsf-02 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -55px 0;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-3, .number-cqklsf.number-klsf-03 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -109px 0;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
@@ -384,6 +391,7 @@ html {
 
   .number-cqklsf.number-klsf-5, .number-cqklsf.number-klsf-05 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -218px 0;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
@@ -394,6 +402,7 @@ html {
 
   .number-cqklsf.number-klsf-7, .number-cqklsf.number-klsf-07 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -327px 0;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
@@ -404,140 +413,165 @@ html {
 
   .number-cqklsf.number-klsf-9, .number-cqklsf.number-klsf-09 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -436px 0;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-10 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -491px 0;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-11 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat 0 -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-12 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -55px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-13 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -109px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-14 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -164px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-15 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -218px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-16 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -273px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-17 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -327px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-18 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -382px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-19 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -436px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-20 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -491px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-k3 {
-    width: 43px;
-    height: 43px;
+    width: 5.2vmin;
+    height: 3.8vmin;
     color: rgba($color: #000000, $alpha: 0);
     background-size: auto;
   }
     
   .number-k3-1, .number-k3-01 {
-    background: url('~@/assets/images/numbers.png') no-repeat -424px 0;
+    background: url('~@/assets/images/numbers.png') no-repeat -424px 1.3px;
   }
   
   .number-k3-2, .number-k3-02 {
-    background: url('~@/assets/images/numbers.png') no-repeat -424px -43px;
+    background: url('~@/assets/images/numbers.png') no-repeat -424px -43.3px;
   }
   
   .number-k3-3, .number-k3-03 {
-    background: url('~@/assets/images/numbers.png') no-repeat -424px -86px;
+    background: url('~@/assets/images/numbers.png') no-repeat -424px -86.3px;
   }
   
   .number-k3-4, .number-k3-04 {
-    background: url('~@/assets/images/numbers.png') no-repeat -424px -129px;
+    background: url('~@/assets/images/numbers.png') no-repeat -424px -129.3px;
   }
   
   .number-k3-5, .number-k3-05 {
-    background: url('~@/assets/images/numbers.png') no-repeat -424px -172px;
+    background: url('~@/assets/images/numbers.png') no-repeat -424px -172.3px;
   }
   
   .number-k3-6, .number-k3-06 {
-    background: url('~@/assets/images/numbers.png') no-repeat -424px -215px;
+    background: url('~@/assets/images/numbers.png') no-repeat -424px -215.3px;
   }
   
-  .odd {
-    background: url("~@/assets/images/square.png") no-repeat -119px -237px;
-    width:34px;height:34px;
-  }/*方形背景单*/ 
-  .even {
-    background: url("~@/assets/images/square.png") no-repeat -79px -237px;
-     width:34px;height:34px;
-  } /*方形背景双*/
-  .background-sm {background: url("~@/assets/images/square.png") no-repeat -40px -237px;width:34px;height:34px;}/*方形背景小*/
-  .background-lg {background: url("~@/assets/images/square.png") no-repeat 0 -237px;width:34px;height:34px;}/*方形背景大*/
 
-  /*详情页小方片数字*/
-  .num-01 {background: url("~@/assets/images/square.png") no-repeat -245px -284px;width:34px!important;height:34px!important;}
-  .num-02 {background: url("~@/assets/images/square.png") no-repeat -41px -284px;width:34px!important;height:34px!important;}
-  .num-03 {background: url("~@/assets/images/square.png") no-repeat -82px -284px;width:34px!important;height:34px!important;}
-  .num-04 {background: url("~@/assets/images/square.png") no-repeat -122px -284px;width:34px!important;height:34px!important;}
-  .num-05 {background: url("~@/assets/images/square.png") no-repeat -285px -284px;width:34px!important;height:34px!important;}
-  .num-06 {background: url("~@/assets/images/square.png") no-repeat 0 -284px;width:34px!important;height:34px!important;}
-  .num-07 {background: url("~@/assets/images/square.png") no-repeat -204px -284px;width:34px!important;height:34px!important;}
-  .num-08 {background: url("~@/assets/images/square.png") no-repeat -163px -284px;width:34px!important;height:34px!important;}
-  .num-09 {background: url("~@/assets/images/square.png") no-repeat -326px -284px;width:34px!important;height:34px!important;}
-  .num-010 {background: url("~@/assets/images/square.png") no-repeat -367px -284px;width:34px!important;height:34px!important;}
 
-  .round-odd {background: url("~@/assets/images/square.png") no-repeat -138px -327px;width:36px!important;height:36px!important;}/*圆形背景单*/ 
-  .round-even {background: url("~@/assets/images/square.png") no-repeat -90px -327px;width:36px!important;height:36px!important;} /*圆形背景双*/
 
-  .background-round-sm {background: url("~@/assets/images/square.png") no-repeat -46px -327px;width:36px!important;height:36px!important;}/*圆形背景小*/
-  .background-round-lg {background: url("~@/assets/images/square.png") no-repeat 0 -327px;width:36px!important;height:36px!important;} /*圆形背景大*/
-  .background-round-sum {background: url("~@/assets/images/square.png") no-repeat -318px -326px;width:36px!important;height:36px!important;} /*圆形背景和*/
+  .background-sm {background: url("~@/assets/images/numbers-2.png") no-repeat -40px -237px;width:34px;height:34px;}/*方形背景小*/
+  .background-lg {background: url("~@/assets/images/numbers-2.png") no-repeat 0 -237px;width:34px;height:34px;}/*方形背景大*/
+
+  .round-odd {background: url("~@/assets/images/numbers-2.png") no-repeat -138px -327px;width:36px!important;height:36px!important;}/*圆形背景单*/ 
+  .round-even {background: url("~@/assets/images/numbers-2.png") no-repeat -90px -327px;width:36px!important;height:36px!important;} /*圆形背景双*/
+
+  .background-round-sm {background: url("~@/assets/images/numbers-2.png") no-repeat -46px -327px;width:36px!important;height:36px!important;}/*圆形背景小*/
+  .background-round-lg {background: url("~@/assets/images/numbers-2.png") no-repeat 0 -327px;width:36px!important;height:36px!important;} /*圆形背景大*/
+  .background-round-sum {background: url("~@/assets/images/numbers-2.png") no-repeat -318px -326px;width:36px!important;height:36px!important;} /*圆形背景和*/
 
   
-  .number-red {background: url("~@/assets/images/square.png") no-repeat 0 -373px;width:36px!important;height:36px!important;}   /*红圈*/
-  .number-blue {background: url("~@/assets/images/square.png") no-repeat -46px -373px;width:36px;height:36px!important;}   /*蓝圈*/
+  .number-red {background: url("~@/assets/images/numbers-2.png") no-repeat 0 -373px;width:36px!important;height:36px!important;}   /*红圈*/
+  .number-blue {background: url("~@/assets/images/numbers-2.png") no-repeat -46px -373px;width:36px;height:36px!important;}   /*蓝圈*/
 
-  .k3-01 {background: url("~@/assets/images/square.png") no-repeat -424px 0;width:36px!important;height:40px!important;}
-  .k3-02 {background: url("~@/assets/images/square.png") no-repeat -424px -43px;width:36px!important;height:40px!important;}
-  .k3-03 {background: url("~@/assets/images/square.png") no-repeat -424px -86px;width:36px!important;height:40px!important;}
-  .k3-04 {background: url("~@/assets/images/square.png") no-repeat -424px -129px;width:36px!important;height:40px!important;}
-  .k3-05 {background: url("~@/assets/images/square.png") no-repeat -424px -172px;width:36px!important;height:40px!important;}
-  .k3-06 {background: url("~@/assets/images/square.png") no-repeat -424px -215px;width:36px!important;height:40px!important;}
-  .number-blue-fine {background: url("~@/assets/images/square.png") no-repeat -138px -373px;width:36px!important;height:36px!important;}   /*蓝圈细*/ 
-  .number-light-fine {background: url("~@/assets/images/square.png") no-repeat -199px -373px;width:36px!important;height:36px!important;}   /*浅蓝圈细*/
+  .k3-01 {background: url("~@/assets/images/numbers-2.png") no-repeat -424px 0;width:36px!important;height:40px!important;}
+  .k3-02 {background: url("~@/assets/images/numbers-2.png") no-repeat -424px -43px;width:36px!important;height:40px!important;}
+  .k3-03 {background: url("~@/assets/images/numbers-2.png") no-repeat -424px -86px;width:36px!important;height:40px!important;}
+  .k3-04 {background: url("~@/assets/images/numbers-2.png") no-repeat -424px -129px;width:36px!important;height:40px!important;}
+  .k3-05 {background: url("~@/assets/images/numbers-2.png") no-repeat -424px -172px;width:36px!important;height:40px!important;}
+  .k3-06 {background: url("~@/assets/images/numbers-2.png") no-repeat -424px -215px;width:36px!important;height:40px!important;}
+  .number-blue-fine {background: url("~@/assets/images/numbers-2.png") no-repeat -138px -373px;width:36px!important;height:36px!important;}   /*蓝圈细*/ 
+  .number-light-fine {background: url("~@/assets/images/numbers-2.png") no-repeat -199px -373px;width:36px!important;height:36px!important;}   /*浅蓝圈细*/
   /* 六合彩 快乐十分 专用蓝色背景圆*/
-  .numblue { background: url("~@/assets/images/square.png") no-repeat -1px -47px;width:40px!important;height:37px!important; } 
-  .numred { background: url("~@/assets/images/square.png") no-repeat -91px -49px;width:37px!important;height:37px!important; }
+  .numblue { background: url("~@/assets/images/numbers-2.png") no-repeat -1px -47px;width:40px!important;height:37px!important; } 
+  .numred { background: url("~@/assets/images/numbers-2.png") no-repeat -91px -49px;width:37px!important;height:37px!important; }
+}
+
+.status-small-large {
+  .number-small {
+    background: url("~@/assets/images/numbers-2.png") no-repeat -40px -234px;
+    width:3.8vmin;
+    height:3.8vmin;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-large {
+    background: url("~@/assets/images/numbers-2.png") no-repeat 0 -234px;
+    width:3.8vmin;
+    height:3.8vmin;
+    color: rgba($color: #000000, $alpha: 0);
+  } 
+}
+
+.status-odd-even {
+  .number-odd {
+    background: url("~@/assets/images/numbers-2.png") no-repeat -120px -234px;
+    width:3.8vmin;
+    height:3.8vmin;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-even {
+    background: url("~@/assets/images/numbers-2.png") no-repeat -80px -234px;
+    width:3.8vmin;
+    height:3.8vmin;
+    color: rgba($color: #000000, $alpha: 0);
+  } 
 }
 
 .icon-3fpk10 {

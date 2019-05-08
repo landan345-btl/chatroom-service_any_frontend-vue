@@ -3,6 +3,8 @@ interface I_LOTTERY {
   SRC: string,
   TYPES: string,
   LOTTERY_ISSUE: any,
+  SMALL_UPPER_BOUND: number,
+  LARGE_LOWER_BOUND: number,
 }
 
 interface I_LOTTERIES {

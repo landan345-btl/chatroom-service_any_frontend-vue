@@ -1,14 +1,18 @@
 <template>
-  <div class="numbers">
+  <div class="numbers" 
+    :class="[ 'NUMBER' === status ? 'status-number' : '', 
+              'SMALL_LARGE' === status ? 'status-small-large' : '',
+              'ODD_EVEN' === status ? 'status-odd-even' : '', ]">
     <div class="number" 
       :class="[size, 
                '单' === isOddOrEven(iNumber) ? 'number-odd' : '',
                '双' === isOddOrEven(iNumber) ? 'number-even' : '',
-               '小' === isSmallOrLarge(smallUpperBound, largelowerBound) ? 'number-small' : '',
-               '大' === isSmallOrLarge(smallUpperBound, largelowerBound) ? 'number-large' : '',
+               '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-small' : '',
+               '大' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-large' : '',
                'number-' + types.toLowerCase(), 
                'number-'+ code.toLowerCase(), 
-               'number-'+ types.toLowerCase() + '-' + iNumber]" v-for="(iNumber, sKey) in numbers" :key="sKey" v-randomNumber="{ isRandom: isRandom }">
+               'number-'+ types.toLowerCase() + '-' + iNumber
+               ]" v-for="(iNumber, sKey) in numbers" :key="sKey" v-randomNumber="{ isRandom: isRandom }">
       <span>{{iNumber}}</span>
     </div>
   </div>
@@ -20,6 +24,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import LOTTERIES from '@/CONFIGS/LOTTERIES';
 
 @Component({
   name: 'Numbers',
@@ -31,17 +36,26 @@ class Numbers extends Vue {
   public numbers!: number[];
   @Prop()
   public types!: string;
-  @Prop()
-  public smallUpperBound!: number;
-  @Prop()
-  public largelowerBound!: number;
+
   @Prop()
   public size!: string;
 
   @Prop()
   public isRandom!: boolean;
 
+  @Prop()
+  public status!: string;
 
+  public get getSmallUpperBound() {
+    let sCodes = this.code;
+    let iSmallUpperBound = LOTTERIES[sCodes].SMALL_UPPER_BOUND;
+    return iSmallUpperBound;
+  }
+  public get getLargelowerBound() {
+    let sCodes = this.code;
+    let iSlargelowerBound = LOTTERIES[sCodes].LARGE_LOWER_BOUND;
+    return iSlargelowerBound;
+  }
 }
 export default Numbers;
 

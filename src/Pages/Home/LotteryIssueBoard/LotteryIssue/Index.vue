@@ -2,11 +2,11 @@
   <div class="lottery-issue mt-sm-2 mb-sm-2 mt-md-2 mb-md-2 mt-lg-2 mb-lg-2 mt-xl-2 mb-xl-2">
     <div class="pseudo">
       <div class="top mb-1 position-relative">
-        <router-link class="icon align-middle d-inline-block d-xs-none" :to="{ path: '/lottery-issue', query: { code: lotteries[lotteryIssue.lottery_id].code }}">
+        <router-link class="icon align-middle d-inline-block d-xs-none" :to="{ path: '/lottery', query: { code: lotteries[lotteryIssue.lottery_id].code }}">
           <div :class="['icon-' + lotteries[lotteryIssue.lottery_id].code.toLowerCase() + '-circle']">
           </div>
           </router-link>
-        <router-link class="name-issue_no-numbers align-middle d-inline-block" :to="{ path: '/lottery-issue', query: { code: lotteries[lotteryIssue.lottery_id].code }}">
+        <router-link class="name-issue_no-numbers align-middle d-inline-block" :to="{ path: '/lottery', query: { code: lotteries[lotteryIssue.lottery_id].code }}">
           <div class="top">
             <span class="name font-weight-bold ">
               {{ LOTTERIES[lotteries[lotteryIssue.lottery_id].code].NAME | or(lotteries[lotteryIssue.lottery_id].name) }}
@@ -22,7 +22,7 @@
             </span>
           </div>
           <div class="bottom">
-            <Numbers :code="lotteries[lotteryIssue.lottery_id].code" :numbers="lotteryIssue.numbers" :types="lotteries[lotteryIssue.lottery_id].types"/>
+            <Numbers :code="lotteries[lotteryIssue.lottery_id].code" :numbers="lotteryIssue.numbers" :types="lotteries[lotteryIssue.lottery_id].types" class="status-number"/>
           </div>
         </router-link>
         <span class="countdown d-inline-block align-bottom position-absolute">

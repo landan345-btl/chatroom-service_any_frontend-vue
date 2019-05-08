@@ -19,12 +19,15 @@
           期开奖号码
         </span>
       </div>
-      <Numbers v-if="lotteryIssue" :code="code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lottery.types"/>
+      <Numbers v-if="lotteryIssue" :code="code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lottery.types" class="status-number"/>
     </div>
-    <div class="countdown align-middle">
+    <div class="countdown">
       距733036期开奖仅有
+      <div>
+        <Chen-countdown :time="lotteryIssue.next_time * 1000" :theme="'theme-a'"/>
+      </div>
     </div>
-
+      
     <div class="sounds align-middle">
       <div>
         <I-button :type="'warning'" class="d-inline-block mb-1">关闭声音</I-button><font-awesome-icon icon="volume-up" class="d-inline-block ml-1"/>
@@ -48,11 +51,13 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import IButton from '@/Components/IButton/Index.vue';
 import Numbers from '@/Components/Numbers/Index.vue';
 import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
+import ChenCountdown from '@/Components/ChenCountdown/Index.vue';
 
 @Component({
   components: {
     IButton,
     Numbers,
+    ChenCountdown,
   },
 })
 class Top extends Vue {
