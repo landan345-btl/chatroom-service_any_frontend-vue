@@ -2,7 +2,7 @@
   <div class="board">
     <I-tabs :type="'card'" class="">
       <TabPane :label="'即使开奖'" :name="'lottery-issue'"> 
-        <Lottery-issue :lotteryIssue="lotteryIssue" :lottery="lottery" :code="code" :types="types"/>
+        <Lottery-issue :lotteryIssue="lotteryIssues" :lottery="lottery" :code="code" :types="types"/>
       </TabPane>
       <TabPane :label="'路珠分析'" :name="'result-analysis'">
         <Result-analysis />
@@ -44,7 +44,7 @@
         <Position-trend />
       </TabPane>
       <TabPane :label="'总和路珠'" :name="'summation-result'">
-        <Summation-result />
+        <Summation-result :lotteryIssues="lotteryIssues"/>
       </TabPane>
       <TabPane :label="'玩法规则'" :name="'rule'">
       </TabPane>
@@ -110,9 +110,11 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 })
 class Board extends Vue {
   @Prop()
-  public lotteryIssue!: any;
+  public lotteryIssues!: any;
   @Prop()
   public hotWarnColdPositions!: any;
+  @Prop()
+  public lotteryIssue!: any;
 
   @Prop()
   public lottery!: any;
