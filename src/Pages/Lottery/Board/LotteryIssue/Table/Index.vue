@@ -97,7 +97,7 @@
       <tr>
         <th>时间</th>
         <th>期数</th>
-        <th class="number-btns th-width4">显示号码</th>
+        <th class="th-width4">显示号码</th>
         <th colspan="3">总和</th>
         <th colspan="5">鱼虾蟹</th>
       </tr>
@@ -192,7 +192,7 @@
       <tr>
         <th width="140">时间</th>
         <th>期数</th>
-        <th class="number-btns">显示号码</th>
+        <th>显示号码</th>
         <th colspan="3">总和</th>
         <th>单双</th>
         <th>前后</th>
@@ -224,7 +224,7 @@
       <tr>
         <th>时间</th>
         <th>期数</th>
-        <th class="number-btns w-30">号码</th>
+        <th class="w-30">号码</th>
         <th colspan="3">佰拾和</th>
         <th colspan="3">佰个和</th>
         <th colspan="3">拾个和</th>

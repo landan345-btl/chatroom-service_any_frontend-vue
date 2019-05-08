@@ -8,16 +8,16 @@
           </router-link>
         <router-link class="name-issue_no-numbers align-middle d-inline-block" :to="{ path: '/lottery', query: { code: lotteries[lotteryIssue.lottery_id].code }}">
           <div class="top">
-            <span class="name font-weight-bold ">
+            <span class="name font-weight-bold ml-0p5">
               {{ LOTTERIES[lotteries[lotteryIssue.lottery_id].code].NAME | or(lotteries[lotteryIssue.lottery_id].name) }}
             </span>
-            <span class="no font-weight-bold">
+            <span class="no font-weight-bold ml-0p5">
               {{ lotteryIssue.no }}
             </span>
-            <span class="name font-weight-bold">
+            <span class="name font-weight-bold ml-0p5">
               期
             </span>
-            <span class="this-and-next">
+            <span class="this-and-next ml-0p5">
               当前&nbsp;{{ lotteryIssue.order_no_in_this_day }}&nbsp;期，剩&nbsp;{{ lotteryIssue.order_no_total_in_this_day - lotteryIssue.order_no_in_this_day }}&nbsp;期
             </span>
           </div>
