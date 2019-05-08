@@ -1,9 +1,48 @@
 .today-number-statics{
-  .title {
-    font-size: 2vmin;
-  }
+  padding-bottom: 2vmin;
   .top {
-    border-bottom: 1px solid #f0f0f0;
+    padding-left: 2vmin;
+    font-size: 1vmin;
+    span {
+      span {
+        border: .1vmin solid #e3e3e3;
+        padding: .5vmin 2vmin;
+        text-align: center;
+      }
+    }
+    & > span:nth-child(2n) {
+      width: 2vmin;
+      height: 2vmin;
+      margin: 0 1vmin;
+      font-size: 1.6vmin;
+      text-align: center;
+      line-height: 2vmin;
+    }
+  }
+  table {
+    table-layout: fixed;
+    width: 97%;
+    margin: 2vmin auto 0;
+    font-size: 1.5vmin;
+    td {
+      text-align: center;
+      border: .1vmin solid #968e8e;
+      padding: 1.5vmin 0;
+      span {
+        display: inline-block;
+        border-radius: 50%;
+        min-width: 2vmin;
+        min-height: 2vmin;
+        padding: .1vmin .1vmin;
+      }
+    }
+    tr:nth-child(1),tr:nth-child(2) {
+      background: #ebebeb;
+      span {
+        position: relative;
+        top: 2.4vmin;
+      }
+    }
   }
   background: #ffffff;
 }

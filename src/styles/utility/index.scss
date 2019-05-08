@@ -1,6 +1,9 @@
 /*
   提供 Mixin 风格的 CSS
 */
+span {
+  display: inline-block;
+}
 
 .d-inline-block {
   display: inline-block;
@@ -160,8 +163,49 @@
 .color-black {
   color: #555 !important;  
 }
+
+.background-orange-0 {
+  background: #fba75e !important;
+  color: #fff;
+}
+
+.background-blue-1 {
+  background: #1fa6e8 !important;
+  color: #fff;
+}
+
+.background-cyan-2 {
+  background: #08bf02 !important;
+  color: #fff;
+}
+
+.background-purple-3 {
+  background: #8585fb;
+  color: #fff;
+}
+
 .text-shrimp,.text-crad,.text-sum {
   color: #01C000 !important;
+}
+
+.background-red {
+  background: red;
+}
+
+.background-blue {
+  background: #0092dd;
+}
+
+.background-green {
+  background: #07bf00;
+}
+
+.background-gray {
+  background: gray;
+}
+
+.border-radius {
+  border-radius: 50%;
 }
 
 .text-danger, .text-fish ,.text-even,.text-big,.text-chicken{

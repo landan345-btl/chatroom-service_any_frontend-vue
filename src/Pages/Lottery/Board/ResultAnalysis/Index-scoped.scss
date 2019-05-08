@@ -1,9 +1,54 @@
 .result-analysis {
-  .title {
-    font-size: 2vmin;
+  .font-weight-bold {
+    position: relative;
   }
   .top {
     border-bottom: 1px solid #f0f0f0;
   }
-  background: #ffffff;
+  // /deep/ .ivu-tabs.ivu-tabs-card > .ivu-tabs-bar .ivu-tabs-tab-active {
+  //   width: 12vmin;
+  //   height: 5vmin;
+  //   font-size: 2vmin !important;
+  //   font-weight: 200;
+  //   text-align: center;
+  //   background: #1e1616 !important;
+  //   line-height: 4vmin !important;
+  // }
+
+  // /deep/ .ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-tab {
+  //   width: 12vmin;
+  //   height: 5vmin;
+  //   font-size: 2vmin !important;
+  //   font-weight: 200;
+  //   text-align: center;
+  // }
+  // /deep/ .ivu-tabs-nav-container {
+  //   padding: 0px !important;
+  //   margin: 0px !important;
+  // }
+  .nav-right {
+    display: inline-block;
+    position: absolute;
+    top: 1.2vmin;
+    left: 80vmin;
+  }
+  // /deep/ .ivu-radio-group-button .ivu-radio-wrapper {
+  //   border: 0px;
+  // }
+  
+  // /deep/ .ivu-radio-group-button .ivu-radio-wrapper {
+  //   display: inline-block;
+  //   font-size: 1vmin;
+  //   transition: all .2s ease-in-out;
+  //   cursor: pointer;
+  //   border: 0px !important;
+  //   border-left: 0;
+  //   background: #fff;
+  //   position: relative;
+  // }
+
+  // /deep/ .ivu-radio-group-button .ivu-radio-wrapper:after, .ivu-radio-group-button .ivu-radio-wrapper:before {
+  //   background: #fff;
+  // }
+
 }

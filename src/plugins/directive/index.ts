@@ -1,5 +1,5 @@
 import randomNumber from '@/directives/randomNumber/index';
-import oLineBreakIfDifferent from '@/directives/lineBreakIfDifferent/index';
+
 
 let oDirectivePlugin = {
   // The install method is all that needs to exist on the plugin object.
@@ -7,8 +7,6 @@ let oDirectivePlugin = {
   install(Vue: any, options: any) {
     // We call Vue.mixin() here to inject functionality into all components.
     Vue.directive('randomNumber', randomNumber);
-    Vue.directive('line-break-if-different', oLineBreakIfDifferent);
-
   },
 };
 
