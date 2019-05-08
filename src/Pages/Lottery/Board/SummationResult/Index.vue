@@ -34,7 +34,7 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 })
 class SummationResult extends Vue {
   @Prop()
-  public lotteryIssues! :any;
+  public lotteryIssues!: any;
 }
 
 export default SummationResult;
