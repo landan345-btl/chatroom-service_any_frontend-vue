@@ -36,6 +36,8 @@ import {
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
+import canvasTrend from '@/directives/canvasTrend/index';
+
 import oMessages from '@/langs/index';
 
 library.add(faInfoCircle);
@@ -60,6 +62,8 @@ Vue.use(utilityPlugin);
 Vue.use(filterPlugin);
 Vue.use(directivePlugin);
 Vue.use(configPlugin);
+
+Vue.directive('canvasTrend', canvasTrend );
 
 let oI18n = new VueI18n({
   locale: 'zh',

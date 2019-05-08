@@ -6,7 +6,6 @@ let oDirectivePlugin = {
   install(Vue: any, options: any) {
     // We call Vue.mixin() here to inject functionality into all components.
     Vue.directive('randomNumber', randomNumber);
-
   },
 };
 
