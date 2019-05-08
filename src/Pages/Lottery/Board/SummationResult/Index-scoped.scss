@@ -5,5 +5,18 @@
   .top {
     border-bottom: 1px solid #f0f0f0;
   }
+  .odd, .even, .small, .large {
+    width: 2.5vmin;
+    height: 2.5vmin;
+  }
+
+  /deep/ .line-break {
+    height: 100%;
+    width: 1px;
+    background-color: #f0f0f0;
+  }
+  .odd-even-pannel, .small-large-pannel {
+    height: 400px;
+  } 
   background: #ffffff;
 }

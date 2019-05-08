@@ -24,9 +24,16 @@
 .d-flex {
   display: flex;
 }
+.flex-column {
+  flex-direction: column;
+}
 
 .flex-wrap {
   flex-wrap: wrap;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
 }
 
 .justify-content-between {
@@ -37,7 +44,7 @@
   align-items: flex-start;
 }
 
-.align-self-start {
+.align-self-end {
   align-items: flex-end ;
 }
 
@@ -51,6 +58,10 @@
 
 .align-self-stretch {
   align-items: stretch;
+}
+
+.align-content-end {
+  align-content:flex-end;
 }
 
 
