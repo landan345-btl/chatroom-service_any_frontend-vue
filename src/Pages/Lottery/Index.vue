@@ -47,6 +47,11 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
   },
 })
 class Lottery extends Vue {
+
+  public beforeCreate(): void {
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
+  }
+
   public created(): void {
     let $root: any = this.$root;
     let sCode = this.$route.query.code;
