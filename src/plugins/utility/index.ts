@@ -8,7 +8,6 @@ import substr from '@/utilities/substr/index';
 import isFishOrShrimpOrCrab from '@/utilities/isFishOrShrimpOrCrab/index';
 import last from '@/utilities/last/index';
 import isFrontOrBack from '@/utilities/isFrontOrBack/index';
-import fiveRow from '@/utilities/fiveRow/index';
 
 
 let oUltilityPlugin = {
@@ -17,13 +16,11 @@ let oUltilityPlugin = {
   install(Vue: any, options: any) {
     // We call Vue.mixin() here to inject functionality into all components.
     Vue.sayHello = () => {
-      console.log('sayHello');
       return 'sayHello';
     };
     Vue.mixin({
       methods: {
         testMethod: () => {
-          console.log('testMethod');
           return 'testMethod';
         },
       },
@@ -38,7 +35,6 @@ let oUltilityPlugin = {
     Vue.prototype.isFishOrShrimpOrCrab = isFishOrShrimpOrCrab;
     Vue.prototype.last = last;
     Vue.prototype.isFrontOrBack = isFrontOrBack;
-    Vue.prototype.fiveRow = fiveRow;
   },
 };
 

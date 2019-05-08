@@ -10,9 +10,9 @@ import determineSequence from '@/filters/determineSequence/index';
 import count from '@/filters/count/index';
 import padStart from '@/filters/padStart/index';
 import isFrontOrBack from '@/filters/isFrontOrBack/index';
-import fiveRow from '@/filters/fiveRow/index';
+import isFiveRow from '@/filters/isFiveRow/index';
+import JSONparse from '@/filters/JSONparse/index';
 
-// import firstAdd from '@/filters/firstAdd/index';
 import codeToName from '@/filters/codeToName/index';
 import or from '@/filters/or/index';
 
@@ -33,10 +33,10 @@ let oFilterPlugin = {
     Vue.filter('sum' , sum);
     Vue.filter('padStart' , padStart);
     Vue.filter('isFrontOrBack' , isFrontOrBack);
-    Vue.filter('fiveRow' , fiveRow);
-   // Vue.filter('firstAdd' , firstAdd);
+    Vue.filter('isFiveRow' , isFiveRow);
     Vue.filter('codeToName' , codeToName);
     Vue.filter('or' , or);
+    Vue.filter('JSONparse' , JSONparse);
   },
 };
 

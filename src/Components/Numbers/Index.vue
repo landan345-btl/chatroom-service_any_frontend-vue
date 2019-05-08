@@ -8,7 +8,7 @@
                '大' === isSmallOrLarge(smallUpperBound, largelowerBound) ? 'number-large' : '',
                'number-' + types.toLowerCase(), 
                'number-'+ code.toLowerCase(), 
-               'number-'+ types.toLowerCase() + '-' + iNumber]" v-for="(iNumber, sKey) in numbers" :key="sKey" v-randomNumber>
+               'number-'+ types.toLowerCase() + '-' + iNumber]" v-for="(iNumber, sKey) in numbers" :key="sKey" v-randomNumber="{ isRandom: isRandom }">
       <span>{{iNumber}}</span>
     </div>
   </div>
@@ -37,6 +37,10 @@ class Numbers extends Vue {
   public largelowerBound!: number;
   @Prop()
   public size!: string;
+
+  @Prop()
+  public isRandom!: boolean;
+
 
 }
 export default Numbers;

@@ -9,7 +9,7 @@
     <Today-two-side-number-statics v-show="isTodayTwoSideNumberStaticShowed" class="p-2"/>
     <Accumulation-remider v-show="isAccumulationRemiderShowed" class="p-2"/>
     <Number-analysis v-show="isNumberAnalysisShowed" class="p-2"/>
-    <Table class="p-2"/>
+    <Table :lotteryIssue="lotteryIssue" :lottery="lottery" :code="code" :types="types" class="p-2" />
   </div>
 </template>
 <style scoped lang="scss">
@@ -17,7 +17,7 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 import ITabs from '@/Components/ITabs/Index.vue';
 import IButton from '@/Components/IButton/Index.vue';
 import TodayTwoSideNumberStatics from './TodayTwoSideNumberStatics/Index.vue';
@@ -41,6 +41,18 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
   },
 })
 class LotteryIssue extends Vue {
+ @Prop()
+  public lotteryIssue!: any;
+
+  @Prop()
+  public lottery!: any;
+
+  @Prop()
+  public code!: any;
+
+  @Prop()
+  public types!: any;
+
   public isTodayTwoSideNumberStaticShowed: boolean = false;
   public isAccumulationRemiderShowed: boolean = false;
   public isNumberAnalysisShowed: boolean = false;

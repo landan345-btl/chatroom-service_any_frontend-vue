@@ -60,13 +60,7 @@
     color: #ff7b00;
     line-height: 2;
   }
+  /deep/ .ivu-tabs-bar .ivu-tabs-tab {
+    line-height: 2;
+  }
 }
-
-// /deep/ .ivu-tabs.ivu-tabs-card {
-//   .ivu-tabs-bar {
-//     .ivu-tabs-tab-active {
-//       color: #ff7b00;
-//       line-height: 2;
-//     }
-//   }
-// }
