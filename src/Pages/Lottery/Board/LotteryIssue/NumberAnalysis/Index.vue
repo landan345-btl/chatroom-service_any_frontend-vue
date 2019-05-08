@@ -1,6 +1,6 @@
 <template>
   <div class="number-analysis">
-    <div class="head">
+    <div class="head pt-1">
       <span>查看号码分布:</span>
       <span :class="{'active' :oHead.on}" 
         @click="showNumbers(index)" v-for="(oHead,index) in recordHeads" 
@@ -8,7 +8,7 @@
         <i></i>
       </span>
     </div>
-    <div class="head">
+    <div class="head pt-1">
       <span>查看大小分布:</span>
       <span :class="{'active' :oHead.on}" 
         @click="showSmallOrLarge(oindex)" v-for="(oHead,oindex) in recordHeads1" 

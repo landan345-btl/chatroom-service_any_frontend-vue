@@ -33,7 +33,7 @@ html {
       display: inline-block;
       height: 15px;
       width: 15px;
-      background: url("~@/assets/images/numbers.png") no-repeat -386px -59px;
+      background: url("~@/assets/images/numbers.png") no-repeat -386px -55px;
      }
   }
 }
@@ -52,71 +52,92 @@ html {
     border-radius: 2.25vmin;
     color: #ffffff;
     background-color: #0092dd;
-    line-height: 4.5vmin;
+    line-height: 3.8vmin;
+    margin:0.5vmin 0.3vmin; 
   }
   .ssc-height-4 {
     height:4.1vmin;
   }
   .number-cqssc.number-ssc-0, .number-cqssc.number-ssc-00 {
-    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -488px 0;
+    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -488px 1px;
     width: 4.5vmin;
+    height:3.9vmin;
+    border-radius:0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-1, .number-cqssc.number-ssc-01 {
-    background: url('~@/assets/images/numbers-cqssc.png') no-repeat 0 0;
+    background: url('~@/assets/images/numbers-cqssc.png') no-repeat 0 1px;
     width: 4.5vmin;
+    height:3.9vmin;
+    border-radius:0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-2, .number-cqssc.number-ssc-02 {
-    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -52px 0;
+    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -52px 1px;
     width: 4.5vmin;
+    height:3.9vmin;
+    border-radius:0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-3, .number-cqssc.number-ssc-03 {
-    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -106px 0;
+    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -106px 1px;
     width: 4.5vmin;
+    height:3.9vmin;
+    border-radius:0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-4, .number-cqssc.number-ssc-04 {
-    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -161px 0;
+    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -161px 1px;
     width: 4.5vmin;
+    height:3.9vmin;
+    border-radius:0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-5, .number-cqssc.number-ssc-05 {
-    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -215px 0;
+    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -215px 1px;
     width: 4.5vmin;
+    height:3.9vmin;
+    border-radius:0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
 
   .number-cqssc.number-ssc-6, .number-cqssc.number-ssc-06 {
-    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -270px 0;
+    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -270px 1px;
     width: 4.5vmin;
+    height:3.9vmin;
+    border-radius:0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
 
   .number-cqssc.number-ssc-7, .number-cqssc.number-ssc-07 {
-    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -324px 0;
+    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -324px 1px;
     width: 4.5vmin;
+    height:3.9vmin;
+    border-radius:0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
 
   .number-cqssc.number-ssc-8, .number-cqssc.number-ssc-08 {
-    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -379px 0;
+    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -379px 1px;
     width: 4.5vmin;
+    height:3.9vmin;
+    border-radius:0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqssc.number-ssc-9, .number-cqssc.number-ssc-09 {
-    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -433px 0;
+    background: url('~@/assets/images/numbers-cqssc.png') no-repeat -433px 1px;
     width: 4.5vmin;
+    height:3.9vmin;
+    border-radius:0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
@@ -132,24 +153,24 @@ html {
   }
 
   .number-xy28 {
-    width: 4vmin;
-    height: 4vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
     font-size: 1.6vmin;
     border-radius: 2vmin;
     color: #ffffff;
     background-color: #0092dd;
-    line-height: 4vmin;
+    line-height: 3.8vmin;
   }
 
   
   .number-pcdd {
-    width: 4vmin;
-    height: 4vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
     font-size: 1.6vmin;
     border-radius: 2vmin;
     color: #ffffff;
     background-color: #0092dd;
-    line-height: 4vmin;
+    line-height: 3.8vmin;
   }
 
   .number-kl8 {
