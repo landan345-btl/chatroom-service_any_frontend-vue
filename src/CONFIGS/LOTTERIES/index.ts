@@ -62,9 +62,9 @@ const LOTTERIES: I_LOTTERIES = {
   'CQKLSF': {
     NAME: '重庆幸运农场',
     SRC: '@/assets/images/CQKLSF-md.png',
-    TYPES: 'KL10F',
-    SMALL_UPPER_BOUND: 4,
-    LARGE_LOWER_BOUND: 5,
+    TYPES: 'KLSF',
+    SMALL_UPPER_BOUND: 10,
+    LARGE_LOWER_BOUND: 11,
     LOTTERY_ISSUE: {
       BEFORE_UNTIL_NOW_TIME: 24 * 60 * 60 * 1000,
     },
@@ -73,8 +73,8 @@ const LOTTERIES: I_LOTTERIES = {
     NAME: '广东快乐十分',
     SRC: '@/assets/images/GDKLSF-md.png',
     TYPES: 'KLSF',
-    SMALL_UPPER_BOUND: 4,
-    LARGE_LOWER_BOUND: 5,
+    SMALL_UPPER_BOUND: 10,
+    LARGE_LOWER_BOUND: 11,
     LOTTERY_ISSUE: {
       BEFORE_UNTIL_NOW_TIME: 1 * 60 * 60 * 1000,
     },
@@ -253,8 +253,8 @@ const LOTTERIES: I_LOTTERIES = {
     NAME: '湖南快乐十分',
     SRC: '@/assets/images/HUNKLSF-md.png',
     TYPES: 'KLSF',
-    SMALL_UPPER_BOUND: 4,
-    LARGE_LOWER_BOUND: 5,
+    SMALL_UPPER_BOUND: 10,
+    LARGE_LOWER_BOUND: 11,
     LOTTERY_ISSUE: {
       BEFORE_UNTIL_NOW_TIME: 24 * 60 * 60 * 1000,
     },
