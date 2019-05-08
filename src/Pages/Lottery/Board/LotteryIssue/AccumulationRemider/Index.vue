@@ -1,6 +1,5 @@
 <template>
   <div class="accumulation-remider">
-    <div class="mg-l-2">
     <div class="title">长龙连开提醒</div>
     <div class="remind">
       <ul>
@@ -13,7 +12,6 @@
         </li>
       </ul>
     </div>
-  </div>
   </div>
 </template>
 <style scoped lang="scss">
