@@ -9,7 +9,7 @@
     <Today-two-side-number-statics v-show="isTodayTwoSideNumberStaticShowed" class="p-2"/>
     <Accumulation-remider v-show="isAccumulationRemiderShowed" class="p-2"/>
     <Number-analysis v-show="isNumberAnalysisShowed" class="p-2"/>
-    <Table :lotteryIssue="lotteryIssue" :lottery="lottery" :code="code" :types="types" class="p-2" />
+    <Table :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types" class="p-2" />
   </div>
 </template>
 <style scoped lang="scss">
@@ -42,7 +42,7 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 })
 class LotteryIssue extends Vue {
   @Prop()
-  public lotteryIssue!: any;
+  public lotteryIssues!: any;
 
   @Prop()
   public lottery!: any;

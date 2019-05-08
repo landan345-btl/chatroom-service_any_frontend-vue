@@ -42,7 +42,7 @@
         <th colspan="3">总和</th>
         <th colspan="5">1-5龙虎</th>
       </tr>
-      <tr v-for="(lotterys,Index) in oLotteryIssues" :key="Index">
+      <tr v-for="(lotterys,Index) in oLotteryIssues" :key="Index" class="h-4">
         <td>{{lotterys.added_time}}</td>
         <td>{{lotterys.no}}</td>
         <td>
@@ -192,14 +192,14 @@
       <tr>
         <th width="140">时间</th>
         <th>期数</th>
-        <th class="number-btns w-42">显示号码</th>
+        <th class="number-btns">显示号码</th>
         <th colspan="3">总和</th>
-        <th class="w-0p5">单双</th>
-        <th class="w-0p5">前后</th>
+        <th>单双</th>
+        <th>前后</th>
         <th>总和组合</th>
         <th>五行</th>
       </tr>
-      <tr v-for=" ( lotterys, lotteryid ) in oLotteryIssues" :key="lotteryid">
+      <tr v-for=" ( lotterys, lotteryid ) in oLotteryIssues" :key="lotteryid" class="h-4">
         <td>{{ lotterys.added_time }}</td>
         <td>{{ lotterys.no}}</td>
         <td>
@@ -291,7 +291,7 @@ import Numbers from '@/Components/Numbers/Index.vue';
 })
 class Table extends Vue {
   @Prop()
-  public lotteryIssue!: any;
+  public lotteryIssues!: any;
 
   @Prop()
   public lottery!: any;
@@ -310,7 +310,7 @@ class Table extends Vue {
   public switcher: any = '0';
 
   public get oLotteryIssues(): object {
-    let oLotteryIssues = this.lotteryIssue;
+    let oLotteryIssues = this.lotteryIssues;
     let aLotteryIssues = Object.values(oLotteryIssues);
     let oLotteryIssue = aLotteryIssues.reverse().slice(0 , 99);
     return oLotteryIssue;
