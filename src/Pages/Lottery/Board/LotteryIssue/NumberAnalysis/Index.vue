@@ -1,7 +1,7 @@
 <template>
   <div class="number-analysis">
     <div class="head pt-1">
-      <span>查看号码分布:</span>
+      <span class="font-size-2p5">查看号码分布:</span>
       <span :class="{'active' :oHead.on}" 
         @click="showNumbers(index)" v-for="(oHead,index) in recordHeads" 
         :key="index">{{oHead.title}}
@@ -9,7 +9,7 @@
       </span>
     </div>
     <div class="head pt-1">
-      <span>查看大小分布:</span>
+      <span class="font-size-2p5">查看大小分布:</span>
       <span :class="{'active' :oHead.on}" 
         @click="showSmallOrLarge(oindex)" v-for="(oHead,oindex) in recordHeads1" 
         :key="oindex">{{oHead.title}}
@@ -45,16 +45,16 @@ class TodayTwoSideNumberStatics extends Vue {
     ];
 
   @Emit('bind-send')
-  public send(index: any ) {
-    return index;
+  public send(iIndex: any ) {
+    return iIndex;
   }
-  public showNumbers(index: number) {
-   this.recordHeads[index].on = !this.recordHeads[index].on;
-   this.send(index + 1);
+  public showNumbers(iIndex: number) {
+   this.recordHeads[iIndex].on = !this.recordHeads[iIndex].on;
+   this.send(iIndex + 1);
   }
-  public showSmallOrLarge(oindex: number) {
-   this.recordHeads1[oindex].on = !this.recordHeads1[oindex].on;
-   this.send(oindex + 1);
+  public showSmallOrLarge(iIndex: number) {
+   this.recordHeads1[iIndex].on = !this.recordHeads1[iIndex].on;
+   this.send(iIndex + 1);
   }
 }
 

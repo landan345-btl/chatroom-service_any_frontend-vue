@@ -2,10 +2,6 @@
   .head {
     min-width: 100%;
     box-sizing: border-box;
-    span:first-child {
-      font-size:2vmin;
-      margin-right:3vmin;  
-    }
     span:nth-of-type(n+2) {
       padding:0.6vmin 1.1vmin;
       border-radius:0.5vmin;

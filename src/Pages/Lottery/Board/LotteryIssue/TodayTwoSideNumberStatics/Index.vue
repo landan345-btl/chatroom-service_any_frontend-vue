@@ -1,6 +1,6 @@
 <template>
   <div class="today-two-side-number-statics">
-    <div class="title">今日双面统计</div>
+    <div class="font-size-2p5">今日双面统计</div>
       <table>
         <tbody>
         <tr>
