@@ -5,16 +5,16 @@
       <span class="more position-absolute">更多</span>
     </div>
     <div class="lotteries">
-      <div v-for="(oLottery, sCode, iIndex) in lotteries" :key="sCode">
+      <div v-for="(oLottery, iLotteryId, iIndex) in lotteries" :key="iIndex">
         <div class="line" v-if="(iIndex - Math.floor((Math.random() * 8) + 1)) >= -1 && (iIndex - Math.floor((Math.random() * 8) + 1)) <= 1"></div>
         <div class="lottery" v-if="(iIndex - Math.floor((Math.random() * 8) + 1)) >= -1 && (iIndex - Math.floor((Math.random() * 8) + 1)) <= 1">
           <div class="top">
             <span class="icon d-inline-block align-middle">
-              <div :class="['icon-' + sCode.toLowerCase() ]">
+              <div :class="['icon-' + oLottery.code.toLowerCase() ]">
               </div>
             </span>
             <span class="title align-middle ml-2">
-              {{ LOTTERIES[code].NAME| or(oLottery.name) }}
+              {{ LOTTERIES[oLottery.code].NAME | or(oLottery.name) }}
             </span>
           </div>
           <div class="line">
@@ -25,13 +25,13 @@
               <span>&nbsp;走势</span>
             </div>
             <ul class="middle list">
-              <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 1 }}">
+              <router-link class="" :to="{ path: '/lottery', query: { code: `${oLottery.code}`, type: 1 }}">
                 <li>冠亚和走势</li>
               </router-link>
-              <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 2 }}">
+              <router-link class="" :to="{ path: '/lottery', query: { code: `${oLottery.code}`, type: 2 }}">
                 <li>位置走势</li>
               </router-link>
-              <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 3 }}">
+              <router-link class="" :to="{ path: '/lottery', query: { code: `${oLottery.code}`, type: 3 }}">
                 <li>号码走势</li>
               </router-link>
             </ul>
@@ -44,22 +44,22 @@
               <span>&nbsp;遗漏</span>
             </div>
             <ul class="middle list">
-              <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 4 }}">
+              <router-link class="" :to="{ path: '/lottery', query: { code: `${oLottery.code}`, type: 4 }}">
                 <li>综合分析</li>
               </router-link>
-              <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 5 }}">
+              <router-link class="" :to="{ path: '/lottery', query: { code: `${oLottery.code}`, type: 5 }}">
                 <li>定位走势</li>
               </router-link>
-              <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 6 }}">
+              <router-link class="" :to="{ path: '/lottery', query: { code: `${oLottery.code}`, type: 6 }}">
                 <li>第二球走势</li>
               </router-link>
-              <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 7 }}">
+              <router-link class="" :to="{ path: '/lottery', query: { code: `${oLottery.code}`, type: 7 }}">
                 <li>第三球走势</li>
               </router-link>
-              <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 8 }}">
+              <router-link class="" :to="{ path: '/lottery', query: { code: `${oLottery.code}`, type: 8 }}">
                 <li>第四球走势</li>
               </router-link>
-                <router-link class="" :to="{ path: '/trend', query: { code: `${sCode}`, type: 9 }}">
+                <router-link class="" :to="{ path: '/lottery', query: { code: `${oLottery.code}`, type: 9 }}">
                 <li>综合分析</li>
               </router-link>
             </ul>
