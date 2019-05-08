@@ -2,6 +2,7 @@
   <div class="summation-result">
     <div class="top p-1 font-weight-bold">
       <span class="title">总和路珠</span>
+      <I-date-picker />
     </div>
     <div class="middle p-2">
       <div class="odd-even-pannel d-flex flex-column flex-wrap align-self-end align-content-end mb-2">
@@ -33,6 +34,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
 import ITabs from '@/Components/ITabs/Index.vue';
+import IDatePicker from '@/Components/IDatePicker/Index.vue';
 
 import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 // TODO
@@ -42,6 +44,7 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
   name: 'SummationResult',
   components: {
     ITabs,
+    IDatePicker,
   },
 })
 class SummationResult extends Vue {
