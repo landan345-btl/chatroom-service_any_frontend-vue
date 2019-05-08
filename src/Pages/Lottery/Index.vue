@@ -7,7 +7,7 @@
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
         <main class="mt-2 mb-2">
           <Top :lotteryIssue="getLastLotteryIssue" :lottery="getLottery" :code="getCode" :types="getTypes" v-if="getLastLotteryIssue && getLottery && getTypes"/>
-          <Board :lotteryIssue="getLotteryIssues" :lottery="getLottery" :code="getCode" :types="getTypes"  v-if="getLastLotteryIssue && getLottery && getTypes"/>
+          <Board :lotteryIssue="getLotteryIssues" :hotWarnColdPositions="getHotWarnColdPositions" :lottery="getLottery" :code="getCode" :types="getTypes"  v-if="getLastLotteryIssue && getLottery && getTypes"/>
         </main>
       </el-col>
     </el-row>
@@ -95,6 +95,47 @@ class Lottery extends Vue {
     let oLotteryIssues: { lottery_issue_id: any} = this.$store.state.lottery_issues;
     let oLotteryIssue: { lottery_issue_id: any} | undefined = Object.values(oLotteryIssues).pop();
     return oLotteryIssue;
+  }
+
+    public get getHotWarnColdPositions() {
+    let oLotteryIssues: any = this.$store.state.lottery_issues;
+    let aLotteryIssues = Object.values(oLotteryIssues);
+
+    let aHotWarnColdPositions: any = [
+      { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
+      { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
+      { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
+      { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
+      { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
+      { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
+      { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
+      { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
+      { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
+      { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
+      { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
+    ];
+    let oLotteryIssue: any;
+    let iLoopCount = 0;
+    while (20 > iLoopCount && 1 <= aLotteryIssues.length) {
+      oLotteryIssue = aLotteryIssues.pop();
+      let aNumbers = JSON.parse(oLotteryIssue.numbers);
+        aNumbers.forEach((iNumber: number, iIndex: number) => {
+          let oHotWarnColdPosition = aHotWarnColdPositions[iIndex];
+          aHotWarnColdPositions[iIndex][iNumber] = oHotWarnColdPosition[iNumber] + 1;
+        });
+      iLoopCount++;
+    }
+    return aHotWarnColdPositions;
+  }
+
+  public get getTodayNumbers() {
+    let oLotteryIssues: any = this.$store.state.lottery_issues;
+    let aLotteryIssues = Object.values(oLotteryIssues);
+    aLotteryIssues.forEach((oLotteryIssue: any) => {
+      let aNumbers = oLotteryIssue.numbers;
+      
+    });
+    return false;
   }
 }
 
