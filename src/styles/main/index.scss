@@ -122,13 +122,13 @@ html {
 
 
   .number-11x5 {
-    width: 4vmin;
-    height: 4vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
     font-size: 1.6vmin;
     border-radius: 2vmin;
     color: #ffffff;
     background-color: #0092dd;
-    line-height: 4vmin;
+    line-height: 3.8vmin;
   }
 
   .number-xy28 {
@@ -357,8 +357,8 @@ html {
   }
 
   .number-klsf {
-    width: 4vmin;
-    height: 4vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
     font-size: 1.6vmin;
     border-radius: 2vmin;
     color: #ffffff;
@@ -368,16 +368,19 @@ html {
 
   .number-cqklsf.number-klsf-1, .number-cqklsf.number-klsf-01 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat 0 0;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-2, .number-cqklsf.number-klsf-02 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -55px 0;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-3, .number-cqklsf.number-klsf-03 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -109px 0;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
@@ -388,6 +391,7 @@ html {
 
   .number-cqklsf.number-klsf-5, .number-cqklsf.number-klsf-05 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -218px 0;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
@@ -398,6 +402,7 @@ html {
 
   .number-cqklsf.number-klsf-7, .number-cqklsf.number-klsf-07 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -327px 0;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
@@ -408,93 +413,105 @@ html {
 
   .number-cqklsf.number-klsf-9, .number-cqklsf.number-klsf-09 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -436px 0;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-10 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -491px 0;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-11 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat 0 -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-12 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -55px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-13 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -109px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-14 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -164px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-15 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -218px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-16 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -273px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-17 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -327px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-18 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -382px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-19 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -436px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-20 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -491px -77px;
+    width:4.2vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-k3 {
-    width: 43px;
-    height: 43px;
+    width: 5.2vmin;
+    height: 3.8vmin;
     color: rgba($color: #000000, $alpha: 0);
     background-size: auto;
   }
     
   .number-k3-1, .number-k3-01 {
-    background: url('~@/assets/images/numbers.png') no-repeat -424px 0;
+    background: url('~@/assets/images/numbers.png') no-repeat -424px 1.3px;
   }
   
   .number-k3-2, .number-k3-02 {
-    background: url('~@/assets/images/numbers.png') no-repeat -424px -43px;
+    background: url('~@/assets/images/numbers.png') no-repeat -424px -43.3px;
   }
   
   .number-k3-3, .number-k3-03 {
-    background: url('~@/assets/images/numbers.png') no-repeat -424px -86px;
+    background: url('~@/assets/images/numbers.png') no-repeat -424px -86.3px;
   }
   
   .number-k3-4, .number-k3-04 {
-    background: url('~@/assets/images/numbers.png') no-repeat -424px -129px;
+    background: url('~@/assets/images/numbers.png') no-repeat -424px -129.3px;
   }
   
   .number-k3-5, .number-k3-05 {
-    background: url('~@/assets/images/numbers.png') no-repeat -424px -172px;
+    background: url('~@/assets/images/numbers.png') no-repeat -424px -172.3px;
   }
   
   .number-k3-6, .number-k3-06 {
-    background: url('~@/assets/images/numbers.png') no-repeat -424px -215px;
+    background: url('~@/assets/images/numbers.png') no-repeat -424px -215.3px;
   }
   
 
