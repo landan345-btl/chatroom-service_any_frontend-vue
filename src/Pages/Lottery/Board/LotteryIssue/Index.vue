@@ -41,7 +41,7 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
   },
 })
 class LotteryIssue extends Vue {
- @Prop()
+  @Prop()
   public lotteryIssue!: any;
 
   @Prop()

@@ -2,7 +2,7 @@
   <div class="board">
     <I-tabs :type="'card'" class="">
       <TabPane :label="'即使开奖'" :name="'lottery-issue'"> 
-        <Lottery-issue :lotteryIssue="lotteryIssues" :lottery="lottery" :code="code" :types="types"/>
+        <Lottery-issue :lotteryIssue="lotteryIssue" :lottery="lottery" :code="code" :types="types"/>
       </TabPane>
       <TabPane :label="'路珠分析'" :name="'result-analysis'">
         <Result-analysis />
