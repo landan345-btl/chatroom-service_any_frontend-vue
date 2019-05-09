@@ -26,10 +26,13 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import Footer from '@/Commons/Footer/Index.vue';
-import Header from '@/Commons/Header/Index.vue';
-import NavTop from '@/Commons/NavTop/Index.vue';
-import NavRight from '@/Commons/NavRight/Index.vue';
+import {
+  Footer,
+  Header,
+  NavTop,
+  NavRight,
+} from '@/Commons/';
+
 import ETabs from '@/Components/ETabs/Index.vue';
 import Toolbar from './Toolbar/Index.vue';
 import Board from './Board/Index.vue';
