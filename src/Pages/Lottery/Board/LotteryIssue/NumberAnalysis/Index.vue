@@ -1,18 +1,28 @@
 <template>
   <div class="number-analysis">
     <div class="head pt-1">
-      <span>查看号码分布:</span>
-      <span :class="{'active' :oHead.on}" 
-        @click="showNumbers(index)" v-for="(oHead,index) in recordHeads" 
-        :key="index">{{oHead.title}}
+      <span class="font-size-2p5">查看号码分布:</span>
+      <span :class="{'active': onNumbers[sKey]}" 
+        @click="showNumber(sKey)" v-for="(iNumber, sKey) in record11x5Buttons" :key="sKey" v-if="types === '11X5'">
+        号码{{iNumber}}
+        <i></i>
+      </span>
+      <span :class="{'active': onNumbers[sKey]}" 
+        @click="showNumber(sKey)" v-for="(iNumber, sKey) in recordSscButtons" :key="sKey" v-if="types === 'SSC'">
+        号码{{iNumber}}
+        <i></i>
+      </span>
+      <span :class="{'active': onNumbers[sKey]}" 
+        @click="showNumber(sKey)" v-for="(iNumber, sKey) in recordPk10Buttons" :key="sKey" v-if="types === 'PK10'">
+        号码{{iNumber}}
         <i></i>
       </span>
     </div>
     <div class="head pt-1">
-      <span>查看大小分布:</span>
-      <span :class="{'active' :oHead.on}" 
-        @click="showSmallOrLarge(oindex)" v-for="(oHead,oindex) in recordHeads1" 
-        :key="oindex">{{oHead.title}}
+      <span class="font-size-2p5">查看大小分布:</span>
+      <span :class="{'active':onOddOrEvenOrSmallOrLargeOrPairRedcords[sKey]}"
+        @click="showOddOrEven(sKey)" v-for="(sRecord, sKey) in recordOddOrEvens" :key="sKey">
+        {{ sRecord }}
         <i></i>
       </span>
       <span class="reset">还原</span>
@@ -35,26 +45,79 @@ import {
   },
 })
 class TodayTwoSideNumberStatics extends Vue {
-  public recordHeads = [
-    {title: '号码1', on: false}, {title: '号码2', on: false}, {title: '号码3', on: false}, {title: '号码4', on: false}, {title: '号码5', on: false},
-    {title: '号码6', on: false}, {title: '号码7', on: false}, {title: '号码8', on: false}, {title: '号码9', on: false}, {title: '号码10', on: false},
-    ];
-  public recordHeads1 = [
-    {title: '单', on: false}, {title: '双', on: false}, {title: '大', on: false}, {title: '小', on: false}, {title: '对子号', on: false},
-    ];
+  @Prop()
+  public types!: any;
 
-  @Emit('bind-send')
-  public send(index: any ) {
-    return index;
+  @Prop()
+  public onNumbers!: any;
+
+  @Prop()
+  public onOddOrEvenOrSmallOrLargeOrPairRedcords!: any;
+
+  public record11x5Buttons = {
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 7,
+    8: 8,
+    9: 9,
+    10: 10,
+    11: 11,
+  };
+  public recordSscButtons = {
+    0: 0,
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 7,
+    8: 8,
+    9: 9,
+  };
+  public recordPk10Buttons = {
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 7,
+    8: 8,
+    9: 9,
+    10: 10,
+  };
+
+  public recordOddOrEvens = {
+    odd: '单',
+    even: '双',
+    large: '大',
+    small: '小',
+    pair: '对子号',
+  };
+
+  @Emit('handle-toggle-number')
+  public handleToggleNumber(sKey: string) {
+    return sKey;
   }
-  public showNumbers(index: number) {
-   this.recordHeads[index].on = !this.recordHeads[index].on;
-   this.send(index + 1);
+
+  @Emit('handle-toggle-oddoreven')
+  public handleToggleOddOrEven(sKey: string) {
+    return sKey;
   }
-  public showSmallOrLarge(oindex: number) {
-   this.recordHeads1[oindex].on = !this.recordHeads1[oindex].on;
-   this.send(oindex + 1);
+
+  public showNumber(sKey: string) {
+    this.handleToggleNumber(sKey);
   }
+
+  public showOddOrEven(sKey: string) {
+    this.handleToggleOddOrEven(sKey);
+  }
+
 }
 
 export default TodayTwoSideNumberStatics;

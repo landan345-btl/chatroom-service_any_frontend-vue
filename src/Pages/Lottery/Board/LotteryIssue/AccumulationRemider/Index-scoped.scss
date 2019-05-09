@@ -1,3 +1,14 @@
 .accumulation-remider {
   border-bottom: 0.2vmin solid #e7e7e7;
-}
+    .remind {
+        p {
+          &>span {
+            width:13.8%;
+            height: 3.5vmin;
+            line-height: 3.5vmin;
+            font-size:1vmin;
+            border:1px solid #E7E7E7;
+          }
+        }
+    }
+} 
