@@ -1,18 +1,18 @@
-import cCount from '@/utilities/count/index';
-import cDetermineSequence from '@/utilities/determineSequence/index';
-import cIsDragonOrTiger from '@/utilities/isDragonOrTiger/index';
-import cIsFishOrShrimpOrCrab from '@/utilities/isFishOrShrimpOrCrab/index';
-import cIsFiveRow from '@/utilities/isFiveRow/index';
-import cIsFrontOrBack from '@/utilities/isFrontOrBack/index';
-import cIsOddOrEven from '@/utilities/isOddOrEven/index';
-import cIsSmallOrLarge from '@/utilities/isSmallOrLarge/index';
-import cObjectQueriesToStringQueries from '@/utilities/objectQueriesToStringQueries/index';
-import cOr from '@/utilities/or/index';
-import cPadStart from '@/utilities/padStart/index';
-import cSubstr from '@/utilities/substr/index';
-import cSum from '@/utilities/sum/index';
-import cLast from '@/utilities/last/index';
-import cJSONparse from '@/utilities/JSONparse/index';
+import cCount from './count/index';
+import cDetermineSequence from './determineSequence/index';
+import cIsDragonOrTiger from './isDragonOrTiger/index';
+import cIsFishOrShrimpOrCrab from './isFishOrShrimpOrCrab/index';
+import cIsFiveRow from './isFiveRow/index';
+import cIsFrontOrBack from './isFrontOrBack/index';
+import cIsOddOrEven from './isOddOrEven/index';
+import cIsSmallOrLarge from './isSmallOrLarge/index';
+import cObjectQueriesToStringQueries from './objectQueriesToStringQueries/index';
+import cOr from './or/index';
+import cPadStart from './padStart/index';
+import cSubstr from './substr/index';
+import cSum from './sum/index';
+import cLast from './last/index';
+import cJSONparse from './JSONparse/index';
 
 export {
   cCount as count,
