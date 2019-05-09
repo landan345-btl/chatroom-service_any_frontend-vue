@@ -3,11 +3,11 @@ import {
   lineBreakIfDifferent,
 } from '@/directives/';
 
-let oDirectivePlugin = {
+let oDirective = {
   install(Vue: any, options: any) {
     Vue.directive('randomNumber', randomNumber);
     Vue.directive('line-break-if-different', lineBreakIfDifferent);
   },
 };
 
-export default oDirectivePlugin;
+export default oDirective;
