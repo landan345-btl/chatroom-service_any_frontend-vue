@@ -8,8 +8,8 @@
     </div>
     <Today-two-side-number-statics v-show="isTodayTwoSideNumberStaticShowed" class="p-2"/>
     <Accumulation-remider v-show="isAccumulationRemiderShowed" class="p-2"/>
-    <Number-analysis :types="types" v-show="isNumberAnalysisShowed" @bind-send="showNumbers" class="p-2"/>
-    <Table :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types" class="p-2" :options="options"/>
+    <Number-analysis :types="types" v-show="isNumberAnalysisShowed" @handle-toggle-number="toggleNumber" class="p-2" :onNumbers="onNumbers"/>
+    <Table :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types" class="p-2" :onNumbers="onNumbers"/>
   </div>
 </template>
 <style scoped lang="scss">
@@ -53,12 +53,23 @@ class LotteryIssue extends Vue {
   @Prop()
   public types!: any;
 
-  @Prop()
-  public options!: any;
-
   public isTodayTwoSideNumberStaticShowed: boolean = false;
   public isAccumulationRemiderShowed: boolean = false;
   public isNumberAnalysisShowed: boolean = false;
+
+  public onNumbers: object = {
+    0: false,
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false,
+    6: false,
+    7: false,
+    8: false,
+    9: false,
+    10: false,
+  };
 
   public toggleTodayTwoSideNumberStatics(): void {
     this.isTodayTwoSideNumberStaticShowed = !this.isTodayTwoSideNumberStaticShowed;
@@ -73,11 +84,13 @@ class LotteryIssue extends Vue {
   }
 
   @Emit('bind-send')
-  public send(iIndex: any ) {
-    return iIndex;
+  public send(onNumbers: any ) {
+    return onNumbers;
   }
-  public showNumbers(iIndex: number) {
-   this.send(iIndex);
+
+  public toggleNumber(sKey: string) {
+    let iNumber = Number(sKey);
+    this.onNumbers[iNumber] = true;
   }
 }
 

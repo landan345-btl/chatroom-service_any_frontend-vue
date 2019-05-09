@@ -2,7 +2,7 @@
   <div class="board">
     <I-tabs :type="'card'" class="">
       <TabPane :label="'即使开奖'" :name="'lottery-issue'"> 
-        <Lottery-issue :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types"  @bind-send="showNumbers" :options="options"/>
+        <Lottery-issue :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types"  @bind-send="onNumbers" :onNumbers="onNumbers"/>
       </TabPane>
       <TabPane :label="'路珠分析'" :name="'result-analysis'">
         <Result-analysis />
@@ -124,11 +124,6 @@ class Board extends Vue {
 
   @Prop()
   public types!: any;
-
-  public options: any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  public showNumbers(Index: number) {
-    this.options = Index;
-  }
 
 
 }

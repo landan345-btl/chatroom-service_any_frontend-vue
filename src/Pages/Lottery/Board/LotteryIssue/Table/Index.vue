@@ -1,6 +1,6 @@
 <template>
 <div class="history-number text-center">
-  <table v-if="lotteryTypes[ code ].TYPES === 'PK10'">
+  <table v-if="LOTTERIES[ code ].TYPES === 'PK10'">
     <tbody>
       <tr>
         <th>时间</th>
@@ -15,7 +15,13 @@
         <td>{{lotterys.added_time}}</td>
         <td>{{lotterys.no}}</td>
         <td>
-          <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" :status="switcher" :options="options"/>
+          <Numbers 
+            :code="code" 
+            :numbers="JSON.parse(lotterys.numbers)" 
+            :types="types" 
+            :isRandom="false" 
+            :status="switcher" 
+            :onNumbers="onNumbers"/>
         </td>
         <td>{{ JSON.parse(lotterys.numbers) | sum([0, 1])}}</td>
           <td :class="{'text-big' : '大' === isSmallOrLarge(sum(JSON.parse(lotterys.numbers),[0,1]),11,12)}">
@@ -31,7 +37,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="lotteryTypes[ code ].TYPES === 'SSC'">
+  <table v-if="LOTTERIES[ code ].TYPES === 'SSC'">
     <tbody>
       <tr>
         <th>时间</th>
@@ -62,7 +68,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="lotteryTypes[ code ].TYPES === '11X5'">  
+  <table v-if="LOTTERIES[ code ].TYPES === '11X5'">  
     <tbody>
       <tr>
         <th class="th-width1">时间</th>
@@ -92,7 +98,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="lotteryTypes[ code ].TYPES === 'K3'">
+  <table v-if="LOTTERIES[ code ].TYPES === 'K3'">
     <tbody>
       <tr>
         <th>时间</th>
@@ -133,7 +139,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="lotteryTypes[ code ].TYPES === 'KLSF'"> 
+  <table v-if="LOTTERIES[ code ].TYPES === 'KLSF'"> 
     <tbody>
       <tr>
         <th class="th-width1">时间</th>
@@ -162,7 +168,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="lotteryTypes[ code ].TYPES === 'SIX'">
+  <table v-if="LOTTERIES[ code ].TYPES === 'SIX'">
     <tbody>
       <tr>
         <th class="w-15">时间</th>
@@ -187,7 +193,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="lotteryTypes[ code ].TYPES === 'KL8'">
+  <table v-if="LOTTERIES[ code ].TYPES === 'KL8'">
     <tbody>
       <tr>
         <th width="140">时间</th>
@@ -219,7 +225,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="lotteryTypes[ code ].TYPES === '3D'">  
+  <table v-if="LOTTERIES[ code ].TYPES === '3D'">  
     <tbody>
       <tr>
         <th>时间</th>
@@ -251,7 +257,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="lotteryTypes[ code ].TYPES === 'XY28'"> 
+  <table v-if="LOTTERIES[ code ].TYPES === 'XY28'"> 
     <tbody>
       <tr>
         <th class="w-15">时间</th>
@@ -303,9 +309,7 @@ class Table extends Vue {
   public types!: any;
 
   @Prop()
-  public options!: any;
-
-  public lotteryTypes = LOTTERTIES;
+  public onNumbers!: any;
 
   public titles = ['显示号码', '显示大小', '显示单双'];
 

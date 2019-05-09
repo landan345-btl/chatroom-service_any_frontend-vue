@@ -4,7 +4,7 @@
               'SMALL_LARGE' === status ? 'status-small-large' : '',
               'ODD_EVEN' === status ? 'status-odd-even' : '', ]">
     <div class="number" 
-      :class="[size, 
+      :class="[ false === onNumbers[iNumber] ? 'opacity-0p1' : '', 
                '单' === isOddOrEven(iNumber) ? 'number-odd' : '',
                '双' === isOddOrEven(iNumber) ? 'number-even' : '',
                '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-small' : '',
@@ -38,13 +38,13 @@ class Numbers extends Vue {
   public types!: string;
 
   @Prop()
-  public size!: string;
-
-  @Prop()
   public isRandom!: boolean;
 
   @Prop()
   public status!: string;
+
+  @Prop()
+  public onNumbers!: any;
 
   public get getSmallUpperBound() {
     let sCodes = this.code;
