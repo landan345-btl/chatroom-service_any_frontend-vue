@@ -11,8 +11,7 @@ import {
   isFrontOrBack,
 } from '@/utilities/';
 
-
-let oUltilityPlugin = {
+let oUltility = {
   // The install method is all that needs to exist on the plugin object.
   // It takes the global Vue object as well as user-defined options.
   install(Vue: any, options: any) {
@@ -40,4 +39,4 @@ let oUltilityPlugin = {
   },
 };
 
-export default oUltilityPlugin;
+export default oUltility;

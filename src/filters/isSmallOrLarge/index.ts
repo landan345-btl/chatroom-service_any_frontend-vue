@@ -1,3 +1,5 @@
-import isSmallOrLarge from '@/utilities/isSmallOrLarge/index';
+import { 
+  isSmallOrLarge
+} from '@/utilities/';
 
 export default isSmallOrLarge;

@@ -15,7 +15,7 @@ import {
   count,
 } from '@/filters/';
 
-let oFilterPlugin = {
+let oFilter = {
   // The install method is all that needs to exist on the plugin object.
   // It takes the global Vue object as well as user-defined options.
   install(Vue: any, options: any) {
@@ -37,4 +37,4 @@ let oFilterPlugin = {
   },
 };
 
-export default oFilterPlugin;
+export default oFilter;
