@@ -4,7 +4,7 @@
               'SMALL_LARGE' === status ? 'status-small-large' : '',
               'ODD_EVEN' === status ? 'status-odd-even' : '', ]">
     <div class="number" 
-      :class="[ false === onNumbers[iNumber] || false === union(onNumbers) ? 'opacity-0p1' : '',
+      :class="[ true === onNumbers[iNumber] || false === union(onNumbers) ? '' : 'opacity-0p1',
                '单' === isOddOrEven(iNumber) ? 'number-odd' : '',
                '双' === isOddOrEven(iNumber) ? 'number-even' : '',
                '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-small' : '',
@@ -25,7 +25,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import {
-  LOTTERIES
+  LOTTERIES,
 } from '@/CONFIGS/';
 
 @Component({
@@ -48,9 +48,6 @@ class Numbers extends Vue {
   @Prop()
   public onNumbers!: any;
 
-  // @Prop()
-  // public onOddOrEvens!: any;
-
   public get getSmallUpperBound() {
     let sCodes = this.code;
     let iSmallUpperBound = LOTTERIES[sCodes].SMALL_UPPER_BOUND;
@@ -63,10 +60,11 @@ class Numbers extends Vue {
   }
 
   public union(oBooleans: object) {
-   // debugger;
     let bResult = false;
-    for (let bBoolean in oBooleans) {
-      if (bBoolean) {
+    let bBoolean;
+    for (let sKey in oBooleans) {
+      if (true) {
+        bBoolean = oBooleans[sKey];
         bResult = bResult || bBoolean;
       }
     }
