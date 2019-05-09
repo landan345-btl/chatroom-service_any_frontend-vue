@@ -28,9 +28,6 @@ import { Component, Watch, Vue } from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
 import ECarousel from '@/Components/ECarousel/Index.vue';
 
-import AxiosHelper from '@/Helpers/Axios';
-let oAxiosHelper = new AxiosHelper();
-
 @Component({
   name: 'News',
   components: {

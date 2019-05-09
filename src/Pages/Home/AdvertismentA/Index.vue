@@ -28,9 +28,6 @@
 import { Component, Watch, Vue, Prop } from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
 
-import AxiosHelper from '@/Helpers/Axios';
-let oAxiosHelper = new AxiosHelper();
-
 @Component({
   name: 'AdvertismentA',
   components: {

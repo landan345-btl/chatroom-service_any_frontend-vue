@@ -82,8 +82,6 @@ import {
   LOTTERIES,
 } from '@/CONFIGS/';
 
-import AxiosHelper from '@/Helpers/Axios';
-let oAxiosHelper = new AxiosHelper();
 
 @Component({
   name: 'Analysis',
@@ -110,10 +108,6 @@ class Analysis extends Vue {
     let $root: any = this.$root;
 
   }
-
-  // public get getLotteries(): any {
-  //   return this.lotteries;
-  // }
 }
 
 export default Analysis;

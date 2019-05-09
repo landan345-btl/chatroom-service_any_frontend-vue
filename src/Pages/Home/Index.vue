@@ -55,14 +55,11 @@ import Prediction from './Prediction/Index.vue';
 import AdvertismentB from './AdvertismentB/Index.vue';
 import Analysis from './Analysis/Index.vue';
 
-import AxiosHelper from '@/Helpers/Axios';
-
 import {
   LOTTERIES,
   BACKEND,
 } from '@/CONFIGS/';
 
-let oAxiosHelper = new AxiosHelper();
 
 @Component({
   name: 'Home',

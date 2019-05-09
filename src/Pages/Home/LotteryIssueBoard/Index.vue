@@ -97,9 +97,6 @@ import ITabPane from '@/Components/ITabPane/Index.vue';
 
 import LotteryIssue from './LotteryIssue/Index.vue';
 
-import AxiosHelper from '@/Helpers/Axios';
-let oAxiosHelper = new AxiosHelper();
-
 @Component({
   name: 'LotteryIssueBaord',
   components: {
