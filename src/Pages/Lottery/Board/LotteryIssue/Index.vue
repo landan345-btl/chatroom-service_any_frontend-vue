@@ -2,14 +2,14 @@
   <div class="lottery-issue">
     <div class="top p-1 font-weight-bold">
       <span class="title">即时开奖</span>
-      <I-button class="ml-2" v-on:handle-click="toggleTodayTwoSideNumberStatics()">今日双面/号码统计</I-button>
-      <I-button class="ml-2" v-on:handle-click="toggleAccumulationRemider()">长龙提醒</I-button>
-      <I-button class="ml-2" v-on:handle-click="toggleNumberAnalysis()">号码分析</I-button>
+      <I-button class="ml-2" v-on:handle-click="toggleTodayTwoSideNumberStatics()" v-if="['11X5','SSC' , 'PK10'].includes(types)">今日双面/号码统计</I-button>
+      <I-button class="ml-2" v-on:handle-click="toggleAccumulationRemider()" v-if="['11X5','SSC' , 'PK10'].includes(types)">长龙提醒</I-button>
+      <I-button class="ml-2" v-on:handle-click="toggleNumberAnalysis()" v-if="['11X5','SSC' , 'PK10'].includes(types)">号码分析</I-button>
     </div>
     <Today-two-side-number-statics v-show="isTodayTwoSideNumberStaticShowed" class="p-2"/>
     <Accumulation-remider v-show="isAccumulationRemiderShowed" class="p-2"/>
-    <Number-analysis v-show="isNumberAnalysisShowed" class="p-2"/>
-    <Table :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types" class="p-2" />
+    <Number-analysis :types="types" v-show="isNumberAnalysisShowed" @bind-send="showNumbers" class="p-2"/>
+    <Table :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types" class="p-2" :options="options"/>
   </div>
 </template>
 <style scoped lang="scss">
@@ -17,7 +17,7 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Vue, Prop, Emit } from 'vue-property-decorator';
 import ITabs from '@/Components/ITabs/Index.vue';
 import IButton from '@/Components/IButton/Index.vue';
 import TodayTwoSideNumberStatics from './TodayTwoSideNumberStatics/Index.vue';
@@ -53,6 +53,9 @@ class LotteryIssue extends Vue {
   @Prop()
   public types!: any;
 
+  @Prop()
+  public options!: any;
+
   public isTodayTwoSideNumberStaticShowed: boolean = false;
   public isAccumulationRemiderShowed: boolean = false;
   public isNumberAnalysisShowed: boolean = false;
@@ -67,6 +70,14 @@ class LotteryIssue extends Vue {
 
   public toggleNumberAnalysis(): void {
     this.isNumberAnalysisShowed = !this.isNumberAnalysisShowed;
+  }
+
+  @Emit('bind-send')
+  public send(iIndex: any ) {
+    return iIndex;
+  }
+  public showNumbers(iIndex: number) {
+   this.send(iIndex);
   }
 }
 

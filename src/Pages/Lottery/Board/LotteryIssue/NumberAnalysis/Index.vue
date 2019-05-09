@@ -3,8 +3,18 @@
     <div class="head pt-1">
       <span class="font-size-2p5">查看号码分布:</span>
       <span :class="{'active' :oHead.on}" 
-        @click="showNumbers(index)" v-for="(oHead,index) in recordHeads" 
-        :key="index">{{oHead.title}}
+        @click="showNumbers(iIndex)" v-for="(oHead,iIndex) in recordHeads11x5" 
+        :key="iIndex" v-if="types === '11X5'">{{oHead.title}}
+        <i></i>
+      </span>
+      <span :class="{'active' :oHead.on}" 
+        @click="showNumbers(index)" v-for="(oHead,index) in recordHeadsSsc" 
+        :key="index" v-if="types === 'SSC'">{{oHead.title}}
+        <i></i>
+      </span>
+      <span :class="{'active' :oHead.on}" 
+        @click="showNumbers(index)" v-for="(oHead,index) in recordHeadsPk10" 
+        :key="index" v-if="types === 'PK10'">{{oHead.title}}
         <i></i>
       </span>
     </div>
@@ -36,7 +46,19 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
   },
 })
 class TodayTwoSideNumberStatics extends Vue {
-  public recordHeads = [
+  @Prop()
+  public types!: any;
+
+  public recordHeads11x5 = [
+    {title: '号码1', on: false}, {title: '号码2', on: false}, {title: '号码3', on: false}, {title: '号码4', on: false}, {title: '号码5', on: false},
+    {title: '号码6', on: false}, {title: '号码7', on: false}, {title: '号码8', on: false}, {title: '号码9', on: false}, {title: '号码10', on: false},
+    {title: '号码11', on: false},
+    ];
+  public recordHeadsSsc = [
+    {title: '号码0', on: false}, {title: '号码1', on: false}, {title: '号码2', on: false}, {title: '号码3', on: false}, {title: '号码4', on: false},
+    {title: '号码5', on: false}, {title: '号码6', on: false}, {title: '号码7', on: false}, {title: '号码8', on: false}, {title: '号码9', on: false},
+    ];
+  public recordHeadsPk10 = [
     {title: '号码1', on: false}, {title: '号码2', on: false}, {title: '号码3', on: false}, {title: '号码4', on: false}, {title: '号码5', on: false},
     {title: '号码6', on: false}, {title: '号码7', on: false}, {title: '号码8', on: false}, {title: '号码9', on: false}, {title: '号码10', on: false},
     ];
@@ -49,7 +71,9 @@ class TodayTwoSideNumberStatics extends Vue {
     return iIndex;
   }
   public showNumbers(iIndex: number) {
-   this.recordHeads[iIndex].on = !this.recordHeads[iIndex].on;
+   this.recordHeads11x5[iIndex].on = !this.recordHeads11x5[iIndex].on;
+   this.recordHeadsSsc[iIndex].on = !this.recordHeadsSsc[iIndex].on;
+   this.recordHeadsPk10[iIndex].on = !this.recordHeadsPk10[iIndex].on;
    this.send(iIndex + 1);
   }
   public showSmallOrLarge(iIndex: number) {

@@ -15,7 +15,7 @@
         <td>{{lotterys.added_time}}</td>
         <td>{{lotterys.no}}</td>
         <td>
-          <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" :status="switcher"/>
+          <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" :status="switcher" :options="options"/>
         </td>
         <td>{{ JSON.parse(lotterys.numbers) | sum([0, 1])}}</td>
           <td :class="{'text-big' : '大' === isSmallOrLarge(sum(JSON.parse(lotterys.numbers),[0,1]),11,12)}">
@@ -302,6 +302,9 @@ class Table extends Vue {
   @Prop()
   public types!: any;
 
+  @Prop()
+  public options!: any;
+
   public lotteryTypes = LOTTERTIES;
 
   public titles = ['显示号码', '显示大小', '显示单双'];
@@ -317,11 +320,11 @@ class Table extends Vue {
   }
 
  public created() {
-  this.getName();  // 接受兄弟传来的值
+  this.getName();
  }
 
   public getName() {
-  // console.log(this.number);
+  // this.options ;
   }
 
   public switchStatus(index: number) {
