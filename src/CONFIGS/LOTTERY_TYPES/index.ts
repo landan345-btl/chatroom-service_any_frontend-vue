@@ -1,8 +1,8 @@
 const LOTTERY_TYPES: any = {
- 'PK10' : {
+  'PK10' : {
    NUMBERS: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
  },
- 'SSC' : {
+  'SSC' : {
   NUMBERS: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
   },
   '11X5' : {
