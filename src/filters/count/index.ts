@@ -1,5 +1,5 @@
-import { 
-  count
+import {
+  count,
 } from '@/utilities/';
 
 export default count;

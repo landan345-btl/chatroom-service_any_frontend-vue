@@ -1,5 +1,5 @@
-import { 
-  determineSequence
+import {
+  determineSequence,
 } from '@/utilities/';
 
 export default determineSequence;

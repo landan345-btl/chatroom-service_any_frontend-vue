@@ -1,5 +1,5 @@
-import { 
-  isFishOrShrimpOrCrab
+import {
+  isFishOrShrimpOrCrab,
 } from '@/utilities/';
 
 export default isFishOrShrimpOrCrab;

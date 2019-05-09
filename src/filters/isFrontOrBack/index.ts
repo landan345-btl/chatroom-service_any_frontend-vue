@@ -1,5 +1,5 @@
-import { 
-  isFrontOrBack
+import {
+  isFrontOrBack,
 } from '@/utilities/';
 
 export default isFrontOrBack;
