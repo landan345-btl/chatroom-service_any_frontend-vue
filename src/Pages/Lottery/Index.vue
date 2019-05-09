@@ -132,7 +132,7 @@ class Lottery extends Vue {
     let oLotteryIssues: any = this.$store.state.lottery_issues;
     let aLotteryIssues = Object.values(oLotteryIssues);
 
-    let aHotWarnColdPositions: any = [
+    let oHotWarnColdPositions: any = [
       { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
       { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
       { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
@@ -151,12 +151,13 @@ class Lottery extends Vue {
       oLotteryIssue = aLotteryIssues.pop();
       let aNumbers = JSON.parse(oLotteryIssue.numbers);
       aNumbers.forEach((iNumber: number, iIndex: number) => {
-          let oHotWarnColdPosition = aHotWarnColdPositions[iIndex];
-          aHotWarnColdPositions[iIndex][iNumber] = oHotWarnColdPosition[iNumber] + 1;
+          let oHotWarnColdPosition = oHotWarnColdPositions[iIndex];
+          
+          oHotWarnColdPositions[iIndex][iNumber] = oHotWarnColdPosition[iNumber] + 1;
         });
       iLoopCount++;
     }
-    return aHotWarnColdPositions;
+    return oHotWarnColdPositions;
   }
 
   public get getTodayNumbers() {
