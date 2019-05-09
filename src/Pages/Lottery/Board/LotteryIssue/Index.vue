@@ -8,8 +8,20 @@
     </div>
     <Today-two-side-number-statics v-show="isTodayTwoSideNumberStaticShowed" class="p-2"/>
     <Accumulation-remider v-show="isAccumulationRemiderShowed" class="p-2"/>
-    <Number-analysis :types="types" v-show="isNumberAnalysisShowed" @handle-toggle-number="toggleNumber" class="p-2" :onNumbers="onNumbers"/>
-    <Table :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types" class="p-2" :onNumbers="onNumbers"/>
+    <Number-analysis 
+      :types="types" 
+      v-show="isNumberAnalysisShowed" 
+      @handle-toggle-number="toggleNumber" 
+      @handle-toggle-oddoreven="toggleOddOrEven"
+      class="p-2" 
+      :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords" 
+      :onNumbers="onNumbers"/>
+    <Table 
+      :lotteryIssues="lotteryIssues" 
+      :lottery="lottery" 
+      :code="code" 
+      :types="types" class="p-2" 
+      :onNumbers="onNumbers"/>
   </div>
 </template>
 <style scoped lang="scss">
@@ -69,6 +81,15 @@ class LotteryIssue extends Vue {
     8: false,
     9: false,
     10: false,
+    11: false,
+  };
+
+  public onOddOrEvenOrSmallOrLargeOrPairRedcords: object = {
+    odd: false,
+    even: false,
+    small: false,
+    large: false,
+    pair: false,
   };
 
   public toggleTodayTwoSideNumberStatics(): void {
@@ -83,14 +104,14 @@ class LotteryIssue extends Vue {
     this.isNumberAnalysisShowed = !this.isNumberAnalysisShowed;
   }
 
-  @Emit('bind-send')
-  public send(onNumbers: any ) {
-    return onNumbers;
-  }
-
   public toggleNumber(sKey: string) {
     let iNumber = Number(sKey);
-    this.onNumbers[iNumber] = true;
+    this.onNumbers[iNumber] = !this.onNumbers[iNumber];
+  }
+
+  public toggleOddOrEven(sKey: string) {
+   let iKey = String(sKey);
+   this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey] = !this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey];
   }
 }
 
