@@ -11,7 +11,8 @@
             :lotteryIssues="getLotteryIssues" 
             :lottery="getLottery" 
             :code="getCode" 
-            :types="getTypes" />
+            :types="getTypes" 
+            :todayTwoSideRecords="getTodayTwoSideRecords"/>
         </main>
       </el-col>
     </el-row>
@@ -34,6 +35,10 @@ import {
 
 import Top from './Top/Index.vue';
 import Board from './Board/Index.vue';
+
+import {
+  Lottery as LotteryHelper,
+} from '@/Helpers/';
 
 import {
   LOTTERIES
@@ -162,6 +167,58 @@ class Lottery extends Vue {
 
     });
     return false;
+  }
+
+  public get getTodayTwoSideRecords() {
+    let oLotteryHelper = new LotteryHelper();
+    let oLotteryIssues: any = this.$store.state.lottery_issues;
+    let oLotteries: any = this.$store.state.lotteries;
+    let TodayTwoSideRecords: {
+      [key: string] : any
+    } = {};
+    let aLotteryIssues = Object.values(oLotteryIssues);
+    aLotteryIssues.forEach((oLotteryIssue: any) => {
+      let aNumbers = JSON.parse(oLotteryIssue.numbers);
+      let iLotteryId = oLotteryIssue.lottery_id;
+      let sTypes = oLotteries[iLotteryId].types;
+      let iInedex: number = 0;
+      for (iInedex = 0 ; iInedex < aNumbers.length ; iInedex++) {
+        let iNumber = aNumbers[iInedex];
+        let sIsNumberSmallOrLarge = oLotteryHelper.isNumberSmallOrLarge(iNumber, sTypes);
+        let sOddOrEven = oLotteryHelper.isOddOrEven(iNumber, sTypes);
+        if (!TodayTwoSideRecords.hasOwnProperty(iInedex)) {
+          TodayTwoSideRecords = {
+            ...TodayTwoSideRecords,
+            [iInedex]: {
+              small: 0,
+              large: 0,
+              odd: 0,
+              even: 0,
+            }
+          };
+        }
+        if ('小' === sIsNumberSmallOrLarge) {
+          let oRecords = TodayTwoSideRecords[iInedex];
+          oRecords['small'] = oRecords['small'] + 1;
+        }
+
+        if ('大' === sIsNumberSmallOrLarge) {
+          let oRecords = TodayTwoSideRecords[iInedex];
+          oRecords['large'] = oRecords['large'] + 1;
+        }
+
+        if ('单' === sOddOrEven) {
+          let oRecords = TodayTwoSideRecords[iInedex];
+          oRecords['odd'] = oRecords['odd'] + 1;
+        }
+
+        if ('双' === sOddOrEven) {
+          let oRecords = TodayTwoSideRecords[iInedex];
+          oRecords['even'] = oRecords['even'] + 1;
+        }
+      }
+    });
+    return TodayTwoSideRecords;
   }
 }
 

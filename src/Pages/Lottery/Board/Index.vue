@@ -124,6 +124,9 @@ class Board extends Vue {
 
   @Prop()
   public types!: any;
+
+  @Prop()
+  todayTwoSideRecords!: any;
 }
 
 export default Board;
