@@ -1,5 +1,7 @@
-// import aTrendChildren from '@/Pages/Trend/Index.vue';
-import Lottery from '@/Pages/Lottery/Index.vue';
+import {
+  Lottery,
+} from '@/Pages/';
+
 let aLotteryRoutes = [{
   path: '/lottery',
   name: 'lottery',

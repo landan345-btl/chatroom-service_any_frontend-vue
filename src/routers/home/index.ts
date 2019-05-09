@@ -1,4 +1,6 @@
-import Home from '@/Pages/Home/Index.vue';
+import {
+  Home,
+} from '@/Pages/';
 
 let aHomeRoutes = [{
   path: '/',
