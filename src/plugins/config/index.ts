@@ -1,4 +1,6 @@
-import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
+import {
+  LOTTERIES,
+} from '@/CONFIGS/';
 
 let oConfigPlugin = {
   // The install method is all that needs to exist on the plugin object.

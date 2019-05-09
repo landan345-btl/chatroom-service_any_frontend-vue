@@ -1,3 +1,5 @@
-import determineSequence from '@/utilities/determineSequence/index';
+import { 
+  determineSequence
+} from '@/utilities/';
 
 export default determineSequence;

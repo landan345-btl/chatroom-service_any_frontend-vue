@@ -36,12 +36,16 @@
 import { Component, Watch, Vue } from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
 
-import Header from '@/Commons/Header/Index.vue';
-import NavTop from '@/Commons/NavTop/Index.vue';
-import NavRight from '@/Commons/NavRight/Index.vue';
-import Footer from '@/Commons/Footer/Index.vue';
+import {
+  Footer,
+  Header,
+  NavTop,
+  NavRight,
+} from '@/Commons/';
+
 import ERadio from '@/Components/ERadio/Index.vue';
 import ESelect from '@/Components/ESelect/Index.vue';
+
 import News from './News/Index.vue';
 import Live from './Live/Index.vue';
 import LotteryIssueBoard from './LotteryIssueBoard/Index.vue';
@@ -51,11 +55,10 @@ import Prediction from './Prediction/Index.vue';
 import AdvertismentB from './AdvertismentB/Index.vue';
 import Analysis from './Analysis/Index.vue';
 
-import AxiosHelper from '@/Helpers/Axios';
-
-import LOTTERIES from '@/CONFIGS/LOTTERIES/';
-import BACKEND from '@/CONFIGS/BACKEND/';
-let oAxiosHelper = new AxiosHelper();
+import {
+  LOTTERIES,
+  BACKEND,
+} from '@/CONFIGS/';
 
 
 @Component({

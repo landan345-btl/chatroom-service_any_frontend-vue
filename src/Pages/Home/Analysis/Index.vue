@@ -78,9 +78,10 @@
 <script lang="ts">
 import { Component, Watch, Vue, Prop } from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
-import LOTTERIES from '@/CONFIGS/LOTTERIES';
-import AxiosHelper from '@/Helpers/Axios';
-let oAxiosHelper = new AxiosHelper();
+import {
+  LOTTERIES,
+} from '@/CONFIGS/';
+
 
 @Component({
   name: 'Analysis',
@@ -107,10 +108,6 @@ class Analysis extends Vue {
     let $root: any = this.$root;
 
   }
-
-  // public get getLotteries(): any {
-  //   return this.lotteries;
-  // }
 }
 
 export default Analysis;

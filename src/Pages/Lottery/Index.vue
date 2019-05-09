@@ -11,7 +11,8 @@
             :lotteryIssues="getLotteryIssues" 
             :lottery="getLottery" 
             :code="getCode" 
-            :types="getTypes" />
+            :types="getTypes" 
+            :todayTwoSideRecords="getTodayTwoSideRecords"/>
         </main>
       </el-col>
     </el-row>
@@ -25,17 +26,24 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import Footer from '@/Commons/Footer/Index.vue'; // @ is an alias to /src
-import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
-import NavTop from '@/Commons/NavTop/Index.vue';
-import NavRight from '@/Commons/NavRight/Index.vue';
+import {
+  Footer,
+  Header,
+  NavTop,
+  NavRight,
+} from '@/Commons/';
+
 import Top from './Top/Index.vue';
 import Board from './Board/Index.vue';
 
-import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
-// TODO
-// 2. Chart 要有 loading 动画
-// 3. 号码 为 0 折线会断
+import {
+  Lottery as LotteryHelper,
+} from '@/Helpers/';
+
+import {
+  LOTTERIES
+} from '@/CONFIGS/';
+
 @Component({
   components: {
     Header,
@@ -85,12 +93,26 @@ class Lottery extends Vue {
     return sCode;
   }
 
-    public get getTypes(): string {
-    let oLotteries: any = this.$store.state.lotteries;
-    let aLotteries = Object.values(oLotteries);
-    let oLottery: any  = aLotteries.pop();
-    let sTypes = oLottery.types;
-    return sTypes;
+  public get getTypes(): string | void {
+
+    try {
+      let oLotteries: any = Object.assign({}, this.$store.state.lotteries);
+
+      let aLotteries = Object.values(oLotteries);
+      if (0 === aLotteries.length) {
+        throw new Error('');
+      }
+      let oLottery: any = aLotteries.pop();
+      if (!oLottery.hasOwnProperty('types')) {
+        throw new Error('');
+      }
+      let sTypes = oLottery.types;
+      return sTypes;
+    } catch(oError) {
+      return;
+    } finally {
+
+    }
   }
 
   public get getLotteryIssues() {
@@ -106,11 +128,11 @@ class Lottery extends Vue {
     return oLotteryIssue;
   }
 
-    public get getHotWarnColdPositions() {
+  public get getHotWarnColdPositions() {
     let oLotteryIssues: any = this.$store.state.lottery_issues;
     let aLotteryIssues = Object.values(oLotteryIssues);
 
-    let aHotWarnColdPositions: any = [
+    let oHotWarnColdPositions: any = [
       { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
       { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
       { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
@@ -129,12 +151,13 @@ class Lottery extends Vue {
       oLotteryIssue = aLotteryIssues.pop();
       let aNumbers = JSON.parse(oLotteryIssue.numbers);
       aNumbers.forEach((iNumber: number, iIndex: number) => {
-          let oHotWarnColdPosition = aHotWarnColdPositions[iIndex];
-          aHotWarnColdPositions[iIndex][iNumber] = oHotWarnColdPosition[iNumber] + 1;
+          let oHotWarnColdPosition = oHotWarnColdPositions[iIndex];
+          
+          oHotWarnColdPositions[iIndex][iNumber] = oHotWarnColdPosition[iNumber] + 1;
         });
       iLoopCount++;
     }
-    return aHotWarnColdPositions;
+    return oHotWarnColdPositions;
   }
 
   public get getTodayNumbers() {
@@ -145,6 +168,58 @@ class Lottery extends Vue {
 
     });
     return false;
+  }
+
+  public get getTodayTwoSideRecords() {
+    let oLotteryHelper = new LotteryHelper();
+    let oLotteryIssues: any = this.$store.state.lottery_issues;
+    let oLotteries: any = this.$store.state.lotteries;
+    let oTodayTwoSideRecords: {
+      [key: string] : any
+    } = {};
+    let aLotteryIssues = Object.values(oLotteryIssues);
+    aLotteryIssues.forEach((oLotteryIssue: any) => {
+      let aNumbers = JSON.parse(oLotteryIssue.numbers);
+      let iLotteryId = oLotteryIssue.lottery_id;
+      let sTypes = oLotteries[iLotteryId].types;
+      let iInedex: number = 0;
+      for (iInedex = 0 ; iInedex < aNumbers.length ; iInedex++) {
+        let iNumber = aNumbers[iInedex];
+        let sIsNumberSmallOrLarge = oLotteryHelper.isNumberSmallOrLarge(iNumber, sTypes);
+        let sOddOrEven = oLotteryHelper.isOddOrEven(iNumber, sTypes);
+        if (!oTodayTwoSideRecords.hasOwnProperty(iInedex)) {
+          oTodayTwoSideRecords = {
+            ...oTodayTwoSideRecords,
+            [iInedex]: {
+              small: 0,
+              large: 0,
+              odd: 0,
+              even: 0,
+            }
+          };
+        }
+        if ('小' === sIsNumberSmallOrLarge) {
+          let oRecords = oTodayTwoSideRecords[iInedex];
+          oRecords['small'] = oRecords['small'] + 1;
+        }
+
+        if ('大' === sIsNumberSmallOrLarge) {
+          let oRecords = oTodayTwoSideRecords[iInedex];
+          oRecords['large'] = oRecords['large'] + 1;
+        }
+
+        if ('单' === sOddOrEven) {
+          let oRecords = oTodayTwoSideRecords[iInedex];
+          oRecords['odd'] = oRecords['odd'] + 1;
+        }
+
+        if ('双' === sOddOrEven) {
+          let oRecords = oTodayTwoSideRecords[iInedex];
+          oRecords['even'] = oRecords['even'] + 1;
+        }
+      }
+    });
+    return oTodayTwoSideRecords;
   }
 }
 

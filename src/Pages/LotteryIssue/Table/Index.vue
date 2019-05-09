@@ -377,7 +377,10 @@
 <script lang="ts">
  // import _ from 'lodash';
 import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
-import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
+import {
+  LOTTERIES,
+} from '@/CONFIGS/';
+
 import Numbers from '@/Components/Numbers/Index.vue';
 
 @Component({

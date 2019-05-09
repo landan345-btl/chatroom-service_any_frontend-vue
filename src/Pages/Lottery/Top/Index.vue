@@ -50,7 +50,6 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import IButton from '@/Components/IButton/Index.vue';
 import Numbers from '@/Components/Numbers/Index.vue';
-import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 import ChenCountdown from '@/Components/ChenCountdown/Index.vue';
 
 @Component({

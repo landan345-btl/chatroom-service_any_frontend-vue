@@ -10,11 +10,12 @@ import App from '@/App.vue';
 import oRouter from '@/routers/index';
 import oStore from '@/store/index';
 
-
-import utilityPlugin from '@/plugins/utility/index';
-import filterPlugin from '@/plugins/filter/index';
-import directivePlugin from '@/plugins/directive/index';
-import configPlugin from '@/plugins/config/index';
+import {
+  utility,
+  filter,
+  directive,
+  config,
+} from '@/plugins/';
 
 import 'element-ui/lib/theme-chalk/index.css';
 import 'iview/dist/styles/iview.css';
@@ -58,10 +59,10 @@ Vue.use(VCharts);
 Vue.use(Element);
 Vue.use(iView);
 
-Vue.use(utilityPlugin);
-Vue.use(filterPlugin);
-Vue.use(directivePlugin);
-Vue.use(configPlugin);
+Vue.use(utility);
+Vue.use(filter);
+Vue.use(directive);
+Vue.use(config);
 
 Vue.directive('canvasTrend', canvasTrend );
 

@@ -36,10 +36,10 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 import ITabs from '@/Components/ITabs/Index.vue';
 import IDatePicker from '@/Components/IDatePicker/Index.vue';
 
-import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
-// TODO
-// 2. Chart 要有 loading 动画
-// 3. 号码 为 0 折线会断
+import {
+  LOTTERIES
+} from '@/CONFIGS/';
+
 @Component({
   name: 'SummationResult',
   components: {
@@ -50,6 +50,16 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 class SummationResult extends Vue {
   @Prop()
   public lotteryIssues!: any;
+
+  public get getSummationResults (): void {
+    let oLotteryIssues: any = this.$store.state.lottery_issues;
+    let aLotteryIssues:any = Object.values(oLotteryIssues);
+    let iIndex;
+    for(iIndex = 0 ; iIndex < aLotteryIssues.length ; iIndex++) {
+      let aNumbers = JSON.parse(aLotteryIssues[iIndex].numbers);
+    }
+    return;
+  }
 }
 
 export default SummationResult;

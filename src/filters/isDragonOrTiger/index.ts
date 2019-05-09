@@ -1,3 +1,5 @@
-import isDragonOrTiger from '@/utilities/isDragonOrTiger';
+import { 
+  isDragonOrTiger
+} from '@/utilities/';
 
 export default isDragonOrTiger;

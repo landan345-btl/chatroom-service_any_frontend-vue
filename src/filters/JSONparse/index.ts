@@ -1,3 +1,5 @@
-import JSONparse from '@/utilities/JSONparse/index';
+import { 
+  JSONparse
+} from '@/utilities/';
 
 export default JSONparse;

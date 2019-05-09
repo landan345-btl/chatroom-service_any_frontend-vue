@@ -79,10 +79,10 @@ import EverydayAccumulationStatics from './EverydayAccumulationStatics/Index.vue
 import PositionTrend from './PositionTrend/Index.vue';
 import SummationResult from './SummationResult/Index.vue';
 
-import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
-// TODO
-// 2. Chart 要有 loading 动画
-// 3. 号码 为 0 折线会断
+import {
+  LOTTERIES,
+} from '@/CONFIGS/';
+
 @Component({
   name: 'Board',
   components: {
@@ -125,7 +125,8 @@ class Board extends Vue {
   @Prop()
   public types!: any;
 
-
+  @Prop()
+  public todayTwoSideRecords!: any;
 }
 
 export default Board;
