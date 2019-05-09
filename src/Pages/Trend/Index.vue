@@ -220,15 +220,15 @@ class Trend extends Vue {
         aColums = ['no', 'first', 'second', 'third', 'forth', 'fifth', 'sixth', 'seventh', 'eighth', 'nineth', 'tenth' ];
         let oRow = {
           no: oLotteryIssue.no,
-          first: JSON.parse(oLotteryIssue.numbers)[0], 
-          second: JSON.parse(oLotteryIssue.numbers)[1], 
-          third: JSON.parse(oLotteryIssue.numbers)[2], 
-          forth: JSON.parse(oLotteryIssue.numbers)[3], 
-          fifth: JSON.parse(oLotteryIssue.numbers)[4], 
-          sixth: JSON.parse(oLotteryIssue.numbers)[5], 
-          seventh: JSON.parse(oLotteryIssue.numbers)[6], 
-          eighth: JSON.parse(oLotteryIssue.numbers)[7], 
-          nineth: JSON.parse(oLotteryIssue.numbers)[8], 
+          first: JSON.parse(oLotteryIssue.numbers)[0],
+          second: JSON.parse(oLotteryIssue.numbers)[1],
+          third: JSON.parse(oLotteryIssue.numbers)[2],
+          forth: JSON.parse(oLotteryIssue.numbers)[3],
+          fifth: JSON.parse(oLotteryIssue.numbers)[4],
+          sixth: JSON.parse(oLotteryIssue.numbers)[5],
+          seventh: JSON.parse(oLotteryIssue.numbers)[6],
+          eighth: JSON.parse(oLotteryIssue.numbers)[7],
+          nineth: JSON.parse(oLotteryIssue.numbers)[8],
           tenth: JSON.parse(oLotteryIssue.numbers)[9],
         };
         aRows.push(oRow);
@@ -238,11 +238,11 @@ class Trend extends Vue {
         aColums = ['no', 'first_ball', 'second_ball', 'third_ball', 'forth_ball', 'fifth_ball'];
         let oRow = {
           no: oLotteryIssue.no,
-          first_ball: JSON.parse(oLotteryIssue.numbers)[0], 
-          second_ball: JSON.parse(oLotteryIssue.numbers)[1], 
-          third_bal: JSON.parse(oLotteryIssue.numbers)[2], 
-          forth_ball: JSON.parse(oLotteryIssue.numbers)[3], 
-          fifth_ball: JSON.parse(oLotteryIssue.numbers)[4], 
+          first_ball: JSON.parse(oLotteryIssue.numbers)[0],
+          second_ball: JSON.parse(oLotteryIssue.numbers)[1],
+          third_bal: JSON.parse(oLotteryIssue.numbers)[2],
+          forth_ball: JSON.parse(oLotteryIssue.numbers)[3],
+          fifth_ball: JSON.parse(oLotteryIssue.numbers)[4],
         };
         aRows.push(oRow);
       }
@@ -251,11 +251,11 @@ class Trend extends Vue {
         aColums = ['no', 'first_ball', 'second_ball', 'third_ball', 'forth_ball', 'fifth_ball'];
         let oRow = {
           no: oLotteryIssue.no,
-          first_ball: JSON.parse(oLotteryIssue.numbers)[0], 
-          second_ball: JSON.parse(oLotteryIssue.numbers)[1], 
-          third_ball: JSON.parse(oLotteryIssue.numbers)[2], 
-          forth_ball: JSON.parse(oLotteryIssue.numbers)[3], 
-          fifth_ball: JSON.parse(oLotteryIssue.numbers)[4], 
+          first_ball: JSON.parse(oLotteryIssue.numbers)[0],
+          second_ball: JSON.parse(oLotteryIssue.numbers)[1],
+          third_ball: JSON.parse(oLotteryIssue.numbers)[2],
+          forth_ball: JSON.parse(oLotteryIssue.numbers)[3],
+          fifth_ball: JSON.parse(oLotteryIssue.numbers)[4],
         };
         aRows.push(oRow);
       }
@@ -264,9 +264,9 @@ class Trend extends Vue {
         aColums = ['no', 'first_ball', 'second_ball', 'third_ball'];
         let oRow = {
           no: oLotteryIssue.no,
-          first_ball: JSON.parse(oLotteryIssue.numbers)[0], 
-          second_ball: JSON.parse(oLotteryIssue.numbers)[1], 
-          third_ball: JSON.parse(oLotteryIssue.numbers)[2], 
+          first_ball: JSON.parse(oLotteryIssue.numbers)[0],
+          second_ball: JSON.parse(oLotteryIssue.numbers)[1],
+          third_ball: JSON.parse(oLotteryIssue.numbers)[2],
         };
         aRows.push(oRow);
       }
@@ -275,14 +275,14 @@ class Trend extends Vue {
         aColums = ['no', 'first_ball', 'second_ball', 'third_ball', 'forth_ball', 'fifth_ball', 'sixth_ball', 'seventh_ball', 'eighth_ball'];
         let oRow = {
           no: oLotteryIssue.no,
-          first_ball: JSON.parse(oLotteryIssue.numbers)[0], 
-          second_ball: JSON.parse(oLotteryIssue.numbers)[1], 
+          first_ball: JSON.parse(oLotteryIssue.numbers)[0],
+          second_ball: JSON.parse(oLotteryIssue.numbers)[1],
           third_ball: JSON.parse(oLotteryIssue.numbers)[2],
-          forth_ball: JSON.parse(oLotteryIssue.numbers)[3], 
-          fifth_ball: JSON.parse(oLotteryIssue.numbers)[4], 
-          sixth_ball: JSON.parse(oLotteryIssue.numbers)[5], 
-          seventh_ball: JSON.parse(oLotteryIssue.numbers)[6], 
-          eighth_ball: JSON.parse(oLotteryIssue.numbers)[7], 
+          forth_ball: JSON.parse(oLotteryIssue.numbers)[3],
+          fifth_ball: JSON.parse(oLotteryIssue.numbers)[4],
+          sixth_ball: JSON.parse(oLotteryIssue.numbers)[5],
+          seventh_ball: JSON.parse(oLotteryIssue.numbers)[6],
+          eighth_ball: JSON.parse(oLotteryIssue.numbers)[7],
         };
         aRows.push(oRow);
       }
@@ -291,13 +291,13 @@ class Trend extends Vue {
         aColums = ['no', 'first_ball', 'second_ball', 'third_ball', 'forth_ball', 'fifth_ball', 'sixth_ball', 'seventh_ball'];
         let oRow = {
           no: oLotteryIssue.no,
-          first_ball: JSON.parse(oLotteryIssue.numbers)[0], 
-          second_ball: JSON.parse(oLotteryIssue.numbers)[1], 
+          first_ball: JSON.parse(oLotteryIssue.numbers)[0],
+          second_ball: JSON.parse(oLotteryIssue.numbers)[1],
           third_ball: JSON.parse(oLotteryIssue.numbers)[2],
-          forth_ball: JSON.parse(oLotteryIssue.numbers)[3], 
-          fifth_ball: JSON.parse(oLotteryIssue.numbers)[4], 
-          sixth_ball: JSON.parse(oLotteryIssue.numbers)[5], 
-          seventh_ball: JSON.parse(oLotteryIssue.numbers)[6], 
+          forth_ball: JSON.parse(oLotteryIssue.numbers)[3],
+          fifth_ball: JSON.parse(oLotteryIssue.numbers)[4],
+          sixth_ball: JSON.parse(oLotteryIssue.numbers)[5],
+          seventh_ball: JSON.parse(oLotteryIssue.numbers)[6],
         };
         aRows.push(oRow);
       }
@@ -306,13 +306,13 @@ class Trend extends Vue {
         aColums = ['no', 'first_ball', 'second_ball', 'third_ball', 'forth_ball', 'fifth_ball', 'sixth_ball', 'special_ball'];
         let oRow = {
           no: oLotteryIssue.no,
-          first_ball: JSON.parse(oLotteryIssue.numbers)[0], 
-          second_ball: JSON.parse(oLotteryIssue.numbers)[1], 
+          first_ball: JSON.parse(oLotteryIssue.numbers)[0],
+          second_ball: JSON.parse(oLotteryIssue.numbers)[1],
           third_ball: JSON.parse(oLotteryIssue.numbers)[2],
-          forth_ball: JSON.parse(oLotteryIssue.numbers)[3], 
-          fifth_ball: JSON.parse(oLotteryIssue.numbers)[4], 
-          sixth_ball: JSON.parse(oLotteryIssue.numbers)[5], 
-          special_ball: JSON.parse(oLotteryIssue.numbers)[6], 
+          forth_ball: JSON.parse(oLotteryIssue.numbers)[3],
+          fifth_ball: JSON.parse(oLotteryIssue.numbers)[4],
+          sixth_ball: JSON.parse(oLotteryIssue.numbers)[5],
+          special_ball: JSON.parse(oLotteryIssue.numbers)[6],
         };
         aRows.push(oRow);
       }
@@ -321,8 +321,8 @@ class Trend extends Vue {
         aColums = ['no', 'first_ball', 'second_ball', 'third_ball'];
         let oRow = {
           no: oLotteryIssue.no,
-          first_ball: JSON.parse(oLotteryIssue.numbers)[0], 
-          second_ball: JSON.parse(oLotteryIssue.numbers)[1], 
+          first_ball: JSON.parse(oLotteryIssue.numbers)[0],
+          second_ball: JSON.parse(oLotteryIssue.numbers)[1],
           third_ball: JSON.parse(oLotteryIssue.numbers)[2],
         };
         aRows.push(oRow);
@@ -332,8 +332,8 @@ class Trend extends Vue {
         aColums = ['no', 'first_ball', 'second_ball', 'third_ball'];
         let oRow = {
           no: oLotteryIssue.no,
-          first_ball: JSON.parse(oLotteryIssue.numbers)[0], 
-          second_ball: JSON.parse(oLotteryIssue.numbers)[1], 
+          first_ball: JSON.parse(oLotteryIssue.numbers)[0],
+          second_ball: JSON.parse(oLotteryIssue.numbers)[1],
           third_ball: JSON.parse(oLotteryIssue.numbers)[2],
         };
         aRows.push(oRow);
