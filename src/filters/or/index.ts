@@ -1,3 +1,5 @@
-import or from '@/utilities/or/index';
+import { 
+  or
+} from '@/utilities/';
 
 export default or;

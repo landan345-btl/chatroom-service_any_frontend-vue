@@ -12,8 +12,6 @@ import padStart from '@/filters/padStart/index';
 import isFrontOrBack from '@/filters/isFrontOrBack/index';
 import isFiveRow from '@/filters/isFiveRow/index';
 import JSONparse from '@/filters/JSONparse/index';
-
-import codeToName from '@/filters/codeToName/index';
 import or from '@/filters/or/index';
 
 let oFilterPlugin = {
@@ -27,14 +25,12 @@ let oFilterPlugin = {
     Vue.filter('isFishOrShrimpOrCrab' , isFishOrShrimpOrCrab);
     Vue.filter('determineSequence' , determineSequence);
     Vue.filter('count' , count);
-    Vue.filter('tcount' , count);
     Vue.filter('last' , last);
     Vue.filter('substr' , substr);
     Vue.filter('sum' , sum);
     Vue.filter('padStart' , padStart);
     Vue.filter('isFrontOrBack' , isFrontOrBack);
     Vue.filter('isFiveRow' , isFiveRow);
-    Vue.filter('codeToName' , codeToName);
     Vue.filter('or' , or);
     Vue.filter('JSONparse' , JSONparse);
   },

@@ -1,3 +1,5 @@
-import isFiveRow from '@/utilities/isFiveRow';
+import { 
+  isFiveRow
+} from '@/utilities/';
 
 export default isFiveRow;

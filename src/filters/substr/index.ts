@@ -1,3 +1,5 @@
-import substr from '@/utilities/substr/index';
+import { 
+  substr
+} from '@/utilities/';
 
 export default substr;

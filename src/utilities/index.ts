@@ -11,8 +11,10 @@ import cOr from '@/utilities/or/index';
 import cPadStart from '@/utilities/padStart/index';
 import cSubstr from '@/utilities/substr/index';
 import cSum from '@/utilities/sum/index';
+import cLast from '@/utilities/last/index';
+import cJSONparse from '@/utilities/JSONparse/index';
 
-export { 
+export {
   cCount as count,
   cDetermineSequence as determineSequence,
   cIsDragonOrTiger as isDragonOrTiger,
@@ -26,4 +28,6 @@ export {
   cPadStart as padStart,
   cSubstr as substr,
   cSum as sum,
+  cLast as last,
+  cJSONparse as JSONparse,
 };

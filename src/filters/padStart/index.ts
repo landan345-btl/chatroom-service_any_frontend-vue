@@ -1,3 +1,5 @@
-import padStart from '@/utilities/padStart/index';
+import { 
+  padStart
+} from '@/utilities/';
 
 export default padStart;

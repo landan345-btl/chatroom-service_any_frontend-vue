@@ -1,3 +1,5 @@
-import count from '@/utilities/count/index';
+import { 
+  count
+} from '@/utilities/';
 
 export default count;
