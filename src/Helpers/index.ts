@@ -1,4 +1,4 @@
-import Axios from './Axios/Index';
+import Axios from './Axios';
 
 export {
   Axios,
