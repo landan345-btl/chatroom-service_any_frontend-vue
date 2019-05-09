@@ -128,7 +128,7 @@ class Lottery extends Vue {
     return oLotteryIssue;
   }
 
-    public get getHotWarnColdPositions() {
+  public get getHotWarnColdPositions() {
     let oLotteryIssues: any = this.$store.state.lottery_issues;
     let aLotteryIssues = Object.values(oLotteryIssues);
 
