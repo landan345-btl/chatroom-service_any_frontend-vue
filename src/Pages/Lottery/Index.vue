@@ -173,7 +173,7 @@ class Lottery extends Vue {
     let oLotteryHelper = new LotteryHelper();
     let oLotteryIssues: any = this.$store.state.lottery_issues;
     let oLotteries: any = this.$store.state.lotteries;
-    let TodayTwoSideRecords: {
+    let oTodayTwoSideRecords: {
       [key: string] : any
     } = {};
     let aLotteryIssues = Object.values(oLotteryIssues);
@@ -186,9 +186,9 @@ class Lottery extends Vue {
         let iNumber = aNumbers[iInedex];
         let sIsNumberSmallOrLarge = oLotteryHelper.isNumberSmallOrLarge(iNumber, sTypes);
         let sOddOrEven = oLotteryHelper.isOddOrEven(iNumber, sTypes);
-        if (!TodayTwoSideRecords.hasOwnProperty(iInedex)) {
-          TodayTwoSideRecords = {
-            ...TodayTwoSideRecords,
+        if (!oTodayTwoSideRecords.hasOwnProperty(iInedex)) {
+          oTodayTwoSideRecords = {
+            ...oTodayTwoSideRecords,
             [iInedex]: {
               small: 0,
               large: 0,
@@ -198,27 +198,27 @@ class Lottery extends Vue {
           };
         }
         if ('小' === sIsNumberSmallOrLarge) {
-          let oRecords = TodayTwoSideRecords[iInedex];
+          let oRecords = oTodayTwoSideRecords[iInedex];
           oRecords['small'] = oRecords['small'] + 1;
         }
 
         if ('大' === sIsNumberSmallOrLarge) {
-          let oRecords = TodayTwoSideRecords[iInedex];
+          let oRecords = oTodayTwoSideRecords[iInedex];
           oRecords['large'] = oRecords['large'] + 1;
         }
 
         if ('单' === sOddOrEven) {
-          let oRecords = TodayTwoSideRecords[iInedex];
+          let oRecords = oTodayTwoSideRecords[iInedex];
           oRecords['odd'] = oRecords['odd'] + 1;
         }
 
         if ('双' === sOddOrEven) {
-          let oRecords = TodayTwoSideRecords[iInedex];
+          let oRecords = oTodayTwoSideRecords[iInedex];
           oRecords['even'] = oRecords['even'] + 1;
         }
       }
     });
-    return TodayTwoSideRecords;
+    return oTodayTwoSideRecords;
   }
 }
 
