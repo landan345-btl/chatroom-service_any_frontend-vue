@@ -1,5 +1,5 @@
-import _BACKEND from './BACKEND/';
-import _LOTTERIES from './LOTTERIES/';
+import _BACKEND from './BACKEND';
+import _LOTTERIES from './LOTTERIES';
 
 export {
   _BACKEND as BACKEND,

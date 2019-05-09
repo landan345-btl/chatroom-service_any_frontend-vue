@@ -239,7 +239,10 @@
 </style> 
 <script lang="ts">
 import { Component, Vue , Prop} from 'vue-property-decorator';
-import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
+import {
+  LOTTERIES,
+} from '@/CONFIGS/';
+
 
 @Component({
   name: 'Instant',

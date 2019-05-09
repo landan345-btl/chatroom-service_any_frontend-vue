@@ -35,10 +35,10 @@ import {
 import Top from './Top/Index.vue';
 import Board from './Board/Index.vue';
 
-import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
-// TODO
-// 2. Chart 要有 loading 动画
-// 3. 号码 为 0 折线会断
+import {
+  LOTTERIES
+} from '@/CONFIGS/';
+
 @Component({
   components: {
     Header,

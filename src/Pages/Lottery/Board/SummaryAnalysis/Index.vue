@@ -12,7 +12,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
+import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
 // TODO
 // 2. Chart 要有 loading 动画
 // 3. 号码 为 0 折线会断

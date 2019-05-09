@@ -24,7 +24,9 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import LOTTERIES from '@/CONFIGS/LOTTERIES';
+import {
+  LOTTERIES
+} from '@/CONFIGS/';
 
 @Component({
   name: 'Numbers',

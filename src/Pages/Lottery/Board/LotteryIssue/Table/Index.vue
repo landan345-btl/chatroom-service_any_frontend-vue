@@ -280,8 +280,11 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
-import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
 import Numbers from '@/Components/Numbers/Index.vue';
+
+import {
+  LOTTERIES,
+} from '@/CONFIGS/';
 
 @Component({
   name: 'Table',
@@ -302,7 +305,7 @@ class Table extends Vue {
   @Prop()
   public types!: any;
 
-  public lotteryTypes = LOTTERTIES;
+  public lotteryTypes = LOTTERIES;
 
   public titles = ['显示号码', '显示大小', '显示单双'];
 

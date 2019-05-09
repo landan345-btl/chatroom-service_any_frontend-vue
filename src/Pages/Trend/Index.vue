@@ -122,7 +122,7 @@ import ITabs from '@/Components/ITabs/Index.vue';
 import VLine from '@/Components/VLine/Index.vue';
 import Lottery from './Lottery/Index.vue';
 
-import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
+import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
 // TODO
 // 2. Chart 要有 loading 动画
 // 3. 号码 为 0 折线会断
@@ -189,7 +189,7 @@ class Trend extends Vue {
       let iLotteryId = oLotteryIssue.lottery_id;
       let sCode = oLotteries[iLotteryId].code;
       let sTypes = oLotteries[iLotteryId].types || void 0;
-      let iBeforeUntilNowTime = LOTTERTIES[sCode].LOTTERY_ISSUE.BEFORE_UNTIL_NOW_TIME;
+      let iBeforeUntilNowTime = LOTTERIES[sCode].LOTTERY_ISSUE.BEFORE_UNTIL_NOW_TIME;
       let iOpenedTime = new Date(oLotteryIssue.opened_time).getTime();
       let iNowTime = new Date().getTime();
 

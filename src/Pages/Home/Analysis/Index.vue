@@ -78,7 +78,10 @@
 <script lang="ts">
 import { Component, Watch, Vue, Prop } from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
-import LOTTERIES from '@/CONFIGS/LOTTERIES';
+import {
+  LOTTERIES,
+} from '@/CONFIGS/';
+
 import AxiosHelper from '@/Helpers/Axios';
 let oAxiosHelper = new AxiosHelper();
 

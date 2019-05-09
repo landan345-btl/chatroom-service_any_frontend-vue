@@ -57,10 +57,12 @@ import Analysis from './Analysis/Index.vue';
 
 import AxiosHelper from '@/Helpers/Axios';
 
-import LOTTERIES from '@/CONFIGS/LOTTERIES/';
-import BACKEND from '@/CONFIGS/BACKEND/';
-let oAxiosHelper = new AxiosHelper();
+import {
+  LOTTERIES,
+  BACKEND,
+} from '@/CONFIGS/';
 
+let oAxiosHelper = new AxiosHelper();
 
 @Component({
   name: 'Home',
