@@ -1,13 +1,15 @@
-import isOddOrEven from '@/utilities/isOddOrEven';
-import isDragonOrTiger from '@/utilities/isDragonOrTiger';
-import isSmallOrLarge from '@/utilities/isSmallOrLarge';
-import sum from '@/utilities/sum/index';
-import padStart from '@/utilities/padStart/index';
-import determineSequence from '@/utilities/determineSequence/index';
-import substr from '@/utilities/substr/index';
-import isFishOrShrimpOrCrab from '@/utilities/isFishOrShrimpOrCrab/index';
-import last from '@/utilities/last/index';
-import isFrontOrBack from '@/utilities/isFrontOrBack/index';
+import {
+  isOddOrEven,
+  isDragonOrTiger,
+  isSmallOrLarge,
+  sum,
+  padStart,
+  determineSequence,
+  substr,
+  isFishOrShrimpOrCrab,
+  last,
+  isFrontOrBack,
+} from '@/utilities/';
 
 
 let oUltilityPlugin = {
