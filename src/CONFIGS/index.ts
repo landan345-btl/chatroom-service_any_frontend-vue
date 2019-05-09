@@ -1,7 +1,9 @@
-import _BACKEND from './BACKEND';
-import _LOTTERIES from './LOTTERIES';
+import BACKEND from './BACKEND';
+import LOTTERIES from './LOTTERIES';
+import LOTTERY_TYPES from './LOTTERY_TYPES';
 
 export {
-  _BACKEND as BACKEND,
-  _LOTTERIES as LOTTERIES,
+  BACKEND,
+  LOTTERIES,
+  LOTTERY_TYPES,
 };
