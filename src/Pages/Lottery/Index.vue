@@ -88,12 +88,26 @@ class Lottery extends Vue {
     return sCode;
   }
 
-    public get getTypes(): string {
-    let oLotteries: any = this.$store.state.lotteries;
-    let aLotteries = Object.values(oLotteries);
-    let oLottery: any  = aLotteries.pop();
-    let sTypes = oLottery.types;
-    return sTypes;
+  public get getTypes(): string | void {
+
+    try {
+      let oLotteries: any = Object.assign({}, this.$store.state.lotteries);
+
+      let aLotteries = Object.values(oLotteries);
+      if (0 === aLotteries.length) {
+        throw new Error('');
+      }
+      let oLottery: any = aLotteries.pop();
+      if (!oLottery.hasOwnProperty('types')) {
+        throw new Error('');
+      }
+      let sTypes = oLottery.types;
+      return sTypes;
+    } catch(oError) {
+      return;
+    } finally {
+
+    }
   }
 
   public get getLotteryIssues() {
