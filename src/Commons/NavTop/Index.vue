@@ -8,7 +8,7 @@
             <template slot="title">彩票大厅</template>
             <el-submenu index="2-1">
               <template slot="title">热门彩</template>
-              <el-menu-item index="2-1-1" class="font-2-vmin"><router-link :to="{ path: '/lottery', query: { code: 'CQSSC' }}">重庆欢乐生肖</router-link></el-menu-item>
+              <el-menu-item index="2-1-1" class="font-2-vmin"><a href="/lottery?code=CQSSC">重庆欢乐生肖</a></el-menu-item>
               <el-menu-item index="2-1-2" class="font-2-vmin"><a href="/lottery?code=FFSSC">幸运分分彩</a></el-menu-item>
               <el-menu-item index="2-1-3" class="font-2-vmin"><a href="/lottery?code=3FSSC">幸运三分彩</a></el-menu-item>
               <el-menu-item index="2-1-4" class="font-2-vmin"><a href="/lottery?code=AFGH90">加纳1.5分彩</a></el-menu-item>
@@ -92,7 +92,7 @@
 </style>
 
 <script lang="ts">
-      
+
 import { Component, Vue } from 'vue-property-decorator';
 @Component({
   name: 'NavTop',

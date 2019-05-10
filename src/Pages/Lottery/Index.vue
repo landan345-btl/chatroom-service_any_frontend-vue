@@ -25,13 +25,10 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import {
-  Footer,
-  Header,
-  NavTop,
-  NavRight,
-} from '@/Commons/';
-
+import Footer from '@/Commons/Footer/Index.vue'; // @ is an alias to /src
+import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
+import NavTop from '@/Commons/NavTop/Index.vue';
+import NavRight from '@/Commons/NavRight/Index.vue';
 import Top from './Top/Index.vue';
 import Board from './Board/Index.vue';
 
@@ -50,7 +47,6 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
   },
 })
 class Lottery extends Vue {
-
   public beforeCreate(): void {
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
   }
@@ -91,7 +87,7 @@ class Lottery extends Vue {
     public get getTypes(): string {
     let oLotteries: any = this.$store.state.lotteries;
     let aLotteries = Object.values(oLotteries);
-    let oLottery: any  = aLotteries.pop();
+    let oLottery: object | undefined  = aLotteries.pop();
     let sTypes = oLottery.types;
     return sTypes;
   }

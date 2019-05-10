@@ -168,9 +168,6 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
   },
 })
 class TodayTwoSideNumberStatics extends Vue {
-  // public get data() {
-
-  // }
 }
 
 export default TodayTwoSideNumberStatics;

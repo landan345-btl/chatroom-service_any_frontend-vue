@@ -1,5 +1,3 @@
-import { 
-  isOddOrEven
-} from '@/utilities/';
+import isOddOrEven from '@/utilities/isOddOrEven';
 
 export default isOddOrEven;

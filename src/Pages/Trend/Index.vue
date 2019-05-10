@@ -111,13 +111,10 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import {
-  Footer,
-  Header,
-  NavTop,
-  NavRight,
-} from '@/Commons/';
-
+import Footer from '@/Commons/Footer/Index.vue'; // @ is an alias to /src
+import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
+import NavTop from '@/Commons/NavTop/Index.vue';
+import NavRight from '@/Commons/NavRight/Index.vue';
 import ITabs from '@/Components/ITabs/Index.vue';
 import VLine from '@/Components/VLine/Index.vue';
 import Lottery from './Lottery/Index.vue';

@@ -254,7 +254,8 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
   },
 })
 class DragonOrTigerTrend extends Vue {
-
+  public button1 = '今天';
+  public checkList = '遗漏';
 }
 
 export default DragonOrTigerTrend;

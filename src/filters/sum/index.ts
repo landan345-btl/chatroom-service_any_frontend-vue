@@ -1,5 +1,3 @@
-import { 
-  sum 
-} from '@/utilities/';
+import sum from '@/utilities/sum/index';
 
 export default sum;

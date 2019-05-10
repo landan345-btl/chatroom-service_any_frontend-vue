@@ -1,5 +1,3 @@
-import { 
-  last
-} from '@/utilities/';
+import last from '@/utilities/last/index';
 
 export default last;

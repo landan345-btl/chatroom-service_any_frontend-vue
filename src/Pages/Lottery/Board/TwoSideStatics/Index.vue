@@ -56,7 +56,7 @@ import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
   },
 })
 class TwoSideStatics extends Vue {
-
+  public button1 = '第一球';
 }
 
 export default TwoSideStatics;

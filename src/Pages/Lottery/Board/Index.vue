@@ -4,9 +4,9 @@
       <TabPane :label="'即使开奖'" :name="'lottery-issue'"> 
         <Lottery-issue :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types"/>
       </TabPane>
-      <TabPane :label="'路珠分析'" :name="'result-analysis'">
+      <!-- <TabPane :label="'路珠分析'" :name="'result-analysis'">
         <Result-analysis />
-      </TabPane>
+      </TabPane> -->
       <TabPane :label="'综合分析'" :name="'summary-anaylysis'">
         <Summary-analysis />
       </TabPane>
@@ -14,7 +14,7 @@
         <Basic-trend />
       </TabPane>
       <TabPane :label="'冷热分析'" :name="'popular-anaylysis'">
-        <!-- <Popular-analysis :hotWarnColdPositions="hotWarnColdPositions"/> -->
+        <Popular-analysis :hotWarnColdPositions="hotWarnColdPositions"/>
       </TabPane>
       <TabPane :label="'龙虎走势'" :name="'dragon-or-Tiger-trend'">
         <Dragon-or-tiger-trend />
@@ -44,7 +44,7 @@
         <Position-trend />
       </TabPane>
       <TabPane :label="'总和路珠'" :name="'summation-result'">
-        <!-- <Summation-result :lotteryIssues="lotteryIssues"/> -->
+        <Summation-result :lotteryIssues="lotteryIssues"/>
       </TabPane>
       <TabPane :label="'玩法规则'" :name="'rule'">
       </TabPane>
