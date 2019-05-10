@@ -59,7 +59,7 @@ class Numbers extends Vue {
     return iSlargelowerBound;
   }
 
-  public union(oBooleans: object) {
+  public union(oBooleans: { [key:string]: any,}) {
     let bResult = false;
     let bBoolean;
     for (let sKey in oBooleans) {
@@ -67,7 +67,7 @@ class Numbers extends Vue {
         bBoolean = oBooleans[sKey];
         bResult = bResult || bBoolean;
         // 如果运算的值是true就 break;
-        if ( bResult === true ) {
+        if (true === bResult) {
           break;
         }
       }
