@@ -39,10 +39,11 @@ html {
 }
 
 .number {
-  margin:0.5vmin 0;
   display: inline-block;
   text-align: center;
-  margin:0.5vmin 0.3vmin; 
+}
+.number:nth-child(n+1) {
+  margin: 0.5vmin 0.5vmin; 
 }
 .status-number {
 
@@ -378,118 +379,121 @@ html {
   
   .number-cqklsf.number-klsf-1, .number-cqklsf.number-klsf-01 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat 0 0;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-2, .number-cqklsf.number-klsf-02 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -55px 0;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-3, .number-cqklsf.number-klsf-03 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -109px 0;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-4, .number-cqklsf.number-klsf-04 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -164px 0;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-5, .number-cqklsf.number-klsf-05 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -218px 0;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-6, .number-cqklsf.number-klsf-06 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -273px 0;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-7, .number-cqklsf.number-klsf-07 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -327px 0;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-8, .number-cqklsf.number-klsf-08 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -382px 0;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-9, .number-cqklsf.number-klsf-09 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -436px 0;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-10 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -491px 0;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-11 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat 0 -77px;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-12 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -55px -77px;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-13 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -109px -77px;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-14 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -164px -77px;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-15 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -218px -77px;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-16 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -273px -77px;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-17 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -327px -77px;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-18 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -382px -77px;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-19 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -436px -77px;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
   .number-cqklsf.number-klsf-20 {
     background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -491px -77px;
-    width:4.2vmin;
+    border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
   }
 
