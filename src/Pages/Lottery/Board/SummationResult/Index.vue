@@ -37,7 +37,7 @@ import ITabs from '@/Components/ITabs/Index.vue';
 import IDatePicker from '@/Components/IDatePicker/Index.vue';
 
 import {
-  LOTTERIES
+  LOTTERIES,
 } from '@/CONFIGS/';
 
 @Component({
@@ -51,11 +51,11 @@ class SummationResult extends Vue {
   @Prop()
   public lotteryIssues!: any;
 
-  public get getSummationResults (): void {
+  public get getSummationResults(): void {
     let oLotteryIssues: any = this.$store.state.lottery_issues;
-    let aLotteryIssues:any = Object.values(oLotteryIssues);
+    let aLotteryIssues: any = Object.values(oLotteryIssues);
     let iIndex;
-    for(iIndex = 0 ; iIndex < aLotteryIssues.length ; iIndex++) {
+    for (iIndex = 0 ; iIndex < aLotteryIssues.length ; iIndex++ ) {
       let aNumbers = JSON.parse(aLotteryIssues[iIndex].numbers);
     }
     return;

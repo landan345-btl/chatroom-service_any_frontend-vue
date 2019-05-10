@@ -108,7 +108,7 @@ class Lottery extends Vue {
       }
       let sTypes = oLottery.types;
       return sTypes;
-    } catch(oError) {
+    } catch (oError) {
       return;
     } finally {
       // do nothing

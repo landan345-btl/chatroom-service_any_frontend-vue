@@ -207,7 +207,7 @@ class Trend extends Vue {
     let aColums: any[] = [];
     let aRows: any[] = [];
 
-    for (let sLotteryIssueId in oLotteryIssues) {
+    for (let sLotteryIssueId of Object.keys(oLotteryIssues)) {
       let oLotteryIssue = oLotteryIssues[sLotteryIssueId];
       let iLotteryId = oLotteryIssue.lottery_id;
       let sCode = oLotteries[iLotteryId].code;
