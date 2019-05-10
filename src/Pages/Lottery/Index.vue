@@ -6,7 +6,12 @@
     <el-row :gutter="0">
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
         <main class="mt-2 mb-2">
-          <Top :lotteryIssue="getLastLotteryIssue" :lottery="getLottery" :code="getCode" :types="getTypes" v-if="getLastLotteryIssue && getLottery && getTypes"/>
+          <Top 
+            :lotteryIssue="getLastLotteryIssue" 
+            :lottery="getLottery" 
+            :code="getCode" 
+            :types="getTypes"
+             v-if="getLastLotteryIssue && getLottery && getTypes"/>
           <Board 
             :lotteryIssues="getLotteryIssues" 
             :lottery="getLottery" 
@@ -41,7 +46,7 @@ import {
 } from '@/Helpers/';
 
 import {
-  LOTTERIES
+  LOTTERIES,
 } from '@/CONFIGS/';
 
 @Component({
@@ -152,7 +157,6 @@ class Lottery extends Vue {
       let aNumbers = JSON.parse(oLotteryIssue.numbers);
       aNumbers.forEach((iNumber: number, iIndex: number) => {
           let oHotWarnColdPosition = oHotWarnColdPositions[iIndex];
-          
           oHotWarnColdPositions[iIndex][iNumber] = oHotWarnColdPosition[iNumber] + 1;
         });
       iLoopCount++;

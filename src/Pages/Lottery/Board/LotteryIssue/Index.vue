@@ -6,7 +6,10 @@
       <I-button class="ml-2" v-on:handle-click="toggleAccumulationRemider()" v-if="['11X5','SSC' , 'PK10'].includes(types)">长龙提醒</I-button>
       <I-button class="ml-2" v-on:handle-click="toggleNumberAnalysis()" v-if="['11X5','SSC' , 'PK10'].includes(types)">号码分析</I-button>
     </div>
-    <Today-two-side-number-statics :types="types" v-show="isTodayTwoSideNumberStaticShowed" class="p-2"/>
+    <Today-two-side-number-statics 
+      :types="types" 
+      :todayTwoSideRecords="todayTwoSideRecords"
+      v-show="isTodayTwoSideNumberStaticShowed" class="p-2"/>
     <Accumulation-remider v-show="isAccumulationRemiderShowed" class="p-2"/>
     <Number-analysis 
       :types="types" 
@@ -65,6 +68,9 @@ class LotteryIssue extends Vue {
   @Prop()
   public types!: any;
 
+  @Prop()
+  public todayTwoSideRecords!: any;
+
   public isTodayTwoSideNumberStaticShowed: boolean = false;
   public isAccumulationRemiderShowed: boolean = false;
   public isNumberAnalysisShowed: boolean = false;
@@ -112,6 +118,7 @@ class LotteryIssue extends Vue {
   public toggleOddOrEven(sKey: string) {
    let iKey = String(sKey);
    this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey] = !this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey];
+   debugger;
   }
 }
 

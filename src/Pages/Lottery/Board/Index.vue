@@ -2,7 +2,7 @@
   <div class="board">
     <I-tabs :type="'card'" class="">
       <TabPane :label="'即使开奖'" :name="'lottery-issue'"> 
-        <Lottery-issue :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types" />
+        <Lottery-issue :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types" :todayTwoSideRecords="todayTwoSideRecords"/>
       </TabPane>
       <TabPane :label="'路珠分析'" :name="'result-analysis'">
         <Result-analysis />
@@ -127,6 +127,7 @@ class Board extends Vue {
 
   @Prop()
   public todayTwoSideRecords!: any;
+
 }
 
 export default Board;

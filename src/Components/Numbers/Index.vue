@@ -63,9 +63,13 @@ class Numbers extends Vue {
     let bResult = false;
     let bBoolean;
     for (let sKey in oBooleans) {
-      if (true) {
+      if (oBooleans.hasOwnProperty(sKey)) {
         bBoolean = oBooleans[sKey];
         bResult = bResult || bBoolean;
+        // 如果运算的值是true就 break;
+        if ( bResult === true ) {
+          break;
+        }
       }
     }
     return bResult;
