@@ -11,6 +11,7 @@ import ETabs from './ETabs/Index.vue';
 import ITabs from './ITabs/Index.vue';
 import Numbers from './Numbers/Index.vue';
 import VLine from './VLine/Index.vue';
+import ResultTable from './ResultTable/Index.vue';
 
 export {
   ChenCoutdown,
@@ -26,4 +27,5 @@ export {
   ITabs,
   Numbers,
   VLine,
+  ResultTable,
 };

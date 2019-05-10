@@ -1,20 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import {
-  lottery as oLotteryAction,
-  lotteryIssue as oLotteryIssueAction,
-} from '@/actions/';
+import oLotteryState from '@/states/lottery/index';
+import oLotteryMutaction from '@/mutations/lottery/index';
+import oLotteryAction from '@/actions/lottery/index';
 
-import {
-  lottery as oLotteryMutaction,
-  lotteryIssue as oLotteryIssueMutaction,
-} from '@/mutations/';
-
-import {
-  lottery as oLotteryState,
-  lotteryIssue as oLotteryIssueState,
-} from '@/states/';
+import oLotteryIssueState from '@/states/lotteryIssue/index';
+import oLotteryIssueMutaction from '@/mutations/lotteryIssue/index';
+import oLotteryIssueAction from '@/actions/lotteryIssue/index';
 
 Vue.use(Vuex);
 

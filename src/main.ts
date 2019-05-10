@@ -10,12 +10,11 @@ import App from '@/App.vue';
 import oRouter from '@/routers/index';
 import oStore from '@/store/index';
 
-import {
-  utility,
-  filter,
-  directive,
-  config,
-} from '@/plugins/';
+
+import utilityPlugin from '@/plugins/utility/index';
+import filterPlugin from '@/plugins/filter/index';
+import directivePlugin from '@/plugins/directive/index';
+import configPlugin from '@/plugins/config/index';
 
 import 'element-ui/lib/theme-chalk/index.css';
 import 'iview/dist/styles/iview.css';
@@ -37,8 +36,6 @@ import {
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-import canvasTrend from '@/directives/canvasTrend/index';
-
 import oMessages from '@/langs/index';
 
 library.add(faInfoCircle);
@@ -59,12 +56,10 @@ Vue.use(VCharts);
 Vue.use(Element);
 Vue.use(iView);
 
-Vue.use(utility);
-Vue.use(filter);
-Vue.use(directive);
-Vue.use(config);
-
-Vue.directive('canvasTrend', canvasTrend );
+Vue.use(utilityPlugin);
+Vue.use(filterPlugin);
+Vue.use(directivePlugin);
+Vue.use(configPlugin);
 
 let oI18n = new VueI18n({
   locale: 'zh',
