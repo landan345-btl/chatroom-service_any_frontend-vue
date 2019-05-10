@@ -4,6 +4,7 @@ import {
 
 let oRandomNumber =  {   // 开奖时间进度条  时间倒数
   inserted: (oElement: any, oBinding: any) => {
+
     let sClassName = oElement.className;
     let pProcess = Promise.resolve();
     if (!oBinding.value.hasOwnProperty('isRandom') || oBinding.value.isRandom === false ) {
@@ -12,9 +13,9 @@ let oRandomNumber =  {   // 开奖时间进度条  时间倒数
     if (!oBinding.value.hasOwnProperty('types')) {
       return;
     }
+
     let sTypes = oBinding.value.types.toUpperCase();
     let iNumberLength = LOTTERY_TYPES[sTypes].NUMBERS.length;
-
     pProcess.then(() => {
       return new Promise((cResolve, cReject) => {
         setTimeout(() => {
