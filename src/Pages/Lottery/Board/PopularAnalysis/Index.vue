@@ -1,6 +1,6 @@
 <template>
   <div class="popular-analysis">
-    <div class="top p-1 font-weight-bold">
+    <div class="top p-2 font-weight-bold">
       <span class="title">冷热分析</span>
     </div>
     <div>
@@ -9,10 +9,10 @@
       </CheckboxGroup>
       显示热号码出现次数
     </div>
-    <div class="introduce">
+    <div class="announcement">
       近20期内 热码：出现频繁、活跃的号码；冷码：出现频率低甚至没有出现的号码；温码：介于冷热之间的号码。
     </div>
-    <table>
+    <table class="background-white">
       <tr>
         <td>名次</td>
         <td>热</td>
