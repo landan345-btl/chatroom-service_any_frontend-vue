@@ -1,17 +1,16 @@
-import {
-  isOddOrEven,
-  isDragonOrTiger,
-  isSmallOrLarge,
-  sum,
-  padStart,
-  determineSequence,
-  substr,
-  isFishOrShrimpOrCrab,
-  last,
-  isFrontOrBack,
-} from '@/utilities/';
+import isOddOrEven from '@/utilities/isOddOrEven';
+import isDragonOrTiger from '@/utilities/isDragonOrTiger';
+import isSmallOrLarge from '@/utilities/isSmallOrLarge';
+import sum from '@/utilities/sum/index';
+import padStart from '@/utilities/padStart/index';
+import determineSequence from '@/utilities/determineSequence/index';
+import substr from '@/utilities/substr/index';
+import isFishOrShrimpOrCrab from '@/utilities/isFishOrShrimpOrCrab/index';
+import last from '@/utilities/last/index';
+import isFrontOrBack from '@/utilities/isFrontOrBack/index';
 
-let oUltility = {
+
+let oUltilityPlugin = {
   // The install method is all that needs to exist on the plugin object.
   // It takes the global Vue object as well as user-defined options.
   install(Vue: any, options: any) {
@@ -39,4 +38,4 @@ let oUltility = {
   },
 };
 
-export default oUltility;
+export default oUltilityPlugin;

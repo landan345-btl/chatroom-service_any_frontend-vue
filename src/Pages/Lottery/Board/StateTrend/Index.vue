@@ -25,7 +25,7 @@
       <p>8 组选6：第一球、第二球、第三球没有任何号码重复则为组选6。例如：123、321、132、213；</p>
     </div>
     <div>
-      <RadioGroup v-model="button1" type="button">
+      <RadioGroup v-model="button2" type="button">
         <Radio label="前三形态"></Radio>
         <Radio label="中三形态"></Radio>
         <Radio label="后三形态"></Radio>
@@ -128,7 +128,6 @@
         <td><span>43</span></td>
         <td><span>43</span></td>
         <td><span>43</span></td>
-        
       </tr>
     </table>
 
@@ -141,7 +140,7 @@
 </style>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import ITabs from '@/Components/ITabs/Index.vue';
+// import ITabs from '@/Components/ITabs/Index.vue';
 
 import {
   LOTTERIES,
@@ -150,11 +149,13 @@ import {
 @Component({
   name: 'StateTrend',
   components: {
-    ITabs,
+    // ITabs,
   },
 })
 class StateTrend extends Vue {
-
+  public button1: any = '今天';
+  public button2: any = '前三形态';
+  public fruit: any = ['遗漏'];
 }
 
 export default StateTrend;

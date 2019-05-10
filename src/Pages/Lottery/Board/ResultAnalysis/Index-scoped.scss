@@ -1,4 +1,5 @@
 .result-analysis {
+  background: #f5f5f5;
   .font-weight-bold {
     position: relative;
   }
@@ -50,5 +51,62 @@
   // /deep/ .ivu-radio-group-button .ivu-radio-wrapper:after, .ivu-radio-group-button .ivu-radio-wrapper:before {
   //   background: #fff;
   // }
+
+  .analysis-table {
+    border: 1px solid #f0f0f0;
+    background: #f5f5f5;
+    & > div {
+      position: relative;
+    }
+    & > div:nth-child(2) {
+      overflow: auto;
+      width: 100%;
+      border: 1px solid #e6e6e6;
+      & > div {
+        min-width: 190vmin;
+        white-space: nowrap;
+        div {
+          text-align: center;
+          display: inline-block;
+          width: 4vmin;
+          min-height: 12vmin;
+          padding-bottom: 1vmin;
+        }
+      }
+    }
+    font-size: 1.5vmin;
+    input {
+      width: 5vmin !important;
+      margin: 0 .5vmin;
+    }
+    .jia {
+      position: absolute;
+      left: 12vmin;
+      z-index: 100;
+      font-size: 2vmin;
+    }
+    .jian {
+      position: absolute;
+      left: 12vmin;
+      z-index: 100;
+      font-size: 2vmin;
+      top: 1.2vmin;
+    }
+    select {
+      margin: 0 .5vmin;
+      height: 2.7vmin;
+    }
+    button {
+      margin: 0 .5vmin;
+      background: #888aa0;
+      border: 0px;
+    }
+  }
+  .background-whilt {
+    background: #fff;
+  }
+  .background {
+    background: #f5f5f5;
+  }
 
 }

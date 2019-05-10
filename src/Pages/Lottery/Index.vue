@@ -31,13 +31,10 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import {
-  Footer,
-  Header,
-  NavTop,
-  NavRight,
-} from '@/Commons/';
-
+import Footer from '@/Commons/Footer/Index.vue'; // @ is an alias to /src
+import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
+import NavTop from '@/Commons/NavTop/Index.vue';
+import NavRight from '@/Commons/NavRight/Index.vue';
 import Top from './Top/Index.vue';
 import Board from './Board/Index.vue';
 
@@ -60,7 +57,6 @@ import {
   },
 })
 class Lottery extends Vue {
-
   public beforeCreate(): void {
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
   }

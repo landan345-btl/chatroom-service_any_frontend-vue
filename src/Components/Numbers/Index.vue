@@ -59,7 +59,7 @@ class Numbers extends Vue {
     return iSlargelowerBound;
   }
 
-  public union(oBooleans: { [key:string]: any,}) {
+  public union(oBooleans: { [key: string]: boolean }) {
     let bResult = false;
     let bBoolean;
     for (let sKey in oBooleans) {

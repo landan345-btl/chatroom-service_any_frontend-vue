@@ -75,8 +75,8 @@
               <el-menu-item index="2-5-4" class="font-2-vmin"><router-link :to="{ path: '/lottery', query: { code: 'TW3D' }}">台湾3D</router-link></el-menu-item>
             </el-submenu>
           </el-submenu>
-          <el-menu-item index="3" class="font-2-vmin"><router-link :to="{ path: '/accumulation'}">长龙提醒</router-link></el-menu-item>
-          <el-menu-item index="4" class="font-2-vmin"><router-link :to="{ path: '/trend'}">走势图表</router-link></el-menu-item>
+          <el-menu-item index="3" class="font-2-vmin"><router-link :to="{ path: '/accumulation' }">长龙提醒</router-link></el-menu-item>
+          <el-menu-item index="4" class="font-2-vmin"><router-link :to="{ path: '/trend' }">走势图表</router-link></el-menu-item>
         </el-menu>
       </el-col>
     </el-row>

@@ -10,8 +10,8 @@
         <span class="background-red"></span>
         色
       </span>
-      <span class="border-radius background-gray el-icon-plus color-white"></span>
-      <span>
+      <span class="border-radius background-gray color-white" :class=" changeHidden >= 1 ? 'el-icon-minus':'el-icon-plus' " @click="toggleHidden(1)"></span>
+      <span v-show=" changeHidden >= 1 ">
         参数设置：当数值为
         <span>12</span>
         至
@@ -20,8 +20,8 @@
         <span class="background-blue"></span>
         色
       </span>
-      <span class="border-radius background-gray el-icon-plus color-white"></span>
-      <span>
+      <span class="border-radius background-gray color-white" :class=" changeHidden >= 2 ? 'el-icon-minus':'el-icon-plus' " @click="toggleHidden(2)" v-show=" changeHidden >= 1 "></span>
+      <span v-show=" changeHidden >= 2 ">
         参数设置：当数值为
         <span>12</span>
         至
@@ -109,7 +109,18 @@ import {
   },
 })
 class TodayNumberStatics extends Vue {
-
+  public changeHidden = 0;
+  public toggleHidden( iNunmber: number ) {
+    if ( this.changeHidden === 2 && iNunmber === 1) {
+      this.changeHidden = 0;
+      return;
+    }
+    if ( this.changeHidden === iNunmber) {
+      this.changeHidden = ( iNunmber - 1 );
+      return;
+    }
+    this.changeHidden = iNunmber;
+  }
 }
 
 export default TodayNumberStatics;
