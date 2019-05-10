@@ -10,7 +10,7 @@
       <div class="announcement">
         近20期内 热码：出现频繁、活跃的号码；冷码：出现频率低甚至没有出现的号码；温码：介于冷热之间的号码。
       </div>
-      <table class="background-white text-center w-100">
+      <table class="background-white text-center align-middle w-100">
       <tr>
         <th>名次</th>
         <th>热</th>

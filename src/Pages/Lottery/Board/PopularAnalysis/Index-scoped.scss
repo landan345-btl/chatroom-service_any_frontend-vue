@@ -26,9 +26,12 @@
   }
   table {
     font-size: 1.7vmin;
+    th:first-child {
+      width: 15%;
+    }
     th, td {
-      height: 5vmin;
-      border: 1px solid #968e8e;
+      height: 7vmin;
+      border: 1px solid #d6d6d6;
     }
     th {
       background: #ebebeb;
