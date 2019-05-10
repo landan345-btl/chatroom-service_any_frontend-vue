@@ -181,63 +181,20 @@
             <td>55</td>
             <td>55</td>
           </tr>
-          <tr>
-            <td>出现次数</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
           </tbody>
         </table>  
         <table class="mt-1">
           <tr>
-            <th>冠亚龙虎</th>
-            <th colspan="4">冠亚和</th>
-            <th colspan="2">第一名龙虎</th>
-            <th colspan="2">第二名龙虎</th>
-            <th colspan="2">第三名龙虎</th>
-            <th colspan="2">第四名龙虎</th>
-            <th colspan="2">第五名龙虎</th>
+            <th rowspan="2">球次</th>
+            <th colspan="4">总和</th>
+            <th colspan="4">第一球</th>
+            <th colspan="4">第二球</th>
+            <th colspan="4">第三球</th>
+            <th colspan="4">第四球</th>
+            <th colspan="4">第五球</th>
           </tr>
           <tr>
-            <td>单双大小龙虎</td>
+            <td>单</td>
             <td>单</td>
             <td>双</td>
             <td>大</td>
@@ -252,6 +209,15 @@
             <td>虎</td>
             <td>龙</td>
             <td>虎</td>
+            <td>龙</td>
+            <td>虎</td>
+            <td>龙</td>
+            <td>虎</td>
+            <td>龙</td>
+            <td>虎</td>
+            <td>龙</td>
+            <td>虎</td>
+            <td>龙</td>
           </tr>
           <tr>
             <td>出现次数</td>
@@ -268,7 +234,17 @@
             <td>98</td>
             <td>77</td>
             <td>82</td>
-            <td></td>
+            <td>11</td>
+            <td>85</td>
+            <td>90</td>
+            <td>83</td>
+            <td>92</td>
+            <td>98</td>
+            <td>77</td>
+            <td>82</td>
+            <td>11</td>
+            <td>82</td>
+            <td>11</td>
           </tr>
         </table> 
       </div>  
