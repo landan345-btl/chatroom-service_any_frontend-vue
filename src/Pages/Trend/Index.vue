@@ -138,6 +138,34 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
   },
 })
 class Trend extends Vue {
+
+  public vLineSettings = {
+    labelMap: {
+      no: '期號',
+      first: '冠軍',
+      second: '亞軍',
+      third: '第三名',
+      forth: '第三名',
+      fifth: '第三名',
+      sixth: '第三名',
+      seventh: '第三名',
+      eighth: '第三名',
+      nineth: '第九名',
+      tenth: '第十名',
+      first_ball: '第一球',
+      second_ball: '第二球',
+      third_ball: '第三球',
+      forth_ball: '第四球',
+      fifth_ball: '第五球',
+      sixth_ball: '第六球',
+      seventh_ball: '第七球',
+      eighth_ball: '第八球',
+      special_ball: '特別號',
+    },
+    axisSite: {
+      right: ['号码'],
+    },
+  };
   public created(): void {
     let $root: any = this.$root;
     this.$store.dispatch('LOTTERY_ACTION_SHOW', {});
@@ -172,34 +200,6 @@ class Trend extends Vue {
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
   }
 
-  public vLineSettings = {
-    labelMap: {
-      no: '期號',
-      first: '冠軍',
-      second: '亞軍',
-      third: '第三名',
-      forth: '第三名',
-      fifth: '第三名',
-      sixth: '第三名',
-      seventh: '第三名',
-      eighth: '第三名',
-      nineth: '第九名',
-      tenth: '第十名',
-      first_ball: '第一球',
-      second_ball: '第二球',
-      third_ball: '第三球',
-      forth_ball: '第四球',
-      fifth_ball: '第五球',
-      sixth_ball: '第六球',
-      seventh_ball: '第七球',
-      eighth_ball: '第八球',
-      special_ball: '特別號',
-    },
-    axisSite: {
-      right: ['号码'],
-    },
-  }
-
   public get vLineData(): any {
     let oLotteryIssues = this.$store.state.lottery_issues;
     let oLotteries = this.$store.state.lotteries;
@@ -207,7 +207,7 @@ class Trend extends Vue {
     let aColums: any[] = [];
     let aRows: any[] = [];
 
-    for( let sLotteryIssueId in oLotteryIssues) {
+    for (let sLotteryIssueId in oLotteryIssues) {
       let oLotteryIssue = oLotteryIssues[sLotteryIssueId];
       let iLotteryId = oLotteryIssue.lottery_id;
       let sCode = oLotteries[iLotteryId].code;

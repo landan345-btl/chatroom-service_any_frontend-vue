@@ -159,7 +159,7 @@ import Instant from '@/Pages/LotteryIssue/Instant/Index.vue';
 import CountDownTime from '@/Pages/LotteryIssue/CountDownTime/Index.vue';
 
 import {
-  LOTTERIES
+  LOTTERIES,
 } from '@/CONFIGS/';
 
 import moment from 'moment';

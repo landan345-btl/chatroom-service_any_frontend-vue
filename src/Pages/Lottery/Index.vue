@@ -41,7 +41,7 @@ import {
 } from '@/Helpers/';
 
 import {
-  LOTTERIES
+  LOTTERIES,
 } from '@/CONFIGS/';
 
 @Component({
@@ -111,7 +111,7 @@ class Lottery extends Vue {
     } catch(oError) {
       return;
     } finally {
-
+      return;
     }
   }
 
@@ -152,7 +152,6 @@ class Lottery extends Vue {
       let aNumbers = JSON.parse(oLotteryIssue.numbers);
       aNumbers.forEach((iNumber: number, iIndex: number) => {
           let oHotWarnColdPosition = oHotWarnColdPositions[iIndex];
-          
           oHotWarnColdPositions[iIndex][iNumber] = oHotWarnColdPosition[iNumber] + 1;
         });
       iLoopCount++;
@@ -175,9 +174,10 @@ class Lottery extends Vue {
     let oLotteryIssues: any = this.$store.state.lottery_issues;
     let oLotteries: any = this.$store.state.lotteries;
     let oTodayTwoSideRecords: {
-      [key: string] : any
+      [key: string]: any,
     } = {};
     let aLotteryIssues = Object.values(oLotteryIssues);
+
     aLotteryIssues.forEach((oLotteryIssue: any) => {
       let aNumbers = JSON.parse(oLotteryIssue.numbers);
       let iLotteryId = oLotteryIssue.lottery_id;
@@ -195,27 +195,31 @@ class Lottery extends Vue {
               large: 0,
               odd: 0,
               even: 0,
-            }
+            },
           };
         }
         if ('小' === sIsNumberSmallOrLarge) {
           let oRecords = oTodayTwoSideRecords[iInedex];
-          oRecords['small'] = oRecords['small'] + 1;
+          let sKey = 'small';
+          oRecords[sKey] = oRecords[sKey] + 1;
         }
 
         if ('大' === sIsNumberSmallOrLarge) {
           let oRecords = oTodayTwoSideRecords[iInedex];
-          oRecords['large'] = oRecords['large'] + 1;
+          let sKey = 'large';
+          oRecords[sKey] = oRecords[sKey] + 1;
         }
 
         if ('单' === sOddOrEven) {
           let oRecords = oTodayTwoSideRecords[iInedex];
-          oRecords['odd'] = oRecords['odd'] + 1;
+          let sKey = 'odd';
+          oRecords[sKey] = oRecords[sKey] + 1;
         }
 
         if ('双' === sOddOrEven) {
           let oRecords = oTodayTwoSideRecords[iInedex];
-          oRecords['even'] = oRecords['even'] + 1;
+          let sKey = 'even';
+          oRecords[sKey] = oRecords[sKey] + 1;
         }
       }
     });

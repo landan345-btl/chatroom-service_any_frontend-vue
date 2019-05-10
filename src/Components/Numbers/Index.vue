@@ -12,7 +12,7 @@
                'number-' + types.toLowerCase(), 
                'number-'+ code.toLowerCase(), 
                'number-'+ types.toLowerCase() + '-' + iNumber
-               ]" v-for="(iNumber, sKey) in numbers" :key="sKey" v-randomNumber="{ isRandom: isRandom }">
+               ]" v-for="(iNumber, sKey) in numbers" :key="sKey" v-randomNumber="{ isRandom: isRandom, types: types }">
       <span>{{iNumber}}</span>
     </div>
   </div>
