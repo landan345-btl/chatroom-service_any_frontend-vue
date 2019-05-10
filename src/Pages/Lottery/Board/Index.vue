@@ -14,7 +14,7 @@
         <Basic-trend />
       </TabPane>
       <TabPane :label="'冷热分析'" :name="'popular-anaylysis'">
-        <Popular-analysis :hotWarnColdPositions="hotWarnColdPositions"/>
+        <Popular-analysis :hotWarnColdPositions="hotWarnColdPositions" :code="code"/>
       </TabPane>
       <TabPane :label="'龙虎走势'" :name="'dragon-or-Tiger-trend'">
         <Dragon-or-tiger-trend />

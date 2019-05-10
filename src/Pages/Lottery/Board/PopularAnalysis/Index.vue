@@ -92,9 +92,12 @@
       <tr>
         <td>第五球</td>
         <td>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
+          <Numbers 
+            :code="code" 
+            :numbers="[1,2,3]" 
+            :types="LOTTERIES[code].TYPES" 
+            :isRandom="false" 
+            :status="'NUMBER'" />
         </td>
         <td>
           <span>7 <span class="badge">5</span> </span>
@@ -117,7 +120,9 @@
 </style>
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-// import ITabs from '@/Components/ITabs/Index.vue';
+import {
+  Numbers,
+} from '@/Components/';
 
 import {
   LOTTERIES,
