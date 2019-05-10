@@ -54,3 +54,10 @@
 
   background: #ffffff;
 }
+
+/deep/ .ivu-checkbox-group {
+  display: inline-block;
+}
+/deep/ .ivu-checkbox-wrapper {
+  margin: 0px;
+}

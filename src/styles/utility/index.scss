@@ -102,6 +102,10 @@ span {
   width: 100% !important;
 }
 
+.font-size-2 {
+  font-size: 2vmin;
+}
+
 .w-xs-1_3 {
   @media only screen and (max-width: 767.98px) {
     width: cacl( 100% / 3 );
@@ -166,6 +170,11 @@ span {
   color: #555 !important;  
 }
 
+.border-orange {
+  border: 1px solid #fba75e !important;
+  color: #fba75e !important;
+}
+
 .background-orange-0 {
   background: #fba75e !important;
   color: #fff;
@@ -180,10 +189,28 @@ span {
   background: #08bf02 !important;
   color: #fff;
 }
+.background-brown {
+  background: #313242 !important;
+  color: #fff !important;
+}
 
 .background-purple-3 {
   background: #8585fb;
   color: #fff;
+}
+
+.background-beige {
+  background: #fcf9f2;
+}
+
+.background-blackish-green-4 {
+  background: #46bd95;
+  color: #fff;
+}
+
+.background-image {
+  background: url("~@/assets/images/toggleSelect.png") no-repeat ;
+  background-size: 100% 100%;
 }
 
 .text-shrimp,.text-crad,.text-sum {
@@ -243,6 +270,14 @@ span {
 
 .text-right {
   text-align: right;
+}
+
+.float-left {
+  float: left !important;
+}
+
+.float-right {
+  float: right !important;
 }
 
 .p-1 {

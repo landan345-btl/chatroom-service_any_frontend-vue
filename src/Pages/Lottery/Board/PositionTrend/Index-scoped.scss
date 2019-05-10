@@ -6,4 +6,51 @@
     border-bottom: 1px solid #f0f0f0;
   }
   background: #ffffff;
+  .say {
+    font-size: 1.5vmin;
+    background: #edf4fa;
+    overflow: hidden;
+    height: 2.2vmin;
+    p:nth-child(1) {
+      span:nth-child(2) {
+        float: right;
+        margin-right: 2vmin;
+      }
+    }
+  }
+  table {
+    width: 100%;
+    margin: 0 0 2vmin 0;
+    font-size: 1.5vmin;
+    td {
+      padding: 1vmin 0;
+      border: 1px solid #d6d6d6;
+      text-align: center;
+    }
+    tr ~ tr {
+      td:nth-child(2) {
+        span {
+          margin: 0 .3vmin;
+        }
+        span:nth-child(1) {
+          color: red;
+        }
+      }
+      td:nth-child(2) ~ td {
+        span {
+          border-radius: 50%;
+          width: 2.1vmin;
+          height: 2.1vmin;
+          line-height: 2.1vmin;
+        }
+      }
+    }
+    tr:nth-child(1),tr:nth-child(2) {
+      background: #ebebeb;
+      span {
+        position: relative;
+        top: 2vmin;
+      }
+    }
+  }
 }

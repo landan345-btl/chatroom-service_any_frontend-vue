@@ -1,11 +1,11 @@
 <template>
   <div class="result-analysis">
-    <!-- <div class="top font-weight-bold">
-      <div class="nav-left">
-        <I-tabs type="card">
+    <div class="top font-weight-bold">
+      <div class="nav-left p-1">
+        <I-tabs type="card background">
           <TabPane label="综合模式">
             <span>筛选名次：</span>
-            <CheckboxGroup v-model="fruit">
+            <CheckboxGroup v-model="fruit1">
               <Checkbox label="第一球"></Checkbox>
               <Checkbox label="第二球"></Checkbox>
               <Checkbox label="第三球"></Checkbox>
@@ -14,7 +14,7 @@
               <Checkbox label="总和"></Checkbox>
             </CheckboxGroup>
             <span>筛选路珠：</span>
-            <CheckboxGroup v-model="fruit">
+            <CheckboxGroup v-model="fruit2">
               <Checkbox label="大小路珠"></Checkbox>
               <Checkbox label="单双路珠"></Checkbox>
               <Checkbox label="龙虎"></Checkbox>
@@ -22,7 +22,7 @@
           </TabPane>
           <TabPane label="单选模式">
             <span>筛选路珠：</span>
-            <CheckboxGroup v-model="fruit">
+            <CheckboxGroup v-model="fruit3">
               <Checkbox label="大小路珠"></Checkbox>
               <Checkbox label="单双路珠"></Checkbox>
               <Checkbox label="龙虎"></Checkbox>
@@ -40,7 +40,7 @@
           </TabPane>
           <TabPane label="两面模式">
             <span>筛选名次：</span>
-            <CheckboxGroup v-model="fruit">
+            <CheckboxGroup v-model="fruit4">
               <Checkbox label="第一球"></Checkbox>
               <Checkbox label="第二球"></Checkbox>
               <Checkbox label="第三球"></Checkbox>
@@ -51,7 +51,7 @@
             <span>全选</span>
             <span>清空</span>
             <span>筛选路珠：</span>
-            <CheckboxGroup v-model="fruit">
+            <CheckboxGroup v-model="fruit5">
               <Checkbox label="大小路珠"></Checkbox>
               <Checkbox label="单双路珠"></Checkbox>
               <Checkbox label="龙虎路珠"></Checkbox>
@@ -67,32 +67,16 @@
         </RadioGroup>
       </div>
 
-      <div>
-        <div>
-          <span>连续出现次数</span>
-          <Input v-model="value" style="width: 300px" />
-          <span>次以上</span>
-          <select name="" id="">
-            <option value="大"></option>
-            <option value="小"></option>
-          </select>
-          <Button type="primary">确定</Button>
-          <span>
-            出现的次数为：
-            <span>0</span>
-          </span>
-        </div>
-        <div>
-          <span></span>
-        </div>
-
+      <div class="p-1">
+        <LuZhuTable v-for="( utem , i ) in 6" :key="i"/>
       </div>
+      
 
       
     
 
 
-    </div> -->
+    </div>
   </div>
 </template>
 <style scoped lang="scss">
@@ -101,6 +85,7 @@
 </style>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+<<<<<<< HEAD
 import {
   ITabs,
 } from '@/Components/';
@@ -108,15 +93,26 @@ import {
 import {
   LOTTERIES,
 } from '@/CONFIGS/';
+=======
+import ITabs from '@/Components/ITabs/Index.vue';
+import LuZhuTable from '@/Components/LuZhuTable/index.vue';
+>>>>>>> lotterypages
 
 @Component({
   name: 'ResultAnalysis',
   components: {
     ITabs,
+    LuZhuTable,
   },
 })
 class ResultAnalysis extends Vue {
-
+  public fruit1 = ['da'];
+  public fruit2 = ['da'];
+  public fruit3 = ['da'];
+  public fruit5 = ['da'];
+  public fruit4 = ['da'];
+  public button1 = 'da';
+  public buttonSize = '今天';
 }
 
 export default ResultAnalysis;

@@ -1,7 +1,7 @@
 
 let canvasTrend = {   // canvas号码走势图 自定义指令
   inserted: (el: any) => {
-    let color = [ '#FB8E19' , '#0092E0' , '#08bf02' ];
+    let color = [ '#FB8E19' , '#0092E0' , '#08bf02' , '#8585fb' , '#46bd95' ];
     let oTable: any = el ;
     oTable.style.position = 'relative' ;
     let sTableClass = oTable.className;

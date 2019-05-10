@@ -5,7 +5,7 @@
     </div>
     <div>
        <CheckboxGroup v-model="fruit">
-        <Checkbox label=""></Checkbox>
+        <Checkbox label="1"></Checkbox>
       </CheckboxGroup>
       显示热号码出现次数
     </div>
@@ -119,7 +119,7 @@
 </style>
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import ITabs from '@/Components/ITabs/Index.vue';
+// import ITabs from '@/Components/ITabs/Index.vue';
 
 import {
   LOTTERIES,
@@ -128,10 +128,12 @@ import {
 @Component({
   name: 'PopularAnalysis',
   components: {
-    ITabs,
+    // ITabs,
   },
 })
 class PopularAnalysis extends Vue {
+  public fruit = ['1'];
+
   @Prop()
   public lotteryIssues!: any;
 
