@@ -4,7 +4,7 @@
               'SMALL_LARGE' === status ? 'status-small-large' : '',
               'ODD_EVEN' === status ? 'status-odd-even' : '', ]">
     <div class="number" 
-      :class="[true === onNumbers[iNumber] || false === union(onNumbers) ? '' : 'opacity-0p1',
+      :class="[ undefined === onNumbers || true === onNumbers[iNumber] || false === union(onNumbers) ? '' : 'opacity-0p1',
                '单' === isOddOrEven(iNumber) ? 'number-odd' : '',
                '双' === isOddOrEven(iNumber) ? 'number-even' : '',
                '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-small' : '',
