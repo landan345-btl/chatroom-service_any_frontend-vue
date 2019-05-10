@@ -51,28 +51,342 @@ html {
     height: 3.8vmin;
     font-size: 1.8vmin;
     border-radius: 2.25vmin;
-    color: #ffffff;
     background-color: #0092dd;
     line-height: 3.8vmin;
   }
 
-  .number-ssc-0, .number-ssc-00 {
-    background: url('~@/assets/images/numbers-2.png') no-repeat -468px 4px, #0092dd;
+  .number-ssc-0, .number-ssc-00,.number-3d-0,.number-xy28-0 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px 5px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  
+  .number-ssc-1, .number-ssc-01,.number-six-1,.number-3d-1,.number-xy28-1 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -36px, #0092dd;
     color: rgba($color: #000000, $alpha: 0);
   }
 
-  .number-ssc-1, .number-ssc-01 {
-    background: url('~@/assets/images/numbers-2.png') no-repeat -468px -36px, #0092dd;
+  .number-ssc-2, .number-ssc-02,.number-six-2,.number-3d-2,.number-xy28-2 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -77px, #0092dd;
     color: rgba($color: #000000, $alpha: 0);
   }
 
-  .number-klsf-0, .number-klsf-00 {
-    background: url('~@/assets/images/numbers-2.png') no-repeat -526px 4px, #0092dd;
+  .number-ssc-3, .number-ssc-03,.number-six-3,.number-3d-3,.number-xy28-3 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -119px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-ssc-4, .number-ssc-04,.number-six-4,.number-3d-4,.number-xy28-4 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -160px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-ssc-5, .number-ssc-05,.number-six-5,.number-3d-5,.number-xy28-5 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -201px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-ssc-6, .number-ssc-06,.number-six-6,.number-3d-6,.number-xy28-6 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -243px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-ssc-7, .number-ssc-07,.number-six-7,.number-3d-7,.number-xy28-7 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -284px, #0092dd;
     color: rgba($color: #000000, $alpha: 0);
   }
 
-  .number-klsf-1, .number-klsf-01 {
+  .number-ssc-8, .number-ssc-08,.number-six-8,.number-3d-8,.number-xy28-8 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -324px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-ssc-9, .number-ssc-09,.number-six-9,.number-3d-9,.number-xy28-9 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -366px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-ssc-10, .number-ssc-10,.number-six-10 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -408px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-11 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -448px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-12 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -488px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-13 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -530px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-14 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -571px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-15 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -611px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-16 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -654px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-17 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -694px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-18 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -819px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-19 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -778px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-20 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -819px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-21 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -860px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-22 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -902px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-23 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -943px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-24 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -984px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-25 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1026px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-26 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1066px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-27 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1107px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-28 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1148px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-29 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1190px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-30 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1230px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-31 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1271px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-32 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1314px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-33 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1355px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-34 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1397px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-35 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1438px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-36 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1479px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-37 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1520px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-38 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1561px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-39 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1602px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-40 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1643px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-41 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1685px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-42 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1726px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-43 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1768px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-44 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1809px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-45 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1851px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-46 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1891px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  
+  .number-six-47 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1932px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-six-48 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -1974px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  
+  .number-six-49 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -467px -2014px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-klsf-1, .number-klsf-01, .number-11x5-1, .number-11x5-01 {
     background: url('~@/assets/images/numbers-2.png') no-repeat -526px -36px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-klsf-2, .number-klsf-02, .number-11x5-2, .number-11x5-02 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -78px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-klsf-3, .number-klsf-03, .number-11x5-3, .number-11x5-03 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -119px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-klsf-4, .number-klsf-04, .number-11x5-4, .number-11x5-04 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -160px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  
+  .number-klsf-5, .number-klsf-05, .number-11x5-5, .number-11x5-05 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -201px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-klsf-6, .number-klsf-06, .number-11x5-6, .number-11x5-06 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -243px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-klsf-7, .number-klsf-07, .number-11x5-7, .number-11x5-07 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -284px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-klsf-8, .number-klsf-08, .number-11x5-8, .number-11x5-08 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -324px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-klsf-9, .number-klsf-09, .number-11x5-9, .number-11x5-09 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -366px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-klsf-10, .number-11x5-10 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -408px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-klsf-11, .number-11x5-11 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -449px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-klsf-12 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -489px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-klsf-13 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -531px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-klsf-14 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -573px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  
+  .number-klsf-15 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -612px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-klsf-16 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -655px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-klsf-17 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -696px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-klsf-18 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -738px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-klsf-19 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -779px, #0092dd;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+  .number-klsf-20 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -526px -820px, #0092dd;
     color: rgba($color: #000000, $alpha: 0);
   }
 
@@ -165,7 +479,6 @@ html {
     height: 3.8vmin;
     font-size: 1.6vmin;
     border-radius: 2vmin;
-    color: #ffffff;
     background-color: #0092dd;
     line-height: 3.8vmin;
   }
@@ -175,7 +488,6 @@ html {
     height: 3.8vmin;
     font-size: 1.6vmin;
     border-radius: 2vmin;
-    color: #ffffff;
     background-color: #0092dd;
     line-height: 3.8vmin;
   }
@@ -185,7 +497,6 @@ html {
     height: 2.6vmin;
     font-size: 1vmin;
     border-radius: 1.3vmin;
-    color: #ffffff;
     background-color: #0092dd;
     line-height: 2.6vmin;
     margin: 0 0.1vmin;
@@ -366,7 +677,6 @@ html {
     height: 4vmin;
     font-size: 1.6vmin;
     border-radius: 2vmin;
-    color: #ffffff;
     background-color: #0092dd;
     line-height: 4vmin;
   }
@@ -380,7 +690,6 @@ html {
     height: 4vmin;
     font-size: 1.6vmin;
     border-radius: 2vmin;
-    color: #ffffff;
     background-color: #0092dd;
     line-height: 4vmin;
   }
@@ -390,7 +699,6 @@ html {
     height: 3.8vmin;
     font-size: 1.6vmin;
     border-radius: 2vmin;
-    color: #ffffff;
     background-color: #0092dd;
   }
   
