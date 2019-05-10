@@ -4,7 +4,6 @@ import {
 
 let oRandomNumber =  {   // 开奖时间进度条  时间倒数
   inserted: (oElement: any, oBinding: any) => {
-    debugger;
 
     let sClassName = oElement.className;
     let pProcess = Promise.resolve();
