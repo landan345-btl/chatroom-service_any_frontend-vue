@@ -73,6 +73,7 @@ class Top extends Vue {
 
   @Prop()
   public types!: any;
+
 }
 
 export default Top;

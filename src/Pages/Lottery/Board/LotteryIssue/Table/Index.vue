@@ -52,7 +52,7 @@
         <td>{{lotterys.added_time}}</td>
         <td>{{lotterys.no}}</td>
         <td>
-          <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" :status="switcher"/>
+          <Numbers :code="code" :onNumbers="onNumbers" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" :status="switcher"/>
         </td>
         <td>{{ JSON.parse(lotterys.numbers) | sum }}</td>
           <td :class="{'text-big' : '大' === isSmallOrLarge(sum(JSON.parse(lotterys.numbers)),20,21)}">
@@ -86,7 +86,7 @@
         <td>{{ lotterys.added_time }}</td>
         <td>{{ lotterys.no}}</td>
         <td>
-          <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" :status="switcher"/>
+          <Numbers :code="code" :onNumbers="onNumbers" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" :status="switcher"/>
         </td>
         <td>{{ JSON.parse(lotterys.numbers) | sum }}</td>
         <td :class="{'text-big' : '大' === isSmallOrLarge(sum(JSON.parse(lotterys.numbers)),29,31)}">{{ JSON.parse(lotterys.numbers) | sum | isSmallOrLarge(29, 31) }}</td>
@@ -111,7 +111,7 @@
         <td>{{ lotterys.added_time }}</td>
         <td>{{ lotterys.no}}</td>
         <td>
-          <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" class="status-number"/>
+          <Numbers :code="code" :onNumbers="onNumbers" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" class="status-number"/>
         </td>
         <td>{{ JSON.parse(lotterys.numbers) | sum }}</td>
         <td :class="{'text-even': '双'===isOddOrEven(sum(JSON.parse(lotterys.numbers)))}">{{ JSON.parse(lotterys.numbers) | sum | isOddOrEven}}</td>
@@ -155,7 +155,7 @@
         <td>{{ lotterys.added_time }}</td>
         <td>{{ lotterys.no}}</td>
         <td>
-          <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" :status="switcher"/>
+          <Numbers :code="code" :onNumbers="onNumbers" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" :status="switcher"/>
         </td>
         <td>{{ JSON.parse(lotterys.numbers) | sum }}</td>
         <td :class="{'text-even': '双'===isOddOrEven(sum(JSON.parse(lotterys.numbers)))}">{{ JSON.parse(lotterys.numbers) | sum | isOddOrEven }}</td>
@@ -181,7 +181,7 @@
         <td>{{ lotterys.added_time }}</td>
         <td>{{ lotterys.no}}</td>
         <td>
-          <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" class="status-number"/>
+          <Numbers :code="code" :onNumbers="onNumbers" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" class="status-number"/>
         </td>
         <td class="w-1_3">{{ JSON.parse(lotterys.numbers) | sum }}</td>
         <td :class="{'text-even': '双' === isOddOrEven(sum(JSON.parse(lotterys.numbers)))}" class="w-1_3">{{ JSON.parse(lotterys.numbers) | sum | isOddOrEven }}</td>
@@ -209,7 +209,7 @@
         <td>{{ lotterys.added_time }}</td>
         <td>{{ lotterys.no}}</td>
         <td>
-         <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" class="status-number"/>
+         <Numbers :code="code" :onNumbers="onNumbers" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" class="status-number"/>
         </td>
         <td>{{ JSON.parse(lotterys.numbers) | sum }}</td>
         <td :class="{'text-big': '大' === isSmallOrLarge(sum(JSON.parse(lotterys.numbers)),849,851)}">{{ JSON.parse(lotterys.numbers) | sum | isSmallOrLarge(849, 851) }}</td>
@@ -240,7 +240,7 @@
         <td>{{ lotterys.added_time }}</td>
         <td>{{ lotterys.no}}</td>
         <td>
-          <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" class="status-number"/>
+          <Numbers :code="code" :onNumbers="onNumbers" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" class="status-number"/>
         </td>
         <td>{{ JSON.parse(lotterys.numbers) | sum([0, 1])}}</td>
         <td :class="{'text-even':'双' === isOddOrEven(sum((JSON.parse(lotterys.numbers)),[0,1]))}">{{ JSON.parse(lotterys.numbers) | sum([0, 1]) | isOddOrEven }}</td>
@@ -269,7 +269,7 @@
         <td>{{ lotterys.added_time }}</td>
         <td>{{ lotterys.no}}</td>
         <td>
-          <Numbers :code="code" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" class="status-number"/>
+          <Numbers :code="code" :onNumbers="onNumbers" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" class="status-number"/>
         </td>
         <td class="w-10">{{ JSON.parse(lotterys.numbers) | sum }}</td>
         <td  :class="{'text-even' : '双' === isOddOrEven(sum(JSON.parse(lotterys.numbers),12,14))}" class="w-10">{{ JSON.parse(lotterys.numbers) | sum | isOddOrEven }}</td>

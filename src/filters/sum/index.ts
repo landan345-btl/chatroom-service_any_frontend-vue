@@ -1,5 +1,5 @@
 import {
-  sum,
+  sum ,
 } from '@/utilities/';
 
 export default sum;
