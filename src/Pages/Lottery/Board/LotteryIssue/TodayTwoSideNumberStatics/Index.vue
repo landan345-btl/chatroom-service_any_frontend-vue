@@ -220,15 +220,12 @@ import {
   },
 })
 class TodayTwoSideNumberStatics extends Vue {
-<<<<<<< HEAD
   @Prop()
   public types!: any;
 
   @Prop()
   public todayTwoSideRecords!: any;
 
-=======
->>>>>>> lotterypages
 }
 
 export default TodayTwoSideNumberStatics;
