@@ -41,10 +41,9 @@ html {
 .number {
   display: inline-block;
   text-align: center;
-}
-.number:nth-child(n+1) {
   margin: 0.5vmin 0.5vmin; 
 }
+
 .status-number {
 
   .number-ssc {
@@ -56,9 +55,7 @@ html {
     background-color: #0092dd;
     line-height: 3.8vmin;
   }
-  .ssc-height-4 {
-    height:4.1vmin;
-  }
+
   .number-cqssc.number-ssc-0, .number-cqssc.number-ssc-00 {
     background: url('~@/assets/images/numbers-cqssc.png') no-repeat -488px 1px;
     width: 4.5vmin;
