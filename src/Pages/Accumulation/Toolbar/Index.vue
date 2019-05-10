@@ -43,7 +43,7 @@ import ECollapse from '@/Components/ECollapse/Index.vue';
 import ECheckbox from '@/Components/ECheckbox/Index.vue';
 
 import {
-  LOTTERIES
+  LOTTERIES,
 } from '@/CONFIGS/';
 
 @Component({

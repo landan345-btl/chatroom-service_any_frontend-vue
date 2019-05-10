@@ -14,7 +14,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import ITabs from '@/Components/ITabs/Index.vue';
 
 import {
-  LOTTERIES
+  LOTTERIES,
 } from '@/CONFIGS/';
 
 @Component({

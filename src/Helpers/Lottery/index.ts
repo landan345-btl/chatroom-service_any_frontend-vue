@@ -13,7 +13,7 @@ class LotteryHelper {
     let iSmallUpperBound: number = 0;
     let iLargeLowerBound: number = 0;
     sTypes = sTypes.toUpperCase();
-    switch(sTypes) {
+    switch (sTypes) {
       case 'PK10':
         iSmallUpperBound = 22;
         iLargeLowerBound = 23;
@@ -40,7 +40,7 @@ class LotteryHelper {
         break;
       default:
         // code block
-    } 
+    }
     let sResult = isSmallOrLarge(iSummation, iSmallUpperBound, iLargeLowerBound);
     return sResult;
   }
@@ -49,7 +49,7 @@ class LotteryHelper {
     let iSmallUpperBound: number = 0;
     let iLargeLowerBound: number = 0;
     sTypes = sTypes.toUpperCase();
-    switch(sTypes) {
+    switch (sTypes) {
       case 'PK10':
         iSmallUpperBound = 4;
         iLargeLowerBound = 5;
@@ -76,7 +76,7 @@ class LotteryHelper {
         break;
       default:
         // code block
-    } 
+    }
     let sResult = isSmallOrLarge(iNumber, iSmallUpperBound, iLargeLowerBound);
     return sResult;
   }
