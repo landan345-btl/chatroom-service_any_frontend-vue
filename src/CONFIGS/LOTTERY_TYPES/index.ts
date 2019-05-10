@@ -1,7 +1,7 @@
 const LOTTERY_TYPES: any = {
   'PK10' : {
     NUMBERS: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ],
- },
+  },
   'SSC' : {
     NUMBERS: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
   },
@@ -33,7 +33,7 @@ const LOTTERY_TYPES: any = {
   },
   '3D': {
     NUMBERS: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
-  }
+  },
 };
 
 export default LOTTERY_TYPES;
