@@ -17,7 +17,7 @@
 
     <div class="p-2">
       <div>
-        <LuZhuTable/>
+        <Result-table />
       </div>
     </div>
 
@@ -49,9 +49,10 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
-import ITabs from '@/Components/ITabs/Index.vue';
 import IDatePicker from '@/Components/IDatePicker/Index.vue';
-import LuZhuTable from '@/Components/LuZhuTable/index.vue';
+import {
+  ResultTable,
+} from '@/Components/';
 
 import {
   LOTTERIES,
@@ -60,9 +61,7 @@ import {
 @Component({
   name: 'SummationResult',
   components: {
-    ITabs,
-    IDatePicker,
-    LuZhuTable,
+    ResultTable,
   },
 })
 class SummationResult extends Vue {
@@ -70,7 +69,6 @@ class SummationResult extends Vue {
 
   @Prop()
   public lotteryIssues!: any;
-<<<<<<< HEAD
 
   public get getSummationResults(): void {
     let oLotteryIssues: any = this.$store.state.lottery_issues;
@@ -81,8 +79,6 @@ class SummationResult extends Vue {
     }
     return;
   }
-=======
->>>>>>> lotterypages
 }
 
 export default SummationResult;

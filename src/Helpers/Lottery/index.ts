@@ -1,7 +1,7 @@
 import {
   isSmallOrLarge,
   isOddOrEven,
-} from '@/utilities';
+} from '@/utilities/';
 
 import {
   LOTTERY_TYPES,

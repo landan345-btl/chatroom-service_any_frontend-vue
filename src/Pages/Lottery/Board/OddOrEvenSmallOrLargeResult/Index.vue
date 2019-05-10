@@ -21,7 +21,7 @@
       </el-checkbox-group>
     </div>
     <div class="p-2">
-      <LuZhuTable v-for="( utem , i ) in 6" :key="i"/>
+      <Result-table v-for="( utem , i ) in 6" :key="i"/>
     </div>
 
 
@@ -33,8 +33,9 @@
 </style>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import ITabs from '@/Components/ITabs/Index.vue';
-import LuZhuTable from '@/Components/LuZhuTable/index.vue';
+import {
+  ResultTable
+} from '@/Components/';
 
 import {
   LOTTERIES,
@@ -43,8 +44,7 @@ import {
 @Component({
   name: 'OddOrEvenSmallOrLargeResult',
   components: {
-    ITabs,
-    LuZhuTable,
+    ResultTable,
   },
 })
 class OddOrEvenSmallOrLargeResult extends Vue {

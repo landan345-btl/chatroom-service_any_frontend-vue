@@ -128,7 +128,6 @@
         <td><span>43</span></td>
         <td><span>43</span></td>
         <td><span>43</span></td>
-        
       </tr>
     </table>
 
@@ -143,17 +142,10 @@
 import { Component, Vue } from 'vue-property-decorator';
 // import ITabs from '@/Components/ITabs/Index.vue';
 
-<<<<<<< HEAD
 import {
   LOTTERIES,
 } from '@/CONFIGS/';
 
-=======
-// import LOTTERTIES from '@/CONFIGS/LOTTERIES/index';
-// TODO
-// 2. Chart 要有 loading 动画
-// 3. 号码 为 0 折线会断
->>>>>>> lotterypages
 @Component({
   name: 'StateTrend',
   components: {

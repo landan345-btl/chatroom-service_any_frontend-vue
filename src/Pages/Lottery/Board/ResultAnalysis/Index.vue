@@ -68,7 +68,7 @@
       </div>
 
       <div class="p-1">
-        <LuZhuTable v-for="( utem , i ) in 6" :key="i"/>
+        <Result-table v-for="( utem , i ) in 6" :key="i"/>
       </div>
       
 
@@ -85,24 +85,20 @@
 </style>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-<<<<<<< HEAD
 import {
   ITabs,
+  ResultTable,
 } from '@/Components/';
 
 import {
   LOTTERIES,
 } from '@/CONFIGS/';
-=======
-import ITabs from '@/Components/ITabs/Index.vue';
-import LuZhuTable from '@/Components/LuZhuTable/index.vue';
->>>>>>> lotterypages
 
 @Component({
   name: 'ResultAnalysis',
   components: {
     ITabs,
-    LuZhuTable,
+    ResultTable,
   },
 })
 class ResultAnalysis extends Vue {
