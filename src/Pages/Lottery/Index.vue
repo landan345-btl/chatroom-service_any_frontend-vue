@@ -111,7 +111,7 @@ class Lottery extends Vue {
     } catch(oError) {
       return;
     } finally {
-      return;
+      // do nothing
     }
   }
 
