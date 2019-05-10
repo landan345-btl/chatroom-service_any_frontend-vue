@@ -18,10 +18,10 @@ let canvasTrend = {   // canvas号码走势图 自定义指令
       cvs.style.position = 'absolute';
       cvs.style.left = 0 + 'px';
       cvs.style.top = 0 + 'px';
-      cvs.style.zIndex = 0 ;
+      cvs.style.zIndex = 0;
       cvs.width = oTable.clientWidth;  // 获取表格的宽并用来确定画布的宽度
       cvs.height = oTable.clientHeight;
-      let aClass = spanclass.split('-'); 
+      let aClass = spanclass.split('-');
       let spancolor = color[ aClass[ aClass.length - 1 ] ];  // class前后不要加空格  日常踩坑
       let oSpans: any =  document.querySelectorAll(`.${sTableClass} tr td span.${spanclass}`); // 获取包含一类class的所以span元素
       let canList = [ ];    // 接收元素的位
@@ -35,7 +35,7 @@ let canvasTrend = {   // canvas号码走势图 自定义指令
         oSpan.style.zIndex = '50';
         s.top = offsetTop + oSpan.parentNode.parentNode.offsetTop + height + 1;  // 距离父元素的高度 +元素高度一半
         s.left = offsetLeft + oSpan.parentNode.offsetLeft + width + 1;  // 距离父元素的宽度 +元素高度一半
-        canList.push( s );
+        canList.push(s);
       }
       let cxt: any = cvs.getContext('2d') ;   // 创建画笔
       cxt.strokeStyle =  spancolor;          // 画笔颜色
