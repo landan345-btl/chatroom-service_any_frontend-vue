@@ -1,54 +1,38 @@
 .popular-analysis {
   & > div {
-    padding-left: 2vmin;
     font-size: 1vmin;
   }
   .title {
     font-size: 2vmin;
   }
   .top {
-    border-bottom: .2vmin solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
   }
   .announcement {
     margin: 1.2vmin 0;
   }
+
+  .badge {
+    border: 0;
+    line-height: 2vmin;
+    font-size: 1.2vmin;
+    position: absolute;
+    width: 2vmin;
+    height: 2vmin;
+    top: -1vmin;
+    left: 1.8vmin;
+    background: red;
+    color: #fff;
+  }
   table {
-    width: 97%;
-    margin: 2vmin auto 0;
     font-size: 1.7vmin;
-    td {
-      text-align: center;
-      border: .1vmin solid #968e8e;
-      padding: 1.5vmin 0;
-      span {
-        border: 1px solid #0c9cdd;
-        border-radius: 50%;
-        width: 4vmin;
-        height: 4vmin;
-        position: relative;
-        text-align: center;
-        line-height: 4vmin;
-        font-size: 2vmin;
-        margin: 0 .8vmin;
-        font-weight: bold;
-        span {
-          border: 0;
-          line-height: 2vmin;
-          font-size: 1.2vmin;
-          position: absolute;
-          width: 2vmin;
-          height: 2vmin;
-          top: -1vmin;
-          left: 1.8vmin;
-          background: red;
-          color: #fff;
-        }
-      }
+    th, td {
+      height: 5vmin;
+      border: 1px solid #968e8e;
     }
-    tr:nth-child(1) {
+    th {
       background: #ebebeb;
     }
-
   }
   /deep/ .ivu-checkbox-group {
     display: inline-block;
