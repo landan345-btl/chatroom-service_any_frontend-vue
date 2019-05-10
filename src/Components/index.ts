@@ -1,4 +1,4 @@
-import ChenCoutdown from './ChenCoutdown/Index.vue';
+import ChenCoutdown from './ChenCountdown/Index.vue';
 import ECarousel from './ECarousel/Index.vue';
 import ECheckbox from './ECheckbox/Index.vue';
 import ECheckboxGroup from './ECheckboxGroup/Index.vue';
