@@ -6,7 +6,7 @@ const SAME: string = '豹子';
 const MESS: string = '杂六';
 const UNKNOWN: string = '未知';
 
-let cDetermineSequence = (aNumbers: number[], aPositions: number[]): string => {
+let cDetermineSequence = (aNumbers: number[], aPositions: number[], iMin: number, iMax: number): string => {
   let _aNumbers: number[] = [];
   let iStraightCount: number = 0;
   let iSameCount: number = 0;
@@ -35,7 +35,7 @@ let cDetermineSequence = (aNumbers: number[], aPositions: number[]): string => {
     return iNextNumber;
   });
 
-  if (9 === _aNumbers[_aNumbers.length - 1] - _aNumbers[0]) {
+  if (iMax - iMin === _aNumbers[_aNumbers.length - 1] - _aNumbers[0]) {
     iStraightCount += 1;
   }
 
