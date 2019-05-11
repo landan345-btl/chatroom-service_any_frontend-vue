@@ -1,6 +1,6 @@
 <template>
   <div class="odd-or-even-small-or-large-history">
-    <div class="top p-2 font-weight-bold ">
+    <div class="top p-1 font-weight-bold ">
       <span class="title">单双大小历史</span>
     </div>
     <div class="p-2">

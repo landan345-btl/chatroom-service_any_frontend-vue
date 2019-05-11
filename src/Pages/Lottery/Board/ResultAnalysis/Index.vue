@@ -1,6 +1,6 @@
 <template>
   <div class="result-analysis">
-    <div class="top font-weight-bold">
+    <div class="top p-1 font-weight-bold">
       <div class="nav-left p-1">
         <I-tabs type="card background">
           <TabPane label="综合模式">

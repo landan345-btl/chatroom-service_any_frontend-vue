@@ -13,7 +13,7 @@
     font-size: 2vmin;
   }
   .top {
-    border-bottom: 1px solid #e3e3e3;
+    border-bottom: 1px solid #f0f0f0;
   }
   .announcement {
     margin: 1.2vmin 0;
@@ -24,7 +24,6 @@
     th:first-child {
       width: 15%;
     }
-
     th:nth-child(n + 2) {
       width: calc(85% / 3 );
     }
@@ -41,6 +40,9 @@
   }
   /deep/ .ivu-checkbox-wrapper {
     margin: 0px;
+  }
+  /deep/ .popular-analysis[data-v-735c06f5] .ivu-checkbox-wrapper:hover{
+    color: #fba75e;
   }
 }
 
