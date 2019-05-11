@@ -6,6 +6,11 @@
     <div class="number" 
       v-for="(iNumber, iIndex) in numbers" :key="iIndex" v-randomNumber="{ isRandom: isRandom, types: types }"
       :class="[  
+            undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords ||
+            ((true === onNumbers[iNumber] || false === union(onNumbers)) && 
+            false === onOddOrEvenOrSmallOrLargeOrPairRedcords.pair ) ||
+            (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.pair &&  nextNumbers[iIndex] === iNumber || previousNumbers[iIndex] === iNumber) ? '' : 'opacity-0p1', //判断对子
+          
               // true    并且odd 为 false 时   
             undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords || // 其它数字图片显示
             ((true === onNumbers[iNumber] || false === union(onNumbers)) && 
@@ -23,12 +28,11 @@
             ((undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords) ||
             (true === onNumbers[iNumber] || false === union(onNumbers)) && false === onOddOrEvenOrSmallOrLargeOrPairRedcords.small ) ||
             (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.small && '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound)) ? '' : 'opacity-0p1',
-            nextNumbers[iIndex] === iNumber || previousNumbers[iIndex] === iNumber ? 'number-pair': '',
+
             '单' === isOddOrEven(iNumber) ? 'number-odd' : '',
             '双' === isOddOrEven(iNumber) ? 'number-even' : '',
             '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-small' : '',
             '大' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-large' : '',
-          
             'number-' + types.toLowerCase(), 
             'number-'+ code.toLowerCase(), 
             'number-'+ types.toLowerCase() + '-' + iNumber ]" >
