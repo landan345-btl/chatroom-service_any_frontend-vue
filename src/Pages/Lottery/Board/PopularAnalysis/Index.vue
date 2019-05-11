@@ -18,8 +18,8 @@
         <th class="align-middle text-center">冷</th>
       </tr>
       <!-- 第 iPosition + 1 位的开奖号码 -->
-      <tr v-for=" ( oCounts , iPosition ) in hotWarnColdPositions" :key="iPosition">
-        <td class="align-middle font-size-1 text-center">{{ headerClassification( iPosition ) }}</td>
+      <tr v-for="(oCounts, iPosition) in hotWarnColdPositions" :key="iPosition">
+        <td class="align-middle font-size-1 text-center">{{ headerClassification(iPosition) }}</td>
         <td class="align-middle text-left">
             <Numbers 
               :code="code" 
