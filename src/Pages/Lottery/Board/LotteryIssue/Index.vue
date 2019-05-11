@@ -118,7 +118,6 @@ class LotteryIssue extends Vue {
   public toggleOddOrEven(sKey: string) {
    let iKey = String(sKey);
    this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey] = !this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey];
-   debugger;
   }
 }
 

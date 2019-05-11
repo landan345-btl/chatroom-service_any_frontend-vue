@@ -34,7 +34,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import {
-  ResultTable
+  ResultTable,
 } from '@/Components/';
 
 import {

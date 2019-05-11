@@ -34,8 +34,10 @@ import {
 class Numbers extends Vue {
   @Prop()
   public code!: string;
+  
   @Prop()
   public numbers!: number[];
+
   @Prop()
   public types!: string;
 

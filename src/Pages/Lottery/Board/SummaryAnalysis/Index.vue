@@ -85,30 +85,15 @@
           </tr>
           <tr>
             <td>出现次数</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
+            <td>{{ he( todayTwoSideRecords , 'small' ) }}</td>
+            <td>{{ he( todayTwoSideRecords , 'large' ) }}</td>
+            <td>{{ he( todayTwoSideRecords , 'odd' ) }}</td>
+            <td>{{ he( todayTwoSideRecords , 'even' ) }}</td>
+            <td v-for=" ( iOne , i ) in  todayTwoSideRecords[0]" :key="i">{{ iOne }}</td>
+            <td v-for=" ( iOne , i ) in  todayTwoSideRecords[1]" :key="i">{{ iOne }}</td>
+            <td v-for=" ( iOne , i ) in  todayTwoSideRecords[2]" :key="i">{{ iOne }}</td>
+            <td v-for=" ( iOne , i ) in  todayTwoSideRecords[3]" :key="i">{{ iOne }}</td>
+            <td v-for=" ( iOne , i ) in  todayTwoSideRecords[4]" :key="i">{{ iOne }}</td>
           </tr>
         </table>
       </div>
@@ -134,18 +119,36 @@
         <div>
           <span>查看球号分布：</span>
           <span>
-            <span v-for="( item , i ) in 10" :key="i">号码{{ i }}</span>
+            <span v-for="( item , i ) in 10" :key="i"  @click="changeClass( item )" :class="  addbackground.indexOf(item) !== -1 ? 'active' : ''">
+              号码{{ i }}
+              <span class=""></span>
+            </span>
           </span>
         </div>
         <div>
           <span>大小单双分布：</span>
           <span>
-            <span>单</span>
-            <span>双</span>
-            <span>大</span>
-            <span>小</span>
-            <span>对子号</span>
-            <span>还原</span>
+            <span @click="showOdd(1)" v-bind:class=" isOdd === 1 ? 'active': ''  ">
+              单
+              <span></span>
+            </span>
+            <span @click="showOdd(0)" v-bind:class="  isOdd === 0 ? 'active': ''   ">
+              双
+              <span></span>
+            </span>
+            <span @click="showSmall(1)" v-bind:class=" isSmall === 1 ? 'active':''  ">
+              大
+              <span></span>
+            </span>
+            <span @click="showSmall(0)" v-bind:class=" isSmall === 0 ? 'active':''  ">
+              小
+              <span></span>
+            </span>
+            <span>
+              对子号
+              <span></span>  
+            </span>
+            <span class="background-orange-0">还原</span>
           </span>
         </div>
       </div>
@@ -165,32 +168,28 @@
             <td>中三</td>
             <td>后三</td>
           </tr>
-          <tr v-for="( item , i ) in 20" :key="i">
-            <td>20190509066</td>
+          <tr v-for="( item , i ) in lotteryIssues" :key="i">
+            <td>{{ item.no }}</td>
             <td>
-              <span>1</span>
-              <span>2</span>
-              <span>3</span>
-              <span>4</span>
-              <span>5</span>
+              <Numbers :code="code" :numbers=" JSON.parse( item.numbers )" :types="types" class="status-number"/>
             </td>
-            <td>12</td>
-            <td>小</td>
-            <td>双</td>
-            <td>和</td>
-            <td>小</td>
-            <td>小</td>
-            <td>大</td>
-            <td>大</td>
-            <td>大</td>
-            <td>大</td>
-            <td>大</td>
-            <td>大</td>
-            <td>大</td>
-            <td>大</td>
-            <td>顺子</td>
-            <td>半顺</td>
-            <td>杂六</td>
+            <td>{{ JSON.parse( item.numbers ) | sum }}</td>
+            <td>{{ JSON.parse( item.numbers ) | sum | isSmallOrLarge( 20 , 21 ) }}</td>
+            <td>{{ JSON.parse( item.numbers ) | sum | isOddOrEven }}</td>
+            <td>{{ JSON.parse( item.numbers ) | isDragonOrTiger( [ 0 , 4 ] ) }}</td>
+            <td>{{ JSON.parse( item.numbers ) | substr( 0 ) | isSmallOrLarge( 4 , 5 ) }}</td>
+            <td>{{ JSON.parse( item.numbers ) | substr( 1 ) | isSmallOrLarge( 4 , 5 ) }}</td>
+            <td>{{ JSON.parse( item.numbers ) | substr( 2 ) | isSmallOrLarge( 4 , 5 ) }}</td>
+            <td>{{ JSON.parse( item.numbers ) | substr( 3 ) | isSmallOrLarge( 4 , 5 ) }}</td>
+            <td>{{ JSON.parse( item.numbers ) | substr( 4 ) | isSmallOrLarge( 4 , 5 ) }}</td>
+            <td>{{ JSON.parse( item.numbers ) | substr( 0 ) | isOddOrEven }}</td>
+            <td>{{ JSON.parse( item.numbers ) | substr( 1 ) | isOddOrEven }}</td>
+            <td>{{ JSON.parse( item.numbers ) | substr( 2 ) | isOddOrEven }}</td>
+            <td>{{ JSON.parse( item.numbers ) | substr( 3 ) | isOddOrEven }}</td>
+            <td>{{ JSON.parse( item.numbers ) | substr( 4 ) | isOddOrEven }}</td>
+            <td>{{ JSON.parse( item.numbers ) | determineSequence( [ 0 , 1 , 2 ] )  }}</td>
+            <td>{{ JSON.parse( item.numbers ) | determineSequence( [ 1 , 2 , 3] ) }}</td>
+            <td>{{ JSON.parse( item.numbers ) | determineSequence( [ 2 , 3 , 4 ] ) }}</td>
           </tr>
         </table>
       </div>
@@ -203,25 +202,56 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-
+import { Component, Vue , Prop } from 'vue-property-decorator';
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
+import Numbers from '@/Components/Numbers/Index.vue';
+
 // TODO
 // 2. Chart 要有 loading 动画
 // 3. 号码 为 0 折线会断
+
 @Component({
   name: 'SummaryAnalysis',
   components: {
+    Numbers,
   },
 })
 class SummaryAnalysis extends Vue {
   public changeBorder: any = [];
+
+  @Prop()
+  public lotteryIssues!: any;
+
+  @Prop()
+  public todayTwoSideRecords!: any;
+
+  @Prop()
+  public lottery!: any;
+
+  @Prop()
+  public code!: any;
+
+  @Prop()
+  public types!: any;
+
+  public created() {
+    
+  }
+
   public toggleBorder( iNumber: number ) {
     if ( this.changeBorder.indexOf( iNumber ) !== -1 ) {
       this.changeBorder.splice( this.changeBorder.indexOf( iNumber ) , 1 );
       return;
     }
     this.changeBorder.push( iNumber );
+  }
+
+  public he( oHe: any , s: any ) { // 总和单双大小
+    let n = 0;
+    Object.keys(oHe).forEach( (e: any) => {
+      n += Number( oHe[e][ s ] );
+    });
+    return n;
   }
 }
 

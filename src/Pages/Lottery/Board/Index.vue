@@ -7,8 +7,8 @@
       <!-- <TabPane :label="'路珠分析'" :name="'result-analysis'">
         <Result-analysis />
       </TabPane> -->
-      <TabPane :label="'综合分析'" :name="'summary-anaylysis'">
-        <Summary-analysis />
+      <TabPane :label="'综合分析'" :name="'summary-anaylysis'" >
+        <Summary-analysis :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types" :todayTwoSideRecords="todayTwoSideRecords"/>
       </TabPane>
       <TabPane :label="'基本走势'" :name="'basic-trend'">
         <Basic-trend />
