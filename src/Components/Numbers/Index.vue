@@ -5,7 +5,24 @@
               'ODD_EVEN' === status ? 'status-odd-even' : '', ]">
            
     <div class="number" 
-      :class="[ undefined === onNumbers || true === onNumbers[iNumber] || false === union(onNumbers) ? '' : 'opacity-0p1',
+      :class="[   // true    并且odd 为 false 时   
+                undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords ||
+                (( true === onNumbers[iNumber] || false === union(onNumbers)) && 
+                false === onOddOrEvenOrSmallOrLargeOrPairRedcords.odd ) ||
+                (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.odd && '单' === isOddOrEven(iNumber)) ? '' : 'opacity-0p1',
+
+                ((undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords) ||
+                (true === onNumbers[iNumber] || false === union(onNumbers)) && false === onOddOrEvenOrSmallOrLargeOrPairRedcords.even ) ||
+                (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.even && '双' === isOddOrEven(iNumber)) ? '' : 'opacity-0p1',
+
+                ((undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords) ||
+                (true === onNumbers[iNumber] || false === union(onNumbers)) && false === onOddOrEvenOrSmallOrLargeOrPairRedcords.large ) ||
+                (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.large && '大' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound)) ? '' : 'opacity-0p1',
+
+                ((undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords) ||
+                (true === onNumbers[iNumber] || false === union(onNumbers)) && false === onOddOrEvenOrSmallOrLargeOrPairRedcords.small ) ||
+                (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.small && '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound)) ? '' : 'opacity-0p1',
+
                '单' === isOddOrEven(iNumber) ? 'number-odd' : '',
                '双' === isOddOrEven(iNumber) ? 'number-even' : '',
                '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-small' : '',
@@ -60,6 +77,7 @@ class Numbers extends Vue {
 
   @Prop()
   public isCountShowed!: boolean;
+  public onOddOrEvenOrSmallOrLargeOrPairRedcords!: any;
 
   public get getSmallUpperBound() {
     let sCodes = this.code;
