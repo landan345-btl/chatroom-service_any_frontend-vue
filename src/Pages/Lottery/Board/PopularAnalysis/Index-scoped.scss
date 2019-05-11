@@ -17,6 +17,10 @@
     th:first-child {
       width: 15%;
     }
+
+    th:nth-child(n + 2) {
+      width: calc(85% / 3 );
+    }
     th, td {
       height: 7vmin;
       border: 1px solid #d6d6d6;

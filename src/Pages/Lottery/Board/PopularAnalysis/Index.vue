@@ -10,104 +10,146 @@
       <div class="announcement">
         近20期内 热码：出现频繁、活跃的号码；冷码：出现频率低甚至没有出现的号码；温码：介于冷热之间的号码。
       </div>
-      <table class="background-white text-center align-middle w-100">
+      <table class="background-white text-center w-100">
       <tr>
-        <th>名次</th>
-        <th>热</th>
-        <th>温</th>
-        <th>冷</th>
+        <th class="align-middle">名次</th>
+        <th class="align-middle">热</th>
+        <th class="align-middle">温</th>
+        <th class="align-middle">冷</th>
       </tr>
       <tr>
-        <td>第一球</td>
-        <td>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-        </td>
-        <td>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-        </td>
-        <td>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-        </td>
-      </tr>
-      <tr>
-        <td>第二球</td>
-        <td>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-        </td>
-        <td>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-        </td>
-        <td>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-        </td>
-      </tr>
-      <tr>
-        <td>第三球</td>
-        <td>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-        </td>
-        <td>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-        </td>
-        <td>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-        </td>
-      </tr>
-      <tr>
-        <td>第四球</td>
-        <td>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-        </td>
-        <td>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-        </td>
-        <td>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-        </td>
-      </tr>
-      <tr>
-        <td>第五球</td>
-        <td>
+        <td class="align-middle">第一球</td>
+        <td class="align-middle">
           <Numbers 
             :code="code" 
-            :numbers="[1,2,3]" 
-            :types="LOTTERIES[code].TYPES" 
+            :numbers="[4,3]" 
+            :types="LOTTERIES[code].TYPES || types" 
             :isRandom="false" 
             :status="'NUMBER'" />
         </td>
-        <td>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
+        <td class="align-middle">
+          <Numbers 
+            :code="code" 
+            :numbers="[1,9]" 
+            :types="LOTTERIES[code].TYPES || types" 
+            :isRandom="false" 
+            :status="'NUMBER'" />
         </td>
-        <td>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
-          <span>7 <span class="badge">5</span> </span>
+        <td class="align-middle">
+          <Numbers 
+            :code="code" 
+            :numbers="[3]" 
+            :types="LOTTERIES[code].TYPES || types" 
+            :isRandom="false" 
+            :status="'NUMBER'" />
+        </td>
+      </tr>
+      <tr>
+        <td class="align-middle">第二球</td>
+        <td class="align-middle">
+          <Numbers 
+            :code="code" 
+            :numbers="[1,7,9]" 
+            :types="LOTTERIES[code].TYPES || types" 
+            :isRandom="false" 
+            :status="'NUMBER'" />
+        </td>
+        <td class="align-middle">
+          <Numbers 
+            :code="code" 
+            :numbers="[7]" 
+            :types="LOTTERIES[code].TYPES || types" 
+            :isRandom="false" 
+            :status="'NUMBER'" />
+        </td>
+        <td class="align-middle">
+          <Numbers 
+            :code="code" 
+            :numbers="[2,6]" 
+            :types="LOTTERIES[code].TYPES || types" 
+            :isRandom="false" 
+            :status="'NUMBER'" />
+        </td>
+      </tr>
+      <tr>
+        <td class="align-middle">第三球</td>
+        <td class="align-middle">
+          <Numbers 
+            :code="code" 
+            :numbers="[1,6,7]" 
+            :types="LOTTERIES[code].TYPES || types" 
+            :isRandom="false" 
+            :status="'NUMBER'" />
+        </td>
+        <td class="align-middle">
+          <Numbers 
+            :code="code" 
+            :numbers="[1,2,3]" 
+            :types="LOTTERIES[code].TYPES || types" 
+            :isRandom="false" 
+            :status="'NUMBER'" />
+        </td>
+        <td class="align-middle">
+          <Numbers 
+            :code="code" 
+            :numbers="[7]" 
+            :types="LOTTERIES[code].TYPES || types" 
+            :isRandom="false" 
+            :status="'NUMBER'" />
+        </td>
+      </tr>
+      <tr>
+        <td class="align-middle">第四球</td>
+        <td class="align-middle">
+          <Numbers 
+            :code="code" 
+            :numbers="[4]" 
+            :types="LOTTERIES[code].TYPES || types" 
+            :isRandom="false" 
+            :status="'NUMBER'" />
+        </td>
+        <td class="align-middle">
+          <Numbers 
+            :code="code" 
+            :numbers="[1]" 
+            :types="LOTTERIES[code].TYPES || types" 
+            :isRandom="false" 
+            :status="'NUMBER'" />
+        </td>
+        <td class="align-middle">
+          <Numbers 
+            :code="code" 
+            :numbers="[9]" 
+            :types="LOTTERIES[code].TYPES || types" 
+            :isRandom="false" 
+            :status="'NUMBER'" />
+        </td>
+      </tr>
+      <tr>
+        <td class="align-middle">第五球</td>
+        <td class="align-middle">
+          <Numbers 
+            :code="code" 
+            :numbers="[8]" 
+            :types="LOTTERIES[code].TYPES || types" 
+            :isRandom="false" 
+            :status="'NUMBER'" />
+        </td>
+        <td class="align-middle">
+          <Numbers 
+            :code="code" 
+            :numbers="[7,9]" 
+            :types="LOTTERIES[code].TYPES || types" 
+            :isRandom="false" 
+            :status="'NUMBER'" />
+        </td>
+        <td class="align-middle">
+          <Numbers 
+            :code="code" 
+            :numbers="[1,2,3]" 
+            :types="LOTTERIES[code].TYPES || types" 
+            :isRandom="false" 
+            :status="'NUMBER'" />
         </td>
       </tr>
     </table>
@@ -131,7 +173,7 @@ import {
 @Component({
   name: 'PopularAnalysis',
   components: {
-    // ITabs,
+    Numbers,
   },
 })
 class PopularAnalysis extends Vue {
@@ -139,7 +181,10 @@ class PopularAnalysis extends Vue {
 
   @Prop()
   public lotteryIssues!: any;
-
+  @Prop()
+  public code!: any;
+  @Prop()
+  public types!: any;
 }
 
 export default PopularAnalysis;
