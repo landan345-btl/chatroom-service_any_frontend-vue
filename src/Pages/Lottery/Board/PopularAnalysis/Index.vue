@@ -17,138 +17,37 @@
         <th class="align-middle">温</th>
         <th class="align-middle">冷</th>
       </tr>
-      <tr>
-        <td class="align-middle">第一球</td>
+      <!-- 第 iPosition + 1 位的开奖号码 -->
+      <tr v-for=" ( oCounts , iPosition ) in hotWarnColdPositions" :key="iPosition">
+        <td class="align-middle">{{ headerClassification( iPosition ) }}</td>
+        <td class="align-middle">
+            <Numbers 
+              :code="code" 
+              :counts="hotWarnColdPositions[iPosition]"
+              :isCountShowed=" true "
+              :numbers="chooseNumbersByCount(hotWarnColdPositions[iPosition], 4, null)" 
+              :types="LOTTERIES[code].TYPES || types" 
+              :isRandom="false" 
+              :status="'NUMBER'" />
+        </td>
         <td class="align-middle">
           <Numbers 
-            :code="code" 
-            :numbers="[4,3]" 
+            :code="code"
+            :counts="hotWarnColdPositions[iPosition]"
+            :numbers="chooseNumbersByCount(hotWarnColdPositions[iPosition], 2, 3)" 
             :types="LOTTERIES[code].TYPES || types" 
             :isRandom="false" 
+            :isCountShowed=" false "
             :status="'NUMBER'" />
         </td>
         <td class="align-middle">
           <Numbers 
             :code="code" 
-            :numbers="[1,9]" 
+            :counts="hotWarnColdPositions[iPosition]"
+            :numbers="chooseNumbersByCount(hotWarnColdPositions[iPosition], 0, 1)" 
             :types="LOTTERIES[code].TYPES || types" 
             :isRandom="false" 
-            :status="'NUMBER'" />
-        </td>
-        <td class="align-middle">
-          <Numbers 
-            :code="code" 
-            :numbers="[3]" 
-            :types="LOTTERIES[code].TYPES || types" 
-            :isRandom="false" 
-            :status="'NUMBER'" />
-        </td>
-      </tr>
-      <tr>
-        <td class="align-middle">第二球</td>
-        <td class="align-middle">
-          <Numbers 
-            :code="code" 
-            :numbers="[1,7,9]" 
-            :types="LOTTERIES[code].TYPES || types" 
-            :isRandom="false" 
-            :status="'NUMBER'" />
-        </td>
-        <td class="align-middle">
-          <Numbers 
-            :code="code" 
-            :numbers="[7]" 
-            :types="LOTTERIES[code].TYPES || types" 
-            :isRandom="false" 
-            :status="'NUMBER'" />
-        </td>
-        <td class="align-middle">
-          <Numbers 
-            :code="code" 
-            :numbers="[2,6]" 
-            :types="LOTTERIES[code].TYPES || types" 
-            :isRandom="false" 
-            :status="'NUMBER'" />
-        </td>
-      </tr>
-      <tr>
-        <td class="align-middle">第三球</td>
-        <td class="align-middle">
-          <Numbers 
-            :code="code" 
-            :numbers="[1,6,7]" 
-            :types="LOTTERIES[code].TYPES || types" 
-            :isRandom="false" 
-            :status="'NUMBER'" />
-        </td>
-        <td class="align-middle">
-          <Numbers 
-            :code="code" 
-            :numbers="[1,2,3]" 
-            :types="LOTTERIES[code].TYPES || types" 
-            :isRandom="false" 
-            :status="'NUMBER'" />
-        </td>
-        <td class="align-middle">
-          <Numbers 
-            :code="code" 
-            :numbers="[7]" 
-            :types="LOTTERIES[code].TYPES || types" 
-            :isRandom="false" 
-            :status="'NUMBER'" />
-        </td>
-      </tr>
-      <tr>
-        <td class="align-middle">第四球</td>
-        <td class="align-middle">
-          <Numbers 
-            :code="code" 
-            :numbers="[4]" 
-            :types="LOTTERIES[code].TYPES || types" 
-            :isRandom="false" 
-            :status="'NUMBER'" />
-        </td>
-        <td class="align-middle">
-          <Numbers 
-            :code="code" 
-            :numbers="[1]" 
-            :types="LOTTERIES[code].TYPES || types" 
-            :isRandom="false" 
-            :status="'NUMBER'" />
-        </td>
-        <td class="align-middle">
-          <Numbers 
-            :code="code" 
-            :numbers="[9]" 
-            :types="LOTTERIES[code].TYPES || types" 
-            :isRandom="false" 
-            :status="'NUMBER'" />
-        </td>
-      </tr>
-      <tr>
-        <td class="align-middle">第五球</td>
-        <td class="align-middle">
-          <Numbers 
-            :code="code" 
-            :numbers="[8]" 
-            :types="LOTTERIES[code].TYPES || types" 
-            :isRandom="false" 
-            :status="'NUMBER'" />
-        </td>
-        <td class="align-middle">
-          <Numbers 
-            :code="code" 
-            :numbers="[7,9]" 
-            :types="LOTTERIES[code].TYPES || types" 
-            :isRandom="false" 
-            :status="'NUMBER'" />
-        </td>
-        <td class="align-middle">
-          <Numbers 
-            :code="code" 
-            :numbers="[1,2,3]" 
-            :types="LOTTERIES[code].TYPES || types" 
-            :isRandom="false" 
+            :isCountShowed=" false "
             :status="'NUMBER'" />
         </td>
       </tr>
@@ -180,11 +79,42 @@ class PopularAnalysis extends Vue {
   public fruit = ['1'];
 
   @Prop()
+  public hotWarnColdPositions!: any;
+  @Prop()
   public lotteryIssues!: any;
   @Prop()
   public code!: any;
   @Prop()
   public types!: any;
+
+  public chooseNumbersByCount(oCounts: any , iMinCount: number , iMaxCount: number ) {
+    let aNumbers: number[] = [];
+
+    Object.keys(oCounts).forEach((sNumber: string ) => {
+      let iNumber = Number(sNumber);
+      if ( oCounts[iNumber] >= iMinCount && iMaxCount === null ) {
+        aNumbers.push(iNumber);
+        return;
+      }
+      if ( oCounts[iNumber] >= iMinCount && oCounts[ iNumber ] <= iMaxCount ) {
+        aNumbers.push(iNumber);
+      }
+    })
+    return aNumbers;
+  }
+
+  public headerClassification( id: any ) {
+    let td: any;
+    switch (this.types) {
+      case 'PK10':
+        td = [ '冠军' , '亚军' , '第三名' , '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名' ];
+        return td[ id ];
+      case 'SSC' :
+        td = [ '第一球' , '第二球' , '第三球' , '第四球' , '第五球' ];
+        return td[ id ];
+    }
+  }
+
 }
 
 export default PopularAnalysis;

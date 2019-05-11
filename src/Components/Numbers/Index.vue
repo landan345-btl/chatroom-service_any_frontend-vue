@@ -32,14 +32,16 @@
               // nextNumbers[iIndex] === iNumber ? 'number-pair': '',
                'number-' + types.toLowerCase(), 
                'number-'+ code.toLowerCase(), 
-               'number-'+ types.toLowerCase() + '-' + iNumber
-               ]" >
-      <span>{{iNumber}}</span>
-    </div>
+               'number-'+ types.toLowerCase() + '-' + iNumber ]" >
+      <Badge :count="true === isCountShowed ? counts[iNumber] : 0">   
+        <span>{{iNumber}}</span>
+      </Badge>
+    </div>    
   </div>
 </template>
 <style scoped lang="scss">
 @import 'Index-scoped.scss';
+
 </style>
 
 <script lang="ts">
@@ -54,8 +56,13 @@ import {
 class Numbers extends Vue {
   @Prop()
   public code!: string;
+  
   @Prop()
   public numbers!: number[];
+
+  @Prop()
+  public counts!: any;
+
   @Prop()
   public types!: string;
 
@@ -67,6 +74,9 @@ class Numbers extends Vue {
 
   @Prop()
   public onNumbers!: any;
+
+  @Prop()
+  public isCountShowed!: boolean;
 
   @Prop()
   public onOddOrEvenOrSmallOrLargeOrPairRedcords!: any;
@@ -103,6 +113,7 @@ class Numbers extends Vue {
     }
     return bResult;
   }
+
 }
 export default Numbers;
 

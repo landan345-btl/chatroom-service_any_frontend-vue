@@ -47,7 +47,7 @@ import { Component, Vue } from 'vue-property-decorator';
 class ResultTable extends Vue {
   public value = 1;
   public size = '小';
-  
+
   public toggleNumber( iNymber: number ) {
     if ( this.value === 1 && iNymber === -1 ) {
       this.value = 1;

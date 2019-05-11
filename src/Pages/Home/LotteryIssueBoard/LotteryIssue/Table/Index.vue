@@ -99,7 +99,7 @@
       <td class="w-1_3">尾{{ lotteryIssue.numbers | sum([0, 2]) | substr(-1, 1) | isSmallOrLarge(4, 5) }}</td>
       <td class="w-1_3">{{ lotteryIssue.numbers | sum([1, 2]) }}</td>
       <td class="w-1_3">{{ lotteryIssue.numbers | sum([1, 2]) | isOddOrEven }}</td>
-      <td class="w-1_3">尾{{ lotteryIssue.numbers | sum([1, 2]) | substr(-1, 1) | isSmallOrLarge(4, 5) }}</td>
+      <td class="w-1_3">尾{{ lotteryIssue.numbers | sum([1, 2]) | substr(-1, 1) | isSmallOrLarge(4 , 5) }}</td>
       <td class="w-1_3" >{{ lotteryIssue.numbers | sum }}</td>
       <td class="w-1_3">{{ lotteryIssue.numbers | sum | isOddOrEven }}</td>
       <td class="w-1_3">{{ lotteryIssue.numbers | sum | isSmallOrLarge(13, 14) }}</td>

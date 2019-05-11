@@ -1,3 +1,5 @@
+import { lottery, lotteryIssue } from '@/actions';
+
 const ODD: string = '单';
 const ODD_MULTIPLE: string = '单多';
 const EVEN: string = '双';
@@ -5,7 +7,6 @@ const EVEN_MULTIPLE: string = '双多';
 const DEUCE: string = '和';
 const DEUCE_MULTIPLE: string = '单双和';
 const UNKNOWN: string = '未知';
-
 let cIsOddOrEven = (aNumbers: number[] | number): string => {
   let iCountOdd = 0;
   let iCountEven = 0;
