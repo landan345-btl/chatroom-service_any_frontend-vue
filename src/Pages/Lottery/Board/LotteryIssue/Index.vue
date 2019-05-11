@@ -161,13 +161,16 @@ class LotteryIssue extends Vue {
   }
 
   public resetShow( reset: string) {
-    let iReset: any = String(reset);
-    let onOddOrEvenOrSmallOrLargeOrPairRedcord = Object.assign({}, this.onOddOrEvenOrSmallOrLargeOrPairRedcords);
-    let onNumber = Object.assign({}, this.onNumbers);
-    // if (=== true) {
-
-    // }
-   // debugger;
+    for (let sKey in this.onOddOrEvenOrSmallOrLargeOrPairRedcords) {
+      if (this.onOddOrEvenOrSmallOrLargeOrPairRedcords.hasOwnProperty(sKey)) {
+        this.onOddOrEvenOrSmallOrLargeOrPairRedcords[sKey] = false ;
+      }
+    }
+    for ( let  sKey in this.onNumbers) {
+      if (this.onNumbers.hasOwnProperty(sKey)) {
+        this.onNumbers[sKey] = false;
+      }
+    }
   }
 }
 

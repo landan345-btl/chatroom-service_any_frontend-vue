@@ -58,6 +58,8 @@
           <Numbers 
             :code="code" 
             :onNumbers="onNumbers" 
+            :previousNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
+            :nextNumbers="iIndex < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[iIndex + 1].numbers): []"
             :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
             :numbers="JSON.parse(oLotteryIssue.numbers)" 
             :types="types" 
@@ -99,6 +101,8 @@
           <Numbers 
           :code="code" 
           :onNumbers="onNumbers" 
+          :previousNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
+          :nextNumbers="iIndex < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[iIndex + 1].numbers): []"
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
           :numbers="JSON.parse(oLotteryIssue.numbers)" 
           :types="types" 
