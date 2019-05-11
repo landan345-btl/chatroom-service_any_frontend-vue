@@ -3,11 +3,12 @@
     :class="[ 'NUMBER' === status ? 'status-number' : '', 
               'SMALL_LARGE' === status ? 'status-small-large' : '',
               'ODD_EVEN' === status ? 'status-odd-even' : '', ]">
-           
     <div class="number" 
-      :class="[   // true    并且odd 为 false 时   
-                undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords ||
-                (( true === onNumbers[iNumber] || false === union(onNumbers)) && 
+      v-for="(iNumber, iIndex) in numbers" :key="iIndex" v-randomNumber="{ isRandom: isRandom, types: types }"
+      :class="[  
+                 // true    并且odd 为 false 时   
+                undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords || // 其它数字图片显示
+                ((true === onNumbers[iNumber] || false === union(onNumbers)) && 
                 false === onOddOrEvenOrSmallOrLargeOrPairRedcords.odd ) ||
                 (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.odd && '单' === isOddOrEven(iNumber)) ? '' : 'opacity-0p1',
 
@@ -27,18 +28,17 @@
                '双' === isOddOrEven(iNumber) ? 'number-even' : '',
                '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-small' : '',
                '大' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-large' : '',
+              // previousNumbers[iIndex] === iNumber ? 'number-pair': '',
+              // nextNumbers[iIndex] === iNumber ? 'number-pair': '',
                'number-' + types.toLowerCase(), 
                'number-'+ code.toLowerCase(), 
-               'number-'+ types.toLowerCase() + '-' + iNumber
-               ]" v-for="(iNumber, sKey) in numbers" :key="sKey" v-randomNumber="{ isRandom: isRandom, types: types }">
+               'number-'+ types.toLowerCase() + '-' + iNumber ]" >
       <Badge :count="true === isCountShowed ? counts[iNumber] : 0">   
         <span>{{iNumber}}</span>
       </Badge>
-    </div>
-    
+    </div>    
   </div>
 </template>
-
 <style scoped lang="scss">
 @import 'Index-scoped.scss';
 
@@ -77,7 +77,15 @@ class Numbers extends Vue {
 
   @Prop()
   public isCountShowed!: boolean;
+
+  @Prop()
   public onOddOrEvenOrSmallOrLargeOrPairRedcords!: any;
+
+  @Prop()
+  public previousNumbers!: any;  // 传过来的上一组数据
+
+  @Prop()
+  public nextNumbers!: any;     // 传过来的下一组数据
 
   public get getSmallUpperBound() {
     let sCodes = this.code;

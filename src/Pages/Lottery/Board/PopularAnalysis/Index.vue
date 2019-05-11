@@ -19,7 +19,7 @@
       </tr>
       <!-- 第 iPosition + 1 位的开奖号码 -->
       <tr v-for=" ( oCounts , iPosition ) in hotWarnColdPositions" :key="iPosition">
-        <td class="align-middle">{{ headerClassification( id ) }}</td>
+        <td class="align-middle">{{ headerClassification( iPosition ) }}</td>
         <td class="align-middle">
             <Numbers 
               :code="code" 
