@@ -231,10 +231,6 @@ class SummaryAnalysis extends Vue {
   @Prop()
   public types!: any;
 
-  public created() {
-    
-  }
-
   public toggleBorder( iNumber: number ) {
     if ( this.changeBorder.indexOf( iNumber ) !== -1 ) {
       this.changeBorder.splice( this.changeBorder.indexOf( iNumber ) , 1 );
@@ -253,30 +249,23 @@ class SummaryAnalysis extends Vue {
 
   public toggleNumber(sKey: string) {
     let iNumber: any = Number(sKey);
-    // let toggleNumber: {
-    //   [sKey: string]: any,
-    // } = {};
     this.onNumbers[iNumber] = !this.onNumbers[iNumber];
   }
 
   public toggleOddOrEven(sKey: string) {
    let iKey = String(sKey);
-  //  let toggleOddOrEven: {
-  //     [sKey: string]: any,
-  //   } = {};
    this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey] = !this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey];
-  // debugger;
   }
 
-  public numberFrequency( onNumbers: any , i:number ) {  // 号码出现次数
+  public numberFrequency( onNumbers: any , i: number ) {  // 号码出现次数
     let counts = 0;
     Object.keys( onNumbers ).forEach( ( sId ) => {
       for ( let n of JSON.parse( onNumbers[ sId ].numbers) ) {
          if ( Number( n ) === Number(i) ) {
           counts++;
-        }  
+        }
       }
-    } )
+    });
     return counts;
   }
 }
