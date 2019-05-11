@@ -106,6 +106,10 @@ span {
   font-size: 2vmin;
 }
 
+.font-size-1 {
+  font-size: 1vmin;
+}
+
 .w-xs-1_3 {
   @media only screen and (max-width: 767.98px) {
     width: cacl( 100% / 3 );

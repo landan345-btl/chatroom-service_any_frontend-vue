@@ -1,6 +1,6 @@
 <template>
   <div class="odd-or-even-small-or-large-result">
-    <div class="top p-2 font-weight-bold">
+    <div class="top p-1 font-weight-bold">
       <span class="title">单双大小路珠</span>
     </div>
     <div class="p-2">

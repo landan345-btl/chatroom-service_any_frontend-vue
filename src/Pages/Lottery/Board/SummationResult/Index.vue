@@ -1,6 +1,6 @@
 <template>
   <div class="summation-result">
-    <div class="top p-2 font-weight-bold">
+    <div class="top p-1 font-weight-bold">
       <span class="title">总和路珠</span>
       <span class="ml-3">
         <el-radio-group v-model="radio1">

@@ -1,6 +1,6 @@
 <template>
   <div class="summary-analysis">
-    <div class="top p-2 font-weight-bold">
+    <div class="top p-1 font-weight-bold">
       <span class="title">综合分析</span>
       <span @click="toggleBorder(1)" :class=" changeBorder.indexOf( 1 ) !== -1 ? 'border-orange':'' ">
         <span>今日双面统计/号码统计</span>
