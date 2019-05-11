@@ -23,8 +23,8 @@
             :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
             :status="switcher" 
             :onNumbers="onNumbers"
-            :previousNumbers="iIndex > 0 ? oLotteryIssues[iIndex - 1].numbers: []"
-            :nextNumbers="iIndex < oLotteryIssues.length - 1 ? oLotteryIssues[iIndex + 1].numbers : []"/>
+            :previousNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
+            :nextNumbers="iIndex < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[iIndex + 1].numbers): []"/>
         </td>
         <td>{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1])}}</td>
           <td :class="{'text-big' : '大' === isSmallOrLarge(sum(JSON.parse(oLotteryIssue.numbers),[0,1]),11,12)}">
