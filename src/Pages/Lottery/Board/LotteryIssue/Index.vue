@@ -16,6 +16,7 @@
       v-show="isNumberAnalysisShowed" 
       @handle-toggle-number="toggleNumber" 
       @handle-toggle-oddoreven="toggleOddOrEven"
+      @handle-reset="resetShow"
       class="p-2" 
       :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords" 
       :onNumbers="onNumbers"/>
@@ -132,9 +133,41 @@ class LotteryIssue extends Vue {
    for ( let  number in onNumber) {
      if ( this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey] === false ) {
         this.onNumbers[number] = false;
+        if ( iKey === 'odd') {
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.even = false;
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.pair = false;
+        }
+        if ( iKey === 'even') {
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.odd = false;
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.pair = false;
+        }
+        if ( iKey === 'small') {
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.large = false;
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.pair = false;
+        }
+        if ( iKey === 'large') {
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.small = false;
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.pair = false;
+        }
+        if ( iKey === 'pair') {
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.large = false;
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.odd = false;
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.even = false;
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.small = false;
+        }
       }
     }
    this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey] = !this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey];
+  }
+
+  public resetShow( reset: string) {
+    let iReset: any = String(reset);
+    let onOddOrEvenOrSmallOrLargeOrPairRedcord = Object.assign({}, this.onOddOrEvenOrSmallOrLargeOrPairRedcords);
+    let onNumber = Object.assign({}, this.onNumbers);
+    // if (=== true) {
+
+    // }
+   // debugger;
   }
 }
 

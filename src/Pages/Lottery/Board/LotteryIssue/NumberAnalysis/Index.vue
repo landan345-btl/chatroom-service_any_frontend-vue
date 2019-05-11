@@ -25,7 +25,7 @@
         {{ sRecord }}
         <i></i>
       </span>
-      <span class="reset"  @click="reset(sKey)">还原</span>
+      <span class="reset"  @click="resetShow(reset)">还原</span>
     </div>
   </div>
 </template>
@@ -53,6 +53,8 @@ class TodayTwoSideNumberStatics extends Vue {
 
   @Prop()
   public onOddOrEvenOrSmallOrLargeOrPairRedcords!: any;
+
+  public reset = 'reset';
 
   public record11x5Buttons = {
     1: 1,
@@ -110,6 +112,11 @@ class TodayTwoSideNumberStatics extends Vue {
     return sKey;
   }
 
+  @Emit('handle-reset')
+  public handleResetShow(reset: string) {
+    return reset;
+  }
+
   public showNumber(sKey: string) {
     this.handleToggleNumber(sKey);
   }
@@ -118,8 +125,8 @@ class TodayTwoSideNumberStatics extends Vue {
     this.handleToggleOddOrEven(sKey);
   }
 
-  public reset() {
-
+  public resetShow(reset: string) {
+    this.handleResetShow(reset);
   }
 
 }
