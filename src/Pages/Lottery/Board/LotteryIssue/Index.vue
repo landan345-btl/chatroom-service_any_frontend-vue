@@ -75,7 +75,9 @@ class LotteryIssue extends Vue {
   public isAccumulationRemiderShowed: boolean = false;
   public isNumberAnalysisShowed: boolean = false;
 
-  public onNumbers: object = {
+  public onNumbers: {
+    [key: string]: boolean,
+  } = {
     0: false,
     1: false,
     2: false,
@@ -90,7 +92,9 @@ class LotteryIssue extends Vue {
     11: false,
   };
 
-  public onOddOrEvenOrSmallOrLargeOrPairRedcords: object = {
+  public onOddOrEvenOrSmallOrLargeOrPairRedcords: {
+    [key: string]: boolean,
+  } = {
     odd: false,
     even: false,
     small: false,
@@ -111,13 +115,20 @@ class LotteryIssue extends Vue {
   }
 
   public toggleNumber(sKey: string) {
-    let iNumber = Number(sKey);
+    let iNumber: any = Number(sKey);
+    // let toggleNumber: {
+    //   [sKey: string]: any,
+    // } = {};
     this.onNumbers[iNumber] = !this.onNumbers[iNumber];
   }
 
   public toggleOddOrEven(sKey: string) {
    let iKey = String(sKey);
+  //  let toggleOddOrEven: {
+  //     [sKey: string]: any,
+  //   } = {};
    this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey] = !this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey];
+  // debugger;
   }
 }
 

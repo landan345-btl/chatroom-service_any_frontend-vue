@@ -17,7 +17,7 @@
     </div>
 
     <div class="p-2 double-sided-statistics" v-show=" changeBorder.indexOf( 1 ) !== -1 ">
-      <div>
+      <div> 
         <div class="font-size-2">今日号码统计</div>
         <table>
           <tr>
@@ -35,16 +35,16 @@
           </tr>
           <tr>
             <td>出现次数</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
-            <td>50</td>
+            <td>{{ numberFrequency( lotteryIssues , 0 ) }}</td>
+            <td>{{ numberFrequency( lotteryIssues , 1 ) }}</td>
+            <td>{{ numberFrequency( lotteryIssues , 2 ) }}</td>
+            <td>{{ numberFrequency( lotteryIssues , 3 ) }}</td>
+            <td>{{ numberFrequency( lotteryIssues , 4 ) }}</td>
+            <td>{{ numberFrequency( lotteryIssues , 5 ) }}</td>
+            <td>{{ numberFrequency( lotteryIssues , 6 ) }}</td>
+            <td>{{ numberFrequency( lotteryIssues , 7 ) }}</td>
+            <td>{{ numberFrequency( lotteryIssues , 8 ) }}</td>
+            <td>{{ numberFrequency( lotteryIssues , 9 ) }}</td>
           </tr>
         </table>
         <table>
@@ -115,43 +115,13 @@
     </div>
 
     <div class="p-2" v-show=" changeBorder.indexOf( 3 ) !== -1 ">
-      <div class="ball-number-distribution">
-        <div>
-          <span>查看球号分布：</span>
-          <span>
-            <span v-for="( item , i ) in 10" :key="i"  @click="changeClass( item )" :class="  addbackground.indexOf(item) !== -1 ? 'active' : ''">
-              号码{{ i }}
-              <span class=""></span>
-            </span>
-          </span>
-        </div>
-        <div>
-          <span>大小单双分布：</span>
-          <span>
-            <span @click="showOdd(1)" v-bind:class=" isOdd === 1 ? 'active': ''  ">
-              单
-              <span></span>
-            </span>
-            <span @click="showOdd(0)" v-bind:class="  isOdd === 0 ? 'active': ''   ">
-              双
-              <span></span>
-            </span>
-            <span @click="showSmall(1)" v-bind:class=" isSmall === 1 ? 'active':''  ">
-              大
-              <span></span>
-            </span>
-            <span @click="showSmall(0)" v-bind:class=" isSmall === 0 ? 'active':''  ">
-              小
-              <span></span>
-            </span>
-            <span>
-              对子号
-              <span></span>  
-            </span>
-            <span class="background-orange-0">还原</span>
-          </span>
-        </div>
-      </div>
+      <TodayTwoSideNumberStatics 
+        :types="types" 
+        :onNumbers="onNumbers" 
+        :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
+        @handle-toggle-number="toggleNumber" 
+        @handle-toggle-oddoreven="toggleOddOrEven"
+        />
     </div>
 
     <div class="p-2">
@@ -171,7 +141,7 @@
           <tr v-for="( item , i ) in lotteryIssues" :key="i">
             <td>{{ item.no }}</td>
             <td>
-              <Numbers :code="code" :numbers=" JSON.parse( item.numbers )" :types="types" class="status-number"/>
+              <Numbers :code="code" :numbers=" JSON.parse( item.numbers )" :types="types" :onNumbers="onNumbers" :isRandom="false" class="status-number"/>
             </td>
             <td>{{ JSON.parse( item.numbers ) | sum }}</td>
             <td>{{ JSON.parse( item.numbers ) | sum | isSmallOrLarge( 20 , 21 ) }}</td>
@@ -205,7 +175,7 @@
 import { Component, Vue , Prop } from 'vue-property-decorator';
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
 import Numbers from '@/Components/Numbers/Index.vue';
-
+import TodayTwoSideNumberStatics from '@/Pages/Lottery/Board/LotteryIssue/NumberAnalysis/Index.vue';
 // TODO
 // 2. Chart 要有 loading 动画
 // 3. 号码 为 0 折线会断
@@ -214,10 +184,37 @@ import Numbers from '@/Components/Numbers/Index.vue';
   name: 'SummaryAnalysis',
   components: {
     Numbers,
+    TodayTwoSideNumberStatics,
   },
 })
 class SummaryAnalysis extends Vue {
   public changeBorder: any = [];
+  public onNumbers: {
+    [key: string]: boolean,
+  } = {
+    0: false,
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false,
+    6: false,
+    7: false,
+    8: false,
+    9: false,
+    10: false,
+    11: false,
+  };
+
+  public onOddOrEvenOrSmallOrLargeOrPairRedcords: {
+    [key: string]: boolean,
+  } = {
+    odd: false,
+    even: false,
+    small: false,
+    large: false,
+    pair: false,
+  };
 
   @Prop()
   public lotteryIssues!: any;
@@ -252,6 +249,35 @@ class SummaryAnalysis extends Vue {
       n += Number( oHe[e][ s ] );
     });
     return n;
+  }
+
+  public toggleNumber(sKey: string) {
+    let iNumber: any = Number(sKey);
+    // let toggleNumber: {
+    //   [sKey: string]: any,
+    // } = {};
+    this.onNumbers[iNumber] = !this.onNumbers[iNumber];
+  }
+
+  public toggleOddOrEven(sKey: string) {
+   let iKey = String(sKey);
+  //  let toggleOddOrEven: {
+  //     [sKey: string]: any,
+  //   } = {};
+   this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey] = !this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey];
+  // debugger;
+  }
+
+  public numberFrequency( onNumbers: any , i:number ) {  // 号码出现次数
+    let counts = 0;
+    Object.keys( onNumbers ).forEach( ( sId ) => {
+      for ( let n of JSON.parse( onNumbers[ sId ].numbers) ) {
+         if ( Number( n ) === Number(i) ) {
+          counts++;
+        }  
+      }
+    } )
+    return counts;
   }
 }
 

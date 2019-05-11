@@ -3,6 +3,7 @@
     :class="[ 'NUMBER' === status ? 'status-number' : '', 
               'SMALL_LARGE' === status ? 'status-small-large' : '',
               'ODD_EVEN' === status ? 'status-odd-even' : '', ]">
+           
     <div class="number" 
       :class="[ undefined === onNumbers || true === onNumbers[iNumber] || false === union(onNumbers) ? '' : 'opacity-0p1',
                '单' === isOddOrEven(iNumber) ? 'number-odd' : '',
@@ -13,13 +14,17 @@
                'number-'+ code.toLowerCase(), 
                'number-'+ types.toLowerCase() + '-' + iNumber
                ]" v-for="(iNumber, sKey) in numbers" :key="sKey" v-randomNumber="{ isRandom: isRandom, types: types }">
-      <span>{{iNumber}}</span>
+      <Badge :count="true === isCountShowed ? counts[iNumber] : 0">   
+        <span>{{iNumber}}</span>
+      </Badge>
     </div>
+    
   </div>
 </template>
 
 <style scoped lang="scss">
 @import 'Index-scoped.scss';
+
 </style>
 
 <script lang="ts">
@@ -39,6 +44,9 @@ class Numbers extends Vue {
   public numbers!: number[];
 
   @Prop()
+  public counts!: any;
+
+  @Prop()
   public types!: string;
 
   @Prop()
@@ -49,6 +57,9 @@ class Numbers extends Vue {
 
   @Prop()
   public onNumbers!: any;
+
+  @Prop()
+  public isCountShowed!: boolean;
 
   public get getSmallUpperBound() {
     let sCodes = this.code;
@@ -76,6 +87,7 @@ class Numbers extends Vue {
     }
     return bResult;
   }
+
 }
 export default Numbers;
 
