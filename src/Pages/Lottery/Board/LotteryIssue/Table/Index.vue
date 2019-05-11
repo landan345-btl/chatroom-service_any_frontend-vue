@@ -22,7 +22,9 @@
             :isRandom="false" 
             :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
             :status="switcher" 
-            :onNumbers="onNumbers"/>
+            :onNumbers="onNumbers"
+            :previousNumbers="iIndex > 0 ? oLotteryIssues[iIndex - 1].numbers: []"
+            :nextNumbers="iIndex < oLotteryIssues.length - 1 ? oLotteryIssues[iIndex + 1].numbers : []"/>
         </td>
         <td>{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1])}}</td>
           <td :class="{'text-big' : '大' === isSmallOrLarge(sum(JSON.parse(oLotteryIssue.numbers),[0,1]),11,12)}">
@@ -384,14 +386,6 @@ class Table extends Vue {
     let aLotteryIssues = Object.values(oLotteryIssues);
     let oLotteryIssue = aLotteryIssues.reverse().slice(0 , 99);
     return oLotteryIssue;
-  }
-
- public created() {
-  this.getName();
- }
-
-  public getName() {
-  // this.options ;
   }
 
   public switchStatus(index: number) {
