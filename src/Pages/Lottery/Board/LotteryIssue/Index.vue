@@ -16,6 +16,7 @@
       v-show="isNumberAnalysisShowed" 
       @handle-toggle-number="toggleNumber" 
       @handle-toggle-oddoreven="toggleOddOrEven"
+      @handle-reset="resetShow"
       class="p-2" 
       :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords" 
       :onNumbers="onNumbers"/>
@@ -24,6 +25,7 @@
       :lottery="lottery" 
       :code="code" 
       :types="types" class="p-2" 
+      :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
       :onNumbers="onNumbers"/>
   </div>
 </template>
@@ -77,7 +79,7 @@ class LotteryIssue extends Vue {
 
   public onNumbers: {
     [key: string]: boolean,
-  } = {
+    } = {
     0: false,
     1: false,
     2: false,
@@ -94,7 +96,7 @@ class LotteryIssue extends Vue {
 
   public onOddOrEvenOrSmallOrLargeOrPairRedcords: {
     [key: string]: boolean,
-  } = {
+    } = {
     odd: false,
     even: false,
     small: false,
@@ -116,19 +118,56 @@ class LotteryIssue extends Vue {
 
   public toggleNumber(sKey: string) {
     let iNumber: any = Number(sKey);
-    // let toggleNumber: {
-    //   [sKey: string]: any,
-    // } = {};
+    let onOddOrEvenOrSmallOrLargeOrPairRedcord = Object.assign({}, this.onOddOrEvenOrSmallOrLargeOrPairRedcords);
+    for ( let oddOrEvenOrSmallOrLargeOrPairRedcord in onOddOrEvenOrSmallOrLargeOrPairRedcord ) {
+      if ( this.onNumbers[iNumber] === false ) {
+        this.onOddOrEvenOrSmallOrLargeOrPairRedcords[ oddOrEvenOrSmallOrLargeOrPairRedcord ] = false;
+     }
+    }
     this.onNumbers[iNumber] = !this.onNumbers[iNumber];
   }
 
   public toggleOddOrEven(sKey: string) {
    let iKey = String(sKey);
-  //  let toggleOddOrEven: {
-  //     [sKey: string]: any,
-  //   } = {};
+   let onNumber = Object.assign({}, this.onNumbers);
+   for ( let  number in onNumber) {
+     if ( this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey] === false ) {
+        this.onNumbers[number] = false;
+        if ( iKey === 'odd') {
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.even = false;
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.pair = false;
+        }
+        if ( iKey === 'even') {
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.odd = false;
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.pair = false;
+        }
+        if ( iKey === 'small') {
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.large = false;
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.pair = false;
+        }
+        if ( iKey === 'large') {
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.small = false;
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.pair = false;
+        }
+        if ( iKey === 'pair') {
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.large = false;
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.odd = false;
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.even = false;
+          this.onOddOrEvenOrSmallOrLargeOrPairRedcords.small = false;
+        }
+      }
+    }
    this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey] = !this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey];
-  // debugger;
+  }
+
+  public resetShow( reset: string) {
+    let iReset: any = String(reset);
+    let onOddOrEvenOrSmallOrLargeOrPairRedcord = Object.assign({}, this.onOddOrEvenOrSmallOrLargeOrPairRedcords);
+    let onNumber = Object.assign({}, this.onNumbers);
+    // if (=== true) {
+
+    // }
+   // debugger;
   }
 }
 
