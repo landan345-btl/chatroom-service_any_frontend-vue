@@ -12,6 +12,7 @@ import ITabs from './ITabs/Index.vue';
 import Numbers from './Numbers/Index.vue';
 import VLine from './VLine/Index.vue';
 import ResultTable from './ResultTable/Index.vue';
+import ICheckboxGroup from './ICheckboxGroup/Index.vue';
 
 export {
   ChenCoutdown,
@@ -25,7 +26,8 @@ export {
   ETabPane,
   ETabs,
   ITabs,
-  Numbers,
   VLine,
+  ICheckboxGroup,
+  Numbers,
   ResultTable,
 };

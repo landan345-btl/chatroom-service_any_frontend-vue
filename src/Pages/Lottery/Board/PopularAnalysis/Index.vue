@@ -4,9 +4,9 @@
       <span class="title">冷热分析</span>
     </div>
     <div class="bottom p-2">
-      <CheckboxGroup v-model="isHotCountShowed">
-        <Checkbox label="true">显示热号码出现次数</Checkbox>
-      </CheckboxGroup>
+      <I-checkbox-group v-model="isHotCountShowed">
+        <Checkbox label="true">&nbsp;显示热号码出现次数</Checkbox>
+      </I-checkbox-group>
       <div class="announcement">
         近20期内 热码：出现频繁、活跃的号码；冷码：出现频率低甚至没有出现的号码；温码：介于冷热之间的号码。
       </div>
@@ -61,8 +61,10 @@
 </style>
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
+
 import {
   Numbers,
+  ICheckboxGroup,
 } from '@/Components/';
 
 import {
