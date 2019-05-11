@@ -1,6 +1,6 @@
 <template>
   <div class="basic-trend">
-    <div class="top p-2 font-weight-bold">
+    <div class="top p-1 font-weight-bold">
       <span class="title">基本走势</span>
       <RadioGroup v-model="button1" type="button">
         <Radio label="今天"></Radio>
