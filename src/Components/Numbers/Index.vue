@@ -10,9 +10,8 @@
             ((true === onNumbers[iNumber] || false === union(onNumbers)) && 
             false === onOddOrEvenOrSmallOrLargeOrPairRedcords.pair ) ||
             (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.pair &&  nextNumbers[iIndex] === iNumber || previousNumbers[iIndex] === iNumber) ? '' : 'opacity-0p1', //判断对子
-          
               // true    并且odd 为 false 时   
-            undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords || // 其它数字图片显示
+            undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords || // 默认undefined时显示全部图片/其它数字图片一直显示
             ((true === onNumbers[iNumber] || false === union(onNumbers)) && 
             false === onOddOrEvenOrSmallOrLargeOrPairRedcords.odd ) ||
             (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.odd && '单' === isOddOrEven(iNumber)) ? '' : 'opacity-0p1',

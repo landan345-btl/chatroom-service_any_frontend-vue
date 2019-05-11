@@ -9,17 +9,19 @@
       font-size:1.3vmin;
       margin-left:0.8vmin;
     }
-    span:nth-of-type(n+2):hover {
+    span:nth-of-type(n+2):not(:last-child):hover {
       cursor: pointer;
       color:#f4831e;
     } 
     .reset {
-      display:inline-block;
-      height:32px;
+      height: 3.3vmin;
       background:#f9982e;
-      width:90px!important;
+      width: 9vmin;
       text-align: center;
       color:#fff;
     } 
+    .reset:hover {
+      cursor: pointer; 
+    }
   }
 }
