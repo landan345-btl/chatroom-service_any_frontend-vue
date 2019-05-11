@@ -25,7 +25,7 @@
         {{ sRecord }}
         <i></i>
       </span>
-      <span class="reset">还原</span>
+      <span class="reset"  @click="reset(sKey)">还原</span>
     </div>
   </div>
 </template>
@@ -116,6 +116,10 @@ class TodayTwoSideNumberStatics extends Vue {
 
   public showOddOrEven(sKey: string) {
     this.handleToggleOddOrEven(sKey);
+  }
+
+  public reset() {
+
   }
 
 }

@@ -52,7 +52,14 @@
         <td>{{lotterys.added_time}}</td>
         <td>{{lotterys.no}}</td>
         <td>
-          <Numbers :code="code" :onNumbers="onNumbers" :numbers="JSON.parse(lotterys.numbers)" :types="types" :isRandom="false" :status="switcher"/>
+          <Numbers 
+            :code="code" 
+            :onNumbers="onNumbers" 
+            :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
+            :numbers="JSON.parse(lotterys.numbers)" 
+            :types="types" 
+            :isRandom="false" 
+            :status="switcher"/>
         </td>
         <td>{{ JSON.parse(lotterys.numbers) | sum }}</td>
           <td :class="{'text-big' : '大' === isSmallOrLarge(sum(JSON.parse(lotterys.numbers)),20,21)}">
@@ -313,6 +320,9 @@ class Table extends Vue {
 
   @Prop()
   public onNumbers!: any;
+
+  @Prop()
+  public onOddOrEvenOrSmallOrLargeOrPairRedcords!: boolean;
 
   public titles = ['显示号码', '显示大小', '显示单双'];
 
