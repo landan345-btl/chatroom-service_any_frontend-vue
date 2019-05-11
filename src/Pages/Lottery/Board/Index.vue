@@ -1,6 +1,6 @@
 <template>
   <div class="board">
-    <I-tabs :type="'card'" class="">
+    <I-tabs :type="'card'" class="" :animated="false">
       <TabPane :label="'即使开奖'" :name="'lottery-issue'"> 
         <Lottery-issue :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types" :todayTwoSideRecords="todayTwoSideRecords"/>
       </TabPane>
