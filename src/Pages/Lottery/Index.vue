@@ -45,6 +45,7 @@ import {
 
 import {
   LOTTERIES,
+  LOTTERY_TYPES,
 } from '@/CONFIGS/';
 
 @Component({
@@ -132,32 +133,30 @@ class Lottery extends Vue {
 
   public get getHotWarnColdPositions() {
     let oLotteryIssues: any = this.$store.state.lottery_issues;
+    let oLotteries: any = this.$store.state.lotteries;
     let aLotteryIssues = Object.values(oLotteryIssues);
 
-    let oHotWarnColdPositions: any = [
-      {  1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
-      {  1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
-      {  1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
-      {  1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
-      {  1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
-      {  1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
-      {  1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
-      {  1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
-      {  1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
-      {  1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0},
-    ];
+    let oHotWarnColdCountPositions: any = {};
     let oLotteryIssue: any;
     let iLoopCount = 0;
     while (20 > iLoopCount && 1 <= aLotteryIssues.length) {
       oLotteryIssue = aLotteryIssues.pop();
       let aNumbers = JSON.parse(oLotteryIssue.numbers);
+      let sType = oLotteries[oLotteryIssue.lottery_id].types;
       aNumbers.forEach((iNumber: number, iIndex: number) => {
-          let oHotWarnColdPosition = oHotWarnColdPositions[iIndex];
-          oHotWarnColdPositions[iIndex][iNumber] = oHotWarnColdPosition[iNumber] + 1;
-        });
+        if (!oHotWarnColdCountPositions.hasOwnProperty(iIndex)) {
+          let oNumbersToCounts = LOTTERY_TYPES[sType].NUMBERS.reduce((_oNumbersToCounts: any, iNumber: any) => {
+            _oNumbersToCounts[iNumber] = 0;
+            return _oNumbersToCounts;
+          }, {});
+          oHotWarnColdCountPositions[iIndex] = oNumbersToCounts;
+        }
+        let oHotWarnColdPosition = oHotWarnColdCountPositions[iIndex];
+        oHotWarnColdCountPositions[iIndex][iNumber] = oHotWarnColdPosition[iNumber] + 1;
+      });
       iLoopCount++;
     }
-    return oHotWarnColdPositions;
+    return oHotWarnColdCountPositions;
   }
 
   public get getTodayNumbers() {

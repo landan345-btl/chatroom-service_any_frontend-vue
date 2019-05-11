@@ -19,7 +19,7 @@
       </tr>
       <!-- 第 iPosition + 1 位的开奖号码 -->
       <tr v-for="(oCounts, iPosition) in hotWarnColdPositions" :key="iPosition">
-        <td class="align-middle font-size-1 text-center">{{ headerClassification(iPosition) }}</td>
+        <td class="align-middle font-size-1 text-center">{{ 'PK10' === types ? pk10Texts[iPosition] : '' }} {{ 'SSC' === types ? sscTexts[iPosition] : '' }} </td>
         <td class="align-middle text-left">
             <Numbers 
               :code="code" 
@@ -89,6 +89,9 @@ class PopularAnalysis extends Vue {
   @Prop()
   public types!: any;
 
+  public pk10Texts = ['冠军' , '亚军' , '第三名' , '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'];
+  public sscTexts = [ '第一球' , '第二球' , '第三球' , '第四球' , '第五球' ];
+
   public chooseNumbersByCount(oCounts: any , iMinCount: number , iMaxCount: number ) {
     let aNumbers: number[] = [];
 
@@ -104,19 +107,6 @@ class PopularAnalysis extends Vue {
     })
     return aNumbers;
   }
-
-  public headerClassification( id: any ) {
-    let td: any;
-    switch (this.types) {
-      case 'PK10':
-        td = [ '冠军' , '亚军' , '第三名' , '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名' ];
-        return td[ id ];
-      case 'SSC' :
-        td = [ '第一球' , '第二球' , '第三球' , '第四球' , '第五球' ];
-        return td[ id ];
-    }
-  }
-
 }
 
 export default PopularAnalysis;
