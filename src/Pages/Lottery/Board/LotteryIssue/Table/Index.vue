@@ -45,7 +45,7 @@
       <tr>
         <th>时间</th>
         <th>期数</th>
-        <th class="number-btns">
+        <th class="number-buttons">
           <span @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
         </th>
         <th colspan="3">总和</th>
