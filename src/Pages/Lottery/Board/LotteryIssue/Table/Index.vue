@@ -5,7 +5,7 @@
       <tr>
         <th>时间</th>
         <th>期数</th>
-        <th class="number-btns">
+        <th class="number-buttons">
           <span @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
         </th>
         <th colspan="3">冠亚和</th>
@@ -85,7 +85,7 @@
       <tr>
         <th class="th-width1">时间</th>
         <th class="th-width2">期数</th>
-        <th class="number-btns th-width4">
+        <th class="number-buttons th-width4">
           <span @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
         </th>
         <th colspan="3" class="th-width1">总和</th>
@@ -172,7 +172,7 @@
       <tr>
         <th class="th-width1">时间</th>
         <th class="th-width2">期数</th>
-        <th class="number-btns th-width3">
+        <th class="number-buttons th-width3">
           <span @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
         </th>
         <th colspan="3" class="th-width1">总和</th>
@@ -208,7 +208,7 @@
       <tr>
         <th class="w-15">时间</th>
         <th class="w-15">期数</th>
-        <th class="number-btns w-30">号码</th>
+        <th class="number-buttons w-30">号码</th>
         <th colspan="3">总和</th>
         <th colspan="4">特码</th>
       </tr>
@@ -318,7 +318,7 @@
       <tr>
         <th class="w-15">时间</th>
         <th class="w-15">期数</th>
-        <th class="number-btns w-30">号码</th>
+        <th class="number-buttons w-30">号码</th>
         <th colspan="3">总和</th>
       </tr>
       <tr v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
