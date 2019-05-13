@@ -30,7 +30,7 @@
         :lotteryIssues="lotteryIssues" 
         :lottery="lottery" 
         :code="code" 
-        :types="types" class="p-2" 
+        :types="types" 
         :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
         :onNumbers="onNumbers"/>
   </div>

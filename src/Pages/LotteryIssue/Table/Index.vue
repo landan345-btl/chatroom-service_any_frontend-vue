@@ -371,7 +371,7 @@
     </table>
   </div>
  </template>
-<style lang="scss">
+<style scoped lang="scss">
 @import 'Index-scoped.scss';
 </style>
 <script lang="ts">

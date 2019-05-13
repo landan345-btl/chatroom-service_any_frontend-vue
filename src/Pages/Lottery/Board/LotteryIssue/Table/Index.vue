@@ -1,17 +1,17 @@
 <template>
-<div class="history-number text-center">
+<div class="history-number text-center p-1">
   <table v-if="LOTTERIES[code].TYPES==='PK10'" class="w-100">
     <tbody>
       <tr>
         <th>时间</th>
         <th>期数</th>
-        <th class="number-buttons">
-          <span @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
+        <th class="number-buttons w-42">
+          <span class="mr-1" @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
         </th>
         <th colspan="3">冠亚和</th>
         <th colspan="5">1-5龙虎</th>
       </tr>
-      <tr v-for="(oLotteryIssue, iIndex) in oLotteryIssues" :key="iIndex">
+      <tr class="font-size-1p5" v-for="(oLotteryIssue, iIndex) in oLotteryIssues" :key="iIndex">
         <td>{{oLotteryIssue.added_time}}</td>
         <td>{{oLotteryIssue.no}}</td>
         <td>
@@ -26,7 +26,7 @@
             :previousNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
             :nextNumbers="iIndex < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[iIndex + 1].numbers): []"/>
         </td>
-        <td>{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1])}}</td>
+        <td class="">{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1])}}</td>
           <td :class="{'text-big' : '大' === isSmallOrLarge(sum(JSON.parse(oLotteryIssue.numbers),[0,1]),11,12)}">
             {{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1]) | isSmallOrLarge(11,12) }}
           </td>
@@ -45,8 +45,8 @@
       <tr>
         <th>时间</th>
         <th>期数</th>
-        <th class="number-buttons">
-          <span 
+        <th class="number-buttons  w-42">
+          <span class="mr-1" 
             @click="switchStatus(index)" 
             :class="{spanselect:index==titleStatus}" 
             v-for="(item,index) in titles" :key="index">
@@ -90,8 +90,8 @@
       <tr>
         <th class="th-width1">时间</th>
         <th class="th-width2">期数</th>
-        <th class="number-buttons th-width4">
-          <span 
+        <th class="number-buttons  w-42">
+          <span class="mr-1"  
             @click="switchStatus(index)" 
             :class="{spanselect:index==titleStatus}" 
             v-for="(item,index) in titles" 
@@ -105,7 +105,7 @@
         <th>中三</th>
         <th>后三</th>
       </tr>
-      <tr v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
+      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
         <td>{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
@@ -139,7 +139,7 @@
         <th colspan="3">总和</th>
         <th colspan="5">鱼虾蟹</th>
       </tr>
-      <tr v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
+      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
         <td>{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
@@ -190,7 +190,7 @@
         <th>尾大小</th>
         <th colspan="4" >龙虎</th>
       </tr>
-      <tr v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
+      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
         <td>{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
@@ -223,7 +223,7 @@
         <th colspan="3">总和</th>
         <th colspan="4">特码</th>
       </tr>
-      <tr v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
+      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
         <td>{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
@@ -258,9 +258,9 @@
         <th>总和组合</th>
         <th>五行</th>
       </tr>
-      <tr v-for=" ( oLotteryIssue, iIndex ) in oLotteryIssues" :key="iIndex" class="h-4">
-        <td>{{ oLotteryIssue.added_time }}</td>
-        <td>{{ oLotteryIssue.no}}</td>
+      <tr v-for=" ( oLotteryIssue, iIndex ) in oLotteryIssues" :key="iIndex" class="h-4 font-size-1p5">
+        <td class="font-size-1">{{ oLotteryIssue.added_time }}</td>
+        <td class="font-size-1">{{ oLotteryIssue.no}}</td>
         <td>
          <Numbers 
          :code="code" 
@@ -296,7 +296,7 @@
         <th colspan="3">拾个和</th>
         <th colspan="3">总和</th>
       </tr>
-      <tr v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
+      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
         <td>{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
@@ -332,7 +332,7 @@
         <th class="number-buttons w-30">号码</th>
         <th colspan="3">总和</th>
       </tr>
-      <tr v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
+      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
         <td>{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
