@@ -40,11 +40,11 @@ import {
 } from '@/CONFIGS/';
 
 @Component({
-  name: 'NumberAnalysi',
+  name: 'TodayTwoSideNumberStatics',
   components: {
   },
 })
-class NumberAnalysi extends Vue {
+class TodayTwoSideNumberStatics extends Vue {
   @Prop()
   public types!: any;
 
@@ -131,5 +131,5 @@ class NumberAnalysi extends Vue {
 
 }
 
-export default NumberAnalysi;
+export default TodayTwoSideNumberStatics;
 </script>
