@@ -4,36 +4,34 @@
       <div :class="['icon-' + code.toLowerCase() + '-circle']">
       </div>
     </div>
-    <div class="name-lottery_issue_no align-middle text-left">
-      <div>
-        <div class="top">
-          <span class="name font-weight-bold">
-            {{ LOTTERIES[code].NAME | or(lottery.name) }}
-          </span>
-          <span class="text ml-0p5" v-if="lotteryIssue && lotteryIssue.no">
-            第
-          </span>
-          <span class="no" v-if="lotteryIssue && lotteryIssue.no">
-            &nbsp; {{ lotteryIssue.no }} &nbsp;
-          </span>
-          <span class="text">
-            期开奖号码
-          </span>
-            &nbsp;
-        </div>
-        <Numbers v-if="lotteryIssue" :code="code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lottery.types" class="status-number middle"/>
-        <div class="bottom">
-          <span> 已开 {{ getThisLotteryIssueOrderNo }} 期，还有 {{ getNextLotteryIssueTotalOrderNo }} 期 </span>
-        </div>
+    <div class="name-lottery_issue_no align-middle text-left p-2">
+      <div class="top">
+        <span class="name font-weight-bold">
+          {{ LOTTERIES[code].NAME | or(lottery.name) }}
+        </span>
+        <span class="text ml-0p5" v-if="lotteryIssue && lotteryIssue.no">
+          第
+        </span>
+        <span class="no" v-if="lotteryIssue && lotteryIssue.no">
+          &nbsp; {{ lotteryIssue.no }} &nbsp;
+        </span>
+        <span class="text">
+          期开奖号码
+        </span>
+          &nbsp;
+      </div>
+      <Numbers v-if="lotteryIssue" :code="code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lottery.types" class="status-number middle"/>
+      <div class="bottom">
+        <span> 已开 {{ getLotteryIssueExtension.order_no }} 期，还有 {{ getLotteryIssueExtension.total_order_no - getLotteryIssueExtension.order_no }} 期 </span>
       </div>
     </div>
-    <div class="countdown">
-      距733036期开奖仅有
+    <div class="countdown p-2">
+      距 {{ getLotteryIssueExtension.next_no }} 期开奖仅有
       <div>
-        <Chen-countdown :time="lotteryIssue.next_time * 1000" :theme="'theme-a'"/>
+        <Chen-countdown :time="getLotteryIssueExtension.next_time * 1000" :theme="'theme-a'"/>
       </div>
     </div>
-    <div class="sounds align-middle">
+    <div class="sounds align-middle pt-2 pb-2 pl-4 pr-4">
       <div>
         <I-button :type="'warning'" class="d-inline-block mb-1">关闭声音</I-button><font-awesome-icon icon="volume-up" class="d-inline-block ml-1"/>
       </div>
@@ -79,7 +77,10 @@ class Top extends Vue {
   @Prop()
   public types!: any;
 
-  public get getThisLotteryIssueOrderNo () {
+
+  public get getLotteryIssueExtension() {
+    let oLotteryIssueExtension = {};
+
     let aRangeTimes = JSON.parse(this.lottery.range_times);
     let iNowTime = new Date().getTime();
     let iNextTime = 0;
@@ -88,6 +89,9 @@ class Top extends Vue {
     let iDate = Number(new Date().getDate());
     let iLotteryIssueOrderNoTotalInThisDay = 0;
     let iLotteryIssueOrderNoInThisDay = 0;
+    let sNextNo = Number(this.lotteryIssue.no) + 1;
+    iNextTime = (new Date(this.lotteryIssue.date + ' ' + this.lotteryIssue.time).getTime() + this.lottery.interval_time * 1000 - iNowTime) / 1000;
+
     aRangeTimes.forEach((oRangeTime: any) => {
       let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.started_time).getTime();
       let iEndedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime() < iStartedTime
@@ -95,32 +99,22 @@ class Top extends Vue {
                       : new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime();
       let iDifferentTime = (iNowTime - iStartedTime) / 1000;
       iLotteryIssueOrderNoTotalInThisDay +=  Math.floor((iEndedTime - iStartedTime) / (0 !== this.lottery.interval_time ? 1000 * this.lottery.interval_time : 1));
+      
+      if (0 === Number(this.lottery.interval_time)) {
+        iNextTime = (new Date(this.lotteryIssue.date + ' ' + this.lotteryIssue.time).getTime() + 24 * 60 * 60 * 1000 - iNowTime) / 1000;
+      }
       if (iNowTime >= iStartedTime && iNowTime <= iEndedTime) {
         iLotteryIssueOrderNoInThisDay += Math.floor(iDifferentTime / this.lottery.interval_time);
       }
     });
     iLotteryIssueOrderNoInThisDay = iLotteryIssueOrderNoInThisDay + 1;
-    return iLotteryIssueOrderNoInThisDay;
-  }
-
-  public get getNextLotteryIssueTotalOrderNo () {
-    let aRangeTimes = JSON.parse(this.lottery.range_times);
-    let iNowTime = new Date().getTime();
-    let iNextTime = 0;
-    let iFullYear = Number(new Date().getFullYear());
-    let iMonth = Number(new Date().getMonth() + 1);
-    let iDate = Number(new Date().getDate());
-    let iLotteryIssueTotalOrderNo = 0;
-    aRangeTimes.forEach((oRangeTime: any) => {
-      let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.started_time).getTime();
-      let iEndedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime() < iStartedTime
-                      ? new Date(iFullYear + '-' + iMonth + '-' + (iDate + 1) + ' ' +  oRangeTime.ended_time).getTime()
-                      : new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime();
-      let iDifferentTime = (iNowTime - iStartedTime) / 1000;
-      iLotteryIssueTotalOrderNo +=  Math.floor((iEndedTime - iStartedTime) / (0 !== this.lottery.interval_time ? 1000 * this.lottery.interval_time : 1));
-    });
-    iLotteryIssueTotalOrderNo = iLotteryIssueTotalOrderNo + 1;
-    return iLotteryIssueTotalOrderNo;
+    oLotteryIssueExtension = {
+      order_no: iLotteryIssueOrderNoInThisDay,
+      total_order_no: iLotteryIssueOrderNoTotalInThisDay,
+      next_time: iNextTime,
+      next_no: sNextNo,
+    }
+    return oLotteryIssueExtension;
   }
 
 }
