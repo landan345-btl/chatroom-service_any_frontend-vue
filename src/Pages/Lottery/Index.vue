@@ -6,7 +6,7 @@
     <el-row :gutter="0">
       <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
         <main class="mt-2 mb-2">
-          <Top 
+          <Pannel 
             :lotteryIssue="getLastLotteryIssue" 
             :lottery="getLottery" 
             :code="getCode" 
@@ -36,7 +36,7 @@ import Footer from '@/Commons/Footer/Index.vue'; // @ is an alias to /src
 import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
 import NavTop from '@/Commons/NavTop/Index.vue';
 import NavRight from '@/Commons/NavRight/Index.vue';
-import Top from './Top/Index.vue';
+import Pannel from './Pannel/Index.vue';
 import Board from './Board/Index.vue';
 
 import {
@@ -55,7 +55,7 @@ import {
     NavTop,
     NavRight,
     Footer,
-    Top,
+    Pannel,
     Board,
   },
 })
@@ -196,15 +196,15 @@ class Lottery extends Vue {
       let aNumbers = JSON.parse(oLotteryIssue.numbers);
       let iLotteryId = oLotteryIssue.lottery_id;
       let sTypes = oLotteries[iLotteryId].types;
-      let iInedex: number = 0;
-      for (iInedex = 0 ; iInedex < aNumbers.length ; iInedex++) {
-        let iNumber = aNumbers[iInedex];
+      let iIndex: number = 0;
+      for (iIndex = 0 ; iIndex < aNumbers.length ; iIndex++) {
+        let iNumber = aNumbers[iIndex];
         let sIsNumberSmallOrLarge = oLotteryHelper.isNumberSmallOrLarge(iNumber, sTypes);
         let sOddOrEven = oLotteryHelper.isOddOrEven(iNumber, sTypes);
-        if (!oTodayTwoSideRecords.hasOwnProperty(iInedex)) {
+        if (!oTodayTwoSideRecords.hasOwnProperty(iIndex)) {
           oTodayTwoSideRecords = {
             ...oTodayTwoSideRecords,
-            [iInedex]: {
+            [iIndex]: {
               small: 0,
               large: 0,
               odd: 0,
@@ -213,25 +213,25 @@ class Lottery extends Vue {
           };
         }
         if ('小' === sIsNumberSmallOrLarge) {
-          let oRecords = oTodayTwoSideRecords[iInedex];
+          let oRecords = oTodayTwoSideRecords[iIndex];
           let sKey = 'small';
           oRecords[sKey] = oRecords[sKey] + 1;
         }
 
         if ('大' === sIsNumberSmallOrLarge) {
-          let oRecords = oTodayTwoSideRecords[iInedex];
+          let oRecords = oTodayTwoSideRecords[iIndex];
           let sKey = 'large';
           oRecords[sKey] = oRecords[sKey] + 1;
         }
 
         if ('单' === sOddOrEven) {
-          let oRecords = oTodayTwoSideRecords[iInedex];
+          let oRecords = oTodayTwoSideRecords[iIndex];
           let sKey = 'odd';
           oRecords[sKey] = oRecords[sKey] + 1;
         }
 
         if ('双' === sOddOrEven) {
-          let oRecords = oTodayTwoSideRecords[iInedex];
+          let oRecords = oTodayTwoSideRecords[iIndex];
           let sKey = 'even';
           oRecords[sKey] = oRecords[sKey] + 1;
         }
