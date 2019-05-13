@@ -1,11 +1,11 @@
 <template>
 <div class="history-number text-center">
-  <table v-if="LOTTERIES[code].TYPES === 'PK10'">
+  <table v-if="LOTTERIES[code].TYPES==='PK10'" class="w-100">
     <tbody>
       <tr>
         <th>时间</th>
         <th>期数</th>
-        <th class="number-btns">
+        <th class="number-buttons">
           <span @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
         </th>
         <th colspan="3">冠亚和</th>
@@ -40,13 +40,18 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="LOTTERIES[ code ].TYPES === 'SSC'">
+  <table v-if="LOTTERIES[ code ].TYPES === 'SSC'" class="w-100">
     <tbody>
       <tr>
         <th>时间</th>
         <th>期数</th>
-        <th class="number-btns">
-          <span @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
+        <th class="number-buttons">
+          <span 
+            @click="switchStatus(index)" 
+            :class="{spanselect:index==titleStatus}" 
+            v-for="(item,index) in titles" :key="index">
+            {{item}}
+          </span>
         </th>
         <th colspan="3">总和</th>
         <th colspan="5">1-5龙虎</th>
@@ -80,13 +85,19 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="LOTTERIES[ code ].TYPES === '11X5'">  
+  <table v-if="LOTTERIES[ code ].TYPES === '11X5'" class="w-100">  
     <tbody>
       <tr>
         <th class="th-width1">时间</th>
         <th class="th-width2">期数</th>
-        <th class="number-btns th-width4">
-          <span @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
+        <th class="number-buttons th-width4">
+          <span 
+            @click="switchStatus(index)" 
+            :class="{spanselect:index==titleStatus}" 
+            v-for="(item,index) in titles" 
+            :key="index">
+            {{item}}
+          </span>
         </th>
         <th colspan="3" class="th-width1">总和</th>
         <th>龙虎</th>
@@ -119,7 +130,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="LOTTERIES[ code ].TYPES === 'K3'">
+  <table v-if="LOTTERIES[ code ].TYPES === 'K3'" class="w-100">
     <tbody>
       <tr>
         <th>时间</th>
@@ -167,12 +178,12 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="LOTTERIES[ code ].TYPES === 'KLSF'"> 
+  <table v-if="LOTTERIES[ code ].TYPES === 'KLSF'" class="w-100"> 
     <tbody>
       <tr>
         <th class="th-width1">时间</th>
         <th class="th-width2">期数</th>
-        <th class="number-btns th-width3">
+        <th class="number-buttons th-width3">
           <span @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
         </th>
         <th colspan="3" class="th-width1">总和</th>
@@ -184,13 +195,13 @@
         <td>{{ oLotteryIssue.no}}</td>
         <td>
           <Numbers 
-          :code="code" 
-          :onNumbers="onNumbers" 
-          :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
-          :numbers="JSON.parse(oLotteryIssue.numbers)" 
-          :types="types" 
-          :isRandom="false" 
-          :status="switcher"/>
+            :code="code" 
+            :onNumbers="onNumbers" 
+            :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
+            :numbers="JSON.parse(oLotteryIssue.numbers)" 
+            :types="types" 
+            :isRandom="false" 
+            :status="switcher"/>
         </td>
         <td>{{ JSON.parse(oLotteryIssue.numbers) | sum }}</td>
         <td :class="{'text-even': '双'===isOddOrEven(sum(JSON.parse(oLotteryIssue.numbers)))}">{{ JSON.parse(oLotteryIssue.numbers) | sum | isOddOrEven }}</td>
@@ -203,12 +214,12 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="LOTTERIES[ code ].TYPES === 'SIX'">
+  <table v-if="LOTTERIES[ code ].TYPES === 'SIX'" class="w-100">
     <tbody>
       <tr>
         <th class="w-15">时间</th>
         <th class="w-15">期数</th>
-        <th class="number-btns w-30">号码</th>
+        <th class="number-buttons w-30">号码</th>
         <th colspan="3">总和</th>
         <th colspan="4">特码</th>
       </tr>
@@ -235,7 +246,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="LOTTERIES[ code ].TYPES === 'KL8'">
+  <table v-if="LOTTERIES[ code ].TYPES === 'KL8'" class="w-100">
     <tbody>
       <tr>
         <th width="140">时间</th>
@@ -274,7 +285,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="LOTTERIES[ code ].TYPES === '3D'">  
+  <table v-if="LOTTERIES[ code ].TYPES === '3D'" class="w-100">  
     <tbody>
       <tr>
         <th>时间</th>
@@ -313,12 +324,12 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="LOTTERIES[ code ].TYPES === 'XY28'"> 
+  <table v-if="LOTTERIES[ code ].TYPES === 'XY28'" class="w-100"> 
     <tbody>
       <tr>
         <th class="w-15">时间</th>
         <th class="w-15">期数</th>
-        <th class="number-btns w-30">号码</th>
+        <th class="number-buttons w-30">号码</th>
         <th colspan="3">总和</th>
       </tr>
       <tr v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">

@@ -1,34 +1,33 @@
 .history-number {
-  margin-top: 20px;
-  padding: 0 20px;
+  margin-top: 20px; // TODO
+  padding: 0 20px; // TODO
   box-sizing: border-box;
-  display:block;
-  padding-bottom: 20px;
+  padding-bottom: 20px; //TODO
   table {
-    width:100%;
+    width:100%; // TODO
     tr {
       background:#e7e7e7;
       th {
         height: 4vmin;
         line-height: 4vmin;
         border:1px #B9B9B9 solid;
-        padding: 0 7px;
-        white-space: nowrap;
+        padding: 0 7px;  // TODO
+        white-space: nowrap;  // TODO
         font-size:1.8vmin;
       }
       td {
-        text-align: center;
-        padding: 0 7px;
+        text-align: center; // TODO
+        padding: 0 7px;  // TODO
         border:1px #B9B9B9 solid;
-        vertical-align: middle;
+        vertical-align: middle; // TODO
          td>div{
-            margin:0.2vmin 0.05vmin 0 0;
+            margin:0.2vmin 0.05vmin 0 0;  // TODO
           }
         }
       } 
       td:nth-child(n+4) {
         color: #184dd5;
-        font-size:1rem;
+        font-size: 1vmin;  // TOTO
       }
       td:nth-child(4) {
         color: #555;
@@ -36,20 +35,20 @@
       td:nth-child(6) {
         border-right:1px solid #b9b9b9;
       }
-      .number-btns {
-        width: 43%;
+      .number-buttons {
+        width: 43%;  // TODO
         span {
           color: #fff;
-          display: inline-block;
-          width: 18%;
-          height: 26px;
-          line-height: 26px;
-          text-align: center;
+          display: inline-block; // TODO
+          width: 18%;  // TODO
+          height: 26px;  // TODO
+          line-height: 26px; // TODO
+          text-align: center;  // TODO
           background: #b9b9b9;
-          border-radius: 4px;
-          font-size: 0.7rem;
+          border-radius: 4px;  // TODO
+          font-size: 0.7rem; 
           cursor: pointer;
-          margin-right: 1vmin;
+          margin-right: 1vmin; // TODO
         }
         span:hover {
           background: #50515f; 
@@ -60,6 +59,6 @@
       }
     }
     tr:nth-child(even) {
-      background:#fff;
+      background:#fff; // TODO
     }
   }
