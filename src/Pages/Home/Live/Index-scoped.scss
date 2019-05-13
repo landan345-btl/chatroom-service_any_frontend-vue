@@ -17,4 +17,17 @@
   .content {
     font-size: 1.4vmin;
   }
+
+  /deep/ .chen-countdown{
+    .square {
+      color: #000000;
+      background: #ffffff;
+      font-size: 1vmin;
+      height: 2vmin;
+      widows: 2vmin;
+      & > * {
+        line-height: 1vmin;
+      }
+    }
+  }
 }
