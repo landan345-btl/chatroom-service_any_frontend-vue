@@ -44,6 +44,7 @@ import {
 } from '@/Helpers/';
 
 import {
+  BACKEND,
   LOTTERIES,
   LOTTERY_TYPES,
 } from '@/CONFIGS/';
@@ -59,6 +60,8 @@ import {
   },
 })
 class Lottery extends Vue {
+  public timer: any;
+
   public beforeCreate(): void {
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
   }
@@ -71,8 +74,19 @@ class Lottery extends Vue {
       code: sCode,
     };
     this.$store.dispatch('LOTTERY_ACTION_SHOW', oQueries);
-
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
+    this.setIntervalLotteryIssueActionShow();
+  }
+
+
+  public setIntervalLotteryIssueActionShow() {
+    this.timer = setInterval(() => {
+      this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', {} );
+    } , BACKEND.INTERVAL_TIME );
+  }
+
+  public beforeDestroy() {  // 组件销毁之前调用
+    clearInterval( this.timer );
   }
 
   private _redirecteIfWithoutCode(): void {
