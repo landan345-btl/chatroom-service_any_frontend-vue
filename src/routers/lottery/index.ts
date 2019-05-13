@@ -5,7 +5,7 @@ import {
 let aLotteryRoutes = [{
   path: '/lottery',
   name: 'lottery',
-  component: () => import( '@/Pages/Lottery/Index.vue'),
+  component: Lottery,
   // children: aTrendChildren,
 }];
 
