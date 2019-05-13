@@ -2,10 +2,12 @@
   <div class="live">
     <div class="lotteries d-flex justify-content-between"> 
       <div class="lottery" v-for="(oLotteryIssue, iLotteryIssueId, iIndex) in lotteryIssues" :key="iLotteryIssueId" v-if="iIndex < 4">
-        <router-link :to="{ path: '/lottery', query: { code: lotteries && oLotteryIssue ? lotteries[oLotteryIssue.lottery_id].code.toUpperCase() : ''}}">
+        <router-link 
+          class="text-center"
+          :to="{ path: '/lottery', query: { code: lotteries && oLotteryIssue ? lotteries[oLotteryIssue.lottery_id].code.toUpperCase() : ''}}">
           <div :class="[lotteries && oLotteryIssue ? 'live-' + lotteries[oLotteryIssue.lottery_id].types.toLowerCase() : '']">
           </div>        
-          <div class="content text-center mt-1">倒数&nbsp;&nbsp;&nbsp; 03:05</div>
+          <Chen-countdown :time="99 * 1000" :theme="'theme-a'"/>
         </router-link>
       </div>
     </div>
