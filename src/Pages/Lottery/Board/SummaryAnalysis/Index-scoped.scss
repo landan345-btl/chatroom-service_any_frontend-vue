@@ -1,15 +1,12 @@
 .summary-analysis {
-  .double-sided-statistics {
-    border-bottom: 2px solid #e7e7e7;
-  }
   .top {
-    border-bottom: 1px solid #f0f0f0;
-  }
+    border-bottom: 2px solid #e7e7e7
+   }
   /deep/ .ivu-btn:hover {
     color: #FF7B00;
     border-color: #FF7B00;
   }
-  background: #ffffff;
+   background: #ffffff;
     td {
       border: 1px solid #d4d4d4;
       padding: 1.5vmin 0;
@@ -21,7 +18,6 @@
     tr ~ tr td:nth-child(2) {
       padding: 0 ;
     }
-  }
   table:nth-child(3) {
     tr:nth-child(1),tr:nth-child(2) {
       background: #e7e7e7;
@@ -50,26 +46,5 @@
     }
   }
 }
-
-.ball-number-distribution {
-  border-bottom: 2px solid #e7e7e7;
-  & > div:nth-child(1), & > div:nth-child(2) {
-    margin: 2vmin 0;
-    & > span:nth-child(1) {
-      font-size: 1.8vmin;
-      font-weight: bold;
-    }
-    span > span {
-      border: 1px solid #909090;
-      margin: 0 1vmin;
-      padding: .5vmin 1vmin;
-      border-radius: .5vmin;
-    }
-  }
-  & > div:nth-child(2) {
-    span > span {
-      border: 1px solid #909090;
-    }
-  }
 }
 
