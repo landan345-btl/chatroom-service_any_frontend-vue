@@ -4,7 +4,7 @@
     <table class="w-100">
       <tr class="font-size-1p5">
         <th>期数</th>
-        <th>开奖号码</th>
+        <th class="w-42">开奖号码</th>
         <th colspan="3">总和</th>
         <th>龙虎</th>
         <th colspan="5">1-5球大小</th>

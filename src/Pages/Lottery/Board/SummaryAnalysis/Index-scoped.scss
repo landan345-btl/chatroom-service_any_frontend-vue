@@ -6,6 +6,9 @@
     color: #FF7B00;
     border-color: #FF7B00;
   }
+  /deep/ .ivu-btn:focus {
+    box-shadow: 0 0 0 2px rgba(255,123,0,.9);
+  }
    background: #ffffff;
     td {
       border: 1px solid #d4d4d4;
