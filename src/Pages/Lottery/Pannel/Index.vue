@@ -26,7 +26,9 @@
       </div>
     </div>
     <div class="countdown p-2">
-      距 {{ getLotteryIssueExtension.next_no }} 期开奖仅有
+      <div class="top">
+        距 {{ getLotteryIssueExtension.next_no }} 期开奖仅有
+      </div>
       <div>
         <Chen-countdown :time="getLotteryIssueExtension.next_time * 1000" :theme="'theme-a'"/>
       </div>
