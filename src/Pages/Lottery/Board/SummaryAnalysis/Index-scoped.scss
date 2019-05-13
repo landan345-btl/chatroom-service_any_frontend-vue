@@ -1,53 +1,15 @@
 .summary-analysis {
   .double-sided-statistics {
-    font-size: 1vmin;
     border-bottom: 2px solid #e7e7e7;
-    table {
-      margin-top: 2vmin;
-    }
-  }
-  .title {
-    font-size: 2vmin !important;
   }
   .top {
     border-bottom: 1px solid #f0f0f0;
-    & > span ~ span {
-      border: 1px solid #909090;
-      margin-left: 2vmin;
-    }
-    & > span {
-      padding: 1vmin 2vmin;
-      font-size: 1vmin;
-      position: relative;
-      border-radius: .5vmin;
-      cursor: pointer;
-      span:nth-child(1) {
-        position: relative;
-        z-index: 100;
-      }
-      span:nth-child(2) {
-        width: 2vmin;
-        height: 2vmin;
-        position: absolute;
-        width: 3vmin;
-        border-radius: 0 0 .5vmin 0;
-        left: 6.2vmin;
-        top: 1.9vmin;
-        border-right: 1px solid #fba75e;
-        border-bottom: 1px solid #fba75e;
-      }
-    }
-    & > span:nth-child(2) {
-        span:nth-child(2) {
-          left: 14.3vmin;
-          top: 1.9vmin;
-        }
-    }
+  }
+  /deep/ .ivu-btn:hover {
+    color: #FF7B00;
+    border-color: #FF7B00;
   }
   background: #ffffff;
-  table {
-    width: 100%;
-    font-size: 1.3vmin;
     td {
       border: 1px solid #d4d4d4;
       padding: 1.5vmin 0;
@@ -71,7 +33,7 @@
       background: #e7e7e7;
     }
     tr ~ tr td:nth-child(2) {
-      padding: .5vmin 0;
+      padding: 0 ;
     }
   }
   table:nth-child(3) {
@@ -86,15 +48,9 @@
       background: #fff !important;
     }
   }
-}
-
 .long-reminder {
   border-bottom: 2px solid #e7e7e7;
   padding-bottom: 2vmin;
-  & > div:nth-child(1) {
-    font-size: 2vmin;
-    margin-bottom: 1vmin;
-  }
   & > div:nth-child(2) {
     display: flex;
     flex-wrap: wrap;

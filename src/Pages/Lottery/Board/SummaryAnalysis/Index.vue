@@ -1,7 +1,7 @@
 <template>
   <div class="summary-analysis">
-    <div class="top p-1 font-weight-bold">
-      <span class="title">综合分析</span>
+    <div class="top p-1 ml-1 font-weight-bold">
+      <span class="title font-size-2">综合分析</span>
         <I-button class="ml-2" v-on:handle-click="toggleTodayTwoSideNumberStatics()" v-if="['11X5','SSC' , 'PK10'].includes(types.toUpperCase())">今日双面/号码统计</I-button>
         <I-button class="ml-2" v-on:handle-click="toggleAccumulationRemider()" v-if="['11X5','SSC' , 'PK10'].includes(types.toUpperCase())">长龙提醒</I-button>
         <I-button class="ml-2" v-on:handle-click="toggleNumberAnalysis()" v-if="['11X5','SSC' , 'PK10'].includes(types.toUpperCase())">号码分析</I-button>
@@ -9,8 +9,8 @@
     <transition name="slide-fade">
       <div class="p-2 double-sided-statistics" v-show="isTodayTwoSideNumberStaticShowed ">
         <div> 
-          <div class="font-size-2">今日号码统计</div>
-          <table>
+          <div class="font-size-2p5">今日号码统计</div>
+          <table class="mt-1 w-100">
             <tr>
               <td>号码</td>
               <td>0</td>
@@ -38,7 +38,7 @@
               <td>{{ numberFrequency( lotteryIssues , 9 ) }}</td>
             </tr>
           </table>
-          <table>
+          <table class="w-100">
             <tr>
               <td rowspan="2"> <span>球次</span> </td>
               <td colspan="4">总和</td>
@@ -93,7 +93,7 @@
     <transition name="slide-fade">
       <div class="p-2 " v-show="isAccumulationRemiderShowed">
         <div class="long-reminder">
-          <div>长龙连开提醒</div>
+          <div class="font-size-2p5">长龙连开提醒</div>
           <div>
             <div>第二球: 小  5  期</div>
             <div>第二球: 小  5  期</div>
@@ -120,7 +120,7 @@
 
     <div class="p-2">
       <div>
-        <table>
+        <table class="w-100">
           <tr>
             <td>期数</td>
             <td>开奖号码</td>

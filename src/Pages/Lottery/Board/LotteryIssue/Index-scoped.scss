@@ -5,5 +5,9 @@
   .top {
     border-bottom: 1px solid #f0f0f0;
   }
+  /deep/ .ivu-btn:hover {
+    color: #FF7B00;
+    border-color: #FF7B00;
+  }
   background: #ffffff;
 }

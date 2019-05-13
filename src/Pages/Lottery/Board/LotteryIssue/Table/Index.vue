@@ -1,5 +1,5 @@
 <template>
-<div class="history-number text-center p-1">
+<div class="history-number text-center p-2">
   <table v-if="LOTTERIES[code].TYPES==='PK10'" class="w-100">
     <tbody>
       <tr>
