@@ -3,7 +3,7 @@
     <div class="lotteries d-flex justify-content-between"> 
       <div class="lottery" v-for="(sImage, iIndex) in images" :key="iIndex" v-bind:second="1">
         <img :src="require(`@/` + `${sImage}`)"/>
-        <div class="content text-center">倒数&nbsp;&nbsp;&nbsp; 03:05</div>
+        <div class="content text-center mt-1">倒数&nbsp;&nbsp;&nbsp; 03:05</div>
       </div>
     </div>
   </div>
