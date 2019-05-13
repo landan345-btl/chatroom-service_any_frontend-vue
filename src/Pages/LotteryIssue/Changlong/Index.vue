@@ -14,7 +14,7 @@
     </div>
   </div>
 </template>
-<style lang="scss">
+<style scoped lang="scss">
     .title{
       padding:2vmin 0 1vmin 0vmin;
       font-size:1.8vmin;  

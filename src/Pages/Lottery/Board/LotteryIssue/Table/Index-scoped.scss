@@ -1,33 +1,22 @@
 .history-number {
-  margin-top: 20px; // TODO
-  padding: 0 20px; // TODO
   box-sizing: border-box;
-  padding-bottom: 20px; //TODO
   table {
-    width:100%; // TODO
     tr {
       background:#e7e7e7;
       th {
         height: 4vmin;
         line-height: 4vmin;
         border:1px #B9B9B9 solid;
-        padding: 0 7px;  // TODO
-        white-space: nowrap;  // TODO
         font-size:1.8vmin;
       }
       td {
-        text-align: center; // TODO
-        padding: 0 7px;  // TODO
+        padding: 0 0.7vmin;
         border:1px #B9B9B9 solid;
         vertical-align: middle; // TODO
-         td>div{
-            margin:0.2vmin 0.05vmin 0 0;  // TODO
-          }
         }
       } 
       td:nth-child(n+4) {
         color: #184dd5;
-        font-size: 1vmin;  // TOTO
       }
       td:nth-child(4) {
         color: #555;
@@ -36,19 +25,15 @@
         border-right:1px solid #b9b9b9;
       }
       .number-buttons {
-        width: 43%;  // TODO
         span {
           color: #fff;
-          display: inline-block; // TODO
-          width: 18%;  // TODO
-          height: 26px;  // TODO
-          line-height: 26px; // TODO
-          text-align: center;  // TODO
+          width: 7.8vmin;
+          height: 2.8vmin;
+          line-height: 2.8vmin;
           background: #b9b9b9;
-          border-radius: 4px;  // TODO
-          font-size: 0.7rem; 
+          border-radius: 0.4vmin; 
+          font-size: 0.7vmin; 
           cursor: pointer;
-          margin-right: 1vmin; // TODO
         }
         span:hover {
           background: #50515f; 
