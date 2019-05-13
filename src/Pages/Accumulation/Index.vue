@@ -1,5 +1,5 @@
 <template>
-  <div class="accumulation">
+  <div class="page accumulation">
     <Header class="z-1001"/>
     <Nav-top class="z-1001"/>
     <Nav-right/>

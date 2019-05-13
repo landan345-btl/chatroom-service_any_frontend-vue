@@ -1,5 +1,5 @@
 <template>
-  <div class="lottery">
+  <div class="page lottery">
     <Header/>
     <Nav-top/>
     <Nav-right/>

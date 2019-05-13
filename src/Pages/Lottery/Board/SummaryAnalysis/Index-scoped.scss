@@ -15,20 +15,6 @@
       padding: 1.5vmin 0;
       text-align: center;
     }
-    tr ~ tr {
-      span {
-        position: relative;
-        display: inline-block;
-        width: 4vmin;
-        height: 4vmin;
-        line-height: 4vmin;
-        border: .2vmin solid #6abbe4;
-        border-radius: 50%;
-        margin: 0 .1vmin;
-        font-size: 2.2vmin;
-        font-weight: bold;
-      }
-    }
     tr:nth-child(2n+1) {
       background: #e7e7e7;
     }

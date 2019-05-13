@@ -62,16 +62,23 @@
           </tr>
           <tr>
             <td>出现次数</td>
-            <td v-for="(sRecord , sKey) in todayTwoSideRecords[0]" :key="sKey">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey) in todayTwoSideRecords[1]" :key="sKey">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey) in todayTwoSideRecords[2]" :key="sKey">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey) in todayTwoSideRecords[3]" :key="sKey">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey) in todayTwoSideRecords[4]" :key="sKey">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey) in todayTwoSideRecords[5]" :key="sKey">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey) in todayTwoSideRecords[6]" :key="sKey">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey) in todayTwoSideRecords[7]" :key="sKey">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey) in todayTwoSideRecords[8]" :key="sKey">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey) in todayTwoSideRecords[9]" :key="sKey">{{ sRecord }}</td>
+
+
+
+            <!-- <template  v-for="(sRecord) in todayTwoSideRecords">
+              <td v-for="(x, y) in sRecord" :key="y">
+              </td>
+            </template > -->
+            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[0]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
+            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[1]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
+            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[2]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
+            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[3]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
+            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[4]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
+            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[5]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
+            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[6]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
+            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[7]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
+            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[8]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
+            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[9]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
           </tr>
           </tbody>
         </table>  
@@ -121,7 +128,7 @@
           </tr>
         </table> 
       </div>   
-      <div v-if="['SSC', '11X5'].includes(types)">
+      <div v-if="types && ['SSC', '11X5'].includes(types)">
         <table>
           <tbody>
           <tr>
@@ -194,11 +201,11 @@
             <td>-</td>
             <td>-</td>
             <td>-</td>
-            <td v-for="(sRecord , sKey) in todayTwoSideRecords[0]" :key="sKey">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey) in todayTwoSideRecords[1]" :key="sKey">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey) in todayTwoSideRecords[2]" :key="sKey">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey) in todayTwoSideRecords[3]" :key="sKey">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey) in todayTwoSideRecords[4]" :key="sKey">{{ sRecord }}</td>
+            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[0]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
+            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[1]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
+            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[2]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
+            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[3]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
+            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[4]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
           </tr>
         </table> 
       </div>  
