@@ -4,7 +4,7 @@
       <span class="title">冷热分析</span>
     </div>
     <div class="bottom p-2">
-      <I-checkbox-group v-model="isHotCountShowed">
+      <I-checkbox-group>
         <Checkbox label="true">&nbsp;显示热号码出现次数</Checkbox>
       </I-checkbox-group>
       <div class="announcement">
