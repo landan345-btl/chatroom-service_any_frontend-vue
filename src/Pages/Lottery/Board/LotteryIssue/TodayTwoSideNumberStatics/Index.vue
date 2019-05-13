@@ -62,6 +62,13 @@
           </tr>
           <tr>
             <td>出现次数</td>
+
+
+
+            <!-- <template  v-for="(sRecord) in todayTwoSideRecords">
+              <td v-for="(x, y) in sRecord" :key="y">
+              </td>
+            </template > -->
             <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[0]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
             <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[1]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
             <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[2]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
