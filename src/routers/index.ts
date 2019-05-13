@@ -5,7 +5,7 @@ import Home from '@/Pages/Home/Index.vue';
 import aHomeRoutes from '@/routers/home/index';
 import aAboutRoutes from '@/routers/about/index';
 import aTrendRoutes from '@/routers/trend/index';
-import alotteryIssuesRoutes from '@/routers/lotteryIssue/index';
+// import alotteryIssuesRoutes from '@/routers/lotteryIssue/index';
 import alotteryRoutes from '@/routers/lottery/index';
 import aAccumulationRoutes from '@/routers/accumulation/index';
 // index 是所有 资料夹的入口文件，
@@ -25,7 +25,7 @@ let oRouter = new Router({
     ...aAboutRoutes,
     ...aTrendRoutes,
     ...alotteryRoutes,
-    ...alotteryIssuesRoutes,
+    // ...alotteryIssuesRoutes,
     ...aAccumulationRoutes,
   ],
 });
