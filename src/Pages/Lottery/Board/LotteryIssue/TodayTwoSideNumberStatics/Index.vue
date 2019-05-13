@@ -132,7 +132,7 @@
         <table>
           <tbody>
           <tr>
-            <th>名次</th>
+            <th>号码</th>
             <th>0</th>
             <th>1</th>
             <th>2</th>

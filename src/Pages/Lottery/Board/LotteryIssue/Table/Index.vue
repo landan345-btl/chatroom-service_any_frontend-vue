@@ -56,7 +56,7 @@
         <th colspan="3">总和</th>
         <th colspan="5">1-5龙虎</th>
       </tr>
-      <tr v-for="(oLotteryIssue,iIndex) in oLotteryIssues" :key="iIndex" class="h-4">
+      <tr class="font-size-1p5 h-4" v-for="(oLotteryIssue,iIndex) in oLotteryIssues" :key="iIndex">
         <td>{{oLotteryIssue.added_time}}</td>
         <td>{{oLotteryIssue.no}}</td>
         <td>
