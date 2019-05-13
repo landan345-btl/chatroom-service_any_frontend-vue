@@ -1,9 +1,12 @@
 <template>
   <div class="live">
     <div class="lotteries d-flex justify-content-between"> 
-      <div class="lottery" v-for="(sImage, iIndex) in images" :key="iIndex" v-bind:second="1">
-        <img :src="require(`@/` + `${sImage}`)"/>
-        <div class="content text-center mt-1">倒数&nbsp;&nbsp;&nbsp; 03:05</div>
+      <div class="lottery" v-for="(oLotteryIssue, iLotteryIssueId, iIndex) in lotteryIssues" :key="iLotteryIssueId" v-if="iIndex < 4">
+        <router-link :to="{ path: '/lottery', query: { code: lotteries && oLotteryIssue ? lotteries[oLotteryIssue.lottery_id].code.toUpperCase() : ''}}">
+          <div :class="[lotteries && oLotteryIssue ? 'live-' + lotteries[oLotteryIssue.lottery_id].types.toLowerCase() : '']">
+          </div>        
+          <div class="content text-center mt-1">倒数&nbsp;&nbsp;&nbsp; 03:05</div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -14,14 +17,14 @@
 </style>
 
 <script lang="ts">
-import { Component, Watch, Vue } from 'vue-property-decorator';
+import { Component, Watch, Vue, Prop } from 'vue-property-decorator';
 import { warn } from 'vue-class-component/lib/util';
-import ECarousel from '@/Components/ECarousel/Index.vue';
+import ChenCountdown from '@/Components/ChenCountdown/Index.vue';
 
 @Component({
   name: 'Live',
   components: {
-    ECarousel,
+    ChenCountdown,
   },
 })
 class Live extends Vue {
@@ -35,6 +38,12 @@ class Live extends Vue {
     // 'assets/images/live-TJKSF.jpg',
     // 'assets/images/live-SD11X5.png',
   ];
+
+  @Prop()
+  public lotteryIssues!: object;
+
+  @Prop()
+  public lotteries!: object;
 }
 
 export default Live;
