@@ -2,26 +2,31 @@
   .icon {
 
   }
+  .no {
+    color: #f90;
+  }
   .name-lottery_issue_no{
     flex-grow: 1;
+    .name {
+      font-size: 2vmin;
+    }
+
   }
 
   .countdown {
     flex-grow: 1;
-    .top {
-      font-size: 1.5vmin;
+    /deep/ .chen-countdown{
+      .square {
+        background: #444553;
+        color: #ffd200;
+      }
     }
   }
 
   .live {
     flex: 1 1 1;
   }
-  .name {
-    font-size: 2.5vmin;
-  }
-  .no {
-    color: #f90;
-  }
+
   .text {
     color: #666666;
   }

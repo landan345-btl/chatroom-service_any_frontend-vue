@@ -27,9 +27,17 @@
     </div>
     <div class="countdown p-2">
       <div class="top">
-        距 {{ getLotteryIssueExtension.next_no }} 期开奖仅有
+        <span>
+          距 
+        </span>
+        <span class="no">
+          &nbsp; {{ getLotteryIssueExtension.next_no }} &nbsp;
+        </span>
+        <span>
+          期开奖仅有
+        </span>
       </div>
-      <div>
+      <div class="mt-2">
         <Chen-countdown :time="getLotteryIssueExtension.next_time * 1000" :theme="'theme-a'"/>
       </div>
     </div>
@@ -64,7 +72,7 @@ import ChenCountdown from '@/Components/ChenCountdown/Index.vue';
     ChenCountdown,
   },
 })
-class Top extends Vue {
+class Pannel extends Vue {
   @Prop()
   public lotteryIssue!: any;
   /**
@@ -121,5 +129,5 @@ class Top extends Vue {
 
 }
 
-export default Top;
+export default Pannel;
 </script>

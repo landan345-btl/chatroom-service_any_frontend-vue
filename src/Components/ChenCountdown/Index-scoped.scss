@@ -1,4 +1,4 @@
-.chen-countdown.theme-b{
+.chen-countdown{
   .square {
     border-radius: 3px;
     text-align: center;
@@ -6,6 +6,10 @@
     width: 4vmin;
     color: #fff;
     background: #ff7b00;
-    line-height: 3;
+    font-size: 2vmin;
+
+    & > * {
+      line-height: 4vmin;
+    }
   }
 }
