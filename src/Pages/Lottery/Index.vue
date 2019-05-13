@@ -67,6 +67,7 @@ class Lottery extends Vue {
   }
 
   public created(): void {
+    debugger;
     let $root: any = this.$root;
     let sCode = this.$route.query.code;
     this._redirecteIfWithoutCode();
