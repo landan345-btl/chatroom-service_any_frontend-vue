@@ -104,7 +104,7 @@ class PopularAnalysis extends Vue {
       if ( oCounts[iNumber] >= iMinCount && oCounts[ iNumber ] <= iMaxCount ) {
         aNumbers.push(iNumber);
       }
-    })
+    });
     return aNumbers;
   }
 }

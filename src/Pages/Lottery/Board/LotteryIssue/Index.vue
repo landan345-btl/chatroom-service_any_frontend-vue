@@ -6,27 +6,33 @@
       <I-button class="ml-2" v-on:handle-click="toggleAccumulationRemider()" v-if="['11X5','SSC' , 'PK10'].includes(types)">长龙提醒</I-button>
       <I-button class="ml-2" v-on:handle-click="toggleNumberAnalysis()" v-if="['11X5','SSC' , 'PK10'].includes(types)">号码分析</I-button>
     </div>
-    <Today-two-side-number-statics 
-      :types="types" 
-      :todayTwoSideRecords="todayTwoSideRecords"
-      v-show="isTodayTwoSideNumberStaticShowed" class="p-2"/>
-    <Accumulation-remider v-show="isAccumulationRemiderShowed" class="p-2"/>
-    <Number-analysis 
-      :types="types" 
-      v-show="isNumberAnalysisShowed" 
-      @handle-toggle-number="toggleNumber" 
-      @handle-toggle-oddoreven="toggleOddOrEven"
-      @handle-reset="resetShow"
-      class="p-2" 
-      :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords" 
-      :onNumbers="onNumbers"/>
+    <transition name="slide-fade">
+      <Today-two-side-number-statics 
+        :types="types" 
+        :todayTwoSideRecords="todayTwoSideRecords"
+        v-show="isTodayTwoSideNumberStaticShowed" class="p-2"/>
+    </transition>
+    <transition name="slide-fade">
+      <Accumulation-remider v-show="isAccumulationRemiderShowed" class="p-2"/>
+    </transition>
+    <transition name="slide-fade">
+      <Number-analysis 
+        :types="types" 
+        v-show="isNumberAnalysisShowed" 
+        @handle-toggle-number="toggleNumber" 
+        @handle-toggle-oddoreven="toggleOddOrEven"
+        @handle-reset="resetShow"
+        class="p-2" 
+        :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords" 
+        :onNumbers="onNumbers"/>
+    </transition>  
     <Table 
-      :lotteryIssues="lotteryIssues" 
-      :lottery="lottery" 
-      :code="code" 
-      :types="types" class="p-2" 
-      :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
-      :onNumbers="onNumbers"/>
+        :lotteryIssues="lotteryIssues" 
+        :lottery="lottery" 
+        :code="code" 
+        :types="types" class="p-2" 
+        :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
+        :onNumbers="onNumbers"/>
   </div>
 </template>
 <style scoped lang="scss">
