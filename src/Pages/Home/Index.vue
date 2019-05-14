@@ -33,9 +33,9 @@
 </style>
 
 <script lang="ts">
-import { 
-  Component, 
-  Watch, 
+import {
+  Component,
+  Watch,
   Vue,
 } from 'vue-property-decorator';
 
