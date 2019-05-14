@@ -45,7 +45,7 @@ import {
 } from 'vue-property-decorator';
 
 import {
-  ITabs
+  ITabs,
 } from '@/Components/';
 
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';

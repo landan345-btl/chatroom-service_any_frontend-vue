@@ -3,7 +3,6 @@ import Router from 'vue-router';
 import Home from '@/Pages/Home/Index.vue';
 
 import aHomeRoutes from '@/routers/home/index';
-import aAboutRoutes from '@/routers/about/index';
 import aTrendRoutes from '@/routers/trend/index';
 // import alotteryIssuesRoutes from '@/routers/lotteryIssue/index';
 import alotteryRoutes from '@/routers/lottery/index';
@@ -22,7 +21,6 @@ let oRouter = new Router({
       component: Home,
     },
     ...aHomeRoutes,
-    ...aAboutRoutes,
     ...aTrendRoutes,
     ...alotteryRoutes,
     // ...alotteryIssuesRoutes,
