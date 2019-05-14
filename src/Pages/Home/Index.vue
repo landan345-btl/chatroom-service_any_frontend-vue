@@ -33,15 +33,23 @@
 </style>
 
 <script lang="ts">
-import { Component, Watch, Vue } from 'vue-property-decorator';
-import { warn } from 'vue-class-component/lib/util';
+import { 
+  Component, 
+  Watch, 
+  Vue,
+} from 'vue-property-decorator';
 
-import Header from '@/Commons/Header/Index.vue';
-import NavTop from '@/Commons/NavTop/Index.vue';
-import NavRight from '@/Commons/NavRight/Index.vue';
-import Footer from '@/Commons/Footer/Index.vue';
-import ERadio from '@/Components/ERadio/Index.vue';
-import ESelect from '@/Components/ESelect/Index.vue';
+import { 
+  warn,
+} from 'vue-class-component/lib/util';
+
+import {
+  Header,
+  NavTop,
+  NavRight,
+  Footer,
+} from '@/Commons/';
+
 import News from './News/Index.vue';
 import Live from './Live/Index.vue';
 import LotteryIssueBoard from './LotteryIssueBoard/Index.vue';
@@ -64,8 +72,6 @@ import {
     NavTop,
     NavRight,
     Footer,
-    ERadio,
-    ESelect,
     News,
     Live,
     LotteryIssueBoard,
