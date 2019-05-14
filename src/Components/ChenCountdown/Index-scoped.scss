@@ -1,15 +1,18 @@
 .chen-countdown{
+  font-size: 1.75vmin;
   .square {
     border-radius: 3px;
     text-align: center;
-    height: 4vmin;
-    width: 4vmin;
+    height: 3.5vmin;
+    width: 3.5vmin;
     color: #fff;
     background: #ff7b00;
-    font-size: 2vmin;
 
+  }
+  & > * {
     & > * {
-      line-height: 4vmin;
+      height: 3.5vmin;
+      line-height: 3.5vmin;
     }
   }
 }
