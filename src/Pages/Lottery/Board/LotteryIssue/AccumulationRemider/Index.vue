@@ -3,7 +3,7 @@
     <div class="font-size-2p5">长龙连开提醒</div>
     <div class="remind">
       <p>
-        <span v-for=" item in 13" :key="item" class="mr-3 mt-1 text-center">
+        <span v-for=" item in 13" :key="item" class="mr-3 mt-1 text-center d-inline-block">
           <span>亚军</span>:
             &nbsp;&nbsp;
           <span>双</span>
