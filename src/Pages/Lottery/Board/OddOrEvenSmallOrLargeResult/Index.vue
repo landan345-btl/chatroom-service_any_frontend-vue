@@ -23,8 +23,6 @@
     <div class="p-2">
       <Result-table v-for="( utem , i ) in 6" :key="i"/>
     </div>
-
-
   </div>
 </template>
 <style scoped lang="scss">

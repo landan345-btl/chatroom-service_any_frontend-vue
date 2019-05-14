@@ -14,14 +14,14 @@
 </style>
 
 <script lang="ts">
-import { 
+import {
   Component,
   Watch,
   Vue,
   Prop,
 } from 'vue-property-decorator';
 
-import { 
+import {
   warn,
 } from 'vue-class-component/lib/util';
 

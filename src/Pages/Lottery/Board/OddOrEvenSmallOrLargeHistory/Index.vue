@@ -62,7 +62,6 @@
         </tr>
       </table>
     </div>
-    
   </div>
 </template>
 <style scoped lang="scss">
@@ -70,11 +69,11 @@
 
 </style>
 <script lang="ts">
-import { 
+import {
   Component,
   Vue,
 } from 'vue-property-decorator';
-import { 
+import {
   ITabs,
 } from '@/Components/';
 

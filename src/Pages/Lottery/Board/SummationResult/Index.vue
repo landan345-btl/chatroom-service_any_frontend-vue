@@ -48,6 +48,7 @@ import {
 @Component({
   name: 'SummationResult',
   components: {
+    IDatePicker,
     ResultTable,
   },
 })

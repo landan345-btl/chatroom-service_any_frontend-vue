@@ -32,8 +32,6 @@
         <td>4</td>
       </tr>
     </table>
-    
-
   </div>
 </template>
 <style scoped lang="scss">
@@ -41,13 +39,13 @@
 
 </style>
 <script lang="ts">
-import { 
+import {
   Component,
-  Vue
+  Vue,
 } from 'vue-property-decorator';
 
-import { 
-  ITabs
+import {
+  ITabs,
 } from '@/Components/';
 
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';

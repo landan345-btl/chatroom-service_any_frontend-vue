@@ -11,12 +11,14 @@ import ETabs from './ETabs/Index.vue';
 
 import ITabs from './ITabs/Index.vue';
 import IButton from './IButton/Index.vue';
+import ICheckboxGroup from './ICheckboxGroup/Index.vue';
+import IDatePicker from './IDatePicker/Index.vue';
 
 import VLine from './VLine/Index.vue';
 
 import SNumbers from './SNumbers/Index.vue';
 import ResultTable from './ResultTable/Index.vue';
-import ICheckboxGroup from './ICheckboxGroup/Index.vue';
+
 
 export {
   ChenCountdown,
@@ -30,6 +32,7 @@ export {
   ETabPane,
   ETabs,
   ITabs,
+  IDatePicker,
   IButton,
   VLine,
   ICheckboxGroup,

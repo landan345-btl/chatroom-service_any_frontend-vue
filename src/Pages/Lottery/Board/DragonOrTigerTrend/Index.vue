@@ -240,7 +240,7 @@
 
 </style>
 <script lang="ts">
-import { 
+import {
   Component,
   Vue,
 } from 'vue-property-decorator';

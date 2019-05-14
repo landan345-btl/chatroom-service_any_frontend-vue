@@ -59,13 +59,13 @@
 import {
   Component,
   Vue,
-  Prop
+  Prop,
 } from 'vue-property-decorator';
 
 
-import { 
-  ITabs
-}from '@/Components/';
+import {
+  ITabs,
+} from '@/Components/';
 
 import LotteryIssue from './LotteryIssue/Index.vue';
 import ResultAnalysis from './ResultAnalysis/Index.vue';

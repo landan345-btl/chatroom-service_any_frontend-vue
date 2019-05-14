@@ -63,13 +63,13 @@ import {
 } from 'vue-property-decorator';
 
 import {
-  warn
+  warn,
 } from 'vue-class-component/lib/util';
 
 import {
   ETabs,
   ESelect,
-}from '@/Components/';
+} from '@/Components/';
 
 @Component({
   name: 'Board',

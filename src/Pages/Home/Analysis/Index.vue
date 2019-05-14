@@ -75,7 +75,7 @@
 </style>
 
 <script lang="ts">
-import { 
+import {
   Component,
   Watch,
   Vue,
