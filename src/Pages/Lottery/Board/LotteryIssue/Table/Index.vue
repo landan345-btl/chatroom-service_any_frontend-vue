@@ -3,18 +3,18 @@
   <table v-if="LOTTERIES[code].TYPES==='PK10'" class="w-100">
     <tbody>
       <tr>
-        <th>时间</th>
-        <th>期数</th>
-        <th class="number-buttons w-42">
+        <th class="w-10 d-xs-none">时间</th>
+        <th class="w-10">期数</th>
+        <th class="number-buttons numbers">
           <span class="mr-1" @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
         </th>
-        <th colspan="3">冠亚和</th>
-        <th colspan="5">1-5龙虎</th>
+        <th colspan="3" class="w-10 ">冠亚和</th>
+        <th colspan="5" class="w-10 d-xs-none ">1-5龙虎</th>
       </tr>
       <tr class="font-size-1p5" v-for="(oLotteryIssue, iIndex) in oLotteryIssues" :key="iIndex">
-        <td>{{oLotteryIssue.added_time}}</td>
+        <td class="d-xs-none">{{oLotteryIssue.added_time}}</td>
         <td>{{oLotteryIssue.no}}</td>
-        <td>
+        <td class="w-30">
           <S-numbers 
             :code="code" 
             :numbers="JSON.parse(oLotteryIssue.numbers)" 
@@ -26,26 +26,26 @@
             :previousNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
             :nextNumbers="iIndex < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[iIndex + 1].numbers): []"/>
         </td>
-        <td class="">{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1])}}</td>
-          <td :class="{'text-large' : '大' === isSmallOrLarge(sum(JSON.parse(oLotteryIssue.numbers),[0,1]),11,12)}">
-            {{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1]) | isSmallOrLarge(11,12) }}
-          </td>
-          <td :class="{'text-even' : '双' === isOddOrEven(sum(JSON.parse(oLotteryIssue.numbers),[0,1]))}">{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1]) | isOddOrEven }}
-          </td>
-          <td :class="{'text-danger' : '龙' === isDragonOrTiger(JSON.parse(oLotteryIssue.numbers),[0,9])}">{{ JSON.parse(oLotteryIssue.numbers) | isDragonOrTiger([0, 9]) }}</td>
-          <td :class="{'text-danger' : '龙' === isDragonOrTiger(JSON.parse(oLotteryIssue.numbers),[1,8])}">{{ JSON.parse(oLotteryIssue.numbers) | isDragonOrTiger([1, 8]) }}</td>
-          <td :class="{'text-danger' : '龙' === isDragonOrTiger(JSON.parse(oLotteryIssue.numbers),[2,7])}">{{ JSON.parse(oLotteryIssue.numbers) | isDragonOrTiger([2, 7]) }}</td>
-          <td :class="{'text-danger' : '龙' === isDragonOrTiger(JSON.parse(oLotteryIssue.numbers),[3,6])}">{{ JSON.parse(oLotteryIssue.numbers) | isDragonOrTiger([3, 6]) }}</td>
-          <td :class="{'text-danger' : '龙' === isDragonOrTiger(JSON.parse(oLotteryIssue.numbers),[4,5])}">{{ JSON.parse(oLotteryIssue.numbers) | isDragonOrTiger([4, 5]) }}</td>
+        <td>{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1])}}</td>
+        <td :class="{'text-large' : '大' === isSmallOrLarge(sum(JSON.parse(oLotteryIssue.numbers),[0,1]),11,12)}">
+          {{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1]) | isSmallOrLarge(11,12) }}
+        </td>
+        <td :class="{'text-even' : '双' === isOddOrEven(sum(JSON.parse(oLotteryIssue.numbers),[0,1]))}">{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1]) | isOddOrEven }}
+        </td>
+        <td class="d-xs-none" :class="{'text-danger' : '龙' === isDragonOrTiger(JSON.parse(oLotteryIssue.numbers),[0,9])}">{{ JSON.parse(oLotteryIssue.numbers) | isDragonOrTiger([0, 9]) }}</td>
+        <td class="d-xs-none" :class="{'text-danger' : '龙' === isDragonOrTiger(JSON.parse(oLotteryIssue.numbers),[1,8])}">{{ JSON.parse(oLotteryIssue.numbers) | isDragonOrTiger([1, 8]) }}</td>
+        <td class="d-xs-none" :class="{'text-danger' : '龙' === isDragonOrTiger(JSON.parse(oLotteryIssue.numbers),[2,7])}">{{ JSON.parse(oLotteryIssue.numbers) | isDragonOrTiger([2, 7]) }}</td>
+        <td class="d-xs-none" :class="{'text-danger' : '龙' === isDragonOrTiger(JSON.parse(oLotteryIssue.numbers),[3,6])}">{{ JSON.parse(oLotteryIssue.numbers) | isDragonOrTiger([3, 6]) }}</td>
+        <td class="d-xs-none" :class="{'text-danger' : '龙' === isDragonOrTiger(JSON.parse(oLotteryIssue.numbers),[4,5])}">{{ JSON.parse(oLotteryIssue.numbers) | isDragonOrTiger([4, 5]) }}</td>
       </tr>
     </tbody>
   </table>
   <table v-if="LOTTERIES[ code ].TYPES === 'SSC'" class="w-100">
     <tbody>
       <tr>
-        <th>时间</th>
-        <th>期数</th>
-        <th class="number-buttons  w-42">
+        <th class="d-xs-none">时间</th>
+        <th class="w-15">期数</th>
+        <th class="number-buttons w-42">
           <span class="mr-1" 
             @click="switchStatus(index)" 
             :class="{spanselect:index==titleStatus}" 
@@ -57,7 +57,7 @@
         <th colspan="5">1-5龙虎</th>
       </tr>
       <tr class="font-size-1p5 h-4" v-for="(oLotteryIssue,iIndex) in oLotteryIssues" :key="iIndex">
-        <td>{{oLotteryIssue.added_time}}</td>
+        <td class="w-15 d-xs-none">{{oLotteryIssue.added_time}}</td>
         <td>{{oLotteryIssue.no}}</td>
         <td>
           <S-numbers 
@@ -88,9 +88,9 @@
   <table v-if="LOTTERIES[ code ].TYPES === '11X5'" class="w-100">  
     <tbody>
       <tr>
-        <th class="th-width1">时间</th>
-        <th class="th-width2">期数</th>
-        <th class="number-buttons  w-42">
+        <th class="w-15 d-xs-none">时间</th>
+        <th class="w-10">期数</th>
+        <th class="number-buttons">
           <span class="mr-1"  
             @click="switchStatus(index)" 
             :class="{spanselect:index==titleStatus}" 
@@ -101,14 +101,14 @@
         </th>
         <th colspan="3" class="th-width1">总和</th>
         <th>龙虎</th>
-        <th>前三</th>
-        <th>中三</th>
-        <th>后三</th>
+        <th class="d-xs-none">前三</th>
+        <th class="d-xs-none">中三</th>
+        <th class="d-xs-none">后三</th>
       </tr>
       <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
-        <td>{{ oLotteryIssue.added_time }}</td>
+        <td class="d-xs-none">{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
-        <td>
+        <td class="w-42">
           <S-numbers 
           :code="code" 
           :onNumbers="onNumbers" 
@@ -124,18 +124,18 @@
         <td :class="{'text-large' : '大' === isSmallOrLarge(sum(JSON.parse(oLotteryIssue.numbers)),29,31)}">{{ JSON.parse(oLotteryIssue.numbers) | sum | isSmallOrLarge(29, 31) }}</td>
         <td :class="{'text-even' : '双' === isOddOrEven(sum(JSON.parse(oLotteryIssue.numbers),29,31))}">{{ JSON.parse(oLotteryIssue.numbers) | sum | isOddOrEven }}</td>
         <td :class="{'text-danger' : '龙' === isDragonOrTiger(JSON.parse(oLotteryIssue.numbers),[0,4])}">{{ JSON.parse(oLotteryIssue.numbers) | isDragonOrTiger([0, 4]) }}</td>
-        <td :class="{'text-danger' : '顺子' === determineSequence(JSON.parse(oLotteryIssue.numbers),[0,1,2])}">{{ JSON.parse(oLotteryIssue.numbers) | determineSequence([0, 1, 2]) }}</td>
-        <td :class="{'text-danger' : '顺子' === determineSequence(JSON.parse(oLotteryIssue.numbers),[1,2,3])}">{{ JSON.parse(oLotteryIssue.numbers) | determineSequence([1, 2, 3]) }}</td>
-        <td :class="{'text-danger' : '顺子' === determineSequence(JSON.parse(oLotteryIssue.numbers),[2,3,4])}">{{ JSON.parse(oLotteryIssue.numbers) | determineSequence([2, 3, 4]) }}</td>
+        <td class="d-xs-none" :class="{'text-danger' : '顺子' === determineSequence(JSON.parse(oLotteryIssue.numbers),[0,1,2])}">{{ JSON.parse(oLotteryIssue.numbers) | determineSequence([0, 1, 2]) }}</td>
+        <td class="d-xs-none" :class="{'text-danger' : '顺子' === determineSequence(JSON.parse(oLotteryIssue.numbers),[1,2,3])}">{{ JSON.parse(oLotteryIssue.numbers) | determineSequence([1, 2, 3]) }}</td>
+        <td class="d-xs-none" :class="{'text-danger' : '顺子' === determineSequence(JSON.parse(oLotteryIssue.numbers),[2,3,4])}">{{ JSON.parse(oLotteryIssue.numbers) | determineSequence([2, 3, 4]) }}</td>
       </tr>
     </tbody>
   </table>
   <table v-if="LOTTERIES[ code ].TYPES === 'K3'" class="w-100">
     <tbody>
       <tr>
-        <th>时间</th>
-        <th>期数</th>
-        <th class="th-width4">显示号码</th>
+        <th class="w-15">时间</th>
+        <th class="w-10">期数</th>
+        <th class="w-30">显示号码</th>
         <th colspan="3">总和</th>
         <th colspan="5">鱼虾蟹</th>
       </tr>
@@ -181,17 +181,22 @@
   <table v-if="LOTTERIES[ code ].TYPES === 'KLSF'" class="w-100"> 
     <tbody>
       <tr>
-        <th class="th-width1">时间</th>
-        <th class="th-width2">期数</th>
-        <th class="number-buttons th-width3">
-          <span @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
+        <th class="w-15 d-xs-none">时间</th>
+        <th class="w-10">期数</th>
+        <th class="number-buttons p-1">
+          <span 
+            class="mr-1"
+            @click="switchStatus(index)" 
+            :class="{spanselect:index==titleStatus}" 
+            v-for="(item,index) in titles" 
+            :key="index">{{item}}</span>
         </th>
         <th colspan="3" class="th-width1">总和</th>
         <th>尾大小</th>
         <th colspan="4" >龙虎</th>
       </tr>
       <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
-        <td>{{ oLotteryIssue.added_time }}</td>
+        <td class="d-xs-none">{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
           <S-numbers 
@@ -217,14 +222,14 @@
   <table v-if="LOTTERIES[ code ].TYPES === 'SIX'" class="w-100">
     <tbody>
       <tr>
-        <th class="w-15">时间</th>
+        <th class="w-15 d-xs-none">时间</th>
         <th class="w-15">期数</th>
-        <th class="number-buttons w-30">号码</th>
+        <th class="number-buttons">号码</th>
         <th colspan="3">总和</th>
         <th colspan="4">特码</th>
       </tr>
       <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
-        <td>{{ oLotteryIssue.added_time }}</td>
+        <td class="d-xs-none">{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
           <S-numbers 
@@ -249,7 +254,7 @@
   <table v-if="LOTTERIES[ code ].TYPES === 'KL8'" class="w-100">
     <tbody>
       <tr>
-        <th width="140">时间</th>
+        <th class="d-xs-none w-15">时间</th>
         <th>期数</th>
         <th>显示号码</th>
         <th colspan="3">总和</th>
@@ -259,9 +264,9 @@
         <th>五行</th>
       </tr>
       <tr v-for=" ( oLotteryIssue, iIndex ) in oLotteryIssues" :key="iIndex" class="h-4 font-size-1p5">
-        <td class="font-size-1">{{ oLotteryIssue.added_time }}</td>
+        <td class="font-size-1 d-xs-none">{{ oLotteryIssue.added_time }}</td>
         <td class="font-size-1">{{ oLotteryIssue.no}}</td>
-        <td>
+        <td class="w-30">
          <S-numbers 
          :code="code" 
          :onNumbers="onNumbers" 
@@ -288,18 +293,18 @@
   <table v-if="LOTTERIES[ code ].TYPES === '3D'" class="w-100">  
     <tbody>
       <tr>
-        <th>时间</th>
+        <th class="w-15 d-xs-none">时间</th>
         <th>期数</th>
-        <th class="w-30">号码</th>
+        <th class="w-25">号码</th>
         <th colspan="3">佰拾和</th>
         <th colspan="3">佰个和</th>
         <th colspan="3">拾个和</th>
         <th colspan="3">总和</th>
       </tr>
       <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
-        <td>{{ oLotteryIssue.added_time }}</td>
+        <td class="d-xs-none">{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
-        <td>
+        <td class="w-10">
           <S-numbers 
           :code="code" 
           :onNumbers="onNumbers" 
@@ -327,13 +332,13 @@
   <table v-if="LOTTERIES[ code ].TYPES === 'XY28'" class="w-100"> 
     <tbody>
       <tr>
-        <th class="w-15">时间</th>
+        <th class="w-15 d-xs-none">时间</th>
         <th class="w-15">期数</th>
         <th class="number-buttons w-30">号码</th>
         <th colspan="3">总和</th>
       </tr>
       <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
-        <td>{{ oLotteryIssue.added_time }}</td>
+        <td class="d-xs-none d-xs-none">{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
           <S-numbers 

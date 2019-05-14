@@ -10,7 +10,7 @@
         font-size:1.8vmin;
       }
       td {
-        padding: 0 0.7vmin;
+        padding: 0.3vmin 0.3vmin;
         border:1px #B9B9B9 solid;
         vertical-align: middle; // TODO
         }
@@ -27,14 +27,21 @@
       td:nth-child(6) {
         border-right:1px solid #b9b9b9;
       }
+      .w-36 {
+        width: 36%;
+      }
       .number-buttons {
         span {
           color: #fff;
           padding: 0.6vmin 1.3vmin;
           background: #b9b9b9;
           border-radius: 0.4vmin; 
-          font-size: 0.7vmin; 
+          font-size: 1vmin; 
           cursor: pointer;
+          @media only screen and (max-width: 767.98px) {
+           // font-size: 0.2vmin;
+            padding: 0.6vmin 0.3vmin;
+          }
         }
         span:hover {
           background: #50515f; 
