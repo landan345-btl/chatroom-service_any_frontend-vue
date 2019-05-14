@@ -130,7 +130,7 @@ class Pannel extends Vue {
       total_order_no: iLotteryIssueOrderNoTotalInThisDay,
       next_time: iNextTime,
       next_no: sNextNo,
-    }
+    };
     return oLotteryIssueExtension;
   }
 
