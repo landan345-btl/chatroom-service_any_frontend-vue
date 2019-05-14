@@ -20,7 +20,7 @@
         </span>
           &nbsp;
       </div>
-      <Numbers v-if="lotteryIssue" :code="code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lottery.types" class="status-number middle"/>
+      <S-numbers v-if="lotteryIssue" :code="code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lottery.types" class="status-number middle"/>
       <div class="bottom">
         <span> 已开 {{ getLotteryIssueExtension.order_no }} 期，还有 {{ getLotteryIssueExtension.total_order_no - getLotteryIssueExtension.order_no }} 期 </span>
       </div>
@@ -62,13 +62,13 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import IButton from '@/Components/IButton/Index.vue';
-import Numbers from '@/Components/Numbers/Index.vue';
+import SNumbers from '@/Components/SNumbers/Index.vue';
 import ChenCountdown from '@/Components/ChenCountdown/Index.vue';
 
 @Component({
   components: {
     IButton,
-    Numbers,
+    SNumbers,
     ChenCountdown,
   },
 })

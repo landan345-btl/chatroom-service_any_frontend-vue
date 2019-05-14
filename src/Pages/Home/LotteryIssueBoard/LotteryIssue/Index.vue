@@ -22,7 +22,7 @@
             </span>
           </div>
           <div class="bottom">
-            <Numbers 
+            <S-numbers 
               :code="lotteries[lotteryIssue.lottery_id].code" 
               :numbers="lotteryIssue.numbers" 
               :types="lotteries[lotteryIssue.lottery_id].types"
@@ -73,7 +73,7 @@ import ETabPane from '@/Components/ETabPane/Index.vue';
 import ETable from '@/Components/ETable/Index.vue';
 import Table from './Table/Index.vue';
 import ChenCountdown from '@/Components/ChenCountdown/Index.vue';
-import Numbers from '@/Components/Numbers/Index.vue';
+import SNumbers from '@/Components/SNumbers/Index.vue';
 
 @Component({
   name: 'LotteryIssue',
@@ -81,7 +81,7 @@ import Numbers from '@/Components/Numbers/Index.vue';
     ETabs,
     ETabPane,
     ETable,
-    Numbers,
+    SNumbers,
     Table,
     ChenCountdown,
   },
