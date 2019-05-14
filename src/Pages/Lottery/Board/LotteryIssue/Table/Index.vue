@@ -133,14 +133,14 @@
   <table v-if="LOTTERIES[ code ].TYPES === 'K3'" class="w-100">
     <tbody>
       <tr>
-        <th class="w-15">时间</th>
+        <th class="w-15 d-xs-none">时间</th>
         <th class="w-10">期数</th>
         <th class="w-30">显示号码</th>
         <th colspan="3">总和</th>
         <th colspan="5">鱼虾蟹</th>
       </tr>
       <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
-        <td>{{ oLotteryIssue.added_time }}</td>
+        <td class="d-xs-none">{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
           <S-numbers 
@@ -266,7 +266,7 @@
       <tr v-for=" ( oLotteryIssue, iIndex ) in oLotteryIssues" :key="iIndex" class="h-4 font-size-1p5">
         <td class="font-size-1 d-xs-none">{{ oLotteryIssue.added_time }}</td>
         <td class="font-size-1">{{ oLotteryIssue.no}}</td>
-        <td class="w-30">
+        <td class="w-36">
          <S-numbers 
          :code="code" 
          :onNumbers="onNumbers" 
