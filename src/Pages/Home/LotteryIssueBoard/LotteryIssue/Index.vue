@@ -67,7 +67,7 @@
 </style>
 
 <script lang="ts">
-import { 
+import {
   Component,
   Prop,
   Vue,
