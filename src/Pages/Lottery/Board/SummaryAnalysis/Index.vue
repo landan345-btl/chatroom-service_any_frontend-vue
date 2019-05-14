@@ -131,10 +131,10 @@
 
 </style>
 <script lang="ts">
-import { 
+import {
   Component,
-  Vue, 
-  Prop
+  Vue,
+  Prop,
 } from 'vue-property-decorator';
 
 import {
