@@ -124,9 +124,14 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import {
+  Component,
+  Vue,
+} from 'vue-property-decorator';
 
-import ITabs from '@/Components/ITabs/Index.vue';
+import {
+  ITabs,
+} from '@/Components/';
 
 import {
   LOTTERIES,
