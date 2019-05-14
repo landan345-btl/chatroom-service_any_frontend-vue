@@ -18,243 +18,291 @@ let oRandomNumber =  {   // 开奖时间进度条  时间倒数
     let iNumberLength = LOTTERY_TYPES[sTypes].NUMBERS.length;
     pProcess.then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       return new Promise((cResolve, cReject) => {
+        let iSecond = Math.floor(Math.random() * 200 ) + 101;
+
         setTimeout(() => {
           let iRandomIndex = Math.floor(Math.random() * iNumberLength ) + 1 - 1;
           let iNumber = LOTTERY_TYPES[sTypes].NUMBERS[iRandomIndex];
           let _sClassName = sClassName.replace(/\d+$/g, iNumber);
           oElement.className = _sClassName;
           cResolve();
-        }, 100 );
+        }, iSecond );
       });
     }).then(() => {
       oElement.className = sClassName;

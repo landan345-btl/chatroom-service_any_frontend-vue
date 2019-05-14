@@ -1,4 +1,4 @@
-import ChenCoutdown from './ChenCountdown/Index.vue';
+import ChenCountdown from './ChenCountdown/Index.vue';
 import ECarousel from './ECarousel/Index.vue';
 import ECheckbox from './ECheckbox/Index.vue';
 import ECheckboxGroup from './ECheckboxGroup/Index.vue';
@@ -8,14 +8,18 @@ import ESelect from './ESelect/Index.vue';
 import ETable from './ETable/Index.vue';
 import ETabPane from './ETabPane/Index.vue';
 import ETabs from './ETabs/Index.vue';
+
 import ITabs from './ITabs/Index.vue';
-import SNumbers from './SNumbers/Index.vue';
+import IButton from './IButton/Index.vue';
+
 import VLine from './VLine/Index.vue';
+
+import SNumbers from './SNumbers/Index.vue';
 import ResultTable from './ResultTable/Index.vue';
 import ICheckboxGroup from './ICheckboxGroup/Index.vue';
 
 export {
-  ChenCoutdown,
+  ChenCountdown,
   ECarousel,
   ECheckbox,
   ECheckboxGroup,
@@ -26,6 +30,7 @@ export {
   ETabPane,
   ETabs,
   ITabs,
+  IButton,
   VLine,
   ICheckboxGroup,
   SNumbers,

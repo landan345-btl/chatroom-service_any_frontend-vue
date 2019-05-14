@@ -139,8 +139,10 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-// import ITabs from '@/Components/ITabs/Index.vue';
+import {
+  Component,
+  Vue,
+} from 'vue-property-decorator';
 
 import {
   LOTTERIES,
@@ -149,7 +151,6 @@ import {
 @Component({
   name: 'StateTrend',
   components: {
-    // ITabs,
   },
 })
 class StateTrend extends Vue {

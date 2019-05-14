@@ -37,22 +37,27 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 
-import Footer from '@/Commons/Footer/Index.vue'; // @ is an alias to /src
-import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
-import NavTop from '@/Commons/NavTop/Index.vue';
-import NavRight from '@/Commons/NavRight/Index.vue';
-import Pannel from './Pannel/Index.vue';
-import Board from './Board/Index.vue';
+import {
+  Header,
+  NavTop,
+  NavRight,
+  Footer,
+} from '@/Commons/';
 
 import {
   Lottery as LotteryHelper,
 } from '@/Helpers/';
+
+import Pannel from './Pannel/Index.vue';
+import Board from './Board/Index.vue';
 
 import {
   BACKEND,
   LOTTERIES,
   LOTTERY_TYPES,
 } from '@/CONFIGS/';
+
+
 
 @Component({
   components: {

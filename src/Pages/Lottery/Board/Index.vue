@@ -56,13 +56,17 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import {
+  Component,
+  Vue,
+  Prop
+} from 'vue-property-decorator';
 
-import Footer from '@/Commons/Footer/Index.vue'; // @ is an alias to /src
-import Header from '@/Commons/Header/Index.vue'; // @ is an alias to /src
-import NavTop from '@/Commons/NavTop/Index.vue';
-import NavRight from '@/Commons/NavRight/Index.vue';
-import ITabs from '@/Components/ITabs/Index.vue';
+
+import { 
+  ITabs
+}from '@/Components/';
+
 import LotteryIssue from './LotteryIssue/Index.vue';
 import ResultAnalysis from './ResultAnalysis/Index.vue';
 import SummaryAnalysis from './SummaryAnalysis/Index.vue';
@@ -86,10 +90,6 @@ import {
 @Component({
   name: 'Board',
   components: {
-    Header,
-    NavTop,
-    NavRight,
-    Footer,
     ITabs,
     LotteryIssue,
     ResultAnalysis,

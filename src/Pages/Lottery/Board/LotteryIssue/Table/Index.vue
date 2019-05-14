@@ -363,9 +363,15 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import {
+  Component,
+  Vue,
+  Prop,
+} from 'vue-property-decorator';
 
-import SNumbers from '@/Components/SNumbers/Index.vue';
+import {
+  SNumbers,
+} from '@/Components/';
 
 import {
   LOTTERIES,

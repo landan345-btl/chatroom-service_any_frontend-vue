@@ -67,20 +67,22 @@
 </style>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import ETabs from '@/Components/ETabs/Index.vue';
-import ETabPane from '@/Components/ETabPane/Index.vue';
-import ETable from '@/Components/ETable/Index.vue';
+import { 
+  Component,
+  Prop,
+  Vue,
+} from 'vue-property-decorator';
+
+import {
+  ChenCountdown,
+  SNumbers,
+} from '@/Components/';
+
 import Table from './Table/Index.vue';
-import ChenCountdown from '@/Components/ChenCountdown/Index.vue';
-import SNumbers from '@/Components/SNumbers/Index.vue';
 
 @Component({
   name: 'LotteryIssue',
   components: {
-    ETabs,
-    ETabPane,
-    ETable,
     SNumbers,
     Table,
     ChenCountdown,

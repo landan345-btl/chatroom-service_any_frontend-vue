@@ -34,7 +34,12 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue, Prop, Emit } from 'vue-property-decorator';
+import { 
+  Component,
+  Vue,
+  Prop,
+  Emit,
+} from 'vue-property-decorator';
 import {
   LOTTERIES,
 } from '@/CONFIGS/';

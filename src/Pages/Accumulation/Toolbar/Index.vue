@@ -38,9 +38,16 @@
 
 </style>
 <script lang="ts">
-import { Component , Prop , Vue} from 'vue-property-decorator';
-import ECollapse from '@/Components/ECollapse/Index.vue';
-import ECheckbox from '@/Components/ECheckbox/Index.vue';
+import {
+  Component,
+  Prop,
+  Vue,
+} from 'vue-property-decorator';
+
+import {
+  ECollapse,
+  ECheckbox,
+} from '@/Components/';
 
 import {
   LOTTERIES,

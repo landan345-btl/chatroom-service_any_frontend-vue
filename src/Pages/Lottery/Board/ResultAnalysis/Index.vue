@@ -70,12 +70,6 @@
       <div class="p-1">
         <Result-table v-for="( utem , i ) in 6" :key="i"/>
       </div>
-      
-
-      
-    
-
-
     </div>
   </div>
 </template>
@@ -84,7 +78,11 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import {
+  Component,
+  Vue,
+} from 'vue-property-decorator';
+
 import {
   ITabs,
   ResultTable,

@@ -40,9 +40,18 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue, Prop, Emit } from 'vue-property-decorator';
-import ITabs from '@/Components/ITabs/Index.vue';
-import IButton from '@/Components/IButton/Index.vue';
+import {
+  Component,
+  Vue,
+  Prop,
+  Emit,
+} from 'vue-property-decorator';
+
+import {
+  ITabs,
+  IButton,
+} from '@/Components/';
+
 import TodayTwoSideNumberStatics from './TodayTwoSideNumberStatics/Index.vue';
 import AccumulationRemider from './AccumulationRemider/Index.vue';
 import NumberAnalysis from './NumberAnalysis/Index.vue';

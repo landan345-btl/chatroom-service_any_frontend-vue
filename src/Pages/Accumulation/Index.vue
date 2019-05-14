@@ -30,13 +30,18 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { 
+  Component,
+  Vue,
+} from 'vue-property-decorator';
 
-import Footer from '@/Commons/Footer/Index.vue';
-import Header from '@/Commons/Header/Index.vue';
-import NavTop from '@/Commons/NavTop/Index.vue';
-import NavRight from '@/Commons/NavRight/Index.vue';
-import ETabs from '@/Components/ETabs/Index.vue';
+import {
+  Header,
+  NavTop,
+  NavRight,
+  Footer,
+} from '@/Commons/';
+
 import Toolbar from './Toolbar/Index.vue';
 import Board from './Board/Index.vue';
 
@@ -46,7 +51,6 @@ import Board from './Board/Index.vue';
     NavTop,
     NavRight,
     Footer,
-    ETabs,
     Toolbar,
     Board,
   },
