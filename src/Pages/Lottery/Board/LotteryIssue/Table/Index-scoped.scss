@@ -15,6 +15,9 @@
         vertical-align: middle; // TODO
         }
       } 
+      td:nth-child(n+3) {
+        font-size:1.8vmin;
+      }
       td:nth-child(n+4) {
         color: #184dd5;
       }
@@ -27,9 +30,7 @@
       .number-buttons {
         span {
           color: #fff;
-          width: 7.8vmin;
-          height: 2.8vmin;
-          line-height: 2.8vmin;
+          padding: 0.6vmin 1.3vmin;
           background: #b9b9b9;
           border-radius: 0.4vmin; 
           font-size: 0.7vmin; 

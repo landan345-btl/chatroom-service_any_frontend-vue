@@ -4,7 +4,12 @@
     <Nav-top/>
     <Nav-right/>
     <el-row :gutter="0">
-      <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
+      <el-col 
+        :xs="{span: 22, offset: 1}" 
+        :sm="{span: 20, offset: 2}" 
+        :md="{span: 20, offset: 2}" 
+        :lg="{span: 20, offset: 2}"
+        :xl="{span: 16, offset: 4}">
         <main class="mt-2 mb-2">
           <Pannel 
             :lotteryIssue="getLastLotteryIssue" 

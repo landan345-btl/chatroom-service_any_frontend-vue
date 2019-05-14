@@ -14,6 +14,9 @@
     td {
       border: 1px solid #B9B9B9;
     } 
+    td:nth-child(n+5) {
+      color: blue;
+    }
   }
   tr:nth-child(even) {
     background:#fff;

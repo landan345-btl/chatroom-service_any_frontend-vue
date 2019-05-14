@@ -161,7 +161,7 @@
         </table>  
         <table class="mt-1">
           <tr>
-            <th rowspan="2">球次</th>
+            <th rowspan="2"><span class="ball-time">球次</span></th>
             <th colspan="4">总和</th>
             <th colspan="4">第一球</th>
             <th colspan="4">第二球</th>
