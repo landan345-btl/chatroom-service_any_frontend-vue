@@ -3,20 +3,21 @@
     <Header class="z-1001"/>
     <Nav-top class="z-1001"/>
     <Nav-right/>
-    <el-row :gutter="0" class="z-1001">
+    <el-row :gutter="0" class="z-1001 backgroung-gray">
       <el-col 
         :xs="{span: 22, offset: 1}" 
         :sm="{span: 20, offset: 2}" 
-        :md="{span: 18, offset: 3}" 
-        :lg="{span: 16, offset: 4}" 
-        class="background-white pb-2 pl-2 pr-2 mt-2 mb-2">
+        :md="{span: 20, offset: 2}" 
+        :lg="{span: 20, offset: 2}"
+        :xl="{span: 16, offset: 4}"
+        class="background-white pb-2 pr-1 mt-2 mb-2">
         <main>
-          <div class="top pl-2">
+          <div class="top mt-2 ml-2 font-size-2p5">
             长龙提醒
           </div>
           <div class="line mt-1 mb-2">
           </div>
-          <Toolbar/>
+          <Toolbar class="ml-2"/>
           <Board />
         </main>
       </el-col>
