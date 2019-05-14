@@ -212,7 +212,7 @@
 @import 'Index-scoped.scss';
 </style>
 <script lang="ts">
-import { 
+import {
   Component,
   Vue,
   Prop,

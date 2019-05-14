@@ -141,10 +141,10 @@
 </style>
 
 <script lang="ts">
-import { 
+import {
   Component,
   Prop,
-  Vue
+  Vue,
 } from 'vue-property-decorator';
 
 @Component({

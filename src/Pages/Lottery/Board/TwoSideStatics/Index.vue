@@ -41,9 +41,9 @@
 
 </style>
 <script lang="ts">
-import { 
+import {
   Component,
-  Vue
+  Vue,
 } from 'vue-property-decorator';
 
 import { 

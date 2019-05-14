@@ -137,7 +137,7 @@ import {
   Prop
 } from 'vue-property-decorator';
 
-import { 
+import {
   LOTTERIES,
 } from '@/CONFIGS/';
 
