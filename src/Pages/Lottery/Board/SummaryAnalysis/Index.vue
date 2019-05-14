@@ -106,7 +106,7 @@
         </div>
       </transition>
       <transition name="slide-fade">
-        <NumberAnalysi 
+        <NumberAnalysis 
           v-show="isNumberAnalysisShowed"
           class="p-2" 
           :types="types" 
@@ -131,21 +131,29 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue , Prop } from 'vue-property-decorator';
-import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
-import IButton from '@/Components/IButton/Index.vue';
-import SNumbers from '@/Components/SNumbers/Index.vue';
-import NumberAnalysi from './NumberAnalysis/Index.vue';
+import { 
+  Component,
+  Vue, 
+  Prop
+} from 'vue-property-decorator';
+
+import { 
+  LOTTERIES,
+} from '@/CONFIGS/';
+
+import {
+  IButton,
+  SNumbers,
+} from '@/Components/';
+
+import NumberAnalysis from './NumberAnalysis/Index.vue';
 import Table from './Table/Index.vue';
-// TODO
-// 2. Chart 要有 loading 动画
-// 3. 号码 为 0 折线会断
 
 @Component({
   name: 'SummaryAnalysis',
   components: {
     SNumbers,
-    NumberAnalysi,
+    NumberAnalysis,
     IButton,
     Table,
   },
