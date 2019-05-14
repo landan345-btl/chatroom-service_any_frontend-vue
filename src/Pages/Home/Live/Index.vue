@@ -27,7 +27,10 @@ import {
   Prop,
 } from 'vue-property-decorator';
 
-import { warn } from 'vue-class-component/lib/util';
+import {
+  warn,
+} from 'vue-class-component/lib/util';
+
 import {
   ChenCountdown,
 } from '@/Components/';
