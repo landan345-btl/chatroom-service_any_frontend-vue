@@ -44,18 +44,20 @@ import {
   Footer,
 } from '@/Commons/';
 
-import Pannel from './Pannel/Index.vue';
-import Board from './Board/Index.vue';
-
 import {
   Lottery as LotteryHelper,
 } from '@/Helpers/';
+
+import Pannel from './Pannel/Index.vue';
+import Board from './Board/Index.vue';
 
 import {
   BACKEND,
   LOTTERIES,
   LOTTERY_TYPES,
 } from '@/CONFIGS/';
+
+
 
 @Component({
   components: {
