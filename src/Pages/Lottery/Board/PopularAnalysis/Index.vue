@@ -79,6 +79,7 @@ import {
   name: 'PopularAnalysis',
   components: {
     SNumbers,
+    ICheckboxGroup,
   },
 })
 class PopularAnalysis extends Vue {
