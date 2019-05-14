@@ -54,11 +54,22 @@
 
 </style>
 <script lang="ts">
-import { Component , Prop , Vue , Watch, Model} from 'vue-property-decorator';
-import { warn } from 'vue-class-component/lib/util';
+import {
+  Component,
+  Prop,
+  Vue,
+  Watch,
+  Model,
+} from 'vue-property-decorator';
 
-import ETabs from '@/Components/ETabs/Index.vue';
-import ESelect from '@/Components/ESelect/Index.vue';
+import {
+  warn
+} from 'vue-class-component/lib/util';
+
+import {
+  ETabs,
+  ESelect,
+}from '@/Components/';
 
 @Component({
   name: 'Board',
