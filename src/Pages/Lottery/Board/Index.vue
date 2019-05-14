@@ -56,10 +56,17 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import {
+  Component,
+  Vue,
+  Prop
+} from 'vue-property-decorator';
 
 
-import ITabs from '@/Components/ITabs/Index.vue';
+import { 
+  ITabs
+}from '@/Components/';
+
 import LotteryIssue from './LotteryIssue/Index.vue';
 import ResultAnalysis from './ResultAnalysis/Index.vue';
 import SummaryAnalysis from './SummaryAnalysis/Index.vue';
