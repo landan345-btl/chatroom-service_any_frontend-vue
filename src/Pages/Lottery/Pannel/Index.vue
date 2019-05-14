@@ -60,7 +60,7 @@
 
 </style>
 <script lang="ts">
-import { 
+import {
   Component,
   Vue,
   Prop,
@@ -116,7 +116,6 @@ class Pannel extends Vue {
                       : new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime();
       let iDifferentTime = (iNowTime - iStartedTime) / 1000;
       iLotteryIssueOrderNoTotalInThisDay +=  Math.floor((iEndedTime - iStartedTime) / (0 !== this.lottery.interval_time ? 1000 * this.lottery.interval_time : 1));
-      
       if (0 === Number(this.lottery.interval_time)) {
         iNextTime = (new Date(this.lotteryIssue.date + ' ' + this.lotteryIssue.time).getTime() + 24 * 60 * 60 * 1000 - iNowTime) / 1000;
       }

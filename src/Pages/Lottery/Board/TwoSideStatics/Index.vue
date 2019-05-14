@@ -32,8 +32,6 @@
         <td>4</td>
       </tr>
     </table>
-    
-
   </div>
 </template>
 <style scoped lang="scss">
@@ -46,7 +44,7 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
-import { 
+import {
   ITabs
 } from '@/Components/';
 
