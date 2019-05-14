@@ -3,7 +3,6 @@ html {
   a:link {
     text-decoration: none;
   }
-  
   a:visited {
     text-decoration: none;
   }
@@ -28,12 +27,12 @@ html {
     color: #f4831e;
     i { 
       position: absolute;
-      top: 1.6vmin;
+      bottom: 0;
       right: 0;
       display: inline-block;
       height: 1.5vmin;
       width: 1.5vmin;
-      background: url("~@/assets/images/numbers.png") no-repeat -386px -55px;
+      background: url("~@/assets/images/numbers.png") no-repeat -39.8vmin -5.7vmin;
      }
   }
 }

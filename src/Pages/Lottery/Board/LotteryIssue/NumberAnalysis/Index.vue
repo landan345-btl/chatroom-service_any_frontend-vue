@@ -25,7 +25,7 @@
         {{ sRecord }}
         <i></i>
       </span>
-      <span class="reset"  @click="resetShow(reset)">还原</span>
+      <i class="reset d-inline-block"  @click="resetShow(reset)">还原</i>
     </div>
   </div>
 </template>

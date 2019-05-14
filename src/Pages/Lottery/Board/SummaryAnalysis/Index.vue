@@ -38,7 +38,7 @@
               <td>{{ numberFrequency( lotteryIssues , 9 ) }}</td>
             </tr>
           </table>
-          <table class="w-100">
+          <table class="w-100 mt-1">
             <tr>
               <td rowspan="2"> <span>球次</span> </td>
               <td colspan="4">总和</td>
@@ -90,7 +90,7 @@
         </div>
       </transition>
       <transition name="slide-fade">
-        <div class="p-2 " v-show="isAccumulationRemiderShowed">
+        <div class="p-2" v-show="isAccumulationRemiderShowed">
           <div class="long-reminder">
             <div class="font-size-2p5">长龙连开提醒</div>
             <div>

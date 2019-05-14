@@ -1,7 +1,12 @@
 <template>
   <header class="background-white">
     <el-row :gutter="0" type="flex" justify="space-between" class="top">
-      <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
+      <el-col 
+        :xs="{span: 22, offset: 1}" 
+        :sm="{span: 20, offset: 2}" 
+        :md="{span: 20, offset: 2}" 
+        :lg="{span: 20, offset: 2}"
+        :xl="{span: 16, offset: 4}">
         <span class="notification">
           <img src="@/assets/images/icon-notification.png"/>
           <span>最新公告：</span>
@@ -15,7 +20,12 @@
       </el-col>
     </el-row>
     <el-row :gutter="0" class="images pt-1 pb-1">
-      <el-col :xs="{span: 22, offset: 1}" :sm="{span: 20, offset: 2}" :md="{span: 18, offset: 3}" :lg="{span: 16, offset: 4}">
+      <el-col 
+        :xs="{span: 22, offset: 1}" 
+        :sm="{span: 20, offset: 2}" 
+        :md="{span: 20, offset: 2}" 
+        :lg="{span: 20, offset: 2}"
+        :xl="{span: 16, offset: 4}">
         <router-link :to="{ path: '/'}">
           <img src="@/assets/images/logo-top.png"/>
         </router-link>
