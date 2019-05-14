@@ -44,7 +44,6 @@ html {
 }
 
 .status-number {
-  width: 42vmin;
   .number-ssc {
     width: 3.8vmin;
     height: 3.8vmin;
@@ -1149,9 +1148,10 @@ html {
   }
 
   .number-cqklsf.number-klsf-7, .number-cqklsf.number-klsf-07 {
-    background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -327px 0;
+    background: url('~@/assets/images/numbers-cqklsf.png') no-repeat -32.6vmin 0;
     border-radius: 0;
     color: rgba($color: #000000, $alpha: 0);
+    background-size: 52.7vmin 11.3vmin;
   }
 
   .number-cqklsf.number-klsf-8, .number-cqklsf.number-klsf-08 {
