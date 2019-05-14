@@ -1,7 +1,7 @@
 <template>
   <div class="lottery-issue mt-sm-2 mb-sm-2 mt-md-2 mb-md-2 mt-lg-2 mb-lg-2 mt-xl-2 mb-xl-2">
     <div class="pseudo">
-      <div class="top mb-1 position-relative">
+      <div class="top mb-2 position-relative">
         <router-link class="icon align-middle d-inline-block d-xs-none" :to="{ path: '/lottery', query: { code: lotteries[lotteryIssue.lottery_id].code }}">
           <div :class="[lotteryIssue && lotteryIssue.lottery_id && lotteries && lotteries[lotteryIssue.lottery_id] && lotteries[lotteryIssue.lottery_id].code ? 'icon-' + lotteries[lotteryIssue.lottery_id].code.toLowerCase() + '-circle' : '']">
           </div>
