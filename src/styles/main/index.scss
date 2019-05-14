@@ -41,11 +41,11 @@ html {
 .number {
   display: inline-block;
   text-align: center;
-  margin: 0.5vmin 0.5vmin; 
+  margin: 0vmin 0.2vmin; 
 }
 
 .status-number {
-
+  width: 42vmin;
   .number-ssc {
     width: 3.8vmin;
     height: 3.8vmin;
@@ -570,12 +570,11 @@ html {
   }
 
   .number-kl8 {
-    width: 2.6vmin;
-    height: 2.6vmin;
-    border-radius: 1.3vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
+    border-radius: 1.9vmin;
     background-color: #0092dd;
-    line-height: 2.6vmin;
-    margin: 0 0.1vmin;
+    line-height: 1.9vmin;
   }
   
   .number-kl8-1,.number-kl8-01 {
