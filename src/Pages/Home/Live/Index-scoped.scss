@@ -19,14 +19,17 @@
   }
 
   /deep/ .chen-countdown{
+    font-size: 1vmin;
     .square {
       color: #000000;
       background: #ffffff;
-      font-size: 1vmin;
       height: 2vmin;
-      widows: 2vmin;
+      width: 1.5vmin;
+    }
+    & > * {
       & > * {
-        line-height: 1vmin;
+        height: 2vmin;
+        line-height: 2vmin;
       }
     }
   }

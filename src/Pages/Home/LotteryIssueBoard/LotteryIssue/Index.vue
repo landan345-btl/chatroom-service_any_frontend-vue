@@ -41,16 +41,16 @@
         <router-link class="" :to="{ path: '/live', query: { code: lotteries[lotteryIssue.lottery_id].code }}">
           开奖视频
         </router-link>
-        <router-link class="" :to="{ path: '/trend/information', query: { code: lotteries[lotteryIssue.lottery_id].code, tab: 'RESULT' }}">
+        <router-link class="" :to="{ path: '/lottery', query: { code: lotteries[lotteryIssue.lottery_id].code, tab: 'RESULT' }}">
           路珠分析
         </router-link>
-        <router-link class="" :to="{ path: '/trend/information', query: { code: lotteries[lotteryIssue.lottery_id].code, tab: 'POSITION' }}">
+        <router-link class="" :to="{ path: '/lottery', query: { code: lotteries[lotteryIssue.lottery_id].code, tab: 'POSITION' }}">
           定位走势
         </router-link>
-        <router-link class="" :to="{ path: '/trend/information', query: { code: lotteries[lotteryIssue.lottery_id].code, tab: 'ACCUMULATION' }}">
+        <router-link class="" :to="{ path: '/lottery', query: { code: lotteries[lotteryIssue.lottery_id].code, tab: 'ACCUMULATION' }}">
           长龙提醒
         </router-link>
-        <router-link class="" :to="{ path: '/trend/information', query: { code: lotteries[lotteryIssue.lottery_id].code, tab: 'POPULAR' }}">
+        <router-link class="" :to="{ path: '/lottery', query: { code: lotteries[lotteryIssue.lottery_id].code, tab: 'POPULAR' }}">
           冷热分析
         </router-link>
       </div>

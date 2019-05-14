@@ -2112,6 +2112,13 @@ html {
   background-size: 100% 100%;
 }
 
+.live-3d {
+  background: url("~@/assets/images/live-3D.jpg") no-repeat 0 0;
+  width: 185px;
+  height: 122px;
+  background-size: 100% 100%;
+}
+
 .live-six {
   background: url("~@/assets/images/live-SIX.jpg") no-repeat 0 0;
   width: 185px;
@@ -2139,4 +2146,23 @@ html {
   width: 185px;
   height: 122px;
   background-size: 100% 100%;
+}
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(45vmin);
+  opacity: 0;
+}
+
+.text-fish, .text-even, .text-large, .text-cock {
+  color: red !important;
+}
+
+.deuce-multiple {
+  color: DeepSkyBlue !important;
 }

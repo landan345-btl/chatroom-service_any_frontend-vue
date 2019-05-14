@@ -164,7 +164,7 @@
   color: white;
 }
 
-.color-deepskyblue,.deuce-multiple{
+.color-deepskyblue{
   color: DeepSkyBlue !important;
 }
 .color-red {
@@ -212,11 +212,6 @@
   color: #fff;
 }
 
-.background-image {
-  background: url("~@/assets/images/toggleSelect.png") no-repeat ;
-  background-size: 100% 100%;
-}
-
 .text-shrimp,.text-crad,.text-sum {
   color: #01C000 !important;
 }
@@ -241,7 +236,7 @@
   border-radius: 50%;
 }
 
-.text-danger, .text-fish ,.text-even,.text-big,.text-chicken{
+.text-danger {
   color: red !important;
 }
 .font-weight-bold {
@@ -732,15 +727,4 @@
 
 .background-white {
   background-color: #ffffff;
-}
-
-.slide-fade-enter-active {
-  transition: all .3s ease;
-}
-.slide-fade-leave-active {
-  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to {
-  transform: translateX(45vmin);
-  opacity: 0;
 }
