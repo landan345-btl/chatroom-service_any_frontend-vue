@@ -60,10 +60,17 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
-import IButton from '@/Components/IButton/Index.vue';
-import SNumbers from '@/Components/SNumbers/Index.vue';
-import ChenCountdown from '@/Components/ChenCountdown/Index.vue';
+import { 
+  Component,
+  Vue,
+  Prop,
+} from 'vue-property-decorator';
+
+import {
+  IButton,
+  SNumbers,
+  ChenCountdown,
+} from '@/Components/';
 
 @Component({
   components: {
