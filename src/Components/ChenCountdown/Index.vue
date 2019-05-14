@@ -1,6 +1,7 @@
 <template>
   <countdown :time="0 <= time ? time : 0" class="chen-countdown" :class="{ 'theme-b': theme == 'theme-a'}">
     <template slot-scope="props">
+      <span v-show="0 !== props.days || 0 !== props.hours || 0 !== props.minutes || 0 !== props.seconds">{{ text }}</span>
       <span class="square d-inline-block align-middle" v-show="props.days > 0 || props.hours > 0">
         <span class="align-middle">{{ props.hours }} </span> 
       </span> 
@@ -41,6 +42,9 @@ class ChenCountdown extends Vue {
   public time!: number;
   @Prop()
   public theme: string = 'theme-a';
+
+  @Prop()
+  public text!: string | void;
 }
 export default ChenCountdown;
 

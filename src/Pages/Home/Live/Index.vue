@@ -7,7 +7,8 @@
           :to="{ path: '/lottery', query: { code: lotteries && oLotteryIssue ? lotteries[oLotteryIssue.lottery_id].code.toUpperCase() : ''}}">
           <div :class="[lotteries && oLotteryIssue ? 'live-' + lotteries[oLotteryIssue.lottery_id].types.toLowerCase() : '']">
           </div>
-          <Chen-countdown :time="oLotteryIssue.next_time * 1000" :theme="'theme-a'" class="d-block mt-1"/>
+          <Chen-countdown :time="oLotteryIssue.next_time * 1000" :theme="'theme-a'" class="d-block mt-1" :text="'倒计时:'">
+          </Chen-countdown>
         </router-link>
       </div>
     </div>
