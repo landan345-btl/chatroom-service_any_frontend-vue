@@ -1,6 +1,6 @@
 <template>
-  <div class="recommended-lottery text-center">
-    <div class="title">
+  <div class="recommended-lottery text-center pt-2 pr-1 pb-2 pl-1">
+    <div class="title mb-2">
       <div class="font-weight-bold">推荐采种</div>
       <div class="mt-1">
         <span class="line"></span><span class="subtile">RECOMMENDED LOTTERY</span><span class="line"></span>

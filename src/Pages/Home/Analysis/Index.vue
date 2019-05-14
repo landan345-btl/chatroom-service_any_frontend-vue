@@ -13,7 +13,7 @@
               <div :class="['icon-' + oLottery.code.toLowerCase() ]">
               </div>
             </span>
-            <span class="title align-middle ml-2">
+            <span class="title align-middle ml-1">
               {{ LOTTERIES[oLottery.code].NAME | or(oLottery.name) }}
             </span>
           </div>
