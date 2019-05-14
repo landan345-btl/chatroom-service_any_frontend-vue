@@ -17,9 +17,8 @@ const MENU_LINKS = [
       {
         NAME: '热门彩',
         LINK: '',
-      }
-
-    ]
+      },
+    ],
   },
   {
     NAME: '长龙提醒',

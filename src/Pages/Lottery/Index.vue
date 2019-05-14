@@ -57,8 +57,6 @@ import {
   LOTTERY_TYPES,
 } from '@/CONFIGS/';
 
-
-
 @Component({
   components: {
     Header,
@@ -169,8 +167,8 @@ class Lottery extends Vue {
       let sType = oLotteries[oLotteryIssue.lottery_id].types;
       aNumbers.forEach((iNumber: number, iIndex: number) => {
         if (!oHotWarnColdCountPositions.hasOwnProperty(iIndex)) {
-          let oNumbersToCounts = LOTTERY_TYPES[sType].NUMBERS.reduce((_oNumbersToCounts: any, iNumber: any) => {
-            _oNumbersToCounts[iNumber] = 0;
+          let oNumbersToCounts = LOTTERY_TYPES[sType].NUMBERS.reduce((_oNumbersToCounts: any, _iNumber: any) => {
+            _oNumbersToCounts[_iNumber] = 0;
             return _oNumbersToCounts;
           }, {});
           oHotWarnColdCountPositions[iIndex] = oNumbersToCounts;
