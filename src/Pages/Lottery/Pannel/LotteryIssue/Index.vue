@@ -6,28 +6,6 @@
           <div :class="['icon-' + lotteries[lotteryIssue.lottery_id].code.toLowerCase() + '-circle']">
           </div>
         </div>
-        <!-- <router-link class="name-issue_no-numbers align-middle d-inline-block" :to="{ path: '/lottery-issue', query: { code: lotteries[lotteryIssue.lottery_id].code }}">
-          <div class="top">
-            <span class="name font-weight-bold ">
-              {{ lotteryIssue.name }}
-            </span>
-            <span class="no font-weight-bold">
-              {{ lotteryIssue.no }}
-            </span>
-            <span class="name font-weight-bold">
-              期
-            </span>
-            <span class="this-and-next">
-              当前&nbsp;{{ lotteryIssue.order_no_in_this_day }}&nbsp;期，剩&nbsp;{{ lotteryIssue.order_no_total_in_this_day - lotteryIssue.order_no_in_this_day }}&nbsp;期
-            </span>
-          </div>
-          <div class="bottom">
-            <S-numbers :code="lotteries[lotteryIssue.lottery_id].code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lotteryIssue.types"/>
-          </div>
-        </router-link>
-        <span class="countdown d-inline-block align-bottom position-absolute">
-          <Chen-countdown :time="lotteryIssue.next_time * 1000" :theme="'theme-a'"/>
-        </span> -->
       </div>
     </div>
   </div>
@@ -42,21 +20,15 @@
 </style>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import ETabs from '@/Components/ETabs/Index.vue';
-import ETabPane from '@/Components/ETabPane/Index.vue';
-import ETable from '@/Components/ETable/Index.vue';
-import Table from './Table/Index.vue';
-import ChenCountdown from '@/Components/ChenCountdown/Index.vue';
+import { 
+  Component,
+  Prop,
+  Vue,
+} from 'vue-property-decorator';
 
 @Component({
   name: 'LotteryIssue',
   components: {
-    ETabs,
-    ETabPane,
-    ETable,
-    Table,
-    ChenCountdown,
   },
 })
 class LotteryIssue extends Vue {
