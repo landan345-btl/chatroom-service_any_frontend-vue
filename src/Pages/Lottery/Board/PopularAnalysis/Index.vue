@@ -21,7 +21,7 @@
       <tr v-for="(oCounts, iPosition) in hotWarnColdPositions" :key="iPosition">
         <td class="align-middle font-size-1 text-center">{{ texts[types][iPosition] }} </td>
         <td class="align-middle text-left">
-            <Numbers 
+            <S-numbers 
               :code="code" 
               :counts="hotWarnColdPositions[iPosition]"
               :isCountShowed=" isHotCountShowed "
@@ -31,7 +31,7 @@
               :status="'NUMBER'" />
         </td>
         <td class="align-middle text-left">
-          <Numbers 
+          <S-numbers 
             :code="code"
             :counts="hotWarnColdPositions[iPosition]"
             :numbers="chooseNumbersByCount(hotWarnColdPositions[iPosition], 2, 3)" 
@@ -41,7 +41,7 @@
             :status="'NUMBER'" />
         </td>
         <td class="align-middle text-left">
-          <Numbers 
+          <S-numbers 
             :code="code" 
             :counts="hotWarnColdPositions[iPosition]"
             :numbers="chooseNumbersByCount(hotWarnColdPositions[iPosition], 0, 1)" 
@@ -63,7 +63,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
 import {
-  Numbers,
+  SNumbers,
   ICheckboxGroup,
 } from '@/Components/';
 
@@ -74,7 +74,7 @@ import {
 @Component({
   name: 'PopularAnalysis',
   components: {
-    Numbers,
+    SNumbers,
   },
 })
 class PopularAnalysis extends Vue {

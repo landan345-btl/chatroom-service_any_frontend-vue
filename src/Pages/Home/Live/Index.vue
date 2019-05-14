@@ -1,6 +1,6 @@
 <template>
-  <div class="live">
-    <div class="lotteries d-flex justify-content-between"> 
+  <div class="live background-white pt-2 pr-2 pb-1 pl-2">
+    <div class="lotteries d-flex flex-wrap justify-content-between overflow-hidden"> 
       <div class="lottery" v-for="(oLotteryIssue, iLotteryIssueId, iIndex) in lotteryIssues" :key="iLotteryIssueId" v-if="iIndex < 4">
         <router-link 
           class="text-center"

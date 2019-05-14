@@ -53,9 +53,9 @@ import {
 } from '@/CONFIGS/';
 
 @Component({
-  name: 'Numbers',
+  name: 'SNumbers',
 })
-class Numbers extends Vue {
+class SNumbers extends Vue {
   @Prop()
   public code!: string;
 
@@ -117,6 +117,6 @@ class Numbers extends Vue {
   }
 
 }
-export default Numbers;
+export default SNumbers;
 
 </script>

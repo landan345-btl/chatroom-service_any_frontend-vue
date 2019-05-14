@@ -16,7 +16,7 @@
       <tr v-for="(lotteryIssue, iIndex ) in oLotteryIssues" :key="iIndex">
         <td>{{ lotteryIssue.no }}</td>
         <td>
-          <Numbers 
+          <S-numbers 
           :code="code" 
           :numbers="JSON.parse(lotteryIssue.numbers )" 
           :types="types" 
@@ -55,7 +55,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
-import Numbers from '@/Components/Numbers/Index.vue';
+import SNumbers from '@/Components/SNumbers/Index.vue';
 
 import {
   LOTTERIES,
@@ -64,7 +64,7 @@ import {
 @Component({
   name: 'Table',
   components: {
-    Numbers,
+    SNumbers,
   },
 })
 class Table extends Vue {

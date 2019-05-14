@@ -1,9 +1,10 @@
 .live {
-  padding: 2vmin 2vmin 1vmin 2vmin;
-  background-color: #ffffff;
   border-top: 2px solid #f0f0f0;
   @media only screen and (max-width: 767px) {
     display: none;
+  }
+  .lotteries {
+    height: 15vmin;
   }
   .lottery {
     flex: 1 1 20%;

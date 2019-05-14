@@ -134,7 +134,7 @@
 import { Component, Vue , Prop } from 'vue-property-decorator';
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
 import IButton from '@/Components/IButton/Index.vue';
-import Numbers from '@/Components/Numbers/Index.vue';
+import SNumbers from '@/Components/SNumbers/Index.vue';
 import NumberAnalysi from './NumberAnalysis/Index.vue';
 import Table from './Table/Index.vue';
 // TODO
@@ -144,7 +144,7 @@ import Table from './Table/Index.vue';
 @Component({
   name: 'SummaryAnalysis',
   components: {
-    Numbers,
+    SNumbers,
     NumberAnalysi,
     IButton,
     Table,

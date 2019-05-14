@@ -15,7 +15,7 @@
         <td>{{oLotteryIssue.added_time}}</td>
         <td>{{oLotteryIssue.no}}</td>
         <td>
-          <Numbers 
+          <S-numbers 
             :code="code" 
             :numbers="JSON.parse(oLotteryIssue.numbers)" 
             :types="types" 
@@ -60,7 +60,7 @@
         <td>{{oLotteryIssue.added_time}}</td>
         <td>{{oLotteryIssue.no}}</td>
         <td>
-          <Numbers 
+          <S-numbers 
             :code="code" 
             :onNumbers="onNumbers" 
             :previousNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
@@ -109,7 +109,7 @@
         <td>{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
-          <Numbers 
+          <S-numbers 
           :code="code" 
           :onNumbers="onNumbers" 
           :previousNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
@@ -143,7 +143,7 @@
         <td>{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
-          <Numbers 
+          <S-numbers 
           :code="code" 
           :onNumbers="onNumbers" 
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
@@ -194,7 +194,7 @@
         <td>{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
-          <Numbers 
+          <S-numbers 
             :code="code" 
             :onNumbers="onNumbers" 
             :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
@@ -227,7 +227,7 @@
         <td>{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
-          <Numbers 
+          <S-numbers 
           :code="code" 
           :onNumbers="onNumbers" 
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
@@ -262,7 +262,7 @@
         <td class="font-size-1">{{ oLotteryIssue.added_time }}</td>
         <td class="font-size-1">{{ oLotteryIssue.no}}</td>
         <td>
-         <Numbers 
+         <S-numbers 
          :code="code" 
          :onNumbers="onNumbers" 
          :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
@@ -300,7 +300,7 @@
         <td>{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
-          <Numbers 
+          <S-numbers 
           :code="code" 
           :onNumbers="onNumbers" 
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
@@ -336,7 +336,7 @@
         <td>{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
-          <Numbers 
+          <S-numbers 
           :code="code" 
           :onNumbers="onNumbers" 
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
@@ -360,7 +360,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
-import Numbers from '@/Components/Numbers/Index.vue';
+import SNumbers from '@/Components/SNumbers/Index.vue';
 
 import {
   LOTTERIES,
@@ -369,7 +369,7 @@ import {
 @Component({
   name: 'Table',
   components: {
-    Numbers,
+    SNumbers,
   },
 })
 class Table extends Vue {

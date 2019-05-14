@@ -9,7 +9,7 @@ import ETable from './ETable/Index.vue';
 import ETabPane from './ETabPane/Index.vue';
 import ETabs from './ETabs/Index.vue';
 import ITabs from './ITabs/Index.vue';
-import Numbers from './Numbers/Index.vue';
+import SNumbers from './SNumbers/Index.vue';
 import VLine from './VLine/Index.vue';
 import ResultTable from './ResultTable/Index.vue';
 import ICheckboxGroup from './ICheckboxGroup/Index.vue';
@@ -28,6 +28,6 @@ export {
   ITabs,
   VLine,
   ICheckboxGroup,
-  Numbers,
+  SNumbers,
   ResultTable,
 };

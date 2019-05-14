@@ -1,8 +1,6 @@
 .recommended-lottery {
-  padding: 2vmin 1vmin 2vmin 1vmin;
   background-image: linear-gradient(#ffffff 0%,#ffffff 75%, #dddddd 100%);
   .title {
-    margin-bottom: 2.4vmin;
     div:first-child {
       font-size: 2vmin;
     }
@@ -29,7 +27,13 @@
       margin: auto;
       width: 6vmin;
       height: 6vmin;
+      @media only screen and (max-width: 991.98px) {
+        width: 3vmin;
+        height: 3vmin;
+      }
     }
+
+
 
     .name {
       margin-top: 0.6vmin;
