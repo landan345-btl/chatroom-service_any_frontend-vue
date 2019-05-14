@@ -20,9 +20,17 @@
 </style>
 
 <script lang="ts">
-import { Component, Watch, Vue, Prop } from 'vue-property-decorator';
+import { 
+  Component,
+  Watch,
+  Vue,
+  Prop,
+} from 'vue-property-decorator';
+
 import { warn } from 'vue-class-component/lib/util';
-import ChenCountdown from '@/Components/ChenCountdown/Index.vue';
+import {
+  ChenCountdown,
+} from '@/Components/';
 
 @Component({
   name: 'Live',
