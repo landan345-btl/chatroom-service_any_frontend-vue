@@ -39,7 +39,7 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
-import { 
+import {
   warn,
 } from 'vue-class-component/lib/util';
 
