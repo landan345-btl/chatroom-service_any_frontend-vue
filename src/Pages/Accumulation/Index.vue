@@ -1,9 +1,9 @@
 <template>
   <div class="page accumulation">
-    <Header class="z-1001"/>
-    <Nav-top class="z-1001"/>
-    <Nav-right/>
-    <el-row :gutter="0" class="z-1001 backgroung-gray">
+    <Header />
+    <Nav-top class="z-1000"/>
+    <Nav-right style="z-index:1002"/>
+    <el-row :gutter="0" class="z-1000 backgroung-gray">
       <el-col 
         :xs="{span: 22, offset: 1}" 
         :sm="{span: 20, offset: 2}" 
