@@ -22,6 +22,8 @@
     "no-debugger": true,
     "quote-props": ["error", "always"],
     "max-line-length": [true, 240],
-    "vue/no-use-v-if-with-v-for": "off"
+    "no-parsing-error": [2, { 
+      "x-invalid-end-tag": false
+    }]
   }
 }

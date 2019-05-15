@@ -1,12 +1,12 @@
 <template>
   <header class="background-white">
-    <el-row :gutter="0" type="flex" justify="space-between" class="top">
-      <el-col 
+    <Row :gutter="0" type="flex" justify="space-between" class="top">
+      <Col
         :xs="{span: 22, offset: 1}" 
         :sm="{span: 20, offset: 2}" 
         :md="{span: 20, offset: 2}" 
         :lg="{span: 20, offset: 2}"
-        :xl="{span: 16, offset: 4}">
+        :xl="{span: 16, offset: 4}" >
         <span class="notification">
           <img src="@/assets/images/icon-notification.png"/>
           <span>最新公告：</span>
@@ -17,10 +17,10 @@
           <span>帮助中心</span>
           <span>手机版</span>
         </span>
-      </el-col>
-    </el-row>
-    <el-row :gutter="0" class="images pt-1 pb-1">
-      <el-col 
+      </Col>
+    </Row>
+    <Row class="images pt-1 pb-1">
+      <Col 
         :xs="{span: 22, offset: 1}" 
         :sm="{span: 20, offset: 2}" 
         :md="{span: 20, offset: 2}" 
@@ -30,8 +30,8 @@
           <img src="@/assets/images/logo-top.png"/>
         </router-link>
         <img class="qrcode float-right" src="@/assets/images/icon-qrcode.png"/>
-      </el-col>
-    </el-row>
+      </Col>
+    </Row>
   </header>
 </template>
 
