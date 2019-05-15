@@ -11,7 +11,7 @@
         <Summary-analysis :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types" :todayTwoSideRecords="todayTwoSideRecords"/>
       </TabPane>
       <TabPane :label="'基本走势'" :name="'basic-trend'">
-        <Basic-trend />
+        <Basic-trend  :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types"/>
       </TabPane>
       <TabPane :label="'冷热分析'" :name="'popular-anaylysis'">
         <Popular-analysis :hotWarnColdPositions="hotWarnColdPositions" :code="code" :types="types"/>

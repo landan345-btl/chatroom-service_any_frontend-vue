@@ -421,10 +421,7 @@
           </tr>
         </table>
       </div>
-     
     </div>
-
-
   </div>
 </template>
 <style scoped lang="scss">
@@ -432,21 +429,12 @@
 
 </style>
 <script lang="ts">
-import {
-  Component,
-  Vue,
-} from 'vue-property-decorator';
+import {Component, Vue, Prop } from 'vue-property-decorator';
 
-import {
-  ITabs,
-} from '@/Components/';
+import {ITabs } from '@/Components/';
 
-import {
-  LOTTERIES,
-} from '@/CONFIGS/';
-// TODO
-// 2. Chart 要有 loading 动画
-// 3. 号码 为 0 折线会断
+import { LOTTERIES } from '@/CONFIGS/';
+
 @Component({
   name: 'BasicTrend',
   components: {
@@ -454,8 +442,21 @@ import {
   },
 })
 class BasicTrend extends Vue {
+
+  @Prop()
+  public lotteryIssues!: any;
+
+  @Prop()
+  public lottery!: any;
+
+  @Prop()
+  public code!: any;
+
+  @Prop()
+  public types!: any;
+
   public button1 = '今天';
-  public checkList = ['折线'];
+  public checkList = ['遗漏', '拆线'];
 }
 export default BasicTrend;
 </script>
