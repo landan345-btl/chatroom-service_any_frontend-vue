@@ -13,7 +13,7 @@
         <th>中三</th>
         <th>后三</th>
       </tr>
-      <tr v-for="(lotteryIssue, iIndex ) in oLotteryIssues" :key="iIndex">
+      <tr v-for="(lotteryIssue, iIndex ) in oLotteryIssues" :key="iIndex" class="font-size-1p5">
         <td>{{ lotteryIssue.no }}</td>
         <td>
           <S-numbers 

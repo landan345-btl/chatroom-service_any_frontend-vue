@@ -11,21 +11,21 @@
         <Radio label="最近90期"></Radio>
       </RadioGroup>
     </div>
-    <div class="p-2">
+    <div class="pt-2 pl-2">
       标注选择：
       <el-checkbox-group v-model="checkList">
         <el-checkbox label="遗漏"></el-checkbox>
-        <el-checkbox label="折线"></el-checkbox>
+        <el-checkbox label="拆线"></el-checkbox>
         <el-checkbox label="遗漏分层"></el-checkbox>
         <el-checkbox label="分隔线"></el-checkbox>
       </el-checkbox-group>
     </div>
     <div class="p-2 fictitious">
       <div>
-         <table class="basic-table" v-canvasTrend>
+         <table class="basic-table">
           <tr>
-            <td rowspan="2"> <span>期号</span> </td>
-            <td rowspan="2"> <span>开奖号码</span> </td>
+            <td rowspan="2" class="w-10"> <span>期号</span> </td>
+            <td rowspan="2" class="w-0p8"> <span>开奖号码</span> </td>
             <td colspan="10">第一球</td>
             <td colspan="10">第二球</td>
             <td colspan="10">第三球</td>
@@ -84,66 +84,16 @@
             <td>8</td>
             <td>9</td>
           </tr>
-          <tr v-for="( item , i ) in 15" :key="i">
-            <td>20190508086</td>
-            <td class="color-red">
-              <span>2</span>
-              <span>3</span>
-              <span>3</span>
-              <span>3</span>
-              <span>3</span>
+          <tr v-for="( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
+            <td>{{oLotteryIssue.no}}</td>
+            <td class="color-red w-10" >
+              <span v-for="( Numbers , index ) in JSON.parse(oLotteryIssue.numbers)" :key="index">{{ Numbers }}</span>
             </td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span class="background-orange-0">22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span class="background-blue-1">22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span class="background-cyan-2">22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span class="background-purple-3">22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span class="background-blackish-green-4">22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            <td><span>22</span></td>
-            
+              <td v-for="( iNumbers , iIndex ) in JSON.parse(oLotteryIssue.numbers)" :key="iIndex"><span class="background-orange-0">{{iNumbers | substr(0, 1)}}</span></td> 
+            <!-- <td><span class="background-blue-1">5</span></td>
+            <td><span class="background-cyan-2">5</span></td>
+            <td><span class="background-purple-3">3</span></td>
+            <td><span class="background-blackish-green-4">2</span></td> -->
           </tr>
         </table>
         <table>
@@ -433,7 +383,7 @@ import {Component, Vue, Prop } from 'vue-property-decorator';
 
 import {ITabs } from '@/Components/';
 
-import { LOTTERIES } from '@/CONFIGS/';
+import {LOTTERY_TYPES } from '@/CONFIGS/';
 
 @Component({
   name: 'BasicTrend',
@@ -457,6 +407,13 @@ class BasicTrend extends Vue {
 
   public button1 = '今天';
   public checkList = ['遗漏', '拆线'];
+
+  public get oLotteryIssues(): object {
+    let oLotteryIssues = this.lotteryIssues;
+    let aLotteryIssues = Object.values(oLotteryIssues);
+    let oLotteryIssue = aLotteryIssues.reverse().slice(0 , 14);
+    return oLotteryIssue;
+  }
 }
 export default BasicTrend;
 </script>
