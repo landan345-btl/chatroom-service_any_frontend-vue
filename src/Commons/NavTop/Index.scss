@@ -1,10 +1,43 @@
-.el-menu--horizontal .el-menu .el-menu-item, 
-.el-menu--horizontal .el-menu .el-submenu__title {
-  color: #909399;
+.menu {
+  height: 6vmin;
+  span {
+   line-height: 6vmin;
+  }
+  span:first-child, span:last-child {
+    background: #EB7100; 
+  }
+  span:hover {
+    background: #EB7100; 
+  }
 }
 
-.el-menu--horizontal .el-menu .el-menu-item:hover, 
-.el-menu--horizontal .el-menu .el-submenu__title:hover {
-  background: #eb7100;
-  color: #ffffff;
+.pull-menu {
+  position: absolute;
+  width: 100%;
+  background: #fff;
+  z-index: 10;
+ // display: none;
+  left: 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,.15);
+  .down-menu {
+    .lottery-type {
+      width:98%;
+      margin: auto;
+      border-bottom:2px solid #E7EAED;
+      .type-title {
+        width: 11vmin;
+        display:inline-block; 
+        background: url('~@/assets/images/jwc-pic.png') no-repeat;
+      }
+      .lottery-title {
+        padding: 0.5vmin 1vmin; 
+        border-radius: 0.3vmin;
+      }
+      .lottery-title:hover {
+        background: #EB7100;
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+  }
 }

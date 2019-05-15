@@ -1,5 +1,5 @@
 <template>
- 	<nav class="nav-background">
+ 	<nav class="nav-background color-white">
     <Row :gutter="0">
       <Col 
         :xs="{span: 22, offset: 1}" 
@@ -7,8 +7,21 @@
         :md="{span: 20, offset: 2}" 
         :lg="{span: 20, offset: 2}"
         :xl="{span: 16, offset: 4}">
-        <el-menu :default-active="'1'" class="el-menu-demo nav-background" mode="horizontal" active-text-color="#ffd04b">
-          <el-menu-item index="1" class="font-2-vmin"><a href="/">首页</a></el-menu-item>
+        <div class="menu font-size-2 d-flex justify-content-between">
+          <span v-for="(link, sIndex) in MENU_LINKS" :key="sIndex" class="pl-2 pr-1">
+            <font-awesome-icon :icon="link.ICON" v-if="link.ICON" class="color-white"/>
+            <router-link :to="{ path: `${link.LINK}` }" class="color-white">{{link.NAME}}</router-link>
+            <i v-if="link.SUB_MENU_LINKS && 0 < link.SUB_MENU_LINKS.length">▾</i>
+          </span>
+        </div>
+         <!-- <el-menu-item index="1" class="font-2-vmin" v-for="(menu, sIndex) in MENU_LINKS" :key="sIndex">
+            <router-link :to="{ path: `${menu.LINK}` }">{{menu.NAME}}</router-link>
+          </el-menu-item> -->
+        <!-- <el-menu :default-active="'1'" class="el-menu-demo nav-background" mode="horizontal" active-text-color="#ffd04b">
+          <el-menu-item index="1" class="font-2-vmin" v-for="(menu, sIndex) in MENU_LINKS" :key="sIndex">
+            <router-link :to="{ path: `${menu.LINK}` }">{{menu.NAME}}</router-link>
+          </el-menu-item>
+           <el-menu-item index="1" class="font-2-vmin"><a href="/">首页</a></el-menu-item>
           <el-submenu index="2">
             <template slot="title">彩票大厅</template>
             <el-submenu index="2-1">
@@ -81,13 +94,26 @@
             </el-submenu>
           </el-submenu>
           <el-menu-item index="3" class="font-2-vmin"><router-link :to="{ path: '/accumulation' }">长龙提醒</router-link></el-menu-item>
-          <el-menu-item index="4" class="font-2-vmin"><router-link :to="{ path: '/trend' }">走势图表</router-link></el-menu-item>
-        </el-menu>
+          <el-menu-item index="4" class="font-2-vmin"><router-link :to="{ path: '/trend' }">走势图表</router-link></el-menu-item> 
+        </el-menu>-->
+      </Col>
+    </Row>
+    <Row :gutter="0" class="pull-menu z-1000 color-black">
+      <Col 
+        :xs="{span: 22, offset: 1}" 
+        :sm="{span: 20, offset: 2}" 
+        :md="{span: 20, offset: 2}" 
+        :lg="{span: 20, offset: 2}"
+        :xl="{span: 16, offset: 4}">
+        <div class="down-menu"  v-for="(link, sIndex) in MENU_LINKS" :key="sIndex">
+          <div class="lottery-type pt-2" v-for="(subLink, sIndex) in link.SUB_MENU_LINKS" :key="sIndex">
+            {{ subLink.NAME }}
+          </div>
+        </div>
       </Col>
     </Row>
 	</nav>
 </template>
-
 <style scoped lang="scss">
 @import 'Index-scoped.scss';
 </style>
@@ -99,6 +125,7 @@
 <script lang="ts">
 
 import { Component, Vue } from 'vue-property-decorator';
+
 @Component({
   name: 'NavTop',
 })

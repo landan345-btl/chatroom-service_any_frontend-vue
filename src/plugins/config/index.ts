@@ -1,5 +1,6 @@
 import {
   LOTTERIES,
+  MENU_LINKS,
 } from '@/CONFIGS/';
 
 let oConfigPlugin = {
@@ -8,6 +9,7 @@ let oConfigPlugin = {
   install(Vue: any, options: any) {
     // We call Vue.mixin() here to inject functionality into all components.
     Vue.prototype.LOTTERIES = LOTTERIES;
+    Vue.prototype.MENU_LINKS = MENU_LINKS;
   },
 };
 
