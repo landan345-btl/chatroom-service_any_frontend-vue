@@ -13,6 +13,7 @@ import ITabs from './ITabs/Index.vue';
 import IButton from './IButton/Index.vue';
 import ICheckboxGroup from './ICheckboxGroup/Index.vue';
 import IDatePicker from './IDatePicker/Index.vue';
+import ICollapse from './ICollapse/Index.vue';
 
 import VLine from './VLine/Index.vue';
 
@@ -34,8 +35,9 @@ export {
   ITabs,
   IDatePicker,
   IButton,
-  VLine,
+  ICollapse,
   ICheckboxGroup,
+  VLine,
   SNumbers,
   ResultTable,
 };
