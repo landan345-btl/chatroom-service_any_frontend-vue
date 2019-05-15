@@ -81,13 +81,13 @@ import {
 
 import {
   LOTTERIES,
-  ICheckboxGroup,
 } from '@/CONFIGS/';
 
 @Component({
   name: 'Toolbar',
   components: {
     ICollapse,
+    ICheckboxGroup,
   },
 })
 class Toolbar extends Vue {
