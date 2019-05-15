@@ -1,8 +1,8 @@
 <template>
   <footer>
   	<div class="middle">
-      <el-row :gutter="0">
-        <el-col 
+      <Row :gutter="0">
+        <Col 
           :xs="{span: 22, offset: 1}" 
           :sm="{span: 5, offset: 2}" 
           :md="{span: 5, offset: 2}" 
@@ -13,8 +13,8 @@
             <p>最专业的彩票开奖网站</p>
             <p>数据分析最全面的开奖数据平台</p>
           </div>
-        </el-col>
-        <el-col 
+        </Col>
+        <Col 
           :xs="{span: 0, offset: 0}" 
           :sm="{span: 5, offset: 0}" 
           :md="{span: 5, offset: 0}" 
@@ -29,8 +29,8 @@
             <li><a href="/">商务合作</a></li>
             <li><a href="/">免责声明</a></li>
           </ul>
-        </el-col>
-        <el-col 
+        </Col>
+        <Col 
           :xs="{span: 0, offset: 0}" 
           :sm="{span: 5, offset: 0}" 
           :md="{span: 5, offset: 0}" 
@@ -44,8 +44,8 @@
             <li><a href="/">走势图表</a></li>
             <li><a href="/">玩法规则</a></li>
           </ul>
-        </el-col>
-        <el-col 
+        </Col>
+        <Col 
           :xs="{span: 0, offset: 0}" 
           :sm="{span: 5, offset: 0}" 
           :md="{span: 5, offset: 0}" 
@@ -58,19 +58,19 @@
             <li><a href="/">自助网址导航</a></li>
             <li><a href="/">开奖调用</a></li>
           </ul>
-        </el-col>
-      </el-row>
+        </Col>
+      </Row>
   	</div>
     <div class="bottom">
-      <el-row :gutter="0" type="flex" justify="space-between">
-        <el-col 
+      <Row :gutter="0" type="flex" justify="space-between">
+        <Col 
           :xs="{span: 22, offset: 1}" 
           :sm="{span: 20, offset: 2}" 
           :md="{span: 18, offset: 3}" 
           :lg="{span: 16, offset: 4}">
           <p class="content"><span>© 2019 www.dev.lottery.ques98.cn All rights reserved 彩票开奖网 版权所有 粤ICP备09298233</span> <span>号站长统计</span></p>
-        </el-col>
-      </el-row>
+        </Col>
+      </Row>
     </div>
 
   </footer>

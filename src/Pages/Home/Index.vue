@@ -3,8 +3,8 @@
     <Header />
     <NavTop/>
     <NavRight />
-    <el-row :gutter="0">
-      <el-col 
+    <Row :gutter="0">
+      <Col 
         :xs="{span: 22, offset: 1}" 
         :sm="{span: 15, offset: 2}" 
         :md="{span: 14, offset: 2}" 
@@ -15,8 +15,8 @@
           <Live :lotteries="lotteries" :lotteryIssues="lotteryIssues"/>
           <Lottery-issue-board :lotteryIssues="lotteryIssues" :lotteries="lotteries"/>
         </main>
-      </el-col>
-      <el-col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 6}" :xl="{span: 4}">
+      </Col>
+      <Col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 6}" :xl="{span: 4}">
         <aside>
           <Recommended-lottery :lotteries="lotteries"/>
           <Advertisment-a />
@@ -24,10 +24,10 @@
           <Advertisment-b />
           <Analysis :lotteries="lotteries"/>
         </aside>
-      </el-col>
-      <el-col :xs="{span: 1}" :sm="{span: 2}" :md="{span: 3}" :lg="{span: 6}" :xl="{span: 4}">
-      </el-col>
-    </el-row>
+      </Col>
+      <Col :xs="{span: 1}" :sm="{span: 2}" :md="{span: 3}" :lg="{span: 6}" :xl="{span: 4}">
+      </Col>
+    </Row>
 
     <Footer />
   </div>

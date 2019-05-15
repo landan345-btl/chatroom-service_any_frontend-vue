@@ -1,7 +1,7 @@
 <template>
  	<nav class="nav-background">
-    <el-row :gutter="0">
-      <el-col 
+    <Row :gutter="0">
+      <Col 
         :xs="{span: 22, offset: 1}" 
         :sm="{span: 20, offset: 2}" 
         :md="{span: 20, offset: 2}" 
@@ -83,8 +83,8 @@
           <el-menu-item index="3" class="font-2-vmin"><router-link :to="{ path: '/accumulation' }">长龙提醒</router-link></el-menu-item>
           <el-menu-item index="4" class="font-2-vmin"><router-link :to="{ path: '/trend' }">走势图表</router-link></el-menu-item>
         </el-menu>
-      </el-col>
-    </el-row>
+      </Col>
+    </Row>
 	</nav>
 </template>
 
