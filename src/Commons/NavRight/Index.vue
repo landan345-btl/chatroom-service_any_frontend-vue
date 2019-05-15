@@ -1,7 +1,7 @@
 <template>
  	<nav class="right z-xs-1001 z-sm-0">
-    <el-row :gutter="12" class="">
-      <el-col 
+    <Row :gutter="12" class="">
+      <Col 
         :xs="{span: 24, offset: 0}" 
         :sm="{span: 2, offset: 22}" 
         :md="{span: 1, offset: 22}" 
@@ -13,8 +13,8 @@
           <li class="icon feedback-icon"></li>
           <li class="icon app-icon"><a></a></li>
         </ul>
-      </el-col>
-    </el-row>
+      </Col>
+    </Row>
 	</nav>
 </template>
 

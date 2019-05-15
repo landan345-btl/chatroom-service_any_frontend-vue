@@ -1,7 +1,7 @@
 <template>
-  <el-collapse>
+  <Collapse>
     <slot></slot>
-  </el-collapse>
+  </Collapse>
 </template>
 
 <style scoped lang="scss">

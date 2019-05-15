@@ -3,8 +3,8 @@
     <Header />
     <Nav-top class="z-1000"/>
     <Nav-right style="z-index:1002"/>
-    <el-row :gutter="0" class="z-1000 backgroung-gray">
-      <el-col 
+    <Row :gutter="0" class="z-1000 backgroung-gray">
+      <Col 
         :xs="{span: 22, offset: 1}" 
         :sm="{span: 20, offset: 2}" 
         :md="{span: 20, offset: 2}" 
@@ -20,8 +20,8 @@
           <Toolbar class="ml-2"/>
           <Board />
         </main>
-      </el-col>
-    </el-row>
+      </Col>
+    </Row>
     <Footer class="z-1001"/>
   </div>
 </template>
