@@ -25,7 +25,7 @@
          <table class="basic-table">
           <tr>
             <td rowspan="2" class="w-10"> <span>期号</span> </td>
-            <td rowspan="2" class="w-0p8"> <span>开奖号码</span> </td>
+            <td rowspan="2" class="w-8"> <span>开奖号码</span> </td>
             <td colspan="10">第一球</td>
             <td colspan="10">第二球</td>
             <td colspan="10">第三球</td>

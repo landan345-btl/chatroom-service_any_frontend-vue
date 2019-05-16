@@ -1,4 +1,4 @@
-let cObjectQueriesToStringQueries = (oQueries: any) => {
+let cStringQueriesToObjectQueries = (oQueries: any) => {
   let sQueries: string = '';
   let iIndex: number = 0;
   for (let sKey of Object.keys(oQueries)) {
@@ -8,4 +8,4 @@ let cObjectQueriesToStringQueries = (oQueries: any) => {
   }
   return sQueries;
 };
-export default cObjectQueriesToStringQueries;
+export default cStringQueriesToObjectQueries;

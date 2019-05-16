@@ -1,18 +1,26 @@
 .menu {
   height: 6vmin;
   span {
+   border-top:1px solid  #EB7100;
    line-height: 6vmin;
   }
   span:hover {
     background: #EB7100; 
-  }
+  } 
+  span:nth-child(2):hover {
+    background: #fff; 
+    color: red;
+    a { 
+      color: red !important; 
+    }
+  } 
 }
-.sub-menu {
+.sub-menu-board {
   background: #fff;
-  display: none;
+ // display: none;
   left: 0;
   box-shadow: 0 4px 8px rgba(0,0,0,.15);
-  .down-menu {
+  .sub-menu {
     .lottery-type {
       width:98%;
       margin: auto;
@@ -30,19 +38,28 @@
         vertical-align: middle;
       }
       .lottery-title {
-        padding: 0.3vmin 0.8vmin; 
+        width: 10.3vmin;
+        height: 2.6vmin;
+        line-height: 2.6vmin;
         border-radius: 0.3vmin;
         vertical-align: middle;
       }
       .lottery-title:hover {
         background: #EB7100;
-        color: #fff;
-        cursor: pointer;
+        a { 
+          color: #fff;
+        }
       }
       .hot-pisotion {
-        top: -1vmin;
-        right: -1.5vmin;
+        top: -1.2vmin;
+        right: -1vmin;
       }
     }
   }
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter, .fade-leave-to {
+  transition: opacity 0.5s;
 }
