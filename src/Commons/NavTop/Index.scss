@@ -18,18 +18,24 @@
       width:98%;
       margin: auto;
       border-bottom:2px solid #E7EAED;
-      .type-title {
-        vertical-align: top;
+      .lottery-icon {
+        width: 2vmin;
+        height: 2vmin;
+        background-size: 1.8vmin 1.8vmin; 
+        vertical-align: middle;
       }
       .lottery-title {
         padding: 0.5vmin 1vmin; 
         border-radius: 0.3vmin;
-        vertical-align: top;
+        vertical-align: middle;
       }
       .lottery-title:hover {
         background: #EB7100;
         color: #fff;
         cursor: pointer;
+      }
+      .hot {
+
       }
     }
   }
