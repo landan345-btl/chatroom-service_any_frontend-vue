@@ -8,9 +8,8 @@
   }
 }
 .sub-menu {
-  width: 100%;
   background: #fff;
- // display: none;
+  display: none;
   left: 0;
   box-shadow: 0 4px 8px rgba(0,0,0,.15);
   .down-menu {
@@ -21,6 +20,9 @@
       .type-title {
         vertical-align: top;
       }
+      .lottery-right {
+        flex: 1;
+      }
       .lottery-icon {
         width: 2vmin;
         height: 2vmin;
@@ -28,7 +30,7 @@
         vertical-align: middle;
       }
       .lottery-title {
-        padding: 0.5vmin 1vmin; 
+        padding: 0.3vmin 0.8vmin; 
         border-radius: 0.3vmin;
         vertical-align: middle;
       }
@@ -37,8 +39,9 @@
         color: #fff;
         cursor: pointer;
       }
-      .hot {
-
+      .hot-pisotion {
+        top: -1vmin;
+        right: -1.5vmin;
       }
     }
   }

@@ -24,18 +24,20 @@
         :lg="{span: 20, offset: 2}"
         :xl="{span: 16, offset: 4}">
         <div class="down-menu"  v-for="(link, sIndex) in MENU_LINKS" :key="sIndex">
-          <div class="lottery-type pt-1 pb-0p5" v-for="(subLink, sIndex) in link.SUB_MENU_LINKS" :key="sIndex">
-            <p>
+          <div class="lottery-type pt-2 pb-0p5 d-flex " v-for="(subLink, sIndex) in link.SUB_MENU_LINKS" :key="sIndex">
+            <span class="d-inline-block">
               <span class="d-inline-block" :class="'icon-' + subLink.ICON +'-pic'"></span>
               <span class="font-size-2 type-title pl-1">{{ subLink.NAME }}</span>
-            </p>
-            <p v-for="(lottery , sIndex) in subLink.SUB_MENU_LINKS" :key="sIndex" class="d-inline-block ml-3">
-              <i class="lottery-icon d-inline-block" :class="'icon-'+lottery.ICON"></i>
-              <span class="lottery-title d-inline-block" > 
-                {{ lottery.NAME }}
-              </span>
-              <i class="hot"></i>
-            </p> 
+            </span>
+            <span class="lottery-right">
+              <p v-for="(lottery , sIndex) in subLink.SUB_MENU_LINKS" :key="sIndex" class="d-inline-block ml-3 position-relative">
+                <i class="lottery-icon d-inline-block" :class="'icon-'+lottery.ICON"></i>
+                <span class="lottery-title font-size-1p5 d-inline-block" > 
+                  {{ lottery.NAME }}
+                </span>
+                <i :class=" lottery.IS_HOT ===true ? 'HOT-pic':''" class="d-inline-block hot-pisotion position-absolute"></i>
+              </p> 
+            </span>
           </div>
         </div>
       </Col>
