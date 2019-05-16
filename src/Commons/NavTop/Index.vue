@@ -27,7 +27,7 @@
           <div class="lottery-type pt-1 pb-0p5" v-for="(subLink, sIndex) in link.SUB_MENU_LINKS" :key="sIndex">
             <p>
               <span class="d-inline-block" :class="'icon-' + subLink.ICON +'-pic'"></span>
-              <span class="font-size-2  pl-1">{{ subLink.NAME }}</span>
+              <span class="font-size-2 type-title pl-1">{{ subLink.NAME }}</span>
             </p>
             <p v-for="(lottery , sIndex) in subLink.SUB_MENU_LINKS" :key="sIndex" class="d-inline-block ml-3">
               <i class="lottery-icon d-inline-block" :class="'icon-'+lottery.ICON"></i>
