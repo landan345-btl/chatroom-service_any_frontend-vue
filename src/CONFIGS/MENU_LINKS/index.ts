@@ -5,6 +5,7 @@ const MENU_LINKS = [
     NAME: '首页',
     LINK: '/',
     ICON: null,
+    STATUS: 1,
    // SUB_MENU_LINKS: [],
   },
   {
@@ -12,6 +13,7 @@ const MENU_LINKS = [
     LINK: null,
     ICON: null,
     TYPE: 'column',
+    STATUS: 1,
     SUB_MENU_LINKS: [
       {
         NAME: '热门彩',
@@ -56,6 +58,7 @@ const MENU_LINKS = [
     NAME: '长龙提醒',
     LINK: '/accumulation',
     ICON: null,
+    STATUS: 1,
    // SUB_MENU_LINKS: [],
   },
   {
@@ -68,6 +71,7 @@ const MENU_LINKS = [
     NAME: '走势图表',
     LINK: '/trend',
     ICON: null,
+    STATUS: 1,
   //  SUB_MENU_LINKS: [],
   },
   {

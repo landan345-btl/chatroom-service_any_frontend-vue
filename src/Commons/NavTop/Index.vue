@@ -7,8 +7,8 @@
         :md="{span: 20, offset: 2}" 
         :lg="{span: 20, offset: 2}"
         :xl="{span: 16, offset: 4}">
-        <div class="menu font-size-2 d-flex justify-content-between">
-          <span v-for="(link, sIndex) in MENU_LINKS" :key="sIndex" class="pl-2 pr-1">
+        <div class="menu font-size-2 d-flex align-self-start">
+          <span v-for="(link, sIndex) in MENU_LINKS" :key="sIndex" class="pl-2 pr-1" v-if="link.STATUS && 1===link.STATUS">
             <font-awesome-icon :icon="link.ICON" v-if="link.ICON" class="color-white"/>
             <router-link :to="{ path: `${link.LINK}` }" class="color-white">{{link.NAME}}</router-link>
             <i v-if="link.SUB_MENU_LINKS && 0 < link.SUB_MENU_LINKS.length">▾</i>
@@ -98,7 +98,7 @@
         </el-menu>-->
       </Col>
     </Row>
-    <Row :gutter="0" class="pull-menu z-1000 color-black">
+    <Row :gutter="0" class="sub-menu z-1000 color-black">
       <Col 
         :xs="{span: 22, offset: 1}" 
         :sm="{span: 20, offset: 2}" 
