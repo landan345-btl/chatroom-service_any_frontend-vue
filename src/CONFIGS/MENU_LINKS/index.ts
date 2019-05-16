@@ -25,9 +25,9 @@ const MENU_LINKS = [
             IS_HOT: true,
           },
           {
-            NAME: '极速赛车',
-            LINK: '/lottery?code=JSPK10',
-            ICON: 'jspk10',
+            NAME: '北京赛车',
+            LINK: '/lottery?code=BJPK10',
+            ICON: 'bjpk10',
             IS_HOT: true,
           },
           {
@@ -37,9 +37,51 @@ const MENU_LINKS = [
             IS_HOT: false,
           },
           {
+            NAME: '安徽快3',
+            LINK: '/lottery?code=AHK3',
+            ICON: 'ahk3',
+            IS_HOT: false,
+          },
+          {
+            NAME: '江苏快3',
+            LINK: '/lottery?code=JSK3',
+            ICON: 'jsk3',
+            IS_HOT: false,
+          },
+          {
+            NAME: '辛运28',
+            LINK: '/lottery?code=PCDD',
+            ICON: 'pcdd',
+            IS_HOT: false,
+          },
+          {
+            NAME: '三分PK10',
+            LINK: '/lottery?code=3FPK10',
+            ICON: '3fpk10',
+            IS_HOT: false,
+          },
+          {
+            NAME: '极速赛车',
+            LINK: '/lottery?code=JSPK10',
+            ICON: 'jspk10',
+            IS_HOT: false,
+          },
+          {
+            NAME: '韩国音速',
+            LINK: '/lottery?code=KRYSU',
+            ICON: 'krysu',
+            IS_HOT: false,
+          },
+          {
             NAME: '湖南快乐十分',
             LINK: '/lottery?code=HUNKLSF',
             ICON: 'hunklsf',
+            IS_HOT: false,
+          },
+          {
+            NAME: '吉林快3',
+            LINK: '/lottery?code=JLK3',
+            ICON: 'jlk3',
             IS_HOT: false,
           },
         ],
@@ -111,6 +153,12 @@ const MENU_LINKS = [
         ICON: 'gpc',
         SUB_MENU_LINKS: [
           {
+            NAME: '重庆辛运农场',
+            LINK: '/lottery?code=CQKLSF',
+            ICON: 'cqklsf',
+            IS_HOT: false,
+          },
+          {
             NAME: '广东11选5',
             LINK: '/lottery?code=GD11X5',
             ICON: 'gd11x5',
@@ -159,15 +207,15 @@ const MENU_LINKS = [
             IS_HOT: false,
           },
           {
-            NAME: '江苏11选5',
-            LINK: '/lottery?code=JS11X5',
-            ICON: 'js11x5',
-            IS_HOT: false,
-          },
-          {
             NAME: '黑龙江11选5',
             LINK: '/lottery?code=HLJ11X5',
             ICON: 'hlj11x5',
+            IS_HOT: false,
+          },
+          {
+            NAME: '江苏11选5',
+            LINK: '/lottery?code=JS11X5',
+            ICON: 'js11x5',
             IS_HOT: false,
           },
           {
@@ -183,9 +231,33 @@ const MENU_LINKS = [
             IS_HOT: false,
           },
           {
-            NAME: '重庆辛运农场',
-            LINK: '/lottery?code=CQKLSF',
-            ICON: 'cqklsf',
+            NAME: '安徽快3',
+            LINK: '/lottery?code=AHK3',
+            ICON: 'ahk3',
+            IS_HOT: false,
+          },
+          {
+            NAME: '湖北快3',
+            LINK: '/lottery?code=HUBK3',
+            ICON: 'hubk3',
+            IS_HOT: false,
+          },
+          {
+            NAME: '河北快3',
+            LINK: '/lottery?code=HEBK3',
+            ICON: 'hebk3',
+            IS_HOT: false,
+          },
+          {
+            NAME: '广西快3',
+            LINK: '/lottery?code=GXK3',
+            ICON: 'gxk3',
+            IS_HOT: false,
+          },
+          {
+            NAME: '辛运快3',
+            LINK: '/lottery?code=FFK3',
+            ICON: 'ffk3',
             IS_HOT: false,
           },
           {
@@ -272,6 +344,12 @@ const MENU_LINKS = [
             NAME: '台湾3D',
             LINK: '/lottery?code=TW3D',
             ICON: 'tw3d',
+            IS_HOT: false,
+          },
+          {
+            NAME: '吉利28',
+            LINK: '/lottery?code=5F28',
+            ICON: '5f28',
             IS_HOT: false,
           },
         ],

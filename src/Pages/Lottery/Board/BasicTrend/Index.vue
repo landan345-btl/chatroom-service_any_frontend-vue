@@ -1,7 +1,7 @@
 <template>
   <div class="basic-trend">
     <div class="top p-1 font-weight-bold">
-      <span class="title">基本走势</span>
+      <span class="font-size-2 pl-1">基本走势</span>
       <RadioGroup v-model="button1" type="button">
         <Radio label="今天"></Radio>
         <Radio label="昨天"></Radio>
@@ -89,9 +89,17 @@
             <td class="color-red w-10" >
               <span v-for="( numbers , index ) in JSON.parse(oLotteryIssue.numbers)" :key="index">{{ numbers }}</span>
             </td>
-              <td v-for="( iNumbers , iIndex ) in JSON.parse(oLotteryIssue.numbers)" :key="iIndex"><span class="background-orange-0">{{iNumbers | substr(0, 1)}}</span></td> 
-            <!-- <td><span class="background-blue-1">5</span></td>
-            <td><span class="background-cyan-2">5</span></td>
+            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <!-- <td><span class="background-cyan-2">5</span></td>
             <td><span class="background-purple-3">3</span></td>
             <td><span class="background-blackish-green-4">2</span></td> -->
           </tr>
