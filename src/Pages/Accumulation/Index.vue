@@ -10,7 +10,7 @@
         :md="{span: 20, offset: 2}" 
         :lg="{span: 20, offset: 2}"
         :xl="{span: 16, offset: 4}"
-        class="background-white pb-2 pr-1 mt-2 mb-2" style="z-index:1002">
+        class="background-white pb-2 pr-1 mt-2 mb-2 z-1002">
         <main>
           <div class="top mt-2 ml-2 font-size-2p5">
             长龙提醒

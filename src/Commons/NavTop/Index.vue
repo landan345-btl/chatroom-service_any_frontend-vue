@@ -35,7 +35,7 @@
                 <span class="lottery-title font-size-1p5 d-inline-block" > 
                   {{ lottery.NAME }}
                 </span>
-                <i :class=" lottery.IS_HOT ===true ? 'HOT-pic':''" class="d-inline-block hot-pisotion position-absolute"></i>
+                <i :class=" lottery.IS_HOT ===true ? 'is-hot':''" class="d-inline-block hot-pisotion position-absolute"></i>
               </p> 
             </span>
           </div>

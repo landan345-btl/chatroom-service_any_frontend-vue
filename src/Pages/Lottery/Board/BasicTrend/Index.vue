@@ -87,7 +87,7 @@
           <tr v-for="( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
             <td>{{oLotteryIssue.no}}</td>
             <td class="color-red w-10" >
-              <span v-for="( Numbers , index ) in JSON.parse(oLotteryIssue.numbers)" :key="index">{{ Numbers }}</span>
+              <span v-for="( numbers , index ) in JSON.parse(oLotteryIssue.numbers)" :key="index">{{ numbers }}</span>
             </td>
               <td v-for="( iNumbers , iIndex ) in JSON.parse(oLotteryIssue.numbers)" :key="iIndex"><span class="background-orange-0">{{iNumbers | substr(0, 1)}}</span></td> 
             <!-- <td><span class="background-blue-1">5</span></td>

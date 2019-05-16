@@ -1,5 +1,3 @@
-import { Trend } from '@/Pages';
-
 const MENU_LINKS = [
   {
     NAME: '首页',
@@ -49,7 +47,7 @@ const MENU_LINKS = [
       {
         NAME: '极速彩',
         LINK: '',
-        ICON: 'jisuc',
+        ICON: 'jsc',
         SUB_MENU_LINKS: [
           {
             NAME: '北京赛车',
