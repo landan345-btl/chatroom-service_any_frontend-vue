@@ -32,7 +32,8 @@ html {
       display: inline-block;
       height: 1.5vmin;
       width: 1.5vmin;
-      background: url("~@/assets/images/numbers.png") no-repeat -39.8vmin -5.7vmin;
+      background: url("~@/assets/images/numbers-2.png") no-repeat -40.1vmin -5.5vmin;
+      background-size: 57.6vmin 332vmin;
      }
   }
 }
@@ -43,7 +44,7 @@ html {
   margin: 0vmin 0.2vmin; 
 }
 .numbers {
-  width: 42vmin;
+ // width: 42vmin;
 }
 .status-number {
   .number-ssc {
@@ -2092,6 +2093,37 @@ html {
   background-size: 100% 100%;
 }
 
+.icon-rmc {
+  background: url("~@/assets/images/rmc-pic.png") no-repeat 0 center;
+  height: 2.8vmin;
+  width: 2.8vmin;
+  background-size: 100% 100%;
+}
+.icon-jsc {
+  background: url("~@/assets/images/jsc-pic.png") no-repeat 0 center;
+  height: 2.8vmin;
+  width: 2.8vmin;
+  background-size: 100% 100%;
+}
+.icon-gpc {
+  background: url("~@/assets/images/gpc-pic.png") no-repeat 0 center;
+  height: 2.8vmin;
+  width: 2.8vmin;
+  background-size: 100% 100%;
+}
+.icon-jwc {
+  background: url("~@/assets/images/jwc-pic.png") no-repeat 0 center;
+  height: 2.8vmin;
+  width: 2.8vmin;
+  background-size: 100% 100%;
+}
+.icon-qgc {
+  background: url("~@/assets/images/qgc-pic.png") no-repeat 0 center;
+  height: 2.8vmin;
+  width: 2.8vmin;
+  background-size: 100% 100%;
+}
+
 .live-k3 {
   background: url("~@/assets/images/live-K3.png") no-repeat 0 0;
   width: 19.5vmin;
@@ -2142,6 +2174,13 @@ html {
   width: 19.5vmin;
   height: 12.2vmin;
   background-size: 100% 100%;
+}
+
+.is-hot {
+  background: url('~@/assets/images/is-hot.png') no-repeat 0 0;
+  width:3.2vmin;
+  height:2.2vmin;
+  background-size: 2.8vmin 1.8vmin; 
 }
 
 .slide-fade-enter-active {

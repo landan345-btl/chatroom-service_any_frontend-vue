@@ -8,6 +8,8 @@ import substr from '@/utilities/substr/index';
 import isFishOrShrimpOrCrab from '@/utilities/isFishOrShrimpOrCrab/index';
 import last from '@/utilities/last/index';
 import isFrontOrBack from '@/utilities/isFrontOrBack/index';
+import linkToPath from '@/utilities/linkToPath/index';
+import linkToQuery from '@/utilities/linkToQuery/index';
 
 
 let oUltilityPlugin = {
@@ -35,6 +37,8 @@ let oUltilityPlugin = {
     Vue.prototype.isFishOrShrimpOrCrab = isFishOrShrimpOrCrab;
     Vue.prototype.last = last;
     Vue.prototype.isFrontOrBack = isFrontOrBack;
+    Vue.prototype.linkToPath = linkToPath;
+    Vue.prototype.linkToQuery = linkToQuery;
   },
 };
 

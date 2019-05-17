@@ -5,7 +5,7 @@
     </div>
     <div class="bottom p-2">
       <I-checkbox-group>
-        <Checkbox label="true">&nbsp;显示热号码出现次数</Checkbox>
+        <Checkbox label="true" v-model="isHotCountShowed">&nbsp;显示热号码出现次数</Checkbox>
       </I-checkbox-group>
       <div class="announcement">
         近20期内 热码：出现频繁、活跃的号码；冷码：出现频率低甚至没有出现的号码；温码：介于冷热之间的号码。
@@ -20,7 +20,7 @@
       <!-- 第 iPosition + 1 位的开奖号码 -->
       <tr v-for="(oCounts, iPosition) in hotWarnColdPositions" :key="iPosition">
         <td class="align-middle font-size-1 text-center">{{ texts[types][iPosition] }} </td>
-        <td class="align-middle text-left">
+        <td class="align-middle text-left">{{ counts }}
             <S-numbers 
               :code="code" 
               :counts="hotWarnColdPositions[iPosition]"
@@ -33,7 +33,6 @@
         <td class="align-middle text-left">
           <S-numbers 
             :code="code"
-            :counts="hotWarnColdPositions[iPosition]"
             :numbers="chooseNumbersByCount(hotWarnColdPositions[iPosition], 2, 3)" 
             :types="LOTTERIES[code].TYPES || types" 
             :isRandom="false" 
@@ -42,8 +41,7 @@
         </td>
         <td class="align-middle text-left">
           <S-numbers 
-            :code="code" 
-            :counts="hotWarnColdPositions[iPosition]"
+            :code="code"
             :numbers="chooseNumbersByCount(hotWarnColdPositions[iPosition], 0, 1)" 
             :types="LOTTERIES[code].TYPES || types" 
             :isRandom="false" 

@@ -4,7 +4,7 @@ import ECheckbox from './ECheckbox/Index.vue';
 import ECheckboxGroup from './ECheckboxGroup/Index.vue';
 import ECollapse from './ECollapse/Index.vue';
 import ERadio from './ERadio/Index.vue';
-import ESelect from './ESelect/Index.vue';
+import ISelect from './ISelect/Index.vue';
 import ETable from './ETable/Index.vue';
 import ETabPane from './ETabPane/Index.vue';
 import ETabs from './ETabs/Index.vue';
@@ -28,7 +28,7 @@ export {
   ECheckboxGroup,
   ECollapse,
   ERadio,
-  ESelect,
+  ISelect,
   ETable,
   ETabPane,
   ETabs,

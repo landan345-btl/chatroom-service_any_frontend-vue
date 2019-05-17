@@ -35,7 +35,7 @@
             'number-' + types.toLowerCase(), 
             'number-'+ code.toLowerCase(), 
             'number-'+ types.toLowerCase() + '-' + iNumber ]" >
-      <Badge :count="true === isCountShowed ? counts[iNumber] : 0">   
+      <Badge :count="true === isCountShowed ? counts[iNumber] : 0">
         <span>{{iNumber}}</span>
       </Badge>
     </div>    

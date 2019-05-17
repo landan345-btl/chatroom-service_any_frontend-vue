@@ -228,7 +228,7 @@
   background: gray;
 }
 
-.border-radius {
+.rounded-circle {
   border-radius: 50%;
 }
 
@@ -322,7 +322,9 @@
 }
 
 
-
+.pb-0p5 {
+  padding-bottom: 0.5vmin;
+}
 
 .pb-1 {
   padding-bottom: 1vmin;
@@ -702,6 +704,14 @@
 
 .z-1001 {
   z-index: 1001;
+}
+
+.z-1002 {
+  z-index: 1002;
+}
+
+.z-1003 {
+  z-index: 1003;
 }
 
 .z-xs-1001 {

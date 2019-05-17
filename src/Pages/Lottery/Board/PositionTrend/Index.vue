@@ -1,7 +1,7 @@
 <template>
   <div class="positon-trend">
     <div class="top p-1 font-weight-bold">
-      <span class="title">定位走势</span>
+      <span class="title pl-1 pr-1">定位走势</span>
       <el-radio-group v-model="radio1">
         <el-radio-button label="今天"></el-radio-button>
         <el-radio-button label="昨天"></el-radio-button>

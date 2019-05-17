@@ -1,7 +1,7 @@
 <template>
   <span class="board d-inline-block ml-2 position-relative">
-    <E-tabs class="mt-1">
-      <el-tab-pane label="连续开出">
+    <I-tabs class="mt-1">
+      <TabPane label="连续开出">
        <table class="tables">
          <thead>
            <tr>
@@ -22,16 +22,16 @@
            </tr> 
          </tbody>
        </table>
-      </el-tab-pane>
-      <el-tab-pane label="连续未开">
+      </TabPane>
+      <TabPane label="连续未开">
         <table class="tables">
          <thead>
            <tr>
-            <th>彩种</th>
-            <th>位置</th>
-            <th>连续未开出期数</th>
-            <th>路珠</th>
-            <th>长龙统计</th>
+            <td>彩种</td>
+            <td>位置</td>
+            <td>连续未开出期数</td>
+            <td>路珠</td>
+            <td>长龙统计</td>
            </tr>
          </thead>
          <tbody>
@@ -44,9 +44,9 @@
            </tr> 
          </tbody>
        </table>
-      </el-tab-pane>
-    </E-tabs>
-    <E-select :options="options" class="position-absolute select"/>
+      </TabPane>
+    </I-tabs>
+    <I-select :options="options" :placeholder="placeholder" class="position-absolute select" />
   </span>
 </template>
 <style scoped lang="scss">
@@ -67,15 +67,15 @@ import {
 } from 'vue-class-component/lib/util';
 
 import {
-  ETabs,
-  ESelect,
+  ITabs,
+  ISelect,
 } from '@/Components/';
 
 @Component({
   name: 'Board',
   components: {
-    ETabs,
-    ESelect,
+    ITabs,
+    ISelect,
   },
 })
 class Board extends Vue {
@@ -85,6 +85,8 @@ class Board extends Vue {
 
  @Prop({ default: null })
  public olotterys !: any ;
+
+ public placeholder: any = '选择2期或者以上显示';
  public options: any = [{
     value: '2',
     label: '2期',

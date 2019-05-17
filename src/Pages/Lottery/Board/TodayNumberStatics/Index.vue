@@ -3,33 +3,34 @@
     <div class="top p-1 font-weight-bold">
       <span>
         参数设置：当数值为
-        <span>12</span>
+        <span>15</span>
         至
-        <span>12</span>
+        <span>30</span>
         时为
-        <span class="background-red"></span>
+        <span class="background-red bg-color"></span>
         色
       </span>
       <span class="border-radius background-gray color-white" :class=" changeHidden >= 1 ? 'el-icon-minus':'el-icon-plus' " @click="toggleHidden(1)"></span>
       <span v-show=" changeHidden >= 1 ">
         参数设置：当数值为
-        <span>12</span>
+        <span>31</span>
         至
-        <span>12</span>
+        <span>40</span>
         时为
-        <span class="background-blue"></span>
+        <span class="background-blue bg-color"></span>
         色
       </span>
       <span class="border-radius background-gray color-white" :class=" changeHidden >= 2 ? 'el-icon-minus':'el-icon-plus' " @click="toggleHidden(2)" v-show=" changeHidden >= 1 "></span>
       <span v-show=" changeHidden >= 2 ">
         参数设置：当数值为
-        <span>12</span>
+        <span>41</span>
         至
-        <span>12</span>
+        <span>50</span>
         时为
-        <span class="background-green"></span>
+        <span class="background-green bg-color"></span>
         色
       </span>
+      <button class="pr-1 pl-1">确认</button>
     </div>
     <table>
       <tr>

@@ -1,6 +1,6 @@
 <template>
   <div class="dragon-or-tiger-trend">
-    <div class="top p-1 font-weight-bold">
+    <div class="top p-1 font-weight-bold d-flex justify-content-between">
       <span class="title">龙虎走势</span>
       <RadioGroup v-model="button1" type="button">
         <Radio label="今天"></Radio>
@@ -8,7 +8,7 @@
         <Radio label="前天"></Radio>
         <Radio label="最近30期"></Radio>
         <Radio label="最近50期"></Radio>
-        <Radio label="最近100期"></Radio>
+        <Radio label="最近100期" class="d-xs-none"></Radio>
       </RadioGroup>
     </div>
     <div class="explain">
@@ -261,7 +261,7 @@ import {
 })
 class DragonOrTigerTrend extends Vue {
   public button1 = '今天';
-  public checkList = '遗漏';
+  public checkList = ['折线', '遗漏'];
 }
 
 export default DragonOrTigerTrend;
