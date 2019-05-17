@@ -55,7 +55,7 @@
       <TabPane label="快3" name="k3">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <div v-if="oLotteryIssue && oLotteryIssue.lottery_id  && ['K3'].includes(oLotteryIssue.types)">
+            <div v-if="oLotteryIssue && oLotteryIssue.lottery_id  && ['K3'].includes(lotteries[oLotteryIssue.lottery_id].types)">
               <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
@@ -64,7 +64,7 @@
       <TabPane label="六合彩" name="six">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && ['SIX'].includes(oLotteryIssue.types)">
+            <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && ['SIX'].includes(lotteries[oLotteryIssue.lottery_id].types)">
               <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
@@ -73,7 +73,7 @@
       <TabPane label="其它" name="other">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && !['PK10', 'SSC', '11X5', 'KLSF', 'K3', 'SIX'].includes(oLotteryIssue.types)">
+            <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && !['PK10', 'SSC', '11X5', 'KLSF', 'K3', 'SIX'].includes(lotteries[oLotteryIssue.lottery_id].types)">
               <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>

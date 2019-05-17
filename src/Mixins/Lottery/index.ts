@@ -15,6 +15,26 @@ class Lottery extends Vue {
   public created() {
     console.log('你使用了 Lottery Mixin');
   }
+  public calculateNextTime(iOpenedTime: number, oLottery: any): number {
+    let aRangeTimes = JSON.parse(oLottery.range_times);
+    let iNextTime = 0;
+    let iNowTime = new Date().getTime();
+    let iFullYear = Number(new Date().getFullYear());
+    let iMonth = Number(new Date().getMonth() + 1);
+    let iDate = Number(new Date().getDate());
+
+    iNextTime = (new Date(iOpenedTime).getTime() + oLottery.interval_time * 1000 - iNowTime) / 1000;
+
+    aRangeTimes.forEach((oRangeTime: any) => {
+      let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.started_time).getTime();
+      if (0 === Number(oLottery.interval_time)) {
+        iNextTime = (new Date(iOpenedTime).getTime() + 24 * 60 * 60 * 1000 - iNowTime) / 1000;
+      }
+    });
+    // this.next_time = iNextTime;
+
+    return iNextTime;
+  }
 
   public caculateLotteryIssueExtension(iOpenedTime: number, oLottery: any) {
     let aRangeTimes = JSON.parse(oLottery.range_times);
