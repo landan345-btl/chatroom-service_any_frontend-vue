@@ -35,7 +35,7 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 
 import {
   Header,
@@ -83,18 +83,28 @@ class Lottery extends Vue {
     };
     this.$store.dispatch('LOTTERY_ACTION_SHOW', oQueries);
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
-    this.setIntervalLotteryIssueActionShow();
+    this.setIntervalLotteryIssueActionShow(oQueries);
   }
 
+  @Watch('$route', { immediate: true, deep: true })
+  onRouteChange(oRoute: any) {
+    let sCode = oRoute.query.code || '';
+    let oQueries = {
+      code: sCode,
+    };
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
+    clearInterval(this.timer);
+    this.setIntervalLotteryIssueActionShow(oQueries);
+  }
 
-  public setIntervalLotteryIssueActionShow() {
+  public setIntervalLotteryIssueActionShow(oQueries: any) {
     this.timer = setInterval(() => {
-      this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', {} );
+      this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
     } , BACKEND.INTERVAL_TIME );
   }
 
   public beforeDestroy() {  // 组件销毁之前调用
-    clearInterval( this.timer );
+    clearInterval(this.timer);
   }
 
   private _redirecteIfWithoutCode(): void {
