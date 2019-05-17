@@ -114,12 +114,13 @@ class Home extends Vue {
   }
 
   public get lotteries(): object {
-    let oLotteries: any = this.$store.state.lotteries;
-    return oLotteries;
+    let aLotteries: any = this.$store.state.lotteries;
+    return aLotteries;
   }
 
   public get lotteryIssues(): object {
-    let oLotteryIssues: any = this.$store.state.lottery_issues;
+    let aLotteryIssues: any = this.$store.state.lottery_issues;
+    return aLotteryIssues;
     let oLotteries: any = this.$store.state.lotteries;
     let _oLotteryIssues: {} = {};
     let sLotteryIssueId: string;

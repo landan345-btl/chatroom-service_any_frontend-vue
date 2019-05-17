@@ -7,16 +7,16 @@
 let oLotteryMutation = {
   LOTTERY_MUTATION_SHOW(state: any, mLotteries: any[]): void {
     // debugger;
-    let oLotteries: any = (mLotteries instanceof Array) ? {} : mLotteries;
-    if (mLotteries instanceof Array) {
-      oLotteries = mLotteries.reduce((_oLotteries, aLottery) => {
-        _oLotteries[aLottery.lottery_id] = aLottery;
-        return _oLotteries;
-      }, {});
-      mLotteries = oLotteries;
-    }
+    // let oLotteries: any = (mLotteries instanceof Array) ? {} : mLotteries;
+    // if (mLotteries instanceof Array) {
+    //   oLotteries = mLotteries.reduce((_oLotteries, aLottery) => {
+    //     _oLotteries[aLottery.lottery_id] = aLottery;
+    //     return _oLotteries;
+    //   }, {});
+    //   mLotteries = oLotteries;
+    // }
     // debugger;
-    state.lotteries = oLotteries;
+    state.lotteries = mLotteries;
   },
   LOTTERY_MUTATION_ADD(state: any, mLotteries: any[]): void {
     // debugger;
