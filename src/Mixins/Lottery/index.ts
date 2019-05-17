@@ -15,7 +15,7 @@ class Lottery extends Vue {
   public created() {
     console.log('你使用了 Lottery Mixin');
   }
-  public calculateNextTime(iOpenedTime: number, oLottery: any): number {
+  public calculateNextTime(sOpenedTime: string, oLottery: any): number {
     let aRangeTimes = JSON.parse(oLottery.range_times);
     let iNextTime = 0;
     let iNowTime = new Date().getTime();
@@ -23,12 +23,12 @@ class Lottery extends Vue {
     let iMonth = Number(new Date().getMonth() + 1);
     let iDate = Number(new Date().getDate());
 
-    iNextTime = (new Date(iOpenedTime).getTime() + oLottery.interval_time * 1000 - iNowTime) / 1000;
+    iNextTime = (new Date(sOpenedTime).getTime() + oLottery.interval_time * 1000 - iNowTime) / 1000;
 
     aRangeTimes.forEach((oRangeTime: any) => {
       let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.started_time).getTime();
       if (0 === Number(oLottery.interval_time)) {
-        iNextTime = (new Date(iOpenedTime).getTime() + 24 * 60 * 60 * 1000 - iNowTime) / 1000;
+        iNextTime = (new Date(sOpenedTime).getTime() + 24 * 60 * 60 * 1000 - iNowTime) / 1000;
       }
     });
     // this.next_time = iNextTime;
@@ -36,7 +36,8 @@ class Lottery extends Vue {
     return iNextTime;
   }
 
-  public caculateLotteryIssueExtension(iOpenedTime: number, oLottery: any) {
+  public caculateLotteryIssueExtension(sOpenedTime: number, oLottery: any) {
+    debugger;
     let aRangeTimes = JSON.parse(oLottery.range_times);
     let iNowTime = new Date().getTime();
     let iNextTime = 0;
@@ -45,7 +46,7 @@ class Lottery extends Vue {
     let iMonth = Number(new Date().getMonth() + 1);
     let iDate = Number(new Date().getDate());
 
-    iNextTime = (new Date(iOpenedTime).getTime() + oLottery.interval_time * 1000 - iNowTime) / 1000;
+    iNextTime = (new Date(sOpenedTime).getTime() + oLottery.interval_time * 1000 - iNowTime) / 1000;
     let iLotteryIssueOrderNoInThisDay = 0;
     let iLotteryIssueOrderNoTotalInThisDay = 1;
 
@@ -60,11 +61,12 @@ class Lottery extends Vue {
         iLotteryIssueOrderNoInThisDay += Math.floor(iDifferentTime / oLottery.interval_time);
       }
       if (0 === Number(oLottery.interval_time)) {
-        iNextTime = (new Date(iOpenedTime).getTime() + 24 * 60 * 60 * 1000 - iNowTime) / 1000;
+        iNextTime = (new Date(sOpenedTime).getTime() + 24 * 60 * 60 * 1000 - iNowTime) / 1000;
 
       }
     });
-
+    iLotteryIssueOrderNoInThisDay++;
+    iLotteryIssueOrderNoTotalInThisDay++;
     this.extensionLotteryIssue.next_time = iNextTime;
     this.extensionLotteryIssue.order_no_in_this_day = iLotteryIssueOrderNoInThisDay;
     this.extensionLotteryIssue.order_total_no = iLotteryIssueOrderNoTotalInThisDay;
