@@ -13,6 +13,8 @@ import cSubstr from './substr/';
 import cSum from './sum/';
 import cLast from './last/';
 import cJSONparse from './JSONparse/';
+import cLinkToPath from './linkToPath/';
+import cLinkToQuery from './linkToQuery/';
 
 export {
   cCount as count,
@@ -30,4 +32,6 @@ export {
   cSum as sum,
   cLast as last,
   cJSONparse as JSONparse,
+  cLinkToPath as linkToPath,
+  cLinkToQuery as linkToQuery,
 };

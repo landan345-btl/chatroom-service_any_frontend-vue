@@ -25,18 +25,18 @@
           :lg="{span: 20, offset: 2}"
           :xl="{span: 16, offset: 4}">
           <div class="sub-menu" @mouseenter="showSubMenu(sIndex)"  @mouseleave="hideSubMenu()" v-for="(link, sIndex) in MENU_LINKS" :key="sIndex" v-show="sIndex === status">
-            <div class="lottery-type pb-1 d-flex" v-for="(subLink, sIndex) in link.SUB_MENU_LINKS" :key="sIndex">
+            <div class="lnik-type pb-1 d-flex" v-for="(subLink, sIndex) in link.SUB_MENU_LINKS" :key="sIndex">
               <span class="d-inline-block pl-1">
                 <span class="d-inline-block" :class="'icon-' + subLink.ICON"></span>
                 <span class="font-size-2 align-top pl-1">{{ subLink.NAME }}</span>
               </span>
-              <span class="lottery-right">
-                <p v-for="(lottery , sIndex) in subLink.SUB_MENU_LINKS" :key="sIndex" class="d-inline-block ml-2 position-relative">
+              <span class="lnik-right">
+                <p v-for="(subLink , sIndex) in subLink.SUB_MENU_LINKS" :key="sIndex" class="d-inline-block ml-2 position-relative">
                   <!-- <i class="lottery-icon align-middle d-inline-block" :class="'icon-'+lottery.ICON"></i>  ICON 预留图标-->
-                  <span class="lottery-title align-middle font-size-1p5 d-inline-block text-center" >
-                    <router-link :to="{ path: `${lottery.LINK}` }" >{{ lottery.NAME }} </router-link> 
+                  <span class="lnik-title align-middle font-size-1p5 d-inline-block text-center" >
+                    <router-link :to="{ path:`${linkToPath(subLink.LINK)}` , query: linkToQuery(subLink.LINK)}" >{{ subLink.NAME }} </router-link> 
                   </span>
-                  <i :class=" lottery.IS_HOT ===true ? 'is-hot':''" class="d-inline-block hot-pisotion position-absolute"></i>
+                  <i :class=" subLink.IS_HOT ===true ? 'is-hot':''" class="d-inline-block hot-pisotion position-absolute"></i>
                 </p> 
               </span>
             </div>
@@ -56,19 +56,19 @@
 
 <script lang="ts">
 
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 
 @Component({
   name: 'NavTop',
 })
 class NavTop extends Vue {
-  public status: any = 1;
+  public status: any = null;
 
   public showSubMenu(sIndex: any): void {
     this.status = sIndex;
   }
   public hideSubMenu() {
-     this.status = null;
+    this.status = null;
   }
 }
 

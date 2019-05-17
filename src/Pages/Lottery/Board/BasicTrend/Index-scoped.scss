@@ -82,14 +82,4 @@
   /deep/ .el-checkbox-group {
     display: inline-block !important;
   }
-  /deep/ .el-checkbox__input.is-checked+.el-checkbox__label {
-    color: #FF7B00;
-  }
-  /deep/ .el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
-    background-color: #FF7B00;
-    border-color: #FF7B00;
-  }
-  // /deep/ .el-checkbox__inner .is-focus:hover {
-  //   border-color:#FF7B00; 
-  // }
 }
