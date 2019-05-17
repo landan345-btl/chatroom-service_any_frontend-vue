@@ -31,7 +31,7 @@
           </div>
         </router-link>
         <span class="countdown d-inline-block align-bottom position-absolute">
-          <!-- <Chen-countdown :time="lotteryIssue.next_time * 1000" :theme="'theme-a'"/> -->
+          <Chen-countdown :time="calculateNextTime(lotteryIssue.opened_time, lotteries[lotteryIssue.lottery_id]) * 1000" :theme="'theme-a'"/>
         </span>
       </div>
       <div class="middle mb-2" >
