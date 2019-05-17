@@ -2,6 +2,7 @@ import {
   Component,
   Vue,
 } from 'vue-property-decorator';
+
 @Component({
   name: 'LotteryMixin',
 })
@@ -32,6 +33,10 @@ class Lottery extends Vue {
     });
 
     return iNextTime;
+  }
+
+  public calculateNoInThisDay() {
+
   }
 }
 
