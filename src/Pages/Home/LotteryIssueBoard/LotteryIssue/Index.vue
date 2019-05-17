@@ -18,7 +18,7 @@
               期
             </span>
             <span class="this-and-next ml-0p5">
-              <!-- 当前&nbsp;{{ lotteryIssue.order_no_in_this_day }}&nbsp;期，剩&nbsp;{{ lotteryIssue.order_no_total_in_this_day - lotteryIssue.order_no_in_this_day }}&nbsp;期 -->
+              当前&nbsp;{{ calculateOrderNoInThisDay(null, lotteries[lotteryIssue.lottery_id]) }}&nbsp;期，剩&nbsp;{{ calculateTotalOrderNoInThisDay(null, lotteries[lotteryIssue.lottery_id]) - calculateOrderNoInThisDay(null, lotteries[lotteryIssue.lottery_id]) }}&nbsp;期
             </span>
           </div>
           <div class="bottom">
