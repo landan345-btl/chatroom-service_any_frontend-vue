@@ -4,15 +4,15 @@
       <!-- <TabPane label="全部" name="all">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
+            <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
           </div>
         </div>
       </TabPane> -->
       <TabPane label="热门彩" name="popular">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <div v-if="['SSC'].includes(oLotteryIssue.types)">
-              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries" v-if="['SSC'].includes(oLotteryIssue.types)"/>
+            <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && lotteries && ['SSC'].includes(lotteries[oLotteryIssue.lottery_id].types)">
+              <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -20,16 +20,16 @@
       <TabPane label="PK10" name="pk10">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <div v-if="['PK10'].includes(oLotteryIssue.types)">
-              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries" />
+            <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && lotteries && ['PK10'].includes(lotteries[oLotteryIssue.lottery_id].types)">
+              <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries" />
             </div>
           </div>
         </div>      </TabPane>
       <TabPane label="时时彩" name="ssc">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <div v-if="['SSC'].includes(oLotteryIssue.types)">
-              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
+            <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && lotteries && ['SSC'].includes(lotteries[oLotteryIssue.lottery_id].types)">
+              <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -37,8 +37,8 @@
       <TabPane label="11选5" name="11x5">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <div v-if="['11X5'].includes(oLotteryIssue.types)">
-              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
+            <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && lotteries && ['11X5'].includes(lotteries[oLotteryIssue.lottery_id].types)">
+              <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -46,8 +46,8 @@
       <TabPane label="快乐十分" name="klsf">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <div v-if="['KLSF'].includes(oLotteryIssue.types)">
-              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
+            <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && lotteries && ['KLSF'].includes(lotteries[oLotteryIssue.lottery_id].types)">
+              <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -55,8 +55,8 @@
       <TabPane label="快3" name="k3">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <div v-if="['K3'].includes(oLotteryIssue.types)">
-              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
+            <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && lotteries && ['K3'].includes(lotteries[oLotteryIssue.lottery_id].types)">
+              <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -64,8 +64,8 @@
       <TabPane label="六合彩" name="six">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <div v-if="['SIX'].includes(oLotteryIssue.types)">
-              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
+            <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && lotteries && ['SIX'].includes(lotteries[oLotteryIssue.lottery_id].types)">
+              <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -73,8 +73,8 @@
       <TabPane label="其它" name="other">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <div v-if="!['PK10', 'SSC', '11X5', 'KLSF', 'K3', 'SIX'].includes(oLotteryIssue.types)">
-              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
+            <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && lotteries && !['PK10', 'SSC', '11X5', 'KLSF', 'K3', 'SIX'].includes(lotteries[oLotteryIssue.lottery_id].types)">
+              <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -88,22 +88,28 @@
 </style>
 
 <script lang="ts">
-import { Component, Watch, Vue, Prop } from 'vue-property-decorator';
-import { warn } from 'vue-class-component/lib/util';
-import ETabPane from '@/Components/ETabPane/Index.vue';
-import ETable from '@/Components/ETable/Index.vue';
-import ITabs from '@/Components/ITabs/Index.vue';
-import ITabPane from '@/Components/ITabPane/Index.vue';
+import {
+  Component,
+  Watch,
+  Vue,
+  Prop,
+} from 'vue-property-decorator';
 
-import LotteryIssue from './LotteryIssue/Index.vue';
+import {
+  warn,
+} from 'vue-class-component/lib/util';
+
+import {
+  ITabs,
+} from '@/Components/';
+
+import LotteryIssueAndTable from './LotteryIssueAndTable/Index.vue';
 
 @Component({
   name: 'LotteryIssueBaord',
   components: {
     ITabs,
-    ETabPane,
-    ETable,
-    LotteryIssue,
+    LotteryIssueAndTable,
   },
 })
 class LotteryIssueBaord extends Vue {

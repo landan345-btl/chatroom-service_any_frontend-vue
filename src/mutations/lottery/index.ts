@@ -16,7 +16,7 @@ let oLotteryMutation = {
       mLotteries = oLotteries;
     }
     // debugger;
-    state.lotteries = oLotteries;
+    state.lotteries = mLotteries;
   },
   LOTTERY_MUTATION_ADD(state: any, mLotteries: any[]): void {
     // debugger;

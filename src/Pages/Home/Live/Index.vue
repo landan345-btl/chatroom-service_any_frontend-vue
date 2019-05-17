@@ -1,16 +1,19 @@
 <template>
   <div class="live background-white pt-2 pr-2 pb-1 pl-2">
-    <div class="lotteries d-flex flex-wrap justify-content-between overflow-hidden"> 
-      <div class="lottery" v-for="(oLotteryIssue, iLotteryIssueId, iIndex) in lotteryIssues" :key="iLotteryIssueId" v-if="iIndex < 4">
-        <router-link 
-          class="text-center"
-          :to="{ path: '/lottery', query: { code: lotteries && oLotteryIssue ? lotteries[oLotteryIssue.lottery_id].code.toUpperCase() : ''}}">
-          <div :class="[lotteries && oLotteryIssue ? 'live-' + lotteries[oLotteryIssue.lottery_id].types.toLowerCase() : '']">
-          </div>
-          <Chen-countdown :time="oLotteryIssue.next_time * 1000" :theme="'theme-a'" class="d-block mt-1" :text="'倒计时:'">
-          </Chen-countdown>
-        </router-link>
-      </div>
+    <div class="lotteries d-flex flex-wrap justify-content-between overflow-hidden">
+      <template v-for="(oLotteryIssue, sKey) in lotteryIssues">
+        <div class="lottery" v-if="lotteries && oLotteryIssue && lotteries[oLotteryIssue.lottery_id] && codes.includes(lotteries[oLotteryIssue.lottery_id].code)" :key="sKey">
+          <router-link 
+            class="text-center"
+            :to="{ path: '/lottery', query: { code: lotteries && oLotteryIssue && lotteries[oLotteryIssue.lottery_id] ? lotteries[oLotteryIssue.lottery_id].code.toUpperCase() : ''}}">
+            <div :class="[lotteries && oLotteryIssue && lotteries[oLotteryIssue.lottery_id] ? 'live-' + lotteries[oLotteryIssue.lottery_id].types.toLowerCase() : '']">
+            </div>
+            <Chen-countdown :time="calculateNextTime(oLotteryIssue.opened_time, lotteries[oLotteryIssue.lottery_id]) * 1000" :theme="'theme-a'" class="d-block mt-1" :text="'倒计时:'">
+            </Chen-countdown>
+          </router-link>
+        </div>
+      </template>
+
     </div>
   </div>
 </template>
@@ -35,29 +38,30 @@ import {
   ChenCountdown,
 } from '@/Components/';
 
+import {
+  Lottery as LotteryMixin,
+} from '@/Mixins/';
+
 @Component({
   name: 'Live',
   components: {
     ChenCountdown,
   },
+  mixins: [LotteryMixin],
 })
+
 class Live extends Vue {
 
-  public images: string[] = [
-    'assets/images/live-JSFT.png',
-    'assets/images/live-3D.jpg',
-    'assets/images/live-KLSF.png',
-    'assets/images/live-K3.png',
-    'assets/images/live-PK10.png',
-    // 'assets/images/live-TJKSF.jpg',
-    // 'assets/images/live-SD11X5.png',
+  public codes: string[] = [
+    'CQSSC', 'BJPK10', 'GDKLSF', 'JSK3',
   ];
 
   @Prop()
   public lotteryIssues!: object;
 
   @Prop()
-  public lotteries!: object;
+  public lotteries!: { [key: string]: any };
+
 }
 
 export default Live;
