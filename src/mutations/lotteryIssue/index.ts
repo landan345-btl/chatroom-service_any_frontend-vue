@@ -6,15 +6,16 @@
 
 let oLotteryMutation = {
   LOTTERY_ISSUE_MUTATION_SHOW(state: any, mLotteryIssues: any[]): void {
-    // let oLotteryIssues: any = (mLotteryIssues instanceof Array) ? {} : mLotteryIssues;
-    // // debugger;
-    // if (mLotteryIssues instanceof Array) {
-    //   oLotteryIssues = mLotteryIssues.reduce((_oLotteryIssues, aLotteryIssues) => {
-    //     _oLotteryIssues[aLotteryIssues.lottery_issue_id] = aLotteryIssues;
-    //     return _oLotteryIssues;
-    //   }, {});
-    //   mLotteryIssues = oLotteryIssues;
-    // }
+    let oLotteryIssues: any = (mLotteryIssues instanceof Array) ? {} : mLotteryIssues;
+    // debugger;
+    if (mLotteryIssues instanceof Array) {
+      oLotteryIssues = mLotteryIssues.reduce((_oLotteryIssues, oLotteryIssue) => {
+        let sKey = oLotteryIssue.lottery_issue_id || oLotteryIssue.lottery_id + oLotteryIssue.opened_time;
+        _oLotteryIssues[sKey] = oLotteryIssue;
+        return _oLotteryIssues;
+      }, {});
+      mLotteryIssues = oLotteryIssues;
+    }
      // debugger;
     state.lottery_issues = mLotteryIssues;
   },
