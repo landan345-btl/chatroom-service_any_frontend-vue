@@ -28,6 +28,7 @@ import {
   Watch,
   Vue,
   Prop,
+  Mixins,
 } from 'vue-property-decorator';
 
 import {
@@ -38,54 +39,33 @@ import {
   ChenCountdown,
 } from '@/Components/';
 
+import {
+  Lottery as LotteryMixin,
+} from '@/Mixins/';
+
 @Component({
   name: 'Live',
   components: {
     ChenCountdown,
   },
+  // mixins: [LotteryMixin],
 })
-class Live extends Vue {
+class Live extends Mixins(LotteryMixin) {
 
+  public created() {
+    console.log(this.calculateNextTime);
+  }
   public codes: string[] = [
-    'CQSSC', 'BJPK10', 'FFPK10', 'JSK3'
+    'CQSSC', 'BJPK10', 'FFPK10', 'JSK3',
   ];
 
   @Prop()
   public lotteryIssues!: object;
 
   @Prop()
-  public lotteries!: { [key: string] : any };
+  public lotteries!: { [key: string]: any };
 
-  public calculateNextTime(iOpenedTime: number, oLottery: any): number {
-    let aRangeTimes = JSON.parse(oLottery.range_times);
-
-    let iNowTime = new Date().getTime();
-    let iNextTime = 0;
-    let iFullYear = Number(new Date().getFullYear());
-    let iMonth = Number(new Date().getMonth() + 1);
-    let iDate = Number(new Date().getDate());
-
-    iNextTime = (new Date(iOpenedTime).getTime() + oLottery.interval_time * 1000 - iNowTime) / 1000;
-    let iLotteryIssueOrderNoInThisDay = 0;
-    let iLotteryIssueOrderNoTotalInThisDay = 1;
-
-    aRangeTimes.forEach((oRangeTime: any) => {
-      let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.started_time).getTime();
-      let iEndedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime() < iStartedTime
-                      ? new Date(iFullYear + '-' + iMonth + '-' + (iDate + 1) + ' ' +  oRangeTime.ended_time).getTime()
-                      : new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime();
-      let iDifferentTime = (iNowTime - iStartedTime) / 1000;
-      iLotteryIssueOrderNoTotalInThisDay +=  Math.floor((iEndedTime - iStartedTime) / (0 !== oLottery.interval_time ? 1000 * oLottery.interval_time : 1));
-      if (iNowTime >= iStartedTime && iNowTime <= iEndedTime) {
-        iLotteryIssueOrderNoInThisDay += Math.floor(iDifferentTime / oLottery.interval_time);
-      }
-      if (0 === Number(oLottery.interval_time)) {
-        iNextTime = (new Date(iOpenedTime).getTime() + 24 * 60 * 60 * 1000 - iNowTime) / 1000;
-      }
-    });
-
-    return iNextTime;
-  }
+  public calc = this.calculateNextTime;
 }
 
 export default Live;
