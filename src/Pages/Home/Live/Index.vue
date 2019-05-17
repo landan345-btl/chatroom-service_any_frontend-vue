@@ -28,7 +28,6 @@ import {
   Watch,
   Vue,
   Prop,
-  Mixins,
 } from 'vue-property-decorator';
 
 import {
@@ -48,13 +47,10 @@ import {
   components: {
     ChenCountdown,
   },
-  // mixins: [LotteryMixin],
+  mixins: [LotteryMixin],
 })
-class Live extends Mixins(LotteryMixin) {
+class Live extends Vue {
 
-  public created() {
-    console.log(this.calculateNextTime);
-  }
   public codes: string[] = [
     'CQSSC', 'BJPK10', 'FFPK10', 'JSK3',
   ];
@@ -65,7 +61,6 @@ class Live extends Mixins(LotteryMixin) {
   @Prop()
   public lotteries!: { [key: string]: any };
 
-  public calc = this.calculateNextTime;
 }
 
 export default Live;
