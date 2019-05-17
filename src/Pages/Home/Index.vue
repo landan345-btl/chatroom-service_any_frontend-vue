@@ -106,7 +106,7 @@ class Home extends Vue {
   }
 
   public beforeDestroy() {  // 组件销毁之前调用
-    clearInterval( this.timer );
+    clearInterval(this.timer);
   }
 
   public get lotteries(): object {

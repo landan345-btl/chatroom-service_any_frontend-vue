@@ -116,7 +116,8 @@ class Lottery extends Vue {
     } , BACKEND.INTERVAL_TIME );
   }
 
-  public beforeDestroy() {  // 组件销毁之前调用
+  public beforeDestroy() {
+    debugger;
     clearInterval(this.timer);
   }
 
