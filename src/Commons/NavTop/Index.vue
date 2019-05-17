@@ -70,9 +70,6 @@ class NavTop extends Vue {
   public hideSubMenu() {
     this.status = null;
   }
-  // public hideMenu(sIndex: any) {
-  //   this.status = null;
-  // }
 }
 
 export default NavTop;

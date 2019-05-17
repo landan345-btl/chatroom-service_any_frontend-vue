@@ -14,6 +14,7 @@ import IButton from './IButton/Index.vue';
 import ICheckboxGroup from './ICheckboxGroup/Index.vue';
 import IDatePicker from './IDatePicker/Index.vue';
 import ICollapse from './ICollapse/Index.vue';
+import ISpin from './ISpin/Index.vue';
 
 import VLine from './VLine/Index.vue';
 
@@ -33,6 +34,7 @@ export {
   ETabPane,
   ETabs,
   ITabs,
+  ISpin,
   IDatePicker,
   IButton,
   ICollapse,

@@ -28,6 +28,7 @@
       </Col>
     </Row>
     <Footer/>
+    <I-spin :isShowed="isSpinShowed"/>
   </div>
 </template>
 <style scoped lang="scss">
@@ -45,6 +46,10 @@ import {
 } from '@/Commons/';
 
 import {
+  ISpin,
+} from '@/Components/';
+
+import {
   Lottery as LotteryHelper,
 } from '@/Helpers/';
 
@@ -59,6 +64,7 @@ import {
 
 @Component({
   components: {
+    ISpin,
     Header,
     NavTop,
     NavRight,
@@ -69,6 +75,7 @@ import {
 })
 class Lottery extends Vue {
   public timer: any;
+  public isSpinShowed: boolean = true;
 
   public beforeCreate(): void {
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
@@ -82,7 +89,9 @@ class Lottery extends Vue {
       code: sCode,
     };
     this.$store.dispatch('LOTTERY_ACTION_SHOW', oQueries);
-    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries).then(() => {
+      this.isSpinShowed = false;
+    });
     this.setIntervalLotteryIssueActionShow(oQueries);
   }
 
@@ -92,7 +101,9 @@ class Lottery extends Vue {
     let oQueries = {
       code: sCode,
     };
-    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries).then(() => {
+      this.isSpinShowed = false;
+    });
     clearInterval(this.timer);
     this.setIntervalLotteryIssueActionShow(oQueries);
   }
@@ -103,7 +114,7 @@ class Lottery extends Vue {
     } , BACKEND.INTERVAL_TIME );
   }
 
-  public beforeDestroy() {  // 组件销毁之前调用
+  public beforeDestroy() {
     clearInterval(this.timer);
   }
 
