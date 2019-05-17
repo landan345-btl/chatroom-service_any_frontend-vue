@@ -4,7 +4,7 @@
       <!-- <TabPane label="全部" name="all">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
-            <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
+            <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
           </div>
         </div>
       </TabPane> -->
@@ -12,7 +12,7 @@
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
             <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && ['SSC'].includes(lotteries[oLotteryIssue.lottery_id].types)">
-              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
+              <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -21,7 +21,7 @@
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
             <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && ['PK10'].includes(lotteries[oLotteryIssue.lottery_id].types)">
-              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries" />
+              <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries" />
             </div>
           </div>
         </div>      </TabPane>
@@ -29,7 +29,7 @@
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
             <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && ['SSC'].includes(lotteries[oLotteryIssue.lottery_id].types)">
-              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
+              <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -38,7 +38,7 @@
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
             <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && ['11X5'].includes(lotteries[oLotteryIssue.lottery_id].types)">
-              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
+              <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
             <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && ['KLSF'].includes(lotteries[oLotteryIssue.lottery_id].types)">
-              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
+              <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
             <div v-if="oLotteryIssue && oLotteryIssue.lottery_id  && ['K3'].includes(oLotteryIssue.types)">
-              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
+              <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -65,7 +65,7 @@
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
             <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && ['SIX'].includes(oLotteryIssue.types)">
-              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
+              <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
             <div v-if="oLotteryIssue && oLotteryIssue.lottery_id && !['PK10', 'SSC', '11X5', 'KLSF', 'K3', 'SIX'].includes(oLotteryIssue.types)">
-              <Lottery-issue :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
+              <Lottery-issue-and-table :lotteryIssue="oLotteryIssue" :lotteries="lotteries"/>
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@ import ETable from '@/Components/ETable/Index.vue';
 import ITabs from '@/Components/ITabs/Index.vue';
 import ITabPane from '@/Components/ITabPane/Index.vue';
 
-import LotteryIssue from './LotteryIssue/Index.vue';
+import LotteryIssueAndTable from './LotteryIssueAndTable/Index.vue';
 
 @Component({
   name: 'LotteryIssueBaord',
@@ -103,7 +103,7 @@ import LotteryIssue from './LotteryIssue/Index.vue';
     ITabs,
     ETabPane,
     ETable,
-    LotteryIssue,
+    LotteryIssueAndTable,
   },
 })
 class LotteryIssueBaord extends Vue {

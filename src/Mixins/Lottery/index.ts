@@ -74,6 +74,11 @@ class Lottery extends Vue {
 
     return iLotteryIssueOrderTotalNoInThisDay;
   }
+
+
+  public caculateLotteryIssueExtension() {
+    
+  }
 }
 
 export default Lottery;
