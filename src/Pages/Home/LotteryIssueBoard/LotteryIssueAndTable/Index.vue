@@ -3,7 +3,7 @@
     <div class="pseudo">
       <LotteryIssue :lotteries="lotteries" :lotteryIssue="lotteryIssue"/>
       <div class="middle mb-2" >
-        <Table :lotteryIssue="lotteryIssue"/>
+        <Table :lotteryIssue="lotteryIssue" :lotteries="lotteries"/>
       </div>
       <div class="bottom text-right">
         <router-link class="" :to="{ path: '/live', query: { code: lotteries[lotteryIssue.lottery_id].code }}">

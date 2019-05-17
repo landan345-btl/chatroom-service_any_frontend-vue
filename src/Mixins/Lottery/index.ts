@@ -37,7 +37,6 @@ class Lottery extends Vue {
   }
 
   public caculateLotteryIssueExtension(sOpenedTime: number, oLottery: any) {
-    debugger;
     let aRangeTimes = JSON.parse(oLottery.range_times);
     let iNowTime = new Date().getTime();
     let iNextTime = 0;
