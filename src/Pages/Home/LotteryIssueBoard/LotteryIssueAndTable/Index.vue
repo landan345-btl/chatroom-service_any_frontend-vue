@@ -1,39 +1,7 @@
 <template>
   <div class="lottery-issue-and-table mt-sm-2 mb-sm-2 mt-md-2 mb-md-2 mt-lg-2 mb-lg-2 mt-xl-2 mb-xl-2">
     <div class="pseudo">
-      <div class="top mb-2 position-relative">
-        <router-link class="icon align-middle d-inline-block d-xs-none" :to="{ path: '/lottery', query: { code: lotteries[lotteryIssue.lottery_id].code }}">
-          <div :class="[lotteryIssue && lotteryIssue.lottery_id && lotteries && lotteries[lotteryIssue.lottery_id] && lotteries[lotteryIssue.lottery_id].code ? 'icon-' + lotteries[lotteryIssue.lottery_id].code.toLowerCase() + '-circle' : '']">
-          </div>
-          </router-link>
-        <router-link class="name-issue_no-numbers align-middle d-inline-block" :to="{ path: '/lottery', query: { code: lotteries[lotteryIssue.lottery_id].code }}">
-          <div class="top">
-            <span class="name font-weight-bold ml-0p5">
-              {{ LOTTERIES[lotteries[lotteryIssue.lottery_id].code].NAME | or(lotteries[lotteryIssue.lottery_id].name) }}
-            </span>
-            <span class="no font-weight-bold ml-0p5">
-              {{ lotteryIssue.no }}
-            </span>
-            <span class="name font-weight-bold ml-0p5">
-              期
-            </span>
-            <span class="this-and-next ml-0p5">
-              当前&nbsp;{{ calculateOrderNoInThisDay(null, lotteries[lotteryIssue.lottery_id]) }}&nbsp;期，剩&nbsp;{{ calculateTotalOrderNoInThisDay(null, lotteries[lotteryIssue.lottery_id]) - calculateOrderNoInThisDay(null, lotteries[lotteryIssue.lottery_id]) }}&nbsp;期
-            </span>
-          </div>
-          <div class="bottom">
-            <S-numbers 
-              :code="lotteries[lotteryIssue.lottery_id].code" 
-              :numbers="JSON.parse(lotteryIssue.numbers)" 
-              :types="lotteries[lotteryIssue.lottery_id].types"
-              :isRandom="true"
-              class="status-number"/>
-          </div>
-        </router-link>
-        <span class="countdown d-inline-block align-bottom position-absolute">
-          <Chen-countdown :time="calculateNextTime(lotteryIssue.opened_time, lotteries[lotteryIssue.lottery_id]) * 1000" :theme="'theme-a'"/>
-        </span>
-      </div>
+      <LotteryIssue :lotteries="lotteries" :lotteryIssue="lotteryIssue"/>
       <div class="middle mb-2" >
         <Table :lotteryIssue="lotteryIssue" class=""/>
       </div>
@@ -62,10 +30,6 @@
 @import 'Index-scoped.scss';
 </style>
 
-<style lang="scss">
-@import 'Index.scss';
-</style>
-
 <script lang="ts">
 import {
   Component,
@@ -73,33 +37,28 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
-import {
-  ChenCountdown,
-  SNumbers,
-} from '@/Components/';
-
 import Table from './Table/Index.vue';
+import LotteryIssue from './LotteryIssue/Index.vue';
 
 import {
   Lottery as LotteryMixin,
 } from '@/Mixins/';
 
 @Component({
-  name: 'LotteryIssue',
+  name: 'LotteryIssueAndTable',
   components: {
-    SNumbers,
     Table,
-    ChenCountdown,
+    LotteryIssue,
   },
   mixins: [LotteryMixin],
 })
-class LotteryIssue extends Vue {
+class LotteryIssueAndTable extends Vue {
   @Prop()
   public lotteryIssue!: object;
 
   @Prop()
   public lotteries!: object;
 }
-export default LotteryIssue;
+export default LotteryIssueAndTable;
 
 </script>
