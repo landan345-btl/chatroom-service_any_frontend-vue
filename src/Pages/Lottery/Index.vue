@@ -87,7 +87,7 @@ class Lottery extends Vue {
   }
 
   @Watch('$route', { immediate: true, deep: true })
-  onRouteChange(oRoute: any) {
+    public onRouteChange(oRoute: any) {
     let sCode = oRoute.query.code || '';
     let oQueries = {
       code: sCode,

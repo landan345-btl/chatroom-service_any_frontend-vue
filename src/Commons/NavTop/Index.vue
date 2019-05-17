@@ -34,7 +34,7 @@
                 <p v-for="(subLink , sIndex) in subLink.SUB_MENU_LINKS" :key="sIndex" class="d-inline-block ml-2 position-relative">
                   <!-- <i class="lottery-icon align-middle d-inline-block" :class="'icon-'+lottery.ICON"></i>  ICON 预留图标-->
                   <span class="lnik-title align-middle font-size-1p5 d-inline-block text-center" >
-                    <router-link :to="{ path:`${linkToPath(subLink.LINK)}` , query: linkToQuery(subLink.LINK)}" >{{ subLink.NAME }} </router-link> 
+                    <router-link @click.native="hideSubMenu()" :to="{ path:`${linkToPath(subLink.LINK)}` , query: linkToQuery(subLink.LINK)}" >{{ subLink.NAME }} </router-link> 
                   </span>
                   <i :class=" subLink.IS_HOT ===true ? 'is-hot':''" class="d-inline-block hot-pisotion position-absolute"></i>
                 </p> 
@@ -70,6 +70,9 @@ class NavTop extends Vue {
   public hideSubMenu() {
     this.status = null;
   }
+  // public hideMenu(sIndex: any) {
+  //   this.status = null;
+  // }
 }
 
 export default NavTop;
