@@ -92,10 +92,10 @@ import {
   Component,
   Watch,
   Vue,
-  Prop
+  Prop,
 } from 'vue-property-decorator';
 
-import { 
+import {
   warn,
 } from 'vue-class-component/lib/util';
 

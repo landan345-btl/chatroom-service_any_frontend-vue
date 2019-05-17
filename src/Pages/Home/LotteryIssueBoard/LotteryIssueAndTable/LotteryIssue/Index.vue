@@ -70,7 +70,7 @@ class LotteryIssue extends Vue {
   public lotteries!: any;
 
   public caculateLotteryIssueExtension!: any;
-  
+
   public beforeMount() {
     this.caculateLotteryIssueExtension(this.lotteryIssue.opened_time, this.lotteries[this.lotteryIssue.lottery_id]);
   }
