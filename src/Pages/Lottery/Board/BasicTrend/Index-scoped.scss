@@ -15,7 +15,7 @@
       font-size: 1.3vmin;
       td {
         border: .2vmin solid #b1adad;
-        padding: 1.5vmin 0;
+        padding: 0.7vmin 0;
         text-align: center;
         span {
           display: inline-block;
@@ -26,8 +26,26 @@
           line-height: 2vmin;
         }
       }
-      .w-8 {
-        width:8%;
+      .background-shallow-beige {
+        background: #FCF8F3;
+      }
+      .background-shallow-blue {
+        background: #F0F9FC;
+      }
+      .background-shallow-green {
+        background: #F0FCF0;
+      }
+      .background-shallow-gray {
+        background: #F0F1FC;
+      }
+      .background-shallow-blueness {
+        background: #F0FCF7;  
+      }
+      .w-7 {
+        width:7%;
+      }
+      .w-6 {
+        width:6%;
       }
       tr:nth-child(1),tr:nth-child(2) {
         background: #f5f5f5;

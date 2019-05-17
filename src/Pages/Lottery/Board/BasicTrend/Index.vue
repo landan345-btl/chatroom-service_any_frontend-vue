@@ -22,10 +22,10 @@
     </div>
     <div class="p-2 fictitious">
       <div>
-         <table class="basic-table">
+         <table class="basic-table" v-canvasTrend>
           <tr>
-            <td rowspan="2" class="w-10"> <span>期号</span> </td>
-            <td rowspan="2" class="w-8"> <span>开奖号码</span> </td>
+            <td rowspan="2" class="w-7"> <span>期号</span> </td>
+            <td rowspan="2" class="w-6"> <span>开奖号码</span> </td>
             <td colspan="10">第一球</td>
             <td colspan="10">第二球</td>
             <td colspan="10">第三球</td>
@@ -89,19 +89,60 @@
             <td class="color-red w-10" >
               <span v-for="( numbers , index ) in JSON.parse(oLotteryIssue.numbers)" :key="index">{{ numbers }}</span>
             </td>
-            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
-            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
-            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
-            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
-            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
-            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
-            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
-            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
-            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
-            <td><span class="background-orange-0">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
-            <!-- <td><span class="background-cyan-2">5</span></td>
-            <td><span class="background-purple-3">3</span></td>
-            <td><span class="background-blackish-green-4">2</span></td> -->
+            <td class="background-shallow-beige"><span :class="substr(JSON.parse(oLotteryIssue.numbers),0) === 0 ? 'background-orange-0':''">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td class="background-shallow-beige"><span :class="substr(JSON.parse(oLotteryIssue.numbers),0) === 1 ? 'background-orange-0':''">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td class="background-shallow-beige"><span :class="substr(JSON.parse(oLotteryIssue.numbers),0) === 2 ? 'background-orange-0':''">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td class="background-shallow-beige"><span :class="substr(JSON.parse(oLotteryIssue.numbers),0) === 3 ? 'background-orange-0':''">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td class="background-shallow-beige"><span :class="substr(JSON.parse(oLotteryIssue.numbers),0) === 4 ? 'background-orange-0':''">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td class="background-shallow-beige"><span :class="substr(JSON.parse(oLotteryIssue.numbers),0) === 5 ? 'background-orange-0':''">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td class="background-shallow-beige"><span :class="substr(JSON.parse(oLotteryIssue.numbers),0) === 6 ? 'background-orange-0':''">{{ JSON.parse(oLotteryIssue.numbers) | substr(0) }}</span></td>
+            <td class="background-shallow-beige"><span :class="substr(JSON.parse(oLotteryIssue.numbers),0) === 7 ? 'background-orange-0':''">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td class="background-shallow-beige"><span :class="substr(JSON.parse(oLotteryIssue.numbers),0) === 8 ? 'background-orange-0':''">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+            <td class="background-shallow-beige"><span :class="substr(JSON.parse(oLotteryIssue.numbers),0) === 9 ? 'background-orange-0':''">{{JSON.parse(oLotteryIssue.numbers) | substr(0)}}</span></td>
+
+            <td class="background-shallow-blue"><span :class="substr(JSON.parse(oLotteryIssue.numbers),1) === 0 ? 'background-blue-1':''">{{JSON.parse(oLotteryIssue.numbers) | substr(1)}}</span></td>
+            <td class="background-shallow-blue"><span :class="substr(JSON.parse(oLotteryIssue.numbers),1) === 1 ? 'background-blue-1':''">{{JSON.parse(oLotteryIssue.numbers) | substr(1)}}</span></td>
+            <td class="background-shallow-blue"><span :class="substr(JSON.parse(oLotteryIssue.numbers),1) === 2 ? 'background-blue-1':''">{{JSON.parse(oLotteryIssue.numbers) | substr(1)}}</span></td>
+            <td class="background-shallow-blue"><span :class="substr(JSON.parse(oLotteryIssue.numbers),1) === 3 ? 'background-blue-1':''">{{JSON.parse(oLotteryIssue.numbers) | substr(1)}}</span></td>
+            <td class="background-shallow-blue"><span :class="substr(JSON.parse(oLotteryIssue.numbers),1) === 4 ? 'background-blue-1':''">{{JSON.parse(oLotteryIssue.numbers) | substr(1)}}</span></td>
+            <td class="background-shallow-blue"><span :class="substr(JSON.parse(oLotteryIssue.numbers),1) === 5 ? 'background-blue-1':''">{{JSON.parse(oLotteryIssue.numbers) | substr(1)}}</span></td>
+            <td class="background-shallow-blue"><span :class="substr(JSON.parse(oLotteryIssue.numbers),1) === 6 ? 'background-blue-1':''">{{ JSON.parse(oLotteryIssue.numbers) | substr(1) }}</span></td>
+            <td class="background-shallow-blue"><span :class="substr(JSON.parse(oLotteryIssue.numbers),1) === 7 ? 'background-blue-1':''">{{JSON.parse(oLotteryIssue.numbers) | substr(1)}}</span></td>
+            <td class="background-shallow-blue"><span :class="substr(JSON.parse(oLotteryIssue.numbers),1) === 8 ? 'background-blue-1':''">{{JSON.parse(oLotteryIssue.numbers) | substr(1)}}</span></td>
+            <td class="background-shallow-blue"><span :class="substr(JSON.parse(oLotteryIssue.numbers),1) === 9 ? 'background-blue-1':''">{{JSON.parse(oLotteryIssue.numbers) | substr(1)}}</span></td>
+            
+            <td class="background-shallow-green"><span :class="substr(JSON.parse(oLotteryIssue.numbers),2) === 0 ? 'background-cyan-2':''">{{JSON.parse(oLotteryIssue.numbers) | substr(2)}}</span></td>
+            <td class="background-shallow-green"><span :class="substr(JSON.parse(oLotteryIssue.numbers),2) === 1 ? 'background-cyan-2':''">{{JSON.parse(oLotteryIssue.numbers) | substr(2)}}</span></td>
+            <td class="background-shallow-green"><span :class="substr(JSON.parse(oLotteryIssue.numbers),2) === 2 ? 'background-cyan-2':''">{{JSON.parse(oLotteryIssue.numbers) | substr(2)}}</span></td>
+            <td class="background-shallow-green"><span :class="substr(JSON.parse(oLotteryIssue.numbers),2) === 3 ? 'background-cyan-2':''">{{JSON.parse(oLotteryIssue.numbers) | substr(2)}}</span></td>
+            <td class="background-shallow-green"><span :class="substr(JSON.parse(oLotteryIssue.numbers),2) === 4 ? 'background-cyan-2':''">{{JSON.parse(oLotteryIssue.numbers) | substr(2)}}</span></td>
+            <td class="background-shallow-green"><span :class="substr(JSON.parse(oLotteryIssue.numbers),2) === 5 ? 'background-cyan-2':''">{{JSON.parse(oLotteryIssue.numbers) | substr(2)}}</span></td>
+            <td class="background-shallow-green"><span :class="substr(JSON.parse(oLotteryIssue.numbers),2) === 6 ? 'background-cyan-2':''">{{ JSON.parse(oLotteryIssue.numbers) | substr(2) }}</span></td>
+            <td class="background-shallow-green"><span :class="substr(JSON.parse(oLotteryIssue.numbers),2) === 7 ? 'background-cyan-2':''">{{JSON.parse(oLotteryIssue.numbers) | substr(2)}}</span></td>
+            <td class="background-shallow-green"><span :class="substr(JSON.parse(oLotteryIssue.numbers),2) === 8 ? 'background-cyan-2':''">{{JSON.parse(oLotteryIssue.numbers) | substr(2)}}</span></td>
+            <td class="background-shallow-green"><span :class="substr(JSON.parse(oLotteryIssue.numbers),2) === 9 ? 'background-cyan-2':''">{{JSON.parse(oLotteryIssue.numbers) | substr(2)}}</span></td>
+            
+            <td class="background-shallow-gray"><span :class="substr(JSON.parse(oLotteryIssue.numbers),3) === 0 ? 'background-purple-3':''">{{JSON.parse(oLotteryIssue.numbers) | substr(3)}}</span></td>
+            <td class="background-shallow-gray"><span :class="substr(JSON.parse(oLotteryIssue.numbers),3) === 1 ? 'background-purple-3':''">{{JSON.parse(oLotteryIssue.numbers) | substr(3)}}</span></td>
+            <td class="background-shallow-gray"><span :class="substr(JSON.parse(oLotteryIssue.numbers),3) === 2 ? 'background-purple-3':''">{{JSON.parse(oLotteryIssue.numbers) | substr(3)}}</span></td>
+            <td class="background-shallow-gray"><span :class="substr(JSON.parse(oLotteryIssue.numbers),3) === 3 ? 'background-purple-3':''">{{JSON.parse(oLotteryIssue.numbers) | substr(3)}}</span></td>
+            <td class="background-shallow-gray"><span :class="substr(JSON.parse(oLotteryIssue.numbers),3) === 4 ? 'background-purple-3':''">{{JSON.parse(oLotteryIssue.numbers) | substr(3)}}</span></td>
+            <td class="background-shallow-gray"><span :class="substr(JSON.parse(oLotteryIssue.numbers),3) === 5 ? 'background-purple-3':''">{{JSON.parse(oLotteryIssue.numbers) | substr(3)}}</span></td>
+            <td class="background-shallow-gray"><span :class="substr(JSON.parse(oLotteryIssue.numbers),3) === 6 ? 'background-purple-3':''">{{ JSON.parse(oLotteryIssue.numbers) | substr(3) }}</span></td>
+            <td class="background-shallow-gray"><span :class="substr(JSON.parse(oLotteryIssue.numbers),3) === 7 ? 'background-purple-3':''">{{JSON.parse(oLotteryIssue.numbers) | substr(3)}}</span></td>
+            <td class="background-shallow-gray"><span :class="substr(JSON.parse(oLotteryIssue.numbers),3) === 8 ? 'background-purple-3':''">{{JSON.parse(oLotteryIssue.numbers) | substr(3)}}</span></td>
+            <td class="background-shallow-gray"><span :class="substr(JSON.parse(oLotteryIssue.numbers),3) === 9 ? 'background-purple-3':''">{{JSON.parse(oLotteryIssue.numbers) | substr(3)}}</span></td>
+            
+            <td class="background-shallow-blueness"><span :class="substr(JSON.parse(oLotteryIssue.numbers),4) === 0 ? 'background-blackish-green-4':''">{{JSON.parse(oLotteryIssue.numbers) | substr(4)}}</span></td>
+            <td class="background-shallow-blueness"><span :class="substr(JSON.parse(oLotteryIssue.numbers),4) === 1 ? 'background-blackish-green-4':''">{{JSON.parse(oLotteryIssue.numbers) | substr(4)}}</span></td>
+            <td class="background-shallow-blueness"><span :class="substr(JSON.parse(oLotteryIssue.numbers),4) === 2 ? 'background-blackish-green-4':''">{{JSON.parse(oLotteryIssue.numbers) | substr(4)}}</span></td>
+            <td class="background-shallow-blueness"><span :class="substr(JSON.parse(oLotteryIssue.numbers),4) === 3 ? 'background-blackish-green-4':''">{{JSON.parse(oLotteryIssue.numbers) | substr(4)}}</span></td>
+            <td class="background-shallow-blueness"><span :class="substr(JSON.parse(oLotteryIssue.numbers),4) === 4 ? 'background-blackish-green-4':''">{{JSON.parse(oLotteryIssue.numbers) | substr(4)}}</span></td>
+            <td class="background-shallow-blueness"><span :class="substr(JSON.parse(oLotteryIssue.numbers),4) === 5 ? 'background-blackish-green-4':''">{{JSON.parse(oLotteryIssue.numbers) | substr(4)}}</span></td>
+            <td class="background-shallow-blueness"><span :class="substr(JSON.parse(oLotteryIssue.numbers),4) === 6 ? 'background-blackish-green-4':''">{{ JSON.parse(oLotteryIssue.numbers) | substr(4) }}</span></td>
+            <td class="background-shallow-blueness"><span :class="substr(JSON.parse(oLotteryIssue.numbers),4) === 7 ? 'background-blackish-green-4':''">{{JSON.parse(oLotteryIssue.numbers) | substr(4)}}</span></td>
+            <td class="background-shallow-blueness"><span :class="substr(JSON.parse(oLotteryIssue.numbers),4) === 8 ? 'background-blackish-green-4':''">{{JSON.parse(oLotteryIssue.numbers) | substr(4)}}</span></td>
+            <td class="background-shallow-blueness"><span :class="substr(JSON.parse(oLotteryIssue.numbers),4) === 9 ? 'background-blackish-green-4':''">{{JSON.parse(oLotteryIssue.numbers) | substr(4)}}</span></td>
           </tr>
         </table>
         <table>
