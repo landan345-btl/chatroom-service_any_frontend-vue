@@ -13,7 +13,7 @@
         <main>
           <News />
           <Live :lotteries="lotteries" :lotteryIssues="lotteryIssues"/>
-          <!-- <Lottery-issue-board :lotteryIssues="lotteryIssues" :lotteries="lotteries"/> -->
+          <Lottery-issue-board :lotteryIssues="lotteryIssues" :lotteries="lotteries"/>
         </main>
       </Col>
       <Col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 6}" :xl="{span: 4}">

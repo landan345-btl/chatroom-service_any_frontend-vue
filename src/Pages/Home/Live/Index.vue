@@ -49,10 +49,11 @@ import {
   },
   mixins: [LotteryMixin],
 })
+
 class Live extends Vue {
 
   public codes: string[] = [
-    'CQSSC', 'BJPK10', 'FFPK10', 'JSK3',
+    'CQSSC', 'BJPK10', 'GDKLSF', 'JSK3',
   ];
 
   @Prop()

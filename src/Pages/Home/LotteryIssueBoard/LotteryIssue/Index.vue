@@ -18,20 +18,20 @@
               期
             </span>
             <span class="this-and-next ml-0p5">
-              当前&nbsp;{{ lotteryIssue.order_no_in_this_day }}&nbsp;期，剩&nbsp;{{ lotteryIssue.order_no_total_in_this_day - lotteryIssue.order_no_in_this_day }}&nbsp;期
+              <!-- 当前&nbsp;{{ lotteryIssue.order_no_in_this_day }}&nbsp;期，剩&nbsp;{{ lotteryIssue.order_no_total_in_this_day - lotteryIssue.order_no_in_this_day }}&nbsp;期 -->
             </span>
           </div>
           <div class="bottom">
             <S-numbers 
               :code="lotteries[lotteryIssue.lottery_id].code" 
-              :numbers="lotteryIssue.numbers" 
+              :numbers="JSON.parse(lotteryIssue.numbers)" 
               :types="lotteries[lotteryIssue.lottery_id].types"
               :isRandom="true"
               class="status-number"/>
           </div>
         </router-link>
         <span class="countdown d-inline-block align-bottom position-absolute">
-          <Chen-countdown :time="lotteryIssue.next_time * 1000" :theme="'theme-a'"/>
+          <!-- <Chen-countdown :time="lotteryIssue.next_time * 1000" :theme="'theme-a'"/> -->
         </span>
       </div>
       <div class="middle mb-2" >
@@ -80,6 +80,10 @@ import {
 
 import Table from './Table/Index.vue';
 
+import {
+  Lottery as LotteryMixin,
+} from '@/Mixins/';
+
 @Component({
   name: 'LotteryIssue',
   components: {
@@ -87,6 +91,7 @@ import Table from './Table/Index.vue';
     Table,
     ChenCountdown,
   },
+  mixins: [LotteryMixin],
 })
 class LotteryIssue extends Vue {
   @Prop()
