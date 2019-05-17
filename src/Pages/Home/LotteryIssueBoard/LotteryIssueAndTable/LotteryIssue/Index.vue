@@ -16,7 +16,7 @@
           期
         </span>
         <span class="this-and-next ml-0p5">
-          当前&nbsp;{{ calculateOrderNoInThisDay(null, lotteries[lotteryIssue.lottery_id]) }}&nbsp;期，剩&nbsp;{{ calculateTotalOrderNoInThisDay(null, lotteries[lotteryIssue.lottery_id]) - calculateOrderNoInThisDay(null, lotteries[lotteryIssue.lottery_id]) }}&nbsp;期
+          当前&nbsp;{{ extensionLotteryIssue.order_no_in_this_day }}&nbsp;期，剩&nbsp;{{ extensionLotteryIssue.order_total_no - extensionLotteryIssue.order_no_in_this_day }}&nbsp;期
         </span>
       </div>
       <div class="bottom">
@@ -29,7 +29,7 @@
       </div>
     </router-link>
     <span class="countdown d-inline-block align-bottom position-absolute">
-      <Chen-countdown :time="calculateNextTime(lotteryIssue.opened_time, lotteries[lotteryIssue.lottery_id]) * 1000" :theme="'theme-a'"/>
+      <Chen-countdown :time="extensionLotteryIssue.next_time * 1000" :theme="'theme-a'"/>
     </span>
   </div>
 </template>
@@ -64,10 +64,17 @@ import {
 })
 class LotteryIssue extends Vue {
   @Prop()
-  public lotteryIssue!: object;
+  public lotteryIssue!: any;
 
   @Prop()
-  public lotteries!: object;
+  public lotteries!: any;
+
+  public caculateLotteryIssueExtension!: any;
+  
+  public beforeMount() {
+    this.caculateLotteryIssueExtension(this.lotteryIssue.opend_time, this.lotteries[this.lotteryIssue.lottery_id]);
+  }
+
 }
 export default LotteryIssue;
 
