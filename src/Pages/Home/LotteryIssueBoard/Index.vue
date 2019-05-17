@@ -88,12 +88,20 @@
 </style>
 
 <script lang="ts">
-import { Component, Watch, Vue, Prop } from 'vue-property-decorator';
-import { warn } from 'vue-class-component/lib/util';
-import ETabPane from '@/Components/ETabPane/Index.vue';
-import ETable from '@/Components/ETable/Index.vue';
-import ITabs from '@/Components/ITabs/Index.vue';
-import ITabPane from '@/Components/ITabPane/Index.vue';
+import {
+  Component,
+  Watch,
+  Vue,
+  Prop
+} from 'vue-property-decorator';
+
+import { 
+  warn,
+} from 'vue-class-component/lib/util';
+
+import {
+  ITabs,
+} from '@/Components/';
 
 import LotteryIssueAndTable from './LotteryIssueAndTable/Index.vue';
 
@@ -101,8 +109,6 @@ import LotteryIssueAndTable from './LotteryIssueAndTable/Index.vue';
   name: 'LotteryIssueBaord',
   components: {
     ITabs,
-    ETabPane,
-    ETable,
     LotteryIssueAndTable,
   },
 })

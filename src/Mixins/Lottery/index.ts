@@ -65,7 +65,7 @@ class Lottery extends Vue {
       }
     });
 
-    this.extensionLotteryIssue.nextTime = iNextTime;
+    this.extensionLotteryIssue.next_time = iNextTime;
     this.extensionLotteryIssue.order_no_in_this_day = iLotteryIssueOrderNoInThisDay;
     this.extensionLotteryIssue.order_total_no = iLotteryIssueOrderNoTotalInThisDay;
   }
