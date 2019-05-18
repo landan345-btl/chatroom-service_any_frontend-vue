@@ -3,6 +3,10 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
+import {
+  Lottery as LotteryHelper,
+} from '@/Helpers/';
+
 @Component({
   name: 'LotteryMixin',
 })
@@ -12,6 +16,11 @@ class Lottery extends Vue {
     order_no_in_this_day: 1,
     order_total_no: 1,
   };
+
+  public extensionLottery: any = {
+    positions_to_number_types_to_counts: null,
+  };
+
   public created() {
     console.log('你使用了 Lottery Mixin');
   }
@@ -69,6 +78,60 @@ class Lottery extends Vue {
     this.extensionLotteryIssue.next_time = iNextTime;
     this.extensionLotteryIssue.order_no_in_this_day = iLotteryIssueOrderNoInThisDay;
     this.extensionLotteryIssue.order_total_no = iLotteryIssueOrderNoTotalInThisDay;
+  }
+
+  public positionsToNumberTypesToCounts(oLotteryIssues: any, oLottery: any) {
+    let oLotteryHelper = new LotteryHelper();
+    let oPositionsToNumberTypesToCounts: {
+      [key: string]: any,
+    } = {};
+    let aLotteryIssues = Object.values(oLotteryIssues);
+
+    aLotteryIssues.forEach((oLotteryIssue: any) => {
+      let aNumbers = JSON.parse(oLotteryIssue.numbers);
+      let sTypes = oLottery.types;
+      let iIndex: number = 0;
+      for (iIndex = 0 ; iIndex < aNumbers.length ; iIndex++) {
+        let iNumber = aNumbers[iIndex];
+        let sIsNumberSmallOrLarge = oLotteryHelper.isNumberSmallOrLarge(iNumber, sTypes);
+        let sOddOrEven = oLotteryHelper.isOddOrEven(iNumber, sTypes);
+        if (!oPositionsToNumberTypesToCounts.hasOwnProperty(iIndex)) {
+          oPositionsToNumberTypesToCounts = {
+            ...oPositionsToNumberTypesToCounts,
+            [iIndex]: {
+              small: 0,
+              large: 0,
+              odd: 0,
+              even: 0,
+            },
+          };
+        }
+        if ('小' === sIsNumberSmallOrLarge) {
+          let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[iIndex];
+          let sKey = 'small';
+          oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
+        }
+
+        if ('大' === sIsNumberSmallOrLarge) {
+          let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[iIndex];
+          let sKey = 'large';
+          oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
+        }
+
+        if ('单' === sOddOrEven) {
+          let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[iIndex];
+          let sKey = 'odd';
+          oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
+        }
+
+        if ('双' === sOddOrEven) {
+          let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[iIndex];
+          let sKey = 'even';
+          oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
+        }
+      }
+    });
+    return oPositionsToNumberTypesToCounts;
   }
 
 }

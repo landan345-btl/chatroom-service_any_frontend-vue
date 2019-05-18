@@ -2,7 +2,14 @@
   <div class="board">
     <I-tabs :type="'card'" class="" :animated="false">
       <TabPane :label="'即时开奖'" :name="'lottery-issue'"> 
-        <Lottery-issue v-if="code && types" :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types" :todayTwoSideRecords="todayTwoSideRecords"/>
+        <Lottery-issue 
+          v-if="code && types" 
+          :lotteryIssues="lotteryIssues" 
+          :lottery="lottery"
+          :lotteries="lotteries"
+          :code="code" 
+          :types="types" 
+          :todayTwoSideRecords="todayTwoSideRecords"/>
       </TabPane>
       <!-- <TabPane :label="'路珠分析'" :name="'result-analysis'">
         <Result-analysis />
@@ -120,6 +127,9 @@ class Board extends Vue {
   @Prop()
   public lottery!: any;
 
+  @Prop()
+  public lotteries!: any;
+  
   @Prop()
   public code!: any;
 

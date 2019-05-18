@@ -89,6 +89,9 @@ class Pannel extends Vue {
   public lottery!: any;
 
   @Prop()
+  public lotteries!: any;
+
+  @Prop()
   public code!: any;
 
   @Prop()

@@ -223,6 +223,10 @@ import {
 } from 'vue-property-decorator';
 
 import {
+  Lottery as LotteryMixin,
+} from '@/Mixins/';
+
+import {
   LOTTERIES,
 } from '@/CONFIGS/';
 
@@ -230,6 +234,7 @@ import {
   name: 'TodayTwoSideNumberStatics',
   components: {
   },
+  mixins: [LotteryMixin],
 })
 class TodayTwoSideNumberStatics extends Vue {
   @Prop()
@@ -238,6 +243,16 @@ class TodayTwoSideNumberStatics extends Vue {
   @Prop()
   public todayTwoSideRecords!: any;
 
+  @Prop()
+  public lotteryIssues!: any;
+
+  @Prop()
+  public lotteries!: any;
+
+  public positionsToNumberTypesToCounts: any;
+  public beforeMount() {
+    this.positionsToNumberTypesToCounts(this.lotteryIssues, this.lotteries);
+  }
 }
 
 export default TodayTwoSideNumberStatics;
