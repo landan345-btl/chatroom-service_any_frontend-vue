@@ -7,7 +7,7 @@
       <!-- <TabPane :label="'路珠分析'" :name="'result-analysis'">
         <Result-analysis />
       </TabPane> -->
-      <TabPane :label="'综合分析'" :name="'summary-anaylysis'" v-if="['SSC'].includes(types.toUpperCase())">
+      <TabPane :label="'综合分析'" :name="'summary-anaylysis'">
         <Summary-analysis v-if="code && types" :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types" :todayTwoSideRecords="todayTwoSideRecords"/>
       </TabPane>
       <TabPane :label="'基本走势'" :name="'basic-trend'">
