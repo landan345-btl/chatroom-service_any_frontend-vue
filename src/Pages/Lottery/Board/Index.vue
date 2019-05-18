@@ -15,7 +15,7 @@
         <Result-analysis />
       </TabPane> -->
       <TabPane :label="'综合分析'" :name="'summary-anaylysis'">
-        <Summary-analysis v-if="code && types" :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types" :todayTwoSideRecords="todayTwoSideRecords"/>
+        <Summary-analysis v-if="code && types" :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types"/>
       </TabPane>
       <TabPane :label="'基本走势'" :name="'basic-trend'">
         <Basic-trend v-if="code && types" :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types"/>
@@ -135,9 +135,6 @@ class Board extends Vue {
 
   @Prop()
   public types!: any;
-
-  @Prop()
-  public todayTwoSideRecords!: any;
 
 }
 

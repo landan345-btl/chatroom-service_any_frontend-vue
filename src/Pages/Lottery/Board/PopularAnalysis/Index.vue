@@ -27,7 +27,8 @@
               :numbers="chooseNumbersByCount(hotWarnColdPositions[iPosition], 4, null)" 
               :types="LOTTERIES[code].TYPES || types" 
               :isRandom="false" 
-              :status="'NUMBER'" />
+              :status="'NUMBER'"
+              v-if="hotWarnColdPositions && hotWarnColdPositions[iPosition]" />
         </td>
         <td class="align-middle text-left">
           <S-numbers 
@@ -36,7 +37,8 @@
             :types="LOTTERIES[code].TYPES || types" 
             :isRandom="false" 
             :isCountShowed="false"
-            :status="'NUMBER'" />
+            :status="'NUMBER'"
+            v-if="hotWarnColdPositions && hotWarnColdPositions[iPosition]" />
         </td>
         <td class="align-middle text-left">
           <S-numbers 
@@ -45,7 +47,8 @@
             :types="LOTTERIES[code].TYPES || types" 
             :isRandom="false" 
             :isCountShowed="false"
-            :status="'NUMBER'" />
+            :status="'NUMBER'"
+            v-if="hotWarnColdPositions && hotWarnColdPositions[iPosition]" />
         </td>
       </tr>
     </table>
@@ -99,7 +102,7 @@ class PopularAnalysis extends Vue {
   };
   public chooseNumbersByCount(oCounts: any , iMinCount: number , iMaxCount: number ) {
     let aNumbers: number[] = [];
-
+    debugger;
     Object.keys(oCounts).forEach((sNumber: string ) => {
       let iNumber = Number(sNumber);
       if ( oCounts[iNumber] >= iMinCount && iMaxCount === null ) {
