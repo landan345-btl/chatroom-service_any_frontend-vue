@@ -124,7 +124,7 @@
       </div>   
       <div v-if=" types && ['SSC', '11X5'].includes(types.toUpperCase())" class="font-size-1p5">
         <table>
-          <tbody v-if=" types && ['SSC'].includes(types.toUpperCase())" >
+          <tbody v-if=" types && ['SSC'].includes(types.toUpperCase())">
             <tr>
               <th>号码</th>
               <th>0</th>
@@ -152,7 +152,7 @@
               <td>{{ countNumber( lotteryIssues , 9 ) }}</td>
             </tr>
           </tbody>
-           <tbody v-if=" types && ['11X5'].includes(types.toUpperCase())" >
+          <tbody v-if=" types && ['11X5'].includes(types.toUpperCase())">
             <tr>
               <th>号码</th>
               <th>1</th>
