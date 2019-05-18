@@ -62,13 +62,6 @@
           </tr>
           <tr>
             <td>出现次数</td>
-
-
-
-            <!-- <template  v-for="(sRecord) in todayTwoSideRecords">
-              <td v-for="(x, y) in sRecord" :key="y">
-              </td>
-            </template > -->
             <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[0]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
             <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[1]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
             <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[2]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
@@ -146,16 +139,16 @@
           </tr>
           <tr class="background-white text-center">
             <td>出现次数</td>
-            <td>64</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
-            <td>55</td>
+            <td>{{ countNumber( lotteryIssues , 0 ) }}</td>
+            <td>{{ countNumber( lotteryIssues , 1 ) }}</td>
+            <td>{{ countNumber( lotteryIssues , 2 ) }}</td>
+            <td>{{ countNumber( lotteryIssues , 3 ) }}</td>
+            <td>{{ countNumber( lotteryIssues , 4 ) }}</td>
+            <td>{{ countNumber( lotteryIssues , 5 ) }}</td>
+            <td>{{ countNumber( lotteryIssues , 6 ) }}</td>
+            <td>{{ countNumber( lotteryIssues , 7 ) }}</td>
+            <td>{{ countNumber( lotteryIssues , 8 ) }}</td>
+            <td>{{ countNumber( lotteryIssues , 9 ) }}</td>
           </tr>
           </tbody>
         </table>  
@@ -237,6 +230,28 @@ class TodayTwoSideNumberStatics extends Vue {
 
   @Prop()
   public todayTwoSideRecords!: any;
+
+   @Prop()
+  public lotteryIssues!: any;
+
+
+   /*
+   * 利用彩票开奖列表 计算 莫一个 number 的 次数
+   *
+   *
+   */
+  public countNumber(oLotteryIssues: any, iNumber: number) {  // 
+    let iCount = 0;
+    Object.keys(oLotteryIssues).forEach((sLotteryIssueKey) => {
+      let aNumbers = JSON.parse(oLotteryIssues[sLotteryIssueKey].numbers) || [];
+      for (let _iNumber of aNumbers) {
+        if ( Number(_iNumber) === Number(iNumber)) {
+          iCount++;
+        }
+      }
+    });
+    return iCount;
+  }
 
 }
 
