@@ -96,7 +96,8 @@ class Lottery extends Vue {
   }
 
   @Watch('$route', { immediate: true, deep: true })
-    public onRouteChange(oRoute: any) {
+  public onRouteChange(oRoute: any) {
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
     let sCode = oRoute.query.code || '';
     let oQueries = {
       code: sCode,
