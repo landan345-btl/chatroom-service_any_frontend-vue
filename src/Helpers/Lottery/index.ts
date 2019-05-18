@@ -1,6 +1,7 @@
 import {
   isSmallOrLarge,
   isOddOrEven,
+  sum,
 } from '@/utilities/';
 
 import {
@@ -84,6 +85,11 @@ class LotteryHelper {
   public isOddOrEven(iNumber: number, sTypes: string): string {
     let sResult = isOddOrEven(iNumber);
     return sResult;
+  }
+
+  public sum(aNumbers: number[], aPositions?: number[] | null) {
+    let iSummation = sum(aNumbers, aPositions);
+    return iSummation;
   }
 }
 export default LotteryHelper;

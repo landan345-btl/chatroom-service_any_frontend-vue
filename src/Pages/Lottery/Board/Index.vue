@@ -129,7 +129,7 @@ class Board extends Vue {
 
   @Prop()
   public lotteries!: any;
-  
+
   @Prop()
   public code!: any;
 

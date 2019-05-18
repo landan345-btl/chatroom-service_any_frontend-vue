@@ -18,7 +18,8 @@ class Lottery extends Vue {
   };
 
   public extensionLottery: any = {
-    positions_to_number_types_to_counts: null,
+    positions_to_number_types_to_counts: {},
+    numbers_to_counts: {},
   };
 
   public created() {
@@ -93,7 +94,12 @@ class Lottery extends Vue {
       let iIndex: number = 0;
       for (iIndex = 0 ; iIndex < aNumbers.length ; iIndex++) {
         let iNumber = aNumbers[iIndex];
-        let sIsNumberSmallOrLarge = oLotteryHelper.isNumberSmallOrLarge(iNumber, sTypes);
+        if (!this.extensionLottery.numbers_to_counts.hasOwnProperty(iNumber)) {
+          this.extensionLottery.numbers_to_counts[iNumber] = 0;
+        }
+        this.extensionLottery.numbers_to_counts[iNumber] = this.extensionLottery.numbers_to_counts[iNumber] + 1;
+
+        let sSmallOrLarge = oLotteryHelper.isNumberSmallOrLarge(iNumber, sTypes);
         let sOddOrEven = oLotteryHelper.isOddOrEven(iNumber, sTypes);
         if (!oPositionsToNumberTypesToCounts.hasOwnProperty(iIndex)) {
           oPositionsToNumberTypesToCounts = {
@@ -106,13 +112,13 @@ class Lottery extends Vue {
             },
           };
         }
-        if ('小' === sIsNumberSmallOrLarge) {
+        if ('小' === sSmallOrLarge) {
           let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[iIndex];
           let sKey = 'small';
           oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
         }
 
-        if ('大' === sIsNumberSmallOrLarge) {
+        if ('大' === sSmallOrLarge) {
           let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[iIndex];
           let sKey = 'large';
           oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
@@ -130,8 +136,48 @@ class Lottery extends Vue {
           oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
         }
       }
+
+      if (!oPositionsToNumberTypesToCounts.hasOwnProperty(aNumbers.length + 1)) {
+        oPositionsToNumberTypesToCounts = {
+          ...oPositionsToNumberTypesToCounts,
+          [aNumbers.length + 1]: {
+            small: 0,
+            large: 0,
+            odd: 0,
+            even: 0,
+          },
+        };
+      }
+      let iSummation = oLotteryHelper.sum(aNumbers);
+      let _sSmallOrLarge = oLotteryHelper.isSummationSmallOrLarge(iSummation, oLottery.types);
+      let _sOddOrEven = oLotteryHelper.isOddOrEven(iSummation, oLottery.types);
+
+      if ('小' === _sSmallOrLarge) {
+        let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[aNumbers.length + 1];
+        let sKey = 'small';
+        oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
+      }
+
+      if ('大' === _sSmallOrLarge) {
+        let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[aNumbers.length + 1];
+        let sKey = 'large';
+        oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
+      }
+
+      if ('单' === _sOddOrEven) {
+        let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[aNumbers.length + 1];
+        let sKey = 'odd';
+        oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
+      }
+
+      if ('双' === _sOddOrEven) {
+        let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[aNumbers.length + 1];
+        let sKey = 'even';
+        oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
+      }
     });
-    return oPositionsToNumberTypesToCounts;
+
+    this.extensionLottery.positions_to_number_types_to_counts = oPositionsToNumberTypesToCounts;
   }
 
 }

@@ -13,6 +13,7 @@
         :todayTwoSideRecords="todayTwoSideRecords"
         :lotteryIssues="lotteryIssues"
         :lotteries="lotteries"
+        :lottery="lottery"
         v-show="isTodayTwoSideNumberStaticShowed" class="p-2"/>
     </transition>
     <transition name="slide-fade">
