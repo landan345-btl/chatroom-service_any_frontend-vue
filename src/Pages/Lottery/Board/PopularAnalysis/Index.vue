@@ -18,7 +18,7 @@
         <th class="align-middle text-center">冷</th>
       </tr>
       <tr v-for="(oCounts, iPosition) in hotWarnColdPositions" :key="iPosition">
-        <td class="align-middle font-size-1 text-center">{{ types ? texts[types][iPosition] : iPosition }} </td>
+        <td class="align-middle font-size-1 text-center">{{ types && texts[types] && texts[types][iPosition] ? texts[types][iPosition] : iPosition }} </td>
         <td class="align-middle text-left">
             <S-numbers 
               :code="code" 
@@ -102,7 +102,6 @@ class PopularAnalysis extends Vue {
   };
   public chooseNumbersByCount(oCounts: any , iMinCount: number , iMaxCount: number ) {
     let aNumbers: number[] = [];
-    debugger;
     Object.keys(oCounts).forEach((sNumber: string ) => {
       let iNumber = Number(sNumber);
       if ( oCounts[iNumber] >= iMinCount && iMaxCount === null ) {
