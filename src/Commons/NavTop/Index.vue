@@ -50,7 +50,7 @@
 @import 'Index-scoped.scss';
 </style>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import 'Index.scss';
 </style>
 
