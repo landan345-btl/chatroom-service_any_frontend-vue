@@ -157,7 +157,7 @@ class Lottery extends Vue {
         throw new Error('');
       }
       let oLottery: any = aLotteries.pop();
-      if (!oLottery.hasOwnProperty('types')) {
+      if (!oLottery || !oLottery.hasOwnProperty('types')) {
         throw new Error('');
       }
       let sTypes = oLottery.types;
@@ -185,6 +185,9 @@ class Lottery extends Vue {
   public get getHotWarnColdPositions() {
     let oLotteryIssues: any = this.$store.state.lottery_issues;
     let oLotteries: any = this.$store.state.lotteries;
+    if (!oLotteryIssues || !oLotteries) {
+      return;
+    }
     let aLotteryIssues = Object.values(oLotteryIssues);
 
     let oHotWarnColdCountPositions: any = {};
@@ -224,6 +227,11 @@ class Lottery extends Vue {
     let oLotteryHelper = new LotteryHelper();
     let oLotteryIssues: any = this.$store.state.lottery_issues;
     let oLotteries: any = this.$store.state.lotteries;
+
+    if (!oLotteryIssues || !oLotteries) {
+      return;
+    }
+
     let oTodayTwoSideRecords: {
       [key: string]: any,
     } = {};
