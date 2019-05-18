@@ -231,16 +231,16 @@ class TodayTwoSideNumberStatics extends Vue {
   @Prop()
   public todayTwoSideRecords!: any;
 
-   @Prop()
+  @Prop()
   public lotteryIssues!: any;
 
 
    /*
-   * 利用彩票开奖列表 计算 莫一个 number 的 次数
+   * 利用彩票开奖列表 计算 某一个 number 的 次数
    *
    *
    */
-  public countNumber(oLotteryIssues: any, iNumber: number) {  // 
+  public countNumber(oLotteryIssues: any, iNumber: number) {
     let iCount = 0;
     Object.keys(oLotteryIssues).forEach((sLotteryIssueKey) => {
       let aNumbers = JSON.parse(oLotteryIssues[sLotteryIssueKey].numbers) || [];

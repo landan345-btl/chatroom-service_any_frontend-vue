@@ -10,6 +10,7 @@
     <transition name="slide-fade">
       <Today-two-side-number-statics 
         :types="types" 
+        :lotteryIssues="lotteryIssues"
         :todayTwoSideRecords="todayTwoSideRecords"
         v-show="isTodayTwoSideNumberStaticShowed" class="pl-2 pb-2 pr-2 pt-1"/>
     </transition>
