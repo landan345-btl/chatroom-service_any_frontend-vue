@@ -13,13 +13,15 @@
         <main class="mt-2 mb-2">
           <Pannel 
             :lotteryIssue="getLastLotteryIssue" 
-            :lottery="getLottery" 
+            :lottery="getLottery"
+            :lotteries="getLotteries"
             :code="getCode" 
             :types="getTypes"
              v-if="getLastLotteryIssue && getLottery && getTypes"/>
           <Board 
             :lotteryIssues="getLotteryIssues" 
-            :lottery="getLottery" 
+            :lottery="getLottery"
+            :lotteries="getLotteries" 
             :code="getCode" 
             :types="getTypes" 
             :todayTwoSideRecords="getTodayTwoSideRecords"
@@ -132,6 +134,11 @@ class Lottery extends Vue {
     let aLotteries = Object.values(oLotteries);
     let oLottery = aLotteries.pop();
     return oLottery;
+  }
+
+  public get getLotteries(): any {
+    let oLotteries: any = this.$store.state.lotteries;
+    return oLotteries;
   }
 
   public get getCode(): string {

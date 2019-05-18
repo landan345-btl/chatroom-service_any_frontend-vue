@@ -12,6 +12,7 @@
         :types="types" 
         :lotteryIssues="lotteryIssues"
         :todayTwoSideRecords="todayTwoSideRecords"
+        :lotteries="lotteries"
         v-show="isTodayTwoSideNumberStaticShowed"/>
     </transition>
     <transition name="slide-fade">
@@ -81,6 +82,9 @@ class LotteryIssue extends Vue {
 
   @Prop()
   public lottery!: any;
+
+  @Prop()
+  public lotteries!: any;
 
   @Prop()
   public code!: any;
