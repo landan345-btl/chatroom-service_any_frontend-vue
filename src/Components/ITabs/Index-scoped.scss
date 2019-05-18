@@ -59,8 +59,10 @@
   // border-color: #dcdee2;
     color: #ff7b00;
     line-height: 2;
+    height: inherit;
   }
   /deep/ .ivu-tabs-bar .ivu-tabs-tab {
     line-height: 2;
+    height: inherit;
   }
 }
