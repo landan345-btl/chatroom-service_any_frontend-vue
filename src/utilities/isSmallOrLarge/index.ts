@@ -22,14 +22,14 @@ let cIsSmallOrLarge = (aNumbers: number[] | number, iSmallUpperBound: number, iL
   });
 
 
-  if (0 < iCountSmall - iCountLarge) {
+  if (iCountLarge < iCountSmall) {
     return SMALL;
   }
-  if (0 > iCountSmall - iCountLarge) {
+  if (iCountSmall < iCountLarge) {
     return LARGE;
   }
 
-  if (0 === iCountSmall - iCountLarge) {
+  if (iCountLarge === iCountSmall) {
     return DEUCE;
   }
 
