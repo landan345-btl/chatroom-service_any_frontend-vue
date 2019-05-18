@@ -25,7 +25,8 @@
             :code="getCode" 
             :types="getTypes" 
             :todayTwoSideRecords="getTodayTwoSideRecords"
-            :hotWarnColdPositions="getHotWarnColdPositions"/>
+            :hotWarnColdPositions="getHotWarnColdPositions"
+            v-if="getTypes"/>
         </main>
       </Col>
     </Row>
