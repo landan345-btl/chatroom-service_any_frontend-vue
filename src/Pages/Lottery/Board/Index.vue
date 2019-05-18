@@ -7,19 +7,11 @@
       <!-- <TabPane :label="'路珠分析'" :name="'result-analysis'">
         <Result-analysis />
       </TabPane> -->
-<<<<<<< HEAD
-      <TabPane :label="'综合分析'" :name="'summary-anaylysis'">
-        <Summary-analysis :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types" :todayTwoSideRecords="todayTwoSideRecords"/>
-      </TabPane>
-      <TabPane :label="'基本走势'" :name="'basic-trend'">
-        <Basic-trend :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types"/>
-=======
       <TabPane :label="'综合分析'" :name="'summary-anaylysis'" v-if="['SSC'].includes(types.toUpperCase())">
         <Summary-analysis v-if="code && types" :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types" :todayTwoSideRecords="todayTwoSideRecords"/>
       </TabPane>
       <TabPane :label="'基本走势'" :name="'basic-trend'">
         <Basic-trend v-if="code && types" :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types"/>
->>>>>>> develop
       </TabPane>
       <TabPane :label="'冷热分析'" :name="'popular-anaylysis'">
         <Popular-analysis v-if="code && types" :hotWarnColdPositions="hotWarnColdPositions" :code="code" :types="types"/>
