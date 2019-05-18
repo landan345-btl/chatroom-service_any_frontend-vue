@@ -186,8 +186,6 @@ class SummaryAnalysis extends Vue {
       }
     }
   }
-<<<<<<< HEAD
-=======
 
   /**
    * 利用彩票开奖列表 计算 莫一个 number 的 次
@@ -204,7 +202,6 @@ class SummaryAnalysis extends Vue {
     });
     return iCount;
   }
->>>>>>> develop
 }
 
 export default SummaryAnalysis;
