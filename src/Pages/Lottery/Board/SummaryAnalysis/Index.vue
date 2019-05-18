@@ -80,11 +80,11 @@
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td v-for=" ( iOne , i ) in  todayTwoSideRecords[0]" :key="i">{{ iOne }}</td>
-              <td v-for=" ( iOne , i ) in  todayTwoSideRecords[1]" :key="i">{{ iOne }}</td>
-              <td v-for=" ( iOne , i ) in  todayTwoSideRecords[2]" :key="i">{{ iOne }}</td>
-              <td v-for=" ( iOne , i ) in  todayTwoSideRecords[3]" :key="i">{{ iOne }}</td>
-              <td v-for=" ( iOne , i ) in  todayTwoSideRecords[4]" :key="i">{{ iOne }}</td>
+              <td v-for="(iOne, i) in todayTwoSideRecords[0]" :key="i">{{ iOne }}</td>
+              <td v-for="(iOne, i) in todayTwoSideRecords[1]" :key="i">{{ iOne }}</td>
+              <td v-for="(iOne, i) in todayTwoSideRecords[2]" :key="i">{{ iOne }}</td>
+              <td v-for="(iOne, i) in todayTwoSideRecords[3]" :key="i">{{ iOne }}</td>
+              <td v-for="(iOne, i) in todayTwoSideRecords[4]" :key="i">{{ iOne }}</td>
             </tr>
           </table>
         </div>
@@ -272,11 +272,17 @@ class SummaryAnalysis extends Vue {
     }
   }
 
-  public countNumber(oNumbers: any, i: number) {  // 号码出现次数
+  /**
+   * 利用彩票开奖列表 计算 莫一个 number 的 次数
+   * 
+   * 
+   */
+  public countNumber(oLotteryIssues: any, iNumber: number) {  // 
     let iCount = 0;
-    Object.keys( oNumbers ).forEach( ( sId ) => {
-      for ( let n of JSON.parse( oNumbers[ sId ].numbers) ) {
-         if ( Number( n ) === Number(i) ) {
+    Object.keys(oLotteryIssues).forEach((sLotteryIssueKey) => {
+      let aNumbers = JSON.parse(oLotteryIssues[sLotteryIssueKey].numbers) || [];
+      for (let _iNumber of aNumbers) {
+        if ( Number(_iNumber) === Number(iNumber)) {
           iCount++;
         }
       }
