@@ -26,16 +26,16 @@
             </tr>
             <tr>
               <td>出现次数</td>
-              <td>{{ numberFrequency( lotteryIssues , 0 ) }}</td>
-              <td>{{ numberFrequency( lotteryIssues , 1 ) }}</td>
-              <td>{{ numberFrequency( lotteryIssues , 2 ) }}</td>
-              <td>{{ numberFrequency( lotteryIssues , 3 ) }}</td>
-              <td>{{ numberFrequency( lotteryIssues , 4 ) }}</td>
-              <td>{{ numberFrequency( lotteryIssues , 5 ) }}</td>
-              <td>{{ numberFrequency( lotteryIssues , 6 ) }}</td>
-              <td>{{ numberFrequency( lotteryIssues , 7 ) }}</td>
-              <td>{{ numberFrequency( lotteryIssues , 8 ) }}</td>
-              <td>{{ numberFrequency( lotteryIssues , 9 ) }}</td>
+              <td>{{ countNumber( lotteryIssues , 0 ) }}</td>
+              <td>{{ countNumber( lotteryIssues , 1 ) }}</td>
+              <td>{{ countNumber( lotteryIssues , 2 ) }}</td>
+              <td>{{ countNumber( lotteryIssues , 3 ) }}</td>
+              <td>{{ countNumber( lotteryIssues , 4 ) }}</td>
+              <td>{{ countNumber( lotteryIssues , 5 ) }}</td>
+              <td>{{ countNumber( lotteryIssues , 6 ) }}</td>
+              <td>{{ countNumber( lotteryIssues , 7 ) }}</td>
+              <td>{{ countNumber( lotteryIssues , 8 ) }}</td>
+              <td>{{ countNumber( lotteryIssues , 9 ) }}</td>
             </tr>
           </table>
           <table class="w-100 mt-1  font-size-1p5">
@@ -272,16 +272,16 @@ class SummaryAnalysis extends Vue {
     }
   }
 
-  public numberFrequency( oNumbers: any , i: number ) {  // 号码出现次数
-    let counts = 0;
+  public countNumber(oNumbers: any, i: number) {  // 号码出现次数
+    let iCount = 0;
     Object.keys( oNumbers ).forEach( ( sId ) => {
       for ( let n of JSON.parse( oNumbers[ sId ].numbers) ) {
          if ( Number( n ) === Number(i) ) {
-          counts++;
+          iCount++;
         }
       }
     });
-    return counts;
+    return iCount;
   }
 }
 
