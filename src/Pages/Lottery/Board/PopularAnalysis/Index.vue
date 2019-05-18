@@ -18,10 +18,9 @@
         <th class="align-middle text-center">温</th>
         <th class="align-middle text-center">冷</th>
       </tr>
-      <!-- 第 iPosition + 1 位的开奖号码 -->
       <tr v-for="(oCounts, iPosition) in hotWarnColdPositions" :key="iPosition">
-        <td class="align-middle font-size-1 text-center">{{ texts[types][iPosition] }} </td>
-        <td class="align-middle text-left">{{ counts }}
+        <td class="align-middle font-size-1 text-center">{{ types && texts[types] && texts[types][iPosition] ? texts[types][iPosition] : iPosition }} </td>
+        <td class="align-middle text-left">
             <S-numbers 
               :code="code" 
               :counts="hotWarnColdPositions[iPosition]"
@@ -29,7 +28,8 @@
               :numbers="chooseNumbersByCount(hotWarnColdPositions[iPosition], 4, null)" 
               :types="LOTTERIES[code].TYPES || types" 
               :isRandom="false" 
-              :status="'NUMBER'" />
+              :status="'NUMBER'"
+              v-if="hotWarnColdPositions && hotWarnColdPositions[iPosition]" />
         </td>
         <td class="align-middle text-left">
           <S-numbers 
@@ -37,8 +37,9 @@
             :numbers="chooseNumbersByCount(hotWarnColdPositions[iPosition], 2, 3)" 
             :types="LOTTERIES[code].TYPES || types" 
             :isRandom="false" 
-            :isCountShowed=" false "
-            :status="'NUMBER'" />
+            :isCountShowed="false"
+            :status="'NUMBER'"
+            v-if="hotWarnColdPositions && hotWarnColdPositions[iPosition]" />
         </td>
         <td class="align-middle text-left">
           <S-numbers 
@@ -46,8 +47,9 @@
             :numbers="chooseNumbersByCount(hotWarnColdPositions[iPosition], 0, 1)" 
             :types="LOTTERIES[code].TYPES || types" 
             :isRandom="false" 
-            :isCountShowed=" false "
-            :status="'NUMBER'" />
+            :isCountShowed="false"
+            :status="'NUMBER'"
+            v-if="hotWarnColdPositions && hotWarnColdPositions[iPosition]" />
         </td>
       </tr>
     </table>
@@ -103,7 +105,6 @@ class PopularAnalysis extends Vue {
   };
   public chooseNumbersByCount(oCounts: any , iMinCount: number , iMaxCount: number ) {
     let aNumbers: number[] = [];
-
     Object.keys(oCounts).forEach((sNumber: string ) => {
       let iNumber = Number(sNumber);
       if ( oCounts[iNumber] >= iMinCount && iMaxCount === null ) {

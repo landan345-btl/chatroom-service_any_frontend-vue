@@ -24,8 +24,8 @@
             :lotteries="getLotteries" 
             :code="getCode" 
             :types="getTypes" 
-            :todayTwoSideRecords="getTodayTwoSideRecords"
-            :hotWarnColdPositions="getHotWarnColdPositions"/>
+            :hotWarnColdPositions="getHotWarnColdPositions"
+            v-if="getTypes"/>
         </main>
       </Col>
     </Row>
@@ -157,7 +157,7 @@ class Lottery extends Vue {
         throw new Error('');
       }
       let oLottery: any = aLotteries.pop();
-      if (!oLottery.hasOwnProperty('types')) {
+      if (!oLottery || !oLottery.hasOwnProperty('types')) {
         throw new Error('');
       }
       let sTypes = oLottery.types;
@@ -185,6 +185,9 @@ class Lottery extends Vue {
   public get getHotWarnColdPositions() {
     let oLotteryIssues: any = this.$store.state.lottery_issues;
     let oLotteries: any = this.$store.state.lotteries;
+    if (!oLotteryIssues || !oLotteries) {
+      return;
+    }
     let aLotteryIssues = Object.values(oLotteryIssues);
 
     let oHotWarnColdCountPositions: any = {};
@@ -218,63 +221,6 @@ class Lottery extends Vue {
 
     });
     return false;
-  }
-
-  public get getTodayTwoSideRecords() {
-    let oLotteryHelper = new LotteryHelper();
-    let oLotteryIssues: any = this.$store.state.lottery_issues;
-    let oLotteries: any = this.$store.state.lotteries;
-    let oTodayTwoSideRecords: {
-      [key: string]: any,
-    } = {};
-    let aLotteryIssues = Object.values(oLotteryIssues);
-
-    aLotteryIssues.forEach((oLotteryIssue: any) => {
-      let aNumbers = JSON.parse(oLotteryIssue.numbers);
-      let iLotteryId = oLotteryIssue.lottery_id;
-      let sTypes = oLotteries[iLotteryId].types;
-      let iIndex: number = 0;
-      for (iIndex = 0 ; iIndex < aNumbers.length ; iIndex++) {
-        let iNumber = aNumbers[iIndex];
-        let sIsNumberSmallOrLarge = oLotteryHelper.isNumberSmallOrLarge(iNumber, sTypes);
-        let sOddOrEven = oLotteryHelper.isOddOrEven(iNumber, sTypes);
-        if (!oTodayTwoSideRecords.hasOwnProperty(iIndex)) {
-          oTodayTwoSideRecords = {
-            ...oTodayTwoSideRecords,
-            [iIndex]: {
-              small: 0,
-              large: 0,
-              odd: 0,
-              even: 0,
-            },
-          };
-        }
-        if ('小' === sIsNumberSmallOrLarge) {
-          let oRecords = oTodayTwoSideRecords[iIndex];
-          let sKey = 'small';
-          oRecords[sKey] = oRecords[sKey] + 1;
-        }
-
-        if ('大' === sIsNumberSmallOrLarge) {
-          let oRecords = oTodayTwoSideRecords[iIndex];
-          let sKey = 'large';
-          oRecords[sKey] = oRecords[sKey] + 1;
-        }
-
-        if ('单' === sOddOrEven) {
-          let oRecords = oTodayTwoSideRecords[iIndex];
-          let sKey = 'odd';
-          oRecords[sKey] = oRecords[sKey] + 1;
-        }
-
-        if ('双' === sOddOrEven) {
-          let oRecords = oTodayTwoSideRecords[iIndex];
-          let sKey = 'even';
-          oRecords[sKey] = oRecords[sKey] + 1;
-        }
-      }
-    });
-    return oTodayTwoSideRecords;
   }
 }
 

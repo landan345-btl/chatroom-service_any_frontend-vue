@@ -1,7 +1,7 @@
 <template>
   <Spin fix v-if="isShowed">
     <Icon type="ios-loading" size=64 class="spin-icon-load"></Icon>
-    <div class="loading-color">Loading</div>
+    <div class="loading-color">努力加载中...</div>
   </Spin>
 </template>
 

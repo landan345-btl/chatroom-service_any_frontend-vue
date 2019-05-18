@@ -2,7 +2,7 @@
 <div>
   <div class="today-two-side-number-statics pl-2 pb-2 pr-2 pt-1">
     <div class="font-size-2">今日双面统计</div>
-      <div v-if=" types && ['PK10'].includes(types.toUpperCase())" class="font-size-1p5">
+      <div v-if="types && ['PK10'].includes(types.toUpperCase())" class="font-size-1p5">
         <table>
           <tbody>
           <tr>
@@ -63,16 +63,6 @@
           </tr>
           <tr class="background-white text-center">
             <td>出现次数</td>
-            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[0]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[1]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[2]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[3]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[4]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[5]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[6]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[7]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[8]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[9]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
           </tr>
           </tbody>
         </table>  
@@ -122,9 +112,9 @@
           </tr>
         </table> 
       </div>   
-      <div v-if=" types && ['SSC', '11X5'].includes(types.toUpperCase())" class="font-size-1p5">
+      <div v-if="types && ['SSC', '11X5'].includes(types.toUpperCase())" class="font-size-1p5">
         <table>
-          <tbody v-if=" types && ['SSC'].includes(types.toUpperCase())">
+          <tbody v-if="types && ['SSC'].includes(types.toUpperCase())">
             <tr>
               <th>号码</th>
               <th>0</th>
@@ -138,21 +128,21 @@
               <th>8</th>
               <th>9</th>
             </tr>
-            <tr class="background-white text-center" v-if=" types && ['SSC'].includes(types.toUpperCase())" >
+            <tr class="background-white text-center" v-if="types && ['SSC'].includes(types.toUpperCase())" >
               <td>出现次数</td>
-              <td>{{ countNumber( lotteryIssues , 0 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 1 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 2 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 3 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 4 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 5 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 6 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 7 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 8 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 9 ) }}</td>
+              <td>{{  }}</td>
+              <td>{{ }}</td>
+              <td>{{ }}</td>
+              <td>{{  }}</td>
+              <td>{{  }}</td>
+              <td>{{ }}</td>
+              <td>{{ }}</td>
+              <td>{{  }}</td>
+              <td>{{ }}</td>
+              <td>{{ }}</td>
             </tr>
           </tbody>
-          <tbody v-if=" types && ['11X5'].includes(types.toUpperCase())">
+          <tbody v-if="types && ['11X5'].includes(types.toUpperCase())">
             <tr>
               <th>号码</th>
               <th>1</th>
@@ -169,17 +159,17 @@
             </tr>
             <tr class="background-white text-center">
               <td>出现次数</td>
-              <td>{{ countNumber( lotteryIssues , 1 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 2 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 3 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 4 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 5 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 6 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 7 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 8 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 9 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 10 ) }}</td>
-              <td>{{ countNumber( lotteryIssues , 11 ) }}</td>
+              <td>{{ }}</td>
+              <td>{{ }}</td>
+              <td>{{ }}</td>
+              <td>{{ }}</td>
+              <td>{{ }}</td>
+              <td>{{ }}</td>
+              <td>{{ }}</td>
+              <td>{{ }}</td>
+              <td>{{ }}</td>
+              <td>{{ }}</td>
+              <td>{{ }}</td>
             </tr>
           </tbody>
         </table>  
@@ -225,11 +215,6 @@
             <td>-</td>
             <td>-</td>
             <td>-</td>
-            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[0]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[1]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[2]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[3]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
-            <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[4]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
           </tr>
         </table> 
       </div> 

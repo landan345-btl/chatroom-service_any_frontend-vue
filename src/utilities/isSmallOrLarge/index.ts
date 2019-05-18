@@ -12,24 +12,24 @@ let cIsSmallOrLarge = (aNumbers: number[] | number, iSmallUpperBound: number, iL
 
   aNumbers.forEach((iNumber) => {
     if (iNumber <= iSmallUpperBound) {
-      iCountSmall ++;
+      iCountSmall++;
       return;
     }
     if (iNumber >= iLargeLowerBound) {
-      iCountLarge ++;
+      iCountLarge++;
       return;
     }
   });
 
 
-  if (0 < iCountSmall - iCountLarge) {
+  if (iCountLarge < iCountSmall) {
     return SMALL;
   }
-  if (0 > iCountSmall - iCountLarge) {
+  if (iCountSmall < iCountLarge) {
     return LARGE;
   }
 
-  if (0 === iCountSmall - iCountLarge) {
+  if (iCountLarge === iCountSmall) {
     return DEUCE;
   }
 

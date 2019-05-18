@@ -13,7 +13,9 @@
         :lotteryIssues="lotteryIssues"
         :todayTwoSideRecords="todayTwoSideRecords"
         :lotteries="lotteries"
-        v-show="isTodayTwoSideNumberStaticShowed"/>
+        :lottery="lottery"
+        v-show="isTodayTwoSideNumberStaticShowed"
+        v-if="types"/>
     </transition>
     <transition name="slide-fade">
       <Accumulation-remider v-show="isAccumulationRemiderShowed"/>
