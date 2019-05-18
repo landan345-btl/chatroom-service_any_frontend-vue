@@ -1,4 +1,4 @@
-let cSum = (aNumbers: number[], aPositions: number[] | null) => {
+let cSum = (aNumbers: number[], aPositions?: number[] | null) => {
   let iSumation = 0;
   if (Array.isArray(aPositions)) {
     iSumation = aPositions.reduce((_iSumation: number, iCurrentPosition: number) => {

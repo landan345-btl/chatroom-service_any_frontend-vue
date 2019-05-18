@@ -280,9 +280,12 @@ class TodayTwoSideNumberStatics extends Vue {
   @Prop()
   public lotteries!: any;
 
+  @Prop()
+  public lottery!: any;
+
   public positionsToNumberTypesToCounts: any;
   public beforeMount() {
-    this.positionsToNumberTypesToCounts(this.lotteryIssues, this.lotteries);
+    this.positionsToNumberTypesToCounts(this.lotteryIssues, this.lottery);
   }
 }
 
