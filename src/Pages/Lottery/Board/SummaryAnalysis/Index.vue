@@ -3,9 +3,9 @@
     <div class="summary-analysis">
       <div class="top p-1 ml-1 font-weight-bold">
         <span class="title font-size-2">综合分析</span>
-          <I-button class="ml-2" v-on:handle-click="toggleTodayTwoSideNumberStatics()" v-if="types && ['11X5','SSC' , 'PK10'].includes(types.toUpperCase())">今日双面/号码统计</I-button>
-          <I-button class="ml-2" v-on:handle-click="toggleAccumulationRemider()" v-if="types && ['11X5','SSC' , 'PK10'].includes(types.toUpperCase())">长龙提醒</I-button>
-          <I-button class="ml-2" v-on:handle-click="toggleNumberAnalysis()" v-if="types && ['11X5','SSC' , 'PK10'].includes(types.toUpperCase())">号码分析</I-button>
+          <I-button class="ml-2" v-on:handle-click="toggleTodayTwoSideNumberStatics()" v-if="types && ['11X5', 'SSC', 'PK10'].includes(types.toUpperCase())">今日双面/号码统计</I-button>
+          <I-button class="ml-2" v-on:handle-click="toggleAccumulationRemider()" v-if="types && ['11X5', 'SSC', 'PK10'].includes(types.toUpperCase())">长龙提醒</I-button>
+          <I-button class="ml-2" v-on:handle-click="toggleNumberAnalysis()" v-if="types && ['11X5', 'SSC', 'PK10'].includes(types.toUpperCase())">号码分析</I-button>
       </div>
       <transition name="slide-fade">
         <div class="p-2 double-sided-statistics" v-show="isTodayTwoSideNumberStaticShowed ">
