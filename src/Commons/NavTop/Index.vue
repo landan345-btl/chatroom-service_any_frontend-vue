@@ -58,13 +58,13 @@ import { Component, Vue, Watch } from 'vue-property-decorator';
   name: 'NavTop',
 })
 class NavTop extends Vue {
-  public status: any = 1;
+  public status: any = null;
 
   public showSubMenu(sIndex: any): void {
-    // this.status = sIndex;
+    this.status = sIndex;
   }
   public hideSubMenu() {
-    // this.status = null;
+    this.status = null;
   }
 }
 
