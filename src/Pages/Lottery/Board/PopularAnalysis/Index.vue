@@ -1,8 +1,9 @@
 <template>
   <div class="popular-analysis background-white">
-    <div class="top p-1 font-weight-bold">
-      <span class="title">冷热分析</span>
+    <div class="pl-2 font-weight-bold head-top">
+      <span class="font-size-2 line-height3">冷热分析</span>
     </div>
+    <I-divider/>
     <div class="bottom p-2">
       <I-checkbox-group>
         <Checkbox label="true" v-model="isHotCountShowed">&nbsp;显示热号码出现次数</Checkbox>
@@ -17,7 +18,7 @@
         <th class="align-middle text-center">温</th>
         <th class="align-middle text-center">冷</th>
       </tr>
-      <!-- 第 iPosition + 1 位的开奖号码 --> {{ types }}
+      <!-- 第 iPosition + 1 位的开奖号码 -->
       <tr v-for="(oCounts, iPosition) in hotWarnColdPositions" :key="iPosition">
         <td class="align-middle font-size-1 text-center">{{ texts[types][iPosition] }} </td>
         <td class="align-middle text-left">{{ counts }}
@@ -67,6 +68,7 @@ import {
 import {
   SNumbers,
   ICheckboxGroup,
+  IDivider,
 } from '@/Components/';
 
 import {
@@ -78,6 +80,7 @@ import {
   components: {
     SNumbers,
     ICheckboxGroup,
+    IDivider,
   },
 })
 class PopularAnalysis extends Vue {

@@ -1,7 +1,7 @@
 <template>
   <div class="lottery-issue">
-    <div class="top pl-2 pt-1 pb-1 font-weight-bold">
-      <span class="font-size-2">即时开奖</span>
+    <div class="pl-2 font-weight-bold head-top">
+      <span class="font-size-2 align-middle line-height3">即时开奖</span>
       <I-button class="ml-2" v-on:handle-click="toggleTodayTwoSideNumberStatics()" v-if="types && ['11X5', 'SSC', 'PK10'].includes(types.toUpperCase())">今日双面/号码统计</I-button>
       <I-button class="ml-2" v-on:handle-click="toggleAccumulationRemider()" v-if="types && ['11X5', 'SSC', 'PK10'].includes(types.toUpperCase())">长龙提醒</I-button>
       <I-button class="ml-2" v-on:handle-click="toggleNumberAnalysis()" v-if="types && ['11X5', 'SSC', 'PK10'].includes(types.toUpperCase())">号码分析</I-button>

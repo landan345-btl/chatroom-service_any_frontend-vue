@@ -1,7 +1,4 @@
 .basic-trend {
-  .top {
-    border-bottom: 1px solid #f0f0f0;
-  }
   background: #ffffff;
   .fictitious {
     & > div {
@@ -62,13 +59,13 @@
     }
   }
   /deep/ .ivu-radio-group-button {
-    position: relative;
-    left: 65vmin;
     .ivu-radio-wrapper {
-      margin: 0 1vmin;
-      border-radius: 1vmin;
-      border-left: 1px solid #dcdee2 ;
+      border: 0 !important;
     }
+  }
+
+  /deep/ .ivu-radio-group-button .ivu-radio-wrapper:first-child, /deep/ .ivu-radio-group-button .ivu-radio-wrapper:last-child {
+    border-radius: 0.6vmin; 
   }
   /deep/ .ivu-radio-group-button .ivu-radio-wrapper:after, .ivu-radio-group-button .ivu-radio-wrapper:before {
     display: none !important;
@@ -76,10 +73,14 @@
   /deep/ .ivu-radio-group-button .ivu-radio-wrapper-checked {
     background: #fba75e !important;
     color: #fff !important;
+    border-radius: 0.6vmin; 
     border: 0px !important;
-    box-shadow: 0px 0 0 0 #FF7B00;
+    box-shadow: 0px 0 0 0 #fba75e !important;
   }
   /deep/ .el-checkbox-group {
     display: inline-block !important;
+  }
+  .ivu-radio-group-button .ivu-radio-wrapper:hover {
+    color: red;
   }
 }

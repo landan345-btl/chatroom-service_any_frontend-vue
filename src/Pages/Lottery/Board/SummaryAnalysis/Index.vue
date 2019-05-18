@@ -1,12 +1,13 @@
 <template>
   <div>
     <div class="summary-analysis">
-      <div class="top pl-2 pt-1 pb-1 font-weight-bold">
-        <span class="title font-size-2">综合分析</span>
+      <div class="pl-2 font-weight-bold head-top">
+        <span class="font-size-2 align-middle line-height3">综合分析</span>
           <I-button class="ml-2" v-on:handle-click="toggleTodayTwoSideNumberStatics()" v-if="types && ['11X5', 'SSC', 'PK10'].includes(types.toUpperCase())">今日双面/号码统计</I-button>
           <I-button class="ml-2" v-on:handle-click="toggleAccumulationRemider()" v-if="types && ['11X5', 'SSC', 'PK10'].includes(types.toUpperCase())">长龙提醒</I-button>
           <I-button class="ml-2" v-on:handle-click="toggleNumberAnalysis()" v-if="types && ['11X5', 'SSC', 'PK10'].includes(types.toUpperCase())">号码分析</I-button>
       </div>
+      <I-divider/>
       <transition name="slide-fade">
        <Today-two-side-number-statics 
         :types="types" 
@@ -55,6 +56,7 @@ import {
 import {
   IButton,
   SNumbers,
+  IDivider,
 } from '@/Components/';
 
 import TodayTwoSideNumberStatics from './TodayTwoSideNumberStatics/Index.vue';
@@ -66,6 +68,7 @@ import Table from './Table/Index.vue';
   name: 'SummaryAnalysis',
   components: {
     SNumbers,
+    IDivider,
     TodayTwoSideNumberStatics,
     AccumulationRemider,
     NumberAnalysis,

@@ -1,8 +1,8 @@
 <template>
-  <div class="dragon-or-tiger-trend">
-    <div class="top p-1 font-weight-bold d-flex justify-content-between">
-      <span class="title">龙虎走势</span>
-      <RadioGroup v-model="button1" type="button">
+  <div class="dragon-or-tiger-trend pb-2">
+    <div class="pl-2 pr-2 font-weight-bold d-flex justify-content-between head-top">
+      <span class="font-size-2 line-height3">龙虎走势</span>
+      <RadioGroup v-model="button1" type="button" class="line-height3">
         <Radio label="今天"></Radio>
         <Radio label="昨天"></Radio>
         <Radio label="前天"></Radio>
@@ -11,6 +11,7 @@
         <Radio label="最近100期" class="d-xs-none"></Radio>
       </RadioGroup>
     </div>
+    <I-divider/>
     <div class="explain">
       <p>
         <span>说明：1.前三形态；</span>
@@ -247,6 +248,7 @@ import {
 
 import {
   ITabs,
+  IDivider,
 } from '@/Components/';
 
 import {
@@ -257,6 +259,7 @@ import {
   name: 'DragonOrTigerTrend',
   components: {
     ITabs,
+    IDivider,
   },
 })
 class DragonOrTigerTrend extends Vue {

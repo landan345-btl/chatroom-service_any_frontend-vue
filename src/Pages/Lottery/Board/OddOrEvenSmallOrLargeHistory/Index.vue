@@ -1,8 +1,9 @@
 <template>
   <div class="odd-or-even-small-or-large-history">
-    <div class="top p-1 font-weight-bold ">
-      <span class="title">单双大小历史</span>
+    <div class="top pl-2 pb-1 font-weight-bold head-top">
+      <span class="font-size-2 line-height3">单双大小历史</span>
     </div>
+    <I-divider/>
     <div class="p-2">
       <table>
         <tr>
@@ -75,6 +76,7 @@ import {
 } from 'vue-property-decorator';
 import {
   ITabs,
+  IDivider,
 } from '@/Components/';
 
 import {
@@ -85,6 +87,7 @@ import {
   name: 'OddOrEvenSmallOrLargeHistory',
   components: {
     ITabs,
+    IDivider,
   },
 })
 class OddOrEvenSmallOrLargeHistory extends Vue {

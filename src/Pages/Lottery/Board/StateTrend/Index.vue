@@ -1,16 +1,17 @@
 <template>
   <div class="state-trend">
-    <div class="top p-1 font-weight-bold">
-      <span class="title">形态走势</span>
-      <RadioGroup v-model="button1" type="button">
+    <div class="pl-2 pr-2 font-weight-bold font-weight-bold d-flex justify-content-between head-top">
+      <span class="font-size-2 line-height3">形态走势</span>
+      <RadioGroup v-model="button1" type="button" class="line-height3">
         <Radio label="今天"></Radio>
         <Radio label="昨天"></Radio>
         <Radio label="前天"></Radio>
         <Radio label="最近30期"></Radio>
-        <Radio label="最近50期"></Radio>
-        <Radio label="最近100期"></Radio>
+        <Radio label="最近60期"></Radio>
+        <Radio label="最近90期" class="d-xs-none"></Radio>
       </RadioGroup>
     </div>
+    <I-divider/>
     <div class="explain">
       <p>
         <span>说明：1.前三形态；</span>
@@ -130,8 +131,6 @@
         <td><span>43</span></td>
       </tr>
     </table>
-
-
   </div>
 </template>
 <style scoped lang="scss">
@@ -144,6 +143,7 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
+import { IDivider } from '@/Components/';
 import {
   LOTTERIES,
 } from '@/CONFIGS/';
@@ -151,6 +151,7 @@ import {
 @Component({
   name: 'StateTrend',
   components: {
+    IDivider,
   },
 })
 class StateTrend extends Vue {
