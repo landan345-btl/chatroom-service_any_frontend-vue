@@ -1,5 +1,6 @@
 <template>
-  <div class="accumulation-remider">
+<div>
+  <div class="accumulation-remider pl-2 pb-2 pr-2 pt-1">
     <div class="font-size-2">长龙连开提醒</div>
     <div class="remind">
       <p>
@@ -11,6 +12,8 @@
       </p>
     </div>
   </div>
+  <I-divider/>
+</div>
 </template>
 <style scoped lang="scss">
 @import 'Index-scoped.scss';
@@ -23,9 +26,14 @@ import {
   LOTTERIES,
 } from '@/CONFIGS/';
 
+import {
+  IDivider,
+} from '@/Components/';
+
 @Component({
   name: 'AccumulationRemider',
   components: {
+    IDivider,
   },
 })
 class AccumulationRemider extends Vue {

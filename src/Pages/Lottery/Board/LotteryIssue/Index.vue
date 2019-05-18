@@ -12,10 +12,10 @@
         :types="types" 
         :lotteryIssues="lotteryIssues"
         :todayTwoSideRecords="todayTwoSideRecords"
-        v-show="isTodayTwoSideNumberStaticShowed" class="pl-2 pb-2 pr-2 pt-1"/>
+        v-show="isTodayTwoSideNumberStaticShowed"/>
     </transition>
     <transition name="slide-fade">
-      <Accumulation-remider v-show="isAccumulationRemiderShowed" class="pl-2 pb-2 pr-2 pt-1"/>
+      <Accumulation-remider v-show="isAccumulationRemiderShowed"/>
     </transition>
     <transition name="slide-fade">
       <Number-analysis 
@@ -24,7 +24,6 @@
         @handle-toggle-number="toggleNumber" 
         @handle-toggle-oddoreven="toggleOddOrEven"
         @handle-reset="resetShow"
-        class="pl-2 pb-2 pr-2"
         :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords" 
         :onNumbers="onNumbers"/>
     </transition>  

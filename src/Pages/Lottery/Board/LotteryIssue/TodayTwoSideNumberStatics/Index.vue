@@ -1,5 +1,6 @@
 <template>
-  <div class="today-two-side-number-statics">
+<div>
+  <div class="today-two-side-number-statics pl-2 pb-2 pr-2 pt-1">
     <div class="font-size-2">今日双面统计</div>
       <div v-if=" types === 'PK10' ">
         <table>
@@ -210,6 +211,8 @@
         </table> 
       </div>  
   </div>
+  <I-divider/>
+</div>
 </template>
 <style scoped lang="scss">
 @import 'Index-scoped.scss';
@@ -226,9 +229,14 @@ import {
   LOTTERIES,
 } from '@/CONFIGS/';
 
+import {
+  IDivider,
+} from '@/Components/';
+
 @Component({
   name: 'TodayTwoSideNumberStatics',
   components: {
+    IDivider,
   },
 })
 class TodayTwoSideNumberStatics extends Vue {
