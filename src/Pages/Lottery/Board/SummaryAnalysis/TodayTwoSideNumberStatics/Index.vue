@@ -2,7 +2,7 @@
 <div>
   <div class="today-two-side-number-statics pl-2 pb-2 pr-2 pt-1">
     <div class="font-size-2">今日双面统计</div>
-      <div v-if=" types === 'PK10' ">
+      <div v-if=" types === 'PK10' " class="font-size-1p5">
         <table>
           <tbody>
           <tr>
@@ -18,7 +18,7 @@
             <th colspan="4">第九名</th>
             <th colspan="4">第十名</th>
           </tr>
-          <tr>
+          <tr class="background-white text-center">
             <td>大小单双</td>
             <td>小</td>
             <td>大</td>
@@ -61,7 +61,7 @@
             <td>单</td>
             <td>双</td>
           </tr>
-          <tr>
+          <tr class="background-white text-center">
             <td>出现次数</td>
             <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[0]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
             <td v-for="(sRecord , sKey, iIndex) in todayTwoSideRecords[1]" :key="sKey + '-' + iIndex">{{ sRecord }}</td>
@@ -86,7 +86,7 @@
             <th colspan="2">第四名龙虎</th>
             <th colspan="2">第五名龙虎</th>
           </tr>
-          <tr>
+          <tr class="background-white text-center">
             <td>单双大小龙虎</td>
             <td>单</td>
             <td>双</td>
@@ -103,25 +103,25 @@
             <td>龙</td>
             <td>虎</td>
           </tr>
-          <tr>
+          <tr class="background-white text-center">
             <td>出现次数</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
           </tr>
         </table> 
-      </div>   
+      </div>  
       <div v-if=" types && ['SSC', '11X5'].includes(types)" class="font-size-1p5">
         <table>
           <tbody>
