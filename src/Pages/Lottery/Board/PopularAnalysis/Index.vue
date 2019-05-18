@@ -17,7 +17,7 @@
         <th class="align-middle text-center">温</th>
         <th class="align-middle text-center">冷</th>
       </tr>
-      <!-- 第 iPosition + 1 位的开奖号码 -->
+      <!-- 第 iPosition + 1 位的开奖号码 --> {{ types }}
       <tr v-for="(oCounts, iPosition) in hotWarnColdPositions" :key="iPosition">
         <td class="align-middle font-size-1 text-center">{{ texts[types][iPosition] }} </td>
         <td class="align-middle text-left">{{ counts }}
@@ -91,6 +91,8 @@ class PopularAnalysis extends Vue {
   public code!: any;
   @Prop()
   public types!: any;
+
+  public counts = null;
 
   public texts = {
     PK10: ['冠军' , '亚军' , '第三名' , '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'],

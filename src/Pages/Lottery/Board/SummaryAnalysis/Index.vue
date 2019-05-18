@@ -10,7 +10,7 @@
       <transition name="slide-fade">
         <div class="p-2 double-sided-statistics" v-show="isTodayTwoSideNumberStaticShowed ">
           <div class="font-size-2p5">今日号码统计</div>
-          <table class="mt-1 w-100">
+          <table class="mt-1 w-100 font-size-1p5">
             <tr>
               <td>号码</td>
               <td>0</td>
@@ -38,7 +38,7 @@
               <td>{{ numberFrequency( lotteryIssues , 9 ) }}</td>
             </tr>
           </table>
-          <table class="w-100 mt-1">
+          <table class="w-100 mt-1  font-size-1p5">
             <tr>
               <td rowspan="2"> <span>球次</span> </td>
               <td colspan="4">总和</td>
@@ -76,10 +76,10 @@
             </tr>
             <tr>
               <td>出现次数</td>
-              <td>{{ he( todayTwoSideRecords , 'small' ) }}</td>
-              <td>{{ he( todayTwoSideRecords , 'large' ) }}</td>
-              <td>{{ he( todayTwoSideRecords , 'odd' ) }}</td>
-              <td>{{ he( todayTwoSideRecords , 'even' ) }}</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
               <td v-for=" ( iOne , i ) in  todayTwoSideRecords[0]" :key="i">{{ iOne }}</td>
               <td v-for=" ( iOne , i ) in  todayTwoSideRecords[1]" :key="i">{{ iOne }}</td>
               <td v-for=" ( iOne , i ) in  todayTwoSideRecords[2]" :key="i">{{ iOne }}</td>
@@ -93,7 +93,7 @@
         <div class="p-2" v-show="isAccumulationRemiderShowed">
           <div class="long-reminder">
             <div class="font-size-2p5">长龙连开提醒</div>
-            <div>
+            <div class="font-size-1p5">
               <div>第二球: 小  5  期</div>
               <div>第二球: 小  5  期</div>
               <div>第二球: 小  5  期</div>
@@ -215,14 +215,6 @@ class SummaryAnalysis extends Vue {
     this.isNumberAnalysisShowed = !this.isNumberAnalysisShowed;
   }
 
-  public he( oHe: any , s: any ) { // 总和单双大小
-    let n = 0;
-    Object.keys(oHe).forEach( (e: any) => {
-      n += Number( oHe[e][ s ] );
-    });
-    return n;
-  }
-
   public toggleNumber(sKey: string) {
     let iNumber: any = Number(sKey);
     let onOddOrEvenOrSmallOrLargeOrPairRedcord = Object.assign({}, this.onOddOrEvenOrSmallOrLargeOrPairRedcords);
@@ -232,7 +224,6 @@ class SummaryAnalysis extends Vue {
      }
     }
     this.onNumbers[iNumber] = !this.onNumbers[iNumber];
-   // debugger;
   }
 
   public toggleOddOrEven(sKey: string) {

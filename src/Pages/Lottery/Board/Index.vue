@@ -113,6 +113,7 @@ class Board extends Vue {
   // public lotteryIssues!: any;
   @Prop()
   public hotWarnColdPositions!: any;
+
   @Prop()
   public lotteryIssues!: any;
 
