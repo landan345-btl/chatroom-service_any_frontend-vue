@@ -2,7 +2,7 @@
 <div>
   <div class="today-two-side-number-statics pl-2 pb-2 pr-2 pt-1">
     <div class="font-size-2">今日双面统计</div>
-      <div v-if=" types && ['PK10'].includes(types.toUpperCase())" class="font-size-1p5">
+      <div v-if="types && ['PK10'].includes(types.toUpperCase())" class="font-size-1p5">
         <table>
           <tbody>
           <tr>
@@ -112,9 +112,9 @@
           </tr>
         </table> 
       </div>   
-      <div v-if=" types && ['SSC', '11X5'].includes(types.toUpperCase())" class="font-size-1p5">
+      <div v-if="types && ['SSC', '11X5'].includes(types.toUpperCase())" class="font-size-1p5">
         <table>
-          <tbody v-if=" types && ['SSC'].includes(types.toUpperCase())">
+          <tbody v-if="types && ['SSC'].includes(types.toUpperCase())">
             <tr>
               <th>号码</th>
               <th>0</th>
@@ -128,7 +128,7 @@
               <th>8</th>
               <th>9</th>
             </tr>
-            <tr class="background-white text-center" v-if=" types && ['SSC'].includes(types.toUpperCase())" >
+            <tr class="background-white text-center" v-if="types && ['SSC'].includes(types.toUpperCase())" >
               <td>出现次数</td>
               <td>{{  }}</td>
               <td>{{ }}</td>
@@ -142,7 +142,7 @@
               <td>{{ }}</td>
             </tr>
           </tbody>
-          <tbody v-if=" types && ['11X5'].includes(types.toUpperCase())">
+          <tbody v-if="types && ['11X5'].includes(types.toUpperCase())">
             <tr>
               <th>号码</th>
               <th>1</th>

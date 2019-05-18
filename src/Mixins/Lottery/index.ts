@@ -83,6 +83,9 @@ class Lottery extends Vue {
 
   public positionsToNumberTypesToCounts(oLotteryIssues: any, oLottery: any) {
     let oLotteryHelper = new LotteryHelper();
+    if (!oLotteryIssues || !oLottery) {
+      return;
+    }
     let oPositionsToNumberTypesToCounts: {
       [key: string]: any,
     } = {};

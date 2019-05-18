@@ -161,7 +161,6 @@ class Lottery extends Vue {
       if (!oLottery || !oLottery.hasOwnProperty('types')) {
         throw new Error('');
       }
-      debugger;
       let sTypes = oLottery.types;
       return sTypes;
     } catch (Error) {
@@ -198,7 +197,6 @@ class Lottery extends Vue {
     while (20 > iLoopCount && 1 <= aLotteryIssues.length) {
       oLotteryIssue = aLotteryIssues.pop();
       let aNumbers = JSON.parse(oLotteryIssue.numbers);
-      debugger;
       let sType = oLotteries[oLotteryIssue.lottery_id].types;
       aNumbers.forEach((iNumber: number, iIndex: number) => {
         if (!oHotWarnColdCountPositions.hasOwnProperty(iIndex)) {
