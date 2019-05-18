@@ -1,5 +1,5 @@
 <template>
-  <Spin size=32 fix v-if="isShowed">
+  <Spin fix v-if="isShowed">
     <Icon type="ios-loading" size=64 class="spin-icon-load"></Icon>
     <div class="loading-color">Loading</div>
   </Spin>
