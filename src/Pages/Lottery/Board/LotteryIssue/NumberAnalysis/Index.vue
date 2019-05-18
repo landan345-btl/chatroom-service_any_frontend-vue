@@ -1,7 +1,7 @@
 <template>
   <div class="number-analysis">
     <div class="head pt-1">
-      <span class="font-size-2p5">查看号码分布:</span>
+      <span class="font-size-2 font-weight-bold pr-1">查看号码分布:</span>
       <span :class="{'active': onNumbers[sKey]}" 
         @click="showNumber(sKey)" v-for="(iNumber, sKey) in record11x5Buttons" :key="sKey" v-if="types === '11X5'">
         号码&nbsp;{{iNumber}}
@@ -19,7 +19,7 @@
       </span>
     </div>
     <div class="head pt-1">
-      <span class="font-size-2p5">查看大小分布:</span>
+      <span class="font-size-2 font-weight-bold pr-1">查看大小分布:</span>
       <span :class="{'active':onOddOrEvenOrSmallOrLargeOrPairRedcords[sKey]}"
         @click="showOddOrEven(sKey)" v-for="(sRecord, sKey) in recordOddOrEvens" :key="sKey">
         {{ sRecord }}
