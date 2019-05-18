@@ -1,6 +1,14 @@
 /deep/ .ivu-spin-fix {
   z-index: 1099;
 }
-.spin-icon-load{
-  animation: ani-demo-spin 1s linear infinite;
+
+/deep/ .ivu-spin-dot {
+  background-color: #FF7B00;
+}
+.spin-icon-load {
+  animation: ani-demo-spin 1s linear infinite; 
+}
+.loading-color, .ivu-spin {
+  font-size: 4vmin;
+  color: #FF7B00;
 }

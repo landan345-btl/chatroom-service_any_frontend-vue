@@ -96,9 +96,7 @@ class Lottery extends Vue {
   }
 
   @Watch('$route', { immediate: true, deep: true })
-  public onRouteChange(oRoute: any) {
-    debugger;
-    this.isSpinShowed = true;
+    public onRouteChange(oRoute: any) {
     let sCode = oRoute.query.code || '';
     let oQueries = {
       code: sCode,
@@ -117,7 +115,6 @@ class Lottery extends Vue {
   }
 
   public beforeDestroy() {
-    debugger;
     clearInterval(this.timer);
   }
 
