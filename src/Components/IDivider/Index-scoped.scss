@@ -1,7 +1,12 @@
 .ivu-divider-horizontal {
   margin: 0;
+  height: 2px;
 }
 
 .ivu-divider, .ivu-divider-vertical {
   margin: 0;
+}
+
+.ivu-divider {
+  background: #e7e7e7;
 }

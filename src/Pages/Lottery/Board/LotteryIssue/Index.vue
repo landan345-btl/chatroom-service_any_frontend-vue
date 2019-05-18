@@ -1,23 +1,22 @@
 <template>
   <div class="lottery-issue">
-    <div class="top p-2 font-weight-bold">
-      <span class="title">即时开奖</span>
-      <I-button class="ml-2" v-on:handle-click="toggleTodayTwoSideNumberStatics()" v-if="types && ['11X5','SSC' , 'PK10'].includes(types.toUpperCase())">今日双面/号码统计</I-button>
-      <I-button class="ml-2" v-on:handle-click="toggleAccumulationRemider()" v-if="types && ['11X5','SSC' , 'PK10'].includes(types.toUpperCase())">长龙提醒</I-button>
-      <I-button class="ml-2" v-on:handle-click="toggleNumberAnalysis()" v-if="types && ['11X5','SSC' , 'PK10'].includes(types.toUpperCase())">号码分析</I-button>
+    <div class="top pl-2 pt-1 pb-1 font-weight-bold">
+      <span class="font-size-2">即时开奖</span>
+      <I-button class="ml-2" v-on:handle-click="toggleTodayTwoSideNumberStatics()" v-if="types && ['11X5', 'SSC', 'PK10'].includes(types.toUpperCase())">今日双面/号码统计</I-button>
+      <I-button class="ml-2" v-on:handle-click="toggleAccumulationRemider()" v-if="types && ['11X5', 'SSC', 'PK10'].includes(types.toUpperCase())">长龙提醒</I-button>
+      <I-button class="ml-2" v-on:handle-click="toggleNumberAnalysis()" v-if="types && ['11X5', 'SSC', 'PK10'].includes(types.toUpperCase())">号码分析</I-button>
     </div>
     <I-divider/>
     <transition name="slide-fade">
-      <Today-two-side-number-statics 
+      <Today-two-side-number-statics
         :types="types" 
-        :todayTwoSideRecords="todayTwoSideRecords"
         :lotteryIssues="lotteryIssues"
+        :todayTwoSideRecords="todayTwoSideRecords"
         :lotteries="lotteries"
-        :lottery="lottery"
-        v-show="isTodayTwoSideNumberStaticShowed" class="p-2"/>
+        v-show="isTodayTwoSideNumberStaticShowed"/>
     </transition>
     <transition name="slide-fade">
-      <Accumulation-remider v-show="isAccumulationRemiderShowed" class="p-2"/>
+      <Accumulation-remider v-show="isAccumulationRemiderShowed"/>
     </transition>
     <transition name="slide-fade">
       <Number-analysis 
@@ -26,7 +25,6 @@
         @handle-toggle-number="toggleNumber" 
         @handle-toggle-oddoreven="toggleOddOrEven"
         @handle-reset="resetShow"
-        class="p-2" 
         :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords" 
         :onNumbers="onNumbers"/>
     </transition>  

@@ -249,10 +249,6 @@ import {
 } from 'vue-property-decorator';
 
 import {
-  Lottery as LotteryMixin,
-} from '@/Mixins/';
-
-import {
   LOTTERIES,
 } from '@/CONFIGS/';
 
@@ -265,7 +261,6 @@ import {
   components: {
     IDivider,
   },
-  mixins: [LotteryMixin],
 })
 class TodayTwoSideNumberStatics extends Vue {
   @Prop()
@@ -277,16 +272,24 @@ class TodayTwoSideNumberStatics extends Vue {
   @Prop()
   public lotteryIssues!: any;
 
-  @Prop()
-  public lotteries!: any;
-
-  @Prop()
-  public lottery!: any;
-
-  public positionsToNumberTypesToCounts: any;
-  public beforeMount() {
-    this.positionsToNumberTypesToCounts(this.lotteryIssues, this.lottery);
+   /*
+   * 利用彩票开奖列表 计算 某一个 number 的 次数
+   *
+   *
+   */
+  public countNumber(oLotteryIssues: any, iNumber: number) {
+    let iCount = 0;
+    Object.keys(oLotteryIssues).forEach((sLotteryIssueKey) => {
+      let aNumbers = JSON.parse(oLotteryIssues[sLotteryIssueKey].numbers) || [];
+      for (let _iNumber of aNumbers) {
+        if ( Number(_iNumber) === Number(iNumber)) {
+          iCount++;
+        }
+      }
+    });
+    return iCount;
   }
+
 }
 
 export default TodayTwoSideNumberStatics;
