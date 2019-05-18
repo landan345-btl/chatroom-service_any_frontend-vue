@@ -1,16 +1,17 @@
 <template>
   <div class="basic-trend">
-    <div class="top p-1 font-weight-bold">
-      <span class="font-size-2 pl-1">基本走势</span>
-      <RadioGroup v-model="button1" type="button">
+    <div class="pl-2 pr-2 font-weight-bold font-weight-bold d-flex justify-content-between head-top">
+      <span class="font-size-2 line-height3">基本走势</span>
+      <RadioGroup v-model="button1" type="button" class="line-height3">
         <Radio label="今天"></Radio>
         <Radio label="昨天"></Radio>
         <Radio label="前天"></Radio>
         <Radio label="最近30期"></Radio>
         <Radio label="最近60期"></Radio>
-        <Radio label="最近90期"></Radio>
+        <Radio label="最近90期" class="d-xs-none"></Radio>
       </RadioGroup>
     </div>
+    <I-divider/>
     <div class="pt-2 pl-2">
       标注选择：
       <el-checkbox-group v-model="checkList">
@@ -430,7 +431,7 @@
 <script lang="ts">
 import {Component, Vue, Prop } from 'vue-property-decorator';
 
-import {ITabs } from '@/Components/';
+import {ITabs, IDivider, IButton } from '@/Components/';
 
 import {LOTTERY_TYPES } from '@/CONFIGS/';
 
@@ -438,6 +439,8 @@ import {LOTTERY_TYPES } from '@/CONFIGS/';
   name: 'BasicTrend',
   components: {
     ITabs,
+    IDivider,
+    IButton,
   },
 })
 class BasicTrend extends Vue {

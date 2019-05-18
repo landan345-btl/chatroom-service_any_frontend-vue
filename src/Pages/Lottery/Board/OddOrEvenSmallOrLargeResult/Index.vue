@@ -1,8 +1,9 @@
 <template>
-  <div class="odd-or-even-small-or-large-result">
-    <div class="top p-1 font-weight-bold">
-      <span class="title">单双大小路珠</span>
+  <div class="odd-or-even-small-or-large-result background-white">
+    <div class="pl-2 font-weight-bold head-top">
+      <span class="font-size-2 line-height3">单双大小路珠</span>
     </div>
+    <I-divider/>
     <div class="p-2">
       <span>选择名次：</span>
       <el-checkbox-group v-model="checkboxGroup1">
@@ -21,7 +22,7 @@
       </el-checkbox-group>
     </div>
     <div class="p-2">
-      <Result-table v-for="( utem , i ) in 6" :key="i"/>
+      <Result-table v-for="( utem , i ) in 2" :key="i"/>
     </div>
   </div>
 </template>
@@ -37,6 +38,7 @@ import {
 
 import {
   ResultTable,
+  IDivider,
 } from '@/Components/';
 
 import {
@@ -47,6 +49,7 @@ import {
   name: 'OddOrEvenSmallOrLargeResult',
   components: {
     ResultTable,
+    IDivider,
   },
 })
 class OddOrEvenSmallOrLargeResult extends Vue {

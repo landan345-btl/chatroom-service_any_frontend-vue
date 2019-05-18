@@ -1,8 +1,9 @@
 <template>
   <div class="two-side-statics">
-    <div class="top p-1 font-weight-bold">
-      <div class="title">两面统计</div>
+    <div class="pl-2 font-weight-bold head-top">
+      <span class="font-size-2 line-height3">两面统计</span>
     </div>
+    <I-divider/>
     <div class="explain">
       <span>说明：</span>
       <span>以每10期为一组，统计最近20组中单双大小的出现次数。</span>
@@ -46,6 +47,7 @@ import {
 
 import {
   ITabs,
+  IDivider,
 } from '@/Components/';
 
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
@@ -56,6 +58,7 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
   name: 'TwoSideStatics',
   components: {
     ITabs,
+    IDivider,
   },
 })
 class TwoSideStatics extends Vue {

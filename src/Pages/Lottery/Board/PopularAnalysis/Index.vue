@@ -1,8 +1,9 @@
 <template>
   <div class="popular-analysis background-white">
-    <div class="top p-1 font-weight-bold">
-      <span class="title">冷热分析</span>
+    <div class="pl-2 font-weight-bold head-top">
+      <span class="font-size-2 line-height3">冷热分析</span>
     </div>
+    <I-divider/>
     <div class="bottom p-2">
       <I-checkbox-group>
         <Checkbox label="true" v-model="isHotCountShowed">&nbsp;显示热号码出现次数</Checkbox>
@@ -69,6 +70,7 @@ import {
 import {
   SNumbers,
   ICheckboxGroup,
+  IDivider,
 } from '@/Components/';
 
 import {
@@ -80,6 +82,7 @@ import {
   components: {
     SNumbers,
     ICheckboxGroup,
+    IDivider,
   },
 })
 class PopularAnalysis extends Vue {

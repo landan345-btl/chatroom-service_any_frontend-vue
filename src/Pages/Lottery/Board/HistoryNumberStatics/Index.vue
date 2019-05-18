@@ -1,8 +1,9 @@
 <template>
   <div class="history-number-statics">
-    <div class="top p-1 font-weight-bold">
-      <span class="title">历史号码统计</span>
+    <div class="pl-2 font-weight-bold head-top">
+      <span class="font-size-2 line-height3">历史号码记录</span>
     </div>
+    <I-divider/>
     <table>
       <tr>
         <td>日期</td>
@@ -55,6 +56,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import {
   ITabs,
+  IDivider,
 } from '@/Components/';
 
 import {
@@ -65,6 +67,7 @@ import {
   name: 'PopularAnalysis',
   components: {
     ITabs,
+    IDivider,
   },
 })
 class PopularAnalysis extends Vue {

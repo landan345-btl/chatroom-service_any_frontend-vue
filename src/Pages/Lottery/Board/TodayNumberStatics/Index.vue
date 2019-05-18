@@ -1,6 +1,10 @@
 <template>
   <div class="today-number-statics">
-    <div class="top p-1 font-weight-bold">
+    <div class="pl-2 font-weight-bold">
+      <span class="font-size-2 line-height3">今日号码统计</span>
+    </div>
+    <I-divider/>
+    <div class="top pl-2 pt-2 font-weight-bold font-size-1">
       <span>
         参数设置：当数值为
         <span>15</span>
@@ -87,7 +91,6 @@
         <td>22</td>
       </tr>
     </table>
-
   </div>
 </template>
 <style scoped lang="scss">
@@ -102,6 +105,7 @@ import {
 
 import {
   ITabs,
+  IDivider,
 } from '@/Components/';
 
 import {
@@ -112,6 +116,7 @@ import {
   name: 'TodayNumberStatics',
   components: {
     ITabs,
+    IDivider,
   },
 })
 class TodayNumberStatics extends Vue {
