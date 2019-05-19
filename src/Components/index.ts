@@ -16,6 +16,7 @@ import IDatePicker from './IDatePicker/Index.vue';
 import ICollapse from './ICollapse/Index.vue';
 import ISpin from './ISpin/Index.vue';
 import IDivider from './IDivider/Index.vue';
+import IRadio from './IRadio/Index.vue';
 
 import VLine from './VLine/Index.vue';
 
@@ -41,6 +42,7 @@ export {
   ICollapse,
   ICheckboxGroup,
   IDivider,
+  IRadio,
   VLine,
   SNumbers,
   ResultTable,

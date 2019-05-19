@@ -6,13 +6,13 @@
     <I-divider/>
     <div class="p-2">
       <span>选择名次：</span>
-      <el-checkbox-group v-model="checkboxGroup1">
-        <el-checkbox-button>第一球</el-checkbox-button>
-        <el-checkbox-button>第二球</el-checkbox-button>
-        <el-checkbox-button>第三球</el-checkbox-button>
-        <el-checkbox-button>第四球</el-checkbox-button>
-        <el-checkbox-button>第五球</el-checkbox-button>
-      </el-checkbox-group>
+       <el-radio-group v-model="radio2">
+        <el-radio-button label="第一球"></el-radio-button>
+        <el-radio-button label="第二球"></el-radio-button>
+        <el-radio-button label="第三球"></el-radio-button>
+        <el-radio-button label="第四球"></el-radio-button>
+        <el-radio-button label="第五球"></el-radio-button>
+      </el-radio-group>
     </div>
     <div class="p-2">
       <span>筛选路珠：</span>
@@ -53,8 +53,8 @@ import {
   },
 })
 class OddOrEvenSmallOrLargeResult extends Vue {
-  public checkboxGroup1 = '第一球';
-  public checkList = '大小路珠';
+  public radio2: any = '第一球';
+  public checkList: any = '大小路珠';
 
 }
 

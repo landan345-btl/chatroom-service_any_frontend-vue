@@ -1,0 +1,25 @@
+/deep/ .ivu-radio-group-button {
+  .ivu-radio-wrapper {
+    border: 0 !important;
+  }
+}
+
+/deep/ .ivu-radio-group-button .ivu-radio-wrapper:first-child, /deep/ .ivu-radio-group-button .ivu-radio-wrapper:last-child {
+  border-radius: 0.6vmin; 
+}
+/deep/ .ivu-radio-group-button .ivu-radio-wrapper:after, .ivu-radio-group-button .ivu-radio-wrapper:before {
+  display: none !important;
+}
+/deep/ .ivu-radio-group-button .ivu-radio-wrapper-checked {
+  background: #fba75e !important;
+  color: #fff !important;
+  border-radius: 0.6vmin; 
+  border: 0px !important;
+  box-shadow: 0px 0 0 0 #fba75e !important;
+}
+/deep/ .el-checkbox-group {
+  display: inline-block !important;
+}
+.ivu-radio-group-button .ivu-radio-wrapper:hover {
+  color: red;
+}

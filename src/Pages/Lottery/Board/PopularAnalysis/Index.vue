@@ -13,13 +13,13 @@
       </div>
       <table class="background-white w-100">
       <tr>
-        <th class="align-middle text-center">名次</th>
+        <th class="align-middle text-center">{{ types==='PK10'?'名次':'球次' }}</th>
         <th class="align-middle text-center">热</th>
         <th class="align-middle text-center">温</th>
         <th class="align-middle text-center">冷</th>
       </tr>
       <tr v-for="(oCounts, iPosition) in hotWarnColdPositions" :key="iPosition">
-        <td class="align-middle font-size-1 text-center">{{ types && texts[types] && texts[types][iPosition] ? texts[types][iPosition] : iPosition }} </td>
+        <td class="align-middle font-size-1 text-center">{{ types && texts[types] && texts[types][iPosition] ? texts[types][iPosition] : iPosition  }} </td>
         <td class="align-middle text-left">
             <S-numbers 
               :code="code" 
@@ -101,7 +101,7 @@ class PopularAnalysis extends Vue {
 
   public texts = {
     PK10: ['冠军' , '亚军' , '第三名' , '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'],
-    SCC: [ '第一球' , '第二球' , '第三球' , '第四球' , '第五球' ],
+    SSC: [ '第一球' , '第二球' , '第三球' , '第四球' , '第五球' ],
   };
   public chooseNumbersByCount(oCounts: any , iMinCount: number , iMaxCount: number ) {
     let aNumbers: number[] = [];

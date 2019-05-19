@@ -25,13 +25,13 @@
       <p>7 组选3：第一球、第二球、第三球任意两位数字重复则为组选3。例如：112、211、122、221;</p>
       <p>8 组选6：第一球、第二球、第三球没有任何号码重复则为组选6。例如：123、321、132、213；</p>
     </div>
-    <div>
-      <RadioGroup v-model="button2" type="button">
-        <Radio label="前三形态"></Radio>
-        <Radio label="中三形态"></Radio>
-        <Radio label="后三形态"></Radio>
-      </RadioGroup>
-      <CheckboxGroup v-model="fruit">
+    <div class="pl-2 pt-2 d-flex justify-content-between">
+      <el-radio-group v-model="radio2">
+        <el-radio-button label="前三形态"></el-radio-button>
+        <el-radio-button label="中三形态"></el-radio-button>
+        <el-radio-button label="后三形态"></el-radio-button>
+      </el-radio-group>
+      <CheckboxGroup v-model="fruit" class="mr-2">
         <Checkbox label="遗漏"></Checkbox>
         <Checkbox label="折线"></Checkbox>
         <Checkbox label="遗漏分层"></Checkbox>
@@ -156,7 +156,7 @@ import {
 })
 class StateTrend extends Vue {
   public button1: any = '今天';
-  public button2: any = '前三形态';
+  public radio2: any = '前三形态';
   public fruit: any = ['遗漏'];
 }
 

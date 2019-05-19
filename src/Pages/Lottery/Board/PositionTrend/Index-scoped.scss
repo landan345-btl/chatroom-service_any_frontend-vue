@@ -1,6 +1,6 @@
 .positon-trend {
   .say {
-    line-height: 2.5vmin;
+    line-height: 3.2vmin;
     background: #edf4fa;
     overflow: hidden;
     height: 3.2vmin;
@@ -12,6 +12,7 @@
       }
       span:nth-child(2) {
         float: right;
+        line-height: 3.2vmin;
       }
     }
   }

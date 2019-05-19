@@ -17,7 +17,7 @@
         <div class="say mb-2 font-size-1p5">
           <p>
             <span> <span>说明：</span> 1大小：5 ~ 9 属大号，0 ~ 4属小号</span>
-            <span class="el-icon-arrow-down"></span>
+            <span class="el-icon-arrow-down mr-1"></span>
           </p>
           <p> 2 单双：1、3、5、7、9属单数，0、2、4、6、8属双数；</p>
           <p>3 质合：1、2、3、5、7属质数，0、4、6、8、9属合数;</p>
