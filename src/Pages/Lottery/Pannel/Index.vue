@@ -25,7 +25,7 @@
         <span> 已开 {{ getLotteryIssueExtension.order_no }} 期，还有 {{ getLotteryIssueExtension.total_order_no - getLotteryIssueExtension.order_no }} 期 </span>
       </div>
     </div>
-    <div class="countdown p-2">
+    <div class="countdown p-2 d-xs-none">
       <div class="top">
         <span>
           距 
@@ -43,10 +43,10 @@
     </div>
     <div class="sounds align-middle pt-2 pb-2 pl-4 pr-4">
       <div>
-        <I-button :type="'warning'" class="d-inline-block mb-1">关闭声音</I-button><font-awesome-icon icon="volume-up" class="d-inline-block ml-1"/>
+        <I-button :type="'warning'" class="d-inline-block d-xs-none mb-1">关闭声音</I-button><font-awesome-icon icon="volume-up" class="d-inline-block ml-1"/>
       </div>
       <div>
-        <I-button :type="'warning'" class="d-inline-block">铃声设置</I-button><font-awesome-icon icon="music" class="d-inline-block ml-1"/>
+        <I-button :type="'warning'" class="d-inline-block d-xs-none">铃声设置</I-button><font-awesome-icon icon="music" class="d-inline-block ml-1"/>
       </div>
     </div>
     <div class="live align-middle">
