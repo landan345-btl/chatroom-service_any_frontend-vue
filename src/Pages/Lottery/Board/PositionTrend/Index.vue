@@ -1,7 +1,7 @@
 <template>
-  <div class="positon-trend">
+  <div class="positon-trend background-white">
    <div class="pl-2 pr-2 font-weight-bold font-weight-bold d-flex justify-content-between head-top">
-      <span class="font-size-2 line-height3">基本走势</span>
+      <span class="font-size-2 line-height3">定位走势</span>
       <RadioGroup v-model="button1" type="button" class="line-height3">
         <Radio label="今天"></Radio>
         <Radio label="昨天"></Radio>
@@ -14,7 +14,7 @@
     <I-divider/>
     <div class="p-2 ">
       <div>
-        <div class="say mb-2">
+        <div class="say mb-2 font-size-1p5">
           <p>
             <span> <span>说明：</span> 1大小：5 ~ 9 属大号，0 ~ 4属小号</span>
             <span class="el-icon-arrow-down"></span>
@@ -29,7 +29,7 @@
           <p> 10 最大连出值：统计期数内连续开出的最大值；</p>
         </div>
 
-        <div class="mb-2">
+        <div class="mb-2 d-flex justify-content-between">
           <el-radio-group v-model="radio2">
             <el-radio-button label="第一球"></el-radio-button>
             <el-radio-button label="第二球"></el-radio-button>
@@ -37,16 +37,14 @@
             <el-radio-button label="第四球"></el-radio-button>
             <el-radio-button label="第五球"></el-radio-button>
           </el-radio-group>
-
           <el-checkbox-group v-model="checkList">
             <el-checkbox label="遗漏"></el-checkbox>
-            <el-checkbox label="折线"></el-checkbox>
+            <el-checkbox label="拆线"></el-checkbox>
             <el-checkbox label="遗漏分层"></el-checkbox>
             <el-checkbox label="分隔线"></el-checkbox>
           </el-checkbox-group>
         </div>
-
-        <table class="position-trend"  v-canvasTrend>
+        <table class="position-trend mb-2 text-center w-100 font-size-1p5" v-canvasTrend>
           <tr>
             <td rowspan="2"><span>期号</span></td>
             <td rowspan="2"><span>开奖号码</span> </td>
@@ -82,7 +80,7 @@
           <tr v-for="( item , i ) in 15" :key="i">
             <td>20190510059</td>
             <td>
-              <span>1</span>
+              <span class="color-red">1</span>
               <span>1</span>
               <span>1</span>
               <span>1</span>
@@ -112,11 +110,8 @@
             <td>16</td>
           </tr>
         </table>
-
       </div>
     </div>
-
-
   </div>
 </template>
 <style scoped lang="scss">
@@ -131,6 +126,8 @@ import {
 
 import {
   ITabs,
+  IDivider,
+  IButton,
 } from '@/Components/';
 
 import {
@@ -141,12 +138,14 @@ import {
   name: 'PositionTrend',
   components: {
     ITabs,
+    IDivider,
+    IButton,
   },
 })
 class PositionTrend extends Vue {
-  public radio1 = '今天';
+  public button1 = '最近30期';
   public radio2 = '第一球';
-  public checkList = ['遗漏'];
+  public checkList = ['遗漏', '拆线'];
 }
 
 export default PositionTrend;
