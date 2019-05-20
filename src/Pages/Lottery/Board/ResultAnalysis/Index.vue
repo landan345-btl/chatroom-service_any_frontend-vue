@@ -53,22 +53,50 @@
        <div class="font-size-1p5 rank-select">
         <div class="mt-1">
           <span>筛选名次：</span>
-          
-          <span class="mr-2">全选</span>
-          <span>清空</span>
+           <I-radio-group v-model="ranking" type="button" class="line-height3">
+            <Radio label="冠军"></Radio>
+            <Radio label="亚军"></Radio>
+            <Radio label="第三名"></Radio>
+            <Radio label="第四名"></Radio>
+            <Radio label="第五名"></Radio>
+            <Radio label="第六名"></Radio>
+            <Radio label="第七名"></Radio>
+            <Radio label="第八名"></Radio>
+            <Radio label="第九名"></Radio>
+            <Radio label="第十名"></Radio>
+            <Radio label="冠亚和"></Radio>
+          </I-radio-group>
         </div>
       </div>
     </div>
     <div class="p-2" v-show=" iNumber === 3 ">
-      <div class="font-size-1p5">
+      <div class="font-size-1p5 rank-select">
         <div class="mt-1">
           <span>选择名次：</span>
-          <el-radio-group v-model="button1">
-            <el-radio-button label="第一球"></el-radio-button>
-            <el-radio-button label="第一球"></el-radio-button>
-            <el-radio-button label="第一球"></el-radio-button>
-            <el-radio-button label="第一球"></el-radio-button>
-          </el-radio-group>
+          <I-checkbox-group class="d-inline-block mr-2">
+            <Checkbox>&nbsp;第一名</Checkbox>
+            <Checkbox>&nbsp;第二名</Checkbox>
+            <Checkbox>&nbsp;第三名</Checkbox>
+            <Checkbox>&nbsp;第四名</Checkbox>
+            <Checkbox>&nbsp;第五名</Checkbox>
+            <Checkbox>&nbsp;第六名</Checkbox>
+            <Checkbox>&nbsp;第七名</Checkbox>
+            <Checkbox>&nbsp;第八名</Checkbox>
+            <Checkbox>&nbsp;第九名</Checkbox>
+            <Checkbox>&nbsp;第十名</Checkbox>
+          </I-checkbox-group>
+          <span class="mr-2">全选</span>
+          <span>清空</span>
+        </div>
+      </div>
+      <div class="font-size-1p5 rank-select">
+        <div class="mt-1">
+          <span>选择名次：</span>
+          <I-radio-group v-model="ranking" type="button" class="line-height3">
+            <Radio label="大小"></Radio>
+            <Radio label="单双"></Radio>
+            <Radio label="龙虎"></Radio>
+          </I-radio-group>
         </div>
       </div>
     </div>
@@ -110,7 +138,7 @@ import {
 class ResultAnalysis extends Vue {
   public checkboxGroup1 = '第一球';
   public iNumber = 2;
-  public button1 = '第一球';
+  public ranking = '1';
 
   public toggleBackground( iNumber: number ) {
     this.iNumber = iNumber;
