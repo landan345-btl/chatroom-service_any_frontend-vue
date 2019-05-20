@@ -14,7 +14,7 @@
 }
 
 .d-xs-none {
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     display: none !important;
   }
 }
@@ -71,9 +71,7 @@
 .w-1_3 {
   width: cacl( 100% / 3 );
 }
-.w-0p5 {
-  width: 5% !important;
-}
+
 .w-10 {
   width: 10% !important;
 }
@@ -115,31 +113,31 @@
 }
 
 .w-xs-1_3 {
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     width: cacl( 100% / 3 );
   }
 }
 
 .w-xs-25 {
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     width: 25%;
   }
 }
 
 .w-xs-50 {
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     width: 50%;
   }
 }
 
 .w-xs-75 {
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     width: 75%;
   }
 }
 
 .w-xs-100 {
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     width: 100%;
   }
 }
@@ -393,127 +391,127 @@
   margin-left:2vmin 
 }
 .mt-xs-1 {
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     margin-top: 1vmin !important;
   }
 }
 
 .mt-xs-2 {
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     margin-top: 2vmin !important;
   }
 }
 
 .mt-xs-3 {
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     margin-top: 3vmin !important;
   }
 }
 
 .mt-xs-4 {
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     margin-top: 4vmin !important;
   }
 }
 
 .mt-xs-5 {
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     margin-top: 5vmin !important;
   }
 }
 
 .mt-sm-1 {
-  @media only screen and (min-width: 768px) and (max-width: 991.98px) {
+  @media only screen and (min-width: 576px) and (max-width: 767.98px) {
     margin-top: 1vmin !important;
   }
 }
 
 .mt-sm-2 {
-  @media only screen and (min-width: 768px) and (max-width: 991.98px) {
+  @media only screen and (min-width: 576px) and (max-width: 767.98px) {
     margin-top: 2vmin !important;
   }
 }
 
 .mt-sm-3 {
-  @media only screen and (min-width: 768px) and (max-width: 991.98px) {
+  @media only screen and (min-width: 576px) and (max-width: 767.98px) {
     margin-top: 3vmin !important;
   }
 }
 
 .mt-sm-4 {
-  @media only screen and (min-width: 768px) and (max-width: 991.98px) {
+  @media only screen and (min-width: 576px) and (max-width: 767.98px) {
     margin-top: 4vmin !important;
   }
 }
 
 .mt-md-1 {
-  @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+  @media only screen and (min-width: 768px) and (max-width: 991.98px) {
     margin-top: 1vmin !important;
   }
 }
 
 .mt-md-2 {
-  @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+  @media only screen and (min-width: 768px) and (max-width: 991.98px) {
     margin-top: 2vmin !important;
   }
 }
 
 .mt-md-3 {
-  @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+  @media only screen and (min-width: 768px) and (max-width: 991.98px) {
     margin-top: 3vmin !important;
   }
 }
 
 .mt-md-4 {
-  @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+  @media only screen and (min-width: 768px) and (max-width: 991.98px) {
     margin-top: 4vmin !important;
   }
 }
 
 .mt-lg-1 {
-  @media only screen and (min-width: 1200px) and (max-width: 1919.98px) {
+  @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
     margin-top: 1vmin !important;
   }
 }
 
 .mt-lg-2 {
-  @media only screen and (min-width: 1200px) and (max-width: 1919.98px) {
+  @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
     margin-top: 2vmin !important;
   }
 }
 
 .mt-lg-3 {
-  @media only screen and (min-width: 1200px) and (max-width: 1919.98px) {
+  @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
     margin-top: 3vmin !important;
   }
 }
 
 .mt-lg-4 {
-  @media only screen and (min-width: 1200px) and (max-width: 1919.98px) {
+  @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
     margin-top: 4vmin !important;
   }
 }
 
 .mt-xl-1 {
-  @media only screen and (min-width: 1920px) {
+  @media only screen and (min-width: 1200px) and (max-width: 1599.98px) {
     margin-top: 1vmin !important;
   }
 }
 
 .mt-xl-2 {
-  @media only screen and (min-width: 1920px) {
+  @media only screen and (min-width: 1200px) and (max-width: 1599.98px) {
     margin-top: 2vmin !important;
   }
 }
 
 .mt-xl-3 {
-  @media only screen and (min-width: 1920px) {
+  @media only screen and (min-width: 1200px) and (max-width: 1599.98px) {
     margin-top: 3vmin !important;
   }
 }
 
 .mt-xl-4 {
-  @media only screen and (min-width: 1920px) {
+  @media only screen and (min-width: 1200px) and (max-width: 1599.98px) {
     margin-top: 4vmin !important;
   }
 }
@@ -535,55 +533,55 @@
 }
 
 .mb-xs-1 {
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     margin-bottom: 1vmin !important;
   }
 }
 
 .mb-xs-2 {
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     margin-bottom: 2vmin !important;
   }
 }
 
 .mb-xs-3 {
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     margin-bottom: 3vmin !important;
   }
 }
 
 .mb-xs-4 {
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     margin-bottom: 4vmin !important;
   }
 }
 
 .mb-xs-5 {
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     margin-bottom: 5vmin !important;
   }
 }
 
 .mb-sm-1 {
-  @media only screen and (min-width: 768px) and (max-width: 991.98px) {
+  @media only screen and (min-width: 576px) and (max-width: 767.98px) {
     margin-bottom: 1vmin !important;
   }
 }
 
 .mb-sm-2 {
-  @media only screen and (min-width: 768px) and (max-width: 991.98px) {
+  @media only screen and (min-width: 576px) and (max-width: 767.98px) {
     margin-bottom: 2vmin !important;
   }
 }
 
 .mb-sm-3 {
-  @media only screen and (min-width: 768px) and (max-width: 991.98px) {
+  @media only screen and (min-width: 576px) and (max-width: 767.98px) {
     margin-bottom: 3vmin !important;
   }
 }
 
 .mb-sm-4 {
-  @media only screen and (min-width: 768px) and (max-width: 991.98px) {
+  @media only screen and (min-width: 576px) and (max-width: 767.98px) {
     margin-bottom: 4vmin !important;
   }
 }
@@ -637,25 +635,25 @@
 }
 
 .mb-xl-1 {
-  @media only screen and (min-width: 1920px) {
+  @media only screen and (min-width: 1200px) and (max-width: 1599.98px) {
     margin-bottom: 1vmin !important;
   }
 }
 
 .mb-xl-2 {
-  @media only screen and (min-width: 1920px) {
+  @media only screen and (min-width: 1200px) and (max-width: 1599.98px) {
     margin-bottom: 2vmin !important;
   }
 }
 
 .mb-xl-3 {
-  @media only screen and (min-width: 1920px) {
+  @media only screen and (min-width: 1200px) and (max-width: 1599.98px) {
     margin-bottom: 3vmin !important;
   }
 }
 
 .mb-xl-4 {
-  @media only screen and (min-width: 1920px) {
+  @media only screen and (min-width: 1200px) and (max-width: 1599.98px) {
     margin-bottom: 4vmin !important;
   }
 }
@@ -720,12 +718,12 @@
 
 .z-xs-1001 {
   
-  @media only screen and (max-width: 767.98px) {
+  @media only screen and (max-width: 575.98px) {
     z-index: 1001;
   }
 } 
 .z-sm-0 {
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 576px) and (max-width: 767.98px) {
     z-index: 0;
   }
 }
@@ -734,14 +732,13 @@
   color: #ffffff !important;
 }
 
-
 .background-white {
   background-color: #ffffff;
 }
 
 .backgroung-gray {
   background: #E7EAED;
- }
+}
 .overflow-hidden {
   overflow: hidden;
 }

@@ -3,15 +3,16 @@
     margin-top: 8vmin;
     margin-bottom: 8vmin;
   }
+  .bottom {
+    & > *:nth-child(n+2) {
+      margin-left: 2vmin;
+    }
+    & > *:hover {
+      color: #ff7324;
+    }
+    color: #666666;
+    font-size: 1.4vmin;
+  }
+  
 }
 
-.bottom {
-  & > *:nth-child(n+2) {
-    margin-left: 2vmin;
-  }
-  & > *:hover {
-    color: #ff7324;
-  }
-  color: #666666;
-  font-size: 1.4vmin;
-}
