@@ -8,8 +8,7 @@
           :lottery="lottery"
           :lotteries="lotteries"
           :code="code" 
-          :types="types" 
-          :todayTwoSideRecords="todayTwoSideRecords"/>
+          :types="types" />
       </TabPane>
       <!-- <TabPane :label="'路珠分析'" :name="'result-analysis'">
         <Result-analysis />

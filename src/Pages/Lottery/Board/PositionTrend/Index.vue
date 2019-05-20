@@ -131,6 +131,7 @@ import {
 
 import {
   ITabs,
+  IDivider,
 } from '@/Components/';
 
 import {
@@ -141,6 +142,7 @@ import {
   name: 'PositionTrend',
   components: {
     ITabs,
+    IDivider,
   },
 })
 class PositionTrend extends Vue {
