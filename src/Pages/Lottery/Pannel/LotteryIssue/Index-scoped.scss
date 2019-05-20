@@ -1,4 +1,4 @@
-.lottery .pannel .lottery-issue {
+.page.lottery .pannel .lottery-issue {
   @media only screen and (max-width: 767.98px) {
     margin-top: 8vmin;
     margin-bottom: 8vmin;
@@ -31,20 +31,14 @@
     font-size: 1vmin;
     color: #8c8c8c;
   }
-}
-
-.bottom {
-  & > *:nth-child(n+2) {
-    margin-left: 2vmin;
-  }
-  & > *:hover {
-    color: #ff7324;
-  }
-  color: #666666;
-  font-size: 1.4vmin;
-
-}
-
-/deep/ .el-tabs__content {
-  background-color: #ffffff;
+  .bottom {
+    & > *:nth-child(n+2) {
+      margin-left: 2vmin;
+    }
+    & > *:hover {
+      color: #ff7324;
+    }
+    color: #666666;
+    font-size: 1.4vmin;
+  }  
 }

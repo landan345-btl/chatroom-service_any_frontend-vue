@@ -11,95 +11,95 @@
         :lg="{span: 20, offset: 2}"
         :xl="{span: 16, offset: 4}">
         <main class="mt-2 mb-2">
-          <I-tabs :type="'card'" class="parent" v-on:handle-click="handleParentLotteryIssues">
+          <I-tabs :type="'card'" class="parent" v-on:handle-click="handleParentLotteryIssues" v-if="getLotteries" :name="'1'">
             <TabPane label="PK拾" name="PK10">
-              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son">
-                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'PK10' === oLottery.types">
+              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son" :name="'PK10'">
+                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'PK10' === oLottery.types">
                 </TabPane>
               </I-tabs>
               <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
-                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'PK10' === oLottery.types" class="mt-2 background-white"/>
+                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'PK10' === oLottery.types" class="mt-2 background-white"/>
               </div>
             </TabPane>
             <TabPane label="时时彩" name="SSC">
-              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son">
-                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SSC' === oLottery.types">
+              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son" :name="'SSC'">
+                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'SSC' === oLottery.types">
                 </TabPane>
               </I-tabs>
               <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
-                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SSC' === oLottery.types" class="mt-2 background-white"/>
+                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'SSC' === oLottery.types" class="mt-2 background-white"/>
               </div>
             </TabPane>
             <TabPane label="11选5" name="11X5">
-              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son">
-                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'11X5' === oLottery.types">
+              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son" :name="'11X5'">
+                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && '11X5' === oLottery.types">
                 </TabPane>
               </I-tabs>
               <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
-                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'11X5' === oLottery.types" class="mt-2 background-white"/>
+                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && '11X5' === oLottery.types" class="mt-2 background-white"/>
               </div>
             </TabPane>
             <TabPane label="快三" name="K3">
-              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son">
-                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'K3' === oLottery.types">
+              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son" :name="'K3'">
+                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'K3' === oLottery.types">
                 </TabPane>
               </I-tabs>
               <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
-                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'K3' === oLottery.types" class="mt-2 background-white"/>
+                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'K3' === oLottery.types" class="mt-2 background-white"/>
               </div>
             </TabPane>
             <TabPane label="快乐十分" name="KLSF">
-              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son">
-                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KLSF' === oLottery.types">
+              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son" :name="'KLSF'">
+                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'KLSF' === oLottery.types">
                 </TabPane>
               </I-tabs>
               <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
-                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KLSF' === oLottery.types" class="mt-2 background-white"/>
+                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'KLSF' === oLottery.types" class="mt-2 background-white"/>
               </div>   
             </TabPane>
             <TabPane label="快乐8" name="KL8">
-              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son">
-                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KL8' === oLottery.types">
+              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son" :name="'KL8'">
+                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'KL8' === oLottery.types">
                 </TabPane>
               </I-tabs>
               <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
-                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'KL8' === oLottery.types" class="mt-2 background-white"/>
+                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'KL8' === oLottery.types" class="mt-2 background-white"/>
               </div>
             </TabPane>
             <TabPane label="六合彩" name="SIX">
-              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son">
-                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SIX' === oLottery.types">
+              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son" :name="'SIX'">
+                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'SIX' === oLottery.types">
                 </TabPane>
               </I-tabs>
               <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
-              <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'SIX' === oLottery.types" class="mt-2 background-white"/>
+                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'SIX' === oLottery.types" class="mt-2 background-white"/>
               </div>
             </TabPane>
             <TabPane label="3D" name="3D">
-              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son">
-                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'3D' === oLottery.types">
+              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son" :name="'3D'">
+                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && '3D' === oLottery.types">
                 </TabPane>
               </I-tabs>
               <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
-                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'3D' === oLottery.types" class="mt-2 background-white"/>
+                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && '3D' === oLottery.types" class="mt-2 background-white"/>
               </div>
             </TabPane>
             <TabPane label="幸运28" name="XY28">
-              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son">
-                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'XY28' === oLottery.types">
+              <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son" :name="'XY28'">
+                <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'XY28' === oLottery.types">
                 </TabPane>
               </I-tabs>
               <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
-                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="'XY28' === oLottery.types" class="mt-2 background-white"/>
+                <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'XY28' === oLottery.types" class="mt-2 background-white"/>
               </div>
             </TabPane>
           </I-tabs>

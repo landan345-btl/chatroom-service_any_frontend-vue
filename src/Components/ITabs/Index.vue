@@ -1,5 +1,5 @@
 <template>
-  <Tabs :type="type" :animated="animated" @on-click="handleClick">
+  <Tabs :type="type" :animated="animated" @on-click="handleClick" :name="name">
     <slot></slot>
   </Tabs>
 </template>
@@ -17,6 +17,9 @@ import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
 class ITabs extends Vue {
   @Prop()
   public type!: string;
+
+  @Prop()
+  public name!: string;
 
   @Prop()
   public animated!: boolean;

@@ -2,14 +2,14 @@
   <div class="positon-trend background-white">
    <div class="pl-2 pr-2 font-weight-bold font-weight-bold d-flex justify-content-between head-top">
       <span class="font-size-2 line-height3">定位走势</span>
-      <RadioGroup v-model="button1" type="button" class="line-height3">
+      <I-radio-group v-model="date" type="button" class="line-height3">
         <Radio label="今天"></Radio>
         <Radio label="昨天"></Radio>
         <Radio label="前天"></Radio>
         <Radio label="最近30期"></Radio>
         <Radio label="最近60期"></Radio>
         <Radio label="最近90期" class="d-xs-none"></Radio>
-      </RadioGroup>
+      </I-radio-group>
     </div>
     <I-divider/>
     <div class="p-2 ">
@@ -28,23 +28,22 @@
           <p> 9 最大遗漏：统计期数内遗漏的最大值;</p>
           <p> 10 最大连出值：统计期数内连续开出的最大值；</p>
         </div>
-
-        <div class="mb-2 d-flex justify-content-between">
-          <el-radio-group v-model="radio2">
-            <el-radio-button label="第一球"></el-radio-button>
-            <el-radio-button label="第二球"></el-radio-button>
-            <el-radio-button label="第三球"></el-radio-button>
-            <el-radio-button label="第四球"></el-radio-button>
-            <el-radio-button label="第五球"></el-radio-button>
-          </el-radio-group>
-          <el-checkbox-group v-model="checkList">
-            <el-checkbox label="遗漏"></el-checkbox>
-            <el-checkbox label="拆线"></el-checkbox>
-            <el-checkbox label="遗漏分层"></el-checkbox>
-            <el-checkbox label="分隔线"></el-checkbox>
-          </el-checkbox-group>
+        <div class="mb-2">
+          <I-radio-group v-model="position" type="button" class="line-height3">
+            <Radio label="第一球"></Radio>
+            <Radio label="第二球"></Radio>
+            <Radio label="第三球"></Radio>
+            <Radio label="第四球"></Radio>
+            <Radio label="第五球"></Radio>
+          </I-radio-group>
+          <I-checkbox-group v-model="type">
+            <Checkbox label="遗漏"></Checkbox>
+            <Checkbox label="折线"></Checkbox>
+            <Checkbox label="遗漏分层"></Checkbox>
+            <Checkbox label="分隔线"></Checkbox>
+          </I-checkbox-group>
         </div>
-        <table class="position-trend mb-2 text-center w-100 font-size-1p5" v-canvasTrend>
+        <table class="position-trend"  v-canvasTrend>
           <tr>
             <td rowspan="2"><span>期号</span></td>
             <td rowspan="2"><span>开奖号码</span> </td>
@@ -127,7 +126,8 @@ import {
 import {
   ITabs,
   IDivider,
-  IButton,
+  IRadioGroup,
+  ICheckboxGroup,
 } from '@/Components/';
 
 import {
@@ -139,13 +139,14 @@ import {
   components: {
     ITabs,
     IDivider,
-    IButton,
+    IRadioGroup,
+    ICheckboxGroup,
   },
 })
 class PositionTrend extends Vue {
-  public button1 = '最近30期';
-  public radio2 = '第一球';
-  public checkList = ['遗漏', '拆线'];
+  public date = '今天';
+  public position = '第一球';
+  public checkList = ['遗漏'];
 }
 
 export default PositionTrend;

@@ -41,10 +41,11 @@ html {
 .number {
   display: inline-block;
   text-align: center;
-  margin: 0vmin 0.2vmin; 
+  margin: 0.2vmin 0.2vmin; 
 }
 .numbers {
- // width: 42vmin;
+  max-width: 42vmin;
+  margin: auto;
 }
 .status-number {
   .number-ssc {

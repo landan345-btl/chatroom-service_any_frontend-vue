@@ -22,9 +22,6 @@ class Lottery extends Vue {
     numbers_to_counts: {},
   };
 
-  public created() {
-    console.log('你使用了 Lottery Mixin');
-  }
   public calculateNextTime(sOpenedTime: string, oLottery: any): number {
     let aRangeTimes = JSON.parse(oLottery.range_times);
     let iNextTime = 0;
@@ -41,7 +38,6 @@ class Lottery extends Vue {
         iNextTime = (new Date(sOpenedTime).getTime() + 24 * 60 * 60 * 1000 - iNowTime) / 1000;
       }
     });
-    // this.next_time = iNextTime;
 
     return iNextTime;
   }

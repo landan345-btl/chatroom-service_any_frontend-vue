@@ -14,6 +14,9 @@
   }
 
   table {
+    .numbers {
+      max-width: 54.6vmin;
+    }
     font-size: 1.7vmin;
     th:first-child {
       width: 15%;
