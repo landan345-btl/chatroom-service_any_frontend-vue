@@ -23,7 +23,6 @@ class Lottery extends Vue {
   };
 
   public created() {
-    console.log('你使用了 Lottery Mixin');
   }
   public calculateNextTime(sOpenedTime: string, oLottery: any): number {
     let aRangeTimes = JSON.parse(oLottery.range_times);
