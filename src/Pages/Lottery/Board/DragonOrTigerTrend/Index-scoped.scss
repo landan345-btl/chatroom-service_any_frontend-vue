@@ -1,21 +1,17 @@
 .dragon-or-tiger-trend {
   .explain {
-    width: 97%;
-    margin: 2vmin auto 0;
+    position: relative;
     padding: .7vmin 0 .7vmin 1vmin;
     background: #edf4fa;
-    font-size: 1vmin;
     border: .1vmin solid #e3e3e3;
-    height: 3vmin;
-    overflow: hidden;
+    // overflow: hidden;
     span:nth-child(2) {
       float: right;
       margin-right: 2vmin;
     }
-  }
-  .select-line {
-    width: 97%;
-    margin: 2vmin auto 2vmin;
+    span:nth-child(2):hover {
+      cursor: pointer;
+    }
   }
   table {
     width: 97%;

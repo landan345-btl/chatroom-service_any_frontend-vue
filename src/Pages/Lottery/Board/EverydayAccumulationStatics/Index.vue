@@ -1,6 +1,6 @@
 <template>
   <div class="everyday-accumulation-statics">
-    <div class="top p-1 font-weight-bold">
+    <div class="top p-2 font-weight-bold d-flex justify-content-start">
       <div :class=" iNumber === 1 ? 'background-brown':'' " @click="toggleBackground(1)">单长龙</div>
       <div :class=" iNumber === 2 ? 'background-brown':'' " @click="toggleBackground(2)">双长龙</div>
       <div :class=" iNumber === 3 ? 'background-brown':'' " @click="toggleBackground(3)">大长龙</div>
@@ -8,32 +8,31 @@
       <div :class=" iNumber === 5 ? 'background-brown':'' " @click="toggleBackground(5)">龙长龙</div>
       <div :class=" iNumber === 6 ? 'background-brown':'' " @click="toggleBackground(6)">虎长龙</div>
     </div>
-
+    <I-divider/>
     <div class="p-2" v-show=" iNumber !== 5">
       <div class="rank-select">
         <p>该页面统计长龙每天出现的条数，例如某日连续开出5期长龙（该形态）共出现10次</p>
         <p class="mt-1">
           <span>选择名次：</span>
-          <el-checkbox-group v-model="checkboxGroup1">
-            <el-checkbox-button>第一球</el-checkbox-button>
-            <el-checkbox-button>第二球</el-checkbox-button>
-            <el-checkbox-button>第三球</el-checkbox-button>
-            <el-checkbox-button>第四球</el-checkbox-button>
-            <el-checkbox-button>第五球</el-checkbox-button>
-            <el-checkbox-button>总和</el-checkbox-button>
-          </el-checkbox-group>
+          <el-radio-group v-model="checkboxGroup1">
+            <el-radio-button label="第一球"></el-radio-button>
+            <el-radio-button label="第二球"></el-radio-button>
+            <el-radio-button label="第三球"></el-radio-button>
+            <el-radio-button label="第四球"></el-radio-button>
+            <el-radio-button label="第五球"></el-radio-button>
+            <el-radio-button label="总和"></el-radio-button>
+          </el-radio-group>
         </p>
       </div>
     </div>
-
     <div class="p-2" v-show=" iNumber === 5 ">
-      <div>
+      <div class="font-size-1p5">
         <div>该页面统计长龙每天出现的条数，例如某日连续开出5期长龙（该形态）共出现10次</div>
-        <div class="mt-2">
+        <div class="mt-1">
           <span>选择名次：</span>
-           <RadioGroup v-model="button1" type="button">
-            <Radio label="第一球"></Radio>
-           </RadioGroup>
+          <el-radio-group v-model="button1">
+            <el-radio-button label="第一球"></el-radio-button>
+          </el-radio-group>
         </div>
       </div>
     </div>
@@ -93,6 +92,7 @@ import {
 
 import {
   ITabs,
+  IDivider,
 } from '@/Components/';
 
 import {
@@ -105,6 +105,7 @@ import {
   name: 'EverydayAccumulationStatics',
   components: {
     ITabs,
+    IDivider,
   },
 })
 class EverydayAccumulationStatics extends Vue {
