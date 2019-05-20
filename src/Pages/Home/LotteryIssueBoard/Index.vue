@@ -1,6 +1,6 @@
 <template>
   <div class="lottery-issue-board">
-    <I-tabs @on-click="console.log('I-tabs')">
+    <I-tabs @on-click="console.log('I-tabs')" :name="'lottery-issue-board-types'">
       <!-- <TabPane label="全部" name="all">
         <div class="lotteries">
           <div v-for="(oLotteryIssue, sLotteryIssueId) in lotteryIssues" :key="sLotteryIssueId">
