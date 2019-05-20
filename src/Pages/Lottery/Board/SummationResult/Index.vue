@@ -3,7 +3,7 @@
     <div class="pl-2 pr-2 font-weight-bold d-flex justify-content-between head-top">
       <span class="font-size-2 line-height3">总和路珠</span>
       <span class="date-selection text-right">
-        <RadioGroup v-model="button1" type="button" class="line-height3">
+        <RadioGroup v-model="date" type="button" class="line-height3">
         <Radio label="今天" class="mr-1"></Radio>
         <Radio label="昨天" class="mr-1"></Radio>
         <Radio label="前天" class="mr-1"></Radio>
@@ -51,7 +51,7 @@ import {
   },
 })
 class SummationResult extends Vue {
-  public radio1 = 0;
+  public date = 0;
 
   @Prop()
   public lotteryIssues!: any;

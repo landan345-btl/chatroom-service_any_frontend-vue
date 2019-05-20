@@ -88,7 +88,7 @@ import {
   },
 })
 class Home extends Vue {
-  public timer: any;
+  public interval: any = null;
   public beforeCreate(): void {
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
   }
@@ -100,13 +100,16 @@ class Home extends Vue {
   }
 
   public setIntervalLotteryIssueActionShow() {
-    this.timer = setInterval(() => {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+    this.interval = setInterval(() => {
       this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', {} );
     } , BACKEND.INTERVAL_TIME );
   }
 
   public beforeDestroy() {  // 组件销毁之前调用
-    clearInterval(this.timer);
+    clearInterval(this.interval);
   }
 
   public get lotteries(): object {
