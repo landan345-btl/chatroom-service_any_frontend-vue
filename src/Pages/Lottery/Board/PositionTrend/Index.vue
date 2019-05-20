@@ -36,7 +36,7 @@
             <Radio label="第四球"></Radio>
             <Radio label="第五球"></Radio>
           </I-radio-group>
-          <I-checkbox-group v-model="type">
+          <I-checkbox-group v-model="decorator">
             <Checkbox label="遗漏"></Checkbox>
             <Checkbox label="折线"></Checkbox>
             <Checkbox label="遗漏分层"></Checkbox>
@@ -146,7 +146,7 @@ import {
 class PositionTrend extends Vue {
   public date = '今天';
   public position = '第一球';
-  public checkList = ['遗漏'];
+  public decorator = '遗漏';
 }
 
 export default PositionTrend;

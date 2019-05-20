@@ -76,7 +76,7 @@ import {
   },
 })
 class Lottery extends Vue {
-  public timer: any;
+  public interval: any = null;
   public isSpinShowed: boolean = true;
 
   public beforeCreate(): void {
@@ -107,18 +107,20 @@ class Lottery extends Vue {
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries).then(() => {
       this.isSpinShowed = false;
     });
-    clearInterval(this.timer);
     this.setIntervalLotteryIssueActionShow(oQueries);
   }
 
   public setIntervalLotteryIssueActionShow(oQueries: any) {
-    this.timer = setInterval(() => {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+    this.interval = setInterval(() => {
       this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
     } , BACKEND.INTERVAL_TIME );
   }
 
-  public beforeDestroy() {
-    clearInterval(this.timer);
+  public destroyed() {
+    clearInterval(this.interval);
   }
 
   private _redirecteIfWithoutCode(): void {
