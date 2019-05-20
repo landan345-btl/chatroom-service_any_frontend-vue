@@ -1,21 +1,17 @@
 .dragon-or-tiger-trend {
   .explain {
-    width: 97%;
-    margin: 2vmin auto 0;
+    position: relative;
     padding: .7vmin 0 .7vmin 1vmin;
     background: #edf4fa;
-    font-size: 1vmin;
     border: .1vmin solid #e3e3e3;
-    height: 3vmin;
-    overflow: hidden;
+    // overflow: hidden;
     span:nth-child(2) {
       float: right;
       margin-right: 2vmin;
     }
-  }
-  .select-line {
-    width: 97%;
-    margin: 2vmin auto 2vmin;
+    span:nth-child(2):hover {
+      cursor: pointer;
+    }
   }
   table {
     width: 97%;
@@ -43,31 +39,5 @@
     }
   }
   background: #ffffff;
-
-  /deep/ .ivu-radio-group-button {
-    .ivu-radio-wrapper {
-      border: 0 !important;
-    }
-  }
-
-  /deep/ .ivu-radio-group-button .ivu-radio-wrapper:first-child, /deep/ .ivu-radio-group-button .ivu-radio-wrapper:last-child {
-    border-radius: 0.6vmin; 
-  }
-  /deep/ .ivu-radio-group-button .ivu-radio-wrapper:after, .ivu-radio-group-button .ivu-radio-wrapper:before {
-    display: none !important;
-  }
-  /deep/ .ivu-radio-group-button .ivu-radio-wrapper-checked {
-    background: #fba75e !important;
-    color: #fff !important;
-    border-radius: 0.6vmin; 
-    border: 0px !important;
-    box-shadow: 0px 0 0 0 #fba75e !important;
-  }
-  /deep/ .el-checkbox-group {
-    display: inline-block !important;
-  }
-  .ivu-radio-group-button .ivu-radio-wrapper:hover {
-    color: red;
-  }
 }
 

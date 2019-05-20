@@ -1,5 +1,5 @@
 <template>
-  <div class="two-side-statics">
+  <div class="two-side-statics background-white">
     <div class="pl-2 font-weight-bold head-top">
       <span class="font-size-2 line-height3">两面统计</span>
     </div>
@@ -9,13 +9,13 @@
       <span>以每10期为一组，统计最近20组中单双大小的出现次数。</span>
     </div>
     <div class="ball-number">
-      <RadioGroup v-model="button1" type="button">
-        <Radio label="第一球"></Radio>
-        <Radio label="第二球"></Radio>
-        <Radio label="第三球"></Radio>
-        <Radio label="第四球"></Radio>
-        <Radio label="第五球"></Radio>
-      </RadioGroup>
+      <el-radio-group v-model="radio">
+        <el-radio-button label="第一球"></el-radio-button>
+        <el-radio-button label="第二球"></el-radio-button>
+        <el-radio-button label="第三球"></el-radio-button>
+        <el-radio-button label="第四球"></el-radio-button>
+        <el-radio-button label="第五球"></el-radio-button>
+      </el-radio-group>
     </div>
     <table>
       <tr>
@@ -62,7 +62,7 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
   },
 })
 class TwoSideStatics extends Vue {
-  public button1 = '第一球';
+  public radio: any = '第一球';
 }
 
 export default TwoSideStatics;

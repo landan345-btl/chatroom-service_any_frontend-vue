@@ -1,20 +1,19 @@
 <template>
   <div class="summation-result">
-    <div class="top p-1 font-weight-bold">
-      <span class="title">总和路珠</span>
-      <span class="ml-3">
-        <el-radio-group v-model="radio1">
-          <el-radio-button label="今天"></el-radio-button>
-          <el-radio-button label="昨天"></el-radio-button>
-          <el-radio-button label="前天"></el-radio-button>
-        </el-radio-group>
+    <div class="pl-2 pr-2 font-weight-bold d-flex justify-content-between head-top">
+      <span class="font-size-2 line-height3">总和路珠</span>
+      <span class="date-selection text-right">
+        <RadioGroup v-model="button1" type="button" class="line-height3">
+        <Radio label="今天" class="mr-1"></Radio>
+        <Radio label="昨天" class="mr-1"></Radio>
+        <Radio label="前天" class="mr-1"></Radio>
+      </RadioGroup>
       </span>
-      <span class="float-right mt-2 mr-1">
-        <span class="mr-1">选择日期</span>
+      <span class="float-right mt-1">
         <I-date-picker />
       </span>
     </div>
-
+    <I-divider/>
     <div class="p-2">
       <div>
         <Result-table />
@@ -35,9 +34,7 @@ import {
 
 import {
   IDatePicker,
-} from '@/Components/';
-
-import {
+  IDivider,
   ResultTable,
 } from '@/Components/';
 
@@ -50,6 +47,7 @@ import {
   components: {
     IDatePicker,
     ResultTable,
+    IDivider,
   },
 })
 class SummationResult extends Vue {

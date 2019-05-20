@@ -1,5 +1,5 @@
 <template>
-  <div class="positon-trend">
+  <div class="positon-trend background-white">
    <div class="pl-2 pr-2 font-weight-bold font-weight-bold d-flex justify-content-between head-top">
       <span class="font-size-2 line-height3">定位走势</span>
       <I-radio-group v-model="date" type="button" class="line-height3">
@@ -14,10 +14,10 @@
     <I-divider/>
     <div class="p-2 ">
       <div>
-        <div class="say mb-2">
+        <div class="say mb-2 font-size-1p5">
           <p>
             <span> <span>说明：</span> 1大小：5 ~ 9 属大号，0 ~ 4属小号</span>
-            <span class="el-icon-arrow-down"></span>
+            <span class="el-icon-arrow-down mr-1"></span>
           </p>
           <p> 2 单双：1、3、5、7、9属单数，0、2、4、6、8属双数；</p>
           <p>3 质合：1、2、3、5、7属质数，0、4、6、8、9属合数;</p>
@@ -79,7 +79,7 @@
           <tr v-for="( item , i ) in 15" :key="i">
             <td>20190510059</td>
             <td>
-              <span>1</span>
+              <span class="color-red">1</span>
               <span>1</span>
               <span>1</span>
               <span>1</span>

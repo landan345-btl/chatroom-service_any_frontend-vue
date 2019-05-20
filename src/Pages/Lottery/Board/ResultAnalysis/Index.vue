@@ -1,75 +1,107 @@
 <template>
-  <div class="result-analysis">
-    <div class="top p-1 font-weight-bold">
-      <div class="nav-left p-1">
-        <I-tabs type="card background">
-          <TabPane label="综合模式">
-            <span>筛选名次：</span>
-            <CheckboxGroup v-model="fruit1">
-              <Checkbox label="第一球"></Checkbox>
-              <Checkbox label="第二球"></Checkbox>
-              <Checkbox label="第三球"></Checkbox>
-              <Checkbox label="第四球"></Checkbox>
-              <Checkbox label="第五球"></Checkbox>
-              <Checkbox label="总和"></Checkbox>
-            </CheckboxGroup>
-            <span>筛选路珠：</span>
-            <CheckboxGroup v-model="fruit2">
-              <Checkbox label="大小路珠"></Checkbox>
-              <Checkbox label="单双路珠"></Checkbox>
-              <Checkbox label="龙虎"></Checkbox>
-            </CheckboxGroup>
-          </TabPane>
-          <TabPane label="单选模式">
-            <span>筛选路珠：</span>
-            <CheckboxGroup v-model="fruit3">
-              <Checkbox label="大小路珠"></Checkbox>
-              <Checkbox label="单双路珠"></Checkbox>
-              <Checkbox label="龙虎"></Checkbox>
-            </CheckboxGroup>
-            <span>全选</span>
-            <span>清空</span>
-            <span>筛选名次：</span>
-            <RadioGroup v-model="button1" type="button">
-              <Radio label="第一球"></Radio>
-              <Radio label="第二球"></Radio>
-              <Radio label="第三球"></Radio>
-              <Radio label="第四球"></Radio>
-              <Radio label="第五球"></Radio>
-            </RadioGroup>
-          </TabPane>
-          <TabPane label="两面模式">
-            <span>筛选名次：</span>
-            <CheckboxGroup v-model="fruit4">
-              <Checkbox label="第一球"></Checkbox>
-              <Checkbox label="第二球"></Checkbox>
-              <Checkbox label="第三球"></Checkbox>
-              <Checkbox label="第四球"></Checkbox>
-              <Checkbox label="第五球"></Checkbox>
-              <Checkbox label="总和"></Checkbox>
-            </CheckboxGroup>
-            <span>全选</span>
-            <span>清空</span>
-            <span>筛选路珠：</span>
-            <CheckboxGroup v-model="fruit5">
-              <Checkbox label="大小路珠"></Checkbox>
-              <Checkbox label="单双路珠"></Checkbox>
-              <Checkbox label="龙虎路珠"></Checkbox>
-            </CheckboxGroup>
-          </TabPane>
-        </I-tabs>
+  <div class="result-analysis background-white">
+     <div class="top p-2 font-weight-bold d-flex justify-content-start">
+      <div :class=" iNumber === 1 ? 'background-brown':'' " @click="toggleBackground(1)">综合模式</div>
+      <div :class=" iNumber === 2 ? 'background-brown':'' " @click="toggleBackground(2)">单选模式</div>
+      <div :class=" iNumber === 3 ? 'background-brown':'' " @click="toggleBackground(3)">两面模式</div>
+    </div>
+    <I-divider/>
+    <div class="p-2" v-show=" iNumber === 1">
+      <div class="rank-select">
+        <p class="mt-1">
+          <span>筛选名次：</span>
+          <I-checkbox-group class="d-inline-block mr-2">
+            <Checkbox>&nbsp;第一名</Checkbox>
+            <Checkbox>&nbsp;第二名</Checkbox>
+            <Checkbox>&nbsp;第三名</Checkbox>
+            <Checkbox>&nbsp;第四名</Checkbox>
+            <Checkbox>&nbsp;第五名</Checkbox>
+            <Checkbox>&nbsp;第六名</Checkbox>
+            <Checkbox>&nbsp;第七名</Checkbox>
+            <Checkbox>&nbsp;第八名</Checkbox>
+            <Checkbox>&nbsp;第九名</Checkbox>
+            <Checkbox>&nbsp;第十名</Checkbox>
+          </I-checkbox-group>
+          <span class="mr-2">全选</span>
+          <span>清空</span>
+        </p>
       </div>
-      <div class="nav-right">
-        <RadioGroup v-model="buttonSize" type="button">
-          <Radio label="large">今天</Radio>
-          <Radio label="default">昨天</Radio>
-          <Radio label="small">前天</Radio>
-        </RadioGroup>
+      <div class="rank-select">
+        <p class="mt-1">
+          <span>筛选露珠：</span>
+           <I-checkbox-group class="d-inline-block mr-2">
+            <Checkbox>&nbsp;大小</Checkbox>
+            <Checkbox>&nbsp;单双</Checkbox>
+            <Checkbox>&nbsp;龙虎</Checkbox>
+          </I-checkbox-group>
+        </p>
       </div>
-
-      <div class="p-1">
-        <Result-table v-for="( utem , i ) in 6" :key="i"/>
+    </div>
+    <div class="p-2" v-show=" iNumber === 2 ">
+      <div class="font-size-1p5 rank-select">
+        <div class="mt-1">
+          <span>筛选露珠：</span>
+          <I-checkbox-group class="d-inline-block mr-2">
+            <Checkbox>&nbsp;大小</Checkbox>
+            <Checkbox>&nbsp;单双</Checkbox>
+            <Checkbox>&nbsp;龙虎</Checkbox>
+          </I-checkbox-group>
+          <span class="mr-2">全选</span>
+          <span>清空</span>
+        </div>
       </div>
+       <div class="font-size-1p5 rank-select">
+        <div class="mt-1">
+          <span>筛选名次：</span>
+           <I-radio-group v-model="ranking" type="button" class="line-height3">
+            <Radio label="冠军"></Radio>
+            <Radio label="亚军"></Radio>
+            <Radio label="第三名"></Radio>
+            <Radio label="第四名"></Radio>
+            <Radio label="第五名"></Radio>
+            <Radio label="第六名"></Radio>
+            <Radio label="第七名"></Radio>
+            <Radio label="第八名"></Radio>
+            <Radio label="第九名"></Radio>
+            <Radio label="第十名"></Radio>
+            <Radio label="冠亚和"></Radio>
+          </I-radio-group>
+        </div>
+      </div>
+    </div>
+    <div class="p-2" v-show=" iNumber === 3 ">
+      <div class="font-size-1p5 rank-select">
+        <div class="mt-1">
+          <span>选择名次：</span>
+          <I-checkbox-group class="d-inline-block mr-2">
+            <Checkbox>&nbsp;第一名</Checkbox>
+            <Checkbox>&nbsp;第二名</Checkbox>
+            <Checkbox>&nbsp;第三名</Checkbox>
+            <Checkbox>&nbsp;第四名</Checkbox>
+            <Checkbox>&nbsp;第五名</Checkbox>
+            <Checkbox>&nbsp;第六名</Checkbox>
+            <Checkbox>&nbsp;第七名</Checkbox>
+            <Checkbox>&nbsp;第八名</Checkbox>
+            <Checkbox>&nbsp;第九名</Checkbox>
+            <Checkbox>&nbsp;第十名</Checkbox>
+          </I-checkbox-group>
+          <span class="mr-2">全选</span>
+          <span>清空</span>
+        </div>
+      </div>
+      <div class="font-size-1p5 rank-select">
+        <div class="mt-1">
+          <span>选择名次：</span>
+          <I-radio-group v-model="ranking" type="button" class="line-height3">
+            <Radio label="大小"></Radio>
+            <Radio label="单双"></Radio>
+            <Radio label="龙虎"></Radio>
+          </I-radio-group>
+        </div>
+      </div>
+    </div>
+    <div class="p-2" style="border:1px solid red;">
+        table
     </div>
   </div>
 </template>
@@ -85,7 +117,9 @@ import {
 
 import {
   ITabs,
-  ResultTable,
+  IDivider,
+  ICheckboxGroup,
+  IRadioGroup,
 } from '@/Components/';
 
 import {
@@ -96,18 +130,19 @@ import {
   name: 'ResultAnalysis',
   components: {
     ITabs,
-    ResultTable,
+    IDivider,
+    ICheckboxGroup,
+    IRadioGroup,
   },
 })
 class ResultAnalysis extends Vue {
-  public fruit1 = ['da'];
-  public fruit2 = ['da'];
-  public fruit3 = ['da'];
-  public fruit5 = ['da'];
-  public fruit4 = ['da'];
-  public button1 = 'da';
-  public buttonSize = '今天';
-}
+  public checkboxGroup1 = '第一球';
+  public iNumber = 2;
+  public ranking = '1';
 
+  public toggleBackground( iNumber: number ) {
+    this.iNumber = iNumber;
+  }
+}
 export default ResultAnalysis;
 </script>

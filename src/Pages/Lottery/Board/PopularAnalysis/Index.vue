@@ -101,7 +101,7 @@ class PopularAnalysis extends Vue {
 
   public texts = {
     PK10: ['冠军' , '亚军' , '第三名' , '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'],
-    SCC: [ '第一球' , '第二球' , '第三球' , '第四球' , '第五球' ],
+    SSC: [ '第一球' , '第二球' , '第三球' , '第四球' , '第五球' ],
   };
   public chooseNumbersByCount(oCounts: any , iMinCount: number , iMaxCount: number ) {
     let aNumbers: number[] = [];

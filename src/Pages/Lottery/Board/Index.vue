@@ -10,9 +10,30 @@
           :code="code" 
           :types="types" />
       </TabPane>
-      <!-- <TabPane :label="'路珠分析'" :name="'result-analysis'">
+      <TabPane :label="'路珠分析'" :name="'result-analysis'">
         <Result-analysis />
-      </TabPane> -->
+      </TabPane>
+      <TabPane :label="'冠亚和走势'" :name="'crown-or-second-sum-trend'">
+        冠亚和走势 TODO
+      </TabPane>
+      <TabPane :label="'龙虎统计'" :name="'dragon-or-tiger-count'">
+        龙虎统计 TODO
+      </TabPane>
+      <TabPane :label="'龙虎露珠'" :name="'dragon-or-tiger-result'">
+        龙虎露珠 TODO
+      </TabPane>
+      <TabPane :label="'号码前后露珠'" :name="'number-or-front-or-back-result'">
+        号码前后露珠 TODO
+      </TabPane>
+      <TabPane :label="'冠亚和露珠'" :name="'crown-or-second-sum-result'">
+        冠亚和露珠 TODO
+      </TabPane>
+      <TabPane :label="'号码规律统计'" :name="'number-or-law-count'">
+        号码规律统计 TODO
+      </TabPane>
+      <TabPane :label="'冠亚和两面历史'" :name="'crown-or-second-sum-two-side-history'">
+        冠亚和两面历史 TODO
+      </TabPane>
       <TabPane :label="'综合分析'" :name="'summary-anaylysis'">
         <Summary-analysis v-if="code && types" :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types"/>
       </TabPane>
