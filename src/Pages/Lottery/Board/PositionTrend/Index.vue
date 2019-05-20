@@ -146,7 +146,7 @@ import {
 class PositionTrend extends Vue {
   public date = '今天';
   public position = '第一球';
-  public decorator = '遗漏';
+  public decorator = ['遗漏'];
 }
 
 export default PositionTrend;

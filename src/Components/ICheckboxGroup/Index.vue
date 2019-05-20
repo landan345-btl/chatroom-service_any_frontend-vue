@@ -1,5 +1,5 @@
 <template>
-  <CheckboxGroup>
+  <CheckboxGroup :value="value">
     <slot></slot>
   </CheckboxGroup>
 </template>
@@ -15,7 +15,8 @@ import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
   name: 'ICheckboxGroup',
 })
 class ICheckboxGroup extends Vue {
-
+  @Prop()
+  public value!: any;
 }
 export default ICheckboxGroup;
 

@@ -9,30 +9,33 @@
       <div :class=" iNumber === 6 ? 'background-brown':'' " @click="toggleBackground(6)">虎长龙</div>
     </div>
     <I-divider/>
-    <div class="p-2" v-show=" iNumber !== 5">
+    <div class="p-2" v-show="iNumber !== 5">
       <div class="rank-select">
         <p>该页面统计长龙每天出现的条数，例如某日连续开出5期长龙（该形态）共出现10次</p>
         <p class="mt-1">
           <span>选择名次：</span>
-          <el-radio-group v-model="checkboxGroup1">
-            <el-radio-button label="第一球"></el-radio-button>
-            <el-radio-button label="第二球"></el-radio-button>
-            <el-radio-button label="第三球"></el-radio-button>
-            <el-radio-button label="第四球"></el-radio-button>
-            <el-radio-button label="第五球"></el-radio-button>
-            <el-radio-button label="总和"></el-radio-button>
-          </el-radio-group>
+          <I-radio-group v-model="position" type="button" class="line-height3">
+            <Radio label="第一球"></Radio>
+            <Radio label="第二球"></Radio>
+            <Radio label="第三球"></Radio>
+            <Radio label="第四球"></Radio>
+            <Radio label="第五球"></Radio>
+          </I-radio-group>
         </p>
       </div>
     </div>
-    <div class="p-2" v-show=" iNumber === 5 ">
+    <div class="p-2" v-show="iNumber===5">
       <div class="font-size-1p5">
         <div>该页面统计长龙每天出现的条数，例如某日连续开出5期长龙（该形态）共出现10次</div>
         <div class="mt-1">
           <span>选择名次：</span>
-          <el-radio-group v-model="button1">
-            <el-radio-button label="第一球"></el-radio-button>
-          </el-radio-group>
+          <I-radio-group v-model="position" type="button" class="line-height3">
+            <Radio label="第一球"></Radio>
+            <Radio label="第二球"></Radio>
+            <Radio label="第三球"></Radio>
+            <Radio label="第四球"></Radio>
+            <Radio label="第五球"></Radio>
+          </I-radio-group>
         </div>
       </div>
     </div>
@@ -93,27 +96,29 @@ import {
 import {
   ITabs,
   IDivider,
+  IRadioGroup,
+  ICheckboxGroup,
 } from '@/Components/';
 
 import {
   LOTTERIES,
 } from '@/CONFIGS/';
-// TODO
-// 2. Chart 要有 loading 动画
-// 3. 号码 为 0 折线会断
+
 @Component({
   name: 'EverydayAccumulationStatics',
   components: {
     ITabs,
     IDivider,
+    IRadioGroup,
+    ICheckboxGroup,
   },
 })
 class EverydayAccumulationStatics extends Vue {
   public checkboxGroup1 = '第一球';
   public iNumber = 1;
-  public button1 = '第一球';
+  public position = '第一球';
 
-  public toggleBackground( iNumber: number ) {
+  public toggleBackground(iNumber: number) {
     this.iNumber = iNumber;
   }
 }

@@ -9,13 +9,13 @@
       <span>以每10期为一组，统计最近20组中单双大小的出现次数。</span>
     </div>
     <div class="ball-number">
-      <el-radio-group v-model="radio">
-        <el-radio-button label="第一球"></el-radio-button>
-        <el-radio-button label="第二球"></el-radio-button>
-        <el-radio-button label="第三球"></el-radio-button>
-        <el-radio-button label="第四球"></el-radio-button>
-        <el-radio-button label="第五球"></el-radio-button>
-      </el-radio-group>
+      <I-radio-group v-model="position" type="button" class="line-height3">
+        <Radio label="第一球"></Radio>
+        <Radio label="第二球"></Radio>
+        <Radio label="第三球"></Radio>
+        <Radio label="第四球"></Radio>
+        <Radio label="第五球"></Radio>
+      </I-radio-group>
     </div>
     <table>
       <tr>
@@ -25,7 +25,7 @@
         <td>大</td>
         <td>小</td>
       </tr>
-      <tr v-for="( item , i ) in 15" :key="i">
+      <tr v-for="(item ,i) in 15" :key="i">
         <td>05月08日&nbsp;&nbsp;&nbsp;20190508033 - 20190508042期</td>
         <td>4</td>
         <td>4</td>
@@ -48,21 +48,23 @@ import {
 import {
   ITabs,
   IDivider,
+  IRadioGroup,
+  ICheckboxGroup,
 } from '@/Components/';
 
 import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
-// TODO
-// 2. Chart 要有 loading 动画
-// 3. 号码 为 0 折线会断
+
 @Component({
   name: 'TwoSideStatics',
   components: {
     ITabs,
     IDivider,
+    IRadioGroup,
+    ICheckboxGroup,
   },
 })
 class TwoSideStatics extends Vue {
-  public radio: any = '第一球';
+  public position: any = '第一球';
 }
 
 export default TwoSideStatics;
