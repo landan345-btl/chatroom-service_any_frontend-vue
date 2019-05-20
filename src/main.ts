@@ -10,11 +10,12 @@ import App from '@/App.vue';
 import oRouter from '@/routers/index';
 import oStore from '@/store/index';
 
-
-import utilityPlugin from '@/plugins/utility/index';
-import filterPlugin from '@/plugins/filter/index';
-import directivePlugin from '@/plugins/directive/index';
-import configPlugin from '@/plugins/config/index';
+import {
+  utility as utilityPlugin,
+  filter as filterPlugin,
+  directive as directivePlugin,
+  config as configPlugin,
+} from '@/plugins/';
 
 import 'element-ui/lib/theme-chalk/index.css';
 import 'iview/dist/styles/iview.css';
