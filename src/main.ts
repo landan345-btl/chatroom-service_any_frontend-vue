@@ -19,6 +19,7 @@ import {
 
 import 'element-ui/lib/theme-chalk/index.css';
 import 'iview/dist/styles/iview.css';
+import 'v-charts/lib/style.css';
 
 import '@/registerServiceWorker';
 
