@@ -44,43 +44,19 @@
       .w-6 {
         width:6%;
       }
-      tr:nth-child(1),tr:nth-child(2) {
+      tr:nth-child(1),tr:nth-child(2),.data-count {
         background: #f5f5f5;
         span {
           position: relative;
-          top: 2.5vmin;
+          top: 2vmin;
         }
       }
       tr:nth-child(2) ~ tr > td:nth-child(2) {
         span {
-          padding: 0 .5vmin;
+          display: inline;
+          padding: 0.5vmin;
         }
       } 
     }
-  }
-  /deep/ .ivu-radio-group-button {
-    .ivu-radio-wrapper {
-      border: 0 !important;
-    }
-  }
-
-  /deep/ .ivu-radio-group-button .ivu-radio-wrapper:first-child, /deep/ .ivu-radio-group-button .ivu-radio-wrapper:last-child {
-    border-radius: 0.6vmin; 
-  }
-  /deep/ .ivu-radio-group-button .ivu-radio-wrapper:after, .ivu-radio-group-button .ivu-radio-wrapper:before {
-    display: none !important;
-  }
-  /deep/ .ivu-radio-group-button .ivu-radio-wrapper-checked {
-    background: #fba75e !important;
-    color: #fff !important;
-    border-radius: 0.6vmin; 
-    border: 0px !important;
-    box-shadow: 0px 0 0 0 #fba75e !important;
-  }
-  /deep/ .el-checkbox-group {
-    display: inline-block !important;
-  }
-  .ivu-radio-group-button .ivu-radio-wrapper:hover {
-    color: red;
   }
 }

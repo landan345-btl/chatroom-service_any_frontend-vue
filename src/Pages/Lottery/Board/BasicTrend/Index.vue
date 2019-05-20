@@ -21,9 +21,9 @@
         <el-checkbox label="分隔线"></el-checkbox>
       </el-checkbox-group>
     </div>
-    <div class="p-2 fictitious">
+    <div class="p-2 fictitious"> 
       <div>
-         <table class="basic-table" v-canvasTrend > 
+         <table class="basic-table" > 
           <tr>
             <td rowspan="2" class="w-7"> <span>期号</span> </td>
             <td rowspan="2" class="w-6"> <span>开奖号码</span> </td>
@@ -145,10 +145,8 @@
             <td class="background-shallow-blueness"><span :class="substr(JSON.parse(oLotteryIssue.numbers),4) === 8 ? 'background-blackish-green-4':''">{{JSON.parse(oLotteryIssue.numbers) | substr(4)}}</span></td>
             <td class="background-shallow-blueness"><span :class="substr(JSON.parse(oLotteryIssue.numbers),4) === 9 ? 'background-blackish-green-4':''">{{JSON.parse(oLotteryIssue.numbers) | substr(4)}}</span></td>
           </tr>
-        </table>
-        <table>
-          <tr>
-            <td rowspan="2"><span>数据统计</span></td>
+          <tr class="data-count">
+            <td rowspan="2" colspan="2"><span>数据统计</span></td>
             <td colspan="10">第一球</td>
             <td colspan="10">第二球</td>
             <td colspan="10">第三球</td>
@@ -208,7 +206,7 @@
             <td>9</td>
           </tr>
           <tr>
-            <td>出现次数</td>
+            <td colspan="2">出现次数</td>
             <td>66</td>
             <td>66</td>
             <td>66</td>
@@ -261,7 +259,7 @@
             <td>66</td>
           </tr>
           <tr>
-            <td>平均遗漏</td>
+            <td colspan="2">平均遗漏</td>
             <td>66</td>
             <td>66</td>
             <td>66</td>
@@ -314,7 +312,7 @@
             <td>66</td>
           </tr>
           <tr>
-            <td>最大遗漏</td>
+            <td colspan="2">最大遗漏</td>
             <td>66</td>
             <td>66</td>
             <td>66</td>
@@ -367,7 +365,7 @@
             <td>66</td>
           </tr>
            <tr>
-            <td>最大连出</td>
+            <td colspan="2">最大连出</td>
             <td>66</td>
             <td>66</td>
             <td>66</td>

@@ -31,12 +31,12 @@
         <el-radio-button label="中三形态"></el-radio-button>
         <el-radio-button label="后三形态"></el-radio-button>
       </el-radio-group>
-      <CheckboxGroup v-model="fruit" class="mr-2">
-        <Checkbox label="遗漏"></Checkbox>
-        <Checkbox label="折线"></Checkbox>
-        <Checkbox label="遗漏分层"></Checkbox>
-        <Checkbox label="分隔线"></Checkbox>
-      </CheckboxGroup>
+       <el-checkbox-group v-model="fruit"  class="mr-2">
+        <el-checkbox label="遗漏"></el-checkbox>
+        <el-checkbox label="拆线"></el-checkbox>
+        <el-checkbox label="遗漏分层"></el-checkbox>
+        <el-checkbox label="分隔线"></el-checkbox>
+      </el-checkbox-group>
     </div>
     <table class="number-trend" v-canvasTrend>
       <tr>
