@@ -13,10 +13,15 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
   name: 'Vline',
 })
 class VLine extends Vue {
+  
   @Prop({ default: null })
   public data: any;
+  
   @Prop({ default: null })
   public settings: any;
+  
+  public loading = true;
+
   public created() {
     setTimeout(() => {
       this.loading = false;
@@ -24,7 +29,6 @@ class VLine extends Vue {
       // 不好的写法
     }, 3000);
   }
-  public loading = true;
 }
 
 export default VLine;
