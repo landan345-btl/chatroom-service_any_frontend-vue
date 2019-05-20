@@ -12,7 +12,7 @@
       </RadioGroup>
     </div>
     <I-divider/>
-    <div class="explain z-1000 m-2 font-size-1">
+    <div class="explain z-1000 m-2 font-size-1p5">
       <p>
         <span>说明：1.前三形态；</span>
         <span class="el-icon-arrow-down" @click="showExplain()"></span>
@@ -25,7 +25,7 @@
       <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7 组选3：第一球、第二球、第三球任意两位数字重复则为组选3。例如：112、211、122、221;</p>
       <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8 组选6：第一球、第二球、第三球没有任何号码重复则为组选6。例如：123、321、132、213；</p>
     </div>
-    <div class="mt-2 mb-2 pl-2 pr-2">
+    <div class="mt-2 mb-2 pl-2 pr-2 font-size-1p5">
       标注选择：
       <el-checkbox-group v-model="checkList">
         <el-checkbox label="遗漏"></el-checkbox>
@@ -35,7 +35,7 @@
       </el-checkbox-group>
     </div>
     <table class="canvasTrend pl-2 pr-2" v-canvasTrend>
-      <tr>
+      <tr class=" font-size-1p5">
         <td rowspan="2"><span>期号</span></td>
         <td rowspan="2"><span>开奖号码</span></td>
         <td colspan="10">第一球走势</td>
@@ -96,7 +96,7 @@
         
       </tr>
     </table>
-    <table class="pl-2 pr-2">
+    <table class="pl-2 pr-2 font-size-1p5">
       <tr>
         <td rowspan="2"> <span>数据统计</span> </td>
         <td colspan="10">第一球号码走势</td>

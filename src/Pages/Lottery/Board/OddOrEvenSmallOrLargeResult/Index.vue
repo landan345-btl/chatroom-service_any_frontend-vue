@@ -4,7 +4,7 @@
       <span class="font-size-2 line-height3">单双大小路珠</span>
     </div>
     <I-divider/>
-    <div class="p-2">
+    <div class="p-2 font-size-1p5">
       <span>选择名次：</span>
        <el-radio-group v-model="radio2">
         <el-radio-button label="第一球"></el-radio-button>
@@ -14,7 +14,7 @@
         <el-radio-button label="第五球"></el-radio-button>
       </el-radio-group>
     </div>
-    <div class="p-2">
+    <div class="p-2 font-size-1p5">
       <span>筛选路珠：</span>
       <el-checkbox-group v-model="checkList">
         <el-checkbox label="大小路珠"></el-checkbox>

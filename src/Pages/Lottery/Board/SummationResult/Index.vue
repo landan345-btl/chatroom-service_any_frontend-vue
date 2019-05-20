@@ -1,6 +1,6 @@
 <template>
   <div class="summation-result">
-    <div class="pl-2 pr-2 font-weight-bold font-weight-bold d-flex justify-content-between head-top">
+    <div class="pl-2 pr-2 font-weight-bold d-flex justify-content-between head-top">
       <span class="font-size-2 line-height3">总和路珠</span>
       <span class="date-selection text-right">
         <RadioGroup v-model="button1" type="button" class="line-height3">

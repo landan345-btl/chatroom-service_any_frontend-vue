@@ -1,7 +1,7 @@
 <template>
-  <RadioGroup v-model="button" type="button">
-    <Radio :label="radio"></Radio>
-  </RadioGroup>
+  <IRadioGroup type="button">
+    <slot></slot>
+  </IRadioGroup>
 </template>
 
 <style scoped lang="scss">
@@ -13,14 +13,11 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 
 @Component({
-  name: 'IRadio',
+  name: 'IRadioGroup',
 })
-class IRadio extends Vue {
-  @Prop()
-  public radio!: any;
-  @Prop()
-  public button!: any;
+class IRadioGroup extends Vue {
+
 }
-export default IRadio;
+export default IRadioGroup;
 
 </script>
