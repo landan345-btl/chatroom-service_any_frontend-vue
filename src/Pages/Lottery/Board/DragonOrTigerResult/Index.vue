@@ -12,12 +12,13 @@
       </I-radio-group>
     </div>
     <I-divider/>
-    <div class="explain z-1000 m-2 font-size-1p5">
-      <div @mouseout="hideExplain()" id="declare">
-        <p @click="showExplain()">
+    <div class="announcement-wrapper z-1000 m-2 font-size-1p5">
+      <div @mouseout="hideAnnouncement()" @click="toggleAnnouncement()" class="announcement" :class="[ isAnnouncementShowed ? 'announcement-showed' : '']">
+        <p>
           <span>说明：1 表格需从左向右浏览，右侧一列为最新结果；</span>
           <span class="d-inline-block float-right mr-2"><Icon type="ios-arrow-down" class="arrow-down"/></span>
         </p>
+        <transition name="bounce" :duration="1000" enter-active-class="animated tada">
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 当长龙中断时，则另起一列显示结果；</p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 龙虎说明：</p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;冠　军龙/虎：“第一名”车号大于“第十名”车号视为【龙】中奖、反之小于视为【虎】中奖；</p>
@@ -25,7 +26,9 @@
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第三名龙/虎：“第三名”车号大于“第八名”车号视为【龙】中奖、反之小于视为【虎】中奖；</p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第四名龙/虎：“第四名”车号大于“第七名”车号视为【龙】中奖、反之小于视为【虎】中奖；</p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第五名龙/虎：“第五名”车号大于“第六名”车号视为【龙】中奖、反之小于视为【虎】中奖</p>
+        </transition>
       </div>
+      
     </div>
     <div class="mt-2 mb-2 pl-2 pr-2 font-size-1p5">
       筛选名次：
@@ -80,14 +83,12 @@ class DragonOrTigerResult extends Vue {
   public date = '今天';
   public decorator = ['折线', '遗漏'];
 
-  public showExplain() {
-    let cur = document.getElementById('declare');
-    console.log(cur);
-    //let curHeight = cur.height;
-    //console.log(curHeight);
+  public isAnnouncementShowed: boolean = false;
+  public toggleAnnouncement() {
+    this.isAnnouncementShowed = true;
   }
-  public hideExplain() {
-   
+  public hideAnnouncement() {
+     this.isAnnouncementShowed = false;
   }
 
 }

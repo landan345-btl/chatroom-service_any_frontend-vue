@@ -1,5 +1,5 @@
 .dragon-or-tiger-result {
-  .explain {
+  .announcement-wrapper {
     position: relative;
     padding: .7vmin 0 .7vmin 1vmin;
     background: #edf4fa;
@@ -13,8 +13,11 @@
         cursor: pointer;
       }
     }
+    .announcement-showed {
+      height: 16.8vmin;
+    }
   }
-  .explain+div{
+  .announcement-wrapper + div{
     span {
       cursor: pointer;
     }
@@ -43,6 +46,24 @@
         top: 2vmin;
       } 
     }
+  }
+}
+
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
