@@ -2,14 +2,14 @@
   <div class="dragon-or-tiger-trend pb-2">
     <div class="pl-2 pr-2 font-weight-bold d-flex justify-content-between head-top">
       <span class="font-size-2 line-height3">龙虎走势</span>
-      <RadioGroup v-model="button1" type="button" class="line-height3">
+      <I-radio-group v-model="date" type="button" class="line-height3">
         <Radio label="今天"></Radio>
         <Radio label="昨天"></Radio>
         <Radio label="前天"></Radio>
         <Radio label="最近30期"></Radio>
         <Radio label="最近50期"></Radio>
         <Radio label="最近100期" class="d-xs-none"></Radio>
-      </RadioGroup>
+      </I-radio-group>
     </div>
     <I-divider/>
     <div class="explain z-1000 m-2 font-size-1p5">
@@ -27,12 +27,12 @@
     </div>
     <div class="mt-2 mb-2 pl-2 pr-2 font-size-1p5">
       标注选择：
-      <el-checkbox-group v-model="checkList">
-        <el-checkbox label="遗漏"></el-checkbox>
-        <el-checkbox label="折线"></el-checkbox>
-        <el-checkbox label="遗漏分层"></el-checkbox>
-        <el-checkbox label="分隔线"></el-checkbox>
-      </el-checkbox-group>
+      <I-checkbox-group v-model="decorator">
+        <Checkbox label="遗漏"></Checkbox>
+        <Checkbox label="折线"></Checkbox>
+        <Checkbox label="遗漏分层"></Checkbox>
+        <Checkbox label="分隔线"></Checkbox>
+      </I-checkbox-group>
     </div>
     <table class="canvasTrend pl-2 pr-2" v-canvasTrend>
       <tr class=" font-size-1p5">
@@ -248,6 +248,8 @@ import {
 import {
   ITabs,
   IDivider,
+  IRadioGroup,
+  ICheckboxGroup,
 } from '@/Components/';
 
 import {
@@ -259,15 +261,14 @@ import {
   components: {
     ITabs,
     IDivider,
+    IRadioGroup,
+    ICheckboxGroup,
   },
 })
 class DragonOrTigerTrend extends Vue {
-  public button1 = '今天';
-  public checkList = ['折线', '遗漏'];
+  public date = '今天';
+  public decorator = ['折线', '遗漏'];
 
-  public showExplain() {
-    
-  }
 }
 
 export default DragonOrTigerTrend;

@@ -6,20 +6,20 @@
     <I-divider/>
     <div class="p-2 font-size-1p5">
       <span>选择名次：</span>
-       <el-radio-group v-model="radio2">
-        <el-radio-button label="第一球"></el-radio-button>
-        <el-radio-button label="第二球"></el-radio-button>
-        <el-radio-button label="第三球"></el-radio-button>
-        <el-radio-button label="第四球"></el-radio-button>
-        <el-radio-button label="第五球"></el-radio-button>
-      </el-radio-group>
+        <I-radio-group v-model="position" type="button" class="line-height3">
+          <Radio label="第一球"></Radio>
+          <Radio label="第二球"></Radio>
+          <Radio label="第三球"></Radio>
+          <Radio label="第四球"></Radio>
+          <Radio label="第五球"></Radio>
+        </I-radio-group>
     </div>
     <div class="p-2 font-size-1p5">
       <span>筛选路珠：</span>
-      <el-checkbox-group v-model="checkList">
-        <el-checkbox label="大小路珠"></el-checkbox>
-        <el-checkbox label="单双路珠"></el-checkbox>
-      </el-checkbox-group>
+      <I-checkbox-group v-model="decorators">
+        <Checkbox label="大小路珠"></Checkbox>
+        <Checkbox label="单双路珠"></Checkbox>
+      </I-checkbox-group>
     </div>
     <div class="p-2">
       <Result-table v-for="( utem , i ) in 2" :key="i"/>
@@ -39,6 +39,8 @@ import {
 import {
   ResultTable,
   IDivider,
+  IRadioGroup,
+  ICheckboxGroup,
 } from '@/Components/';
 
 import {
@@ -50,11 +52,13 @@ import {
   components: {
     ResultTable,
     IDivider,
+    IRadioGroup,
+    ICheckboxGroup,
   },
 })
 class OddOrEvenSmallOrLargeResult extends Vue {
-  public radio2: any = '第一球';
-  public checkList: any = '大小路珠';
+  public position: any = '第一球';
+  public decorators: any = ['大小路珠'];
 
 }
 

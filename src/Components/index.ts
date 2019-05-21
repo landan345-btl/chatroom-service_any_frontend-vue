@@ -17,28 +17,31 @@ import IDatePicker from './IDatePicker/Index.vue';
 import ICollapse from './ICollapse/Index.vue';
 import ISpin from './ISpin/Index.vue';
 import IDivider from './IDivider/Index.vue';
+import ICarousel from './ICarousel/Index.vue';
 
 import VLine from './VLine/Index.vue';
 
 import SNumbers from './SNumbers/Index.vue';
 import ResultTable from './ResultTable/Index.vue';
 
+// ELEMENT 弃用 !!
 export {
   ChenCountdown,
-  ECarousel,
-  ECheckbox,
-  ECheckboxGroup,
-  ECollapse,
-  ERadio,
+  // ECarousel,
+  // ECheckbox,
+  // ECheckboxGroup,
+  // ECollapse,
+  // ERadio,
   ISelect,
-  ETable,
-  ETabPane,
-  ETabs,
+  // ETable,
+  // ETabPane,
+  // ETabs,
   ITabs,
   ISpin,
   IDatePicker,
   IButton,
   ICollapse,
+  ICarousel,
   ICheckboxGroup,
   IDivider,
   IRadioGroup,

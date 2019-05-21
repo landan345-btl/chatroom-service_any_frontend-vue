@@ -1,7 +1,7 @@
 <template>
   <div class="news">
     <span class="left d-inline-block">
-      <E-carousel v-bind:images="images"/>
+      <I-carousel :images="images"/>
     </span>
     <span class="right d-inline-block align-top">
       <div class="top position-relative">
@@ -29,18 +29,19 @@ import {
   Watch,
   Vue,
 } from 'vue-property-decorator';
+
 import {
   warn,
 } from 'vue-class-component/lib/util';
 
 import {
-  ECarousel,
+  ICarousel,
 } from '@/Components/';
 
 @Component({
   name: 'News',
   components: {
-    ECarousel,
+    ICarousel,
   },
 })
 class News extends Vue {

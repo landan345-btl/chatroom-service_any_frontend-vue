@@ -1,5 +1,9 @@
 <template>
-  <ve-line :data="data" :settings="settings" :loading="loading" mark-line></ve-line>
+  <ve-line 
+    :data="data" 
+    :settings="settings" 
+    :loading="loading"
+    :after-config="afterConfig"></ve-line>
 </template>
 
 <style scoped lang="scss">
@@ -13,13 +17,13 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
   name: 'Vline',
 })
 class VLine extends Vue {
-  
+
   @Prop({ default: null })
   public data: any;
-  
+
   @Prop({ default: null })
   public settings: any;
-  
+
   public loading = true;
 
   public created() {
@@ -28,6 +32,10 @@ class VLine extends Vue {
       // TODO 之后改成 event 写法
       // 不好的写法
     }, 3000);
+  }
+  public afterConfig(options: any): any {
+    options.legend.selectedMode = 'single';
+    return options;
   }
 }
 

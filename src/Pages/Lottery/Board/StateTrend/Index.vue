@@ -2,14 +2,14 @@
   <div class="state-trend">
     <div class="pl-2 pr-2 font-weight-bold font-weight-bold d-flex justify-content-between head-top">
       <span class="font-size-2 line-height3">形态走势</span>
-      <RadioGroup v-model="button1" type="button" class="line-height3">
+      <I-radio-group v-model="date" type="button" class="line-height3">
         <Radio label="今天"></Radio>
         <Radio label="昨天"></Radio>
         <Radio label="前天"></Radio>
         <Radio label="最近30期"></Radio>
         <Radio label="最近60期"></Radio>
         <Radio label="最近90期" class="d-xs-none"></Radio>
-      </RadioGroup>
+      </I-radio-group>
     </div>
     <I-divider/>
     <div class="explain">
@@ -26,17 +26,17 @@
       <p>8 组选6：第一球、第二球、第三球没有任何号码重复则为组选6。例如：123、321、132、213；</p>
     </div>
     <div class="pl-2 pt-2 d-flex justify-content-between">
-      <el-radio-group v-model="radio2">
-        <el-radio-button label="前三形态"></el-radio-button>
-        <el-radio-button label="中三形态"></el-radio-button>
-        <el-radio-button label="后三形态"></el-radio-button>
-      </el-radio-group>
-       <el-checkbox-group v-model="fruit"  class="mr-2">
-        <el-checkbox label="遗漏"></el-checkbox>
-        <el-checkbox label="拆线"></el-checkbox>
-        <el-checkbox label="遗漏分层"></el-checkbox>
-        <el-checkbox label="分隔线"></el-checkbox>
-      </el-checkbox-group>
+      <I-radio-group v-model="position" type="button" class="line-height3">
+        <Radio label="前三形态"></Radio>
+        <Radio label="中三形态"></Radio>
+        <Radio label="后三形态"></Radio>
+      </I-radio-group>
+      <I-checkbox-group v-model="decorators">
+        <Checkbox label="遗漏"></Checkbox>
+        <Checkbox label="折线"></Checkbox>
+        <Checkbox label="遗漏分层"></Checkbox>
+        <Checkbox label="分隔线"></Checkbox>
+      </I-checkbox-group>
     </div>
     <table class="number-trend" v-canvasTrend>
       <tr>
@@ -143,7 +143,11 @@ import {
   Vue,
 } from 'vue-property-decorator';
 
-import { IDivider } from '@/Components/';
+import {
+  IDivider,
+  IRadioGroup,
+  ICheckboxGroup,
+} from '@/Components/';
 import {
   LOTTERIES,
 } from '@/CONFIGS/';
@@ -152,12 +156,14 @@ import {
   name: 'StateTrend',
   components: {
     IDivider,
+    IRadioGroup,
+    ICheckboxGroup,
   },
 })
 class StateTrend extends Vue {
-  public button1: any = '今天';
-  public radio2: any = '前三形态';
-  public fruit: any = ['遗漏'];
+  public date: any = '今天';
+  public position: any = '前三形态';
+  public decorators: any = ['遗漏'];
 }
 
 export default StateTrend;
