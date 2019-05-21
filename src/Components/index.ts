@@ -24,17 +24,18 @@ import VLine from './VLine/Index.vue';
 import SNumbers from './SNumbers/Index.vue';
 import ResultTable from './ResultTable/Index.vue';
 
+// ELEMENT 弃用 !!
 export {
   ChenCountdown,
-  ECarousel,
-  ECheckbox,
-  ECheckboxGroup,
-  ECollapse,
-  ERadio,
+  // ECarousel,
+  // ECheckbox,
+  // ECheckboxGroup,
+  // ECollapse,
+  // ERadio,
   ISelect,
-  ETable,
-  ETabPane,
-  ETabs,
+  // ETable,
+  // ETabPane,
+  // ETabs,
   ITabs,
   ISpin,
   IDatePicker,
