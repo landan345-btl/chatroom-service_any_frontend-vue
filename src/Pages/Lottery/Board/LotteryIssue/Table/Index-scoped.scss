@@ -2,7 +2,7 @@
   box-sizing: border-box;
   table {
     tr {
-      background:#a73737;
+      background:#e7e7e7;
       th {
         height: 4vmin;
         line-height: 4vmin;
@@ -52,6 +52,6 @@
       }
     }
     tr:nth-child(even) {
-      background:#fff; // TODO
+      background:#fff;
     }
   }
