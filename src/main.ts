@@ -16,9 +16,6 @@ import {
   config as configPlugin,
 } from '@/plugins/';
 
-import 'iview/dist/styles/iview.css';
-import 'v-charts/lib/style.css';
-
 import '@/registerServiceWorker';
 
 import {
