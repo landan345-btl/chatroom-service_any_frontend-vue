@@ -1,0 +1,43 @@
+.dragon-or-tiger-trend {
+  .explain {
+    position: relative;
+    padding: .7vmin 0 .7vmin 1vmin;
+    background: #edf4fa;
+    border: .1vmin solid #e3e3e3;
+    // overflow: hidden;
+    span:nth-child(2) {
+      float: right;
+      margin-right: 2vmin;
+    }
+    span:nth-child(2):hover {
+      cursor: pointer;
+    }
+  }
+  table {
+    width: 97%;
+    margin: 0 auto 0;
+    font-size: 1vmin;
+    td {
+      padding: 1vmin 0;
+      text-align: center;
+      border: .2vmin solid #968e8e;
+      span {
+        display: inline-block;
+        border-radius: 50%;
+        min-width: 2.2vmin;
+        min-height: 2.2vmin;
+        text-align: center;
+        line-height: 2.2vmin;
+      }
+    }
+    tr:nth-child(1),tr:nth-child(2) {
+      background: #ebebeb;
+      span {
+        position: relative;
+        top: 2vmin;
+      } 
+    }
+  }
+  background: #ffffff;
+}
+
