@@ -2,7 +2,6 @@ import Vue from 'vue';
 
 import VueI18n from 'vue-i18n';
 import VCharts from 'v-charts';
-import Element from 'element-ui';
 import VueCountdown from '@chenfengyuan/vue-countdown';
 import iView from 'iview';
 
@@ -17,7 +16,6 @@ import {
   config as configPlugin,
 } from '@/plugins/';
 
-import 'element-ui/lib/theme-chalk/index.css';
 import 'iview/dist/styles/iview.css';
 import 'v-charts/lib/style.css';
 
@@ -55,7 +53,6 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component(VueCountdown.name, VueCountdown);
 Vue.use(VueI18n);
 Vue.use(VCharts);
-Vue.use(Element);
 Vue.use(iView);
 
 Vue.use(utilityPlugin);
