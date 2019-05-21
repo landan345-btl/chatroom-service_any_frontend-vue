@@ -4,8 +4,17 @@
     padding: .7vmin 0 .7vmin 1vmin;
     background: #edf4fa;
     border: .1vmin solid #e3e3e3;
+    div {
+      overflow: hidden;
+      height: 2.8vmin;
+      padding: 0;
+      p {
+        line-height: 2.8vmin;
+        cursor: pointer;
+      }
+    }
   }
-  .explain~div {
+  .explain+div{
     span {
       cursor: pointer;
     }
@@ -35,6 +44,5 @@
       } 
     }
   }
-  background: #ffffff;
 }
 

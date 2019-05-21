@@ -1,6 +1,6 @@
 <template>
-  <div class="result-table p-1 mb-2 font-size-1p5">
-    <div>
+  <div class="result-table ml-2 mr-2 font-size-1p5 background-white">
+    <div class="pl-1 pt-1 pb-1 table-top">
       <span class="mr-1">连续出现次数</span>
       <input class="mr-1" type="number" min="0" placeholder="1"/>
       <span  class="mr-1">次以上</span>
@@ -27,7 +27,7 @@
     </div>
     <div>
       <div>
-        <div v-for="( item , i ) in 50" :key="i" :class="i % 2 === 0 ? 'background-white':''">
+        <div v-for="( item , i ) in 50" :key="i" :class="i % 2 === 0 ? 'background-even':''">
           <p :class="{'text-even':'双' === isOddOrEven(item) }" v-for="( item , i ) in 7" :key="i">{{ item | isOddOrEven}}</p>
         </div>
       </div>

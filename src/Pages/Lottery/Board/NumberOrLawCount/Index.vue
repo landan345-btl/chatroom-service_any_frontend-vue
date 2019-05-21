@@ -44,7 +44,7 @@
         <tr class="background-tr">
           <td class="w-10" rowspan="2"><span>期号</span></td>
           <td rowspan="2" class="w-10"><span>时间</span></td>
-          <td rowspan="2" colspan="3" class="w-42"><span>同位开奖号码分布：<Checkbox v-model="single"></Checkbox> 显示同位号码</span></td>
+          <td rowspan="2" colspan="3" class="w-42"><span>同位开奖号码分布：<Checkbox></Checkbox> 显示同位号码</span></td>
           <td rowspan="2" class="w-10"><span>升平降</span></td>
           <td colspan="2">单双</td>
           <td colspan="2">大小</td>
