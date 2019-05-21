@@ -81,6 +81,9 @@ class SNumbers extends Vue {
   public isCountShowed!: boolean;
 
   @Prop()
+  public showiPositon!: boolean;
+
+  @Prop()
   public onOddOrEvenOrSmallOrLargeOrPairRedcords!: any;
 
   @Prop()

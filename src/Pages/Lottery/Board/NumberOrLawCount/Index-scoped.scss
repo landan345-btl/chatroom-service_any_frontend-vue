@@ -1,40 +1,35 @@
-.dragon-or-tiger-result {
+.number-or-law-count {
   .explain {
     position: relative;
     padding: .7vmin 0 .7vmin 1vmin;
     background: #edf4fa;
     border: .1vmin solid #e3e3e3;
   }
-  .explain~div {
+  .explain+div {
     span {
       cursor: pointer;
     }
   }
   table {
-    width: 97%;
     margin: 0 auto 0;
-    font-size: 1vmin;
     td {
-      padding: 1vmin 0;
       text-align: center;
       border: .2vmin solid #968e8e;
       span {
+        padding: 1vmin 2vmin;
         display: inline-block;
-        border-radius: 50%;
-        min-width: 2.2vmin;
-        min-height: 2.2vmin;
-        text-align: center;
-        line-height: 2.2vmin;
       }
+    }
+    .parity-numbers {
+      color: #968e8e;
     }
     tr:nth-child(1),tr:nth-child(2) {
       background: #ebebeb;
       span {
         position: relative;
-        top: 2vmin;
+        top: 1vmin;
       } 
     }
   }
-  background: #ffffff;
 }
 

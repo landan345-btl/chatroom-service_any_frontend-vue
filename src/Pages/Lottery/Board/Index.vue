@@ -20,19 +20,25 @@
         <Dragon-or-tiger-count />
       </TabPane>
       <TabPane :label="'龙虎露珠'" :name="'dragon-or-tiger-result'">
-        龙虎露珠 TODO
+        <Dragon-or-tiger-result />
       </TabPane>
       <TabPane :label="'号码前后露珠'" :name="'number-or-front-or-back-result'">
-        号码前后露珠 TODO
+        <Number-or-front-or-back-result/>
       </TabPane>
       <TabPane :label="'冠亚和露珠'" :name="'crown-or-second-sum-result'">
-        冠亚和露珠 TODO
+        <Crown-or-second-sum-result />
       </TabPane>
       <TabPane :label="'号码规律统计'" :name="'number-or-law-count'">
-        号码规律统计 TODO
+        <Number-or-law-count 
+          v-if="code && types" 
+          :lotteryIssues="lotteryIssues" 
+          :lottery="lottery"
+          :lotteries="lotteries"
+          :code="code" 
+          :types="types" />
       </TabPane>
       <TabPane :label="'冠亚和两面历史'" :name="'crown-or-second-sum-two-side-history'">
-        冠亚和两面历史 TODO
+        <Crown-or-second-sum-two-side-history />
       </TabPane>
       <TabPane :label="'综合分析'" :name="'summary-anaylysis'">
         <Summary-analysis v-if="code && types" :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types"/>
@@ -111,6 +117,11 @@ import PositionTrend from './PositionTrend/Index.vue';
 import SummationResult from './SummationResult/Index.vue';
 import CrownOrSecondSumTrend from './CrownOrSecondSumTrend/Index.vue';
 import DragonOrTigerCount from './DragonOrTigerCount/Index.vue';
+import DragonOrTigerResult from './DragonOrTigerResult/Index.vue';
+import NumberOrFrontOrBackResult from './NumberOrFrontOrBackResult/Index.vue';
+import CrownOrSecondSumResult from './CrownOrSecondSumResult/Index.vue';
+import NumberOrLawCount from './NumberOrLawCount/Index.vue';
+import CrownOrSecondSumTwoSideHistory from './CrownOrSecondSumTwoSideHistory/Index.vue';
 
 import {
   LOTTERIES,
@@ -137,6 +148,11 @@ import {
     SummationResult,
     CrownOrSecondSumTrend,
     DragonOrTigerCount,
+    DragonOrTigerResult,
+    NumberOrFrontOrBackResult,
+    CrownOrSecondSumResult,
+    NumberOrLawCount,
+    CrownOrSecondSumTwoSideHistory,
   },
 })
 class Board extends Vue {
