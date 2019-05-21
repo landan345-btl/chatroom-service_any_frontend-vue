@@ -3,7 +3,8 @@
     :data="data" 
     :settings="settings" 
     :loading="loading"
-    :after-config="afterConfig"></ve-line>
+    :after-config="afterConfig"
+    :extend="extend"></ve-line>
 </template>
 
 <style scoped lang="scss">
@@ -24,6 +25,16 @@ class VLine extends Vue {
   @Prop({ default: null })
   public settings: any;
 
+  public extend = {
+    'xAxis.0.axisLabel.rotate': 45,
+    'series': {
+      label: {
+        normal: {
+          show: true,
+        },
+      },
+    },
+  };
   public loading = true;
 
   public created() {
