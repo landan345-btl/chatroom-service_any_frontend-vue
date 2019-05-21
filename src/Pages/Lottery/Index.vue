@@ -13,7 +13,6 @@
         <main class="mt-2 mb-2">
           <Pannel 
             :lotteryIssue="getLastLotteryIssue" 
-            :lottery="getLottery"
             :lotteries="getLotteries"
             :code="getCode" 
             :types="getTypes"
