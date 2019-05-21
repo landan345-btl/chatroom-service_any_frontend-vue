@@ -23,3 +23,6 @@
 .ivu-radio-group-button .ivu-radio-wrapper:hover {
   color: red;
 }
+/deep/ .ivu-radio-group-button .ivu-radio-wrapper-checked:hover {
+  color: #fff !important;
+}

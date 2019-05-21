@@ -21,56 +21,67 @@
           <Checkbox class="mr-2">&nbsp;分割线</Checkbox>
         </I-checkbox-group>
     </div>
-      <div class="crown-table p-2">
-        <table class="w-100">
-          <tr>
-            <td>日期</td>
-            <td>开奖时间</td>
-            <td>开奖号码</td>
-            <td>冠亚和</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-            <td>10</td>
-            <td>11</td>
-            <td>12</td>
-            <td>13</td>
-            <td>14</td>
-            <td>15</td>
-            <td>16</td>
-            <td>17</td>
-            <td>18</td>
-            <td>19</td>
-          </tr>
-          <tr v-for="( item , i ) in 15" :key="i">
-            <td>20190520916</td>
-            <td>10:10:00</td>
-            <td>12345678910</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>8</td>
-            <td>9</td>
-            <td>10</td>
-            <td>11</td>
-            <td>12</td>
-            <td>13</td>
-            <td>14</td>
-            <td>15</td>
-            <td>16</td>
-            <td>17</td>
-            <td>18</td>
-            <td>19</td>
-            <td>19</td>
-          </tr>
-        </table>
-      </div>
+    <div class="crown-table p-2">
+      <table class="w-100">
+        <tr class="font-size-1p5">
+          <td>日期</td>
+          <td>开奖时间</td>
+          <td class="w-15">开奖号码</td>
+          <td>冠亚和</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+          <td>13</td>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+          <td>19</td>
+        </tr>
+        <tr v-for="( item , i ) in 15" :key="i">
+          <td>20190520916</td>
+          <td>10:10:00</td>
+          <td>
+            <span class="color-red">1</span>
+            <span class="color-deepskyblue">2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+            <span>8</span>
+            <span>9</span>
+            <span>10</span>
+            </td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+          <td>13</td>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+          <td>19</td>
+          <td>19</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">
