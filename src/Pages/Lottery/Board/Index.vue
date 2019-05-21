@@ -17,7 +17,7 @@
         <Crown-or-second-sum-trend />
       </TabPane>
       <TabPane :label="'龙虎统计'" :name="'dragon-or-tiger-count'">
-        龙虎统计 TODO
+        <Dragon-or-tiger-count />
       </TabPane>
       <TabPane :label="'龙虎露珠'" :name="'dragon-or-tiger-result'">
         龙虎露珠 TODO
@@ -110,6 +110,7 @@ import EverydayAccumulationStatics from './EverydayAccumulationStatics/Index.vue
 import PositionTrend from './PositionTrend/Index.vue';
 import SummationResult from './SummationResult/Index.vue';
 import CrownOrSecondSumTrend from './CrownOrSecondSumTrend/Index.vue';
+import DragonOrTigerCount from './DragonOrTigerCount/Index.vue';
 
 import {
   LOTTERIES,
@@ -135,6 +136,7 @@ import {
     PositionTrend,
     SummationResult,
     CrownOrSecondSumTrend,
+    DragonOrTigerCount,
   },
 })
 class Board extends Vue {

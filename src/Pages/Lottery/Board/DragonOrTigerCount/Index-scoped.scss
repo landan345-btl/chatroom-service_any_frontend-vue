@@ -1,4 +1,4 @@
-.crownOrSecondSumTrend .crown-table {
+.dragonOrTigerCount .crown-table {
   table {
     .background-tr {
       background: #EBEBEB;
@@ -7,12 +7,9 @@
       padding: 1vmin 0;
       border: 1px solid #d6d6d6;
       text-align: center;
-      span {
-        margin: 0 0.3vmin;
-      }
     }
-    td:nth-child(n+4) {
-      width: 5vmin;
+    td:nth-child(n+2) {
+      width: 10.8vmin;
     }
   }
 }
