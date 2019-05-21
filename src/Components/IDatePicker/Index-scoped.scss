@@ -19,3 +19,18 @@
 /deep/ .ivu-date-picker-cells-cell-today em:after, /deep/ .ivu-date-picker-cells-cell:hover em {
   background: #FBA75E;
 }
+
+/deep/ .ivu-input-with-suffix {
+  padding-right: 3vmin !important;
+}
+
+/deep/ .ivu-input {
+  width: 20vmin;
+  padding: 1.6vmin 1.6vmin;
+  border-radius: .5vmin;
+}
+
+/deep/ .ivu-date-picker-cells {
+  width: 21vmin;
+  margin: .1vmin;
+}

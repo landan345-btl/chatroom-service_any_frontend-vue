@@ -43,7 +43,7 @@
             <Checkbox label="分隔线"></Checkbox>
           </I-checkbox-group>
         </div>
-        <table class="position-trend"  v-canvasTrend>
+        <table class="position-trend w-100 text-center"  v-canvasTrend>
           <tr>
             <td rowspan="2"><span>期号</span></td>
             <td rowspan="2"><span>开奖号码</span> </td>

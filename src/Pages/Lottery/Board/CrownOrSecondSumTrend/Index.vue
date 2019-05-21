@@ -1,0 +1,114 @@
+<template>
+  <div class="CrownOrSecondSumTrend background-white">
+     <div class="pl-2 pr-2 font-weight-bold font-weight-bold d-flex justify-content-between head-top">
+      <span class="font-size-2 line-height3">冠亚和走势</span>
+      <RadioGroup v-model="button1" type="button" class="line-height3">
+        <Radio label="今天"></Radio>
+        <Radio label="昨天"></Radio>
+        <Radio label="前天"></Radio>
+        <Radio label="最近30期"></Radio>
+        <Radio label="最近60期"></Radio>
+        <Radio label="最近90期" class="d-xs-none"></Radio>
+      </RadioGroup>
+    </div>
+    <I-divider/>
+    <div class="pt-2 pl-2">
+      <span class="mr-1">标注选择：</span>
+        <I-checkbox-group class="d-inline-block">
+          <Checkbox class="mr-2">&nbsp;遗漏</Checkbox>
+          <Checkbox class="mr-2">&nbsp;拆线</Checkbox>
+          <Checkbox class="mr-2">&nbsp;遗漏分成</Checkbox>
+          <Checkbox class="mr-2">&nbsp;分割线</Checkbox>
+        </I-checkbox-group>
+    </div>
+    <div class="p-2">
+      <table class="crown-table w-100">
+        <tbody>
+          <th>
+            <td>期号</td> 
+            <td>开奖时间</td>
+            <td>开奖号码</td> 
+            <td>冠亚和</td>
+            <td>3</td> 
+            <td>4</td>
+            <td>5</td> 
+            <td>6</td>
+            <td>7</td> 
+            <td>8</td>
+            <td>9</td> 
+            <td>10</td>
+            <td>11</td> 
+            <td>12</td>
+            <td>13</td> 
+            <td>14</td>
+            <td>15</td> 
+            <td>16</td>
+            <td>17</td> 
+            <td>18</td>
+            <td>19</td> 
+          </th>
+          <!-- <tr>
+            <td>20190518</td> 
+            <td>13:45:00</td>
+            <td>10397102486</td> 
+            <td>4</td>
+            <td>77</td> 
+            <td>55</td>
+            <td>55</td> 
+            <td>222</td>
+            <td>7</td> 
+            <td>8</td>
+            <td>9</td> 
+            <td>10</td>
+            <td>11</td> 
+            <td>12</td>
+            <td>13</td> 
+            <td>14</td>
+            <td>15</td> 
+            <td>16</td>
+            <td>17</td> 
+            <td>18</td>
+            <td>19</td>  
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>
+<style scoped lang="scss">
+@import 'Index-scoped.scss';
+
+</style>
+<script lang="ts">
+import {
+  Component,
+  Vue,
+} from 'vue-property-decorator';
+
+import {
+  IDivider,
+  ICheckboxGroup,
+  IRadioGroup,
+  IDatePicker,
+} from '@/Components/';
+
+import {
+  LOTTERIES,
+} from '@/CONFIGS/';
+
+@Component({
+  name: 'CrownOrSecondSumTrend',
+  components: {
+     IDivider,
+     ICheckboxGroup,
+     IRadioGroup,
+     IDatePicker,
+  },
+})
+class CrownOrSecondSumTrend extends Vue {
+  public button1 = '今天';
+  public checkList = ['遗漏', '拆线'];
+
+}
+export default CrownOrSecondSumTrend;
+</script>

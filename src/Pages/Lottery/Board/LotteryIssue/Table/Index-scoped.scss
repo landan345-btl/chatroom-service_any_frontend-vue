@@ -2,7 +2,7 @@
   box-sizing: border-box;
   table {
     tr {
-      background:#e7e7e7;
+      background:#a73737;
       th {
         height: 4vmin;
         line-height: 4vmin;
@@ -12,7 +12,7 @@
       td {
         padding: 0.3vmin 0.3vmin;
         border:1px #B9B9B9 solid;
-        vertical-align: middle; // TODO
+        vertical-align: middle;
         }
       } 
       td:nth-child(n+3) {
