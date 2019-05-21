@@ -6,14 +6,14 @@
         <span class="d-inline-block mt-2" :class=" iNumber === 2 ? 'background-brown':'' " @click="toggleBackground(2)">单选模式</span>
         <span class="d-inline-block mt-2" :class=" iNumber === 3 ? 'background-brown':'' " @click="toggleBackground(3)">两面模式</span>
       </span>
-      <span class="date-selection position-relative">
+      <span class="date-selection d-inline-block text-right">
         <I-radio-group v-model="ranking" type="button" class="line-height8">
           <Radio label="今天"></Radio>
           <Radio label="昨天"></Radio>
           <Radio label="前天"></Radio>
         </I-radio-group>
       </span>
-      <span class="float-right mr-2 ml-2 picker d-xs-none">
+      <span class="float-right d-inline mr-2 ml-2 picker d-xs-none">
         <I-date-picker />
       </span>
     </div>

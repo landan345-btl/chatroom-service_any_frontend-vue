@@ -20,35 +20,24 @@
       }
     }
   }
-  font-size: 1.5vmin;
-  input {
-    width: 5vmin !important;
-    margin: 0 0.5vmin;
+  input,select {
+    width: 5vmin;
+    height: 3vmin;
   }
-  .jia {
-    position: absolute;
-    left: 12vmin;
-    z-index: 100;
-    font-size: 2vmin;
-  }
-  .jian {
-    position: absolute;
-    left: 12vmin;
-    z-index: 100;
-    font-size: 2vmin;
-    top: 1.2vmin;
-  }
-  select {
-    margin: 0 .5vmin;
-    height: 2.7vmin;
-  }
+
   button {
     margin: 0 .5vmin;
     background: #888aa0;
     border: 0px;
   }
+  .grand {
+     @media only screen and (max-width: 991.98px) {
+      display: none !important;
+    }
+  }
 }
 
-.background {
-  background: #f5f5f5;
+ .ivu-btn-primary:hover {
+  background-color: #FBAD58!important;
+  border-color: #FBAD58!important;
 }
