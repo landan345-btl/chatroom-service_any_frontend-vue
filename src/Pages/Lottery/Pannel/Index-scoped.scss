@@ -1,12 +1,12 @@
 .page.lottery .pannel {
   .icon {
-
+    flex: 0 1 10vmin;
   }
   .no {
     color: #f90;
   }
   .name-lottery_issue_no{
-    flex-grow: 1;
+    flex: 1 1 30vmin;
     .name {
       font-size: 2vmin;
     }
@@ -14,7 +14,7 @@
   }
 
   .countdown {
-    flex-grow: 1;
+    flex: 0.1 1 20vmin;
     /deep/ .chen-countdown{
       .square {
         background: #444553;
@@ -24,7 +24,7 @@
   }
 
   .live {
-    flex: 1 1 1;
+    flex: 0 1 20vmin;
   }
 
   .text {

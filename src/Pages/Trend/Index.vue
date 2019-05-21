@@ -197,7 +197,7 @@ class Trend extends Vue {
       'PK10': 'MLAFT',
       'SSC': '3FSSC',
       '11X5': 'FF11X5',
-      'K3': 'FF11X5',
+      'K3': 'FFK3',
       'KLSF': 'GDKLSF',
       'KL8': 'BJKL8',
       'SIX': '5FSIX',

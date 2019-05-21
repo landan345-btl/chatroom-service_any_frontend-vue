@@ -23,8 +23,8 @@
             :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
             :status="switcher" 
             :onNumbers="onNumbers"
-            :previousNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
-            :nextNumbers="iIndex < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[iIndex + 1].numbers): []"/>
+            :nextNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
+            :previousNumbers="iIndex < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[iIndex + 1].numbers): []"/>
         </td>
         <td>{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1])}}</td>
         <td :class="{'text-large' : '大' === isSmallOrLarge(sum(JSON.parse(oLotteryIssue.numbers),[0,1]),11,12)}">
@@ -63,8 +63,8 @@
           <S-numbers 
             :code="code" 
             :onNumbers="onNumbers" 
-            :previousNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
-            :nextNumbers="iIndex < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[iIndex + 1].numbers): []"
+            :nextNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
+            :previousNumbers="iIndex < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[iIndex + 1].numbers): []"
             :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
             :numbers="JSON.parse(oLotteryIssue.numbers)" 
             :types="types" 
@@ -112,8 +112,8 @@
           <S-numbers 
           :code="code" 
           :onNumbers="onNumbers" 
-          :previousNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
-          :nextNumbers="iIndex < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[iIndex + 1].numbers): []"
+          :nextNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
+          :previousNumbers="iIndex < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[iIndex + 1].numbers): []"
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
           :numbers="JSON.parse(oLotteryIssue.numbers)" 
           :types="types" 
@@ -351,8 +351,8 @@
           class="status-number"/>
         </td>
         <td class="w-10">{{ JSON.parse(oLotteryIssue.numbers) | sum }}</td>
-        <td  :class="{'text-even' : '双' === isOddOrEven(sum(JSON.parse(oLotteryIssue.numbers),12,14))}" class="w-10">{{ JSON.parse(oLotteryIssue.numbers) | sum | isOddOrEven }}</td>
-        <td  :class="{'text-large' : '大' === isSmallOrLarge(sum(JSON.parse(oLotteryIssue.numbers)),12,14)}" class="w-10">{{ JSON.parse(oLotteryIssue.numbers) | sum |isSmallOrLarge(12,14) }}</td>
+        <td :class="{'text-even' : '双' === isOddOrEven(sum(JSON.parse(oLotteryIssue.numbers),12,14))}" class="w-10">{{ JSON.parse(oLotteryIssue.numbers) | sum | isOddOrEven }}</td>
+        <td :class="{'text-large' : '大' === isSmallOrLarge(sum(JSON.parse(oLotteryIssue.numbers)),12,14)}" class="w-10">{{ JSON.parse(oLotteryIssue.numbers) | sum |isSmallOrLarge(12,14) }}</td>
       </tr>
     </tbody>
   </table>

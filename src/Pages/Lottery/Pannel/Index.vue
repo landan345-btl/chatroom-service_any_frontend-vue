@@ -7,7 +7,7 @@
     <div class="name-lottery_issue_no align-middle text-left p-2">
       <div class="top">
         <span class="name font-weight-bold">
-          {{ LOTTERIES[code].NAME | or(lottery.name) }}
+          {{ LOTTERIES[code].NAME | or(lotteries[lotteryIssue.lottery_id].name) }}
         </span>
         <span class="text ml-0p5" v-if="lotteryIssue && lotteryIssue.no">
           第
@@ -20,7 +20,7 @@
         </span>
           &nbsp;
       </div>
-      <S-numbers v-if="lotteryIssue" :code="code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lottery.types" class="status-number middle"/>
+      <S-numbers v-if="lotteryIssue" :code="code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lotteries && lotteries[lotteryIssue.lottery_id].types" class="status-number middle"/>
       <div class="bottom">
         <span> 已开 {{ getLotteryIssueExtension.order_no }} 期，还有 {{ getLotteryIssueExtension.total_order_no - getLotteryIssueExtension.order_no }} 期 </span>
       </div>
@@ -50,7 +50,7 @@
       </div>
     </div>
     <div class="live align-middle">
-      <div :class="[types ? 'live-' + types.toLowerCase() : '']">
+      <div :class="[lotteries && lotteries[lotteryIssue.lottery_id].types ? 'live-' + lotteries[lotteryIssue.lottery_id].types.toLowerCase() : '']">
       </div>
     </div>
   </div>
@@ -82,11 +82,6 @@ import {
 class Pannel extends Vue {
   @Prop()
   public lotteryIssue!: any;
-  /**
-   * 后端所有的 API lottery 数据
-   */
-  @Prop()
-  public lottery!: any;
 
   @Prop()
   public lotteries!: any;
@@ -100,8 +95,8 @@ class Pannel extends Vue {
 
   public get getLotteryIssueExtension() {
     let oLotteryIssueExtension = {};
-
-    let aRangeTimes = JSON.parse(this.lottery.range_times);
+    let lottery = this.lotteries[this.lotteryIssue.lottery_id];
+    let aRangeTimes = JSON.parse(lottery.range_times);
     let iNowTime = new Date().getTime();
     let iNextTime = 0;
     let iFullYear = Number(new Date().getFullYear());
@@ -110,7 +105,7 @@ class Pannel extends Vue {
     let iLotteryIssueOrderNoTotalInThisDay = 0;
     let iLotteryIssueOrderNoInThisDay = 0;
     let sNextNo = Number(this.lotteryIssue.no) + 1;
-    iNextTime = (new Date(this.lotteryIssue.date + ' ' + this.lotteryIssue.time).getTime() + this.lottery.interval_time * 1000 - iNowTime) / 1000;
+    iNextTime = (new Date(this.lotteryIssue.date + ' ' + this.lotteryIssue.time).getTime() + lottery.interval_time * 1000 - iNowTime) / 1000;
 
     aRangeTimes.forEach((oRangeTime: any) => {
       let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.started_time).getTime();
@@ -118,12 +113,12 @@ class Pannel extends Vue {
                       ? new Date(iFullYear + '-' + iMonth + '-' + (iDate + 1) + ' ' +  oRangeTime.ended_time).getTime()
                       : new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime();
       let iDifferentTime = (iNowTime - iStartedTime) / 1000;
-      iLotteryIssueOrderNoTotalInThisDay +=  Math.floor((iEndedTime - iStartedTime) / (0 !== this.lottery.interval_time ? 1000 * this.lottery.interval_time : 1));
-      if (0 === Number(this.lottery.interval_time)) {
+      iLotteryIssueOrderNoTotalInThisDay +=  Math.floor((iEndedTime - iStartedTime) / (0 !== lottery.interval_time ? 1000 * lottery.interval_time : 1));
+      if (0 === Number(lottery.interval_time)) {
         iNextTime = (new Date(this.lotteryIssue.date + ' ' + this.lotteryIssue.time).getTime() + 24 * 60 * 60 * 1000 - iNowTime) / 1000;
       }
       if (iNowTime >= iStartedTime && iNowTime <= iEndedTime) {
-        iLotteryIssueOrderNoInThisDay += Math.floor(iDifferentTime / this.lottery.interval_time);
+        iLotteryIssueOrderNoInThisDay += Math.floor(iDifferentTime / lottery.interval_time);
       }
     });
     iLotteryIssueOrderNoInThisDay = iLotteryIssueOrderNoInThisDay + 1;

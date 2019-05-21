@@ -20,6 +20,18 @@ class Lottery extends Vue {
   public extensionLottery: any = {
     positions_to_number_types_to_counts: {},
     numbers_to_counts: {},
+    numers_to_position_counts: {},
+    /**
+     * {
+     *   1: {
+     *         '0': 2,
+     *         '1': 4,
+     *      },
+     *   2:
+     *   3:
+     *   ...
+     * }
+     */
   };
 
   public calculateNextTime(sOpenedTime: string, oLottery: any): number {
@@ -77,7 +89,7 @@ class Lottery extends Vue {
     this.extensionLotteryIssue.order_total_no = iLotteryIssueOrderNoTotalInThisDay;
   }
 
-  public positionsToNumberTypesToCounts(oLotteryIssues: any, oLottery: any) {
+  public positionsToNumberTypesToCounts(oLotteryIssues: any, oLottery: any, iLimit: number) {
     let oLotteryHelper = new LotteryHelper();
     if (!oLotteryIssues || !oLottery) {
       return;
@@ -177,6 +189,11 @@ class Lottery extends Vue {
     });
 
     this.extensionLottery.positions_to_number_types_to_counts = oPositionsToNumberTypesToCounts;
+  }
+
+  public caculateNumbersToPositionsToCounts(oLotteryIssues: any, oLottery: any, iLimit = 20) {
+    this.extensionLottery.numers_to_position_counts = {};
+
   }
 
 }
