@@ -1,5 +1,5 @@
 <template>
-  <table class="text-center table" v-if="'PK10' === lotteries[lotteryIssue.lottery_id].types">
+  <table class="text-center table table" v-if="'PK10' === lotteries[lotteryIssue.lottery_id].types">
     <tr>
       <th colspan=5>1-5龙虎</th>
       <th colspan=3>冠亚和</th>
@@ -19,7 +19,7 @@
         ">{{ JSON.parse(lotteryIssue.numbers) | sum([0, 1]) | isOddOrEven }}</td>
     </tr>
   </table>
-  <table class="text-center" v-else-if="'SSC' === lotteries[lotteryIssue.lottery_id].types">
+  <table class="text-center table" v-else-if="'SSC' === lotteries[lotteryIssue.lottery_id].types">
     <tr>
       <th colspan=3>总和</th>
       <th>1-2龙虎</th>
@@ -37,7 +37,7 @@
       <td>{{ JSON.parse(lotteryIssue.numbers) | determineSequence([2, 3, 4]) }}</td>
     </tr>
   </table>
-  <table class="text-center" v-else-if="'11X5' === lotteries[lotteryIssue.lottery_id].types">
+  <table class="text-center table" v-else-if="'11X5' === lotteries[lotteryIssue.lottery_id].types">
     <tr>
       <th colspan=3>总和</th>
       <th>前三</th>
@@ -53,7 +53,7 @@
       <td>{{ JSON.parse(lotteryIssue.numbers) | determineSequence([2, 3, 4]) }}</td>
     </tr>
   </table>
-  <table class="text-center" v-else-if="'KLSF' === lotteries[lotteryIssue.lottery_id].types">
+  <table class="text-center table" v-else-if="'KLSF' === lotteries[lotteryIssue.lottery_id].types">
     <tr>
       <th colspan=4>总和</th>
       <th colspan=4>1-4龙虎</th>
@@ -69,7 +69,7 @@
       <td>{{ JSON.parse(lotteryIssue.numbers) | isDragonOrTiger([3, 4]) }}</td>
     </tr>
   </table>
-  <table class="text-center" v-else-if="'K3' === lotteries[lotteryIssue.lottery_id].types">
+  <table class="text-center table" v-else-if="'K3' === lotteries[lotteryIssue.lottery_id].types">
     <tr>
       <th class="w-50" colspan=3>总和</th>
       <th class="w-50" colspan=3>鱼虾蟹</th>
@@ -83,7 +83,7 @@
       <td class="w-1_3">{{ JSON.parse(lotteryIssue.numbers) | isFishOrShrimpOrCrab(2) }}</td>
     </tr>
   </table>
-  <table class="text-center" v-else-if="['3D', 'XY28'].includes(lotteries[lotteryIssue.lottery_id].types)">
+  <table class="text-center table" v-else-if="['3D', 'XY28'].includes(lotteries[lotteryIssue.lottery_id].types)">
     <tr>
       <th class="w-25" colspan=3>佰拾和</th>
       <th class="w-25" colspan=3>佰个和</th>
@@ -105,7 +105,7 @@
       <td class="w-1_3">{{ JSON.parse(lotteryIssue.numbers) | sum | isSmallOrLarge(13, 14) }}</td>
     </tr>
   </table>
-  <table class="text-center" v-else-if="['SIX'].includes(lotteries[lotteryIssue.lottery_id].types)">
+  <table class="text-center table" v-else-if="['SIX'].includes(lotteries[lotteryIssue.lottery_id].types)">
     <tr>
       <th class="w-25" colspan=3>总和</th>
       <th class="w-25" colspan=4>特码</th>
@@ -120,7 +120,7 @@
       <td class="w-1_3">尾{{ JSON.parse(lotteryIssue.numbers) | last | substr(-1, 1) | isSmallOrLarge(4, 5)}}</td>
     </tr>
   </table>
-  <table class="text-center" v-else-if="['KL8'].includes(lotteries[lotteryIssue.lottery_id].types)">
+  <table class="text-center table" v-else-if="['KL8'].includes(lotteries[lotteryIssue.lottery_id].types)">
     <tr>
       <th class="w-50" colspan=3>总合</th>
       <th class="w-25" colspan=1>单双</th>
