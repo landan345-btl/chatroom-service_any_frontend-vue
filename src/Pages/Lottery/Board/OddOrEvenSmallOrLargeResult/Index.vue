@@ -16,7 +16,7 @@
     </div>
     <div class="p-2 font-size-1p5">
       <span>筛选路珠：</span>
-      <I-checkbox-group v-model="decorator">
+      <I-checkbox-group v-model="decorators">
         <Checkbox label="大小路珠"></Checkbox>
         <Checkbox label="单双路珠"></Checkbox>
       </I-checkbox-group>
@@ -58,7 +58,7 @@ import {
 })
 class OddOrEvenSmallOrLargeResult extends Vue {
   public position: any = '第一球';
-  public decorator: any = '大小路珠';
+  public decorators: any = ['大小路珠'];
 
 }
 

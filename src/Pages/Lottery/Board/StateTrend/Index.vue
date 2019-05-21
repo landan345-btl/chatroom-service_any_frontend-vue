@@ -31,7 +31,7 @@
         <Radio label="中三形态"></Radio>
         <Radio label="后三形态"></Radio>
       </I-radio-group>
-      <I-checkbox-group v-model="decorator">
+      <I-checkbox-group v-model="decorators">
         <Checkbox label="遗漏"></Checkbox>
         <Checkbox label="折线"></Checkbox>
         <Checkbox label="遗漏分层"></Checkbox>
@@ -163,7 +163,7 @@ import {
 class StateTrend extends Vue {
   public date: any = '今天';
   public position: any = '前三形态';
-  public decorator: any = ['遗漏'];
+  public decorators: any = ['遗漏'];
 }
 
 export default StateTrend;

@@ -471,7 +471,7 @@ class BasicTrend extends Vue {
 
   public date = '今天';
   public position = '第一球';
-  public decorator = '遗漏';
+  public decorator = ['遗漏'];
 
   public get oLotteryIssues(): object {
     let oLotteryIssues = this.lotteryIssues;
