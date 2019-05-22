@@ -80,10 +80,7 @@
         <Summation-result v-if="code && types" :lotteryIssues="lotteryIssues"/>
       </TabPane>
       <TabPane :label="'玩法规则'" :name="'rule'">
-<<<<<<< HEAD
         <Rule />
-=======
->>>>>>> develop
       </TabPane>
     </I-tabs>
   </div>
