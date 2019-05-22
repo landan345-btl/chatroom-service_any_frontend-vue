@@ -95,14 +95,9 @@ class PopularAnalysis extends Vue {
   public isHotCountShowed = false ;
 
   @Prop()
-  public lotteryIssues!: any;
-  @Prop()
   public code!: any;
   @Prop()
   public types!: any;
-
-  @Prop()
-  public lotteries: any;
 
   public counts = null;
   public caculateNumbersToPositionsToCounts: any;
