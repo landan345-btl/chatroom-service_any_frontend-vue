@@ -112,10 +112,10 @@
         </p>
       </div>
     </div>
-    <div class="ml-2 mr-2 mb-1 dewdrop-table"  v-for="( item , i ) in 2" :key="i">
-      <div>
-        <Result-table />
-      </div>
+    <div class=" mb-1 dewdrop-table"  v-for="( item , i ) in 2" :key="i">
+    <div>
+      <Result-table />
+    </div>
     </div>
   </div>
 </template>
