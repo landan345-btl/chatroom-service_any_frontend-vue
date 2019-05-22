@@ -10,14 +10,14 @@
         :md="{span: 14, offset: 2}" 
         :lg="{span: 14, offset: 2}"
         :xl="{span: 12, offset: 4}">
-        <main>
+        <main class="mr-1">
           <News />
           <Live :lotteries="lotteries" :lotteryIssues="lotteryIssues"/>
           <Lottery-issue-board :lotteryIssues="lotteryIssues" :lotteries="lotteries"/>
         </main>
       </Col>
       <Col :xs="{span: 0}" :sm="{span: 5}" :md="{span: 6}" :lg="{span: 6}" :xl="{span: 4}">
-        <aside>
+        <aside class="ml-1">
           <Recommended-lottery :lotteries="lotteries"/>
           <Advertisment-a />
           <Prediction />

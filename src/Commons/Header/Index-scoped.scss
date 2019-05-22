@@ -22,7 +22,8 @@ header {
         margin-left: 1vmin;
       }
       span:last-child:after { 
-        content: ""; 
+        content: "";
+        margin-left: 0vmin;
       }
     }
   }

@@ -19,7 +19,7 @@
         </span>
       </Col>
     </Row>
-    <Row class="images pt-1 pb-1">
+    <Row :gutter="0" class="images pt-1 pb-1">
       <Col 
         :xs="{span: 22, offset: 1}" 
         :sm="{span: 20, offset: 2}" 
