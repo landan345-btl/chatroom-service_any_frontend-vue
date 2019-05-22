@@ -1,7 +1,7 @@
 <template>
   <footer>
   	<div class="middle">
-      <Row :gutter="0">
+      <Row :gutter="30">
         <Col 
           :xs="{span: 22, offset: 1}" 
           :sm="{span: 5, offset: 2}" 
@@ -62,7 +62,7 @@
       </Row>
   	</div>
     <div class="bottom">
-      <Row :gutter="0" type="flex" justify="space-between">
+      <Row :gutter="30" type="flex" justify="space-between">
         <Col 
           :xs="{span: 22, offset: 1}" 
           :sm="{span: 20, offset: 2}" 

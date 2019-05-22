@@ -3,53 +3,58 @@
     <Header />
     <NavTop/>
     <NavRight />
-    <Row :gutter="0" class="backgrond-mian">
+    <Row :gutter="30" class="backgrond-mian">
       <Col 
-        :xs="{span: 22, offset: 1}" 
-        :sm="{span: 20, offset: 2}" 
-        :md="{span: 20, offset: 2}" 
-        :lg="{span: 20, offset: 2}"
-        :xl="{span: 16, offset: 4}">
+        :xs="{span: 6, offset: 1}" 
+        :sm="{span: 6, offset: 2}" 
+        :md="{span: 5, offset: 2}" 
+        :lg="{span: 6, offset: 2}"
+        :xl="{span: 4, offset: 4}">
         <div class="rule-head">首页&nbsp;&gt;
-          <span v-if="iNumber === 1">北京PK10</span>
-          <span v-if="iNumber === 2">重庆时时彩</span>
-          <span v-if="iNumber === 3">新疆时时彩</span>
-          <span v-if="iNumber === 4">体彩排列3</span>
-          <span v-if="iNumber === 5">广东快乐十分</span>
-          <span v-if="iNumber === 6">广东11选5</span>
-          <span v-if="iNumber === 7">江苏快3</span>
-          <span v-if="iNumber === 8">十一运夺金</span>
-          <span v-if="iNumber === 9">重庆辛运农场</span>
-          <span v-if="iNumber === 10">快3</span>
-          <span v-if="iNumber === 11">11选5</span>
-          <span v-if="iNumber === 12">北京快乐8</span>
-          <span v-if="iNumber === 13">PC蛋蛋</span>
-          <span v-if="iNumber === 14">福彩3D</span>
-          <span v-if="iNumber === 15">台湾宾果</span>
+          <span v-if="code === 'BJPK10'">北京PK10</span>
+          <span v-if="code === 'CQSSC'">重庆时时彩</span>
+          <span v-if="code === 'XJSSC'">新疆时时彩</span>
+          <span v-if="code === 'PL3'">体彩排列3</span>
+          <span v-if="code === 'GDKLSF'">广东快乐十分</span>
+          <span v-if="code === 'GD11X5'">广东11选5</span>
+          <span v-if="code === 'JSK3'">江苏快3</span>
+          <span v-if="code === 'SD11X5'">十一运夺金</span>
+          <span v-if="code === 'CQXYNC'">重庆辛运农场</span>
+          <span v-if="code === 'K3'">快3</span>
+          <span v-if="code === '11X5'">11选5</span>
+          <span v-if="code === 'BJKL8'">北京快乐8</span>
+          <span v-if="code === 'PCDD'">PC蛋蛋</span>
+          <span v-if="code === 'FC3D'">福彩3D</span>
+          <span v-if="code === 'TWBG'">台湾宾果</span>
         </div>
-        <div class="rule-content w-100 d-flex">
+        <div class="rule-content">
           <div class="lottery-menu">
             <ul class="font-weight-bold font-size-1p5">
               <li class="font-size-2">玩法规则</li>
-              <li :class=" iNumber === 1 ? 'background-li':'' " @click="toggleLottery(1)">北京PK10</li>
-              <li :class=" iNumber === 2 ? 'background-li':'' " @click="toggleLottery(2)">重庆时时彩</li>
-              <li :class=" iNumber === 3 ? 'background-li':'' " @click="toggleLottery(3)">新疆时时彩</li>
-              <li :class=" iNumber === 4 ? 'background-li':'' " @click="toggleLottery(4)">体彩排列3</li>
-              <li :class=" iNumber === 5 ? 'background-li':'' " @click="toggleLottery(5)">广东快乐十分</li>
-              <li :class=" iNumber === 6 ? 'background-li':'' " @click="toggleLottery(6)">广东11选5</li>
-              <li :class=" iNumber === 7 ? 'background-li':'' " @click="toggleLottery(7)">江苏快3</li>
-              <li :class=" iNumber === 8 ? 'background-il':'' " @click="toggleLottery(8)">十一运夺金</li>
-              <li :class=" iNumber === 9 ? 'background-li':'' " @click="toggleLottery(9)">重庆辛运农场</li>
-              <li :class=" iNumber === 10 ? 'background-li':'' " @click="toggleLottery(10)">快3</li>
-              <li :class=" iNumber === 11 ? 'background-li':'' " @click="toggleLottery(11)">11选5</li>
-              <li :class=" iNumber === 12 ? 'background-li':'' " @click="toggleLottery(12)">北京快乐8</li>
-              <li :class=" iNumber === 13 ? 'background-li':'' " @click="toggleLottery(13)">PC蛋蛋</li>
-              <li :class=" iNumber === 14 ? 'background-li':'' " @click="toggleLottery(14)">福彩3D</li>
-              <li :class=" iNumber === 15 ? 'background-li':'' " @click="toggleLottery(15)">台湾宾果</li>
+              <li :class=" code === 'BJPK10' ? 'background-li':'' " @click="toggleLottery('BJPK10')">北京PK10</li>
+              <li :class=" code === 'CQSSC' ? 'background-li':'' " @click="toggleLottery('CQSSC')">重庆时时彩</li>
+              <li :class=" code === 'XJSSC' ? 'background-li':'' " @click="toggleLottery('XJSSC')">新疆时时彩</li>
+              <li :class=" code === 'PL3' ? 'background-li':'' " @click="toggleLottery('PL3')">体彩排列3</li>
+              <li :class=" code === 'GDKLSF' ? 'background-li':'' " @click="toggleLottery('GDKLSF')">广东快乐十分</li>
+              <li :class=" code === 'GD11X5' ? 'background-li':'' " @click="toggleLottery('GD11X5')">广东11选5</li>
+              <li :class=" code === 'JSK3' ? 'background-li':'' " @click="toggleLottery('JSK3')">江苏快3</li>
+              <li :class=" code === 'SD11X5' ? 'background-il':'' " @click="toggleLottery('SD11X5')">十一运夺金</li>
+              <li :class=" code === 'CQXYNC' ? 'background-li':'' " @click="toggleLottery('CQXYNC')">重庆辛运农场</li>
+              <li :class=" code === 'K3' ? 'background-li':'' " @click="toggleLottery('K3')">快3</li>
+              <li :class=" code === '11X5' ? 'background-li':'' " @click="toggleLottery('11X5')">11选5</li>
+              <li :class=" code === 'BJKL8' ? 'background-li':'' " @click="toggleLottery('BJKL8')">北京快乐8</li>
+              <li :class=" code === 'PCDD' ? 'background-li':'' " @click="toggleLottery('PCDD')">PC蛋蛋</li>
+              <li :class=" code === 'FC3D' ? 'background-li':'' " @click="toggleLottery('FC3D')">福彩3D</li>
+              <li :class=" code === 'TWBG' ? 'background-li':'' " @click="toggleLottery('TWBG')">台湾宾果</li>
             </ul>
           </div>
-          <div class="rule-details mb-2 background-white ml-3">
-            <div class="rule-pk10" v-if="iNumber === 1">
+        </div>
+      </Col>
+      <Col 
+         :xs="{span: 15}" :sm="{span: 14}" :md="{span: 15}" :lg="{span: 14}" :xl="{span: 12}">
+        <div class="rule-content ">
+          <div class="rule-details mb-2 background-white">
+            <div class="rule-pk10" v-if="code === 'BJPK10'">
               <p class="text-center font-size-2p5 font-weight-bold">“PK10”游戏规则</p>
               <p class="font-size-1p5 font-weight-bold">总则</p>
               <p>第一条　根据《彩票管理条例》、《彩票管理条例实施细则》、《彩票发行销售管理办法》（财综[2012]102号）等有关规定，制定本规则。
@@ -474,7 +479,7 @@
               <p class="font-size-1p5 font-weight-bold">附则</p>
               <p>第二十四条 本规则自批准之日起执行。</p>
             </div>
-            <div class="rule-cqssc" v-if="iNumber === 2">
+            <div class="rule-cqssc" v-if="code === 'CQSSC'">
               <p class="text-center font-size-2p5 font-weight-bold">重庆欢乐生肖玩法规则</p>
               <p>1.“生肖”动物十选一，选中即中奖，每20分钟开奖一次。</p>
               <p>2.“欢乐生肖”游戏共设5种颜色开奖区域，10种生肖</p>
@@ -535,7 +540,7 @@
               <p class="ml-2">欢乐二：单注投注生肖与当期中奖生肖的连续后2位生肖按位相符（红区+绿区），即中奖；</p>
               <p class="ml-2">欢乐一：单注投注生肖与当期中奖生肖的绿区生肖按位相符，即中奖；</p>
             </div>
-            <div class="rule-xjssc" v-if="iNumber === 3">
+            <div class="rule-xjssc" v-if="code === 'XJSSC'">
               <p class="text-center font-size-2p5 font-weight-bold">新疆时时彩游戏规则</p>
               <p class="font-size-1p5 font-weight-bold">总则</p>
               <p>第一条 根据《彩票管理条例》等有关规定，制定本规则。 </p>
@@ -677,7 +682,7 @@
               <p>附则</p>
               <p>第三十一条 本规则自批准之日起执行。</p>
             </div>
-            <div class="rule-pl3" v-if="iNumber === 4">
+            <div class="rule-pl3" v-if="code === 'PL3'">
               <p class="text-center font-size-2p5 font-weight-bold">体彩排列3玩法规则</p>
               <p class="font-size-1p5 font-weight-bold">排列三游戏规则</p>
               <p>“排列三”原为“7星彩”附加玩法，自2004年12月8日起从原有的七星彩玩法中分离出来，单独使用摇奖机、摇奖球进行摇奖，“排列三”、“排列5”共</p>
@@ -843,17 +848,17 @@
               <p>按“直选投注”、“组选3”、“组选6”分别设奖，资金为：“直选投注”单注固定奖金1000元；“组选3”单注固定奖金320元；“组选6”单注固定奖金</p>
               <p>160元。</p>
             </div>
-            <div v-if="iNumber === 5">广东快乐十分</div>
-            <div v-if="iNumber === 6">广东11选5</div>
-            <div v-if="iNumber === 7">江苏快3</div>
-            <div v-if="iNumber === 8">十一运夺金</div>
-            <div v-if="iNumber === 9">重庆辛运农场</div>
-            <div v-if="iNumber === 10">快3</div>
-            <div v-if="iNumber === 11">11选5</div>
-            <div v-if="iNumber === 12">北京快乐8</div>
-            <div v-if="iNumber === 13">PC蛋蛋</div>
-            <div v-if="iNumber === 14">福彩3D</div>
-            <div v-if="iNumber === 15">台湾宾果</div>
+            <div v-if="code === 'GDKLSF'">广东快乐十分</div>
+            <div v-if="code === 'GD11X5'">广东11选5</div>
+            <div v-if="code === 'JSK3'">江苏快3</div>
+            <div v-if="code === 'SD11X5'">十一运夺金</div>
+            <div v-if="code === 'CQXYNC'">重庆辛运农场</div>
+            <div v-if="code === 'K3'">快3</div>
+            <div v-if="code === '11X5'">11选5</div>
+            <div v-if="code === 'BJKL8'">北京快乐8</div>
+            <div v-if="code === 'PCDD'">PC蛋蛋</div>
+            <div v-if="code === 'FC3D'">福彩3D</div>
+            <div v-if="code === 'TWBG'">台湾宾果</div>
           </div>
         </div>
       </Col>
@@ -900,10 +905,10 @@ import {
   },
 })
 class Rule extends Vue {
-  public iNumber = 1;
+  public code: string = 'BJPK10';
 
-  public toggleLottery( iNumber: number ) {
-    this.iNumber = iNumber;
+  public toggleLottery(sCode: string) {
+    this.code = sCode;
   }
 
 }

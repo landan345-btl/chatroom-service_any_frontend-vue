@@ -1,6 +1,6 @@
 <template>
  	<nav class="nav-background color-white">
-    <Row :gutter="0">
+    <Row :gutter="30">
       <Col 
         :xs="{span: 22, offset: 1}" 
         :sm="{span: 20, offset: 2}" 
@@ -17,7 +17,7 @@
       </Col>
     </Row>
     <div class="sub-menu-board z-1003 color-black position-absolute">
-      <Row :gutter="0">
+      <Row :gutter="30">
         <Col 
           :xs="{span: 22, offset: 1}" 
           :sm="{span: 20, offset: 2}" 

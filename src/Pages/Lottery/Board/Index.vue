@@ -1,6 +1,6 @@
 <template>
   <div class="board">
-    <I-tabs :type="'card'" class="" :animated="false">
+    <I-tabs :type="'card'" class=""  v-on:handle-click="handleRule"  :animated="false">
       <TabPane :label="'即时开奖'" :name="'lottery-issue'"> 
         <Lottery-issue 
           v-if="code && types" 
@@ -80,7 +80,7 @@
         <Summation-result v-if="code && types" :lotteryIssues="lotteryIssues"/>
       </TabPane>
       <TabPane :label="'玩法规则'" :name="'rule'">
-
+         
       </TabPane>
     </I-tabs>
   </div>
@@ -178,6 +178,12 @@ class Board extends Vue {
 
   @Prop()
   public types!: any;
+
+  public handleRule(name: string) {
+    if (name === 'rule') {
+      this.$router.push({path: '/rule'});
+    }
+  }
 
 }
 
