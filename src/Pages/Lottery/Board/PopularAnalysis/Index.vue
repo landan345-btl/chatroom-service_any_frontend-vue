@@ -18,7 +18,7 @@
         <th class="align-middle text-center">温</th>
         <th class="align-middle text-center">冷</th>
       </tr>
-      <tr v-for="(oCounts, iPosition) in extensionLottery.numers_to_positions_to_counts" :key="iPosition">
+      <tr v-for="(oCounts, iPosition) in getNumersToPositionsToCounts" :key="iPosition">
         <td class="align-middle font-size-1 text-center">{{ types && texts[types] && texts[types][iPosition] ? texts[types][iPosition] : '第' + iPosition + '球' }} </td>
         <td class="align-middle text-left">
             <S-numbers 
@@ -106,6 +106,7 @@ class PopularAnalysis extends Vue {
 
   public counts = null;
   public caculateNumbersToPositionsToCounts: any;
+  public extensionLottery: any;
 
   public texts = {
     PK10: ['冠军' , '亚军' , '第三名' , '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'],
@@ -126,12 +127,12 @@ class PopularAnalysis extends Vue {
     return aNumbers;
   }
 
-
-  public beforeMount() {
-    // debugger;
-    this.caculateNumbersToPositionsToCounts(this.lotteryIssues, this.lotteries, 20 );
+  public get getNumersToPositionsToCounts () {
+    let oLotteryIssues = this.$store.state.lottery_issues;
+    let oLotteries = this.$store.state.lotteries;
+    let oNumersToPositionsToCounts = this.caculateNumbersToPositionsToCounts(oLotteryIssues, oLotteries, 20 );
+    return oNumersToPositionsToCounts;
   }
-
 }
 
 export default PopularAnalysis;

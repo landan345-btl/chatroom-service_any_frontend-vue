@@ -187,8 +187,11 @@ class Lottery extends Vue {
 
   public caculateNumbersToPositionsToCounts(oLotteryIssues: any, oLotteries: any, iLimit: any) {
     this.extensionLottery.numers_to_positions_to_counts = {};
+    if (!oLotteryIssues || !oLotteries) {
+      return {};
+    }
     let aLotteryIssues: any = Object.values(oLotteryIssues);
-    let oHotWarnColdCountPositions: any = {};
+    let oNumbersToPositionsToCounts: any = {};
     let oLotteryIssue: any;
     let iLoopCount = 0;
     while (iLimit > iLoopCount && 1 <= aLotteryIssues.length) {
@@ -196,19 +199,21 @@ class Lottery extends Vue {
       let aNumbers = JSON.parse(oLotteryIssue.numbers);
       let sType = oLotteries[oLotteryIssue.lottery_id].types;
       aNumbers.forEach((iNumber: number, iIndex: number) => {
-        if (!oHotWarnColdCountPositions.hasOwnProperty(iIndex)) {
+        if (!oNumbersToPositionsToCounts.hasOwnProperty(iIndex)) {
           let oNumbersToCounts = LOTTERY_TYPES[sType].NUMBERS.reduce((_oNumbersToCounts: any, _iNumber: any) => {
             _oNumbersToCounts[_iNumber] = 0;
             return _oNumbersToCounts;
           }, {});
-          oHotWarnColdCountPositions[iIndex] = oNumbersToCounts;
+          oNumbersToPositionsToCounts[iIndex] = oNumbersToCounts;
         }
-        let oHotWarnColdPosition = oHotWarnColdCountPositions[iIndex];
-        oHotWarnColdCountPositions[iIndex][iNumber] = oHotWarnColdPosition[iNumber] + 1;
+        let oHotWarnColdPosition = oNumbersToPositionsToCounts[iIndex];
+        oNumbersToPositionsToCounts[iIndex][iNumber] = oHotWarnColdPosition[iNumber] + 1;
       });
       iLoopCount++;
     }
-    this.extensionLottery.numers_to_positions_to_counts = oHotWarnColdCountPositions;
+    this.extensionLottery.numers_to_positions_to_counts = oNumbersToPositionsToCounts;
+    return oNumbersToPositionsToCounts;
+
   }
 
 
