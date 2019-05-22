@@ -9,7 +9,7 @@
         :sm="{span: 6, offset: 2}" 
         :md="{span: 5, offset: 2}" 
         :lg="{span: 6, offset: 2}"
-        :xl="{span: 4, offset: 4}">
+        :xl="{span: 4, offset: 4}" class="mr-1">
         <div class="rule-head">首页&nbsp;&gt;
           <span v-if="code === 'BJPK10'">北京PK10</span>
           <span v-if="code === 'CQSSC'">重庆时时彩</span>
@@ -27,32 +27,32 @@
           <span v-if="code === 'FC3D'">福彩3D</span>
           <span v-if="code === 'TWBG'">台湾宾果</span>
         </div>
-        <div class="rule-content">
+        <aside class="rule-content">
           <div class="lottery-menu">
             <ul class="font-weight-bold font-size-1p5">
               <li class="font-size-2">玩法规则</li>
-              <li :class=" code === 'BJPK10' ? 'background-li':'' " @click="toggleLottery('BJPK10')">北京PK10</li>
-              <li :class=" code === 'CQSSC' ? 'background-li':'' " @click="toggleLottery('CQSSC')">重庆时时彩</li>
-              <li :class=" code === 'XJSSC' ? 'background-li':'' " @click="toggleLottery('XJSSC')">新疆时时彩</li>
-              <li :class=" code === 'PL3' ? 'background-li':'' " @click="toggleLottery('PL3')">体彩排列3</li>
-              <li :class=" code === 'GDKLSF' ? 'background-li':'' " @click="toggleLottery('GDKLSF')">广东快乐十分</li>
-              <li :class=" code === 'GD11X5' ? 'background-li':'' " @click="toggleLottery('GD11X5')">广东11选5</li>
-              <li :class=" code === 'JSK3' ? 'background-li':'' " @click="toggleLottery('JSK3')">江苏快3</li>
-              <li :class=" code === 'SD11X5' ? 'background-il':'' " @click="toggleLottery('SD11X5')">十一运夺金</li>
-              <li :class=" code === 'CQXYNC' ? 'background-li':'' " @click="toggleLottery('CQXYNC')">重庆辛运农场</li>
-              <li :class=" code === 'K3' ? 'background-li':'' " @click="toggleLottery('K3')">快3</li>
-              <li :class=" code === '11X5' ? 'background-li':'' " @click="toggleLottery('11X5')">11选5</li>
-              <li :class=" code === 'BJKL8' ? 'background-li':'' " @click="toggleLottery('BJKL8')">北京快乐8</li>
-              <li :class=" code === 'PCDD' ? 'background-li':'' " @click="toggleLottery('PCDD')">PC蛋蛋</li>
-              <li :class=" code === 'FC3D' ? 'background-li':'' " @click="toggleLottery('FC3D')">福彩3D</li>
-              <li :class=" code === 'TWBG' ? 'background-li':'' " @click="toggleLottery('TWBG')">台湾宾果</li>
+              <li :class=" code === 'BJPK10' ? 'background-li':'' " @click="changeLottery('BJPK10')">北京PK10</li>
+              <li :class=" code === 'CQSSC' ? 'background-li':'' " @click="changeLottery('CQSSC')">重庆时时彩</li>
+              <li :class=" code === 'XJSSC' ? 'background-li':'' " @click="changeLottery('XJSSC')">新疆时时彩</li>
+              <li :class=" code === 'PL3' ? 'background-li':'' " @click="changeLottery('PL3')">体彩排列3</li>
+              <li :class=" code === 'GDKLSF' ? 'background-li':'' " @click="changeLottery('GDKLSF')">广东快乐十分</li>
+              <li :class=" code === 'GD11X5' ? 'background-li':'' " @click="changeLottery('GD11X5')">广东11选5</li>
+              <li :class=" code === 'JSK3' ? 'background-li':'' " @click="changeLottery('JSK3')">江苏快3</li>
+              <li :class=" code === 'SD11X5' ? 'background-il':'' " @click="changeLottery('SD11X5')">十一运夺金</li>
+              <li :class=" code === 'CQXYNC' ? 'background-li':'' " @click="changeLottery('CQXYNC')">重庆辛运农场</li>
+              <li :class=" code === 'K3' ? 'background-li':'' " @click="changeLottery('K3')">快3</li>
+              <li :class=" code === '11X5' ? 'background-li':'' " @click="changeLottery('11X5')">11选5</li>
+              <li :class=" code === 'BJKL8' ? 'background-li':'' " @click="changeLottery('BJKL8')">北京快乐8</li>
+              <li :class=" code === 'PCDD' ? 'background-li':'' " @click="changeLottery('PCDD')">PC蛋蛋</li>
+              <li :class=" code === 'FC3D' ? 'background-li':'' " @click="changeLottery('FC3D')">福彩3D</li>
+              <li :class=" code === 'TWBG' ? 'background-li':'' " @click="changeLottery('TWBG')">台湾宾果</li>
             </ul>
           </div>
-        </div>
+        </aside>
       </Col>
       <Col 
-         :xs="{span: 15}" :sm="{span: 14}" :md="{span: 15}" :lg="{span: 14}" :xl="{span: 12}">
-        <div class="rule-content ">
+         :xs="{span: 15}" :sm="{span: 14}" :md="{span: 15}" :lg="{span: 14}" :xl="{span: 12}" class="ml-1">
+        <main class="rule-content ">
           <div class="rule-details mb-2 background-white">
             <div class="rule-pk10" v-if="code === 'BJPK10'">
               <p class="text-center font-size-2p5 font-weight-bold">“PK10”游戏规则</p>
@@ -860,7 +860,7 @@
             <div v-if="code === 'FC3D'">福彩3D</div>
             <div v-if="code === 'TWBG'">台湾宾果</div>
           </div>
-        </div>
+        </main>
       </Col>
     </Row>
     <Footer />
@@ -906,9 +906,17 @@ import {
 })
 class Rule extends Vue {
   public code: string = 'BJPK10';
-
-  public toggleLottery(sCode: string) {
+  public created(): void {
+    let $root: any = this.$root;
+    let sCode: string = this.$route.query.code.toString();
     this.code = sCode;
+  }
+  public changeLottery(sCode: string) {
+    this.code = sCode;
+    let oQuery = {
+      code: sCode,
+    };
+    this.$router.replace({ path: '/rule/', query: oQuery });
   }
 
 }
