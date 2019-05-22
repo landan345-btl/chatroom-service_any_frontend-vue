@@ -4,7 +4,7 @@
   }
 }
 
- .ivu-radio-group-button .ivu-radio-wrapper:first-child, /deep/ .ivu-radio-group-button .ivu-radio-wrapper:last-child {
+ .ivu-radio-group-button .ivu-radio-wrapper:first-child, ::v-deep .ivu-radio-group-button .ivu-radio-wrapper:last-child {
   border-radius: 0.6vmin; 
 }
  .ivu-radio-group-button .ivu-radio-wrapper:after, .ivu-radio-group-button .ivu-radio-wrapper:before {

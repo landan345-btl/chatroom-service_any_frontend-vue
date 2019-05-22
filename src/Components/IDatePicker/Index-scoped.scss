@@ -1,36 +1,36 @@
-/deep/ .ivu-input:hover {
+::v-deep .ivu-input:hover {
   border-color: #FBA75E;
 }
-/deep/ .ivu-input:focus {
+::v-deep .ivu-input:focus {
   border-color: #FBA75E;
   outline: 0;
   box-shadow: 0 0 0 0px rgba(240,113,7,.2);
 }
 
-/deep/ .ivu-date-picker-cells-cell-selected em, .ivu-date-picker-cells-cell-selected:hover em {
+::v-deep .ivu-date-picker-cells-cell-selected em, .ivu-date-picker-cells-cell-selected:hover em {
   background: #FBA75E;
   color: #fff;
 }
 
-/deep/ .ivu-date-picker-cells-focused em {
+::v-deep .ivu-date-picker-cells-focused em {
   box-shadow: 0 0 0 1px #FBA75E inset;
 }
 
-/deep/ .ivu-date-picker-cells-cell-today em:after, /deep/ .ivu-date-picker-cells-cell:hover em {
+::v-deep .ivu-date-picker-cells-cell-today em:after, ::v-deep .ivu-date-picker-cells-cell:hover em {
   background: #FBA75E;
 }
 
-/deep/ .ivu-input-with-suffix {
+::v-deep .ivu-input-with-suffix {
   padding-right: 3vmin !important;
 }
 
-/deep/ .ivu-input {
+::v-deep .ivu-input {
   width: 20vmin;
   padding: 1.6vmin 1.6vmin;
   border-radius: .5vmin;
 }
 
-/deep/ .ivu-date-picker-cells {
+::v-deep .ivu-date-picker-cells {
   width: 21vmin;
   margin: .1vmin;
 }

@@ -7,7 +7,7 @@
     height: 2.5vmin;
   }
 
-  /deep/ .line-break {
+  ::v-deep .line-break {
     height: 100%;
     width: 1px;
     background-color: #f0f0f0;

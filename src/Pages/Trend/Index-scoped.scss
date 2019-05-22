@@ -1,12 +1,12 @@
 .page.trend {
   background: #f0f0f0;
-  /deep/ .el-tabs--card>.el-tabs__header .el-tabs__nav {
+  ::v-deep .el-tabs--card>.el-tabs__header .el-tabs__nav {
     border: 0 solid #E4E7ED;
   }
-  /deep/ .el-tabs--card>.el-tabs__header .el-tabs__item {
+  ::v-deep .el-tabs--card>.el-tabs__header .el-tabs__item {
     border: 0 solid transparent;
   }
-  /deep/ .el-tabs__item {
+  ::v-deep .el-tabs__item {
     // padding: 0 20px;
     height: 6vmin;
     // -webkit-box-sizing: border-box;
@@ -19,49 +19,49 @@
     // color: #303133;
     // position: relative;
   }
-  /deep/ .ivu-tabs-nav-container {
+  ::v-deep .ivu-tabs-nav-container {
     background-color: #ffffff;
   }
 
-  /deep/ .ivu-tabs-nav .ivu-tabs-tab-active {  
+  ::v-deep .ivu-tabs-nav .ivu-tabs-tab-active {  
     @media only screen and (min-width: 1200px) {
       font-size: 2vmin;
     }
   }
-  /deep/ .parent .ivu-tabs-bar {
+  ::v-deep .parent .ivu-tabs-bar {
     border-bottom: 0px solid #dcdee2;
   }
   .ivu-tabs-nav .ivu-tabs-tab-active {
     font-size: 2.2vmin;
   }
 
-  /deep/ .parent .ivu-tabs-nav-container {
+  ::v-deep .parent .ivu-tabs-nav-container {
     font-size: 2vmin;
   }
 
-  /deep/ .parent.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-nav-container {
+  ::v-deep .parent.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-nav-container {
     height: 5vmin;
   }
 
   /* .parent ivu-tabs 同级别*/
-  /deep/ .parent.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-tab {
+  ::v-deep .parent.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-tab {
     border: 0px solid #dcdee2;
     border-radius: 0 0 0 0;
     background: #ffffff;
   }
 
-  /deep/ .son .ivu-tabs-bar {
+  ::v-deep .son .ivu-tabs-bar {
     border-bottom: 2px solid #dcdee2;
     margin-bottom: 0;
   }
 
-  /deep/ .son .ivu-tabs-nav-container {
+  ::v-deep .son .ivu-tabs-nav-container {
     font-size: 1.5vmin;
   }
-  /deep/ .son .ivu-tabs-nav .ivu-tabs-tab-active {
+  ::v-deep .son .ivu-tabs-nav .ivu-tabs-tab-active {
     font-size: 1.8vmin;
   }
-  /deep/ .son .ivu-tabs-card >　.ivu-tabs-bar {
+  ::v-deep .son .ivu-tabs-card >　.ivu-tabs-bar {
     // border-bottom: 0px solid #dcdee2;
     background-color: #ffffff;
     margin-bottom: 16px;
