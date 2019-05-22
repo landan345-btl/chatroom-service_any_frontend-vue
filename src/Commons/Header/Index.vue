@@ -1,6 +1,6 @@
 <template>
   <header class="background-white">
-    <Row :gutter="30" type="flex" justify="space-between" class="top">
+    <Row :gutter="0" type="flex" justify="space-between" class="top">
       <Col
         :xs="{span: 22, offset: 1}" 
         :sm="{span: 20, offset: 2}" 
@@ -19,7 +19,7 @@
         </span>
       </Col>
     </Row>
-    <Row :gutter="30" class="images pt-1 pb-1">
+    <Row :gutter="0" class="images pt-1 pb-1">
       <Col 
         :xs="{span: 22, offset: 1}" 
         :sm="{span: 20, offset: 2}" 

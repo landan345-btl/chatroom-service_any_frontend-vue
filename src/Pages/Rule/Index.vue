@@ -3,7 +3,7 @@
     <Header />
     <NavTop/>
     <NavRight />
-    <Row :gutter="30" class="backgrond-mian">
+    <Row :gutter="0" class="backgrond-mian">
       <Col 
         :xs="{span: 6, offset: 1}" 
         :sm="{span: 6, offset: 2}" 
