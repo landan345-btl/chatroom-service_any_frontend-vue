@@ -1,4 +1,5 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
 module.exports = {
   // 基本路径
@@ -18,17 +19,17 @@ module.exports = {
   // 生产环境sourceMap
   productionSourceMap: true,
   // webpack配置
-  configureWebpack: {
-    devServer: {
-      host: process.env.HOST,
-      port: process.env.PORT,
-      watchOptions: {
-        ignored: ['node_modules'],
-        aggregateTimeout: 300,
-        poll: 1500
-      },
-      public: '127.0.0.1', // vagrant machine address,
-      disableHostCheck: true,
+  configureWebpack: config => {
+    if(process.env.NODE_ENV === 'production'){
+      return{
+        plugins: [
+          new CompressionWebpackPlugin({
+            test:/\.js$|\.html$|.\css/, //匹配文件名
+            threshold: 10240,//对超过10k的数据压缩
+            deleteOriginalAssets: false //不删除源文件
+          })
+        ]
+      }
     }
   },
   chainWebpack: () => {},
