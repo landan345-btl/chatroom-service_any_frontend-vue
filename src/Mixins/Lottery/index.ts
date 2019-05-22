@@ -186,7 +186,6 @@ class Lottery extends Vue {
   }
 
   public caculateNumbersToPositionsToCounts(oLotteryIssues: any, oLotteries: any, iLimit: any) {
-    debugger;
     this.extensionLottery.numers_to_positions_to_counts = {};
     let aLotteryIssues: any = Object.values(oLotteryIssues);
     let oHotWarnColdCountPositions: any = {};

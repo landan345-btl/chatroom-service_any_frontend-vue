@@ -65,6 +65,7 @@ import {
   Component,
   Vue,
   Prop,
+  Watch,
 } from 'vue-property-decorator';
 
 import {
