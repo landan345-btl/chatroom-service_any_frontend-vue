@@ -47,7 +47,7 @@
         <Basic-trend v-if="code && types" :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types"/>
       </TabPane>
       <TabPane :label="'冷热分析'" :name="'popular-anaylysis'">
-        <Popular-analysis v-if="code && types" :hotWarnColdPositions="hotWarnColdPositions" :code="code" :types="types"/>
+        <Popular-analysis v-if="code && types" :lotteryIssues="lotteryIssues" :lotteries="lotteries" :code="code" :types="types"/>
       </TabPane>
       <TabPane :label="'龙虎走势'" :name="'dragon-or-Tiger-trend'">
         <Dragon-or-tiger-trend v-if="code && types" />

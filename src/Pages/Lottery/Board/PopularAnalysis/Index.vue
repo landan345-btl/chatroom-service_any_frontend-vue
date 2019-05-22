@@ -18,38 +18,38 @@
         <th class="align-middle text-center">温</th>
         <th class="align-middle text-center">冷</th>
       </tr>
-      <tr v-for="(oCounts, iPosition) in hotWarnColdPositions" :key="iPosition">
+      <tr v-for="(oCounts, iPosition) in extensionLottery.numers_to_positions_to_counts" :key="iPosition">
         <td class="align-middle font-size-1 text-center">{{ types && texts[types] && texts[types][iPosition] ? texts[types][iPosition] : '第' + iPosition + '球' }} </td>
         <td class="align-middle text-left">
             <S-numbers 
               :code="code" 
-              :counts="hotWarnColdPositions[iPosition]"
+              :counts="extensionLottery.numers_to_positions_to_counts[iPosition]"
               :isCountShowed=" isHotCountShowed "
-              :numbers="chooseNumbersByCount(hotWarnColdPositions[iPosition], 4, null)" 
+              :numbers="chooseNumbersByCount(extensionLottery.numers_to_positions_to_counts[iPosition], 4, null)" 
               :types="LOTTERIES[code].TYPES || types" 
               :isRandom="false" 
               :status="'NUMBER'"
-              v-if="hotWarnColdPositions && hotWarnColdPositions[iPosition]" />
+              v-if="extensionLottery.numers_to_positions_to_counts && extensionLottery.numers_to_positions_to_counts[iPosition]" />
         </td>
         <td class="align-middle text-left">
           <S-numbers 
             :code="code"
-            :numbers="chooseNumbersByCount(hotWarnColdPositions[iPosition], 2, 3)" 
+            :numbers="chooseNumbersByCount(extensionLottery.numers_to_positions_to_counts[iPosition], 2, 3)" 
             :types="LOTTERIES[code].TYPES || types" 
             :isRandom="false" 
             :isCountShowed="false"
             :status="'NUMBER'"
-            v-if="hotWarnColdPositions && hotWarnColdPositions[iPosition]" />
+            v-if="extensionLottery.numers_to_positions_to_counts && extensionLottery.numers_to_positions_to_counts[iPosition]" />
         </td>
         <td class="align-middle text-left">
           <S-numbers 
             :code="code"
-            :numbers="chooseNumbersByCount(hotWarnColdPositions[iPosition], 0, 1)" 
+            :numbers="chooseNumbersByCount(extensionLottery.numers_to_positions_to_counts[iPosition], 0, 1)" 
             :types="LOTTERIES[code].TYPES || types" 
             :isRandom="false" 
             :isCountShowed="false"
             :status="'NUMBER'"
-            v-if="hotWarnColdPositions && hotWarnColdPositions[iPosition]" />
+            v-if="extensionLottery.numers_to_positions_to_counts && extensionLottery.numers_to_positions_to_counts[iPosition]" />
         </td>
       </tr>
     </table>
@@ -65,6 +65,7 @@ import {
   Component,
   Vue,
   Prop,
+  Watch,
 } from 'vue-property-decorator';
 
 import {
@@ -77,6 +78,10 @@ import {
   LOTTERIES,
 } from '@/CONFIGS/';
 
+import {
+  Lottery as LotteryMixins,
+} from '@/Mixins/';
+
 @Component({
   name: 'PopularAnalysis',
   components: {
@@ -84,18 +89,20 @@ import {
     ICheckboxGroup,
     IDivider,
   },
+  mixins: [LotteryMixins],
 })
 class PopularAnalysis extends Vue {
   public isHotCountShowed = false ;
 
-  @Prop()
-  public hotWarnColdPositions!: any;
   @Prop()
   public lotteryIssues!: any;
   @Prop()
   public code!: any;
   @Prop()
   public types!: any;
+
+  @Prop()
+  public lotteries: any;
 
   public counts = null;
 
@@ -117,6 +124,13 @@ class PopularAnalysis extends Vue {
     });
     return aNumbers;
   }
+  
+  public caculateNumbersToPositionsToCounts: any;
+
+  public beforeMount() {
+    this.caculateNumbersToPositionsToCounts(this.lotteryIssues, this.lotteries, 20 );
+  }
+
 }
 
 export default PopularAnalysis;
