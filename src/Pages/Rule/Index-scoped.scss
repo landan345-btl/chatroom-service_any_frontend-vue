@@ -30,7 +30,7 @@
     .font-size-2p1 {
       font-size: 2.1vmin !important;
     }
-    .rule-pk10 {
+    .rule-pk10,.rule-xjssc {
       padding: 5vmin 11vmin 2vmin;
       p {
         margin: .5vmin 0;
@@ -55,15 +55,10 @@
         margin: 1vmin 0; 
         font-size: 1.4vmin;
       }
-    }
+    } 
   }
 }
-.rule-content::after {
-    content: '.';
-    height: 0;
-    display: block;
-    clear: both;
-}
+
 .backgrond-mian {
   background: #f0f0f0;
 }
