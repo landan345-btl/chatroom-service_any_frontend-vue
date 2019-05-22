@@ -536,7 +536,7 @@
               <p class="ml-2">欢乐一：单注投注生肖与当期中奖生肖的绿区生肖按位相符，即中奖；</p>
             </div>
             <div class="rule-xjssc" v-if="iNumber === 3">
-              <p class="font-size-1p5 font-weight-bold">新疆时时彩游戏规则</p>
+              <p class="text-center font-size-2p5 font-weight-bold">新疆时时彩游戏规则</p>
               <p class="font-size-1p5 font-weight-bold">总则</p>
               <p>第一条 根据《彩票管理条例》等有关规定，制定本规则。 </p>
               <p>第二条 中国福利彩票新疆维吾尔自治区时时彩（以下简称“时时彩”）由中国福利彩票发行管理中心组织发行，新疆维吾尔自治区福利彩票销售机构（以下</p>
