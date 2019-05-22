@@ -105,6 +105,7 @@ class PopularAnalysis extends Vue {
   public lotteries: any;
 
   public counts = null;
+  public caculateNumbersToPositionsToCounts: any;
 
   public texts = {
     PK10: ['冠军' , '亚军' , '第三名' , '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'],
@@ -124,10 +125,10 @@ class PopularAnalysis extends Vue {
     });
     return aNumbers;
   }
-  
-  public caculateNumbersToPositionsToCounts: any;
+
 
   public beforeMount() {
+    // debugger;
     this.caculateNumbersToPositionsToCounts(this.lotteryIssues, this.lotteries, 20 );
   }
 
