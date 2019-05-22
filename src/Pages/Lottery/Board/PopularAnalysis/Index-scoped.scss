@@ -33,13 +33,13 @@
       background: #ebebeb;
     }
   }
-  /deep/ .ivu-checkbox-group {
+  ::v-deep .ivu-checkbox-group {
     display: inline-block;
   }
-  /deep/ .ivu-checkbox-wrapper {
+  ::v-deep .ivu-checkbox-wrapper {
     margin: 0px;
   }
-  /deep/ .popular-analysis[data-v-735c06f5] .ivu-checkbox-wrapper:hover{
+  ::v-deep .popular-analysis[data-v-735c06f5] .ivu-checkbox-wrapper:hover{
     color: #fba75e;
   }
 }

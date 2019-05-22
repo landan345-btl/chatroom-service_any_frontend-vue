@@ -21,6 +21,6 @@
   top:1.2vmin;
   right:1.2vmin;
 }
-/deep/ .el-tabs__item {
+::v-deep .el-tabs__item {
   font-size: 1.8vmin;
 }

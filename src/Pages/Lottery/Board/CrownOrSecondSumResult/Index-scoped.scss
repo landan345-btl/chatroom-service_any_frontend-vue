@@ -1,4 +1,4 @@
-.dragon-or-tiger-result {
+.crown-or-second-sum-result{
   .announcement-wrapper {
     z-index: 3;
     padding: .7vmin 1vmin;
@@ -17,7 +17,7 @@
       }
     }
     .announcement-showed {
-      height: 22vmin;
+      height: 14vmin;
     }
   }
   .announcement-wrapper + div{
@@ -26,6 +26,5 @@
       cursor: pointer;
     }
   }
- }
-
+}
 

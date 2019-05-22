@@ -14,7 +14,7 @@
     <I-divider/>
     <div class="pt-2 pl-2">
       标注选择：
-      <I-checkbox-group v-model="decorator">
+      <I-checkbox-group v-model="decorator" class="d-inline-block">
         <Checkbox label="遗漏"></Checkbox>
         <Checkbox label="折线"></Checkbox>
         <Checkbox label="遗漏分层"></Checkbox>

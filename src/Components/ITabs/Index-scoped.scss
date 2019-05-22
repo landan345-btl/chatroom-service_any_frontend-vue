@@ -1,9 +1,9 @@
-/deep/ .ivu-tabs-ink-bar {
+::v-deep .ivu-tabs-ink-bar {
   color: #ff7b00;
   background-color: #ff7b00;
 }
 
-/deep/ .ivu-tabs-nav .ivu-tabs-tab-active {
+::v-deep .ivu-tabs-nav .ivu-tabs-tab-active {
   color: #ff7b00;
   
   @media only screen and (min-width: 992px) {
@@ -17,7 +17,7 @@
 
 }
 
-/deep/ .ivu-tabs-nav .ivu-tabs-tab {
+::v-deep .ivu-tabs-nav .ivu-tabs-tab {
   @media only screen and (min-width: 992px) {
     padding: 0.6vmin 0.6vmin;
   }
@@ -28,18 +28,18 @@
 
 } 
 
-/deep/ .ivu-tabs-ink-bar:hover {
+::v-deep .ivu-tabs-ink-bar:hover {
   color: #ff7b00;
 }
 
-/deep/ .ivu-tabs-nav .ivu-tabs-tab-active:hover {
+::v-deep .ivu-tabs-nav .ivu-tabs-tab-active:hover {
   color: #ff7b00;
 }
-/deep/ .ivu-tabs-nav .ivu-tabs-tab:hover {
+::v-deep .ivu-tabs-nav .ivu-tabs-tab:hover {
   color: #ff7b00;
 }
 
-/deep/ .ivu-tabs-nav-container {
+::v-deep .ivu-tabs-nav-container {
   @media only screen and (min-width: 992px) {
     font-size: 1vmin;
   }
@@ -51,7 +51,7 @@
 }
 
 .ivu-tabs.ivu-tabs-card { 
-  /deep/ .ivu-tabs-bar .ivu-tabs-tab-active {
+  ::v-deep .ivu-tabs-bar .ivu-tabs-tab-active {
   // height: 52px;
   // padding-bottom: 5px;
   // background: #fff;
@@ -61,7 +61,7 @@
     line-height: 2;
     height: inherit;
   }
-  /deep/ .ivu-tabs-bar .ivu-tabs-tab {
+  ::v-deep .ivu-tabs-bar .ivu-tabs-tab {
     line-height: 2;
     height: inherit;
   }
