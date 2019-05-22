@@ -80,6 +80,7 @@
         <Summation-result v-if="code && types" :lotteryIssues="lotteryIssues"/>
       </TabPane>
       <TabPane :label="'玩法规则'" :name="'rule'">
+        <I-rule />
       </TabPane>
     </I-tabs>
   </div>
@@ -122,6 +123,7 @@ import NumberOrFrontOrBackResult from './NumberOrFrontOrBackResult/Index.vue';
 import CrownOrSecondSumResult from './CrownOrSecondSumResult/Index.vue';
 import NumberOrLawCount from './NumberOrLawCount/Index.vue';
 import CrownOrSecondSumTwoSideHistory from './CrownOrSecondSumTwoSideHistory/Index.vue';
+import Rule from './Rule/Index.vue';
 
 import {
   LOTTERIES,
@@ -153,6 +155,7 @@ import {
     CrownOrSecondSumResult,
     NumberOrLawCount,
     CrownOrSecondSumTwoSideHistory,
+    Rule,
   },
 })
 class Board extends Vue {

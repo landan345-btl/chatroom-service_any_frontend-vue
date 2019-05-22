@@ -4,7 +4,7 @@
       <span class="font-size-2 line-height3">单双大小历史</span>
     </div>
     <I-divider/>
-    <div class="p-2">
+    <div class="pl-2 pr-2 pb-2">
       <table>
         <tr>
           <td rowspan="2">

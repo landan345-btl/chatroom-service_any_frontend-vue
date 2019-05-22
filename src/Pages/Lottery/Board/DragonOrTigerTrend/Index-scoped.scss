@@ -1,26 +1,36 @@
 .dragon-or-tiger-trend {
-  .explain {
-    position: relative;
-    padding: .7vmin 0 .7vmin 1vmin;
+  .announcement-wrapper {
+    z-index: 3;
+    padding: .7vmin 1vmin;
     background: #edf4fa;
-    border: .1vmin solid #e3e3e3;
-    // overflow: hidden;
-    span:nth-child(2) {
-      float: right;
-      margin-right: 2vmin;
+    border: 1px solid #e3e3e3;
+    left:2vmin;
+    right:2vmin;
+    div {
+      overflow: hidden;
+      height: 2.8vmin;
+      padding: 0;
+      transition: height .8s ease;
+      p {
+        line-height: 2.8vmin;
+        cursor: pointer;
+      }
     }
-    span:nth-child(2):hover {
+    .announcement-showed {
+      height: 16vmin;
+    }
+  }
+  .filtrate-ranks {
+    margin-top: 8vmin;
+    span {
       cursor: pointer;
     }
   }
-  table {
-    width: 97%;
-    margin: 0 auto 0;
-    font-size: 1vmin;
+  .trend-table{
     td {
       padding: 1vmin 0;
       text-align: center;
-      border: .2vmin solid #968e8e;
+      border: 1px solid #968e8e;
       span {
         display: inline-block;
         border-radius: 50%;
@@ -30,14 +40,13 @@
         line-height: 2.2vmin;
       }
     }
-    tr:nth-child(1),tr:nth-child(2) {
+    .background-grey {
       background: #ebebeb;
       span {
         position: relative;
         top: 2vmin;
-      } 
+      }
     }
   }
-  background: #ffffff;
 }
 

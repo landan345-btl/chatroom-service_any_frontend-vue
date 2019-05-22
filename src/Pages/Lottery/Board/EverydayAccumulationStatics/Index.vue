@@ -39,48 +39,44 @@
         </div>
       </div>
     </div>
-
-    <div class="p-2">
-      <div>
-        <table>
-          <tr>
-            <td rowspan="2">
-              <span>长龙</span>
-              <span></span>
-              <span></span>
-              <span>日期</span>
-            </td>
-            <td colspan="10">开"单"长龙出现条数</td>
-          </tr>
-          <tr>
-            <td>2期</td>
-            <td>3期</td>
-            <td>4期</td>
-            <td>5期</td>
-            <td>6期</td>
-            <td>7期</td>
-            <td>8期</td>
-            <td>9期</td>
-            <td>10期</td>
-            <td>11期</td>
-          </tr>
-          <tr v-for="( item , i ) in 15" :key="i">
-            <td>2019-05-09</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-            <td>10</td>
-          </tr>
-        </table>
-      </div>
+    <div class="pl-2 pr-2 pb-2 font-size-1p5">
+      <table class="w-100">
+        <tr>
+          <td rowspan="2">
+            <span>长龙</span>
+            <span></span>
+            <span></span>
+            <span>日期</span>
+          </td>
+          <td colspan="10">开"单"长龙出现条数</td>
+        </tr>
+        <tr>
+          <td>2期</td>
+          <td>3期</td>
+          <td>4期</td>
+          <td>5期</td>
+          <td>6期</td>
+          <td>7期</td>
+          <td>8期</td>
+          <td>9期</td>
+          <td>10期</td>
+          <td>11期</td>
+        </tr>
+        <tr v-for="( item , i ) in 15" :key="i">
+          <td>2019-05-09</td>
+          <td>10</td>
+          <td>10</td>
+          <td>10</td>
+          <td>10</td>
+          <td>10</td>
+          <td>10</td>
+          <td>10</td>
+          <td>10</td>
+          <td>10</td>
+          <td>10</td>
+        </tr>
+      </table>
     </div>
-
   </div>
 </template>
 <style scoped lang="scss">
