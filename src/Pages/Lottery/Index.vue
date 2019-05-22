@@ -23,7 +23,6 @@
             :lotteries="getLotteries" 
             :code="getCode" 
             :types="getTypes" 
-            :hotWarnColdPositions="getHotWarnColdPositions"
             v-if="getTypes"/>
         </main>
       </Col>
@@ -63,6 +62,10 @@ import {
   LOTTERY_TYPES,
 } from '@/CONFIGS/';
 
+import { 
+  Lottery as LotteryMixin,
+} from '@/Mixins/';
+
 @Component({
   components: {
     ISpin,
@@ -73,6 +76,7 @@ import {
     Pannel,
     Board,
   },
+  mixins: [LotteryMixin],
 })
 class Lottery extends Vue {
   public interval: any = null;
@@ -94,6 +98,10 @@ class Lottery extends Vue {
       this.isSpinShowed = false;
     });
     this.setIntervalLotteryIssueActionShow(oQueries);
+  }
+
+  public beforeMount() {
+    // this.caculateNumbersToPositionsToCounts();
   }
 
   @Watch('$route', { immediate: true, deep: true })
@@ -182,38 +190,7 @@ class Lottery extends Vue {
     let oLotteryIssue: { lottery_issue_id: any} | undefined = Object.values(oLotteryIssues).pop();
     return oLotteryIssue;
   }
-
-  public get getHotWarnColdPositions() {
-    let oLotteryIssues: any = this.$store.state.lottery_issues;
-    let oLotteries: any = this.$store.state.lotteries;
-    if (!oLotteryIssues || !oLotteries) {
-      return;
-    }
-    let aLotteryIssues = Object.values(oLotteryIssues);
-
-    let oHotWarnColdCountPositions: any = {};
-    let oLotteryIssue: any;
-    let iLoopCount = 0;
-    while (20 > iLoopCount && 1 <= aLotteryIssues.length) {
-      oLotteryIssue = aLotteryIssues.pop();
-      let aNumbers = JSON.parse(oLotteryIssue.numbers);
-      let sType = oLotteries[oLotteryIssue.lottery_id].types;
-      aNumbers.forEach((iNumber: number, iIndex: number) => {
-        if (!oHotWarnColdCountPositions.hasOwnProperty(iIndex)) {
-          let oNumbersToCounts = LOTTERY_TYPES[sType].NUMBERS.reduce((_oNumbersToCounts: any, _iNumber: any) => {
-            _oNumbersToCounts[_iNumber] = 0;
-            return _oNumbersToCounts;
-          }, {});
-          oHotWarnColdCountPositions[iIndex] = oNumbersToCounts;
-        }
-        let oHotWarnColdPosition = oHotWarnColdCountPositions[iIndex];
-        oHotWarnColdCountPositions[iIndex][iNumber] = oHotWarnColdPosition[iNumber] + 1;
-      });
-      iLoopCount++;
-    }
-    return oHotWarnColdCountPositions;
-  }
-
+  
   public get getTodayNumbers() {
     let oLotteryIssues: any = this.$store.state.lottery_issues;
     let aLotteryIssues = Object.values(oLotteryIssues);
