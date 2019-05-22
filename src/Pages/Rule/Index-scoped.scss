@@ -58,7 +58,12 @@
     } 
   }
 }
-
+.rule-content::after {
+    content: '.';
+    height: 0;
+    display: block;
+    clear: both;
+}
 .backgrond-mian {
   background: #f0f0f0;
 }
