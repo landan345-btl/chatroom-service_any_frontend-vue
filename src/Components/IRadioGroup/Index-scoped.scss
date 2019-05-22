@@ -1,16 +1,16 @@
-/deep/ .ivu-radio-group-button {
+::v-deep .ivu-radio-group-button {
   .ivu-radio-wrapper {
     border: 0 !important;
   }
 }
 
-/deep/ .ivu-radio-group-button .ivu-radio-wrapper:first-child, /deep/ .ivu-radio-group-button .ivu-radio-wrapper:last-child {
+ .ivu-radio-group-button .ivu-radio-wrapper:first-child, ::v-deep .ivu-radio-group-button .ivu-radio-wrapper:last-child {
   border-radius: 0.6vmin; 
 }
-/deep/ .ivu-radio-group-button .ivu-radio-wrapper:after, .ivu-radio-group-button .ivu-radio-wrapper:before {
+::v-deep .ivu-radio-group-button .ivu-radio-wrapper:after, .ivu-radio-group-button .ivu-radio-wrapper:before {
   display: none !important;
 }
-/deep/ .ivu-radio-group-button .ivu-radio-wrapper-checked {
+::v-deep .ivu-radio-group-button .ivu-radio-wrapper-checked {
   background: #fba75e !important;
   color: #fff !important;
   border-radius: 0.6vmin; 
@@ -20,6 +20,6 @@
 .ivu-radio-group-button .ivu-radio-wrapper:hover {
   color: red;
 }
-/deep/ .ivu-radio-group-button .ivu-radio-wrapper-checked:hover {
+::v-deep .ivu-radio-group-button .ivu-radio-wrapper-checked:hover {
   color: #fff !important;
 }

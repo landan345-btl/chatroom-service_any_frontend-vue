@@ -7,6 +7,12 @@ import {
   Lottery as LotteryHelper,
 } from '@/Helpers/';
 
+import {
+  BACKEND,
+  LOTTERIES,
+  LOTTERY_TYPES,
+} from '@/CONFIGS/';
+
 @Component({
   name: 'LotteryMixin',
 })
@@ -20,18 +26,7 @@ class Lottery extends Vue {
   public extensionLottery: any = {
     positions_to_number_types_to_counts: {},
     numbers_to_counts: {},
-    numers_to_position_counts: {},
-    /**
-     * {
-     *   1: {
-     *         '0': 2,
-     *         '1': 4,
-     *      },
-     *   2:
-     *   3:
-     *   ...
-     * }
-     */
+    numers_to_positions_counts: {},
   };
 
   public calculateNextTime(sOpenedTime: string, oLottery: any): number {
@@ -187,14 +182,40 @@ class Lottery extends Vue {
         oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
       }
     });
-
     this.extensionLottery.positions_to_number_types_to_counts = oPositionsToNumberTypesToCounts;
   }
 
-  public caculateNumbersToPositionsToCounts(oLotteryIssues: any, oLottery: any, iLimit = 20) {
-    this.extensionLottery.numers_to_position_counts = {};
+  public caculateNumbersToPositionsToCounts(oLotteryIssues: any, oLotteries: any, iLimit: any) {
+    this.extensionLottery.numers_to_positions_to_counts = {};
+    if (!oLotteryIssues || !oLotteries) {
+      return {};
+    }
+    let aLotteryIssues: any = Object.values(oLotteryIssues);
+    let oNumbersToPositionsToCounts: any = {};
+    let oLotteryIssue: any;
+    let iLoopCount = 0;
+    while (iLimit > iLoopCount && 1 <= aLotteryIssues.length) {
+      oLotteryIssue = aLotteryIssues.pop();
+      let aNumbers = JSON.parse(oLotteryIssue.numbers);
+      let sType = oLotteries[oLotteryIssue.lottery_id].types;
+      aNumbers.forEach((iNumber: number, iIndex: number) => {
+        if (!oNumbersToPositionsToCounts.hasOwnProperty(iIndex)) {
+          let oNumbersToCounts = LOTTERY_TYPES[sType].NUMBERS.reduce((_oNumbersToCounts: any, _iNumber: any) => {
+            _oNumbersToCounts[_iNumber] = 0;
+            return _oNumbersToCounts;
+          }, {});
+          oNumbersToPositionsToCounts[iIndex] = oNumbersToCounts;
+        }
+        let oHotWarnColdPosition = oNumbersToPositionsToCounts[iIndex];
+        oNumbersToPositionsToCounts[iIndex][iNumber] = oHotWarnColdPosition[iNumber] + 1;
+      });
+      iLoopCount++;
+    }
+    this.extensionLottery.numers_to_positions_to_counts = oNumbersToPositionsToCounts;
+    return oNumbersToPositionsToCounts;
 
   }
+
 
 }
 

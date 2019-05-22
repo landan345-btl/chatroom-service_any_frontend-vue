@@ -19,7 +19,7 @@
     font-size: 1.4vmin;
   }
 
-  /deep/ .chen-countdown{
+  ::v-deep .chen-countdown{
     font-size: 1vmin;
     .square {
       color: #000000;

@@ -15,7 +15,7 @@ footer {
     text-align: left;
     margin: 6vmin 0 6vmin 0;
     font-size: 5vmin;
-    /deep/ .Row > div:first-child {
+    ::v-deep .Row > div:first-child {
       .list * {
         margin: 0 0 0 0;
       }

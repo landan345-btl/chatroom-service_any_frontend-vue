@@ -15,7 +15,7 @@
 
   .countdown {
     flex: 0.1 1 20vmin;
-    /deep/ .chen-countdown{
+    ::v-deep .chen-countdown{
       .square {
         background: #444553;
         color: #ffd200;
@@ -42,7 +42,7 @@
   }
   border-bottom: 1px solid #f0f0f0;
 
-  /deep/ .numbers {
+  ::v-deep .numbers {
     margin-left: -0.7vmin;
   }
 }
