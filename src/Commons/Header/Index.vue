@@ -14,7 +14,7 @@
         <span class="tool">
           <span>设为首页</span>
           <span>收藏本站</span>
-          <span>帮助中心</span>
+          <span><router-link  :to="{ path: '/rule'}">帮助中心</router-link></span>
           <span>手机版</span>
         </span>
       </Col>
