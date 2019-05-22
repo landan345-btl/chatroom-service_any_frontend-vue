@@ -19,6 +19,9 @@
   ::v-deep .ivu-tabs-nav-container {
     font-size: 1.2vmin;
     white-space: normal;
+    @media only screen and (max-width: 575.98px) {
+      white-space: nowrap;
+    }
   }
 
   ::v-deep .ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-nav-container {
@@ -30,5 +33,8 @@
   
   ::v-deep .ivu-tabs-nav-scroll {
     white-space: normal;
+    @media only screen and (max-width: 575.98px) {
+      white-space: nowrap;
+    }
   }
 }
