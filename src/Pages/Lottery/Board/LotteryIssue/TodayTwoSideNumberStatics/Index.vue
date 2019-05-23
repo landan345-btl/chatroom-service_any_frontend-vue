@@ -55,6 +55,11 @@
             </tr>
             <tr class="background-white text-center">
               <td>出现次数</td>
+              <template v-for="(oNumberTypesToCounts, iPosition) in getPositionsToNumberTypesToCounts">
+                <template v-for="(iCount, sNumberType) in oNumberTypesToCounts">
+                  <td :key="iPosition + sNumberType" v-if="iPosition < 10">{{ iCount }}</td>
+                </template>
+              </template>
           </tr>
         </tbody>      
       </table>
@@ -150,20 +155,6 @@
           </tr>
           <tr class="background-white text-center">
             <td>出现次数</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
           </tr>
         </tbody>
       </table>
@@ -290,8 +281,6 @@ class TodayTwoSideNumberStatics extends Vue {
   @Prop()
   public todayTwoSideRecords!: any;
 
-  @Prop()
-  public lotteryIssues!: any;
 
   @Prop()
   public lotteries!: any;
@@ -300,8 +289,13 @@ class TodayTwoSideNumberStatics extends Vue {
   public lottery!: any;
 
   public positionsToNumberTypesToCounts: any;
-  public beforeMount () {
-    this.positionsToNumberTypesToCounts(this.lotteryIssues, this.lottery);
+
+  public get getPositionsToNumberTypesToCounts() {
+    let oLotteryIssues = this.$store.state.lottery_issues;
+    let oLotteries = this.$store.state.lotteries;
+    debugger;
+    let oPositionsToNumberTypesToCounts = this.positionsToNumberTypesToCounts(oLotteryIssues, oLotteries);
+    return oPositionsToNumberTypesToCounts;
   }
 
   public ranks = ['冠军', '亚军', '第三名	', '第四名', '第五名','第六名', '第七名', '第八名', '第九名','第十名'];
