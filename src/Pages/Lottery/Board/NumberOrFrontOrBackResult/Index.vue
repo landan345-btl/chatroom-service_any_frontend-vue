@@ -24,7 +24,7 @@
     </div>
     <div class="mb-2 pl-2 pr-2 font-size-1p5">
       筛选名次：
-      <I-checkbox-group v-model="decorator" class="d-inline-block mr-2">
+      <I-checkbox-group v-model="numbers" class="d-inline-block mr-2">
         <Checkbox label="号码1"></Checkbox>
         <Checkbox label="号码2"></Checkbox>
         <Checkbox label="号码3"></Checkbox>
@@ -36,8 +36,8 @@
         <Checkbox label="号码9"></Checkbox>
         <Checkbox label="号码10"></Checkbox>
       </I-checkbox-group>
-      <span class="mr-2">全选</span>
-      <span>清空</span>
+      <span class="mr-2" @click="checkAll">全选</span>
+      <span @click="callAll">清空</span>
     </div>
     <div>
       <Result-table />
@@ -78,7 +78,7 @@ import {
 })
 class NumberOrFrontOrBackResult extends Vue {
   public date = '今天';
-  public decorator = ['折线', '遗漏'];
+  public numbers = ['号码1', '号码2', '号码3', '号码4', '号码5', '号码6', '号码7', '号码8', '号码9', '号码10'];
 
   public isAnnouncementShowed: boolean = false;
   public toggleAnnouncement() {
@@ -86,6 +86,13 @@ class NumberOrFrontOrBackResult extends Vue {
   }
   public hideAnnouncement() {
      this.isAnnouncementShowed = false;
+  }
+
+   public checkAll() {
+    this.numbers = ['号码1', '号码2', '号码3', '号码4', '号码5', '号码6', '号码7', '号码8', '号码9', '号码10'];
+  }
+  public callAll() {
+    this.numbers = [];
   }
 
 }

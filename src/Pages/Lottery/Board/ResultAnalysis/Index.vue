@@ -2,9 +2,9 @@
   <div class="result-analysis background-white">
     <div class="">
       <span class="top m-2 font-weight-bold">
-        <span class="d-inline-block mt-2" :class=" iNumber === 1 ? 'background-brown':'' " @click="toggleBackground(1)">综合模式</span>
-        <span class="d-inline-block mt-2" :class=" iNumber === 2 ? 'background-brown':'' " @click="toggleBackground(2)">单选模式</span>
-        <span class="d-inline-block mt-2" :class=" iNumber === 3 ? 'background-brown':'' " @click="toggleBackground(3)">两面模式</span>
+        <span class="d-inline-block mt-2" :class=" pattern === 'synthesize' ? 'background-brown':'' " @click="toggleBackground('synthesize')">综合模式</span>
+        <span class="d-inline-block mt-2" :class=" pattern === 'radio' ? 'background-brown':'' " @click="toggleBackground('radio')">单选模式</span>
+        <span class="d-inline-block mt-2" :class=" pattern === 'twoSides' ? 'background-brown':'' " @click="toggleBackground('twoSides')">两面模式</span>
       </span>
       <span class="date-selection d-inline-block text-right">
         <I-radio-group v-model="ranking" type="button" class="line-height8">
@@ -18,93 +18,93 @@
       </span>
     </div>
     <I-divider/>
-    <div class="p-2" v-show=" iNumber === 1">
+    <div class="p-2" v-show=" pattern === 'synthesize'">
       <div class="rank-select">
         <p class="mt-1">
           <span>筛选名次：</span>
-          <I-checkbox-group class="d-inline-block mr-2">
-            <Checkbox>&nbsp;冠军</Checkbox>
-            <Checkbox>&nbsp;亚军</Checkbox>
-            <Checkbox>&nbsp;第三名</Checkbox>
-            <Checkbox>&nbsp;第四名</Checkbox>
-            <Checkbox>&nbsp;第五名</Checkbox>
-            <Checkbox>&nbsp;第六名</Checkbox>
-            <Checkbox>&nbsp;第七名</Checkbox>
-            <Checkbox>&nbsp;第八名</Checkbox>
-            <Checkbox>&nbsp;第九名</Checkbox>
-            <Checkbox>&nbsp;第十名</Checkbox>
+          <I-checkbox-group class="d-inline-block mr-2" v-model="checkRanks">
+            <Checkbox label="冠军">&nbsp;冠军</Checkbox>
+            <Checkbox label="亚军">&nbsp;亚军</Checkbox>
+            <Checkbox label="第三名">&nbsp;第三名</Checkbox>
+            <Checkbox label="第四名">&nbsp;第四名</Checkbox>
+            <Checkbox label="第五名">&nbsp;第五名</Checkbox>
+            <Checkbox label="第六名">&nbsp;第六名</Checkbox>
+            <Checkbox label="第七名">&nbsp;第七名</Checkbox>
+            <Checkbox label="第八名">&nbsp;第八名</Checkbox>
+            <Checkbox label="第九名">&nbsp;第九名</Checkbox>
+            <Checkbox label="第十名">&nbsp;第十名</Checkbox>
           </I-checkbox-group>
-          <span class="mr-2">全选</span>
-          <span>清空</span>
+          <span class="mr-2" @click="syntheSizeCheckAll">全选</span>
+          <span @click="syntheEmptyAll">清空</span>
         </p>
       </div>
       <div class="rank-select dewdrop">
         <p class="mt-1">
           <span>筛选露珠：</span>
-           <I-checkbox-group class="d-inline-block mr-2">
-            <Checkbox>&nbsp;大小</Checkbox>
-            <Checkbox>&nbsp;单双</Checkbox>
-            <Checkbox>&nbsp;龙虎</Checkbox>
+           <I-checkbox-group class="d-inline-block mr-2" v-model="checkAnalysis">
+            <Checkbox label="大小">&nbsp;大小</Checkbox>
+            <Checkbox label="单双">&nbsp;单双</Checkbox>
+            <Checkbox label="龙虎">&nbsp;龙虎</Checkbox>
           </I-checkbox-group>
         </p>
       </div>
     </div>
-    <div class="p-2" v-show=" iNumber === 2 ">
+     <div class="p-2" v-show=" pattern === 'radio'">
       <div class="font-size-1p5 rank-select">
         <p class="mt-1">
           <span>筛选露珠：</span>
-          <I-checkbox-group class="d-inline-block mr-2">
-            <Checkbox>&nbsp;大小</Checkbox>
-            <Checkbox>&nbsp;单双</Checkbox>
-            <Checkbox>&nbsp;龙虎</Checkbox>
+          <I-checkbox-group class="d-inline-block mr-2" v-model="checkRadioAnalysis">
+            <Checkbox label="大小">&nbsp;大小</Checkbox>
+            <Checkbox label="单双">&nbsp;单双</Checkbox>
+            <Checkbox label="龙虎">&nbsp;龙虎</Checkbox>
           </I-checkbox-group>
-          <span class="mr-2">全选</span>
-          <span>清空</span>
+          <span class="mr-2"  @click="radioCheckAll">全选</span>
+          <span @click="radioEmptyAll">清空</span>
         </p>
       </div>
        <div class="font-size-1p5 rank-select">
         <div class="mt-1">
           <span>筛选名次：</span>
-           <I-radio-group v-model="ranking" type="button">
-            <Radio label="冠军"></Radio>
-            <Radio label="亚军"></Radio>
-            <Radio label="第三名"></Radio>
-            <Radio label="第四名"></Radio>
-            <Radio label="第五名"></Radio>
-            <Radio label="第六名"></Radio>
-            <Radio label="第七名"></Radio>
-            <Radio label="第八名"></Radio>
-            <Radio label="第九名"></Radio>
-            <Radio label="第十名"></Radio>
-            <Radio label="冠亚和"></Radio>
+          <I-radio-group v-model="checkRadioRank" type="button" >
+            <Radio label="冠军">&nbsp;冠军</Radio>
+            <Radio label="亚军">&nbsp;亚军</Radio>
+            <Radio label="第三名">&nbsp;第三名</Radio>
+            <Radio label="第四名">&nbsp;第四名</Radio>
+            <Radio label="第五名">&nbsp;第五名</Radio>
+            <Radio label="第六名">&nbsp;第六名</Radio>
+            <Radio label="第七名">&nbsp;第七名</Radio>
+            <Radio label="第八名">&nbsp;第八名</Radio>
+            <Radio label="第九名">&nbsp;第九名</Radio>
+            <Radio label="第十名">&nbsp;第十名</Radio>
+            <Radio label="冠亚和">&nbsp;冠亚和</Radio>
           </I-radio-group>
         </div>
       </div>
     </div>
-    <div class="p-2" v-show=" iNumber === 3 ">
+    <div class="p-2" v-show=" pattern === 'twoSides'">
       <div class="font-size-1p5 rank-select">
         <p class="mt-1">
-          <span>选择名次：</span>
-          <I-checkbox-group class="d-inline-block mr-2">
-            <Checkbox>&nbsp;冠军</Checkbox>
-            <Checkbox>&nbsp;亚军</Checkbox>
-            <Checkbox>&nbsp;第三名</Checkbox>
-            <Checkbox>&nbsp;第四名</Checkbox>
-            <Checkbox>&nbsp;第五名</Checkbox>
-            <Checkbox>&nbsp;第六名</Checkbox>
-            <Checkbox>&nbsp;第七名</Checkbox>
-            <Checkbox>&nbsp;第八名</Checkbox>
-            <Checkbox>&nbsp;第九名</Checkbox>
-            <Checkbox>&nbsp;第十名</Checkbox>
+          <span>筛选名次：</span>
+          <I-checkbox-group class="d-inline-block mr-2" v-model="checkTwoSidesRanks">
+            <Checkbox label="冠军">&nbsp;冠军</Checkbox>
+            <Checkbox label="亚军">&nbsp;亚军</Checkbox>
+            <Checkbox label="第三名">&nbsp;第三名</Checkbox>
+            <Checkbox label="第四名">&nbsp;第四名</Checkbox>
+            <Checkbox label="第五名">&nbsp;第五名</Checkbox>
+            <Checkbox label="第六名">&nbsp;第六名</Checkbox>
+            <Checkbox label="第七名">&nbsp;第七名</Checkbox>
+            <Checkbox label="第八名">&nbsp;第八名</Checkbox>
+            <Checkbox label="第九名">&nbsp;第九名</Checkbox>
+            <Checkbox label="第十名">&nbsp;第十名</Checkbox>
           </I-checkbox-group>
-          <span class="mr-2">全选</span>
-          <span>清空</span>
+          <span class="mr-2" @click="twoSidesCheckAll">全选</span>
+          <span @click="twoSidesEmptyAll">清空</span>
         </p>
       </div>
       <div class="font-size-1p5 rank-select">
         <p class="mt-1">
-          <span>选择名次：</span>
-          <I-radio-group v-model="ranking" type="button">
+          <span>筛选露珠：</span>
+          <I-radio-group v-model="checkTwoSidesAnalysis" type="button">
             <Radio label="大小"></Radio>
             <Radio label="单双"></Radio>
             <Radio label="龙虎"></Radio>
@@ -154,13 +154,46 @@ import {
   },
 })
 class ResultAnalysis extends Vue {
-  public checkboxGroup1 = '第一球';
-  public iNumber = 2;
-  public ranking = '1';
+  public checkRanks: any = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'];
+  public checkAnalysis: any = ['大小', '单双', '龙虎'];
+  public checkRadioRank: any = ['冠军'];
+  public checkRadioAnalysis: any = ['大小', '单双', '龙虎'];
+  public checkTwoSidesRanks: any = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'];
+  public checkTwoSidesAnalysis: any = ['大小'];
 
-  public toggleBackground( iNumber: number ) {
-    this.iNumber = iNumber;
+  public pattern = 'synthesize';
+  public ranking = '今天';
+
+  public toggleBackground( pattern: string ) {
+    this.pattern = pattern;
   }
+
+  public syntheSizeCheckAll() { // 综合模式全选
+    this.checkRanks = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'];
+    this.checkAnalysis = ['大小', '单双', '龙虎'];
+  }
+
+  public syntheEmptyAll() {
+     this.checkRanks = [];
+     this.checkAnalysis = [];
+  }
+
+  public radioCheckAll() { // 单选模式全选
+    this.checkRadioAnalysis = ['大小', '单双', '龙虎'];
+  }
+
+  public radioEmptyAll() {
+    this.checkRadioAnalysis = [];
+  }
+
+  public twoSidesCheckAll() { // 两面模式全选
+    this.checkTwoSidesRanks = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'];
+  }
+
+  public twoSidesEmptyAll() {
+    this.checkTwoSidesRanks = [];
+  }
+
 }
 export default ResultAnalysis;
 </script>

@@ -36,8 +36,8 @@
         <Checkbox label="第四名"></Checkbox>
         <Checkbox label="第五名"></Checkbox>
       </I-checkbox-group>
-      <span class="mr-2">全选</span>
-      <span>清空</span>
+      <span class="mr-2" @click="checkAll">全选</span>
+      <span @click="callAll">清空</span>
     </div>
     <div>
       <Result-table />
@@ -78,7 +78,7 @@ import {
 })
 class DragonOrTigerResult extends Vue {
   public date = '今天';
-  public decorator = ['折线', '遗漏'];
+  public decorator = ['第一名', '第二名', '第三名', '第四名', '第五名'];
 
   public isAnnouncementShowed: boolean = false;
   public toggleAnnouncement() {
@@ -86,6 +86,13 @@ class DragonOrTigerResult extends Vue {
   }
   public hideAnnouncement() {
      this.isAnnouncementShowed = false;
+  }
+
+  public checkAll() {
+    this.decorator = ['第一名', '第二名', '第三名', '第四名', '第五名'];
+  }
+  public callAll() {
+    this.decorator = [];
   }
 
 }

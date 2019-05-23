@@ -22,10 +22,10 @@
         <span class="color-red">&nbsp;&nbsp;冠军</span>&nbsp;&nbsp;
         <span class="color-red">龙虎</span>&nbsp;&nbsp;
         <span class="color-red">最新</span>&nbsp;&nbsp;
-        <span class="el-icon-bottom color-red"></span>
+        <span class="color-red"><Icon type="md-arrow-down" /></span>
       </span>
     </div>
-    <div>
+    <div ref="box">
       <div>
         <div v-for="( item , i ) in 50" :key="i" :class="i % 2 === 0 ? 'background-even':''">
           <p :class="{'text-even':'双' === isOddOrEven(item) }" v-for="( item , i ) in 7" :key="i">{{ item | isOddOrEven}}</p>
@@ -47,7 +47,9 @@ import { Component, Vue } from 'vue-property-decorator';
 })
 
 class ResultTable extends Vue {
-
+  public created() {
+   
+  }
 }
 
 export default ResultTable;
