@@ -20,6 +20,7 @@
     "echarts": "^4.2.1",
     "iview": "^3.4.2",
     "register-service-worker": "^1.6.2",
+    "ts-loader": "^6.0.1",
     "v-chart": "^1.0.0",
     "v-charts": "^1.19.0",
     "vue": "^2.6.10",

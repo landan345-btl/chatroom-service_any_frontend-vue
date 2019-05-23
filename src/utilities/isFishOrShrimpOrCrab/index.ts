@@ -11,22 +11,16 @@ let cIsFishOrShrimpOrCrab = (aNumbers: number[], iPosition: number): string => {
   switch (iNumber) {
   case 1:
     return FISH;
-    break;
   case 2:
     return SHRIMP;
-    break;
   case 3:
     return GOURD;
-    break;
   case 4:
     return GOLD;
-    break;
   case 5:
     return CRAB;
-    break;
   case 6:
     return COCK;
-    break;
   default:
   }
   return UNKNOWN;
