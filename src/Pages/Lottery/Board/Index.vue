@@ -1,6 +1,6 @@
 <template>
   <div class="board">
-    <I-tabs :type="'card'" class=""  v-on:handle-click="handleRule"  :animated="false">
+    <I-tabs :type="'card'" class=""  v-on:handle-click="handleRule"  :animated="false" v-model="tab">
       <TabPane :label="'即时开奖'" :name="'lottery-issue'">
         <Lottery-issue
           v-if="code && types"
@@ -178,9 +178,23 @@ class Board extends Vue {
   @Prop()
   public types!: any;
 
+  public tab: string = 'lottery-issue';
+
+  public created(): void{
+    let sTab = this.$route.query.tab.toString();
+
+   // this.tab = sTab;
+  }
+
   public handleRule (name: string) {
     if (name === 'rule') {
       this.$router.push({ path: '/rule', });
+    } else {
+      let codes = this.code;
+      let oQuery = {
+      tab: name,
+    };
+      this.$router.replace({ path: '/lottery/', query:{code: codes , tab: name} });  
     }
   }
 }
