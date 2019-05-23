@@ -23,7 +23,7 @@
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 出现次数：统计周期内，某个号码的累计出现次数。</p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 平均遗漏：统计期数内遗漏的平均值（计算公式：平均遗漏＝统计期内的总遗漏数/(出现次数+1)）。</p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 最大遗漏：是指统计周期内所有遗漏值的最大值。</p>
-      </div> 
+      </div>
     </div>
     <div class="mb-2 pl-2 pr-2 font-size-1p5 filtrate-ranks">
       标注选择：
@@ -94,7 +94,7 @@
           <td class="background-purple-3"><span>龙</span></td>
           <td><span>22</span></td>
           <td><span>22</span></td>
-          
+
         </tr>
         <tr class="background-grey">
           <td rowspan="2" colspan="2"> <span>数据统计</span> </td>
@@ -267,16 +267,15 @@ import {
 })
 class DragonOrTigerTrend extends Vue {
   public date = '今天';
-  public decorator = ['折线', '遗漏'];
+  public decorator = ['折线', '遗漏', ];
 
   public isAnnouncementShowed: boolean = false;
-  public toggleAnnouncement() {
+  public toggleAnnouncement () {
     this.isAnnouncementShowed = !this.isAnnouncementShowed;
   }
-  public hideAnnouncement() {
-     this.isAnnouncementShowed = false;
+  public hideAnnouncement () {
+    this.isAnnouncementShowed = false;
   }
-
 }
 
 export default DragonOrTigerTrend;

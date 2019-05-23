@@ -65,7 +65,7 @@
             <td>出现次数</td>
           </tr>
           </tbody>
-        </table>  
+        </table>
         <table class="mt-1">
           <tr>
             <th>冠亚龙虎</th>
@@ -110,8 +110,8 @@
             <td>-</td>
             <td>-</td>
           </tr>
-        </table> 
-      </div>   
+        </table>
+      </div>
       <div v-if="types && ['SSC', '11X5'].includes(types.toUpperCase())" class="font-size-1p5">
         <table>
           <tbody v-if="types && ['SSC'].includes(types.toUpperCase())">
@@ -172,7 +172,7 @@
               <td>{{ }}</td>
             </tr>
           </tbody>
-        </table>  
+        </table>
         <table class="mt-1">
           <tr class="text-center">
             <th rowspan="2"><span class="ball-time  position-relative">球次</span></th>
@@ -216,8 +216,8 @@
             <td>-</td>
             <td>-</td>
           </tr>
-        </table> 
-      </div> 
+        </table>
+      </div>
   </div>
   <I-divider/>
 </div>
@@ -250,7 +250,7 @@ import {
   components: {
     IDivider,
   },
-  mixins: [LotteryMixin],
+  mixins: [LotteryMixin, ],
 })
 class TodayTwoSideNumberStatics extends Vue {
   @Prop()
@@ -269,7 +269,7 @@ class TodayTwoSideNumberStatics extends Vue {
   public lottery!: any;
 
   public positionsToNumberTypesToCounts: any;
-  public beforeMount() {
+  public beforeMount () {
     this.positionsToNumberTypesToCounts(this.lotteryIssues, this.lottery);
   }
 }

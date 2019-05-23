@@ -1,7 +1,7 @@
 <template>
-  <ve-line 
-    :data="data" 
-    :settings="settings" 
+  <ve-line
+    :data="data"
+    :settings="settings"
     :loading="loading"
     :after-config="afterConfig"
     :extend="extend"></ve-line>
@@ -13,16 +13,15 @@
 
 <script lang="ts">
 
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, } from 'vue-property-decorator';
 @Component({
   name: 'Vline',
 })
 class VLine extends Vue {
-
-  @Prop({ default: null })
+  @Prop({ default: null, })
   public data: any;
 
-  @Prop({ default: null })
+  @Prop({ default: null, })
   public settings: any;
 
   public extend = {
@@ -37,14 +36,14 @@ class VLine extends Vue {
   };
   public loading = true;
 
-  public created() {
+  public created () {
     setTimeout(() => {
       this.loading = false;
       // TODO 之后改成 event 写法
       // 不好的写法
     }, 3000);
   }
-  public afterConfig(options: any): any {
+  public afterConfig (options: any): any {
     options.legend.selectedMode = 'single';
     return options;
   }

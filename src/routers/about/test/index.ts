@@ -1,9 +1,9 @@
 let oChildren = [
   {
-    path: 'test',  // 考虑父 path ， 实际为 /about/test
+    path: 'test', // 考虑父 path ， 实际为 /about/test
     component: () => import('@/Pages/About/Test/Index.vue'),
     name: 'about_test',
-    meta: { title: 'about_test', icon: 'documentation', noCache: true },
+    meta: { title: 'about_test', icon: 'documentation', noCache: true, },
   },
 ];
 

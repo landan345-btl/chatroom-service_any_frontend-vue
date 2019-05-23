@@ -10,16 +10,15 @@ let cIsFrontOrBack = (aNumbers: number[] | number): string => {
   let iCountFront = 0;
   let iCountBack = 0;
   if (!(aNumbers instanceof Array)) {
-    aNumbers = [aNumbers];
+    aNumbers = [aNumbers, ];
   }
   aNumbers.forEach((iNumber) => {
-    if ( iNumber < 40) {
-      iCountFront ++;
+    if (iNumber < 40) {
+      iCountFront++;
       return;
     }
-    if ( iNumber > 40) {
-      iCountBack ++;
-      return;
+    if (iNumber > 40) {
+      iCountBack++;
     }
   });
   // if (0 < iCountFront - iCountBack && 1 === aNumbers.length) {
@@ -29,10 +28,10 @@ let cIsFrontOrBack = (aNumbers: number[] | number): string => {
   //   return BACK;
   // }
 
-  if (0 < iCountFront - iCountBack && 1 < aNumbers.length) {
+  if (iCountFront - iCountBack > 0 && aNumbers.length > 1) {
     return FRONT_MULTIPLE;
   }
-  if (0 > iCountFront - iCountBack && 1 < aNumbers.length) {
+  if (iCountFront - iCountBack < 0 && aNumbers.length > 1) {
     return BACK_MULTIPLE;
   }
 
@@ -40,7 +39,7 @@ let cIsFrontOrBack = (aNumbers: number[] | number): string => {
   //   return DEUCE;
   // }
 
-  if (0 === iCountFront - iCountBack && 1 < aNumbers.length) {
+  if (iCountFront - iCountBack === 0 && aNumbers.length > 1) {
     return DEUCE_MULTIPLE;
   }
   return UNKNOWN;

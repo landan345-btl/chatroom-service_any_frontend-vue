@@ -121,13 +121,13 @@ import {
 })
 class TodayNumberStatics extends Vue {
   public changeHidden = 0;
-  public toggleHidden( iNunmber: number ) {
-    if ( this.changeHidden === 2 && iNunmber === 1) {
+  public toggleHidden (iNunmber: number) {
+    if (this.changeHidden === 2 && iNunmber === 1) {
       this.changeHidden = 0;
       return;
     }
-    if ( this.changeHidden === iNunmber) {
-      this.changeHidden = ( iNunmber - 1 );
+    if (this.changeHidden === iNunmber) {
+      this.changeHidden = (iNunmber - 1);
       return;
     }
     this.changeHidden = iNunmber;

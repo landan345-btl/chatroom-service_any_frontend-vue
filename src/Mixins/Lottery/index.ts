@@ -29,7 +29,7 @@ class Lottery extends Vue {
     numers_to_positions_counts: {},
   };
 
-  public calculateNextTime(sOpenedTime: string, oLottery: any): number {
+  public calculateNextTime (sOpenedTime: string, oLottery: any): number {
     let aRangeTimes = JSON.parse(oLottery.range_times);
     let iNextTime = 0;
     let iNowTime = new Date().getTime();
@@ -40,8 +40,8 @@ class Lottery extends Vue {
     iNextTime = (new Date(sOpenedTime).getTime() + oLottery.interval_time * 1000 - iNowTime) / 1000;
 
     aRangeTimes.forEach((oRangeTime: any) => {
-      let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.started_time).getTime();
-      if (0 === Number(oLottery.interval_time)) {
+      let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' + oRangeTime.started_time).getTime();
+      if (Number(oLottery.interval_time) === 0) {
         iNextTime = (new Date(sOpenedTime).getTime() + 24 * 60 * 60 * 1000 - iNowTime) / 1000;
       }
     });
@@ -49,7 +49,7 @@ class Lottery extends Vue {
     return iNextTime;
   }
 
-  public caculateLotteryIssueExtension(sOpenedTime: number, oLottery: any) {
+  public caculateLotteryIssueExtension (sOpenedTime: number, oLottery: any) {
     let aRangeTimes = JSON.parse(oLottery.range_times);
     let iNowTime = new Date().getTime();
     let iNextTime = 0;
@@ -63,18 +63,17 @@ class Lottery extends Vue {
     let iLotteryIssueOrderNoTotalInThisDay = 1;
 
     aRangeTimes.forEach((oRangeTime: any) => {
-      let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.started_time).getTime();
-      let iEndedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime() < iStartedTime
-                      ? new Date(iFullYear + '-' + iMonth + '-' + (iDate + 1) + ' ' +  oRangeTime.ended_time).getTime()
-                      : new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime();
+      let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' + oRangeTime.started_time).getTime();
+      let iEndedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' + oRangeTime.ended_time).getTime() < iStartedTime
+        ? new Date(iFullYear + '-' + iMonth + '-' + (iDate + 1) + ' ' + oRangeTime.ended_time).getTime()
+        : new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' + oRangeTime.ended_time).getTime();
       let iDifferentTime = (iNowTime - iStartedTime) / 1000;
-      iLotteryIssueOrderNoTotalInThisDay +=  Math.floor((iEndedTime - iStartedTime) / (0 !== oLottery.interval_time ? 1000 * oLottery.interval_time : 1));
+      iLotteryIssueOrderNoTotalInThisDay += Math.floor((iEndedTime - iStartedTime) / (oLottery.interval_time !== 0 ? 1000 * oLottery.interval_time : 1));
       if (iNowTime >= iStartedTime && iNowTime <= iEndedTime) {
         iLotteryIssueOrderNoInThisDay += Math.floor(iDifferentTime / oLottery.interval_time);
       }
-      if (0 === Number(oLottery.interval_time)) {
+      if (Number(oLottery.interval_time) === 0) {
         iNextTime = (new Date(sOpenedTime).getTime() + 24 * 60 * 60 * 1000 - iNowTime) / 1000;
-
       }
     });
     iLotteryIssueOrderNoInThisDay++;
@@ -84,7 +83,7 @@ class Lottery extends Vue {
     this.extensionLotteryIssue.order_total_no = iLotteryIssueOrderNoTotalInThisDay;
   }
 
-  public positionsToNumberTypesToCounts(oLotteryIssues: any, oLottery: any, iLimit: number) {
+  public positionsToNumberTypesToCounts (oLotteryIssues: any, oLottery: any, iLimit: number) {
     let oLotteryHelper = new LotteryHelper();
     if (!oLotteryIssues || !oLottery) {
       return;
@@ -98,7 +97,7 @@ class Lottery extends Vue {
       let aNumbers = JSON.parse(oLotteryIssue.numbers);
       let sTypes = oLottery.types;
       let iIndex: number = 0;
-      for (iIndex = 0 ; iIndex < aNumbers.length ; iIndex++) {
+      for (iIndex = 0; iIndex < aNumbers.length; iIndex++) {
         let iNumber = aNumbers[iIndex];
         if (!this.extensionLottery.numbers_to_counts.hasOwnProperty(iNumber)) {
           this.extensionLottery.numbers_to_counts[iNumber] = 0;
@@ -118,25 +117,25 @@ class Lottery extends Vue {
             },
           };
         }
-        if ('小' === sSmallOrLarge) {
+        if (sSmallOrLarge === '小') {
           let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[iIndex];
           let sKey = 'small';
           oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
         }
 
-        if ('大' === sSmallOrLarge) {
+        if (sSmallOrLarge === '大') {
           let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[iIndex];
           let sKey = 'large';
           oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
         }
 
-        if ('单' === sOddOrEven) {
+        if (sOddOrEven === '单') {
           let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[iIndex];
           let sKey = 'odd';
           oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
         }
 
-        if ('双' === sOddOrEven) {
+        if (sOddOrEven === '双') {
           let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[iIndex];
           let sKey = 'even';
           oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
@@ -158,25 +157,25 @@ class Lottery extends Vue {
       let _sSmallOrLarge = oLotteryHelper.isSummationSmallOrLarge(iSummation, oLottery.types);
       let _sOddOrEven = oLotteryHelper.isOddOrEven(iSummation, oLottery.types);
 
-      if ('小' === _sSmallOrLarge) {
+      if (_sSmallOrLarge === '小') {
         let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[aNumbers.length + 1];
         let sKey = 'small';
         oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
       }
 
-      if ('大' === _sSmallOrLarge) {
+      if (_sSmallOrLarge === '大') {
         let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[aNumbers.length + 1];
         let sKey = 'large';
         oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
       }
 
-      if ('单' === _sOddOrEven) {
+      if (_sOddOrEven === '单') {
         let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[aNumbers.length + 1];
         let sKey = 'odd';
         oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
       }
 
-      if ('双' === _sOddOrEven) {
+      if (_sOddOrEven === '双') {
         let oNumberTypesToCounts = oPositionsToNumberTypesToCounts[aNumbers.length + 1];
         let sKey = 'even';
         oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
@@ -185,7 +184,7 @@ class Lottery extends Vue {
     this.extensionLottery.positions_to_number_types_to_counts = oPositionsToNumberTypesToCounts;
   }
 
-  public caculateNumbersToPositionsToCounts(oLotteryIssues: any, oLotteries: any, iLimit: any) {
+  public caculateNumbersToPositionsToCounts (oLotteryIssues: any, oLotteries: any, iLimit: any) {
     this.extensionLottery.numers_to_positions_to_counts = {};
     if (!oLotteryIssues || !oLotteries) {
       return {};
@@ -194,7 +193,7 @@ class Lottery extends Vue {
     let oNumbersToPositionsToCounts: any = {};
     let oLotteryIssue: any;
     let iLoopCount = 0;
-    while (iLimit > iLoopCount && 1 <= aLotteryIssues.length) {
+    while (iLimit > iLoopCount && aLotteryIssues.length >= 1) {
       oLotteryIssue = aLotteryIssues.pop();
       let aNumbers = JSON.parse(oLotteryIssue.numbers);
       let sType = oLotteries[oLotteryIssue.lottery_id].types;
@@ -213,10 +212,7 @@ class Lottery extends Vue {
     }
     this.extensionLottery.numers_to_positions_to_counts = oNumbersToPositionsToCounts;
     return oNumbersToPositionsToCounts;
-
   }
-
-
 }
 
 export default Lottery;

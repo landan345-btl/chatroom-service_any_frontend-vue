@@ -12,7 +12,7 @@
       <td>{{ JSON.parse(lotteryIssue.numbers) | isDragonOrTiger([4, 5]) }}</td>
       <td>{{ JSON.parse(lotteryIssue.numbers) | sum([0, 1]) }}</td>
       <td>{{ JSON.parse(lotteryIssue.numbers) | sum([0, 1]) | isSmallOrLarge(10, 12) }}</td>
-      <td :class="{ 
+      <td :class="{
         'even': '双' === isOddOrEven(sum(JSON.parse(lotteryIssue.numbers), [0, 1])),
         'odd': '单' === isOddOrEven(sum(JSON.parse(lotteryIssue.numbers), [0, 1])),
         }
@@ -141,7 +141,7 @@
 </style>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, } from 'vue-property-decorator';
 
 @Component({
   name: 'Table',

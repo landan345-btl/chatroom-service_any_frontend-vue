@@ -4,8 +4,8 @@ declare module '*.vue' {
 }
 
 declare module '@chenfengyuan/vue-countdown' {
-  import Vue from 'vue';
-  export default Vue;
+  let context: any;
+  export default context;
 }
 
 declare module '*.png' {

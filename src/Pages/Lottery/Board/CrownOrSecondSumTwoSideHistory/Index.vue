@@ -6,7 +6,7 @@
     <I-divider/>
     <div class="explain z-1000 m-2 font-size-1p5">
       <p><span>说明：统计冠亚和每天单双大小的出现次数</span></p>
-    </div>  
+    </div>
     <div class="crown-table pl-2 pr-2">
       <table class="w-100">
         <tr class="font-size-1p5 background-tr">
@@ -61,13 +61,8 @@ import {
   },
 })
 class CrownOrSecondSumTwoSideHistory extends Vue {
-
-
   public date = '今天';
-  public decorator = ['折线', '遗漏'];
-
-
-
+  public decorator = ['折线', '遗漏', ];
 }
 
 export default CrownOrSecondSumTwoSideHistory;

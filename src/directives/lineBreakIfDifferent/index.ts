@@ -1,4 +1,4 @@
-let oLineBreakIfDifferent =  {   // 开奖时间进度条  时间倒数
+let oLineBreakIfDifferent = { // 开奖时间进度条  时间倒数
   inserted: (oElement: any, oBinding: any, oVnode: any) => {
     if (!oElement.nextSibling) {
       return;

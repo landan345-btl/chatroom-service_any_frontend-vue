@@ -20,19 +20,18 @@ let oHeaders = {
  * 能过批次处理 AJAX 的 类模组
  */
 class AxiosHelper {
-
   /** 可以批次发送 AJAX 请求的 方法
    * @param {object | Array<object>} request The request of HTTP body
    * @param {boolean} isRecursive 使用同步模式 (递归模式), 也就是一个 AJAX 等待回应后才发下一个请求
    */
-  public get(oRequest: any | any[], bRecursive: boolean = false): Promise<any> {
+  public get (oRequest: any | any[], bRecursive: boolean = false): Promise<any> {
     bRecursive = !!bRecursive;
 
     if (oRequest instanceof Array) {
       let aRequests: any[] = oRequest;
       let aResponses: any[] = [];
       if (bRecursive) {
-        let pNextPromise = (i: number ): any => {
+        let pNextPromise = (i: number): any => {
           if (i >= aRequests.length) {
             return Promise.resolve(aResponses);
           }
@@ -81,26 +80,26 @@ class AxiosHelper {
    * @param {object | Array<object>} params The params of HTTP body
    * @param {boolean} isPolling Use polling (recursive) to send the request
    */
-  public post(url: string, params: object | object[], isPolling: boolean = false) {
-    return;
-}
+  public post (url: string, params: object | object[], isPolling: boolean = false) {
+
+  }
 
   /**
    * @param {string} url The URL of API laction
    * @param {object | Array<object>} params The params of HTTP body
    * @param {boolean} isPolling Use polling (recursive) to send the request
    */
-  public put(url: string, params: object | object[], isPolling: boolean = false) {
-    return;
-}
+  public put (url: string, params: object | object[], isPolling: boolean = false) {
+
+  }
 
   /**
    * @param {string} url The URL of API laction
    * @param {object | Array<object>} params The params of HTTP body
    * @param {boolean} isPolling Use polling (recursive) to send the request
    */
-  public delete(url: string, params: object | object[], isPolling: boolean = false) {
-      return;
+  public delete (url: string, params: object | object[], isPolling: boolean = false) {
+
   }
 }
 export default AxiosHelper;

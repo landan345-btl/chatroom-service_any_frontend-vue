@@ -66,7 +66,7 @@
 
           </tr>
           </tbody>
-        </table>  
+        </table>
         <table class="mt-1">
           <tr>
             <th>冠亚龙虎</th>
@@ -111,8 +111,8 @@
             <td>-</td>
             <td>-</td>
           </tr>
-        </table> 
-      </div>   
+        </table>
+      </div>
       <div v-if=" types && ['SSC', '11X5'].includes(types.toUpperCase())" class="font-size-1p5">
         <table>
           <tbody v-if=" types && ['SSC'].includes(types.toUpperCase())">
@@ -154,7 +154,7 @@
 
             </tr>
           </tbody>
-        </table>  
+        </table>
         <table class="mt-1">
           <tr class="text-center">
             <th rowspan="2"><span class="ball-time  position-relative">球次</span></th>
@@ -199,8 +199,8 @@
             <td>-</td>
 
           </tr>
-        </table> 
-      </div> 
+        </table>
+      </div>
   </div>
   <I-divider/>
 </div>
@@ -240,24 +240,23 @@ class TodayTwoSideNumberStatics extends Vue {
   @Prop()
   public lotteryIssues!: any;
 
-   /*
+  /*
    * 利用彩票开奖列表 计算 某一个 number 的 次数
    *
    *
    */
-  public countNumber(oLotteryIssues: any, iNumber: number) {
+  public countNumber (oLotteryIssues: any, iNumber: number) {
     let iCount = 0;
     Object.keys(oLotteryIssues).forEach((sLotteryIssueKey) => {
       let aNumbers = JSON.parse(oLotteryIssues[sLotteryIssueKey].numbers) || [];
       for (let _iNumber of aNumbers) {
-        if ( Number(_iNumber) === Number(iNumber)) {
+        if (Number(_iNumber) === Number(iNumber)) {
           iCount++;
         }
       }
     });
     return iCount;
   }
-
 }
 
 export default TodayTwoSideNumberStatics;

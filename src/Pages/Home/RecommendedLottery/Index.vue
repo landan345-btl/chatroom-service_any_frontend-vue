@@ -43,7 +43,6 @@ import {
   },
 })
 class RecommendedLottery extends Vue {
-
   @Prop()
   public lotteries!: object;
 }

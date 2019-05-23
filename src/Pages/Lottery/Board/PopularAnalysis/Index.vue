@@ -21,32 +21,32 @@
       <tr v-for="(oCounts, iPosition) in getNumersToPositionsToCounts" :key="iPosition">
         <td class="align-middle font-size-1 text-center">{{ types && texts[types] && texts[types][iPosition] ? texts[types][iPosition] : '第' + iPosition + '球' }} </td>
         <td class="align-middle text-left">
-            <S-numbers 
-              :code="code" 
+            <S-numbers
+              :code="code"
               :counts="extensionLottery.numers_to_positions_to_counts[iPosition]"
               :isCountShowed=" isHotCountShowed "
-              :numbers="chooseNumbersByCount(extensionLottery.numers_to_positions_to_counts[iPosition], 4, null)" 
-              :types="LOTTERIES[code].TYPES || types" 
-              :isRandom="false" 
+              :numbers="chooseNumbersByCount(extensionLottery.numers_to_positions_to_counts[iPosition], 4, null)"
+              :types="LOTTERIES[code].TYPES || types"
+              :isRandom="false"
               :status="'NUMBER'"
               v-if="extensionLottery.numers_to_positions_to_counts && extensionLottery.numers_to_positions_to_counts[iPosition]" />
         </td>
         <td class="align-middle text-left">
-          <S-numbers 
+          <S-numbers
             :code="code"
-            :numbers="chooseNumbersByCount(extensionLottery.numers_to_positions_to_counts[iPosition], 2, 3)" 
-            :types="LOTTERIES[code].TYPES || types" 
-            :isRandom="false" 
+            :numbers="chooseNumbersByCount(extensionLottery.numers_to_positions_to_counts[iPosition], 2, 3)"
+            :types="LOTTERIES[code].TYPES || types"
+            :isRandom="false"
             :isCountShowed="false"
             :status="'NUMBER'"
             v-if="extensionLottery.numers_to_positions_to_counts && extensionLottery.numers_to_positions_to_counts[iPosition]" />
         </td>
         <td class="align-middle text-left">
-          <S-numbers 
+          <S-numbers
             :code="code"
-            :numbers="chooseNumbersByCount(extensionLottery.numers_to_positions_to_counts[iPosition], 0, 1)" 
-            :types="LOTTERIES[code].TYPES || types" 
-            :isRandom="false" 
+            :numbers="chooseNumbersByCount(extensionLottery.numers_to_positions_to_counts[iPosition], 0, 1)"
+            :types="LOTTERIES[code].TYPES || types"
+            :isRandom="false"
             :isCountShowed="false"
             :status="'NUMBER'"
             v-if="extensionLottery.numers_to_positions_to_counts && extensionLottery.numers_to_positions_to_counts[iPosition]" />
@@ -89,7 +89,7 @@ import {
     ICheckboxGroup,
     IDivider,
   },
-  mixins: [LotteryMixins],
+  mixins: [LotteryMixins, ],
 })
 class PopularAnalysis extends Vue {
   public isHotCountShowed = false ;
@@ -104,18 +104,18 @@ class PopularAnalysis extends Vue {
   public extensionLottery: any;
 
   public texts = {
-    PK10: ['冠军' , '亚军' , '第三名' , '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'],
-    SSC: [ '第一球' , '第二球' , '第三球' , '第四球' , '第五球' ],
+    PK10: ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名', ],
+    SSC: [ '第一球', '第二球', '第三球', '第四球', '第五球', ],
   };
-  public chooseNumbersByCount(oCounts: any , iMinCount: number , iMaxCount: number ) {
+  public chooseNumbersByCount (oCounts: any, iMinCount: number, iMaxCount: number) {
     let aNumbers: number[] = [];
-    Object.keys(oCounts).forEach((sNumber: string ) => {
+    Object.keys(oCounts).forEach((sNumber: string) => {
       let iNumber = Number(sNumber);
-      if ( oCounts[iNumber] >= iMinCount && iMaxCount === null ) {
+      if (oCounts[iNumber] >= iMinCount && iMaxCount === null) {
         aNumbers.push(iNumber);
         return;
       }
-      if ( oCounts[iNumber] >= iMinCount && oCounts[ iNumber ] <= iMaxCount ) {
+      if (oCounts[iNumber] >= iMinCount && oCounts[ iNumber ] <= iMaxCount) {
         aNumbers.push(iNumber);
       }
     });
@@ -125,7 +125,7 @@ class PopularAnalysis extends Vue {
   public get getNumersToPositionsToCounts () {
     let oLotteryIssues = this.$store.state.lottery_issues;
     let oLotteries = this.$store.state.lotteries;
-    let oNumersToPositionsToCounts = this.caculateNumbersToPositionsToCounts(oLotteryIssues, oLotteries, 20 );
+    let oNumersToPositionsToCounts = this.caculateNumbersToPositionsToCounts(oLotteryIssues, oLotteries, 20);
     return oNumersToPositionsToCounts;
   }
 }

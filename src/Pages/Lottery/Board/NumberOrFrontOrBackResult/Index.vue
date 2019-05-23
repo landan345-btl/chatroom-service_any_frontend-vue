@@ -20,7 +20,7 @@
         </p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 当长龙中断时，则另起一列显示结果；</p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 “前”表示号码开出在前5名，“后”表示号码开出在后5名</p>
-      </div> 
+      </div>
     </div>
     <div class="mb-2 pl-2 pr-2 font-size-1p5">
       筛选名次：
@@ -78,16 +78,15 @@ import {
 })
 class NumberOrFrontOrBackResult extends Vue {
   public date = '今天';
-  public decorator = ['折线', '遗漏'];
+  public decorator = ['折线', '遗漏', ];
 
   public isAnnouncementShowed: boolean = false;
-  public toggleAnnouncement() {
+  public toggleAnnouncement () {
     this.isAnnouncementShowed = !this.isAnnouncementShowed;
   }
-  public hideAnnouncement() {
-     this.isAnnouncementShowed = false;
+  public hideAnnouncement () {
+    this.isAnnouncementShowed = false;
   }
-
 }
 
 export default NumberOrFrontOrBackResult;

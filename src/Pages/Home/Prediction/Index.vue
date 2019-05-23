@@ -47,13 +47,9 @@ class Prediction extends Vue {
     '浙江11选5号码推荐4月17日下午',
     '湖北11选5号码推荐4月17日上午',
   ];
-  public created(): void {
+  public created (): void {
     let $root: any = this.$root;
-
   }
-
-
-
 }
 
 export default Prediction;

@@ -24,11 +24,11 @@ let cDetermineSequence = (aNumbers: number[], aPositions: number[], iMin: number
       return iNextNumber;
     }
 
-    if (0 === iNextNumber - iPreviousNumber) {
+    if (iNextNumber - iPreviousNumber === 0) {
       iSameCount += 1;
     }
 
-    if (1 === iNextNumber - iPreviousNumber) {
+    if (iNextNumber - iPreviousNumber === 1) {
       iStraightCount += 1;
     }
 
@@ -39,23 +39,23 @@ let cDetermineSequence = (aNumbers: number[], aPositions: number[], iMin: number
     iStraightCount += 1;
   }
 
-  if (1 <= iSameCount) {
+  if (iSameCount >= 1) {
     iSameCount += 1;
   }
 
-  if (1 <= iStraightCount) {
+  if (iStraightCount >= 1) {
     iStraightCount += 1;
   }
 
-  if (0 === iSameCount && 0 === iStraightCount) {
+  if (iSameCount === 0 && iStraightCount === 0) {
     return MESS;
   }
 
-  if (2 === iSameCount && _aNumbers.length > iSameCount) {
+  if (iSameCount === 2 && _aNumbers.length > iSameCount) {
     return PAIR; // 对子的优先级高于 半顺
   }
 
-  if (2 <= iStraightCount && _aNumbers.length > iStraightCount) {
+  if (iStraightCount >= 2 && _aNumbers.length > iStraightCount) {
     return HALT_STRAIGHT;
   }
 
@@ -63,11 +63,11 @@ let cDetermineSequence = (aNumbers: number[], aPositions: number[], iMin: number
     return STRAIGHT;
   }
 
-  if (2 === iSameCount && _aNumbers.length > iSameCount) {
+  if (iSameCount === 2 && _aNumbers.length > iSameCount) {
     return PAIR;
   }
 
-  if (3 === iSameCount && _aNumbers.length > iSameCount) {
+  if (iSameCount === 3 && _aNumbers.length > iSameCount) {
     return TRIP;
   }
 

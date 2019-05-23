@@ -2,9 +2,9 @@
   <header class="background-white">
     <Row :gutter="0" type="flex" justify="space-between" class="top">
       <Col
-        :xs="{span: 22, offset: 1}" 
-        :sm="{span: 20, offset: 2}" 
-        :md="{span: 20, offset: 2}" 
+        :xs="{span: 22, offset: 1}"
+        :sm="{span: 20, offset: 2}"
+        :md="{span: 20, offset: 2}"
         :lg="{span: 20, offset: 2}"
         :xl="{span: 16, offset: 4}" >
         <span class="notification">
@@ -20,10 +20,10 @@
       </Col>
     </Row>
     <Row :gutter="0" class="images pt-1 pb-1">
-      <Col 
-        :xs="{span: 22, offset: 1}" 
-        :sm="{span: 20, offset: 2}" 
-        :md="{span: 20, offset: 2}" 
+      <Col
+        :xs="{span: 22, offset: 1}"
+        :sm="{span: 20, offset: 2}"
+        :md="{span: 20, offset: 2}"
         :lg="{span: 20, offset: 2}"
         :xl="{span: 16, offset: 4}">
         <router-link :to="{ path: '/'}">
@@ -40,7 +40,7 @@
 </style>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, } from 'vue-property-decorator';
 @Component({
   name: 'Header',
 })

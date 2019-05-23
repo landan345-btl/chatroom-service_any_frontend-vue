@@ -3,7 +3,7 @@
     <div class="lotteries d-flex flex-wrap justify-content-between overflow-hidden">
       <template v-for="(oLotteryIssue, sKey) in lotteryIssues">
         <div class="lottery" v-if="lotteries && oLotteryIssue && lotteries[oLotteryIssue.lottery_id] && codes.includes(lotteries[oLotteryIssue.lottery_id].code)" :key="sKey">
-          <router-link 
+          <router-link
             class="text-center"
             :to="{ path: '/lottery', query: { code: lotteries && oLotteryIssue && lotteries[oLotteryIssue.lottery_id] ? lotteries[oLotteryIssue.lottery_id].code.toUpperCase() : ''}}">
             <div :class="[lotteries && oLotteryIssue && lotteries[oLotteryIssue.lottery_id] ? 'live-' + lotteries[oLotteryIssue.lottery_id].types.toLowerCase() : '']">
@@ -47,11 +47,10 @@ import {
   components: {
     ChenCountdown,
   },
-  mixins: [LotteryMixin],
+  mixins: [LotteryMixin, ],
 })
 
 class Live extends Vue {
-
   public codes: string[] = [
     'CQSSC', 'BJPK10', 'GDKLSF', 'JSK3',
   ];
@@ -61,7 +60,6 @@ class Live extends Vue {
 
   @Prop()
   public lotteries!: { [key: string]: any };
-
 }
 
 export default Live;

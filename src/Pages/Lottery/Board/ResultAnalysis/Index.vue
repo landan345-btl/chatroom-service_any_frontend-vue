@@ -158,7 +158,7 @@ class ResultAnalysis extends Vue {
   public iNumber = 2;
   public ranking = '1';
 
-  public toggleBackground( iNumber: number ) {
+  public toggleBackground (iNumber: number) {
     this.iNumber = iNumber;
   }
 }

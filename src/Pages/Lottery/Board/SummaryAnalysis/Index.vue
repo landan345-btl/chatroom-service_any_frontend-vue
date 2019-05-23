@@ -9,9 +9,9 @@
       </div>
       <I-divider/>
       <transition name="slide-fade">
-       <Today-two-side-number-statics 
-        :types="types" 
-        :lotteryIssues="lotteryIssues" 
+       <Today-two-side-number-statics
+        :types="types"
+        :lotteryIssues="lotteryIssues"
         :todayTwoSideRecords="todayTwoSideRecords"
         v-show="isTodayTwoSideNumberStaticShowed"/>
       </transition>
@@ -19,18 +19,18 @@
        <Accumulation-remider v-show="isAccumulationRemiderShowed"/>
       </transition>
       <transition name="slide-fade">
-        <NumberAnalysis 
+        <NumberAnalysis
           v-show="isNumberAnalysisShowed"
-          :types="types" 
-          :onNumbers="onNumbers" 
+          :types="types"
+          :onNumbers="onNumbers"
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
-          @handle-toggle-number="toggleNumber" 
+          @handle-toggle-number="toggleNumber"
           @handle-toggle-oddoreven="toggleOddOrEven"
           @handle-reset="resetShow"/>
       </transition>
     </div>
-    <Table 
-      :lotteryIssues="lotteryIssues" 
+    <Table
+      :lotteryIssues="lotteryIssues"
       :lottery="lottery"
       :types="types"
       :code="code"
@@ -98,75 +98,75 @@ class SummaryAnalysis extends Vue {
 
   public onNumbers: {
     [key: string]: boolean} = {
-    0: false,
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false,
-    6: false,
-    7: false,
-    8: false,
-    9: false,
-    10: false,
-    11: false,
-  };
+      0: false,
+      1: false,
+      2: false,
+      3: false,
+      4: false,
+      5: false,
+      6: false,
+      7: false,
+      8: false,
+      9: false,
+      10: false,
+      11: false,
+    };
 
   public onOddOrEvenOrSmallOrLargeOrPairRedcords: {
     [key: string]: boolean} = {
-    odd: false,
-    even: false,
-    small: false,
-    large: false,
-    pair: false,
-  };
+      odd: false,
+      even: false,
+      small: false,
+      large: false,
+      pair: false,
+    };
 
-  public toggleTodayTwoSideNumberStatics(): void {
+  public toggleTodayTwoSideNumberStatics (): void {
     this.isTodayTwoSideNumberStaticShowed = !this.isTodayTwoSideNumberStaticShowed;
   }
 
-  public toggleAccumulationRemider(): void {
+  public toggleAccumulationRemider (): void {
     this.isAccumulationRemiderShowed = !this.isAccumulationRemiderShowed;
   }
 
-  public toggleNumberAnalysis(): void {
+  public toggleNumberAnalysis (): void {
     this.isNumberAnalysisShowed = !this.isNumberAnalysisShowed;
   }
 
-  public toggleNumber(sKey: string) {
+  public toggleNumber (sKey: string) {
     let iNumber: any = Number(sKey);
     let onOddOrEvenOrSmallOrLargeOrPairRedcord = Object.assign({}, this.onOddOrEvenOrSmallOrLargeOrPairRedcords);
-    for ( let oddOrEvenOrSmallOrLargeOrPairRedcord in onOddOrEvenOrSmallOrLargeOrPairRedcord ) {
-      if ( this.onNumbers[iNumber] === false ) {
+    for (let oddOrEvenOrSmallOrLargeOrPairRedcord in onOddOrEvenOrSmallOrLargeOrPairRedcord) {
+      if (this.onNumbers[iNumber] === false) {
         this.onOddOrEvenOrSmallOrLargeOrPairRedcords[ oddOrEvenOrSmallOrLargeOrPairRedcord ] = false;
-     }
+      }
     }
     this.onNumbers[iNumber] = !this.onNumbers[iNumber];
   }
 
-  public toggleOddOrEven(sKey: string) {
-   let iKey = String(sKey);
-   let onNumber = Object.assign({}, this.onNumbers);
-   for ( let  number in onNumber) {
-     if ( this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey] === false ) {
+  public toggleOddOrEven (sKey: string) {
+    let iKey = String(sKey);
+    let onNumber = Object.assign({}, this.onNumbers);
+    for (let number in onNumber) {
+      if (this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey] === false) {
         this.onNumbers[number] = false;
-        if ( iKey === 'odd') {
+        if (iKey === 'odd') {
           this.onOddOrEvenOrSmallOrLargeOrPairRedcords.even = false;
           this.onOddOrEvenOrSmallOrLargeOrPairRedcords.pair = false;
         }
-        if ( iKey === 'even') {
+        if (iKey === 'even') {
           this.onOddOrEvenOrSmallOrLargeOrPairRedcords.odd = false;
           this.onOddOrEvenOrSmallOrLargeOrPairRedcords.pair = false;
         }
-        if ( iKey === 'small') {
+        if (iKey === 'small') {
           this.onOddOrEvenOrSmallOrLargeOrPairRedcords.large = false;
           this.onOddOrEvenOrSmallOrLargeOrPairRedcords.pair = false;
         }
-        if ( iKey === 'large') {
+        if (iKey === 'large') {
           this.onOddOrEvenOrSmallOrLargeOrPairRedcords.small = false;
           this.onOddOrEvenOrSmallOrLargeOrPairRedcords.pair = false;
         }
-        if ( iKey === 'pair') {
+        if (iKey === 'pair') {
           this.onOddOrEvenOrSmallOrLargeOrPairRedcords.large = false;
           this.onOddOrEvenOrSmallOrLargeOrPairRedcords.odd = false;
           this.onOddOrEvenOrSmallOrLargeOrPairRedcords.even = false;
@@ -174,16 +174,16 @@ class SummaryAnalysis extends Vue {
         }
       }
     }
-   this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey] = !this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey];
+    this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey] = !this.onOddOrEvenOrSmallOrLargeOrPairRedcords[iKey];
   }
 
-  public resetShow( reset: string) {
+  public resetShow (reset: string) {
     for (let sKey in this.onOddOrEvenOrSmallOrLargeOrPairRedcords) {
       if (this.onOddOrEvenOrSmallOrLargeOrPairRedcords.hasOwnProperty(sKey)) {
-        this.onOddOrEvenOrSmallOrLargeOrPairRedcords[sKey] = false ;
+        this.onOddOrEvenOrSmallOrLargeOrPairRedcords[sKey] = false;
       }
     }
-    for ( let  sKey in this.onNumbers) {
+    for (let sKey in this.onNumbers) {
       if (this.onNumbers.hasOwnProperty(sKey)) {
         this.onNumbers[sKey] = false;
       }
@@ -193,12 +193,12 @@ class SummaryAnalysis extends Vue {
   /**
    * 利用彩票开奖列表 计算 莫一个 number 的 次
    */
-  public countNumber(oLotteryIssues: any, iNumber: number) {
+  public countNumber (oLotteryIssues: any, iNumber: number) {
     let iCount = 0;
     Object.keys(oLotteryIssues).forEach((sLotteryIssueKey) => {
       let aNumbers = JSON.parse(oLotteryIssues[sLotteryIssueKey].numbers) || [];
       for (let _iNumber of aNumbers) {
-        if ( Number(_iNumber) === Number(iNumber)) {
+        if (Number(_iNumber) === Number(iNumber)) {
           iCount++;
         }
       }

@@ -21,9 +21,9 @@
         <Checkbox label="分隔线"></Checkbox>
       </I-checkbox-group>
     </div>
-    <div class="p-2 fictitious"> 
+    <div class="p-2 fictitious">
       <div>
-         <table class="basic-table" > 
+         <table class="basic-table" >
           <tr>
             <td rowspan="2" class="w-7"> <span>期号</span> </td>
             <td rowspan="2" class="w-6"> <span>开奖号码</span> </td>
@@ -111,7 +111,7 @@
             <td class="background-shallow-blue"><span :class="substr(JSON.parse(oLotteryIssue.numbers),1) === 7 ? 'background-blue-1':''">{{JSON.parse(oLotteryIssue.numbers) | substr(1)}}</span></td>
             <td class="background-shallow-blue"><span :class="substr(JSON.parse(oLotteryIssue.numbers),1) === 8 ? 'background-blue-1':''">{{JSON.parse(oLotteryIssue.numbers) | substr(1)}}</span></td>
             <td class="background-shallow-blue"><span :class="substr(JSON.parse(oLotteryIssue.numbers),1) === 9 ? 'background-blue-1':''">{{JSON.parse(oLotteryIssue.numbers) | substr(1)}}</span></td>
-            
+
             <td class="background-shallow-green"><span :class="substr(JSON.parse(oLotteryIssue.numbers),2) === 0 ? 'background-cyan-2':''">{{JSON.parse(oLotteryIssue.numbers) | substr(2)}}</span></td>
             <td class="background-shallow-green"><span :class="substr(JSON.parse(oLotteryIssue.numbers),2) === 1 ? 'background-cyan-2':''">{{JSON.parse(oLotteryIssue.numbers) | substr(2)}}</span></td>
             <td class="background-shallow-green"><span :class="substr(JSON.parse(oLotteryIssue.numbers),2) === 2 ? 'background-cyan-2':''">{{JSON.parse(oLotteryIssue.numbers) | substr(2)}}</span></td>
@@ -122,7 +122,7 @@
             <td class="background-shallow-green"><span :class="substr(JSON.parse(oLotteryIssue.numbers),2) === 7 ? 'background-cyan-2':''">{{JSON.parse(oLotteryIssue.numbers) | substr(2)}}</span></td>
             <td class="background-shallow-green"><span :class="substr(JSON.parse(oLotteryIssue.numbers),2) === 8 ? 'background-cyan-2':''">{{JSON.parse(oLotteryIssue.numbers) | substr(2)}}</span></td>
             <td class="background-shallow-green"><span :class="substr(JSON.parse(oLotteryIssue.numbers),2) === 9 ? 'background-cyan-2':''">{{JSON.parse(oLotteryIssue.numbers) | substr(2)}}</span></td>
-            
+
             <td class="background-shallow-gray"><span :class="substr(JSON.parse(oLotteryIssue.numbers),3) === 0 ? 'background-purple-3':''">{{JSON.parse(oLotteryIssue.numbers) | substr(3)}}</span></td>
             <td class="background-shallow-gray"><span :class="substr(JSON.parse(oLotteryIssue.numbers),3) === 1 ? 'background-purple-3':''">{{JSON.parse(oLotteryIssue.numbers) | substr(3)}}</span></td>
             <td class="background-shallow-gray"><span :class="substr(JSON.parse(oLotteryIssue.numbers),3) === 2 ? 'background-purple-3':''">{{JSON.parse(oLotteryIssue.numbers) | substr(3)}}</span></td>
@@ -133,7 +133,7 @@
             <td class="background-shallow-gray"><span :class="substr(JSON.parse(oLotteryIssue.numbers),3) === 7 ? 'background-purple-3':''">{{JSON.parse(oLotteryIssue.numbers) | substr(3)}}</span></td>
             <td class="background-shallow-gray"><span :class="substr(JSON.parse(oLotteryIssue.numbers),3) === 8 ? 'background-purple-3':''">{{JSON.parse(oLotteryIssue.numbers) | substr(3)}}</span></td>
             <td class="background-shallow-gray"><span :class="substr(JSON.parse(oLotteryIssue.numbers),3) === 9 ? 'background-purple-3':''">{{JSON.parse(oLotteryIssue.numbers) | substr(3)}}</span></td>
-            
+
             <td class="background-shallow-blueness"><span :class="substr(JSON.parse(oLotteryIssue.numbers),4) === 0 ? 'background-blackish-green-4':''">{{JSON.parse(oLotteryIssue.numbers) | substr(4)}}</span></td>
             <td class="background-shallow-blueness"><span :class="substr(JSON.parse(oLotteryIssue.numbers),4) === 1 ? 'background-blackish-green-4':''">{{JSON.parse(oLotteryIssue.numbers) | substr(4)}}</span></td>
             <td class="background-shallow-blueness"><span :class="substr(JSON.parse(oLotteryIssue.numbers),4) === 2 ? 'background-blackish-green-4':''">{{JSON.parse(oLotteryIssue.numbers) | substr(4)}}</span></td>
@@ -456,7 +456,6 @@ import {
   },
 })
 class BasicTrend extends Vue {
-
   @Prop()
   public lotteryIssues!: any;
 
@@ -471,12 +470,12 @@ class BasicTrend extends Vue {
 
   public date = '今天';
   public position = '第一球';
-  public decorator = ['遗漏'];
+  public decorator = ['遗漏', ];
 
-  public get oLotteryIssues(): object {
+  public get oLotteryIssues (): object {
     let oLotteryIssues = this.lotteryIssues;
     let aLotteryIssues = Object.values(oLotteryIssues);
-    let oLotteryIssue = aLotteryIssues.reverse().slice(0 , 14);
+    let oLotteryIssue = aLotteryIssues.reverse().slice(0, 14);
     return oLotteryIssue;
   }
 }

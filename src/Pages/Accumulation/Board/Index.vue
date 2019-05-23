@@ -19,7 +19,7 @@
             <td>4期</td>
             <td>查看</td>
             <td>查看</td>
-           </tr> 
+           </tr>
          </tbody>
        </table>
       </TabPane>
@@ -41,7 +41,7 @@
             <td>4期</td>
             <td>查看</td>
             <td>查看</td>
-           </tr> 
+           </tr>
          </tbody>
        </table>
       </TabPane>
@@ -83,73 +83,73 @@ class Board extends Vue {
  public olotterysScreen: any = {};
  public olotteryIssues: any = {};
 
- @Prop({ default: null })
+ @Prop({ default: null, })
  public olotterys !: any ;
 
  public placeholder: any = '选择2期或者以上显示';
  public options: any = [{
-    value: '2',
-    label: '2期',
-  }, {
-    value: '3',
-    label: '3期',
-  }, {
-    value: '4',
-    label: '4期',
-  }, {
-    value: '5',
-    label: '5期',
-  }, {
-    value: '6',
-    label: '6期',
-  }, {
-    value: '7',
-    label: '7期',
-  }, {
-    value: '8',
-    label: '8期',
-  }, {
-    value: '9',
-    label: '9期',
-  }, {
-    value: '10',
-    label: '10期',
-  }, {
-    value: '11',
-    label: '11期',
-  }, {
-    value: '12',
-    label: '12期',
-  }, {
-    value: '13',
-    label: '13期',
-  }, {
-    value: '14',
-    label: '14期',
-  }, {
-    value: '15',
-    label: '15期',
-  }];
- public dataScreen() {
-    let _olotterys: any = {};
-    for ( let olottery in this.olotterys ) {
-      if ( this.olotterys[ olottery ].numbers == null ) {
-        continue;
-      }
-      _olotterys[ olottery ] = this.olotterys[ olottery ];
-    }
-    this.olotterysScreen = _olotterys;
+   value: '2',
+   label: '2期',
+ }, {
+   value: '3',
+   label: '3期',
+ }, {
+   value: '4',
+   label: '4期',
+ }, {
+   value: '5',
+   label: '5期',
+ }, {
+   value: '6',
+   label: '6期',
+ }, {
+   value: '7',
+   label: '7期',
+ }, {
+   value: '8',
+   label: '8期',
+ }, {
+   value: '9',
+   label: '9期',
+ }, {
+   value: '10',
+   label: '10期',
+ }, {
+   value: '11',
+   label: '11期',
+ }, {
+   value: '12',
+   label: '12期',
+ }, {
+   value: '13',
+   label: '13期',
+ }, {
+   value: '14',
+   label: '14期',
+ }, {
+   value: '15',
+   label: '15期',
+ }, ];
+ public dataScreen () {
+   let _olotterys: any = {};
+   for (let olottery in this.olotterys) {
+     if (this.olotterys[ olottery ].numbers == null) {
+       continue;
+     }
+     _olotterys[ olottery ] = this.olotterys[ olottery ];
+   }
+   this.olotterysScreen = _olotterys;
  }
 
- public created() {
+ public created () {
    this.dataScreen();
-  // this.getName();  // 接受兄弟传来的值
+   // this.getName();  // 接受兄弟传来的值
  }
 
-public getName() {
-  this.$on('lotteryName' , ( data: any) => {
-   this.lotteryName = data;
-  });
+ public getName () {
+   this.$on('lotteryName', (data: any) => {
+     this.lotteryName = data;
+   });
  }
 }
 

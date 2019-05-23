@@ -56,14 +56,14 @@ class SummationResult extends Vue {
   @Prop()
   public lotteryIssues!: any;
 
-  public get getSummationResults(): void {
+  public get getSummationResults (): number {
     let oLotteryIssues: any = this.$store.state.lottery_issues;
     let aLotteryIssues: any = Object.values(oLotteryIssues);
     let iIndex;
-    for (iIndex = 0 ; iIndex < aLotteryIssues.length ; iIndex++ ) {
+    for (iIndex = 0; iIndex < aLotteryIssues.length; iIndex++) {
       let aNumbers = JSON.parse(aLotteryIssues[iIndex].numbers);
     }
-    return;
+    return 0;
   }
 }
 

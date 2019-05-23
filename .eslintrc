@@ -1,8 +1,0 @@
-{
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
-  "rules": {
-    "@typescript-eslint/rule-name": "error",
-    "vue/no-parsing-error": [2, { "x-invalid-end-tag": false }]
-  }
-}

@@ -20,7 +20,7 @@
           <div class="line">
           </div>
           <div class="trend">
-            <div class="top">          
+            <div class="top">
               <font-awesome-icon icon="chart-line" class="d-inline-block color-deepskyblue font-size-2p5"/>
               <span>&nbsp;走势</span>
             </div>
@@ -111,9 +111,8 @@ class Analysis extends Vue {
     '浙江11选5号码推荐4月17日下午',
     '湖北11选5号码推荐4月17日上午',
   ];
-  public created(): void {
+  public created (): void {
     let $root: any = this.$root;
-
   }
 }
 

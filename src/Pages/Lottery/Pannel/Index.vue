@@ -28,7 +28,7 @@
     <div class="countdown p-2 d-xs-none">
       <div class="top">
         <span>
-          距 
+          距
         </span>
         <span class="no">
           &nbsp; {{ getLotteryIssueExtension.next_no }} &nbsp;
@@ -92,8 +92,7 @@ class Pannel extends Vue {
   @Prop()
   public types!: any;
 
-
-  public get getLotteryIssueExtension() {
+  public get getLotteryIssueExtension () {
     let oLotteryIssueExtension = {};
     let lottery = this.lotteries[this.lotteryIssue.lottery_id];
     let aRangeTimes = JSON.parse(lottery.range_times);
@@ -108,13 +107,13 @@ class Pannel extends Vue {
     iNextTime = (new Date(this.lotteryIssue.date + ' ' + this.lotteryIssue.time).getTime() + lottery.interval_time * 1000 - iNowTime) / 1000;
 
     aRangeTimes.forEach((oRangeTime: any) => {
-      let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.started_time).getTime();
-      let iEndedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime() < iStartedTime
-                      ? new Date(iFullYear + '-' + iMonth + '-' + (iDate + 1) + ' ' +  oRangeTime.ended_time).getTime()
-                      : new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' +  oRangeTime.ended_time).getTime();
+      let iStartedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' + oRangeTime.started_time).getTime();
+      let iEndedTime = new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' + oRangeTime.ended_time).getTime() < iStartedTime
+        ? new Date(iFullYear + '-' + iMonth + '-' + (iDate + 1) + ' ' + oRangeTime.ended_time).getTime()
+        : new Date(iFullYear + '-' + iMonth + '-' + iDate + ' ' + oRangeTime.ended_time).getTime();
       let iDifferentTime = (iNowTime - iStartedTime) / 1000;
-      iLotteryIssueOrderNoTotalInThisDay +=  Math.floor((iEndedTime - iStartedTime) / (0 !== lottery.interval_time ? 1000 * lottery.interval_time : 1));
-      if (0 === Number(lottery.interval_time)) {
+      iLotteryIssueOrderNoTotalInThisDay += Math.floor((iEndedTime - iStartedTime) / (lottery.interval_time !== 0 ? 1000 * lottery.interval_time : 1));
+      if (Number(lottery.interval_time) === 0) {
         iNextTime = (new Date(this.lotteryIssue.date + ' ' + this.lotteryIssue.time).getTime() + 24 * 60 * 60 * 1000 - iNowTime) / 1000;
       }
       if (iNowTime >= iStartedTime && iNowTime <= iEndedTime) {
@@ -130,7 +129,6 @@ class Pannel extends Vue {
     };
     return oLotteryIssueExtension;
   }
-
 }
 
 export default Pannel;

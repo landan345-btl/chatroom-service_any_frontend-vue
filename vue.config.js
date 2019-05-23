@@ -1,12 +1,10 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-
 module.exports = {
   // 基本路径
   publicPath: '/',
   // 输出文件目录
   outputDir: 'dist',
   // 用于嵌套生成的静态资产（js，css，img，fonts）的目录。
-  //assetsDir: '',
+  // assetsDir: '',
   // 以多页模式构建应用程序。
   pages: undefined,
   // eslint-loader 是否在保存的时候检查
@@ -23,9 +21,9 @@ module.exports = {
       host: process.env.HOST,
       port: process.env.PORT,
       watchOptions: {
-        ignored: ['node_modules'],
+        ignored: ['node_modules', ],
         aggregateTimeout: 300,
-        poll: 1500
+        poll: 1500,
       },
       public: '127.0.0.1', // vagrant machine address,
       disableHostCheck: true,
@@ -35,22 +33,22 @@ module.exports = {
   // css相关配置
   css: {
   // 启用 CSS modules
-  modules: false,
-  // 是否使用css分离插件
-  extract: true,
-  // 开启 CSS source maps?
-  sourceMap: false,
-  // css预设器配置项
-  loaderOptions: {},
+    modules: false,
+    // 是否使用css分离插件
+    extract: true,
+    // 开启 CSS source maps?
+    sourceMap: false,
+    // css预设器配置项
+    loaderOptions: {},
   },
   // webpack-dev-server 相关配置
   devServer: {
-  host: '0.0.0.0',
-  port: 8080,
-  https: false,
-  hotOnly: false,
-  proxy: null, // 设置代理
-  before: app => {}
+    host: '0.0.0.0',
+    port: 8080,
+    https: false,
+    hotOnly: false,
+    proxy: null, // 设置代理
+    before: app => {},
   },
   // enabled by default if the machine has more than 1 cores
   parallel: require('os').cpus().length > 1,
@@ -59,5 +57,5 @@ module.exports = {
   // 第三方插件配置
   pluginOptions: {
   // ...
-  }
-}
+  },
+};

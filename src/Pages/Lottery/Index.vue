@@ -4,25 +4,25 @@
     <Nav-top/>
     <Nav-right/>
     <Row :gutter="0">
-      <Col 
-        :xs="{span: 22, offset: 1}" 
-        :sm="{span: 20, offset: 2}" 
-        :md="{span: 20, offset: 2}" 
+      <Col
+        :xs="{span: 22, offset: 1}"
+        :sm="{span: 20, offset: 2}"
+        :md="{span: 20, offset: 2}"
         :lg="{span: 20, offset: 2}"
         :xl="{span: 16, offset: 4}">
         <main class="mt-2 mb-2">
-          <Pannel 
-            :lotteryIssue="getLastLotteryIssue" 
+          <Pannel
+            :lotteryIssue="getLastLotteryIssue"
             :lotteries="getLotteries"
-            :code="getCode" 
+            :code="getCode"
             :types="getTypes"
              v-if="getLastLotteryIssue && getLottery && getTypes"/>
-          <Board 
-            :lotteryIssues="getLotteryIssues" 
+          <Board
+            :lotteryIssues="getLotteryIssues"
             :lottery="getLottery"
-            :lotteries="getLotteries" 
-            :code="getCode" 
-            :types="getTypes" 
+            :lotteries="getLotteries"
+            :code="getCode"
+            :types="getTypes"
             v-if="getTypes"/>
         </main>
       </Col>
@@ -36,7 +36,7 @@
 
 </style>
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator';
+import { Component, Vue, Watch, } from 'vue-property-decorator';
 
 import {
   Header,
@@ -62,7 +62,7 @@ import {
   LOTTERY_TYPES,
 } from '@/CONFIGS/';
 
-import { 
+import {
   Lottery as LotteryMixin,
 } from '@/Mixins/';
 
@@ -76,17 +76,17 @@ import {
     Pannel,
     Board,
   },
-  mixins: [LotteryMixin],
+  mixins: [LotteryMixin, ],
 })
 class Lottery extends Vue {
   public interval: any = null;
   public isSpinShowed: boolean = true;
 
-  public beforeCreate(): void {
+  public beforeCreate (): void {
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
   }
 
-  public created(): void {
+  public created (): void {
     let $root: any = this.$root;
     let sCode = this.$route.query.code;
     this._redirecteIfWithoutCode();
@@ -100,12 +100,12 @@ class Lottery extends Vue {
     this.setIntervalLotteryIssueActionShow(oQueries);
   }
 
-  public beforeMount() {
+  public beforeMount () {
     // this.caculateNumbersToPositionsToCounts();
   }
 
-  @Watch('$route', { immediate: true, deep: true })
-  public onRouteChange(oRoute: any) {
+  @Watch('$route', { immediate: true, deep: true, })
+  public onRouteChange (oRoute: any) {
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
     let sCode = oRoute.query.code || '';
     let oQueries = {
@@ -117,52 +117,51 @@ class Lottery extends Vue {
     this.setIntervalLotteryIssueActionShow(oQueries);
   }
 
-  public setIntervalLotteryIssueActionShow(oQueries: any) {
+  public setIntervalLotteryIssueActionShow (oQueries: any) {
     if (this.interval) {
       clearInterval(this.interval);
     }
     this.interval = setInterval(() => {
       this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
-    } , BACKEND.INTERVAL_TIME );
+    }, BACKEND.INTERVAL_TIME);
   }
 
-  public destroyed() {
+  public destroyed () {
     clearInterval(this.interval);
   }
 
-  private _redirecteIfWithoutCode(): void {
+  private _redirecteIfWithoutCode (): void {
     let mCode = this.$route.query.code;
     let sCode = mCode.toString();
     if (!(sCode in LOTTERIES)) {
-      this.$router.push( { name: '/home'});
+      this.$router.push({ name: '/home', });
     }
   }
 
-  public get getLottery(): any {
+  public get getLottery (): any {
     let oLotteries: any = this.$store.state.lotteries;
     let aLotteries = Object.values(oLotteries);
     let oLottery = aLotteries.pop();
     return oLottery;
   }
 
-  public get getLotteries(): any {
+  public get getLotteries (): any {
     let oLotteries: any = this.$store.state.lotteries;
     return oLotteries;
   }
 
-  public get getCode(): string {
+  public get getCode (): string {
     let mCode = this.$route.query.code;
     let sCode = mCode.toString();
     return sCode;
   }
 
-  public get getTypes(): string | void {
-
+  public get getTypes (): string | void {
     try {
       let oLotteries: any = Object.assign({}, this.$store.state.lotteries);
 
       let aLotteries = Object.values(oLotteries);
-      if (0 === aLotteries.length) {
+      if (aLotteries.length === 0) {
         throw new Error('');
       }
       let oLottery: any = aLotteries.pop();
@@ -172,31 +171,30 @@ class Lottery extends Vue {
       let sTypes = oLottery.types;
       return sTypes;
     } catch (Error) {
-      return;
+
     } finally {
       // do nothing
     }
   }
 
-  public get getLotteryIssues() {
+  public get getLotteryIssues () {
     let oLotteryIssues: any = this.$store.state.lottery_issues;
     return oLotteryIssues;
   }
 
-  public get getLastLotteryIssue() {
+  public get getLastLotteryIssue () {
     let iLotteryIssueId: number;
     let _oLastLotteryIssues: any = {};
     let oLotteryIssues: { lottery_issue_id: any} = this.$store.state.lottery_issues;
     let oLotteryIssue: { lottery_issue_id: any} | undefined = Object.values(oLotteryIssues).pop();
     return oLotteryIssue;
   }
-  
-  public get getTodayNumbers() {
+
+  public get getTodayNumbers () {
     let oLotteryIssues: any = this.$store.state.lottery_issues;
     let aLotteryIssues = Object.values(oLotteryIssues);
     aLotteryIssues.forEach((oLotteryIssue: any) => {
       let aNumbers = oLotteryIssue.numbers;
-
     });
     return false;
   }

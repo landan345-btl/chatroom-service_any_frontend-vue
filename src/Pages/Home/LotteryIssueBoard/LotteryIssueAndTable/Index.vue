@@ -50,7 +50,7 @@ import {
     Table,
     LotteryIssue,
   },
-  mixins: [LotteryMixin],
+  mixins: [LotteryMixin, ],
 })
 class LotteryIssueAndTable extends Vue {
   @Prop()

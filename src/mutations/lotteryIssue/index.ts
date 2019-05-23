@@ -5,7 +5,7 @@
 // 遵守 isomorphism 设计原则
 
 let oLotteryMutation = {
-  LOTTERY_ISSUE_MUTATION_SHOW(state: any, mLotteryIssues: any[]): void {
+  LOTTERY_ISSUE_MUTATION_SHOW (state: any, mLotteryIssues: any[]): void {
     let oLotteryIssues: any = (mLotteryIssues instanceof Array) ? {} : mLotteryIssues;
     // debugger;
     if (mLotteryIssues instanceof Array) {
@@ -16,19 +16,19 @@ let oLotteryMutation = {
       }, {});
       mLotteryIssues = oLotteryIssues;
     }
-     // debugger;
+    // debugger;
     state.lottery_issues = mLotteryIssues;
   },
-  LOTTERY_ISSUE_MUTATION_ADD(state: any, mLotteries: any[]): void {
+  LOTTERY_ISSUE_MUTATION_ADD (state: any, mLotteries: any[]): void {
     // debugger;
   },
-  LOTTER_ISSUE_MUTATION_EDIT(state: any, mLotteries: any[]): void {
+  LOTTER_ISSUE_MUTATION_EDIT (state: any, mLotteries: any[]): void {
     // debugger;
   },
-  LOTTERY_ISSUE_MUTATION_REMOVE(state: any, mLotteries: any[]): void {
+  LOTTERY_ISSUE_MUTATION_REMOVE (state: any, mLotteries: any[]): void {
     // debugger;
   },
-  LOTTERY_ISSUE_MUTATION_EMPTY(state: any, mLotteries: any[]): void {
+  LOTTERY_ISSUE_MUTATION_EMPTY (state: any, mLotteries: any[]): void {
     state.lottery_issues = {};
   },
 };

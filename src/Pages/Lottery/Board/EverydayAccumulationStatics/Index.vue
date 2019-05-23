@@ -114,7 +114,7 @@ class EverydayAccumulationStatics extends Vue {
   public iNumber = 1;
   public position = '第一球';
 
-  public toggleBackground(iNumber: number) {
+  public toggleBackground (iNumber: number) {
     this.iNumber = iNumber;
   }
 }

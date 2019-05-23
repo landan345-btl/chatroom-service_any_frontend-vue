@@ -33,8 +33,8 @@ import {
   faMusic,
   faPlus,
 } from '@fortawesome/free-solid-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library, } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon, } from '@fortawesome/vue-fontawesome';
 
 import oMessages from '@/langs/index';
 
@@ -50,7 +50,8 @@ library.add(faMusic);
 library.add(faPlus);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
-Vue.component(VueCountdown.name, VueCountdown);
+// eslint-disable-next-line
+Vue.component(VueCountdown.name, VueCountdown)
 Vue.use(VueI18n);
 Vue.use(VCharts);
 Vue.use(iView);

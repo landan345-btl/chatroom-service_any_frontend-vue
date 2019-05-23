@@ -58,8 +58,7 @@ import {
 })
 class OddOrEvenSmallOrLargeResult extends Vue {
   public position: any = '第一球';
-  public decorators: any = ['大小路珠'];
-
+  public decorators: any = ['大小路珠', ];
 }
 
 export default OddOrEvenSmallOrLargeResult;

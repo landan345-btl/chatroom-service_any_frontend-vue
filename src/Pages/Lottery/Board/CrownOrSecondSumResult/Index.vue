@@ -22,7 +22,7 @@
       <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 冠亚和单双：“冠亚和值”爲单视为投注“单”的注单视为中奖，爲双视为投注“双”的注单视为中奖，其余视为不中奖；</p>
       <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 冠亚和大小：“冠亚和值”大于11时投注“大”的注单视为中奖，小于或等于11时投注“小”的注单视为中奖，其余视为不中奖；</p>
       <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 “冠亚和值”可能出现的结果爲3～19， 投中对应“冠亚和值”数字的视为中奖，其余视为不中奖。</p>
-      </div> 
+      </div>
     </div>
     <div>
       <Result-table />
@@ -63,16 +63,15 @@ import {
 })
 class CrownOrSecondSumResult extends Vue {
   public date = '今天';
-  public decorator = ['折线', '遗漏'];
+  public decorator = ['折线', '遗漏', ];
 
   public isAnnouncementShowed: boolean = false;
-  public toggleAnnouncement() {
+  public toggleAnnouncement () {
     this.isAnnouncementShowed = !this.isAnnouncementShowed;
   }
-  public hideAnnouncement() {
-     this.isAnnouncementShowed = false;
+  public hideAnnouncement () {
+    this.isAnnouncementShowed = false;
   }
-
 }
 
 export default CrownOrSecondSumResult;

@@ -13,7 +13,8 @@
     "baseUrl": ".",
     "types": [
       "webpack-env",
-      "jest"
+      "mocha",
+      "chai"
     ],
     "paths": {
       "@/*": [
@@ -28,22 +29,14 @@
     ]
   },
   "include": [
-    "typings/**/*.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "typings/**/*.d.ts"
   ],
   "exclude": [
     "node_modules"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
-  "plugins": ["@typescript-eslint"],
-  "rules": {
-    "@typescript-eslint/restrict-plus-operands": "error"
-  }
+  ]
 }

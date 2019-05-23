@@ -41,7 +41,6 @@ import {
   },
 })
 class AdvertismentA extends Vue {
-
   @Prop()
   public lotteries!: object;
 }

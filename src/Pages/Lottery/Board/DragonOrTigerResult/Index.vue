@@ -25,7 +25,7 @@
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第三名龙/虎：“第三名”车号大于“第八名”车号视为【龙】中奖、反之小于视为【虎】中奖；</p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第四名龙/虎：“第四名”车号大于“第七名”车号视为【龙】中奖、反之小于视为【虎】中奖；</p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;第五名龙/虎：“第五名”车号大于“第六名”车号视为【龙】中奖、反之小于视为【虎】中奖</p>
-      </div> 
+      </div>
     </div>
     <div class="mb-2 pl-2 pr-2 font-size-1p5">
       筛选名次：
@@ -78,16 +78,15 @@ import {
 })
 class DragonOrTigerResult extends Vue {
   public date = '今天';
-  public decorator = ['折线', '遗漏'];
+  public decorator = ['折线', '遗漏', ];
 
   public isAnnouncementShowed: boolean = false;
-  public toggleAnnouncement() {
+  public toggleAnnouncement () {
     this.isAnnouncementShowed = !this.isAnnouncementShowed;
   }
-  public hideAnnouncement() {
-     this.isAnnouncementShowed = false;
+  public hideAnnouncement () {
+    this.isAnnouncementShowed = false;
   }
-
 }
 
 export default DragonOrTigerResult;

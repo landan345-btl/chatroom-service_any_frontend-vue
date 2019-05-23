@@ -16,10 +16,10 @@
       <tr v-for="(lotteryIssue, iIndex ) in oLotteryIssues" :key="iIndex" class="font-size-1p5">
         <td>{{ lotteryIssue.no }}</td>
         <td>
-          <S-numbers 
-          :code="code" 
-          :numbers="JSON.parse(lotteryIssue.numbers )" 
-          :types="types" 
+          <S-numbers
+          :code="code"
+          :numbers="JSON.parse(lotteryIssue.numbers )"
+          :types="types"
           :previousNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
           :nextNumbers="iIndex < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[iIndex + 1].numbers): []"
           :onNumbers="onNumbers"
@@ -92,13 +92,12 @@ class Table extends Vue {
   @Prop()
   public onOddOrEvenOrSmallOrLargeOrPairRedcords!: boolean;
 
-  public get oLotteryIssues(): object {
+  public get oLotteryIssues (): object {
     let oLotteryIssues = this.lotteryIssues;
     let aLotteryIssues = Object.values(oLotteryIssues);
-    let oLotteryIssue = aLotteryIssues.reverse().slice(0 , 99);
+    let oLotteryIssue = aLotteryIssues.reverse().slice(0, 99);
     return oLotteryIssue;
   }
-
 }
 
 export default Table;

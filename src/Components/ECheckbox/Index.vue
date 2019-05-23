@@ -9,16 +9,16 @@
 </style>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, } from 'vue-property-decorator';
 
 @Component({
   name: 'ECheckbox',
 })
 class ECheckbox extends Vue {
-  @Prop({ default: false })
+  @Prop({ default: false, })
   public disabled: boolean = false;
 
-  @Prop({ default: false })
+  @Prop({ default: false, })
   public checked1: boolean = false;
 }
 export default ECheckbox;

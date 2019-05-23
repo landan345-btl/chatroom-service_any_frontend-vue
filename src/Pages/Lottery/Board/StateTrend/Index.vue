@@ -25,7 +25,7 @@
         <p>6 杂六：不包括豹子、顺子、对子、半顺的所有组合号码，如号码为157、964等，号码位数之间没有关联性。</p>
         <p>7 组选3：第一球、第二球、第三球任意两位数字重复则为组选3。例如：112、211、122、221;</p>
         <p>8 组选6：第一球、第二球、第三球没有任何号码重复则为组选6。例如：123、321、132、213；</p>
-      </div> 
+      </div>
     </div>
     <div class="pl-2 pr-2 d-flex justify-content-between">
       <I-radio-group v-model="position" type="button" class="line-height3">
@@ -167,14 +167,14 @@ import {
 class StateTrend extends Vue {
   public date: any = '今天';
   public position: any = '前三形态';
-  public decorators: any = ['遗漏'];
+  public decorators: any = ['遗漏', ];
 
   public isAnnouncementShowed: boolean = false;
-  public toggleAnnouncement() {
+  public toggleAnnouncement () {
     this.isAnnouncementShowed = !this.isAnnouncementShowed;
   }
-  public hideAnnouncement() {
-     this.isAnnouncementShowed = false;
+  public hideAnnouncement () {
+    this.isAnnouncementShowed = false;
   }
 }
 
