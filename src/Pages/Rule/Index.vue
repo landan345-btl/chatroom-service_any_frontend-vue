@@ -2,14 +2,14 @@
   <div class="page rule">
     <Header />
     <NavTop/>
-    <NavRight />
+    <NavRight class="z-1001"/>
     <Row :gutter="0" class="backgrond-mian">
       <Col 
-        :xs="{span: 6, offset: 1}" 
-        :sm="{span: 6, offset: 2}" 
-        :md="{span: 5, offset: 2}" 
-        :lg="{span: 6, offset: 2}"
-        :xl="{span: 4, offset: 4}" class="mr-1">
+        :xs="{span: 4, offset: 1}" 
+        :sm="{span: 4, offset: 2}" 
+        :md="{span: 4, offset: 2}" 
+        :lg="{span: 3, offset: 2}"
+        :xl="{span: 3, offset: 4}" class="  z-1002">
         <div class="rule-head">首页&nbsp;&gt;
           <span v-if="code === 'BJPK10'">北京PK10</span>
           <span v-if="code === 'CQSSC'">重庆时时彩</span>
@@ -27,7 +27,7 @@
           <span v-if="code === 'FC3D'">福彩3D</span>
           <span v-if="code === 'TWBG'">台湾宾果</span>
         </div>
-        <aside class="rule-content">
+        <aside class="rule-content mr-2">
           <div class="lottery-menu">
             <ul class="font-weight-bold font-size-1p5">
               <li class="font-size-2">玩法规则</li>
@@ -51,7 +51,7 @@
         </aside>
       </Col>
       <Col 
-         :xs="{span: 15}" :sm="{span: 14}" :md="{span: 15}" :lg="{span: 14}" :xl="{span: 12}" class="ml-1">
+         :xs="{span: 17}" :sm="{span: 16}" :md="{span: 16}" :lg="{span: 17}" :xl="{span: 13}" class="z-1000">
         <main class="rule-content ">
           <div class="rule-details mb-2 background-white">
             <div class="rule-pk10" v-if="code === 'BJPK10'">
