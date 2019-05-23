@@ -1,13 +1,13 @@
 <template>
   <div class="board">
     <I-tabs :type="'card'" class=""  v-on:handle-click="handleRule"  :animated="false">
-      <TabPane :label="'即时开奖'" :name="'lottery-issue'"> 
-        <Lottery-issue 
-          v-if="code && types" 
-          :lotteryIssues="lotteryIssues" 
+      <TabPane :label="'即时开奖'" :name="'lottery-issue'">
+        <Lottery-issue
+          v-if="code && types"
+          :lotteryIssues="lotteryIssues"
           :lottery="lottery"
           :lotteries="lotteries"
-          :code="code" 
+          :code="code"
           :types="types" />
       </TabPane>
       <TabPane :label="'路珠分析'" :name="'result-analysis'">
@@ -29,12 +29,12 @@
         <Crown-or-second-sum-result />
       </TabPane>
       <TabPane :label="'号码规律统计'" :name="'number-or-law-count'">
-        <Number-or-law-count 
-          v-if="code && types" 
-          :lotteryIssues="lotteryIssues" 
+        <Number-or-law-count
+          v-if="code && types"
+          :lotteryIssues="lotteryIssues"
           :lottery="lottery"
           :lotteries="lotteries"
-          :code="code" 
+          :code="code"
           :types="types" />
       </TabPane>
       <TabPane :label="'冠亚和两面历史'" :name="'crown-or-second-sum-two-side-history'">
@@ -80,7 +80,7 @@
         <Summation-result v-if="code && types" :lotteryIssues="lotteryIssues"/>
       </TabPane>
       <TabPane :label="'玩法规则'" :name="'rule'">
-         
+
       </TabPane>
     </I-tabs>
   </div>
@@ -95,7 +95,6 @@ import {
   Vue,
   Prop,
 } from 'vue-property-decorator';
-
 
 import {
   ITabs,
@@ -179,12 +178,11 @@ class Board extends Vue {
   @Prop()
   public types!: any;
 
-  public handleRule(name: string) {
+  public handleRule (name: string) {
     if (name === 'rule') {
-      this.$router.push({path: '/rule'});
+      this.$router.push({ path: '/rule', });
     }
   }
-
 }
 
 export default Board;

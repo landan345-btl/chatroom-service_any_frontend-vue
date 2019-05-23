@@ -8,8 +8,6 @@ let aAboutRoutes = [{
   // which is lazy-loaded when the route is visited.
   component: () => import(/* webpackChunkName: "about" */ '@/Pages/About/Index.vue'),
   children: aAboutChildren,
-}];
-
-
+}, ];
 
 export default aAboutRoutes;

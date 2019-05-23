@@ -1,6 +1,6 @@
 const LOTTERIES: I_LOTTERIES = {
   'MLAFT': {
-    NAME : '幸运飞艇',
+    NAME: '幸运飞艇',
     SRC: '@/assets/images/MLAFT-md.png',
     TYPES: 'PK10',
     SMALL_UPPER_BOUND: 4,
@@ -10,7 +10,7 @@ const LOTTERIES: I_LOTTERIES = {
     },
   },
   'JSAFT': {
-    NAME : '极速飞艇',
+    NAME: '极速飞艇',
     SRC: '@/assets/images/JSAFT-md.png',
     TYPES: 'PK10',
     SMALL_UPPER_BOUND: 4,

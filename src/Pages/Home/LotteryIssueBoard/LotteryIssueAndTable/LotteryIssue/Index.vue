@@ -20,9 +20,9 @@
         </span>
       </div>
       <div class="bottom">
-        <S-numbers 
-          :code="lotteries[lotteryIssue.lottery_id].code" 
-          :numbers="JSON.parse(lotteryIssue.numbers)" 
+        <S-numbers
+          :code="lotteries[lotteryIssue.lottery_id].code"
+          :numbers="JSON.parse(lotteryIssue.numbers)"
           :types="lotteries[lotteryIssue.lottery_id].types"
           :isRandom="true"
           class="status-number"/>
@@ -60,7 +60,7 @@ import {
     SNumbers,
     ChenCountdown,
   },
-  mixins: [LotteryMixin],
+  mixins: [LotteryMixin, ],
 })
 class LotteryIssue extends Vue {
   @Prop()
@@ -71,10 +71,9 @@ class LotteryIssue extends Vue {
 
   public caculateLotteryIssueExtension!: any;
 
-  public beforeMount() {
+  public beforeMount () {
     this.caculateLotteryIssueExtension(this.lotteryIssue.opened_time, this.lotteries[this.lotteryIssue.lottery_id]);
   }
-
 }
 export default LotteryIssue;
 

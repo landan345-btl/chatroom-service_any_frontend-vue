@@ -61,16 +61,15 @@ import {
 @Component({
   name: 'CrownOrSecondSumTrend',
   components: {
-     IDivider,
-     ICheckboxGroup,
-     IRadioGroup,
-     IDatePicker,
+    IDivider,
+    ICheckboxGroup,
+    IRadioGroup,
+    IDatePicker,
   },
 })
 class CrownOrSecondSumTrend extends Vue {
   public button1 = '今天';
-  public checkList = ['遗漏', '拆线'];
-
+  public checkList = ['遗漏', '拆线', ];
 }
 export default CrownOrSecondSumTrend;
 </script>

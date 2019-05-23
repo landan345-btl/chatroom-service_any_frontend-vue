@@ -40,7 +40,7 @@
 </style>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, } from 'vue-property-decorator';
 
 @Component({
   name: 'ResultTable',

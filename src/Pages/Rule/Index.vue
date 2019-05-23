@@ -58,7 +58,7 @@
               <p class="text-center font-size-2p5 font-weight-bold">“PK10”游戏规则</p>
               <p class="font-size-1p5 font-weight-bold">总则</p>
               <p>第一条　根据《彩票管理条例》、《彩票管理条例实施细则》、《彩票发行销售管理办法》（财综[2012]102号）等有关规定，制定本规则。
-              <p>第二条　中国福利彩票PK10游戏(以下简称PK10）由中国福利彩票发行管理中心发行和组织销售，由北京市福利彩票销售机构（以下称北京福彩机构）在所</p>  
+              <p>第二条　中国福利彩票PK10游戏(以下简称PK10）由中国福利彩票发行管理中心发行和组织销售，由北京市福利彩票销售机构（以下称北京福彩机构）在所</p>
               <p>辖区域内销售。</p>
               <p>第三条　PK10采用计算机网络系统发行，在北京福彩机构设置的销售网点销售，定期开奖。</p>
               <p>第四条　PK10实行自愿购买，凡购买者均被视为同意并遵守本规则。</p>
@@ -1411,7 +1411,6 @@ import {
   BACKEND,
 } from '@/CONFIGS/';
 
-
 @Component({
   name: 'Rule',
   components: {
@@ -1426,14 +1425,13 @@ class Rule extends Vue {
   public created(): void {
    this.$router.replace({ path: '/rule/', query: { code: 'BJPK10'}});
   }
-  public changeLottery(sCode: string) {
+  public changeLottery (sCode: string) {
     this.code = sCode;
     let oQuery = {
       code: sCode,
     };
-    this.$router.replace({ path: '/rule/', query: oQuery });
+    this.$router.replace({ path: '/rule/', query: oQuery, });
   }
-
 }
 
 export default Rule;

@@ -2,7 +2,7 @@
   <span class="toolbar d-inline-block">
    <p>
     <span>选择彩种</span>
-   </p> 
+   </p>
     <ICollapse>
       <Panel>热门彩
         <p slot="content" v-for="(oLottery, iLotteryId) in lotteries" :key="iLotteryId">
@@ -91,9 +91,8 @@ import {
   },
 })
 class Toolbar extends Vue {
-
   @Prop()
   public lotteries!: any;
- }
+}
 export default Toolbar;
 </script>

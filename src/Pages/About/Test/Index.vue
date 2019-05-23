@@ -13,7 +13,7 @@
 }
 </style>
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, } from 'vue-property-decorator';
 
 import VLine from '@/Components/VLine/Index.vue'; // @ is an alias to /src
 import ETable from '@/Components/ETable/Index.vue';
@@ -27,21 +27,20 @@ import ERadio from '@/Components/ERadio/Index.vue';
   },
 })
 class Test extends Vue {
-
-  public created(): void {
+  public created (): void {
     let lotterId = this.$route.query.lottery_id || 1;
     this.$store.dispatch('ISSUE_ACTION_SHOW', lotterId);
   }
-  public get oData(): object {
+  public get oData (): object {
     let oIssues = this.$store.state.issues;
     let aRows = [];
     for (let key of Object.keys(oIssues)) {
       let mealName = oIssues[key];
-      let oRow = { 期数: key, 号码: mealName.wn_number.substring(0, 1)};
+      let oRow = { 期数: key, 号码: mealName.wn_number.substring(0, 1), };
       aRows.push(oRow);
     }
     return {
-      columns: ['期数', '号码'],
+      columns: ['期数', '号码', ],
       rows: aRows,
     };
   }

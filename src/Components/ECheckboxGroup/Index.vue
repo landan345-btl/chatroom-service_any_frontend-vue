@@ -11,15 +11,14 @@
 </style>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, } from 'vue-property-decorator';
 
 @Component({
   name: 'ECheckboxGroup',
 })
 class ECheckboxGroup extends Vue {
-  @Prop({ default: false })
+  @Prop({ default: false, })
   public labels: any;
-
 }
 export default ECheckboxGroup;
 

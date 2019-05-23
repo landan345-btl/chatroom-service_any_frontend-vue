@@ -7,7 +7,7 @@ let cIsSmallOrLarge = (aNumbers: number[] | number, iSmallUpperBound: number, iL
   let iCountSmall = 0;
   let iCountLarge = 0;
   if (!(aNumbers instanceof Array)) {
-    aNumbers = [aNumbers];
+    aNumbers = [aNumbers, ];
   }
 
   aNumbers.forEach((iNumber) => {
@@ -17,10 +17,8 @@ let cIsSmallOrLarge = (aNumbers: number[] | number, iSmallUpperBound: number, iL
     }
     if (iNumber >= iLargeLowerBound) {
       iCountLarge++;
-      return;
     }
   });
-
 
   if (iCountLarge < iCountSmall) {
     return SMALL;

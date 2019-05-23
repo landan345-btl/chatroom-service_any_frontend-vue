@@ -4,10 +4,10 @@
     <NavTop/>
     <NavRight />
     <Row :gutter="0">
-      <Col 
-        :xs="{span: 22, offset: 1}" 
-        :sm="{span: 15, offset: 2}" 
-        :md="{span: 14, offset: 2}" 
+      <Col
+        :xs="{span: 22, offset: 1}"
+        :sm="{span: 15, offset: 2}"
+        :md="{span: 14, offset: 2}"
         :lg="{span: 14, offset: 2}"
         :xl="{span: 12, offset: 4}">
         <main class="mr-1">
@@ -69,7 +69,6 @@ import {
   BACKEND,
 } from '@/CONFIGS/';
 
-
 @Component({
   name: 'Home',
   components: {
@@ -89,35 +88,35 @@ import {
 })
 class Home extends Vue {
   public interval: any = null;
-  public beforeCreate(): void {
+  public beforeCreate (): void {
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
   }
-  public created(): void {
+  public created (): void {
     let $root: any = this.$root;
     this.$store.dispatch('LOTTERY_ACTION_SHOW', {});
-    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', {} );
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', {});
     this.setIntervalLotteryIssueActionShow();
   }
 
-  public setIntervalLotteryIssueActionShow() {
+  public setIntervalLotteryIssueActionShow () {
     if (this.interval) {
       clearInterval(this.interval);
     }
     this.interval = setInterval(() => {
-      this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', {} );
-    } , BACKEND.INTERVAL_TIME );
+      this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', {});
+    }, BACKEND.INTERVAL_TIME);
   }
 
-  public beforeDestroy() {  // 组件销毁之前调用
+  public beforeDestroy () { // 组件销毁之前调用
     clearInterval(this.interval);
   }
 
-  public get lotteries(): object {
+  public get lotteries (): object {
     let aLotteries: any = this.$store.state.lotteries;
     return aLotteries;
   }
 
-  public get lotteryIssues(): object {
+  public get lotteryIssues (): object {
     let aLotteryIssues: any = this.$store.state.lottery_issues;
     return aLotteryIssues;
   }

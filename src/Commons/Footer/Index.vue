@@ -2,10 +2,10 @@
   <footer>
   	<div class="middle">
       <Row :gutter="0">
-        <Col 
-          :xs="{span: 22, offset: 1}" 
-          :sm="{span: 5, offset: 2}" 
-          :md="{span: 5, offset: 2}" 
+        <Col
+          :xs="{span: 22, offset: 1}"
+          :sm="{span: 5, offset: 2}"
+          :md="{span: 5, offset: 2}"
           :lg="{span: 5, offset: 2}"
           :xl="{span: 4, offset: 4}">
           <img src="@/assets/images/logo-bottom.png"/>
@@ -14,10 +14,10 @@
             <p>数据分析最全面的开奖数据平台</p>
           </div>
         </Col>
-        <Col 
-          :xs="{span: 0, offset: 0}" 
-          :sm="{span: 5, offset: 0}" 
-          :md="{span: 5, offset: 0}" 
+        <Col
+          :xs="{span: 0, offset: 0}"
+          :sm="{span: 5, offset: 0}"
+          :md="{span: 5, offset: 0}"
           :lg="{span: 5, offset: 0}"
           :xl="{span: 4, offset: 0}">
           <div class="title color-white">
@@ -30,10 +30,10 @@
             <li><a href="/">免责声明</a></li>
           </ul>
         </Col>
-        <Col 
-          :xs="{span: 0, offset: 0}" 
-          :sm="{span: 5, offset: 0}" 
-          :md="{span: 5, offset: 0}" 
+        <Col
+          :xs="{span: 0, offset: 0}"
+          :sm="{span: 5, offset: 0}"
+          :md="{span: 5, offset: 0}"
           :lg="{span: 5, offset: 0}"
           :xl="{span: 4, offset: 0}">
           <div class="title color-white">
@@ -45,10 +45,10 @@
             <li><a href="/">玩法规则</a></li>
           </ul>
         </Col>
-        <Col 
-          :xs="{span: 0, offset: 0}" 
-          :sm="{span: 5, offset: 0}" 
-          :md="{span: 5, offset: 0}" 
+        <Col
+          :xs="{span: 0, offset: 0}"
+          :sm="{span: 5, offset: 0}"
+          :md="{span: 5, offset: 0}"
           :lg="{span: 5, offset: 0}"
           :xl="{span: 4, offset: 0}">
           <div class="title color-white">
@@ -63,10 +63,10 @@
   	</div>
     <div class="bottom">
       <Row :gutter="0" type="flex" justify="space-between">
-        <Col 
-          :xs="{span: 22, offset: 1}" 
-          :sm="{span: 20, offset: 2}" 
-          :md="{span: 18, offset: 3}" 
+        <Col
+          :xs="{span: 22, offset: 1}"
+          :sm="{span: 20, offset: 2}"
+          :md="{span: 18, offset: 3}"
           :lg="{span: 16, offset: 4}">
           <p class="content"><span>© 2019 www.dev.lottery.ques98.cn All rights reserved 彩票开奖网 版权所有 粤ICP备09298233</span> <span>号站长统计</span></p>
         </Col>
@@ -81,10 +81,10 @@
 </style>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, } from 'vue-property-decorator';
 @Component({
   name: 'Footer',
-  })
+})
 class Footer extends Vue {
 }
 

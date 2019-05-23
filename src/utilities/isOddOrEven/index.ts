@@ -1,4 +1,4 @@
-import { lottery, lotteryIssue } from '@/actions';
+import { lottery, lotteryIssue, } from '@/actions';
 
 const ODD: string = '单';
 const ODD_MULTIPLE: string = '单多';
@@ -11,37 +11,36 @@ let cIsOddOrEven = (aNumbers: number[] | number): string => {
   let iCountOdd = 0;
   let iCountEven = 0;
   if (!(aNumbers instanceof Array)) {
-    aNumbers = [aNumbers];
+    aNumbers = [aNumbers, ];
   }
   aNumbers.forEach((iNumber) => {
-    if (1 === iNumber % 2) {
-      iCountOdd ++;
+    if (iNumber % 2 === 1) {
+      iCountOdd++;
       return;
     }
-    if (0 === iNumber % 2) {
-      iCountEven ++;
-      return;
+    if (iNumber % 2 === 0) {
+      iCountEven++;
     }
   });
-  if (0 < iCountOdd - iCountEven && 1 === aNumbers.length) {
+  if (iCountOdd - iCountEven > 0 && aNumbers.length === 1) {
     return ODD;
   }
-  if (0 > iCountOdd - iCountEven && 1 === aNumbers.length) {
+  if (iCountOdd - iCountEven < 0 && aNumbers.length === 1) {
     return EVEN;
   }
 
-  if (0 < iCountOdd - iCountEven && 1 < aNumbers.length) {
+  if (iCountOdd - iCountEven > 0 && aNumbers.length > 1) {
     return ODD_MULTIPLE;
   }
-  if (0 > iCountOdd - iCountEven && 1 < aNumbers.length) {
+  if (iCountOdd - iCountEven < 0 && aNumbers.length > 1) {
     return EVEN_MULTIPLE;
   }
 
-  if (0 === iCountOdd - iCountEven && 1 === aNumbers.length) {
+  if (iCountOdd - iCountEven === 0 && aNumbers.length === 1) {
     return DEUCE;
   }
 
-  if (0 === iCountOdd - iCountEven && 1 < aNumbers.length) {
+  if (iCountOdd - iCountEven === 0 && aNumbers.length > 1) {
     return DEUCE_MULTIPLE;
   }
 

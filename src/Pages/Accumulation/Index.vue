@@ -1,13 +1,13 @@
 <template>
   <div class="page accumulation">
-    <Header /> 
+    <Header />
     <Nav-top />
     <Nav-right style="z-index:1001"/>
     <Row :gutter="0" class=" backgroung-gray">
-      <Col 
-        :xs="{span: 22, offset: 1}" 
-        :sm="{span: 20, offset: 2}" 
-        :md="{span: 20, offset: 2}" 
+      <Col
+        :xs="{span: 22, offset: 1}"
+        :sm="{span: 20, offset: 2}"
+        :md="{span: 20, offset: 2}"
         :lg="{span: 20, offset: 2}"
         :xl="{span: 16, offset: 4}"
         class="background-white pb-2 pr-1 mt-2 mb-2 z-1002">
@@ -56,7 +56,7 @@ import Board from './Board/Index.vue';
   },
 })
 class Accumulation extends Vue {
-  public get lotteries(): object {
+  public get lotteries (): object {
     let oLotteries: any = this.$store.state.lotteries;
     return oLotteries;
   }

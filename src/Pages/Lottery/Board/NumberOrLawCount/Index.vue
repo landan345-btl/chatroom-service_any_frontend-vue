@@ -19,7 +19,7 @@
           <span class="d-inline-block float-right "><Icon type="ios-arrow-down" class="arrow-down"/></span>
         </p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 柱形图表为历史同位开出号码的次数分布，用于查看已开出号码的分布及趋势，亦可作为参考辅助杀号；</p>
-      </div> 
+      </div>
     </div>
     <div class="mb-1 pl-2 pr-2 font-size-1p5">
        <span class="font-size-1p5 mr-2">号码规律统计: </span>
@@ -61,12 +61,12 @@
           <td>{{lotteryIssue.no}}</td>
           <td>{{lotteryIssue.added_time.split(' ')[1]}}</td>
           <td colspan="3" class="parity-numbers font-size-1p5">
-            <S-numbers 
-              :code="code" 
-              :numbers="JSON.parse(lotteryIssue.numbers)" 
-              :types="types" 
+            <S-numbers
+              :code="code"
+              :numbers="JSON.parse(lotteryIssue.numbers)"
+              :types="types"
               :showiPositon="true"
-              :isRandom="false" 
+              :isRandom="false"
               class="status-number"/>
           </td>
           <td>升</td>
@@ -128,25 +128,23 @@ class NumberOrLawCount extends Vue {
   @Prop()
   public types!: any;
 
-  public get oLotteryIssues(): object {
+  public get oLotteryIssues (): object {
     let oLotteryIssues = this.lotteryIssues;
     let aLotteryIssues = Object.values(oLotteryIssues);
-    let oLotteryIssue = aLotteryIssues.reverse().slice(0 , 99);
+    let oLotteryIssue = aLotteryIssues.reverse().slice(0, 99);
     return oLotteryIssue;
   }
 
   public date = '今天';
-  public decorator = ['折线', '遗漏'];
+  public decorator = ['折线', '遗漏', ];
 
   public isAnnouncementShowed: boolean = false;
-  public toggleAnnouncement() {
+  public toggleAnnouncement () {
     this.isAnnouncementShowed = !this.isAnnouncementShowed;
   }
-  public hideAnnouncement() {
-     this.isAnnouncementShowed = false;
+  public hideAnnouncement () {
+    this.isAnnouncementShowed = false;
   }
-
-
 }
 
 export default NumberOrLawCount;

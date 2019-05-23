@@ -9,7 +9,7 @@
 </style>
 
 <script lang="ts">
-import { Component, Prop, Emit, Vue } from 'vue-property-decorator';
+import { Component, Prop, Emit, Vue, } from 'vue-property-decorator';
 
 @Component({
   name: 'ITabs',
@@ -25,7 +25,7 @@ class ITabs extends Vue {
   public animated!: boolean;
 
   @Emit('handle-click')
-  public handleClick(sName: string) {
+  public handleClick (sName: string) {
     return sName;
   }
 }

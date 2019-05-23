@@ -224,7 +224,6 @@ import {
   },
 })
 class Lottery extends Vue {
-
   @Prop()
   public lottery!: any;
 }

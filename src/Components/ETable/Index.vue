@@ -10,12 +10,12 @@
 
 <script lang="ts">
 
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, } from 'vue-property-decorator';
 @Component({
   name: 'ETable',
 })
 class ETable extends Vue {
-  @Prop({ default: null })
+  @Prop({ default: null, })
   public data: any;
 }
 

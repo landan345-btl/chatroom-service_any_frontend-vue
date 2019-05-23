@@ -7,8 +7,6 @@ let aLotteryRoutes = [{
   name: 'lottery',
   component: Lottery,
   // children: aTrendChildren,
-}];
-
-
+}, ];
 
 export default aLotteryRoutes;

@@ -3,17 +3,17 @@
     <div class="number-analysis pl-2 pb-2 pr-2">
       <div class="head pt-1">
         <span class="font-size-2 pr-1">查看号码分布:</span>
-        <span :class="{'active': onNumbers[sKey]}" 
+        <span :class="{'active': onNumbers[sKey]}"
           @click="showNumber(sKey)" v-for="(iNumber, sKey) in record11x5Buttons" :key="sKey" v-if="types === '11X5'">
           号码&nbsp;{{iNumber}}
           <i></i>
         </span>
-        <span :class="{'active': onNumbers[sKey]}" 
+        <span :class="{'active': onNumbers[sKey]}"
           @click="showNumber(sKey)" v-for="(iNumber, sKey) in recordSscButtons" :key="sKey" v-if="types === 'SSC'">
           号码&nbsp;{{iNumber}}
           <i></i>
         </span>
-        <span :class="{'active': onNumbers[sKey]}" 
+        <span :class="{'active': onNumbers[sKey]}"
           @click="showNumber(sKey)" v-for="(iNumber, sKey) in recordPk10Buttons" :key="sKey" v-if="types === 'PK10'">
           号码&nbsp;{{iNumber}}
           <i></i>
@@ -117,32 +117,31 @@ class NumberAnalysis extends Vue {
   };
 
   @Emit('handle-toggle-number')
-  public handleToggleNumber(sKey: string) {
+  public handleToggleNumber (sKey: string) {
     return sKey;
   }
 
   @Emit('handle-toggle-oddoreven')
-  public handleToggleOddOrEven(sKey: string) {
+  public handleToggleOddOrEven (sKey: string) {
     return sKey;
   }
 
   @Emit('handle-reset')
-  public handleResetShow(reset: string) {
+  public handleResetShow (reset: string) {
     return reset;
   }
 
-  public showNumber(sKey: string) {
+  public showNumber (sKey: string) {
     this.handleToggleNumber(sKey);
   }
 
-  public showOddOrEven(sKey: string) {
+  public showOddOrEven (sKey: string) {
     this.handleToggleOddOrEven(sKey);
   }
 
-  public resetShow(reset: string) {
+  public resetShow (reset: string) {
     this.handleResetShow(reset);
   }
-
 }
 
 export default NumberAnalysis;
