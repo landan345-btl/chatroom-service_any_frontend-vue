@@ -1,5 +1,6 @@
 <template>
-  <Tabs :type="type" :animated="animated" @on-click="handleClick" :name="name" v-model="value">
+<!-- 不能用 v-model="vaule" -->
+  <Tabs :type="type" :animated="animated" @on-click="handleClick" :name="name" :value="value">
     <slot></slot>
   </Tabs>
 </template>

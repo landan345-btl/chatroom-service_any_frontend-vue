@@ -181,9 +181,8 @@ class Board extends Vue {
   public tab: string = 'lottery-issue';
 
   public created(): void{
-    let sTab = this.$route.query.tab.toString();
-
-   // this.tab = sTab;
+    let sTab = this.$route.query.tab ? this.$route.query.tab.toString() : this.tab;
+    this.tab = sTab;
   }
 
   public handleRule (name: string) {
