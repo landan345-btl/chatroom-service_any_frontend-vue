@@ -78,11 +78,7 @@ import {
 })
 class NumberOrFrontOrBackResult extends Vue {
   public date = '今天';
-<<<<<<< HEAD
   public numbers = ['号码1', '号码2', '号码3', '号码4', '号码5', '号码6', '号码7', '号码8', '号码9', '号码10'];
-=======
-  public decorator = ['折线', '遗漏', ];
->>>>>>> develop
 
   public isAnnouncementShowed: boolean = false;
   public toggleAnnouncement () {
@@ -91,7 +87,6 @@ class NumberOrFrontOrBackResult extends Vue {
   public hideAnnouncement () {
     this.isAnnouncementShowed = false;
   }
-<<<<<<< HEAD
 
    public checkAll() {
     this.numbers = ['号码1', '号码2', '号码3', '号码4', '号码5', '号码6', '号码7', '号码8', '号码9', '号码10'];
@@ -100,8 +95,6 @@ class NumberOrFrontOrBackResult extends Vue {
     this.numbers = [];
   }
 
-=======
->>>>>>> develop
 }
 
 export default NumberOrFrontOrBackResult;
