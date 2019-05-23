@@ -14,8 +14,8 @@
     <I-divider/>
     <div class="pt-2 pl-2">
       <span class="mr-1">标注选择：</span>
-        <I-checkbox-group class="d-inline-block">
-          <Checkbox class="mr-2">&nbsp;遗漏</Checkbox>
+        <I-checkbox-group class="d-inline-block" v-model="checkList">
+          <Checkbox class="mr-2" label="遗漏">&nbsp;遗漏</Checkbox>
           <Checkbox class="mr-2">&nbsp;拆线</Checkbox>
           <Checkbox class="mr-2">&nbsp;遗漏分成</Checkbox>
           <Checkbox class="mr-2">&nbsp;分割线</Checkbox>
