@@ -83,9 +83,9 @@ class Lottery extends Vue {
     this.extensionLotteryIssue.order_total_no = iLotteryIssueOrderNoTotalInThisDay;
   }
 
-  public positionsToNumberTypesToCounts (oLotteryIssues: any, oLottery: any, iLimit: number) {
+  public positionsToNumberTypesToCounts (oLotteryIssues: any, oLotteries: any, iLimit: number) {
     let oLotteryHelper = new LotteryHelper();
-    if (!oLotteryIssues || !oLottery) {
+    if (!oLotteryIssues || !oLotteries) {
       return;
     }
     let oPositionsToNumberTypesToCounts: {
@@ -95,6 +95,8 @@ class Lottery extends Vue {
 
     aLotteryIssues.forEach((oLotteryIssue: any) => {
       let aNumbers = JSON.parse(oLotteryIssue.numbers);
+      let oLottery = oLotteries[oLotteryIssue.lottery_id];
+
       let sTypes = oLottery.types;
       let iIndex: number = 0;
       for (iIndex = 0; iIndex < aNumbers.length; iIndex++) {
@@ -181,7 +183,9 @@ class Lottery extends Vue {
         oNumberTypesToCounts[sKey] = oNumberTypesToCounts[sKey] + 1;
       }
     });
+  
     this.extensionLottery.positions_to_number_types_to_counts = oPositionsToNumberTypesToCounts;
+    return oPositionsToNumberTypesToCounts;
   }
 
   public caculateNumbersToPositionsToCounts (oLotteryIssues: any, oLotteries: any, iLimit: any) {

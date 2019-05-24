@@ -4,8 +4,8 @@
     margin: 2vmin auto 0;
     padding: .7vmin 0 .7vmin 1vmin;
     background: #edf4fa;
-    font-size: 1vmin;
-    border: .1vmin solid #e3e3e3;
+    font-size: 1.4vmin;
+    border: 1px solid #e3e3e3;
     & > span:nth-child(1) {
       color: #0092dd;
     }
@@ -13,18 +13,18 @@
   .ball-number {
     width: 97%;
     margin: 2vmin auto 0;
-    font-size: 1vmin;
+    font-size: 1.4vmin;
   }
   & > table {
     table-layout:fixed;
     width: 97%;
     margin: 2vmin auto 0;
-    font-size: 1vmin;
     tr {
       td {
         text-align: center;
         border: 1px solid #968e8e;
         padding: 1.5vmin 0;
+        font-size: 1.4vmin;
       }
     }
     tr:nth-child(2n+1) {
