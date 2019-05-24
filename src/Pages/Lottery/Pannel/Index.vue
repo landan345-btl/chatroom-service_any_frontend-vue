@@ -6,8 +6,9 @@
     </div>
     <div class="name-lottery_issue_no align-middle text-left p-2">
       <div class="top">
+
         <span class="name font-weight-bold">
-          {{ LOTTERIES[code].NAME | or(lotteries[lotteryIssue.lottery_id].name) }}
+          {{ code ? LOTTERIES[code].NAME: lotteries && lotteryIssue ? lotteries[lotteryIssue.lottery_id].name : '' }}
         </span>
         <span class="text ml-0p5" v-if="lotteryIssue && lotteryIssue.no">
           第
@@ -20,7 +21,12 @@
         </span>
           &nbsp;
       </div>
-      <S-numbers v-if="lotteryIssue" :code="code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lotteries && lotteries[lotteryIssue.lottery_id].types" class="status-number middle"/>
+      <S-numbers 
+        v-if="lotteryIssue && code && lotteries && lotteries[lotteryIssue.lottery_id]" 
+        :code="code" 
+        :numbers="JSON.parse(lotteryIssue.numbers)" 
+        :types="lotteries && lotteries[lotteryIssue.lottery_id] && lotteries[lotteryIssue.lottery_id].types" 
+        class="status-number middle"/>
       <div class="bottom">
         <span> 已开 {{ getLotteryIssueExtension.order_no }} 期，还有 {{ getLotteryIssueExtension.total_order_no - getLotteryIssueExtension.order_no }} 期 </span>
       </div>
@@ -50,7 +56,7 @@
       </div>
     </div>
     <div class="live align-middle">
-      <div :class="[lotteries && lotteries[lotteryIssue.lottery_id].types ? 'live-' + lotteries[lotteryIssue.lottery_id].types.toLowerCase() : '']">
+      <div :class="[lotteries && lotteryIssue && lotteries[lotteryIssue.lottery_id] && lotteries[lotteryIssue.lottery_id].types ? 'live-' + lotteries[lotteryIssue.lottery_id].types.toLowerCase() : '']">
       </div>
     </div>
   </div>
@@ -94,6 +100,9 @@ class Pannel extends Vue {
 
   public get getLotteryIssueExtension () {
     let oLotteryIssueExtension = {};
+    if (0 === Object.keys(this.lotteries).length || 0 === Object.keys(this.lotteryIssue).length || !this.lotteries[this.lotteryIssue.lottery_id]) {
+      return {};
+    }
     let lottery = this.lotteries[this.lotteryIssue.lottery_id];
     let aRangeTimes = JSON.parse(lottery.range_times);
     let iNowTime = new Date().getTime();

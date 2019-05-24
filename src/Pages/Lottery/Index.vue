@@ -105,16 +105,23 @@ class Lottery extends Vue {
   }
 
   @Watch('$route', { immediate: true, deep: true, })
-  public onRouteChange (oRoute: any) {
-    this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
-    let sCode = oRoute.query.code || '';
-    let oQueries = {
-      code: sCode,
-    };
-    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries).then(() => {
-      this.isSpinShowed = false;
-    });
-    this.setIntervalLotteryIssueActionShow(oQueries);
+  public onRouteChange (oToRoute: any, oFromRoute: any) {
+    if (oFromRoute && (oToRoute.query.code !== oFromRoute.query.code || oToRoute.query.path !== oFromRoute.query.path)) {
+      // this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
+      let sCode = oToRoute.query.code || '';
+      let oQueries = {
+        code: sCode,
+      };
+
+      Promise.all([
+        this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries),
+        this.$store.dispatch('LOTTERY_ACTION_SHOW', oQueries),
+      ]).then(() => {
+        this.isSpinShowed = false;
+      });
+      
+      this.setIntervalLotteryIssueActionShow(oQueries);
+    }
   }
 
   public setIntervalLotteryIssueActionShow (oQueries: any) {

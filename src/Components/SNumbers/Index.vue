@@ -4,7 +4,9 @@
               'SMALL_LARGE' === status ? 'status-small-large' : '',
               'ODD_EVEN' === status ? 'status-odd-even' : '', ]">
     <div class="number"
-      v-for="(iNumber, iIndex) in numbers" :key="iIndex" v-randomNumber="{ isRandom: isRandom, types: types }"
+      v-for="(iNumber, iIndex) in numbers" 
+      :key="iIndex" 
+      v-randomNumber="{ isRandom: isRandom, types: types }"
       :class="[
             undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords ||
             ((true === onNumbers[iNumber] || false === union(onNumbers)) &&
@@ -32,9 +34,9 @@
             '双' === isOddOrEven(iNumber) ? 'number-even' : '',
             '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-small' : '',
             '大' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-large' : '',
-            'number-' + types.toLowerCase(),
-            'number-'+ code.toLowerCase(),
-            'number-'+ types.toLowerCase() + '-' + iNumber ]" >
+            types ? 'number-' + types.toLowerCase() : '',
+            code ? 'number-'+ code.toLowerCase() : '',
+            types ? 'number-'+ types.toLowerCase() + '-' + iNumber :'']" >
       <Badge :count="true === isCountShowed ? counts[iNumber] : 0">
         <span>{{iNumber}}</span>
       </Badge>
