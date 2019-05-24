@@ -21,7 +21,7 @@
             :types="types"
             :isRandom="false"
             :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
-            :status="switcher"
+            :status="status"
             :onNumbers="onNumbers"
             :nextNumbers="iIndex > 0 ? JSON.parse(gerLotteryIssues[iIndex - 1].numbers): []"
             :previousNumbers="iIndex < JSON.parse(gerLotteryIssues.length - 1) ? JSON.parse(gerLotteryIssues[iIndex + 1].numbers): []"/>
@@ -47,10 +47,10 @@
         <th class="w-15">期数</th>
         <th class="number-buttons w-42">
           <span class="mr-1"
-            @click="switchStatus(index)"
-            :class="{checked:index==status}"
-            v-for="(item,index) in statuses" :key="index">
-            {{item}}
+            @click="switchStatus(sStatus)"
+            :class="{checked: sStatus==status}"
+            v-for="(sStatus, iIndex) in statuses" :key="iIndex">
+            {{ statusesToTexts[sStatus] }}
           </span>
         </th>
         <th colspan="3">总和</th>
@@ -69,7 +69,7 @@
             :numbers="JSON.parse(oLotteryIssue.numbers)"
             :types="types"
             :isRandom="false"
-            :status="switcher"/>
+            :status="status"/>
         </td>
         <td>{{ JSON.parse(oLotteryIssue.numbers) | sum }}</td>
           <td :class="{'text-large' : '大' === isSmallOrLarge(sum(JSON.parse(oLotteryIssue.numbers)),20,21)}">
@@ -92,11 +92,11 @@
         <th class="w-10">期数</th>
         <th class="number-buttons">
           <span class="mr-1"
-            @click="switchStatus(index)"
-            :class="{checked:index==status}"
-            v-for="(item,index) in statuses"
-            :key="index">
-            {{item}}
+            @click="switchStatus(sStatus)"
+            :class="{checked:sStatus==status}"
+            v-for="(sStatus, iIndex) in statuses"
+            :key="iIndex">
+            {{ statusesToTexts[sStatus] }}
           </span>
         </th>
         <th colspan="3" class="th-width1">总和</th>
@@ -118,7 +118,7 @@
           :numbers="JSON.parse(oLotteryIssue.numbers)"
           :types="types"
           :isRandom="false"
-          :status="switcher"/>
+          :status="status"/>
         </td>
         <td>{{ JSON.parse(oLotteryIssue.numbers) | sum }}</td>
         <td :class="{'text-large' : '大' === isSmallOrLarge(sum(JSON.parse(oLotteryIssue.numbers)),29,31)}">{{ JSON.parse(oLotteryIssue.numbers) | sum | isSmallOrLarge(29, 31) }}</td>
@@ -186,10 +186,10 @@
         <th class="number-buttons p-1">
           <span
             class="mr-1"
-            @click="switchStatus(index)"
-            :class="{checked: index==status}"
-            v-for="(item, index) in statuses"
-            :key="index">{{item}}</span>
+            @click="switchStatus(sStatus)"
+            :class="{checked: sStatus==status}"
+            v-for="(sStatus, iIndex) in statuses"
+            :key="iIndex">{{iIndex}}</span>
         </th>
         <th colspan="3" class="th-width1">总和</th>
         <th>尾大小</th>
@@ -206,7 +206,7 @@
             :numbers="JSON.parse(oLotteryIssue.numbers)"
             :types="types"
             :isRandom="false"
-            :status="switcher"/>
+            :status="status"/>
         </td>
         <td>{{ JSON.parse(oLotteryIssue.numbers) | sum }}</td>
         <td :class="{'text-even': '双'===isOddOrEven(sum(JSON.parse(oLotteryIssue.numbers)))}">{{ JSON.parse(oLotteryIssue.numbers) | sum | isOddOrEven }}</td>
@@ -230,7 +230,7 @@
       </tr>
       <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in gerLotteryIssues" :key="iIndex">
         <td class="d-xs-none">{{ oLotteryIssue.added_time }}</td>
-        <td>{{ oLotteryIssue.no}}</td>
+        <td>{{ oLotteryIssue.no }}</td>
         <td>
           <S-numbers
           :code="code"
@@ -277,14 +277,14 @@
          class="status-number"/>
         </td>
         <td>{{ JSON.parse(oLotteryIssue.numbers) | sum }}</td>
-        <td :class="{'text-large': '大' === isSmallOrLarge(sum(JSON.parse(oLotteryIssue.numbers)),849,851)}">{{ JSON.parse(oLotteryIssue.numbers) | sum | isSmallOrLarge(849, 851) }}</td>
+        <td :class="{'text-large': '大'===isSmallOrLarge(sum(JSON.parse(oLotteryIssue.numbers)),849,851)}">{{ JSON.parse(oLotteryIssue.numbers) | sum | isSmallOrLarge(849, 851) }}</td>
         <td :class="{'text-even': '双'===isOddOrEven(sum(JSON.parse(oLotteryIssue.numbers)))}">{{ JSON.parse(oLotteryIssue.numbers) | sum | isOddOrEven }}</td>
         <td class="d-xs-none" :class="{
           'deuce-multiple':'单双和' === isOddOrEven( JSON.parse(oLotteryIssue.numbers)),
           'text-danger':'双多' === isOddOrEven( JSON.parse(oLotteryIssue.numbers))}">
             {{ JSON.parse(oLotteryIssue.numbers) | isOddOrEven }}
         </td>
-        <td class="d-xs-none" :class="{'text-even':'后多' === isFrontOrBack( JSON.parse(oLotteryIssue.numbers))}">{{ JSON.parse(oLotteryIssue.numbers) | isFrontOrBack }}</td>
+        <td class="d-xs-none" :class="{'text-even': '后多' === isFrontOrBack( JSON.parse(oLotteryIssue.numbers))}">{{ JSON.parse(oLotteryIssue.numbers) | isFrontOrBack }}</td>
         <td class="d-xs-none">总{{ JSON.parse(oLotteryIssue.numbers) | sum |isSmallOrLarge(809,811)}}{{ JSON.parse(oLotteryIssue.numbers) | sum |isOddOrEven }}</td>
         <td>{{ JSON.parse(oLotteryIssue.numbers) | sum | isFiveRow }}</td>
       </tr>
@@ -314,18 +314,18 @@
           :isRandom="false"
           class="status-number"/>
         </td>
-        <td>{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1])}}</td>
-        <td :class="{'text-even':'双' === isOddOrEven(sum((JSON.parse(oLotteryIssue.numbers)),[0,1]))}">{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1]) | isOddOrEven }}</td>
-        <td :class="{'text-large':'大' === isSmallOrLarge(substr(sum(JSON.parse(oLotteryIssue.numbers),[0,1]),-1,1),4,5)}">尾{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1]) | substr(-1, 1) | isSmallOrLarge(4, 5) }}</td>
+        <td>{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1]) }}</td>
+        <td :class="{'text-even': '双' === isOddOrEven(sum((JSON.parse(oLotteryIssue.numbers)), [0, 1]))}">{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1]) | isOddOrEven }}</td>
+        <td :class="{'text-large': '大' === isSmallOrLarge(substr(sum(JSON.parse(oLotteryIssue.numbers),[0,1]),-1,1),4,5)}">尾{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1]) | substr(-1, 1) | isSmallOrLarge(4, 5) }}</td>
         <td class="color-black">{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 2])}}</td>
-        <td :class="{'text-even':'双' === isOddOrEven(sum((JSON.parse(oLotteryIssue.numbers)),[0,2]))}">{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 2]) | isOddOrEven }}</td>
+        <td :class="{'text-even': '双' === isOddOrEven(sum((JSON.parse(oLotteryIssue.numbers)), [0, 2]))}">{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 2]) | isOddOrEven }}</td>
         <td :class="{'text-large':'大' === isSmallOrLarge(substr(sum(JSON.parse(oLotteryIssue.numbers),[0,2]),-1,1),4,5)}">尾{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 2]) | substr(-1, 1) | isSmallOrLarge(4, 5) }}</td>
         <td class="color-black">{{ JSON.parse(oLotteryIssue.numbers) | sum([1, 2])}}</td>
-        <td :class="{'text-even':'双' === isOddOrEven(sum((JSON.parse(oLotteryIssue.numbers)),[1,2]))}">{{ JSON.parse(oLotteryIssue.numbers) | sum([1, 2])| isOddOrEven}}</td>
-        <td :class="{'text-large':'大' === isSmallOrLarge(substr(sum(JSON.parse(oLotteryIssue.numbers),[1,2]),-1,1),4,5)}">尾{{ JSON.parse(oLotteryIssue.numbers) | sum([1, 2]) | substr(-1, 1) | isSmallOrLarge(4, 5) }}</td>
+        <td :class="{'text-even': '双' === isOddOrEven(sum((JSON.parse(oLotteryIssue.numbers)), [1, 2])) }">{{ JSON.parse(oLotteryIssue.numbers) | sum([1, 2])| isOddOrEven}}</td>
+        <td :class="{'text-large': '大' === isSmallOrLarge(substr(sum(JSON.parse(oLotteryIssue.numbers),[1,2]),-1,1),4,5)}">尾{{ JSON.parse(oLotteryIssue.numbers) | sum([1, 2]) | substr(-1, 1) | isSmallOrLarge(4, 5) }}</td>
         <td class="color-black">{{ JSON.parse(oLotteryIssue.numbers) | sum }}</td>
-        <td :class="{'text-even':'双' === isOddOrEven(sum((JSON.parse(oLotteryIssue.numbers))))}">{{ JSON.parse(oLotteryIssue.numbers) | sum | isOddOrEven }}</td>
-        <td :class="{'text-large':'大' === isSmallOrLarge(sum(JSON.parse(oLotteryIssue.numbers)),13,14)}">{{ JSON.parse(oLotteryIssue.numbers) | sum | isSmallOrLarge(13, 14)}}</td>
+        <td :class="{'text-even': '双' === isOddOrEven(sum((JSON.parse(oLotteryIssue.numbers))))}">{{ JSON.parse(oLotteryIssue.numbers) | sum | isOddOrEven }}</td>
+        <td :class="{'text-large': '大' === isSmallOrLarge(sum(JSON.parse(oLotteryIssue.numbers)), 13, 14 )}">{{ JSON.parse(oLotteryIssue.numbers) | sum | isSmallOrLarge(13, 14)}}</td>
       </tr>
     </tbody>
   </table>
@@ -339,7 +339,7 @@
       </tr>
       <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in gerLotteryIssues" :key="iIndex">
         <td class="d-xs-none d-xs-none">{{ oLotteryIssue.added_time }}</td>
-        <td>{{ oLotteryIssue.no}}</td>
+        <td>{{ oLotteryIssue.no }}</td>
         <td>
           <S-numbers
           :code="code"
@@ -402,10 +402,15 @@ class Table extends Vue {
   @Prop()
   public onOddOrEvenOrSmallOrLargeOrPairRedcords!: boolean;
 
-  public statuses = ['显示号码', '显示大小', '显示单双', ];
+  public statuses = ['NUMBER', 'SMALL_LARGE', 'ODD_EVEN', ];
 
-  public status: number = 0;
-  public switcher: string = 'NUMBER';
+  public statusesToTexts = {
+    'NUMBER': '显示号码',
+    'SMALL_LARGE': '显示大小',
+    'ODD_EVEN': '显示单双',
+  };
+
+  public status: string = 'NUMBER';
 
   public get gerLotteryIssues (): object {
     let oLotteryIssues: any = this.$store.state.lottery_issues;
@@ -414,15 +419,8 @@ class Table extends Vue {
     return oLotteryIssue;
   }
 
-  public switchStatus (iIndex: number) {
-    this.status = iIndex;
-    if (this.status === 0) {
-      this.switcher = 'NUMBER';
-    } else if (this.status === 1) {
-      this.switcher = 'SMALL_LARGE';
-    } else {
-      this.switcher = 'ODD_EVEN';
-    }
+  public switchStatus (sStatus: string) {
+    this.status = sStatus;
   }
 }
 
