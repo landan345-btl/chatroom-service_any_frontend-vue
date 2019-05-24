@@ -14,7 +14,10 @@
         <span class="background-red bg-color"></span>
         色
       </span>
-      <span class="border-radius background-gray color-white" :class=" changeHidden >= 1 ? 'el-icon-minus':'el-icon-plus' " @click="toggleHidden(1)"></span>
+      <i class="cursor"> 
+        <Icon type="md-remove-circle" v-if="changeHidden >= 1" @click="toggleHidden(1)" size="26"/>
+        <Icon type="md-add-circle" v-else @click="toggleHidden(1)" size="26"/>
+      </i>
       <span v-show=" changeHidden >= 1 ">
         参数设置：当数值为
         <span>31</span>
@@ -24,7 +27,10 @@
         <span class="background-blue bg-color"></span>
         色
       </span>
-      <span class="border-radius background-gray color-white" :class=" changeHidden >= 2 ? 'el-icon-minus':'el-icon-plus' " @click="toggleHidden(2)" v-show=" changeHidden >= 1 "></span>
+      <i class="cursor">
+        <Icon type="md-remove-circle" v-if="changeHidden >= 2" @click="toggleHidden(2)" size="26"/>
+        <Icon type="md-add-circle"  v-show=" changeHidden >= 1 " v-else @click="toggleHidden(2)" size="26"/>
+      </i>  
       <span v-show=" changeHidden >= 2 ">
         参数设置：当数值为
         <span>41</span>
@@ -34,7 +40,7 @@
         <span class="background-green bg-color"></span>
         色
       </span>
-      <button class="pr-1 pl-1">确认</button>
+      <Button type="primary" class="ml-1" size="small">确认</Button>
     </div>
     <table>
       <tr>

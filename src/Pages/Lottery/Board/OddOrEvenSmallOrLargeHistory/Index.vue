@@ -1,11 +1,11 @@
 <template>
-  <div class="odd-or-even-small-or-large-history">
+  <div class="odd-or-even-small-or-large-history background-white">
     <div class="top pl-2 pb-1 font-weight-bold head-top">
       <span class="font-size-2 line-height3">单双大小历史</span>
     </div>
     <I-divider/>
     <div class="pl-2 pr-2 pb-2">
-      <table>
+      <table class="w-100 mt-2">
         <tr>
           <td rowspan="2">
             <span>日期</span>

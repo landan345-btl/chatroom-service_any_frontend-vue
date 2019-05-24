@@ -8,6 +8,9 @@
         text-align: center;
       }
     }
+    .cursor {
+      cursor: pointer;
+    }
     & > span:nth-child(2n) {
       width: 2vmin;
       height: 2vmin;
