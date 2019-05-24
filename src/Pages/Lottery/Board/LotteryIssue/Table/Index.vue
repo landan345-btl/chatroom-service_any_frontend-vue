@@ -11,7 +11,7 @@
             :class="{ checked: sStatus === status}" 
             v-for="(sStatus,iIndex) in statuses" 
             :key="iIndex">
-            {{sStatus}}
+            {{ statusesToTexts[sStatus] }}
           </span>
         </th>
         <th colspan="3" class="w-10 ">冠亚和</th>
