@@ -6,12 +6,12 @@
         <th class="w-10 d-xs-none">时间</th>
         <th class="w-10">期数</th>
         <th class="number-buttons numbers">
-          <span class="mr-1" @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in statuses" :key="index">{{item}}</span>
+          <span class="mr-1" @click="switchStatus(index)" :class="{ checked: index==status}" v-for="(item,index) in statuses" :key="index">{{item}}</span>
         </th>
         <th colspan="3" class="w-10 ">冠亚和</th>
         <th colspan="5" class="w-10 d-xs-none ">1-5龙虎</th>
       </tr>
-      <tr class="font-size-1p5" v-for="(oLotteryIssue, iIndex) in oLotteryIssues" :key="iIndex">
+      <tr class="font-size-1p5" v-for="(oLotteryIssue, iIndex) in gerLotteryIssues" :key="iIndex">
         <td class="d-xs-none">{{oLotteryIssue.added_time}}</td>
         <td>{{oLotteryIssue.no}}</td>
         <td class="w-30">
@@ -23,8 +23,8 @@
             :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
             :status="switcher"
             :onNumbers="onNumbers"
-            :nextNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
-            :previousNumbers="iIndex < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[iIndex + 1].numbers): []"/>
+            :nextNumbers="iIndex > 0 ? JSON.parse(gerLotteryIssues[iIndex - 1].numbers): []"
+            :previousNumbers="iIndex < JSON.parse(gerLotteryIssues.length - 1) ? JSON.parse(gerLotteryIssues[iIndex + 1].numbers): []"/>
         </td>
         <td>{{ JSON.parse(oLotteryIssue.numbers) | sum([0, 1])}}</td>
         <td :class="{'text-large' : '大' === isSmallOrLarge(sum(JSON.parse(oLotteryIssue.numbers),[0,1]),11,12)}">
@@ -48,7 +48,7 @@
         <th class="number-buttons w-42">
           <span class="mr-1"
             @click="switchStatus(index)"
-            :class="{spanselect:index==titleStatus}"
+            :class="{checked:index==status}"
             v-for="(item,index) in statuses" :key="index">
             {{item}}
           </span>
@@ -56,15 +56,15 @@
         <th colspan="3">总和</th>
         <th colspan="5">1-5龙虎</th>
       </tr>
-      <tr class="font-size-1p5 h-4" v-for="(oLotteryIssue,iIndex) in oLotteryIssues" :key="iIndex">
+      <tr class="font-size-1p5 h-4" v-for="(oLotteryIssue,iIndex) in gerLotteryIssues" :key="iIndex">
         <td class="w-15 d-xs-none">{{oLotteryIssue.added_time}}</td>
         <td>{{oLotteryIssue.no}}</td>
         <td>
           <S-numbers
             :code="code"
             :onNumbers="onNumbers"
-            :nextNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
-            :previousNumbers="iIndex < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[iIndex + 1].numbers): []"
+            :nextNumbers="iIndex > 0 ? JSON.parse(gerLotteryIssues[iIndex - 1].numbers): []"
+            :previousNumbers="iIndex < JSON.parse(gerLotteryIssues.length - 1) ? JSON.parse(gerLotteryIssues[iIndex + 1].numbers): []"
             :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
             :numbers="JSON.parse(oLotteryIssue.numbers)"
             :types="types"
@@ -93,7 +93,7 @@
         <th class="number-buttons">
           <span class="mr-1"
             @click="switchStatus(index)"
-            :class="{spanselect:index==titleStatus}"
+            :class="{checked:index==status}"
             v-for="(item,index) in statuses"
             :key="index">
             {{item}}
@@ -105,15 +105,15 @@
         <th class="d-xs-none">中三</th>
         <th class="d-xs-none">后三</th>
       </tr>
-      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
+      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in gerLotteryIssues" :key="iIndex">
         <td class="d-xs-none">{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td class="w-42">
           <S-numbers
           :code="code"
           :onNumbers="onNumbers"
-          :nextNumbers="iIndex > 0 ? JSON.parse(oLotteryIssues[iIndex - 1].numbers): []"
-          :previousNumbers="iIndex < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[iIndex + 1].numbers): []"
+          :nextNumbers="iIndex > 0 ? JSON.parse(gerLotteryIssues[iIndex - 1].numbers): []"
+          :previousNumbers="iIndex < JSON.parse(gerLotteryIssues.length - 1) ? JSON.parse(gerLotteryIssues[iIndex + 1].numbers): []"
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
           :numbers="JSON.parse(oLotteryIssue.numbers)"
           :types="types"
@@ -139,7 +139,7 @@
         <th colspan="3">总和</th>
         <th colspan="5">鱼虾蟹</th>
       </tr>
-      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
+      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in gerLotteryIssues" :key="iIndex">
         <td class="d-xs-none">{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
@@ -187,17 +187,17 @@
           <span
             class="mr-1"
             @click="switchStatus(index)"
-            :class="{spanselect:index==titleStatus}"
-            v-for="(item,index) in statuses"
+            :class="{checked: index==status}"
+            v-for="(item, index) in statuses"
             :key="index">{{item}}</span>
         </th>
         <th colspan="3" class="th-width1">总和</th>
         <th>尾大小</th>
         <th colspan="4" >龙虎</th>
       </tr>
-      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
+      <tr class="font-size-1p5" v-for=" ( oLotteryIssue, iIndex ) in gerLotteryIssues" :key="iIndex">
         <td class="d-xs-none">{{ oLotteryIssue.added_time }}</td>
-        <td>{{ oLotteryIssue.no}}</td>
+        <td>{{ oLotteryIssue.no }}</td>
         <td>
           <S-numbers
             :code="code"
@@ -228,7 +228,7 @@
         <th colspan="3">总和</th>
         <th colspan="4">特码</th>
       </tr>
-      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
+      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in gerLotteryIssues" :key="iIndex">
         <td class="d-xs-none">{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
@@ -263,7 +263,7 @@
         <th class="d-xs-none w-10">总和组合</th>
         <th class="w-10">五行</th>
       </tr>
-      <tr v-for=" ( oLotteryIssue, iIndex ) in oLotteryIssues" :key="iIndex" class="h-4 font-size-1p5">
+      <tr v-for=" ( oLotteryIssue, iIndex ) in gerLotteryIssues" :key="iIndex" class="h-4 font-size-1p5">
         <td class="font-size-1 d-xs-none">{{ oLotteryIssue.added_time }}</td>
         <td class="font-size-1">{{ oLotteryIssue.no}}</td>
         <td class="w-36">
@@ -301,7 +301,7 @@
         <th colspan="3">拾个和</th>
         <th colspan="3">总和</th>
       </tr>
-      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
+      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in gerLotteryIssues" :key="iIndex">
         <td class="d-xs-none">{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td class="w-10">
@@ -337,7 +337,7 @@
         <th class="number-buttons w-30">号码</th>
         <th colspan="3">总和</th>
       </tr>
-      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in oLotteryIssues" :key="iIndex">
+      <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in gerLotteryIssues" :key="iIndex">
         <td class="d-xs-none d-xs-none">{{ oLotteryIssue.added_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
@@ -404,21 +404,21 @@ class Table extends Vue {
 
   public statuses = ['显示号码', '显示大小', '显示单双', ];
 
-  public titleStatus: any = 0;
-  public switcher: any = 'NUMBER';
+  public status: number = 0;
+  public switcher: string = 'NUMBER';
 
-  public get oLotteryIssues (): object {
-    let oLotteryIssues = this.lotteryIssues;
+  public get gerLotteryIssues (): object {
+    let oLotteryIssues: any = this.$store.state.lottery_issues;
     let aLotteryIssues = Object.values(oLotteryIssues);
     let oLotteryIssue = aLotteryIssues.reverse().slice(0, 99);
     return oLotteryIssue;
   }
 
   public switchStatus (iIndex: number) {
-    this.titleStatus = iIndex;
-    if (this.titleStatus === 0) {
+    this.status = iIndex;
+    if (this.status === 0) {
       this.switcher = 'NUMBER';
-    } else if (this.titleStatus === 1) {
+    } else if (this.status === 1) {
       this.switcher = 'SMALL_LARGE';
     } else {
       this.switcher = 'ODD_EVEN';
