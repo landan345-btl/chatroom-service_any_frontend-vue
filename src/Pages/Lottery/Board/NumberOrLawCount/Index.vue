@@ -67,6 +67,7 @@
               :types="types"
               :showiPositon="true"
               :isRandom="false"
+              :previousNumbers="skey < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[skey + 1].numbers): []"
               class="status-number"/>
           </td>
           <td>升</td>

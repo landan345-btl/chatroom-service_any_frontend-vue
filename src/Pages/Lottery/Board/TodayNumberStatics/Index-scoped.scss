@@ -8,6 +8,9 @@
         text-align: center;
       }
     }
+    .cursor {
+      cursor: pointer;
+    }
     & > span:nth-child(2n) {
       width: 2vmin;
       height: 2vmin;
@@ -33,10 +36,8 @@
     tr:nth-child(1),tr:nth-child(2) {
       background: #ebebeb;
       span {
-        position: relative;
         top: 2.4vmin;
       }
     }
   }
-  background: #ffffff;
 }
