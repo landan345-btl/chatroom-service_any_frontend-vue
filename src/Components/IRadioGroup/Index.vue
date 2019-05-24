@@ -1,5 +1,5 @@
 <template>
-  <RadioGroup :type="type" :value="value">
+  <RadioGroup :type="type" :value="value" @input="$emit('input', $event)">
     <slot></slot>
   </RadioGroup>
 </template>
@@ -19,6 +19,11 @@ class IRadioGroup extends Vue {
   public type!: any;
   @Prop()
   public value!: any;
+
+  public console(a:any) {
+    console.log(a);
+  }
+
 }
 export default IRadioGroup;
 

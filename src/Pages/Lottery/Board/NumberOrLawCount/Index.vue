@@ -22,8 +22,9 @@
       </div>
     </div>
     <div class="mb-1 pl-2 pr-2 font-size-1p5">
-      <span class="font-size-1p5 mr-2">号码规律统计: </span>
-      <RadioGroup v-model="number" type="button" class="line-height3 mr-2">
+       <span class="font-size-1p5 mr-2">号码规律统计: </span>
+       {{number}}
+      <I-radio-group :value="number" @input="number = $event" type="button" class="line-height3 mr-2">
         <Radio label="号码1"></Radio>
         <Radio label="号码2"></Radio>
         <Radio label="号码3"></Radio>
@@ -34,7 +35,8 @@
         <Radio label="号码8"></Radio>
         <Radio label="号码9"></Radio>
         <Radio label="号码10"></Radio>
-      </RadioGroup>
+      </I-radio-group>
+
     </div>
     <div class="p-2">
 
@@ -153,6 +155,10 @@ class NumberOrLawCount extends Vue {
 
   public handleNumbers(i: number) {
     console.log(i);
+  }
+
+  public console(aAny: any) {
+    console.log(aAny);
   }
 
 }
