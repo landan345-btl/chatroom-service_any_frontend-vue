@@ -1354,6 +1354,101 @@ html {
   } 
 }
 
+.status-previous-number-01, .status-previous-number-1 {
+  background: none;
+  width:3.8vmin;
+  height:3.8vmin;
+  color: rgba($color: #000000, $alpha: 100);
+  .number-pk10-1, .number-pk10-1, .number-pk10-01, .number-pk10-1 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -24.5vmin -28.1vmin;
+    background-size: 55.6vmin 332.2vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
+    color: rgba($color: #000000, $alpha: 0);
+    // 圈圈
+  }
+
+  .number-pk10-1.previous-1, .number-pk10-1.previous-01, .number-pk10-01.previous-1, .number-pk10-1.previous-01 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -24.5vmin -28.1vmin;
+    background-size: 55.6vmin 332.2vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-pk10-2.previous-1, .number-pk10-2.previous-01, .number-pk10-02.previous-1, .number-pk10-2.previous-01 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -4.2vmin -28.1vmin;
+    background-size: 55.6vmin 332.2vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-pk10-3.previous-1, .number-pk10-3.previous-01, .number-pk10-03.previous-1, .number-pk10-3.previous-01 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -8.3vmin -28.1vmin;
+    background-size: 55.6vmin 332.2vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-pk10-4, .number-pk10-04 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -12.3vmin -28.1vmin;
+    background-size: 55.6vmin 332.2vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-pk10-5, .number-pk10-05 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -28.6vmin -28.1vmin;
+    background-size: 55.6vmin 332.2vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-pk10-6, .number-pk10-06 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -0.1vmin -28.1vmin;
+    background-size: 55.6vmin 332.2vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-pk10-7, .number-pk10-07 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -20.5vmin -28.1vmin;
+    background-size: 55.6vmin 332.2vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-pk10-8, .number-pk10-08 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -16.4vmin -28.1vmin;
+    background-size: 55.6vmin 332.2vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-pk10-9, .number-pk10-09 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -32.7vmin -28.1vmin;
+    background-size: 55.6vmin 332.2vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+
+  .number-pk10-10 {
+    background: url('~@/assets/images/numbers-2.png') no-repeat -36.8vmin -28.1vmin;
+    background-size: 55.6vmin 332.2vmin;
+    width: 3.8vmin;
+    height: 3.8vmin;
+    color: rgba($color: #000000, $alpha: 0);
+  }
+}
+
 .icon-3fpk10 {
   background: url("~@/assets/images/3FPK10.png") no-repeat 0 0;
   width: 10vmin;
