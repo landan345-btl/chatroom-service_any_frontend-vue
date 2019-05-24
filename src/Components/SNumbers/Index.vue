@@ -4,9 +4,11 @@
               'SMALL_LARGE' === status ? 'status-small-large' : '',
               'ODD_EVEN' === status ? 'status-odd-even' : '', 
               previousNumber ? 'status-number-previous' + previousNumber : '']">
-    <div class="number"
+    <Badge :count="true === isCountShowed ? counts[iNumber] : 0"
       v-for="(iNumber, iIndex) in numbers" 
       :key="iIndex" 
+    >
+    <div class="number"
       v-randomNumber="{ isRandom: isRandom, types: types }"
       :class="[
             undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords ||
@@ -38,10 +40,9 @@
             types ? 'number-' + types.toLowerCase() : '',
             code ? 'number-'+ code.toLowerCase() : '',
             types ? 'number-'+ types.toLowerCase() + '-' + iNumber :'']" >
-      <Badge :count="true === isCountShowed ? counts[iNumber] : 0">
         <span>{{iNumber}}</span>
-      </Badge>
     </div>
+    </Badge>
   </div>
 </template>
 <style scoped lang="scss">
@@ -59,6 +60,8 @@ import {
   name: 'SNumbers',
 })
 class SNumbers extends Vue {
+  public num = 0;
+
   @Prop()
   public code!: string;
 
