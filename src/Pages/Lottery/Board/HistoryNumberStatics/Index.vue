@@ -1,12 +1,12 @@
 <template>
-  <div class="history-number-statics">
+  <div class="history-number-statics background-white">
     <div class="pl-2 font-weight-bold head-top">
       <span class="font-size-2 line-height3">历史号码记录</span>
     </div>
     <I-divider/>
     <table>
       <tr>
-        <td>日期</td>
+        <td class="w-10">日期</td>
         <td>0</td>
         <td>1</td>
         <td>2</td>

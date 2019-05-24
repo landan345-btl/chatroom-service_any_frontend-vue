@@ -30,10 +30,13 @@
     margin: 0 auto 0;
     td {
       text-align: center;
-      border: .2vmin solid #968e8e;
+      border: 1px solid #968e8e;
+     // line-height: 1vmin;
       span {
-        padding: 1vmin 2vmin;
         display: inline-block;
+      //  ::v-deep .ivu-checkbox-wrapper {
+      //     line-height: 1vmin;
+      //   } 
       }
     }
     .parity-numbers {
@@ -48,4 +51,3 @@
     }
   }
 }
-

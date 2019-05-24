@@ -19,7 +19,7 @@
     </div>
     <table>
       <tr>
-        <td>日期</td>
+        <td class="w-30">日期</td>
         <td>单</td>
         <td>双</td>
         <td>大</td>

@@ -73,6 +73,9 @@
       <TabPane :label="'每日长龙统计'" :name="'everyday-accumulation-statics'">
         <Everyday-accumulation-statics v-if="code && types" />
       </TabPane>
+      <TabPane :label="'和值走势'" :name="'sum-value-trend'">
+        <Sum-value-trend v-if="code && types" />
+      </TabPane>
       <TabPane :label="'定位走势'" :name="'position-trend'">
         <Position-trend v-if="code && types" />
       </TabPane>
@@ -122,7 +125,7 @@ import NumberOrFrontOrBackResult from './NumberOrFrontOrBackResult/Index.vue';
 import CrownOrSecondSumResult from './CrownOrSecondSumResult/Index.vue';
 import NumberOrLawCount from './NumberOrLawCount/Index.vue';
 import CrownOrSecondSumTwoSideHistory from './CrownOrSecondSumTwoSideHistory/Index.vue';
-// import Rule from '@/pages/Rule/Index.vue';
+import SumValueTrend from './SumValueTrend/Index.vue';
 
 import {
   LOTTERIES,
@@ -154,7 +157,7 @@ import {
     CrownOrSecondSumResult,
     NumberOrLawCount,
     CrownOrSecondSumTwoSideHistory,
-    // Rule,
+    SumValueTrend,
   },
 })
 class Board extends Vue {
