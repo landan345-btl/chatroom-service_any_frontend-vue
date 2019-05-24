@@ -1,6 +1,6 @@
 <template>
   <div class="board">
-    <I-tabs :type="'card'" class=""  v-on:handle-click="handleRule"  :animated="false" v-model="tab">
+    <I-tabs :type="'card'" class="" v-on:handle-click="handleRule"  :animated="false" v-model="tab">
       <TabPane :label="'即时开奖'" :name="'lottery-issue'">
         <Lottery-issue
           v-if="code && types"

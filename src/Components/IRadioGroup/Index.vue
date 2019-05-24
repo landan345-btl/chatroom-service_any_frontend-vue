@@ -1,5 +1,5 @@
 <template>
-  <RadioGroup :type="type">
+  <RadioGroup :type="type" :value="value">
     <slot></slot>
   </RadioGroup>
 </template>
@@ -17,6 +17,8 @@ import { Component, Prop, Emit, Vue, } from 'vue-property-decorator';
 class IRadioGroup extends Vue {
   @Prop()
   public type!: any;
+  @Prop()
+  public value!: any;
 }
 export default IRadioGroup;
 
