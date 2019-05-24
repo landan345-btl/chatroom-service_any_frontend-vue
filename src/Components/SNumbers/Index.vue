@@ -6,42 +6,41 @@
               previousNumber ? 'status-number-previous' + previousNumber : '']">
     <Badge :count="true === isCountShowed ? counts[iNumber] : 0"
       v-for="(iNumber, iIndex) in numbers" 
-      :key="iIndex" 
-    >
-    <div class="number"
-      v-randomNumber="{ isRandom: isRandom, types: types }"
-      :class="[
-            undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords ||
-            ((true === onNumbers[iNumber] || false === union(onNumbers)) &&
-            false === onOddOrEvenOrSmallOrLargeOrPairRedcords.pair ) ||
-            (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.pair &&  nextNumbers[iIndex] === iNumber || previousNumbers[iIndex] === iNumber) ? '' : 'opacity-0p1', //判断对子
-              // true    并且odd 为 false 时
-            undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords || // 默认undefined时显示全部图片/其它数字图片一直显示
-            ((true === onNumbers[iNumber] || false === union(onNumbers)) &&
-            false === onOddOrEvenOrSmallOrLargeOrPairRedcords.odd ) ||
-            (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.odd && '单' === isOddOrEven(iNumber)) ? '' : 'opacity-0p1',
+      :key="iIndex" >
+      <div class="number"
+        v-randomNumber="{ isRandom: isRandom, types: types }"
+        :class="[
+              undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords ||
+              ((true === onNumbers[iNumber] || false === union(onNumbers)) &&
+              false === onOddOrEvenOrSmallOrLargeOrPairRedcords.pair ) ||
+              (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.pair &&  nextNumbers[iIndex] === iNumber || previousNumbers[iIndex] === iNumber) ? '' : 'opacity-0p1', //判断对子
+                // true    并且odd 为 false 时
+              undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords || // 默认undefined时显示全部图片/其它数字图片一直显示
+              ((true === onNumbers[iNumber] || false === union(onNumbers)) &&
+              false === onOddOrEvenOrSmallOrLargeOrPairRedcords.odd ) ||
+              (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.odd && '单' === isOddOrEven(iNumber)) ? '' : 'opacity-0p1',
 
-            ((undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords) ||
-            (true === onNumbers[iNumber] || false === union(onNumbers)) && false === onOddOrEvenOrSmallOrLargeOrPairRedcords.even ) ||
-            (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.even && '双' === isOddOrEven(iNumber)) ? '' : 'opacity-0p1',
+              ((undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords) ||
+              (true === onNumbers[iNumber] || false === union(onNumbers)) && false === onOddOrEvenOrSmallOrLargeOrPairRedcords.even ) ||
+              (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.even && '双' === isOddOrEven(iNumber)) ? '' : 'opacity-0p1',
 
-            ((undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords) ||
-            (true === onNumbers[iNumber] || false === union(onNumbers)) && false === onOddOrEvenOrSmallOrLargeOrPairRedcords.large ) ||
-            (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.large && '大' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound)) ? '' : 'opacity-0p1',
+              ((undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords) ||
+              (true === onNumbers[iNumber] || false === union(onNumbers)) && false === onOddOrEvenOrSmallOrLargeOrPairRedcords.large ) ||
+              (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.large && '大' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound)) ? '' : 'opacity-0p1',
 
-            ((undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords) ||
-            (true === onNumbers[iNumber] || false === union(onNumbers)) && false === onOddOrEvenOrSmallOrLargeOrPairRedcords.small ) ||
-            (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.small && '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound)) ? '' : 'opacity-0p1',
-            previousNumbers && previousNumbers[iIndex] ? 'number-previous' + previousNumbers[iIndex] : '',
-            '单' === isOddOrEven(iNumber) ? 'number-odd' : '',
-            '双' === isOddOrEven(iNumber) ? 'number-even' : '',
-            '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-small' : '',
-            '大' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-large' : '',
-            types ? 'number-' + types.toLowerCase() : '',
-            code ? 'number-'+ code.toLowerCase() : '',
-            types ? 'number-'+ types.toLowerCase() + '-' + iNumber :'']" >
-        <span>{{iNumber}}</span>
-    </div>
+              ((undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords) ||
+              (true === onNumbers[iNumber] || false === union(onNumbers)) && false === onOddOrEvenOrSmallOrLargeOrPairRedcords.small ) ||
+              (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.small && '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound)) ? '' : 'opacity-0p1',
+              previousNumbers && previousNumbers[iIndex] ? 'number-previous' + previousNumbers[iIndex] : '',
+              '单' === isOddOrEven(iNumber) ? 'number-odd' : '',
+              '双' === isOddOrEven(iNumber) ? 'number-even' : '',
+              '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-small' : '',
+              '大' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-large' : '',
+              types ? 'number-' + types.toLowerCase() : '',
+              code ? 'number-'+ code.toLowerCase() : '',
+              types ? 'number-'+ types.toLowerCase() + '-' + iNumber :'']" >
+          <span>{{iNumber}}</span>
+      </div>
     </Badge>
   </div>
 </template>
