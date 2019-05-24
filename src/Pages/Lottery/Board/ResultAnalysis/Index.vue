@@ -64,19 +64,19 @@
       </div>
        <div class="font-size-1p5 rank-select">
         <div class="mt-1">
-          <span>筛选名次：</span>
-          <I-radio-group v-model="checkRadioRank" type="button" >
-            <Radio label="冠军">&nbsp;冠军</Radio>
-            <Radio label="亚军">&nbsp;亚军</Radio>
-            <Radio label="第三名">&nbsp;第三名</Radio>
-            <Radio label="第四名">&nbsp;第四名</Radio>
-            <Radio label="第五名">&nbsp;第五名</Radio>
-            <Radio label="第六名">&nbsp;第六名</Radio>
-            <Radio label="第七名">&nbsp;第七名</Radio>
-            <Radio label="第八名">&nbsp;第八名</Radio>
-            <Radio label="第九名">&nbsp;第九名</Radio>
-            <Radio label="第十名">&nbsp;第十名</Radio>
-            <Radio label="冠亚和">&nbsp;冠亚和</Radio>
+          <span>筛选名次：</span>{{checkRadioRank}}
+          <I-radio-group :value="checkRadioRank"  @input="console(68)" type="button" >
+            <Radio label="冠军"></Radio>
+            <Radio label="亚军"></Radio>
+            <Radio label="第三名"></Radio>
+            <Radio label="第四名"></Radio>
+            <Radio label="第五名"></Radio>
+            <Radio label="第六名"></Radio>
+            <Radio label="第七名"></Radio>
+            <Radio label="第八名"></Radio>
+            <Radio label="第九名"></Radio>
+            <Radio label="第十名"></Radio>
+            <Radio label="冠亚和"></Radio>
           </I-radio-group>
         </div>
       </div>
@@ -156,10 +156,10 @@ import {
 class ResultAnalysis extends Vue {
   public checkRanks: any = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'];
   public checkAnalysis: any = ['大小', '单双', '龙虎'];
-  public checkRadioRank: any = ['冠军'];
+  public checkRadioRank: any= '亚军';
   public checkRadioAnalysis: any = ['大小', '单双', '龙虎'];
   public checkTwoSidesRanks: any = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'];
-  public checkTwoSidesAnalysis: any = ['大小'];
+  public checkTwoSidesAnalysis: string = '大小';
 
   public pattern = 'synthesize';
   public ranking = '今天';
@@ -192,6 +192,10 @@ class ResultAnalysis extends Vue {
 
   public twoSidesEmptyAll() {
     this.checkTwoSidesRanks = [];
+  }
+
+  public console(aAny :any) {
+    console.log(aAny);
   }
 
 }

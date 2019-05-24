@@ -1,21 +1,21 @@
 <template>
-  <div class="number-or-law-count pb-2 background-white position-relative">
+  <div class="number-or-law-count background-white position-relative">
     <div class="pl-2 pr-2 font-weight-bold d-flex justify-content-between head-top">
       <span class="font-size-2 line-height3">号码规律统计</span>
-      <I-radio-group v-model="date" type="button" class="line-height3">
+      <!-- <I-radio-group v-model="date" type="button" class="line-height3">
         <Radio label="今天"></Radio>
         <Radio label="昨天"></Radio>
         <Radio label="前天"></Radio>
         <Radio label="最近30期"></Radio>
         <Radio label="最近50期"></Radio>
         <Radio label="最近100期" class="d-xs-none"></Radio>
-      </I-radio-group>
+      </I-radio-group> -->
     </div>
     <I-divider/>
     <div class="announcement-wrapper mt-2 font-size-1p5 position-absolute">
       <div @mouseleave="hideAnnouncement()" @click="toggleAnnouncement()" class="announcement" :class="[ isAnnouncementShowed ? 'announcement-showed' : '']">
         <p>
-          <span>说明：1 表格需从左向右浏览，右侧一列为最新结果；</span>
+          <span>说明：1 【号码规律统计】提供号码开出位置的历史同位号码统计。例如第1期开出号码1后，在第1期开出号码1的相同位置，第2期开出号码为2，则把号码2标示；</span>
           <span class="d-inline-block float-right "><Icon type="ios-arrow-down" class="arrow-down"/></span>
         </p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 柱形图表为历史同位开出号码的次数分布，用于查看已开出号码的分布及趋势，亦可作为参考辅助杀号；</p>
@@ -23,7 +23,8 @@
     </div>
     <div class="mb-1 pl-2 pr-2 font-size-1p5">
        <span class="font-size-1p5 mr-2">号码规律统计: </span>
-      <I-radio-group v-model="date" type="button" class="line-height3 mr-2">
+       {{number}}
+      <!-- <I-radio-group v-model="number" type="button" class="line-height3 mr-2">
         <Radio label="号码1"></Radio>
         <Radio label="号码2"></Radio>
         <Radio label="号码3"></Radio>
@@ -34,20 +35,23 @@
         <Radio label="号码8"></Radio>
         <Radio label="号码9"></Radio>
         <Radio label="号码10"></Radio>
-      </I-radio-group>
-      <span class="mr-2">全选</span>
-      <span>清空</span>
+      </I-radio-group> -->
+
     </div>
     <div class="p-2">
-      canvas
+
     </div>
     <div class="p-2">
        <table class="w-100 font-size-1p5">
         <tr class="background-tr">
-          <td class="w-10" rowspan="2"><span>期号</span></td>
-          <td rowspan="2" class="w-10"><span>时间</span></td>
-          <td rowspan="2" colspan="3" class="w-42"><span>同位开奖号码分布:<Checkbox></Checkbox>显示同位号码</span></td>
-          <td rowspan="2" class="w-10"><span>升平降</span></td>
+          <td class="w-10" rowspan="2"><i class="position-relative">期号</i></td>
+          <td rowspan="2" class="w-10"><i class="position-relative">时间</i></td>
+          <td rowspan="2" colspan="3" class="w-42">
+            <i class="position-relative">同位开奖号码分布:&nbsp;
+              <Checkbox></Checkbox>
+            显示同位号码</i> 
+          </td>
+          <td rowspan="2" class="w-10"><i class="position-relative">升平降</i></td>
           <td colspan="2">单双</td>
           <td colspan="2">大小</td>
         </tr>
@@ -137,7 +141,9 @@ class NumberOrLawCount extends Vue {
   }
 
   public date = '今天';
+  public number: string = '号码1';
   public decorator = ['折线', '遗漏', ];
+
 
   public isAnnouncementShowed: boolean = false;
   public toggleAnnouncement () {
@@ -146,7 +152,11 @@ class NumberOrLawCount extends Vue {
   public hideAnnouncement () {
     this.isAnnouncementShowed = false;
   }
-}
 
+  public handleNumbers(i: number) {
+    console.log(i);
+  }
+
+}
 export default NumberOrLawCount;
 </script>
