@@ -2,7 +2,8 @@
   <div class="numbers"
     :class="[ 'NUMBER' === status ? 'status-number' : '',
               'SMALL_LARGE' === status ? 'status-small-large' : '',
-              'ODD_EVEN' === status ? 'status-odd-even' : '', ]">
+              'ODD_EVEN' === status ? 'status-odd-even' : '', 
+              previousNumber ? 'status-previous-number-' + previousNumber : '']">
     <div class="number"
       v-for="(iNumber, iIndex) in numbers" 
       :key="iIndex" 
@@ -72,6 +73,9 @@ class SNumbers extends Vue {
 
   @Prop()
   public isRandom!: boolean;
+
+  @Prop()
+  public previousNumber!: number;
 
   @Prop()
   public status!: string;
