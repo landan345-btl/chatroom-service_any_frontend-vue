@@ -189,7 +189,7 @@
             @click="switchStatus(sStatus)"
             :class="{checked: sStatus==status}"
             v-for="(sStatus, iIndex) in statuses"
-            :key="iIndex">{{iIndex}}</span>
+            :key="iIndex">{{ statusesToTexts[sStatus] }}</span>
         </th>
         <th colspan="3" class="th-width1">总和</th>
         <th>尾大小</th>
