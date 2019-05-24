@@ -1,6 +1,6 @@
 <template>
 <div class="history-number text-center p-2">
-  <table v-if="LOTTERIES[code].TYPES.toUpperCase()==='PK10'" class="w-100">
+  <table v-if="code && LOTTERIES[code].TYPES.toUpperCase()==='PK10'" class="w-100">
     <tbody>
       <tr>
         <th class="w-10 d-xs-none">时间</th>
@@ -24,8 +24,8 @@
           <S-numbers
             :code="code"
             :numbers="JSON.parse(oLotteryIssue.numbers)"
-            :types="oLotteries[oLotteryIssue.lottery_id].types"
-            v-if="oLotteries && oLotteryIssue"
+            :types="gerLotteries[oLotteryIssue.lottery_id].types"
+            v-if="gerLotteries && oLotteryIssue"
             :isRandom="false"
             :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
             :status="status"
@@ -47,7 +47,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="LOTTERIES[code].TYPES.toUpperCase() === 'SSC'" class="w-100">
+  <table v-if="code && LOTTERIES[code].TYPES.toUpperCase() === 'SSC'" class="w-100">
     <tbody>
       <tr>
         <th class="d-xs-none">时间</th>
@@ -74,8 +74,8 @@
             :previousNumbers="iIndex < JSON.parse(gerLotteryIssues.length - 1) ? JSON.parse(gerLotteryIssues[iIndex + 1].numbers): []"
             :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
             :numbers="JSON.parse(oLotteryIssue.numbers)"
-            :types="oLotteries[oLotteryIssue.lottery_id].types"
-            v-if="oLotteries && oLotteryIssue"
+            :types="gerLotteries[oLotteryIssue.lottery_id].types"
+            v-if="gerLotteries && oLotteryIssue"
             :isRandom="false"
             :status="status"/>
         </td>
@@ -93,7 +93,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="LOTTERIES[code].TYPES.toUpperCase() === '11X5'" class="w-100">
+  <table v-if="code && LOTTERIES[code].TYPES.toUpperCase() === '11X5'" class="w-100">
     <tbody>
       <tr>
         <th class="w-15 d-xs-none">时间</th>
@@ -124,8 +124,8 @@
           :previousNumbers="iIndex < JSON.parse(gerLotteryIssues.length - 1) ? JSON.parse(gerLotteryIssues[iIndex + 1].numbers): []"
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
           :numbers="JSON.parse(oLotteryIssue.numbers)"
-          :types="oLotteries[oLotteryIssue.lottery_id].types"
-          v-if="oLotteries && oLotteryIssue"
+          :types="gerLotteries[oLotteryIssue.lottery_id].types"
+          v-if="gerLotteries && oLotteryIssue"
           :isRandom="false"
           :status="status"/>
         </td>
@@ -139,7 +139,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="LOTTERIES[code].TYPES.toUpperCase() === 'K3'" class="w-100">
+  <table v-if="code && LOTTERIES[code].TYPES.toUpperCase() === 'K3'" class="w-100">
     <tbody>
       <tr>
         <th class="w-15 d-xs-none">时间</th>
@@ -157,8 +157,8 @@
           :onNumbers="onNumbers"
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
           :numbers="JSON.parse(oLotteryIssue.numbers)"
-          :types="oLotteries[oLotteryIssue.lottery_id].types"
-          v-if="oLotteries && oLotteryIssue"
+          :types="gerLotteries[oLotteryIssue.lottery_id].types"
+          v-if="gerLotteries && oLotteryIssue"
           :isRandom="false"
           class="status-number"/>
         </td>
@@ -188,7 +188,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="LOTTERIES[code].TYPES.toUpperCase() === 'KLSF'" class="w-100">
+  <table v-if="code && LOTTERIES[code].TYPES.toUpperCase() === 'KLSF'" class="w-100">
     <tbody>
       <tr>
         <th class="w-15 d-xs-none">时间</th>
@@ -214,8 +214,8 @@
             :onNumbers="onNumbers"
             :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
             :numbers="JSON.parse(oLotteryIssue.numbers)"
-            :types="oLotteries[oLotteryIssue.lottery_id].types"
-            v-if="oLotteries && oLotteryIssue"
+            :types="gerLotteries[oLotteryIssue.lottery_id].types"
+            v-if="gerLotteries && oLotteryIssue"
             :isRandom="false"
             :status="status"/>
         </td>
@@ -230,7 +230,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="LOTTERIES[code].TYPES.toUpperCase() === 'SIX'" class="w-100">
+  <table v-if="code && LOTTERIES[code].TYPES.toUpperCase() === 'SIX'" class="w-100">
     <tbody>
       <tr>
         <th class="w-15 d-xs-none">时间</th>
@@ -248,8 +248,8 @@
           :onNumbers="onNumbers"
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
           :numbers="JSON.parse(oLotteryIssue.numbers)"
-          :types="oLotteries[oLotteryIssue.lottery_id].types"
-          v-if="oLotteries && oLotteryIssue"
+          :types="gerLotteries[oLotteryIssue.lottery_id].types"
+          v-if="gerLotteries && oLotteryIssue"
           :isRandom="false"
           class="status-number"/>
         </td>
@@ -263,7 +263,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="LOTTERIES[code].TYPES.toUpperCase() === 'KL8'" class="w-100">
+  <table v-if="code && LOTTERIES[code].TYPES.toUpperCase() === 'KL8'" class="w-100">
     <tbody>
       <tr>
         <th class="d-xs-none w-10">时间</th>
@@ -284,8 +284,8 @@
          :onNumbers="onNumbers"
          :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
          :numbers="JSON.parse(oLotteryIssue.numbers)"
-          :types="oLotteries[oLotteryIssue.lottery_id].types"
-          v-if="oLotteries && oLotteryIssue"
+          :types="gerLotteries[oLotteryIssue.lottery_id].types"
+          v-if="gerLotteries && oLotteryIssue"
          :isRandom="false"
          class="status-number"/>
         </td>
@@ -303,7 +303,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="LOTTERIES[code].TYPES.toUpperCase() === '3D'" class="w-100">
+  <table v-if="code && LOTTERIES[code].TYPES.toUpperCase() === '3D'" class="w-100">
     <tbody>
       <tr>
         <th class="w-15 d-xs-none">时间</th>
@@ -323,8 +323,8 @@
           :onNumbers="onNumbers"
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
           :numbers="JSON.parse(oLotteryIssue.numbers)"
-          :types="oLotteries[oLotteryIssue.lottery_id].types"
-          v-if="oLotteries && oLotteryIssue"
+          :types="gerLotteries[oLotteryIssue.lottery_id].types"
+          v-if="gerLotteries && oLotteryIssue"
           :isRandom="false"
           class="status-number"/>
         </td>
@@ -343,7 +343,7 @@
       </tr>
     </tbody>
   </table>
-  <table v-if="LOTTERIES[code].TYPES.toUpperCase() === 'XY28'" class="w-100">
+  <table v-if="code && LOTTERIES[code].TYPES.toUpperCase() === 'XY28'" class="w-100">
     <tbody>
       <tr>
         <th class="w-15 d-xs-none">时间</th>
@@ -360,8 +360,8 @@
           :onNumbers="onNumbers"
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
           :numbers="JSON.parse(oLotteryIssue.numbers)"
-          :types="oLotteries[oLotteryIssue.lottery_id].types"
-          v-if="oLotteries && oLotteryIssue"
+          :types="gerLotteries[oLotteryIssue.lottery_id].types"
+          v-if="gerLotteries && oLotteryIssue"
           :isRandom="false"
           class="status-number"/>
         </td>
