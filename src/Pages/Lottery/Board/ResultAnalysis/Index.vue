@@ -64,8 +64,8 @@
       </div>
        <div class="font-size-1p5 rank-select">
         <div class="mt-1">
-          <span>筛选名次：</span>{{checkRadioRank}}
-          <I-radio-group :value="checkRadioRank"  @input="console(68)" type="button" >
+          <span>筛选名次：</span>
+          <I-radio-group :value="checkRadioRank" type="button" >
             <Radio label="冠军"></Radio>
             <Radio label="亚军"></Radio>
             <Radio label="第三名"></Radio>
@@ -192,10 +192,6 @@ class ResultAnalysis extends Vue {
 
   public twoSidesEmptyAll() {
     this.checkTwoSidesRanks = [];
-  }
-
-  public console(aAny :any) {
-    console.log(aAny);
   }
 
 }
