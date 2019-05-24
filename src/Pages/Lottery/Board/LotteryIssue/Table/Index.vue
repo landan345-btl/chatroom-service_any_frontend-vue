@@ -6,7 +6,7 @@
         <th class="w-10 d-xs-none">时间</th>
         <th class="w-10">期数</th>
         <th class="number-buttons numbers">
-          <span class="mr-1" @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in titles" :key="index">{{item}}</span>
+          <span class="mr-1" @click="switchStatus(index)" :class="{spanselect:index==titleStatus}" v-for="(item,index) in statuses" :key="index">{{item}}</span>
         </th>
         <th colspan="3" class="w-10 ">冠亚和</th>
         <th colspan="5" class="w-10 d-xs-none ">1-5龙虎</th>
@@ -49,7 +49,7 @@
           <span class="mr-1"
             @click="switchStatus(index)"
             :class="{spanselect:index==titleStatus}"
-            v-for="(item,index) in titles" :key="index">
+            v-for="(item,index) in statuses" :key="index">
             {{item}}
           </span>
         </th>
@@ -94,7 +94,7 @@
           <span class="mr-1"
             @click="switchStatus(index)"
             :class="{spanselect:index==titleStatus}"
-            v-for="(item,index) in titles"
+            v-for="(item,index) in statuses"
             :key="index">
             {{item}}
           </span>
@@ -188,7 +188,7 @@
             class="mr-1"
             @click="switchStatus(index)"
             :class="{spanselect:index==titleStatus}"
-            v-for="(item,index) in titles"
+            v-for="(item,index) in statuses"
             :key="index">{{item}}</span>
         </th>
         <th colspan="3" class="th-width1">总和</th>
@@ -402,7 +402,7 @@ class Table extends Vue {
   @Prop()
   public onOddOrEvenOrSmallOrLargeOrPairRedcords!: boolean;
 
-  public titles = ['显示号码', '显示大小', '显示单双', ];
+  public statuses = ['显示号码', '显示大小', '显示单双', ];
 
   public titleStatus: any = 0;
   public switcher: any = 'NUMBER';
