@@ -414,8 +414,8 @@ class Table extends Vue {
     return oLotteryIssue;
   }
 
-  public switchStatus (index: number) {
-    this.titleStatus = index;
+  public switchStatus (iIndex: number) {
+    this.titleStatus = iIndex;
     if (this.titleStatus === 0) {
       this.switcher = 'NUMBER';
     } else if (this.titleStatus === 1) {
