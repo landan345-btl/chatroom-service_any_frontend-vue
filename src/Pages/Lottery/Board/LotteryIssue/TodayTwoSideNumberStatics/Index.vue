@@ -66,7 +66,7 @@
       <table v-else-if="types && ['SSC'].includes(types.toUpperCase())">
         <tbody>
           <tr>
-            <th>号码</th>
+            <th class="w-30">号码</th>
             <th>0</th>
             <th>1</th>
             <th>2</th>
@@ -96,7 +96,7 @@
       <table v-else-if="types && ['11X5'].includes(types.toUpperCase())">
         <tbody>
           <tr>
-            <th>号码</th>
+            <th class="w-30">号码</th>
             <th>1</th>
             <th>2</th>
             <th>3</th>
@@ -192,10 +192,11 @@
           </tr>
           <tr class="background-white text-center">
             <td>出现次数</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
+            <template v-for="(oNumberTypesToCounts, iPosition) in getPositionsToNumberTypesToCounts">
+              <template v-for="(iCount, sNumberType) in oNumberTypesToCounts">
+                <td :key="iPosition + sNumberType">{{ iCount }}</td>
+              </template>
+            </template>
           </tr> 
         </tbody>
       </table>
@@ -233,10 +234,11 @@
           </tr>
           <tr class="background-white text-center">
             <td>出现次数</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
-            <td>-</td>
+            <template v-for="(oNumberTypesToCounts, iPosition) in getPositionsToNumberTypesToCounts">
+              <template v-for="(iCount, sNumberType) in oNumberTypesToCounts">
+                <td :key="iPosition + sNumberType">{{ iCount }}</td>
+              </template>
+            </template>
           </tr> 
         </tbody>
       </table>
@@ -281,7 +283,6 @@ class TodayTwoSideNumberStatics extends Vue {
   @Prop()
   public todayTwoSideRecords!: any;
 
-
   @Prop()
   public lotteries!: any;
 
@@ -293,13 +294,12 @@ class TodayTwoSideNumberStatics extends Vue {
   public get getPositionsToNumberTypesToCounts() {
     let oLotteryIssues = this.$store.state.lottery_issues;
     let oLotteries = this.$store.state.lotteries;
-    debugger;
     let oPositionsToNumberTypesToCounts = this.positionsToNumberTypesToCounts(oLotteryIssues, oLotteries);
     return oPositionsToNumberTypesToCounts;
   }
 
   public ranks = ['冠军', '亚军', '第三名	', '第四名', '第五名','第六名', '第七名', '第八名', '第九名','第十名'];
-  public numbers = ['总和', '第一球', '第二球', '第三球	', '第四球', '第五球'];
+  public numbers = ['第一球', '第二球', '第三球	', '第四球', '第五球','总和'];
   public smallOrlagrOrOddOrEvens = ['小', '大', '单', '双'];
   public DragonOrTiger = ['龙', '虎'];
 }
