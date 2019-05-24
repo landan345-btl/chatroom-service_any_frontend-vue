@@ -3,7 +3,7 @@
     :class="[ 'NUMBER' === status ? 'status-number' : '',
               'SMALL_LARGE' === status ? 'status-small-large' : '',
               'ODD_EVEN' === status ? 'status-odd-even' : '', 
-              previousNumber ? 'status-previous-number-' + previousNumber : '']">
+              previousNumber ? 'status-number-previous' + previousNumber : '']">
     <div class="number"
       v-for="(iNumber, iIndex) in numbers" 
       :key="iIndex" 
@@ -30,7 +30,7 @@
             ((undefined === onNumbers || undefined === onOddOrEvenOrSmallOrLargeOrPairRedcords) ||
             (true === onNumbers[iNumber] || false === union(onNumbers)) && false === onOddOrEvenOrSmallOrLargeOrPairRedcords.small ) ||
             (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.small && '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound)) ? '' : 'opacity-0p1',
-            previousNumbers && previousNumbers[iIndex] ? 'previous-' + previousNumbers[iIndex] : '',
+            previousNumbers && previousNumbers[iIndex] ? 'number-previous' + previousNumbers[iIndex] : '',
             '单' === isOddOrEven(iNumber) ? 'number-odd' : '',
             '双' === isOddOrEven(iNumber) ? 'number-even' : '',
             '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-small' : '',
