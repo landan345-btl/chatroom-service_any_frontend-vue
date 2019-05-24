@@ -1,5 +1,5 @@
 <template>
-  <div class="today-number-statics">
+  <div class="today-number-statics background-white">
     <div class="pl-2 font-weight-bold">
       <span class="font-size-2 line-height3">今日号码统计</span>
     </div>
@@ -44,7 +44,7 @@
     </div>
     <table>
       <tr>
-        <td rowspan="2"> <span>号码</span> </td>
+        <td rowspan="2"> <span class="position-relative">号码</span> </td>
         <td colspan="4">第一球</td>
         <td colspan="4">第二球</td>
         <td colspan="4">第三球</td>
