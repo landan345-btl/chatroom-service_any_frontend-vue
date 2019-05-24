@@ -9,7 +9,7 @@ let oRandomNumber = { // 开奖时间进度条  时间倒数
     if (!oBinding.value.hasOwnProperty('isRandom') || oBinding.value.isRandom === false) {
       return;
     }
-    if (!oBinding.value.hasOwnProperty('types')) {
+    if (!oBinding.value.hasOwnProperty('types') || !oBinding.value.types) {
       return;
     }
 

@@ -21,7 +21,12 @@
         </span>
           &nbsp;
       </div>
-      <S-numbers v-if="lotteryIssue && code && lotteries" :code="code" :numbers="JSON.parse(lotteryIssue.numbers)" :types="lotteries && lotteries[lotteryIssue.lottery_id].types" class="status-number middle"/>
+      <S-numbers 
+        v-if="lotteryIssue && code && lotteries && lotteries[lotteryIssue.lottery_id]" 
+        :code="code" 
+        :numbers="JSON.parse(lotteryIssue.numbers)" 
+        :types="lotteries && lotteries[lotteryIssue.lottery_id] && lotteries[lotteryIssue.lottery_id].types" 
+        class="status-number middle"/>
       <div class="bottom">
         <span> 已开 {{ getLotteryIssueExtension.order_no }} 期，还有 {{ getLotteryIssueExtension.total_order_no - getLotteryIssueExtension.order_no }} 期 </span>
       </div>
@@ -51,7 +56,7 @@
       </div>
     </div>
     <div class="live align-middle">
-      <div :class="[lotteries && lotteryIssue && lotteries[lotteryIssue.lottery_id].types ? 'live-' + lotteries[lotteryIssue.lottery_id].types.toLowerCase() : '']">
+      <div :class="[lotteries && lotteryIssue && lotteries[lotteryIssue.lottery_id] && lotteries[lotteryIssue.lottery_id].types ? 'live-' + lotteries[lotteryIssue.lottery_id].types.toLowerCase() : '']">
       </div>
     </div>
   </div>
@@ -95,7 +100,7 @@ class Pannel extends Vue {
 
   public get getLotteryIssueExtension () {
     let oLotteryIssueExtension = {};
-    if (0 === Object.keys(this.lotteries).length || 0 === Object.keys(this.lotteryIssue).length) {
+    if (0 === Object.keys(this.lotteries).length || 0 === Object.keys(this.lotteryIssue).length || !this.lotteries[this.lotteryIssue.lottery_id]) {
       return {};
     }
     let lottery = this.lotteries[this.lotteryIssue.lottery_id];

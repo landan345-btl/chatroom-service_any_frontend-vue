@@ -25,7 +25,7 @@
             :code="code"
             :numbers="JSON.parse(oLotteryIssue.numbers)"
             :types="gerLotteries[oLotteryIssue.lottery_id].types"
-            v-if="gerLotteries && oLotteryIssue"
+            v-if="gerLotteries && oLotteryIssue && gerLotteries[oLotteryIssue.lottery_id]"
             :isRandom="false"
             :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
             :status="status"
@@ -75,7 +75,7 @@
             :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
             :numbers="JSON.parse(oLotteryIssue.numbers)"
             :types="gerLotteries[oLotteryIssue.lottery_id].types"
-            v-if="gerLotteries && oLotteryIssue"
+            v-if="gerLotteries && oLotteryIssue && gerLotteries[oLotteryIssue.lottery_id]"
             :isRandom="false"
             :status="status"/>
         </td>
@@ -125,7 +125,7 @@
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
           :numbers="JSON.parse(oLotteryIssue.numbers)"
           :types="gerLotteries[oLotteryIssue.lottery_id].types"
-          v-if="gerLotteries && oLotteryIssue"
+          v-if="gerLotteries && oLotteryIssue && gerLotteries[oLotteryIssue.lottery_id]"
           :isRandom="false"
           :status="status"/>
         </td>
@@ -158,7 +158,7 @@
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
           :numbers="JSON.parse(oLotteryIssue.numbers)"
           :types="gerLotteries[oLotteryIssue.lottery_id].types"
-          v-if="gerLotteries && oLotteryIssue"
+          v-if="gerLotteries && oLotteryIssue && gerLotteries[oLotteryIssue.lottery_id]"
           :isRandom="false"
           class="status-number"/>
         </td>
@@ -215,7 +215,7 @@
             :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
             :numbers="JSON.parse(oLotteryIssue.numbers)"
             :types="gerLotteries[oLotteryIssue.lottery_id].types"
-            v-if="gerLotteries && oLotteryIssue"
+            v-if="gerLotteries && oLotteryIssue && gerLotteries[oLotteryIssue.lottery_id]"
             :isRandom="false"
             :status="status"/>
         </td>
@@ -249,7 +249,7 @@
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
           :numbers="JSON.parse(oLotteryIssue.numbers)"
           :types="gerLotteries[oLotteryIssue.lottery_id].types"
-          v-if="gerLotteries && oLotteryIssue"
+          v-if="gerLotteries && oLotteryIssue && gerLotteries[oLotteryIssue.lottery_id]"
           :isRandom="false"
           class="status-number"/>
         </td>
@@ -285,7 +285,7 @@
          :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
          :numbers="JSON.parse(oLotteryIssue.numbers)"
           :types="gerLotteries[oLotteryIssue.lottery_id].types"
-          v-if="gerLotteries && oLotteryIssue"
+          v-if="gerLotteries && oLotteryIssue && gerLotteries[oLotteryIssue.lottery_id]"
          :isRandom="false"
          class="status-number"/>
         </td>
@@ -324,7 +324,7 @@
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
           :numbers="JSON.parse(oLotteryIssue.numbers)"
           :types="gerLotteries[oLotteryIssue.lottery_id].types"
-          v-if="gerLotteries && oLotteryIssue"
+          v-if="gerLotteries && oLotteryIssue && gerLotteries[oLotteryIssue.lottery_id]"
           :isRandom="false"
           class="status-number"/>
         </td>
@@ -361,7 +361,7 @@
           :onOddOrEvenOrSmallOrLargeOrPairRedcords="onOddOrEvenOrSmallOrLargeOrPairRedcords"
           :numbers="JSON.parse(oLotteryIssue.numbers)"
           :types="gerLotteries[oLotteryIssue.lottery_id].types"
-          v-if="gerLotteries && oLotteryIssue"
+          v-if="gerLotteries && oLotteryIssue && gerLotteries[oLotteryIssue.lottery_id]"
           :isRandom="false"
           class="status-number"/>
         </td>
