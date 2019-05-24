@@ -20,10 +20,6 @@ class IRadioGroup extends Vue {
   @Prop()
   public value!: any;
 
-  public console(a:any) {
-    console.log(a);
-  }
-
 }
 export default IRadioGroup;
 

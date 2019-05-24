@@ -2,14 +2,14 @@
   <div class="number-or-law-count background-white position-relative">
     <div class="pl-2 pr-2 font-weight-bold d-flex justify-content-between head-top">
       <span class="font-size-2 line-height3">号码规律统计</span>
-      <!-- <I-radio-group v-model="date" type="button" class="line-height3">
+      <I-radio-group :value="date" @input="date = $event"  type="button" class="line-height3">
         <Radio label="今天"></Radio>
         <Radio label="昨天"></Radio>
         <Radio label="前天"></Radio>
         <Radio label="最近30期"></Radio>
-        <Radio label="最近50期"></Radio>
-        <Radio label="最近100期" class="d-xs-none"></Radio>
-      </I-radio-group> -->
+        <Radio label="最近60期"></Radio>
+        <Radio label="最近90期" class="d-xs-none"></Radio>
+      </I-radio-group>
     </div>
     <I-divider/>
     <div class="announcement-wrapper mt-2 font-size-1p5 position-absolute">
@@ -22,24 +22,13 @@
       </div>
     </div>
     <div class="mb-1 pl-2 pr-2 font-size-1p5">
-       <span class="font-size-1p5 mr-2">号码规律统计: </span>
-       {{number}}
+      <span class="font-size-1p5 mr-2">号码规律统计: </span>
       <I-radio-group :value="number" @input="number = $event" type="button" class="line-height3 mr-2">
-        <Radio label="号码1"></Radio>
-        <Radio label="号码2"></Radio>
-        <Radio label="号码3"></Radio>
-        <Radio label="号码4"></Radio>
-        <Radio label="号码5"></Radio>
-        <Radio label="号码6"></Radio>
-        <Radio label="号码7"></Radio>
-        <Radio label="号码8"></Radio>
-        <Radio label="号码9"></Radio>
-        <Radio label="号码10"></Radio>
+        <Radio :label="sNumber" :key="iIndex" v-for="(sNumber, iIndex) in numbers" @click.native="showNumber(sNumber)"></Radio>
       </I-radio-group>
-
     </div>
     <div class="p-2">
-
+      条形统计图
     </div>
     <div class="p-2">
        <table class="w-100 font-size-1p5">
@@ -61,18 +50,20 @@
           <td>大</td>
           <td>小</td>
         </tr>
-        <tr v-for="( lotteryIssue ,skey ) in oLotteryIssues" :key="skey">
+        <tr v-for="( lotteryIssue ,skey ) in getLotteryIssues" :key="skey">
           <td>{{lotteryIssue.no}}</td>
           <td>{{lotteryIssue.added_time.split(' ')[1]}}</td>
           <td colspan="3" class="parity-numbers font-size-1p5">
-            <S-numbers
+            <!-- 上个数字是1的图片点亮 -->
+            <S-numbers 
               :code="code"
               :numbers="JSON.parse(lotteryIssue.numbers)"
               :types="types"
-              :showiPositon="true"
+              :showiPositon="false"
               :isRandom="false"
-              :previousNumbers="skey < JSON.parse(oLotteryIssues.length - 1) ? JSON.parse(oLotteryIssues[skey + 1].numbers): []"
-              class="status-number"/>
+              :previousNumbers="skey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[skey + 1].numbers): []"
+              class="status-number-previous"
+               />   <!-- class="status-number"--> 
           </td>
           <td>升</td>
           <td>单</td>
@@ -118,7 +109,7 @@ import {
   },
 })
 class NumberOrLawCount extends Vue {
-   @Prop()
+  @Prop()
   public lotteryIssues!: any;
 
   @Prop()
@@ -133,7 +124,7 @@ class NumberOrLawCount extends Vue {
   @Prop()
   public types!: any;
 
-  public get oLotteryIssues (): object {
+  public get getLotteryIssues (): object {
     let oLotteryIssues = this.lotteryIssues;
     let aLotteryIssues = Object.values(oLotteryIssues);
     let oLotteryIssue = aLotteryIssues.reverse().slice(0, 99);
@@ -142,7 +133,23 @@ class NumberOrLawCount extends Vue {
 
   public date = '今天';
   public number: string = '号码1';
-  public decorator = ['折线', '遗漏', ];
+  public numbers: string[] = ['号码1', '号码2', '号码3', '号码4', '号码5', '号码6', '号码7', '号码8', '号码9', '号码10'];
+  public decorators = ['折线', '遗漏', ];
+
+  public showiPositon: {
+    [key: string]: boolean,
+    } = {
+      1: false,
+      2: false,
+      3: false,
+      4: false,
+      5: false,
+      6: false,
+      7: false,
+      8: false,
+      9: false,
+      10: false,
+    };
 
 
   public isAnnouncementShowed: boolean = false;
@@ -152,13 +159,9 @@ class NumberOrLawCount extends Vue {
   public hideAnnouncement () {
     this.isAnnouncementShowed = false;
   }
-
-  public handleNumbers(i: number) {
-    console.log(i);
-  }
-
-  public console(aAny: any) {
-    console.log(aAny);
+  
+  public showNumber(iIndex: any ) {
+   // console.log(iIndex);
   }
 
 }
