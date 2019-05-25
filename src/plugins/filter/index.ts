@@ -13,6 +13,7 @@ import isFrontOrBack from '@/filters/isFrontOrBack/index';
 import isFiveRow from '@/filters/isFiveRow/index';
 import JSONparse from '@/filters/JSONparse/index';
 import isUpOrDown from '@/filters/isUpOrDown/index';
+import parNumber from '@/filters/parNumber/index';
 
 import codeToName from '@/filters/codeToName/index';
 import or from '@/filters/or/index';
@@ -39,6 +40,7 @@ let oFilterPlugin = {
     Vue.filter('or', or);
     Vue.filter('JSONparse', JSONparse);
     Vue.filter('isUpOrDown', isUpOrDown);
+    Vue.filter('parNumber', parNumber);
   },
 };
 

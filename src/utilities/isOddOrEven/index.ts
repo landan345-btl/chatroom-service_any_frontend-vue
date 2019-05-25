@@ -1,5 +1,3 @@
-import { lottery, lotteryIssue, } from '@/actions';
-
 const ODD: string = '单';
 const ODD_MULTIPLE: string = '单多';
 const EVEN: string = '双';
