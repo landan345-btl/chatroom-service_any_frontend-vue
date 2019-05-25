@@ -50,7 +50,7 @@
           <td>大</td>
           <td>小</td>
         </tr>
-        <tr v-for="( lotteryIssue ,skey ) in getLotteryIssues" :key="skey">
+        <tr v-for="( lotteryIssue ,ikey ) in getLotteryIssues" :key="ikey">
           <td>{{lotteryIssue.no}}</td>
           <td>{{lotteryIssue.opened_time.split(' ')[1]}}</td>
           <td colspan="3" class="parity-numbers font-size-1p5">
@@ -61,15 +61,15 @@
               :types="types"
               :isPositionShowed="isPositionShowed"
               :isRandom="false"
-              :previousNumbers="skey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[skey + 1].numbers): []"
+              :previousNumbers="ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): []"
               :class="[number ? 'status-number-previous-' + number : '']"
                />
           </td>
-          <td>{{JSON.parse(lotteryIssue.numbers) | isUpOrDown}}</td>
-          <td>单</td>
-          <td>双</td>
-          <td>大</td>
-          <td>小</td>
+          <td>{{ JSON.parse(lotteryIssue.numbers) | parNumber(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], number) }}</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
         </tr>
       </table>
     </div>
@@ -127,13 +127,16 @@ class NumberOrLawCount extends Vue {
   public get getLotteryIssues (): object {
     let oLotteryIssues = this.lotteryIssues;
     let aLotteryIssues = Object.values(oLotteryIssues);
-    let oLotteryIssue = aLotteryIssues.reverse().slice(0, 99);
+    let oLotteryIssue = aLotteryIssues.reverse().slice(0, 29);
     return oLotteryIssue;
   }
   
-  public date = '今天';
+  public date = '最近30期';
+
   public number: number = 1;
+
   public isPositionShowed: boolean = false;
+
   public numbers: object = {
     1: 1,
     2: 2,
