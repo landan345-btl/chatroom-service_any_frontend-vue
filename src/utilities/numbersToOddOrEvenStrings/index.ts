@@ -2,15 +2,16 @@ import {
   isOddOrEven,
 } from '@/utilities/';
 
-let numbersToOddOrEvenStrings = ( aNumbers: any , type: any ) => { // 单双
+let numbersToOddOrEvenStrings = ( aNumbers: any , sType: any ) => { // 单双
   let aOddOrEvens: any = [];
   let oddOrEven;
   aNumbers.forEach((iNumber: any ) => {
-    if ( type === '11X5' && Number(iNumber) === 11 ) {
+    if ( sType === '11X5' && Number(iNumber) === 11 ) {
       oddOrEven = '和';
       return;
     }
-    oddOrEven = isOddOrEven(iNumber);
+    // TODO 
+    oddOrEven = isOddOrEven(iNumber, [100]);
     aOddOrEvens.push(oddOrEven);
   });
   return aOddOrEvens;
