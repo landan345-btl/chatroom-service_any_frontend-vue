@@ -30,7 +30,7 @@
     margin: 0 auto 0;
     td {
       text-align: center;
-      border: 1px solid #968e8e;
+      border: 1px solid #D6D6D6;
       span {
        display: inline-block;
       }
@@ -53,5 +53,12 @@
 }
 
 .number-or-law-count ::v-deep table  span {
+    width: 3vmin;
+    height: 3vmin;
     margin-right: 1vmin;
 }
+.number-or-law-count ::v-deep table  span .checkbox {
+  width: 1vmin;
+  height: 1vmin;
+}
+
