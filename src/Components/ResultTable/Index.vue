@@ -13,7 +13,7 @@
         出现的次数为：
         <span>0</span>
       </span>
-      <span class="float-right m-1 grand">{{ oDragonOrTigerCount }}
+      <span class="float-right m-1 grand">
         <span>今天</span>
         <span> 累计：单(</span>
         <span>123</span>
