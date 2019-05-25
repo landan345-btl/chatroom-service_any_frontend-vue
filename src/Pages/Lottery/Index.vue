@@ -218,7 +218,7 @@ class Lottery extends Vue {
   }
 
   public oddOrEvenSmallOrLarge: any;
-  public isDragonOrTigerLuZhu: any;
+  public isDragonOrTigerrResult: any;
   public caculateResult: any;
 
   public get resultOddOrEvensAndaSmallOrLarges() { // 露珠大小单双
@@ -249,7 +249,7 @@ class Lottery extends Vue {
       return;
     }
     let limit: any = LOTTERY_TYPES[type].OPEN_NUMBER_LENGTH;    
-    let arr = this.isDragonOrTigerLuZhu(oLotteryIssues, type, limit);
+    let arr = this.isDragonOrTigerrResult(oLotteryIssues, type, limit);
     this.dragonOrTigerCount = arr.dragon_or_tiger_count;
     let _arr = helper.caculateResult(arr.numbers_to_dragon_or_tiger);
     return _arr;
