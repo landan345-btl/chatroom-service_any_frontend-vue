@@ -40,7 +40,10 @@ class LotteryHelper {
   }
 
   public isOddOrEven (iNumber: number, sTypes: string): string {
-    let sResult = isOddOrEven(iNumber);
+    sTypes = sTypes.toUpperCase();
+    let aDeuceNumbers = LOTTERY_TYPES[sTypes].DEUCE_ODD_EVEN_NUMBERS;
+
+    let sResult = isOddOrEven(iNumber, aDeuceNumbers);
     return sResult;
   }
 
