@@ -11,7 +11,13 @@
           :types="types" />
       </TabPane>
       <TabPane :label="'路珠分析'" :name="'result-analysis'">
-        <Result-analysis />
+        <Result-analysis 
+          :luzhuOddOrEvensAndaSmallOrLarges="luzhuOddOrEvensAndaSmallOrLarges"
+          :oddOrEvensAndaSmallOrLargeCount="oddOrEvensAndaSmallOrLargeCount"
+          :dragonOrTigerLuZhu="dragonOrTigerLuZhu"
+          :oDragonOrTigerCount="oDragonOrTigerCount"
+          :guanyaSumOddEvenOrSmallLarges="guanyaSumOddEvenOrSmallLarges"
+          :guanyaSumOddEvenOrSmallLargesCount="guanyaSumOddEvenOrSmallLargesCount"/>
       </TabPane>
       <TabPane :label="'冠亚和走势'" :name="'crown-or-second-sum-trend'">
         <Crown-or-second-sum-trend />
@@ -180,6 +186,24 @@ class Board extends Vue {
 
   @Prop()
   public types!: any;
+ 
+  @Prop()
+  public luzhuOddOrEvensAndaSmallOrLarges!: any;
+
+  @Prop()
+  public oddOrEvensAndaSmallOrLargeCount!: any;
+
+  @Prop()
+  public dragonOrTigerLuZhu!: any;
+
+  @Prop()
+  public oDragonOrTigerCount!: any;
+
+  @Prop()
+  public guanyaSumOddEvenOrSmallLarges!: any;
+  
+  @Prop()
+  public guanyaSumOddEvenOrSmallLargesCount!: any;
 
   public tab: string = 'lottery-issue';
 

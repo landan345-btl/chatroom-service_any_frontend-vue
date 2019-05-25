@@ -40,16 +40,30 @@
 </style>
 
 <script lang="ts">
-import { Component, Vue, } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 
 @Component({
   name: 'ResultTable',
 })
 
 class ResultTable extends Vue {
-  public created() {
-   
-  }
+  @Prop()
+  public luzhuOddOrEvensAndaSmallOrLarges!: any;
+
+  @Prop()
+  public oddOrEvensAndaSmallOrLargeCount!: any;
+
+  @Prop()
+  public dragonOrTigerLuZhu!: any;
+
+  @Prop()
+  public oDragonOrTigerCount!: any;
+
+  @Prop()
+  public guanyaSumOddEvenOrSmallLarges!: any;
+  
+  @Prop()
+  public guanyaSumOddEvenOrSmallLargesCount!: any;
 }
 
 export default ResultTable;
