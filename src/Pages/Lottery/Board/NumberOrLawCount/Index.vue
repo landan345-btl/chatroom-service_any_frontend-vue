@@ -37,7 +37,7 @@
           <td rowspan="2" class="w-10"><i class="position-relative">时间</i></td>
           <td rowspan="2" colspan="3" class="w-42">
             <i class="position-relative">同位开奖号码分布:&nbsp;
-              <Checkbox></Checkbox>
+              <Checkbox class="checkbox"></Checkbox>
             显示同位号码</i> 
           </td>
           <td rowspan="2" class="w-10"><i class="position-relative">升平降</i></td>
