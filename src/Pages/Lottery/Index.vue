@@ -227,7 +227,7 @@ class Lottery extends Vue {
     if ( Object.keys(oLotteryIssues).length <= 0) {
       return;
     }
-    let aIndexs: any = LOTTERY_TYPES[type].OPEN_NUMBER_LENGTH;
+    let aIndexs: any = LOTTERY_TYPES[type].COUNT;
     if ( !aIndexs ) {
       return;
     }
@@ -246,7 +246,7 @@ class Lottery extends Vue {
     if ( Object.keys(oLotteryIssues).length <= 0) {
       return;
     }
-    let limit: any = LOTTERY_TYPES[type].OPEN_NUMBER_LENGTH;    
+    let limit: any = LOTTERY_TYPES[type].COUNT;    
     let arr = this.isDragonOrTigerrResult(oLotteryIssues, type, limit);
     this.dragonOrTigerCount = arr.dragon_or_tiger_count;
     let _arr = helper.caculateResult(arr.numbers_to_dragon_or_tiger);

@@ -1,11 +1,11 @@
 const LOTTERY_TYPES: any = {
   'PK10': {
     NUMBERS: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, ],
-    OPEN_NUMBER_LENGTH: 10,
+    COUNT: 10,
   },
   'SSC': {
     NUMBERS: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ],
-    OPEN_NUMBER_LENGTH: 5,
+    COUNT: 5,
   },
   '11X5': {
     NUMBERS: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ],
