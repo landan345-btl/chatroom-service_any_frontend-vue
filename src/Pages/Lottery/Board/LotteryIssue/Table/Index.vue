@@ -18,7 +18,7 @@
         <th colspan="5" class="w-10 d-xs-none ">1-5龙虎</th>
       </tr>
       <tr class="font-size-1p5" v-for="(oLotteryIssue, iIndex) in gerLotteryIssues" :key="iIndex">
-        <td class="d-xs-none">{{oLotteryIssue.added_time}}</td>
+        <td class="d-xs-none">{{oLotteryIssue.opened_time}}</td>
         <td>{{oLotteryIssue.no}}</td>
         <td class="w-30">
           <S-numbers
@@ -64,7 +64,7 @@
         <th colspan="5">1-5龙虎</th>
       </tr>
       <tr class="font-size-1p5 h-4" v-for="(oLotteryIssue,iIndex) in gerLotteryIssues" :key="iIndex">
-        <td class="w-15 d-xs-none">{{oLotteryIssue.added_time}}</td>
+        <td class="w-15 d-xs-none">{{oLotteryIssue.opened_time}}</td>
         <td>{{oLotteryIssue.no}}</td>
         <td>
           <S-numbers
@@ -114,7 +114,7 @@
         <th class="d-xs-none">后三</th>
       </tr>
       <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in gerLotteryIssues" :key="iIndex">
-        <td class="d-xs-none">{{ oLotteryIssue.added_time }}</td>
+        <td class="d-xs-none">{{ oLotteryIssue.opened_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td class="w-42">
           <S-numbers
@@ -149,7 +149,7 @@
         <th colspan="5">鱼虾蟹</th>
       </tr>
       <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in gerLotteryIssues" :key="iIndex">
-        <td class="d-xs-none">{{ oLotteryIssue.added_time }}</td>
+        <td class="d-xs-none">{{ oLotteryIssue.opened_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td>
           <S-numbers
@@ -206,7 +206,7 @@
         <th colspan="4" >龙虎</th>
       </tr>
       <tr class="font-size-1p5" v-for=" ( oLotteryIssue, iIndex ) in gerLotteryIssues" :key="iIndex">
-        <td class="d-xs-none">{{ oLotteryIssue.added_time }}</td>
+        <td class="d-xs-none">{{ oLotteryIssue.opened_time }}</td>
         <td>{{ oLotteryIssue.no }}</td>
         <td>
           <S-numbers
@@ -240,7 +240,7 @@
         <th colspan="4">特码</th>
       </tr>
       <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in gerLotteryIssues" :key="iIndex">
-        <td class="d-xs-none">{{ oLotteryIssue.added_time }}</td>
+        <td class="d-xs-none">{{ oLotteryIssue.opened_time }}</td>
         <td>{{ oLotteryIssue.no }}</td>
         <td>
           <S-numbers
@@ -276,7 +276,7 @@
         <th class="w-10">五行</th>
       </tr>
       <tr v-for=" ( oLotteryIssue, iIndex ) in gerLotteryIssues" :key="iIndex" class="h-4 font-size-1p5">
-        <td class="font-size-1 d-xs-none">{{ oLotteryIssue.added_time }}</td>
+        <td class="font-size-1 d-xs-none">{{ oLotteryIssue.opened_time }}</td>
         <td class="font-size-1">{{ oLotteryIssue.no}}</td>
         <td class="w-36">
          <S-numbers
@@ -315,7 +315,7 @@
         <th colspan="3">总和</th>
       </tr>
       <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in gerLotteryIssues" :key="iIndex">
-        <td class="d-xs-none">{{ oLotteryIssue.added_time }}</td>
+        <td class="d-xs-none">{{ oLotteryIssue.opened_time }}</td>
         <td>{{ oLotteryIssue.no}}</td>
         <td class="w-10">
           <S-numbers
@@ -352,7 +352,7 @@
         <th colspan="3">总和</th>
       </tr>
       <tr class="font-size-1p5" v-for=" ( oLotteryIssue , iIndex ) in gerLotteryIssues" :key="iIndex">
-        <td class="d-xs-none d-xs-none">{{ oLotteryIssue.added_time }}</td>
+        <td class="d-xs-none d-xs-none">{{ oLotteryIssue.opened_time }}</td>
         <td>{{ oLotteryIssue.no }}</td>
         <td>
           <S-numbers
