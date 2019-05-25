@@ -32,7 +32,7 @@
               (true === onNumbers[iNumber] || false === union(onNumbers)) && false === onOddOrEvenOrSmallOrLargeOrPairRedcords.small ) ||
               (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.small && '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound)) ? '' : 'opacity-0p1',
               previousNumbers && previousNumbers[iIndex] ? 'number-previous-' + previousNumbers[iIndex] : '',
-              previousNumbers && previousNumbers[iIndex] && isPositionShowed === false ? 'hide-previous' : '',
+              isPositionShowed === false ? 'hide-previous' : '',
               '单' === isOddOrEven(iNumber) ? 'number-odd' : '',
               '双' === isOddOrEven(iNumber) ? 'number-even' : '',
               '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-small' : '',
@@ -103,11 +103,13 @@ class SNumbers extends Vue {
 
   public get getSmallUpperBound () {
     let sCodes = this.code;
+    // TODO >>> LOTTERY_TYPES
     let iSmallUpperBound = LOTTERIES[sCodes].SMALL_UPPER_BOUND;
     return iSmallUpperBound;
   }
   public get getLargelowerBound () {
     let sCodes = this.code;
+    // TODO >>> LOTTERY_TYPES
     let iSlargelowerBound = LOTTERIES[sCodes].LARGE_LOWER_BOUND;
     return iSlargelowerBound;
   }
