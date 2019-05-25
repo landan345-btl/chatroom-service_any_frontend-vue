@@ -16,8 +16,14 @@ import cJSONparse from './JSONparse/';
 import cLinkToPath from './linkToPath/';
 import cLinkToQuery from './linkToQuery/';
 import cisUpOrDown from './isUpOrDown/';
+import numbersToOddOrEvenStrings from './numbersToOddOrEvenStrings/';
+import numbersToSmallOrLargeStrings from './numbersToSmallOrLargeStrings/';
+import selectType from './selectType/';
 
 export {
+  selectType,
+  numbersToSmallOrLargeStrings,
+  numbersToOddOrEvenStrings,
   cCount as count,
   cDetermineSequence as determineSequence,
   cIsDragonOrTiger as isDragonOrTiger,
