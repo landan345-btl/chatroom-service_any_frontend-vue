@@ -15,6 +15,7 @@ import cLast from './last/';
 import cJSONparse from './JSONparse/';
 import cLinkToPath from './linkToPath/';
 import cLinkToQuery from './linkToQuery/';
+import cisUpOrDown from './isUpOrDown/';
 import numbersToOddOrEvenStrings from './numbersToOddOrEvenStrings/';
 import numbersToSmallOrLargeStrings from './numbersToSmallOrLargeStrings/';
 import selectType from './selectType/';
@@ -40,4 +41,5 @@ export {
   cJSONparse as JSONparse,
   cLinkToPath as linkToPath,
   cLinkToQuery as linkToQuery,
+  cisUpOrDown as isUpOrDown,
 };
