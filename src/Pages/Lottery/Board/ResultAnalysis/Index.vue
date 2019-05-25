@@ -113,7 +113,6 @@
       </div>
     </div>
     <div class=" mb-1 dewdrop-table"  v-for="( item , i ) in 2" :key="i">
-    <div>
       <Result-table 
         :luzhuOddOrEvensAndaSmallOrLarges="luzhuOddOrEvensAndaSmallOrLarges"
         :oddOrEvensAndaSmallOrLargeCount="oddOrEvensAndaSmallOrLargeCount"
@@ -121,7 +120,6 @@
         :oDragonOrTigerCount="oDragonOrTigerCount"
         :guanyaSumOddEvenOrSmallLarges="guanyaSumOddEvenOrSmallLarges"
         :guanyaSumOddEvenOrSmallLargesCount="guanyaSumOddEvenOrSmallLargesCount"/>
-    </div>
     </div>
   </div>
 </template>
