@@ -24,7 +24,7 @@
     <div class="mb-1 pl-2 pr-2 font-size-1p5">
       <span class="font-size-1p5 mr-2">号码规律统计: </span>
       <I-radio-group :value="number" @input="number = $event" type="button" class="line-height3 mr-2">
-        <Radio :label="sNumber" :key="iIndex" v-for="(sNumber, iIndex) in numbers" @click.native="showNumber(iIndex)"></Radio>
+        <Radio :label="sNumber" :key="iIndex" v-for="(sNumber, iIndex) in numbers">号码 {{ sNumber }}</Radio>
       </I-radio-group>
     </div>
     <div class="p-2">
@@ -62,8 +62,8 @@
               :showiPositon="false"
               :isRandom="false"
               :previousNumbers="skey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[skey + 1].numbers): []"
-              class="status-number-previous"
-               />   <!-- class="status-number"--> 
+              :class="[number ? 'status-number-previous-' + number : '']"
+               />
           </td>
           <td>升</td>
           <td>单</td>
@@ -132,25 +132,21 @@ class NumberOrLawCount extends Vue {
   }
 
   public date = '今天';
-  public number: string = '号码1';
-  public numbers: string[] = ['号码1', '号码2', '号码3', '号码4', '号码5', '号码6', '号码7', '号码8', '号码9', '号码10'];
+  public number: number = 1;
+  public numbers: object = {
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 7,
+    8: 8,
+    9: 9,
+    10: 10,
+  };
+
   public decorators = ['折线', '遗漏', ];
-
-  public showiPositon: {
-    [key: string]: boolean,
-    } = {
-      1: false,
-      2: false,
-      3: false,
-      4: false,
-      5: false,
-      6: false,
-      7: false,
-      8: false,
-      9: false,
-      10: false,
-    };
-
 
   public isAnnouncementShowed: boolean = false;
   public toggleAnnouncement () {
@@ -160,11 +156,6 @@ class NumberOrLawCount extends Vue {
     this.isAnnouncementShowed = false;
   }
   
-  public showNumber(iIndex: any ) {
-    let iNumber = Number(iIndex);
-     this.showiPositon[iNumber] = !this.showiPositon[iNumber];
-  }
-
 }
 export default NumberOrLawCount;
 </script>
