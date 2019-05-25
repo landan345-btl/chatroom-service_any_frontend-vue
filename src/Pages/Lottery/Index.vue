@@ -18,20 +18,19 @@
             :types="getTypes"
              v-if="getLastLotteryIssue && getLottery && getTypes"/>
           <Board
+            v-if="getTypes"
             :lotteryIssues="getLotteryIssues"
             :lottery="getLottery"
             :lotteries="getLotteries"
             :code="getCode"
             :types="getTypes"
-            v-if="getTypes"
-            
-            :luzhuOddOrEvensAndaSmallOrLarges="luzhuOddOrEvensAndaSmallOrLarges"
+            :resultOddOrEvensAndaSmallOrLarges="resultOddOrEvensAndaSmallOrLarges"
             :oddOrEvensAndaSmallOrLargeCount="oddOrEvensAndaSmallOrLargeCount"
             :dragonOrTigerLuZhu="dragonOrTigerLuZhu"
-            :oDragonOrTigerCount="oDragonOrTigerCount"
-            :guanyaSumOddEvenOrSmallLarges="guanyaSumOddEvenOrSmallLarges"
-            :guanyaSumOddEvenOrSmallLargesCount="guanyaSumOddEvenOrSmallLargesCount"
-            />
+            :dragonOrTigerCount="oDragonOrTigerCount"
+            :firstAndSecondSummation="firstAndSecondSummation"
+            :firstAndSecondSummationCount="firstAndSecondSummationCount"
+          />
         </main>
       </Col>
     </Row>
@@ -91,8 +90,8 @@ class Lottery extends Vue {
   public interval: any = null;
   public isSpinShowed: boolean = true;
   public oddOrEvensAndaSmallOrLargeCount: any = '';
-  public oDragonOrTigerCount: any = '';
-  public guanyaSumOddEvenOrSmallLargesCount: any = '';
+  public dragonOrTigerCount: any = '';
+  public firstAndSecondSummationCount: any = '';
 
   public beforeCreate (): void {
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
@@ -222,7 +221,7 @@ class Lottery extends Vue {
   public isDragonOrTigerLuZhu: any;
   public caculateResult: any;
 
-  public get luzhuOddOrEvensAndaSmallOrLarges() { // 露珠大小单双
+  public get resultOddOrEvensAndaSmallOrLarges() { // 露珠大小单双
     let helper = new LotteryHelper();
     let mCode: any = this.$route.query.code;
     let type: any = LOTTERIES[mCode].TYPES;
@@ -251,12 +250,12 @@ class Lottery extends Vue {
     }
     let limit: any = LOTTERY_TYPES[type].OPEN_NUMBER_LENGTH;    
     let arr = this.isDragonOrTigerLuZhu(oLotteryIssues, type, limit);
-    this.oDragonOrTigerCount = arr.dragon_or_tiger_count;
+    this.dragonOrTigerCount = arr.dragon_or_tiger_count;
     let _arr = helper.caculateResult(arr.numbers_to_dragon_or_tiger);
     return _arr;
   }
 
-  public get guanyaSumOddEvenOrSmallLarges() {  // 冠亚和路珠
+  public get firstAndSecondSummation() {  // 冠亚和路珠
     let oLotteryIssues: any = this.$store.state.lottery_issues; // 今天数据
     let mCode: any = this.$route.query.code;
     let types: any = LOTTERIES[mCode].TYPES; 
@@ -264,7 +263,7 @@ class Lottery extends Vue {
       return;
     }
     let arr = this.caculateResult(oLotteryIssues , types, 20 );
-    this.guanyaSumOddEvenOrSmallLargesCount = arr._objCount;
+    this.firstAndSecondSummationCount = arr._objCount;
     return arr.aOddEvens;
   }
 
