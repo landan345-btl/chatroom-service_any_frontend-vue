@@ -37,7 +37,7 @@
           <td rowspan="2" class="w-10"><i class="position-relative">时间</i></td>
           <td rowspan="2" colspan="3" class="w-42">
             <i class="position-relative">同位开奖号码分布:&nbsp;
-              <Checkbox v-model="showiPositon"></Checkbox>
+              <Checkbox v-model="showiPosition"></Checkbox>
             显示同位号码</i> 
           </td>
           <td rowspan="2" class="w-10"><i class="position-relative">升平降</i></td>
@@ -59,13 +59,13 @@
               :code="code"
               :numbers="JSON.parse(lotteryIssue.numbers)"
               :types="types"
-              :showiPositon="showiPositon"
+              :showiPosition="showiPosition"
               :isRandom="false"
               :previousNumbers="skey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[skey + 1].numbers): []"
               :class="[number ? 'status-number-previous-' + number : '']"
                />
           </td>
-          <td>{{previousNumbers }}</td>
+          <td></td>
           <td>单</td>
           <td>双</td>
           <td>大</td>
@@ -133,7 +133,7 @@ class NumberOrLawCount extends Vue {
 
   public date = '今天';
   public number: number = 1;
-  public showiPositon: boolean = false;
+  public showiPosition: boolean = false;
   public numbers: object = {
     1: 1,
     2: 2,

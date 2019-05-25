@@ -13,7 +13,7 @@
         出现的次数为：
         <span>0</span>
       </span>
-      <span class="float-right m-1 grand">
+      <span class="float-right m-1 grand">{{ oDragonOrTigerCount }}
         <span>今天</span>
         <span> 累计：单(</span>
         <span>123</span>
@@ -40,16 +40,30 @@
 </style>
 
 <script lang="ts">
-import { Component, Vue, } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 
 @Component({
   name: 'ResultTable',
 })
 
 class ResultTable extends Vue {
-  public created() {
-   
-  }
+  @Prop()
+  public luzhuOddOrEvensAndaSmallOrLarges!: any;
+
+  @Prop()
+  public oddOrEvensAndaSmallOrLargeCount!: any;
+
+  @Prop()
+  public dragonOrTigerLuZhu!: any;
+
+  @Prop()
+  public oDragonOrTigerCount!: any;
+
+  @Prop()
+  public guanyaSumOddEvenOrSmallLarges!: any;
+  
+  @Prop()
+  public guanyaSumOddEvenOrSmallLargesCount!: any;
 }
 
 export default ResultTable;
