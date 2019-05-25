@@ -15,6 +15,7 @@ import cLast from './last/';
 import cJSONparse from './JSONparse/';
 import cLinkToPath from './linkToPath/';
 import cLinkToQuery from './linkToQuery/';
+import cisUpOrDown from './isUpOrDown/';
 
 export {
   cCount as count,
@@ -34,4 +35,5 @@ export {
   cJSONparse as JSONparse,
   cLinkToPath as linkToPath,
   cLinkToQuery as linkToQuery,
+  cisUpOrDown as isUpOrDown,
 };

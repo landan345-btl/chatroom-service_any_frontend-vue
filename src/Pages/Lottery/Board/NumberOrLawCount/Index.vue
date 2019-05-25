@@ -65,7 +65,7 @@
               :class="[number ? 'status-number-previous-' + number : '']"
                />
           </td>
-          <td>升</td>
+          <td>{{previousNumbers }}</td>
           <td>单</td>
           <td>双</td>
           <td>大</td>
