@@ -45,6 +45,42 @@ class LotteryHelper {
     return sResult;
   }
 
+  public isSummationOfFirstAndSecondSmallOrLarge(iSummation: number, sTypes: string): string {
+    let iSmallUpperBound: number = 0;
+    let iLargeLowerBound: number = 0;
+    sTypes = sTypes.toUpperCase();
+    switch (sTypes) {
+      case 'PK10': // 冠亚和
+        iSmallUpperBound = 10;
+        iLargeLowerBound = 12;
+        break;
+      case 'SSC':
+        iSmallUpperBound = 29;
+        iLargeLowerBound = 30;
+        break;
+      case 'KL8':
+        iSmallUpperBound = 809;
+        iLargeLowerBound = 811;
+        break;
+      case 'KLSF':
+        iSmallUpperBound = 83;
+        iLargeLowerBound = 85;
+        break;
+      case 'K3':
+        iSmallUpperBound = 10;
+        iLargeLowerBound = 11;
+        break;
+      case 'SIX':
+        iSmallUpperBound = 174;
+        iLargeLowerBound = 175;
+        break;
+      default:
+        // code block
+    }
+    let sResult = isSmallOrLarge(iSummation, iSmallUpperBound, iLargeLowerBound);
+    return sResult;
+  }
+
   public isNumberSmallOrLarge (iNumber: number, sTypes: string): string {
     let iSmallUpperBound: number = 0;
     let iLargeLowerBound: number = 0;
@@ -89,6 +125,30 @@ class LotteryHelper {
   public sum (aNumbers: number[], aPositions?: number[] | null) {
     let iSummation = sum(aNumbers, aPositions);
     return iSummation;
+  }
+
+  public caculateResult(oStrings: any) { // 将一个数组中没有中断的相同的放入一个数组  参数要是对象
+    let s: any = {};
+    Object.keys(oStrings).forEach(( iNumber ) => {
+      let aStrings = oStrings[iNumber];
+      let _aStrings: any = [];
+      let _aSubStrings: any = [];
+      _aSubStrings.push(aStrings.shift());
+      aStrings.forEach((sString: any, index: any) => {
+        if (sString === _aSubStrings[_aSubStrings.length - 1]) {
+          _aSubStrings.push(sString);
+        } else {
+          _aStrings.push(_aSubStrings);
+          _aSubStrings = [];
+          _aSubStrings.push(sString);
+        }
+        if ( index === (aStrings.length - 1) ) {
+          _aStrings.push(_aSubStrings);
+        }
+      } );
+      s[iNumber] = _aStrings;
+    });
+    return s;
   }
 }
 export default LotteryHelper;
