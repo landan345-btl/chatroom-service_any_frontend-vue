@@ -23,7 +23,7 @@
     </div>
     <div class="mb-1 pl-2 pr-2 font-size-1p5">
       <span class="font-size-1p5 mr-2">号码规律统计: </span>
-      <I-radio-group :value="number" @input="number = $event" type="button" class="line-height3 mr-2">
+      <I-radio-group :value="number" @input="number = $event" type="button" class="line-height3">
         <Radio :label="sNumber" :key="iIndex" v-for="(sNumber, iIndex) in numbers">号码 {{ sNumber }}</Radio>
       </I-radio-group>
     </div>
@@ -37,7 +37,7 @@
           <td rowspan="2" class="w-10"><i class="position-relative">时间</i></td>
           <td rowspan="2" colspan="3" class="w-42">
             <i class="position-relative">同位开奖号码分布:&nbsp;
-              <Checkbox class="checkbox"></Checkbox>
+              <Checkbox v-model="isPositionShowed"></Checkbox>
             显示同位号码</i> 
           </td>
           <td rowspan="2" class="w-10"><i class="position-relative">升平降</i></td>
@@ -59,13 +59,13 @@
               :code="code"
               :numbers="JSON.parse(lotteryIssue.numbers)"
               :types="types"
-              :showiPositon="false"
+              :isPositionShowed="isPositionShowed"
               :isRandom="false"
               :previousNumbers="skey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[skey + 1].numbers): []"
               :class="[number ? 'status-number-previous-' + number : '']"
                />
           </td>
-          <td>升</td>
+          <td></td>
           <td>单</td>
           <td>双</td>
           <td>大</td>
@@ -133,6 +133,7 @@ class NumberOrLawCount extends Vue {
 
   public date = '今天';
   public number: number = 1;
+  public isPositionShowed: boolean = false;
   public numbers: object = {
     1: 1,
     2: 2,

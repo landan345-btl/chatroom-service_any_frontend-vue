@@ -24,7 +24,6 @@
             :code="getCode"
             :types="getTypes"
             v-if="getTypes"
-            
             :luzhuOddOrEvensAndaSmallOrLarges="luzhuOddOrEvensAndaSmallOrLarges"
             :oddOrEvensAndaSmallOrLargeCount="oddOrEvensAndaSmallOrLargeCount"
             :dragonOrTigerLuZhu="dragonOrTigerLuZhu"
