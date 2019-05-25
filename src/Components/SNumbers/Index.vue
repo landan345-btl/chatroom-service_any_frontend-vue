@@ -32,6 +32,7 @@
               (true === onNumbers[iNumber] || false === union(onNumbers)) && false === onOddOrEvenOrSmallOrLargeOrPairRedcords.small ) ||
               (true === onOddOrEvenOrSmallOrLargeOrPairRedcords.small && '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound)) ? '' : 'opacity-0p1',
               previousNumbers && previousNumbers[iIndex] ? 'number-previous-' + previousNumbers[iIndex] : '',
+              previousNumbers && previousNumbers[iIndex] && showiPositon === true ? '' : 'hide-previous',
               '单' === isOddOrEven(iNumber) ? 'number-odd' : '',
               '双' === isOddOrEven(iNumber) ? 'number-even' : '',
               '小' === isSmallOrLarge(iNumber, getSmallUpperBound, getLargelowerBound) ? 'number-small' : '',

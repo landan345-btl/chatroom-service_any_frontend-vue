@@ -1453,6 +1453,11 @@ html {
     height: 3.8vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
+
+  .hide-previous {
+    color: #999;
+    border: 0;
+  }
 }
 .status-number-previous-02, .status-number-previous-2 {
   background: none;
@@ -1550,6 +1555,10 @@ html {
     width: 3.8vmin;
     height: 3.8vmin;
     color: rgba($color: #000000, $alpha: 0);
+  }
+  .hide-previous {
+    color: #999;
+    border: 0;
   }
 }
 .status-number-previous-03, .status-number-previous-3 {
@@ -1649,6 +1658,10 @@ html {
     height: 3.8vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
+  .hide-previous {
+    color: #999;
+    border: 0;
+  }
 }
 .status-number-previous-04, .status-number-previous-4 {
   background: none;
@@ -1746,6 +1759,10 @@ html {
     width: 3.8vmin;
     height: 3.8vmin;
     color: rgba($color: #000000, $alpha: 0);
+  }
+  .hide-previous {
+    color: #999;
+    border: 0;
   }
 }
 .status-number-previous-05, .status-number-previous-5 {
@@ -1845,6 +1862,10 @@ html {
     height: 3.8vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
+  .hide-previous {
+    color: #999;
+    border: 0;
+  }
 }
 .status-number-previous-06, .status-number-previous-6 {
   background: none;
@@ -1942,6 +1963,10 @@ html {
     width: 3.8vmin;
     height: 3.8vmin;
     color: rgba($color: #000000, $alpha: 0);
+  }
+  .hide-previous {
+    color: #999;
+    border: 0;
   }
 }
 .status-number-previous-07, .status-number-previous-7 {
@@ -2041,6 +2066,10 @@ html {
     height: 3.8vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
+  .hide-previous {
+    color: #999;
+    border: 0;
+  }
 }
 .status-number-previous-08, .status-number-previous-8 {
   background: none;
@@ -2138,6 +2167,10 @@ html {
     width: 3.8vmin;
     height: 3.8vmin;
     color: rgba($color: #000000, $alpha: 0);
+  }
+  .hide-previous {
+    color: #999;
+    border: 0;
   }
 }
 .status-number-previous-09, .status-number-previous-9 {
@@ -2237,6 +2270,10 @@ html {
     height: 3.8vmin;
     color: rgba($color: #000000, $alpha: 0);
   }
+  .hide-previous {
+    color: #999;
+    border: 0;
+  }
 }
 .status-number-previous-10 {
   background: none;
@@ -2335,7 +2372,12 @@ html {
     border: 0 solid rgb(230, 222, 0);
     border-radius: 0;
   }
+  .hide-previous {
+    color: #999;
+    border: 0;
+  }
 }
+
 /*号码规律样式----------------------------------------------------------------------------------------------------------------------END*/
 .icon-3fpk10 {
   background: url("~@/assets/images/3FPK10.png") no-repeat 0 0;

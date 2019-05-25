@@ -57,6 +57,26 @@
     height: 3vmin;
     margin-right: 1vmin;
 }
+
+.ivu-checkbox-wrapper ::v-deep .ivu-checkbox-checked  .ivu-checkbox-inner {
+  border-color: #ff7b00;
+  background-color: #ff7b00;
+}
+
+.ivu-checkbox-wrapper ::v-deep .ivu-checkbox-checked .ivu-checkbox-focus {
+  box-shadow: none;
+}
+
+.number-or-law-count ::v-deep .ivu-checkbox-checked  .ivu-checkbox-inner:after {
+  top: 3px;
+  left: 6px;
+}
+.number-or-law-count .ivu-checkbox-wrapper span {
+  width: 1.8vmin !important;
+  height: 1.8vmin !important;
+  margin-right: 0 !important;
+}
+
 .number-or-law-count ::v-deep table  span .checkbox {
   width: 1vmin;
   height: 1vmin;
