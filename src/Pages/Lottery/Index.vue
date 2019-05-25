@@ -27,7 +27,7 @@
             :resultOddOrEvensAndaSmallOrLarges="resultOddOrEvensAndaSmallOrLarges"
             :oddOrEvensAndaSmallOrLargeCount="oddOrEvensAndaSmallOrLargeCount"
             :dragonOrTigerLuZhu="dragonOrTigerLuZhu"
-            :dragonOrTigerCount="oDragonOrTigerCount"
+            :dragonOrTigerCount="dragonOrTigerCount"
             :firstAndSecondSummation="firstAndSecondSummation"
             :firstAndSecondSummationCount="firstAndSecondSummationCount"
           />
