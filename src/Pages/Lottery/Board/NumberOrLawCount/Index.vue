@@ -65,7 +65,7 @@
               :class="[number ? 'status-number-previous-' + number : '']"
                />
           </td>
-          <td></td>
+          <td>{{JSON.parse(lotteryIssue.numbers) | isUpOrDown}}</td>
           <td>单</td>
           <td>双</td>
           <td>大</td>
@@ -130,7 +130,7 @@ class NumberOrLawCount extends Vue {
     let oLotteryIssue = aLotteryIssues.reverse().slice(0, 99);
     return oLotteryIssue;
   }
-
+  
   public date = '今天';
   public number: number = 1;
   public isPositionShowed: boolean = false;
@@ -146,8 +146,6 @@ class NumberOrLawCount extends Vue {
     9: 9,
     10: 10,
   };
-
-  public decorators = ['折线', '遗漏', ];
 
   public isAnnouncementShowed: boolean = false;
   public toggleAnnouncement () {

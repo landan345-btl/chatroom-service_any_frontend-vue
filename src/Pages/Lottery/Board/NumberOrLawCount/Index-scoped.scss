@@ -52,10 +52,10 @@
   }
 }
 
-.number-or-law-count ::v-deep table  span {
-    width: 3vmin;
-    height: 3vmin;
-    margin-right: 1vmin;
+.number-or-law-count ::v-deep table .ivu-badge {  
+  width: 3vmin;
+  height: 3vmin;
+  margin-right: 1vmin; 
 }
 
 .ivu-checkbox-wrapper ::v-deep .ivu-checkbox-checked  .ivu-checkbox-inner {
