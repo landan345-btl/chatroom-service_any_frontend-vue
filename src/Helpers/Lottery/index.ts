@@ -30,37 +30,11 @@ class LotteryHelper {
   }
 
   public isNumberSmallOrLarge (iNumber: number, sTypes: string): string {
-    let iSmallUpperBound: number = 0;
-    let iLargeLowerBound: number = 0;
     sTypes = sTypes.toUpperCase();
-    switch (sTypes) {
-    case 'PK10':
-      iSmallUpperBound = 4;
-      iLargeLowerBound = 5;
-      break;
-    case 'SSC':
-      iSmallUpperBound = 4;
-      iLargeLowerBound = 5;
-      break;
-    case 'KL8':
-      iSmallUpperBound = 40;
-      iLargeLowerBound = 41;
-      break;
-    case 'KLSF':
-      iSmallUpperBound = 83;
-      iLargeLowerBound = 85;
-      break;
-    case 'K3':
-      iSmallUpperBound = 3;
-      iLargeLowerBound = 4;
-      break;
-    case 'SIX':
-      iSmallUpperBound = 24;
-      iLargeLowerBound = 25;
-      break;
-    default:
-        // code block
-    }
+
+    let iSmallUpperBound = LOTTERY_TYPES[sTypes].SMALL_UPPER_BOUND_NUMBER;
+    let iLargeLowerBound = LOTTERY_TYPES[sTypes].LARGE_LOWER_BOUND_NUMBER;
+
     let sResult = isSmallOrLarge(iNumber, iSmallUpperBound, iLargeLowerBound);
     return sResult;
   }
