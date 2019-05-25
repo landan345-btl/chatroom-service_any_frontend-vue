@@ -18,19 +18,19 @@
             :types="getTypes"
              v-if="getLastLotteryIssue && getLottery && getTypes"/>
           <Board
+            v-if="getTypes"
             :lotteryIssues="getLotteryIssues"
             :lottery="getLottery"
             :lotteries="getLotteries"
             :code="getCode"
             :types="getTypes"
-            v-if="getTypes"
-            :luzhuOddOrEvensAndaSmallOrLarges="luzhuOddOrEvensAndaSmallOrLarges"
-            :oddOrEvensAndaSmallOrLargeCount="oddOrEvensAndaSmallOrLargeCount"
-            :dragonOrTigerLuZhu="dragonOrTigerLuZhu"
-            :oDragonOrTigerCount="oDragonOrTigerCount"
-            :guanyaSumOddEvenOrSmallLarges="guanyaSumOddEvenOrSmallLarges"
-            :guanyaSumOddEvenOrSmallLargesCount="guanyaSumOddEvenOrSmallLargesCount"
-            />
+            :resultOddOrEvensAndSmallOrLarges="getResultOddOrEvensAndSmallOrLarges"
+            :oddOrEvensAndSmallOrLargeCount="oddOrEvensAndSmallOrLargeCount"
+            :dragonOrTigerResult="dragonOrTigerResult"
+            :dragonOrTigerCount="dragonOrTigerCount"
+            :firstAndSecondSummation="firstAndSecondSummation"
+            :firstAndSecondSummationCount="firstAndSecondSummationCount"
+          />
         </main>
       </Col>
     </Row>
@@ -89,9 +89,9 @@ import {
 class Lottery extends Vue {
   public interval: any = null;
   public isSpinShowed: boolean = true;
-  public oddOrEvensAndaSmallOrLargeCount: any = '';
-  public oDragonOrTigerCount: any = '';
-  public guanyaSumOddEvenOrSmallLargesCount: any = '';
+  public oddOrEvensAndSmallOrLargeCount: any = '';
+  public dragonOrTigerCount: any = '';
+  public firstAndSecondSummationCount: any = '';
 
   public beforeCreate (): void {
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
@@ -112,13 +112,11 @@ class Lottery extends Vue {
   }
 
   public beforeMount () {
-    // this.caculateNumbersToPositionsToCounts();
   }
 
   @Watch('$route', { immediate: true, deep: true, })
   public onRouteChange (oToRoute: any, oFromRoute: any) {
     if (oFromRoute && (oToRoute.query.code !== oFromRoute.query.code || oToRoute.query.path !== oFromRoute.query.path)) {
-      // this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
       let sCode = oToRoute.query.code || '';
       let oQueries = {
         code: sCode,
@@ -218,10 +216,10 @@ class Lottery extends Vue {
   }
 
   public oddOrEvenSmallOrLarge: any;
-  public isDragonOrTigerLuZhu: any;
+  public isDragonOrTigerrResult: any;
   public caculateResult: any;
 
-  public get luzhuOddOrEvensAndaSmallOrLarges() { // 露珠大小单双
+  public get getResultOddOrEvensAndSmallOrLarges() { // 露珠大小单双
     let helper = new LotteryHelper();
     let mCode: any = this.$route.query.code;
     let type: any = LOTTERIES[mCode].TYPES;
@@ -229,17 +227,17 @@ class Lottery extends Vue {
     if ( Object.keys(oLotteryIssues).length <= 0) {
       return;
     }
-    let aIndexs: any = LOTTERY_TYPES[type].OPEN_NUMBER_LENGTH;
+    let aIndexs: any = LOTTERY_TYPES[type].COUNT;
     if ( !aIndexs ) {
       return;
     }
     let arr = this.oddOrEvenSmallOrLarge( oLotteryIssues, type , aIndexs);
-    this.oddOrEvensAndaSmallOrLargeCount = arr.oddOrEvensAndaSmallOrLargeCount;
+    this.oddOrEvensAndSmallOrLargeCount = arr.oddOrEvensAndaSmallOrLargeCount;
     let _arr = helper.caculateResult(arr.oOddOrEvensAndaSmallOrLarges);
     return _arr;
   }
 
-  public get dragonOrTigerLuZhu() {
+  public get dragonOrTigerResult() {
     let helper = new LotteryHelper();
     let sDateNow = moment().format('YYYY-MM-DD'); // 本地时间 年 月 日
     let mCode: any = this.$route.query.code;
@@ -248,22 +246,22 @@ class Lottery extends Vue {
     if ( Object.keys(oLotteryIssues).length <= 0) {
       return;
     }
-    let limit: any = LOTTERY_TYPES[type].OPEN_NUMBER_LENGTH;    
-    let arr = this.isDragonOrTigerLuZhu(oLotteryIssues, type, limit);
-    this.oDragonOrTigerCount = arr.dragon_or_tiger_count;
+    let limit: any = LOTTERY_TYPES[type].COUNT;    
+    let arr = this.isDragonOrTigerrResult(oLotteryIssues, type, limit);
+    this.dragonOrTigerCount = arr.dragon_or_tiger_count;
     let _arr = helper.caculateResult(arr.numbers_to_dragon_or_tiger);
     return _arr;
   }
 
-  public get guanyaSumOddEvenOrSmallLarges() {  // 冠亚和路珠
-    let oLotteryIssues: any = this.$store.state.lottery_issues; // 今天数据
+  public get firstAndSecondSummation() {  // 冠亚和路珠
+    let oLotteryIssues: any = this.$store.state.lottery_issues;
     let mCode: any = this.$route.query.code;
-    let types: any = LOTTERIES[mCode].TYPES; 
-    if ( !oLotteryIssues || !types ) {
+    let sTypes: any = mCode && LOTTERIES[mCode] ? LOTTERIES[mCode].TYPES : ''; 
+    if ( !oLotteryIssues || !sTypes ) {
       return;
     }
-    let arr = this.caculateResult(oLotteryIssues , types, 20 );
-    this.guanyaSumOddEvenOrSmallLargesCount = arr._objCount;
+    let arr = this.caculateResult(oLotteryIssues , sTypes, 20 );
+    this.firstAndSecondSummationCount = arr._objCount;
     return arr.aOddEvens;
   }
 

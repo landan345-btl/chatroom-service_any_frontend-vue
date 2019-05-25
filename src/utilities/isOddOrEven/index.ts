@@ -5,13 +5,23 @@ const EVEN_MULTIPLE: string = '双多';
 const DEUCE: string = '和';
 const DEUCE_MULTIPLE: string = '单双和';
 const UNKNOWN: string = '未知';
-let cIsOddOrEven = (aNumbers: number[] | number): string => {
+let cIsOddOrEven = (aNumbers: number[] | number, aDeuceNumbers: number[] ): string => {
   let iCountOdd = 0;
   let iCountEven = 0;
+  let iCountDeuce = 0;
+
   if (!(aNumbers instanceof Array)) {
     aNumbers = [aNumbers, ];
   }
+
+  if (!(aDeuceNumbers instanceof Array)) {
+    aDeuceNumbers = [aDeuceNumbers, ];
+  }
   aNumbers.forEach((iNumber) => {
+    if (aDeuceNumbers.includes(iNumber)) {
+      iCountDeuce++;
+      return;
+    }
     if (iNumber % 2 === 1) {
       iCountOdd++;
       return;
@@ -20,25 +30,29 @@ let cIsOddOrEven = (aNumbers: number[] | number): string => {
       iCountEven++;
     }
   });
-  if (iCountOdd - iCountEven > 0 && aNumbers.length === 1) {
+  if (iCountEven < iCountOdd && iCountDeuce < iCountOdd && aNumbers.length === 1) {
     return ODD;
   }
-  if (iCountOdd - iCountEven < 0 && aNumbers.length === 1) {
+  if (iCountOdd  < iCountEven && iCountDeuce < iCountEven && aNumbers.length === 1) {
     return EVEN;
   }
 
-  if (iCountOdd - iCountEven > 0 && aNumbers.length > 1) {
+  if (iCountEven < iCountOdd && iCountDeuce < iCountOdd&& aNumbers.length > 1) {
     return ODD_MULTIPLE;
   }
-  if (iCountOdd - iCountEven < 0 && aNumbers.length > 1) {
+  if (iCountOdd < iCountEven && iCountDeuce < iCountEven && aNumbers.length > 1) {
     return EVEN_MULTIPLE;
   }
 
-  if (iCountOdd - iCountEven === 0 && aNumbers.length === 1) {
+  if (iCountOdd === iCountEven && aNumbers.length === 1) {
     return DEUCE;
   }
 
-  if (iCountOdd - iCountEven === 0 && aNumbers.length > 1) {
+  if (iCountEven < iCountDeuce && iCountOdd < iCountDeuce && aNumbers.length === 1) {
+    return DEUCE;
+  }
+
+  if (iCountEven < iCountDeuce && iCountOdd < iCountDeuce && iCountOdd  === iCountEven && aNumbers.length > 1) {
     return DEUCE_MULTIPLE;
   }
 

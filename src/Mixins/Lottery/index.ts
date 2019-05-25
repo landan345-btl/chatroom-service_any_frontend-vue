@@ -226,7 +226,7 @@ class Lottery extends Vue {
     return oNumbersToPositionsToCounts;
   }
 
-  public isDragonOrTigerLuZhu(oLotteryIssues: any, types: any, iLimit: any) {  // 龙虎路珠
+  public isDragonOrTigerrResult(oLotteryIssues: any, types: any, iLimit: any) {  // 龙虎路珠
     if ( !iLimit ) {
       return;
     }
