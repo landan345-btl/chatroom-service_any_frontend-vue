@@ -10,73 +10,21 @@ import {
 
 class LotteryHelper {
   public isSummationSmallOrLarge (iSummation: number, sTypes: string): string {
-    let iSmallUpperBound: number = 0;
-    let iLargeLowerBound: number = 0;
     sTypes = sTypes.toUpperCase();
-    switch (sTypes) {
-    case 'PK10':
-      iSmallUpperBound = 22;
-      iLargeLowerBound = 23;
-      break;
-    case 'SSC':
-      iSmallUpperBound = 29;
-      iLargeLowerBound = 30;
-      break;
-    case 'KL8':
-      iSmallUpperBound = 809;
-      iLargeLowerBound = 811;
-      break;
-    case 'KLSF':
-      iSmallUpperBound = 83;
-      iLargeLowerBound = 85;
-      break;
-    case 'K3':
-      iSmallUpperBound = 10;
-      iLargeLowerBound = 11;
-      break;
-    case 'SIX':
-      iSmallUpperBound = 174;
-      iLargeLowerBound = 175;
-      break;
-    default:
-        // code block
-    }
+
+    let iSmallUpperBound = LOTTERY_TYPES[sTypes].SMALL_UPPER_BOUND_NUMBER;
+    let iLargeLowerBound = LOTTERY_TYPES[sTypes].LARGE_LOWER_BOUND_NUMBER;
+
     let sResult = isSmallOrLarge(iSummation, iSmallUpperBound, iLargeLowerBound);
     return sResult;
   }
 
   public isSummationOfFirstAndSecondSmallOrLarge(iSummation: number, sTypes: string): string {
-    let iSmallUpperBound: number = 0;
-    let iLargeLowerBound: number = 0;
     sTypes = sTypes.toUpperCase();
-    switch (sTypes) {
-      case 'PK10': // 冠亚和
-        iSmallUpperBound = 10;
-        iLargeLowerBound = 12;
-        break;
-      case 'SSC':
-        iSmallUpperBound = 29;
-        iLargeLowerBound = 30;
-        break;
-      case 'KL8':
-        iSmallUpperBound = 809;
-        iLargeLowerBound = 811;
-        break;
-      case 'KLSF':
-        iSmallUpperBound = 83;
-        iLargeLowerBound = 85;
-        break;
-      case 'K3':
-        iSmallUpperBound = 10;
-        iLargeLowerBound = 11;
-        break;
-      case 'SIX':
-        iSmallUpperBound = 174;
-        iLargeLowerBound = 175;
-        break;
-      default:
-        // code block
-    }
+
+    let iSmallUpperBound = LOTTERY_TYPES[sTypes].SUMMATION_SMALL_UPPER_BOUND_NUMBER;
+    let iLargeLowerBound = LOTTERY_TYPES[sTypes].SUMMATION_LARGE_LOWER_BOUND_NUMBER;
+
     let sResult = isSmallOrLarge(iSummation, iSmallUpperBound, iLargeLowerBound);
     return sResult;
   }
