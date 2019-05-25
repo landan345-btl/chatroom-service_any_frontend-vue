@@ -12,8 +12,8 @@ class LotteryHelper {
   public isSummationSmallOrLarge (iSummation: number, sTypes: string): string {
     sTypes = sTypes.toUpperCase();
 
-    let iSmallUpperBound = LOTTERY_TYPES[sTypes].SMALL_UPPER_BOUND_NUMBER;
-    let iLargeLowerBound = LOTTERY_TYPES[sTypes].LARGE_LOWER_BOUND_NUMBER;
+    let iSmallUpperBound = LOTTERY_TYPES[sTypes].SUMMATION_SMALL_UPPER_BOUND_NUMBER;
+    let iLargeLowerBound = LOTTERY_TYPES[sTypes].SUMMATION_LARGE_LOWER_BOUND_NUMBER;
 
     let sResult = isSmallOrLarge(iSummation, iSmallUpperBound, iLargeLowerBound);
     return sResult;
@@ -22,8 +22,8 @@ class LotteryHelper {
   public isSummationOfFirstAndSecondSmallOrLarge(iSummation: number, sTypes: string): string {
     sTypes = sTypes.toUpperCase();
 
-    let iSmallUpperBound = LOTTERY_TYPES[sTypes].SUMMATION_SMALL_UPPER_BOUND_NUMBER;
-    let iLargeLowerBound = LOTTERY_TYPES[sTypes].SUMMATION_LARGE_LOWER_BOUND_NUMBER;
+    let iSmallUpperBound = LOTTERY_TYPES[sTypes].FIRST_AND_SECOND_SUMMATION_SMALL_UPPER_BOUND_NUMBER;
+    let iLargeLowerBound = LOTTERY_TYPES[sTypes].FIRST_AND_SECOND_SUMMATION_LARGE_LOWER_BOUND_NUMBER;
 
     let sResult = isSmallOrLarge(iSummation, iSmallUpperBound, iLargeLowerBound);
     return sResult;
