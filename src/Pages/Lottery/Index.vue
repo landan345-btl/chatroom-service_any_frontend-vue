@@ -26,7 +26,7 @@
             :types="getTypes"
             :resultOddOrEvensAndSmallOrLarges="getResultOddOrEvensAndSmallOrLarges"
             :oddOrEvensAndSmallOrLargeCount="oddOrEvensAndSmallOrLargeCount"
-            :dragonOrTigerLuZhu="dragonOrTigerLuZhu"
+            :dragonOrTigerResult="dragonOrTigerResult"
             :dragonOrTigerCount="dragonOrTigerCount"
             :firstAndSecondSummation="firstAndSecondSummation"
             :firstAndSecondSummationCount="firstAndSecondSummationCount"
@@ -239,7 +239,7 @@ class Lottery extends Vue {
     return _arr;
   }
 
-  public get dragonOrTigerLuZhu() {
+  public get dragonOrTigerResult() {
     let helper = new LotteryHelper();
     let sDateNow = moment().format('YYYY-MM-DD'); // 本地时间 年 月 日
     let mCode: any = this.$route.query.code;
