@@ -113,9 +113,13 @@
       </div>
     </div>
     <div class=" mb-1 dewdrop-table"  v-for="( item , i ) in 2" :key="i">
-    <div>
-      <Result-table />
-    </div>
+      <Result-table 
+        :luzhuOddOrEvensAndaSmallOrLarges="luzhuOddOrEvensAndaSmallOrLarges"
+        :oddOrEvensAndaSmallOrLargeCount="oddOrEvensAndaSmallOrLargeCount"
+        :dragonOrTigerLuZhu="dragonOrTigerLuZhu"
+        :oDragonOrTigerCount="oDragonOrTigerCount"
+        :guanyaSumOddEvenOrSmallLarges="guanyaSumOddEvenOrSmallLarges"
+        :guanyaSumOddEvenOrSmallLargesCount="guanyaSumOddEvenOrSmallLargesCount"/>
     </div>
   </div>
 </template>
@@ -127,6 +131,7 @@
 import {
   Component,
   Vue,
+  Prop,
 } from 'vue-property-decorator';
 
 import {
@@ -154,6 +159,24 @@ import {
   },
 })
 class ResultAnalysis extends Vue {
+  @Prop()
+  public luzhuOddOrEvensAndaSmallOrLarges!: any;
+
+  @Prop()
+  public oddOrEvensAndaSmallOrLargeCount!: any;
+
+  @Prop()
+  public dragonOrTigerLuZhu!: any;
+
+  @Prop()
+  public oDragonOrTigerCount!: any;
+
+  @Prop()
+  public guanyaSumOddEvenOrSmallLarges!: any;
+  
+  @Prop()
+  public guanyaSumOddEvenOrSmallLargesCount!: any;
+
   public checkRanks: any = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'];
   public checkAnalysis: any = ['大小', '单双', '龙虎'];
   public checkRadioRank: any= '亚军';
