@@ -24,8 +24,8 @@
             :lotteries="getLotteries"
             :code="getCode"
             :types="getTypes"
-            :resultOddOrEvensAndaSmallOrLarges="getResultOddOrEvensAndSmallOrLarges"
-            :oddOrEvensAndaSmallOrLargeCount="oddOrEvensAndaSmallOrLargeCount"
+            :resultOddOrEvensAndSmallOrLarges="getResultOddOrEvensAndSmallOrLarges"
+            :oddOrEvensAndSmallOrLargeCount="oddOrEvensAndSmallOrLargeCount"
             :dragonOrTigerLuZhu="dragonOrTigerLuZhu"
             :dragonOrTigerCount="dragonOrTigerCount"
             :firstAndSecondSummation="firstAndSecondSummation"
@@ -89,7 +89,7 @@ import {
 class Lottery extends Vue {
   public interval: any = null;
   public isSpinShowed: boolean = true;
-  public oddOrEvensAndaSmallOrLargeCount: any = '';
+  public oddOrEvensAndSmallOrLargeCount: any = '';
   public dragonOrTigerCount: any = '';
   public firstAndSecondSummationCount: any = '';
 
@@ -234,7 +234,7 @@ class Lottery extends Vue {
       return;
     }
     let arr = this.oddOrEvenSmallOrLarge( oLotteryIssues, type , aIndexs);
-    this.oddOrEvensAndaSmallOrLargeCount = arr.oddOrEvensAndaSmallOrLargeCount;
+    this.oddOrEvensAndSmallOrLargeCount = arr.oddOrEvensAndaSmallOrLargeCount;
     let _arr = helper.caculateResult(arr.oOddOrEvensAndaSmallOrLarges);
     return _arr;
   }
