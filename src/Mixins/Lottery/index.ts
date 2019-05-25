@@ -7,6 +7,12 @@ import {
   Lottery as LotteryHelper,
 } from '@/Helpers/';
 
+import { 
+  isDragonOrTiger,
+  numbersToOddOrEvenStrings,
+  numbersToSmallOrLargeStrings,
+   } from '@/utilities/';
+
 import {
   BACKEND,
   LOTTERIES,
@@ -27,6 +33,8 @@ class Lottery extends Vue {
     positions_to_number_types_to_counts: {},
     numbers_to_counts: {},
     numers_to_positions_counts: {},
+    dragon_or_tiger_count: {},
+    numbers_to_dragon_or_tiger: {},
   };
 
   public calculateNextTime (sOpenedTime: string, oLottery: any): number {
@@ -217,6 +225,144 @@ class Lottery extends Vue {
     this.extensionLottery.numers_to_positions_to_counts = oNumbersToPositionsToCounts;
     return oNumbersToPositionsToCounts;
   }
+
+  public isDragonOrTigerLuZhu(oLotteryIssues: any, types: any, iLimit: any) {  // 龙虎路珠
+    if ( !iLimit ) {
+      return;
+    }
+    if ( iLimit % 2 === 1 ) {
+      iLimit = iLimit - 1;
+    }
+    let key = '_dragon_tiger';
+    let tiger = 'tiger';
+    let dragon = 'dragon';
+    let arr: any = {};
+    let oDragonOrTigers: any = {};
+    let aLotteryIssues = Object.values(oLotteryIssues);
+    while( aLotteryIssues.length >= 1 ) {
+      let lotteryIssue: any = aLotteryIssues.pop();
+      let aNumbers = JSON.parse(lotteryIssue.numbers);
+      let n = 0; // 限制龙虎个数
+      if ( !aNumbers || aNumbers === '' ) {
+        continue;
+      }
+      for (let i = 0 ; i < iLimit / 2 ; i++ ) {
+        if ( !oDragonOrTigers[i + key] ) {
+          oDragonOrTigers[i + key] = [];
+        }
+        if ( !arr[i] ) {
+          arr[i] = {};
+          arr[i][dragon] = 0;
+          arr[i][tiger] = 0;
+        }
+        let dragonOrTiger = isDragonOrTiger(aNumbers ,[ i, iLimit - 1 - i ]);
+        dragonOrTiger === '龙' ? arr[i][dragon]+=1 : arr[i][tiger]+=1;
+        oDragonOrTigers[i + key].push(dragonOrTiger);
+        n++;
+      }
+    }
+    this.extensionLottery.dragon_or_tiger_count = arr; // 出现的总个数累加
+    this.extensionLottery.numbers_to_dragon_or_tiger = oDragonOrTigers;
+    return this.extensionLottery;
+  }
+
+  public caculateResult( oLotteryIssues: any, types: any ,iLimit: any) { // 冠亚和 大小单双
+    if (!oLotteryIssues ) {
+      return {};
+    }
+    let lotteryHelper = new LotteryHelper();
+    let aLotteryIssues: any[] = Object.values(oLotteryIssues);
+    let oLotteryIssue: any;
+    let sOddEvens: string[] = [];
+    let aSmallOrLarges: string[] = [];
+    let _objCount: any = {};
+    while (aLotteryIssues.length >= 1) {
+      oLotteryIssue = aLotteryIssues.pop();
+      if ( !oLotteryIssue.numbers || oLotteryIssue.numbers === '' ) {
+        continue;
+      }
+      let aNumbers = JSON.parse(oLotteryIssue.numbers);
+      if ( !Array.isArray(aNumbers) ) {
+        aNumbers = aNumbers.split(',');
+      }
+      // let sType = oLotteries[oLotteryIssue.lottery_id].types;
+      let iSumNumber: number = Number(aNumbers[0]) + Number(aNumbers[1]);
+      let sSmallOrLarge = lotteryHelper.isSummationOfFirstAndSecondSmallOrLarge(iSumNumber , types);
+      let sOddOrEven = lotteryHelper.isOddOrEven(iSumNumber , types );
+      if ( !_objCount['odd'] ) {
+        _objCount['odd'] = {};
+        _objCount['odd']['odd'] = 0;
+        _objCount['odd']['even'] = 0;
+      }
+      if ( !_objCount['small'] ) {
+        _objCount['small'] = {};
+        _objCount['small']['large'] = 0;
+        _objCount['small']['small'] = 0;
+      }
+      sOddOrEven === '单' ? _objCount['odd']['odd'] += 1 :  _objCount['odd']['even'] += 1;
+      sSmallOrLarge === '大' ?  _objCount['small']['large'] += 1 :  _objCount['small']['small'] += 1;
+      sOddEvens.push(sOddOrEven);
+      aSmallOrLarges.push(sSmallOrLarge);
+    }
+    let obj = { 
+      '10_guanyaodd_or_even_he_odd': sOddEvens,
+      ...{ '10_guanyasmall_or_large_he_small': aSmallOrLarges },
+    };
+    let aOddEvens = lotteryHelper.caculateResult(obj);
+    // let aSmallOrLarges = lotteryHelper.caculateResult({ Guanya_smallOrLarge: sSmallOrLarges});
+    // this.extensionLottery.number_to_odd_or_even = aOddEvens
+    // this.extensionLottery.number_to_small_or_larges = aSmallOrLarges;
+    return {aOddEvens , _objCount };
+  }
+
+  public oddOrEvenSmallOrLarge(oLotteryIssues: any , type: any , aIndexs: any ) { // 大小单双
+    let sOddOrEven = 'odd_or_even';
+    let sSmallOrLarge = 'small_or_large';
+    let odd = 'odd';
+    let even = 'even';
+    let small = 'small';
+    let large = 'large';
+    let oOddOrEvensAndaSmallOrLarges: any = {};
+    let arr: any = {};
+    if ( aIndexs === undefined ) {
+      return ;
+    }
+    for (let oLotteryIssueId of Object.keys(oLotteryIssues)) {
+      let aNumbers = JSON.parse(oLotteryIssues[oLotteryIssueId].numbers);
+      if ( aNumbers === '' ) {
+        continue;
+      }
+      if ( !Array.isArray(aIndexs) && aIndexs > 0 ) {
+        aIndexs = [aIndexs];
+      }
+      let aOddOrEvenStrings = numbersToOddOrEvenStrings(aNumbers , type);          // [ODD, ODD, ODD, ODD]
+      let aSmallOrLargeStrings = numbersToSmallOrLargeStrings(aNumbers , type , aIndexs );    // [S, L , S, L]
+      for (let index = 0 ; index < aIndexs ; index++ ) {
+        if ( !arr[index] ) {
+          arr[index] = {};
+          arr[index][odd] = {};
+          arr[index][small] = {};
+          arr[index][odd][odd] = 0;
+          arr[index][odd][even] = 0;
+          arr[index][small][small] = 0;
+          arr[index][small][large] = 0;
+        }
+        if ( !oOddOrEvensAndaSmallOrLarges[index + '_' + sOddOrEven] ) {
+          oOddOrEvensAndaSmallOrLarges[index + '_' + sOddOrEven] = [];
+        }
+        oOddOrEvensAndaSmallOrLarges[index + '_' + sOddOrEven].push(aOddOrEvenStrings[index]);
+        aOddOrEvenStrings[index] === '单' ? arr[index][odd][odd] += 1 : arr[index][odd][even] += 1;
+        if ( !oOddOrEvensAndaSmallOrLarges[index + '_' + sSmallOrLarge] ) {
+          oOddOrEvensAndaSmallOrLarges[index + '_' + sSmallOrLarge] = [];
+        }
+        oOddOrEvensAndaSmallOrLarges[index + '_' + sSmallOrLarge].push(aSmallOrLargeStrings[index]);
+        aSmallOrLargeStrings[index] === '大' ? arr[index][small][large] += 1 : arr[index][small][small] += 1;
+      }
+    }
+    let obj = { oOddOrEvensAndaSmallOrLarges , oddOrEvensAndaSmallOrLargeCount: arr };
+    return obj;
+  }
+
 }
 
 export default Lottery;
