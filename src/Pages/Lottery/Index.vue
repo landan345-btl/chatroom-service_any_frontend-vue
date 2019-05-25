@@ -112,13 +112,11 @@ class Lottery extends Vue {
   }
 
   public beforeMount () {
-    // this.caculateNumbersToPositionsToCounts();
   }
 
   @Watch('$route', { immediate: true, deep: true, })
   public onRouteChange (oToRoute: any, oFromRoute: any) {
     if (oFromRoute && (oToRoute.query.code !== oFromRoute.query.code || oToRoute.query.path !== oFromRoute.query.path)) {
-      // this.$store.dispatch('LOTTERY_ISSUE_ACTION_EMPTY', {});
       let sCode = oToRoute.query.code || '';
       let oQueries = {
         code: sCode,
