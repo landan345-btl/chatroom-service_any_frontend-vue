@@ -256,13 +256,13 @@ class Lottery extends Vue {
   }
 
   public get firstAndSecondSummation() {  // 冠亚和路珠
-    let oLotteryIssues: any = this.$store.state.lottery_issues; // 今天数据
+    let oLotteryIssues: any = this.$store.state.lottery_issues;
     let mCode: any = this.$route.query.code;
-    let types: any = LOTTERIES[mCode].TYPES; 
-    if ( !oLotteryIssues || !types ) {
+    let sTypes: any = mCode && LOTTERIES[mCode] ? LOTTERIES[mCode].TYPES : ''; 
+    if ( !oLotteryIssues || !sTypes ) {
       return;
     }
-    let arr = this.caculateResult(oLotteryIssues , types, 20 );
+    let arr = this.caculateResult(oLotteryIssues , sTypes, 20 );
     this.firstAndSecondSummationCount = arr._objCount;
     return arr.aOddEvens;
   }
