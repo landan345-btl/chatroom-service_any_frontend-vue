@@ -112,14 +112,14 @@
         </p>
       </div>
     </div>
-    <div class=" mb-1 dewdrop-table"  v-for="( item , i ) in 2" :key="i">
+    <div class=" mb-1 dewdrop-table">
       <Result-table 
-        :luzhuOddOrEvensAndaSmallOrLarges="luzhuOddOrEvensAndaSmallOrLarges"
-        :oddOrEvensAndaSmallOrLargeCount="oddOrEvensAndaSmallOrLargeCount"
-        :dragonOrTigerLuZhu="dragonOrTigerLuZhu"
-        :oDragonOrTigerCount="oDragonOrTigerCount"
-        :guanyaSumOddEvenOrSmallLarges="guanyaSumOddEvenOrSmallLarges"
-        :guanyaSumOddEvenOrSmallLargesCount="guanyaSumOddEvenOrSmallLargesCount"/>
+        :resultOddOrEvensAndSmallOrLarges="resultOddOrEvensAndSmallOrLarges"
+        :oddOrEvensAndSmallOrLargeCount="oddOrEvensAndSmallOrLargeCount"
+        :dragonOrTigerResult="dragonOrTigerResult"
+        :dragonOrTigerCount="dragonOrTigerCount"
+        :firstAndSecondSummation="firstAndSecondSummation"
+        :firstAndSecondSummationCount="firstAndSecondSummationCount"/>
     </div>
   </div>
 </template>
@@ -160,22 +160,22 @@ import {
 })
 class ResultAnalysis extends Vue {
   @Prop()
-  public luzhuOddOrEvensAndaSmallOrLarges!: any;
+  public resultOddOrEvensAndSmallOrLarges!: any;
 
   @Prop()
-  public oddOrEvensAndaSmallOrLargeCount!: any;
+  public oddOrEvensAndSmallOrLargeCount!: any;
 
   @Prop()
-  public dragonOrTigerLuZhu!: any;
+  public dragonOrTigerResult!: any;
 
   @Prop()
-  public oDragonOrTigerCount!: any;
+  public dragonOrTigerCount!: any;
 
   @Prop()
-  public guanyaSumOddEvenOrSmallLarges!: any;
+  public firstAndSecondSummation!: any;
   
   @Prop()
-  public guanyaSumOddEvenOrSmallLargesCount!: any;
+  public firstAndSecondSummationCount!: any;
 
   public checkRanks: any = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'];
   public checkAnalysis: any = ['大小', '单双', '龙虎'];

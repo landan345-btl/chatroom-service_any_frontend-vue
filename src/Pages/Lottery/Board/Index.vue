@@ -12,12 +12,12 @@
       </TabPane>
       <TabPane :label="'路珠分析'" :name="'result-analysis'">
         <Result-analysis 
-          :luzhuOddOrEvensAndaSmallOrLarges="luzhuOddOrEvensAndaSmallOrLarges"
-          :oddOrEvensAndaSmallOrLargeCount="oddOrEvensAndaSmallOrLargeCount"
-          :dragonOrTigerLuZhu="dragonOrTigerLuZhu"
-          :oDragonOrTigerCount="oDragonOrTigerCount"
-          :guanyaSumOddEvenOrSmallLarges="guanyaSumOddEvenOrSmallLarges"
-          :guanyaSumOddEvenOrSmallLargesCount="guanyaSumOddEvenOrSmallLargesCount"/>
+          :resultOddOrEvensAndSmallOrLarges="resultOddOrEvensAndSmallOrLarges"
+          :oddOrEvensAndSmallOrLargeCount="oddOrEvensAndSmallOrLargeCount"
+          :dragonOrTigerResult="dragonOrTigerResult"
+          :dragonOrTigerCount="dragonOrTigerCount"
+          :firstAndSecondSummation="firstAndSecondSummation"
+          :firstAndSecondSummationCount="firstAndSecondSummationCount"/>
       </TabPane>
       <TabPane :label="'冠亚和走势'" :name="'crown-or-second-sum-trend'">
         <Crown-or-second-sum-trend />
@@ -186,24 +186,24 @@ class Board extends Vue {
 
   @Prop()
   public types!: any;
- 
-  @Prop()
-  public luzhuOddOrEvensAndaSmallOrLarges!: any;
 
   @Prop()
-  public oddOrEvensAndaSmallOrLargeCount!: any;
+  public resultOddOrEvensAndSmallOrLarges!: any;
 
   @Prop()
-  public dragonOrTigerLuZhu!: any;
+  public oddOrEvensAndSmallOrLargeCount!: any;
 
   @Prop()
-  public oDragonOrTigerCount!: any;
+  public dragonOrTigerResult!: any;
 
   @Prop()
-  public guanyaSumOddEvenOrSmallLarges!: any;
+  public dragonOrTigerCount!: any;
+
+  @Prop()
+  public firstAndSecondSummation!: any;
   
   @Prop()
-  public guanyaSumOddEvenOrSmallLargesCount!: any;
+  public firstAndSecondSummationCount!: any;
 
   public tab: string = 'lottery-issue';
 

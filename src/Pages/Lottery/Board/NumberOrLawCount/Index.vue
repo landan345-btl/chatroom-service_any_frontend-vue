@@ -65,7 +65,7 @@
               :class="[number ? 'status-number-previous-' + number : '']"
                />
           </td>
-          <td>{{ JSON.parse(lotteryIssue.numbers) | parNumber(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], number) }}</td>
+          <td>{{ JSON.parse(lotteryIssue.numbers) | isUpOrDown(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], number) }}</td>
           <td>-</td>
           <td>-</td>
           <td>-</td>
