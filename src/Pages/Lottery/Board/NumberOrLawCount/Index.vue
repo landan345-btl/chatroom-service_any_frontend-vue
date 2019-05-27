@@ -218,7 +218,7 @@ class NumberOrLawCount extends Vue {
       let aCurrentNumbers = JSON.parse(oCurrentLotteryIssue.numbers);  //当前数组
       let oPreviousLotteryIssue = aLotteryIssues[iIndex - 2];   
       let aPreviousNumbers = JSON.parse(oPreviousLotteryIssue.numbers);  //下一组
-      let iPosition =  aPreviousNumbers.indexOf(iNumber);  // 当前同位开奖号码 
+      let iPosition =  aPreviousNumbers.indexOf(iNumber); 
       let iCurrentNumber = aCurrentNumbers[iPosition];  // 当前同位开奖号码
       aRows[iCurrentNumber - 1]['次数'] = aRows[iCurrentNumber - 1]['次数'] + 1;
     }
