@@ -1,18 +1,18 @@
 let cSum = (aNumbers: number[], aPositions?: number[] | null) => {
-  let iSumation = 0;
+  let iSummation = 0;
   if (Array.isArray(aPositions)) {
-    iSumation = aPositions.reduce((_iSumation: number, iCurrentPosition: number) => {
-      _iSumation += aNumbers[iCurrentPosition];
+    iSummation = aPositions.reduce((_iSumation: number, iPosition: number) => {
+      _iSumation += aNumbers[iPosition];
       return _iSumation;
-    }, iSumation);
-    return iSumation;
+    }, iSummation);
+    return iSummation;
   }
-  iSumation = aNumbers.reduce((_iSumation: number, iCurrentNumber: number) => {
-    _iSumation += iCurrentNumber;
+  iSummation = aNumbers.reduce((_iSumation: number, iNumber: number) => {
+    _iSumation += iNumber;
     return _iSumation;
-  }, iSumation);
+  }, iSummation);
 
-  return iSumation;
+  return iSummation;
 };
 
 export default cSum;
