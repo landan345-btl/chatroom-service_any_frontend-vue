@@ -31,10 +31,6 @@
           <span>选择名次：</span>
           <I-radio-group v-model="position" type="button" class="line-height3">
             <Radio label="第一球"></Radio>
-            <Radio label="第二球"></Radio>
-            <Radio label="第三球"></Radio>
-            <Radio label="第四球"></Radio>
-            <Radio label="第五球"></Radio>
           </I-radio-group>
         </div>
       </div>

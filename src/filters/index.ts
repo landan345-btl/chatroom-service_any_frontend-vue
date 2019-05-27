@@ -13,7 +13,7 @@ import cSum from './sum/';
 import cLast from './last/';
 import cJSONparse from './JSONparse/';
 import cIsUpOrDown from './isUpOrDown/';
-import cParNumber from './parNumber/';
+import cParNumberSmallOrLarge from './parNumberSmallOrLarge/';
 
 export {
   cCount as count,
@@ -31,5 +31,5 @@ export {
   cLast as last,
   cJSONparse as JSONparse,
   cIsUpOrDown as isUpOrDown,
-  cParNumber as parNumber,
+  cParNumberSmallOrLarge as parNumberSmallOrLarge,
 };

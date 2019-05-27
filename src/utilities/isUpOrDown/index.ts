@@ -1,11 +1,18 @@
 const UP: string = '升';
 const DOWN: string = '降';
 const FLAT: string = '平';
-let isUpOrDown = (iNumber: number[]): any => {
-  // 当前同位数 跟上一组同位数比大小
-  //  iNumber[skey + 1].numbers) 上一组数据
-  //  
-  
+let isUpOrDown = (aNumbers: number[], aPreviousNumberss: number[], bPreviousNumberss: number[] , iPreviousNumber: number): any => {
+  let presentNumber = aNumbers[aPreviousNumberss.indexOf(iPreviousNumber)];
+  let nextNumber = aPreviousNumberss[bPreviousNumberss.indexOf(iPreviousNumber)];
+  if(presentNumber > nextNumber) {
+    return UP;
+  } 
+  if (presentNumber < nextNumber) {
+    return DOWN;
+  } 
+  if(presentNumber === nextNumber) {
+    return FLAT;
+  }
 };
 
 export default isUpOrDown;

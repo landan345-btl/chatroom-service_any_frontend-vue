@@ -27,8 +27,8 @@
         <Radio :label="sNumber" :key="iIndex" v-for="(sNumber, iIndex) in numbers">号码 {{ sNumber }}</Radio>
       </I-radio-group>
     </div>
-    <div class="p-2">
-      条形统计图
+    <div class="ml-2 mr-2">
+      <V-histogram  :data="getVhistogramData"/>
     </div>
     <div class="p-2">
        <table class="w-100 font-size-1p5">
@@ -65,11 +65,56 @@
               :class="[number ? 'status-number-previous-' + number : '']"
                />
           </td>
-          <td>{{ JSON.parse(lotteryIssue.numbers) | parNumber(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], number) }}</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
+          <td
+            :class="{
+              'color-red': '升' === isUpOrDown(JSON.parse(lotteryIssue.numbers),
+              ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
+              ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
+              number),
+              'color-deepskyblue': '降' === isUpOrDown(JSON.parse(lotteryIssue.numbers),
+              ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
+              ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
+              number),
+            }">
+            {{ JSON.parse(lotteryIssue.numbers) | 
+            isUpOrDown(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
+            ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
+            number) }}
+          </td>
+          <td>
+            <span 
+              v-if="'单' === 
+              parNumberOddOrEven(JSON.parse(lotteryIssue.numbers), ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], 
+              number)">
+              {{ JSON.parse(lotteryIssue.numbers) | parNumberOddOrEven(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], number,5) }}
+            </span>  
+          </td>
+          <td>
+            <span  
+              class="text-even"
+              v-if="'双' === 
+              parNumberOddOrEven(JSON.parse(lotteryIssue.numbers), ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], 
+              number)">
+              {{ JSON.parse(lotteryIssue.numbers) | parNumberOddOrEven(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], number,5) }}
+            </span>  
+          </td>
+          <td>
+            <span 
+              class="text-large"
+              v-if="'大' === 
+              parNumberSmallOrLarge(JSON.parse(lotteryIssue.numbers), ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], 
+              number,5)">
+              {{ JSON.parse(lotteryIssue.numbers) | parNumberSmallOrLarge(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], number,5) }}
+            </span>  
+          </td>
+          <td>
+            <span 
+              v-if="'小' === 
+              parNumberSmallOrLarge(JSON.parse(lotteryIssue.numbers), ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], 
+              number,5)">
+              {{ JSON.parse(lotteryIssue.numbers) | parNumberSmallOrLarge(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], number,5) }}
+            </span>  
+          </td>
         </tr>
       </table>
     </div>
@@ -92,11 +137,14 @@ import {
   IRadioGroup,
   ICheckboxGroup,
   SNumbers,
+  VHistogram,
 } from '@/Components/';
 
 import {
   LOTTERIES,
+  LOTTERY_TYPES,
 } from '@/CONFIGS/';
+import { lottery } from '../../../../actions';
 
 @Component({
   name: 'NumberOrLawCount',
@@ -106,6 +154,7 @@ import {
     IRadioGroup,
     ICheckboxGroup,
     SNumbers,
+    VHistogram,
   },
 })
 class NumberOrLawCount extends Vue {
@@ -149,6 +198,36 @@ class NumberOrLawCount extends Vue {
     9: 9,
     10: 10,
   };
+
+  public get getVhistogramData () {
+    let aColumns: string[] = [];
+    let aRows: any[] = [];
+    let sTypes = this.types;
+    let iNumber = this.number;
+    let oLotteryIssues = this.lotteryIssues;
+    let aLotteryIssues: any = Object.values(oLotteryIssues);
+    aColumns = ['号码', '次数'];
+    let oRow: object = {};
+    let aNumbers = LOTTERY_TYPES[sTypes].NUMBERS;
+    aNumbers.forEach((iNumber: number , iIndex: number) => {
+      oRow = { '号码': `号码 ${iNumber}`, '次数':  0, }
+      aRows.push(oRow);
+    });
+    for (let iIndex = aLotteryIssues.length; iIndex > aLotteryIssues.length - 29 && aLotteryIssues.length - 29 > 0 && iIndex > 2; iIndex--) {    
+      let oCurrentLotteryIssue = aLotteryIssues[iIndex - 1];
+      let aCurrentNumbers = JSON.parse(oCurrentLotteryIssue.numbers);  //当前数组
+      let oPreviousLotteryIssue = aLotteryIssues[iIndex - 2];   
+      let aPreviousNumbers = JSON.parse(oPreviousLotteryIssue.numbers);  //下一组
+      let iPosition =  aPreviousNumbers.indexOf(iNumber);  // 当前同位开奖号码 
+      let iCurrentNumber = aCurrentNumbers[iPosition];  // 当前同位开奖号码
+      aRows[iCurrentNumber - 1]['次数'] = aRows[iCurrentNumber - 1]['次数'] + 1;
+    }
+    let oVhistogramData = {
+      columns: aColumns,
+      rows: aRows,
+    }
+    return oVhistogramData;
+  }
 
   public isAnnouncementShowed: boolean = false;
   public toggleAnnouncement () {

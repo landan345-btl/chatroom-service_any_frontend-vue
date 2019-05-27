@@ -20,6 +20,7 @@ import IDivider from './IDivider/Index.vue';
 import ICarousel from './ICarousel/Index.vue';
 
 import VLine from './VLine/Index.vue';
+import VHistogram from './VHistogram/Index.vue';
 
 import SNumbers from './SNumbers/Index.vue';
 import ResultTable from './ResultTable/Index.vue';
@@ -46,6 +47,7 @@ export {
   IDivider,
   IRadioGroup,
   VLine,
+  VHistogram,
   SNumbers,
   ResultTable,
 };

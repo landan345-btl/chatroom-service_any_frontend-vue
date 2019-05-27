@@ -16,6 +16,7 @@
       <span class="float-right m-1 grand">
         <span>今天</span>
         <span> 累计：单(</span>
+        <!-- <span v-for="(item , i) in oDragonOrTigerCount" :key="i"> {{oddOrEvenOrSmallOrLargeOrDragonOrTiger(i)}}({{item}})</span> -->
         <span>123</span>
         <span>)&nbsp;&nbsp;双(</span>
         <span>456</span>)
@@ -27,8 +28,8 @@
     </div>
     <div ref="box">
       <div>
-        <div v-for="( item , i ) in 50" :key="i" :class="i % 2 === 0 ? 'background-even':''">
-          <p :class="{'text-even':'双' === isOddOrEven(item) }" v-for="( item , i ) in 7" :key="i">{{ item | isOddOrEven}}</p>
+        <div v-for="( item , i ) in 1" :key="i" :class="i % 2 === 0 ? 'background-even':''">
+          <p :class="{'text-even':'双' === isOddOrEven(item) }" v-for="( item , i ) in 7" :key="i">{{ item }}</p>
         </div>
       </div>
     </div>
@@ -47,23 +48,51 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 })
 
 class ResultTable extends Vue {
-  @Prop()
-  public luzhuOddOrEvensAndaSmallOrLarges!: any;
+ @Prop()
+  public resultOddOrEvensAndSmallOrLarges!: any;
 
   @Prop()
-  public oddOrEvensAndaSmallOrLargeCount!: any;
+  public oddOrEvensAndSmallOrLargeCount!: any;
 
   @Prop()
-  public dragonOrTigerLuZhu!: any;
+  public dragonOrTigerResult!: any;
 
   @Prop()
-  public oDragonOrTigerCount!: any;
+  public dragonOrTigerCount!: any;
 
   @Prop()
-  public guanyaSumOddEvenOrSmallLarges!: any;
+  public firstAndSecondSummation!: any;
   
   @Prop()
-  public guanyaSumOddEvenOrSmallLargesCount!: any;
+  public firstAndSecondSummationCount!: any;
+
+  // public get isoddEvenOrSmallOrLarge() {
+  //   let aOddEvenOrSmallOrLarge: any = {
+  //     smallOrLarge: '大小',
+  //     oddOrEven: '单双',
+  //     odd: '单双',
+  //     small: '大小',
+  //     dragon: '龙虎',
+  //     guanyaodd: '单双',
+  //     guanyasmall: '大小',
+  //   };
+  //   return aOddEvenOrSmallOrLarge[this.oddEvenOrSmallOrLarge];
+  // }
+
+
+
+  public oddOrEvenOrSmallOrLargeOrDragonOrTiger(str: any) {
+    let obj: any = {
+      odd: '单',
+      even: '双',
+      small: '小',
+      large: '大',
+      dragon: '龙',
+      tiger: '虎',
+    };
+    return obj[str];
+  }
+
 }
 
 export default ResultTable;
