@@ -27,8 +27,8 @@
         <Radio :label="sNumber" :key="iIndex" v-for="(sNumber, iIndex) in numbers">号码 {{ sNumber }}</Radio>
       </I-radio-group>
     </div>
-    <div class="p-2">
-      条形统计图
+    <div class="ml-2 mr-2">
+      <V-histogram  :data="vhistogramData"/>
     </div>
     <div class="p-2">
        <table class="w-100 font-size-1p5">
@@ -89,16 +89,18 @@
               {{ JSON.parse(lotteryIssue.numbers) | parNumberOddOrEven(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], number,5) }}
             </span>  
           </td>
-          <td class="text-even">
-            <span 
+          <td>
+            <span  
+              class="text-even"
               v-if="'双' === 
               parNumberOddOrEven(JSON.parse(lotteryIssue.numbers), ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], 
               number)">
               {{ JSON.parse(lotteryIssue.numbers) | parNumberOddOrEven(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], number,5) }}
             </span>  
           </td>
-          <td class="text-large">
+          <td>
             <span 
+              class="text-large"
               v-if="'大' === 
               parNumberSmallOrLarge(JSON.parse(lotteryIssue.numbers), ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], 
               number,5)">
@@ -135,6 +137,7 @@ import {
   IRadioGroup,
   ICheckboxGroup,
   SNumbers,
+  VHistogram,
 } from '@/Components/';
 
 import {
@@ -149,6 +152,7 @@ import {
     IRadioGroup,
     ICheckboxGroup,
     SNumbers,
+    VHistogram,
   },
 })
 class NumberOrLawCount extends Vue {
@@ -192,6 +196,22 @@ class NumberOrLawCount extends Vue {
     9: 9,
     10: 10,
   };
+   
+  public vhistogramData = {
+    columns: ['日期', '次数'],
+    rows: [
+      { '日期': '号码 1', '次数': 4, },
+      { '日期': '号码 2', '次数': 4, },
+      { '日期': '号码 3', '次数': 4, },
+      { '日期': '号码 4', '次数': 0, },
+      { '日期': '号码 5', '次数': 1, },
+      { '日期': '号码 6', '次数': 6, },
+      { '日期': '号码 7', '次数': 4, },
+      { '日期': '号码 8', '次数': 4, },
+      { '日期': '号码 9', '次数': 4, },
+      { '日期': '号码 10', '次数': 4,},
+    ]
+  }
 
   public isAnnouncementShowed: boolean = false;
   public toggleAnnouncement () {
