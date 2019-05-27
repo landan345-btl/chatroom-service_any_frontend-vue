@@ -1,5 +1,5 @@
 <template>
-  <ve-histogram :data="data" :loading="loading"></ve-histogram>
+  <ve-histogram :data="data"></ve-histogram>
 </template>
 <style scoped lang="scss">
 

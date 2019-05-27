@@ -28,7 +28,7 @@
       </I-radio-group>
     </div>
     <div class="ml-2 mr-2">
-      <V-histogram  :data="vhistogramData"/>
+      <V-histogram  :data="getVhistogramData"/>
     </div>
     <div class="p-2">
        <table class="w-100 font-size-1p5">
@@ -142,6 +142,7 @@ import {
 
 import {
   LOTTERIES,
+  LOTTERY_TYPES,
 } from '@/CONFIGS/';
 
 @Component({
@@ -198,19 +199,44 @@ class NumberOrLawCount extends Vue {
   };
    
   public vhistogramData = {
-    columns: ['日期', '次数'],
+    columns: ['号码', '次数'],
     rows: [
-      { '日期': '号码 1', '次数': 4, },
-      { '日期': '号码 2', '次数': 4, },
-      { '日期': '号码 3', '次数': 4, },
-      { '日期': '号码 4', '次数': 0, },
-      { '日期': '号码 5', '次数': 1, },
-      { '日期': '号码 6', '次数': 6, },
-      { '日期': '号码 7', '次数': 4, },
-      { '日期': '号码 8', '次数': 4, },
-      { '日期': '号码 9', '次数': 4, },
-      { '日期': '号码 10', '次数': 4,},
+      { '号码': '号码 1', '次数': 1, },
+      { '号码': '号码 2', '次数': 2, },
+      { '号码': '号码 3', '次数': 3, },
+      { '号码': '号码 4', '次数': 4, },
+      { '号码': '号码 5', '次数': 5, },
+      { '号码': '号码 6', '次数': 6, },
+      { '号码': '号码 7', '次数': 7, },
+      { '号码': '号码 8', '次数': 8, },
+      { '号码': '号码 9', '次数': 9, },
+      { '号码': '号码 10', '次数': 10,},
     ]
+  }
+  public get getVhistogramData () {
+    let aColumns: string[] = [];
+    let aRows: object[] = [];
+    this.number;
+    this.lotteryIssues;
+    let sTypes = this.types;
+    if (sTypes.toUpperCase() === 'PK10') {
+        aColumns = ['号码', '次数'];
+        let oRow: any = {};
+        let aNumbers = LOTTERY_TYPES[sTypes].NUMBERS;
+        aNumbers.forEach((iNumber: any , iIndex: number) => {
+          oRow = { '号码': `号码 ${iNumber}`, '次数': 10, }
+          aRows.push(oRow);
+        });
+        
+    }
+
+
+    let oVhistogramData = {
+      columns: aColumns,
+      rows: aRows,
+    }
+    debugger;
+    return oVhistogramData;
   }
 
   public isAnnouncementShowed: boolean = false;
