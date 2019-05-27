@@ -144,6 +144,7 @@ import {
   LOTTERIES,
   LOTTERY_TYPES,
 } from '@/CONFIGS/';
+import { lottery } from '../../../../actions';
 
 @Component({
   name: 'NumberOrLawCount',
@@ -197,45 +198,34 @@ class NumberOrLawCount extends Vue {
     9: 9,
     10: 10,
   };
-   
-  public vhistogramData = {
-    columns: ['号码', '次数'],
-    rows: [
-      { '号码': '号码 1', '次数': 1, },
-      { '号码': '号码 2', '次数': 2, },
-      { '号码': '号码 3', '次数': 3, },
-      { '号码': '号码 4', '次数': 4, },
-      { '号码': '号码 5', '次数': 5, },
-      { '号码': '号码 6', '次数': 6, },
-      { '号码': '号码 7', '次数': 7, },
-      { '号码': '号码 8', '次数': 8, },
-      { '号码': '号码 9', '次数': 9, },
-      { '号码': '号码 10', '次数': 10,},
-    ]
-  }
+
   public get getVhistogramData () {
     let aColumns: string[] = [];
-    let aRows: object[] = [];
-    this.number;
-    this.lotteryIssues;
+    let aRows: any[] = [];
     let sTypes = this.types;
-    if (sTypes.toUpperCase() === 'PK10') {
-        aColumns = ['号码', '次数'];
-        let oRow: any = {};
-        let aNumbers = LOTTERY_TYPES[sTypes].NUMBERS;
-        aNumbers.forEach((iNumber: any , iIndex: number) => {
-          oRow = { '号码': `号码 ${iNumber}`, '次数': 10, }
-          aRows.push(oRow);
-        });
-        
+    let iNumber = this.number;
+    let oLotteryIssues = this.lotteryIssues;
+    let aLotteryIssues: any = Object.values(oLotteryIssues);
+    aColumns = ['号码', '次数'];
+    let oRow: object = {};
+    let aNumbers = LOTTERY_TYPES[sTypes].NUMBERS;
+    aNumbers.forEach((iNumber: number , iIndex: number) => {
+      oRow = { '号码': `号码 ${iNumber}`, '次数':  0, }
+      aRows.push(oRow);
+    });
+    for (let iIndex = aLotteryIssues.length; iIndex > aLotteryIssues.length - 29 && aLotteryIssues.length - 29 > 0 && iIndex > 2; iIndex--) {    
+      let oCurrentLotteryIssue = aLotteryIssues[iIndex - 1];
+      let aCurrentNumbers = JSON.parse(oCurrentLotteryIssue.numbers);  //当前数组
+      let oPreviousLotteryIssue = aLotteryIssues[iIndex - 2];   
+      let aPreviousNumbers = JSON.parse(oPreviousLotteryIssue.numbers);  //下一组
+      let iPosition =  aPreviousNumbers.indexOf(iNumber);  // 当前同位开奖号码 
+      let iCurrentNumber = aCurrentNumbers[iPosition];  // 当前同位开奖号码
+      aRows[iCurrentNumber - 1]['次数'] = aRows[iCurrentNumber - 1]['次数'] + 1;
     }
-
-
     let oVhistogramData = {
       columns: aColumns,
       rows: aRows,
     }
-    debugger;
     return oVhistogramData;
   }
 
