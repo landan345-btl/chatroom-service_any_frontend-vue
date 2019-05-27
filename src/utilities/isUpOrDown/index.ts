@@ -1,20 +1,18 @@
 const UP: string = '升';
 const DOWN: string = '降';
 const FLAT: string = '平';
-let isUpOrDown = (aNumbers: number[], aPreviousNumberss: number[], iPreviousNumber: number): any => {
-  let presentNumber = aNumbers[aPreviousNumberss.indexOf(iPreviousNumber)]; // 当前同位号码
-  let parityNumber = aPreviousNumberss.indexOf(iPreviousNumber); // 下一组同位号码
- // debugger;
-  if(presentNumber > parityNumber) {
-    return DOWN;
-  } 
-  if (presentNumber < parityNumber) {
+let isUpOrDown = (aNumbers: number[], aPreviousNumberss: number[], bPreviousNumberss: number[] , iPreviousNumber: number): any => {
+  let presentNumber = aNumbers[aPreviousNumberss.indexOf(iPreviousNumber)];
+  let nextNumber = aPreviousNumberss[bPreviousNumberss.indexOf(iPreviousNumber)];
+  if(presentNumber > nextNumber) {
     return UP;
   } 
-  if(presentNumber === parityNumber) {
+  if (presentNumber < nextNumber) {
+    return DOWN;
+  } 
+  if(presentNumber === nextNumber) {
     return FLAT;
   }
-  return presentNumber;
 };
 
 export default isUpOrDown;

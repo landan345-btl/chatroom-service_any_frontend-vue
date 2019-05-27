@@ -19,7 +19,8 @@ import cIsUpOrDown from './isUpOrDown/';
 import numbersToOddOrEvenStrings from './numbersToOddOrEvenStrings/';
 import numbersToSmallOrLargeStrings from './numbersToSmallOrLargeStrings/';
 import selectType from './selectType/';
-import cParNumber from './parNumber/';
+import cParNumberSmallOrLarge from './parNumberSmallOrLarge/';
+import cParNumberOddOrEven from './parNumberOddOrEven/';
 
 export {
   selectType,
@@ -43,5 +44,6 @@ export {
   cLinkToPath as linkToPath,
   cLinkToQuery as linkToQuery,
   cIsUpOrDown as isUpOrDown,
-  cParNumber as parNumber,
+  cParNumberSmallOrLarge as parNumberSmallOrLarge,
+  cParNumberOddOrEven as parNumberOddOrEven,
 };

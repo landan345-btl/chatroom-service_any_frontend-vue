@@ -65,11 +65,54 @@
               :class="[number ? 'status-number-previous-' + number : '']"
                />
           </td>
-          <td>{{ JSON.parse(lotteryIssue.numbers) | isUpOrDown(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], number) }}</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
+          <td
+            :class="{
+              'color-red': '升' === isUpOrDown(JSON.parse(lotteryIssue.numbers),
+              ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
+              ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
+              number),
+              'color-deepskyblue': '降' === isUpOrDown(JSON.parse(lotteryIssue.numbers),
+              ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
+              ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
+              number),
+            }">
+            {{ JSON.parse(lotteryIssue.numbers) | 
+            isUpOrDown(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
+            ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
+            number) }}
+          </td>
+          <td>
+            <span 
+              v-if="'单' === 
+              parNumberOddOrEven(JSON.parse(lotteryIssue.numbers), ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], 
+              number)">
+              {{ JSON.parse(lotteryIssue.numbers) | parNumberOddOrEven(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], number,5) }}
+            </span>  
+          </td>
+          <td class="text-even">
+            <span 
+              v-if="'双' === 
+              parNumberOddOrEven(JSON.parse(lotteryIssue.numbers), ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], 
+              number)">
+              {{ JSON.parse(lotteryIssue.numbers) | parNumberOddOrEven(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], number,5) }}
+            </span>  
+          </td>
+          <td class="text-large">
+            <span 
+              v-if="'大' === 
+              parNumberSmallOrLarge(JSON.parse(lotteryIssue.numbers), ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], 
+              number,5)">
+              {{ JSON.parse(lotteryIssue.numbers) | parNumberSmallOrLarge(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], number,5) }}
+            </span>  
+          </td>
+          <td>
+            <span 
+              v-if="'小' === 
+              parNumberSmallOrLarge(JSON.parse(lotteryIssue.numbers), ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], 
+              number,5)">
+              {{ JSON.parse(lotteryIssue.numbers) | parNumberSmallOrLarge(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], number,5) }}
+            </span>  
+          </td>
         </tr>
       </table>
     </div>
