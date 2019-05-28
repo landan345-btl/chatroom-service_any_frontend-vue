@@ -134,7 +134,7 @@
         <td>未开</td>
       </tr>
       <tr v-for="( item , i ) in 10" :key="i">
-        <td class="">{{ i }}</td>
+        <td class=" ">{{ i }}</td>
         <td>22</td>
         <td>22</td>
         <td>22</td>

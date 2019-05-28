@@ -3,7 +3,7 @@
     <div class="pl-2 pr-2 font-weight-bold d-flex justify-content-between head-top">
       <span class="font-size-2 line-height3">号码规律统计</span>
       <I-radio-group :value="date" @input="date = $event"  type="button" class="line-height3">
-        <Radio :label="sToday" :key="iIndex" v-for="(sToday, iIndex) in dates" :class="{'d-xs-none': iIndex === dates.length -1 }">{{ sToday }}</Radio>
+        <Radio :label="dete" :key="iIndex" v-for="(dete, iIndex) in dates" :class="{'d-xs-none': iIndex === dates.length -1 }">{{ dete }}</Radio>
       </I-radio-group>
     </div>
     <I-divider/>
