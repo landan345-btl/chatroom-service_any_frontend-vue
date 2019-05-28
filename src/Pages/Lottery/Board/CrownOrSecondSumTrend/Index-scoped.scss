@@ -3,13 +3,25 @@
     .background-tr {
       background: #EBEBEB;
     } 
+    .w-6 {
+      width: 6%;
+    }
     td {
       padding: 1vmin 0;
       border: 1px solid #d6d6d6;
       text-align: center;
       span {
-        margin: 0 0.3vmin;
+        margin: 0 0.3vmin;  
       }
+      span:first-child {
+        color: red;
+      }
+      span:nth-child(2) {
+        color: #0096FF;
+      }
+    }
+    .crown-background {
+       background: #fdfaf5 ;
     }
     td:nth-child(n+4) {
       width: 5vmin;
