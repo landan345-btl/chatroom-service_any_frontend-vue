@@ -33,22 +33,22 @@
     <div class="p-2 lawCount-table">
        <table class="w-100 font-size-1p5">
         <tr class="background-tr">
-          <td class="w-10" rowspan="2"><i class="position-relative">期号</i></td>
-          <td rowspan="2" class="w-10"><i class="position-relative">时间</i></td>
-          <td rowspan="2" colspan="3" class="w-42">
+          <th class="w-10" rowspan="2"><i class="position-relative">期号</i></th>
+          <th rowspan="2" class="w-10"><i class="position-relative">时间</i></th>
+          <th rowspan="2" colspan="3" class="w-42">
             <i class="position-relative">同位开奖号码分布:&nbsp;
               <Checkbox v-model="isPositionShowed"></Checkbox>
             显示同位号码</i> 
-          </td>
-          <td rowspan="2" class="w-10"><i class="position-relative">升平降</i></td>
-          <td colspan="2">单双</td>
-          <td colspan="2">大小</td>
+          </th>
+          <th rowspan="2" class="w-10"><i class="position-relative">升平降</i></th>
+          <th colspan="2">单双</th>
+          <th colspan="2">大小</th>
         </tr>
         <tr>
-          <td>单</td>
-          <td>双</td>
-          <td>大</td>
-          <td>小</td>
+          <th>单</th>
+          <th>双</th>
+          <th>大</th>
+          <th>小</th>
         </tr>
         <tr v-for="( lotteryIssue ,ikey ) in getLotteryIssues" :key="ikey">
           <td>{{lotteryIssue.no}}</td>

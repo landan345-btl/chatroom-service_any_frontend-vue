@@ -9,13 +9,13 @@
         <span class="font-size-2 font-weight-bold">
           {{ code ? LOTTERIES[code].NAME: lotteries && lotteryIssue ? lotteries[lotteryIssue.lottery_id].name : '' }}
         </span>
-        <span class="text ml-0p5" v-if="lotteryIssue && lotteryIssue.no">
+        <span class="text ml-0p5 font-size-1" v-if="lotteryIssue && lotteryIssue.no">
           第
         </span>
-        <span class="no" v-if="lotteryIssue && lotteryIssue.no">
+        <span class="no font-size-1" v-if="lotteryIssue && lotteryIssue.no">
           &nbsp; {{ lotteryIssue.no }} &nbsp;
         </span>
-        <span class="text">
+        <span class="text font-size-1">
           期开奖号码
         </span>
           &nbsp;
@@ -26,12 +26,12 @@
         :numbers="JSON.parse(lotteryIssue.numbers)" 
         :types="lotteries && lotteries[lotteryIssue.lottery_id] && lotteries[lotteryIssue.lottery_id].types" 
         class="status-number middle"/>
-      <div class="bottom">
+      <div class="bottom font-size-1">
         <span> 已开 {{ getLotteryIssueExtension.order_no }} 期，还有 {{ getLotteryIssueExtension.total_order_no - getLotteryIssueExtension.order_no }} 期 </span>
       </div>
     </div>
     <div class="countdown p-2 d-xs-none">
-      <div class="top">
+      <div class="top font-size-1">
         <span>
           距
         </span>
