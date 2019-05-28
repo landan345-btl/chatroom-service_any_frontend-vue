@@ -30,7 +30,7 @@
     <div class="ml-2 mr-2">
       <V-histogram  :data="getVhistogramDataAndSettings.data" :settings="getVhistogramDataAndSettings.settings"/>
     </div>
-    <div class="p-2">
+    <div class="p-2 lawCount-table">
        <table class="w-100 font-size-1p5">
         <tr class="background-tr">
           <td class="w-10" rowspan="2"><i class="position-relative">期号</i></td>

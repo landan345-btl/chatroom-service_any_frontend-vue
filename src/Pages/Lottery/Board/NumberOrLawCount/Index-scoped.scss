@@ -23,29 +23,29 @@
   .announcement-wrapper + div{
     margin-top: 8vmin;
   }
-  table {
-    margin: 0 auto 0;
-    td {
-      text-align: center;
-      border: 1px solid #D6D6D6;
-      span {
-       display: inline-block;
-      }
-    }
-    tr:nth-child(n+3) {
+  .lawCount-table table {
+      margin: 0 auto 0;
       td {
-        line-height: 4vmin;
+        text-align: center;
+        border: 1px solid #D6D6D6;
+        span {
+        display: inline-block;
+        }
       }
-    }
-    .parity-numbers {
-      color: #968e8e;
-    }
-    tr:nth-child(1),tr:nth-child(2) {
-      background: #ebebeb;
-      i {
-        top: 1.2vmin;
+      tr:nth-child(n+3) {
+        td {
+          line-height: 4vmin;
+        }
       }
-    }
+      .parity-numbers {
+        color: #968e8e;
+      }
+      tr:nth-child(1),tr:nth-child(2) {
+        background: #ebebeb;
+        i {
+          top: 1.2vmin;
+        }
+      }
   }
 }
 

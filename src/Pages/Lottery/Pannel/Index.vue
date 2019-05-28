@@ -6,8 +6,7 @@
     </div>
     <div class="name-lottery_issue_no align-middle text-left p-2">
       <div class="top">
-
-        <span class="name font-weight-bold">
+        <span class="font-size-2 font-weight-bold">
           {{ code ? LOTTERIES[code].NAME: lotteries && lotteryIssue ? lotteries[lotteryIssue.lottery_id].name : '' }}
         </span>
         <span class="text ml-0p5" v-if="lotteryIssue && lotteryIssue.no">
@@ -47,7 +46,7 @@
         <Chen-countdown :time="getLotteryIssueExtension.next_time * 1000" :theme="'theme-a'"/>
       </div>
     </div>
-    <div class="sounds align-middle pt-2 pb-2 pl-4 pr-4">
+    <div class="sounds font-size-2 align-middle pt-2 pb-2 pl-4 pr-4">
       <div>
         <I-button :type="'warning'" class="d-inline-block d-xs-none mb-1">关闭声音</I-button><font-awesome-icon icon="volume-up" class="d-inline-block ml-1"/>
       </div>

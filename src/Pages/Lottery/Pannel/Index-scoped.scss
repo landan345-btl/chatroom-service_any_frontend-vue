@@ -7,15 +7,11 @@
   }
   .name-lottery_issue_no{
     flex: 1 1 30vmin;
-    .name {
-      font-size: 2vmin;
-    }
-
   }
 
   .countdown {
     flex: 0.1 1 20vmin;
-    ::v-deep .chen-countdown{
+    ::v-deep .chen-countdown {
       .square {
         background: #444553;
         color: #ffd200;
@@ -32,7 +28,6 @@
   }
   .sounds {
     color: #f90;
-    font-size: 2vmin;
   }
   & > * {
     border-right:1px solid #f0f0f0;
