@@ -16,11 +16,12 @@ class VHistogram extends Vue {
   public data: any;
   
   public settings = {
-    itemStyle: {
-      color: '#000000',
+    yAxis: {
+      minInterval: 1,
     },
-    max: 30,
-    min: 0,
+    itemStyle: {
+      color: '#fa8e19',
+    },
   };
 }
 
