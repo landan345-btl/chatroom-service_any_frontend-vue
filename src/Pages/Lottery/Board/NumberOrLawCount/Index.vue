@@ -213,7 +213,7 @@ class NumberOrLawCount extends Vue {
       oRow = { '号码': `号码 ${iNumber}`, '次数':  0, }
       aRows.push(oRow);
     });
-    for (let iIndex = aLotteryIssues.length; iIndex > aLotteryIssues.length - 29 &&  iIndex > 2; iIndex--) {
+    for (let iIndex = aLotteryIssues.length; iIndex > aLotteryIssues.length - 29 &&  iIndex >= 2; iIndex--) { //只要大于等于2就计算
       let oCurrentLotteryIssue = aLotteryIssues[iIndex - 1];
       let aCurrentNumbers = JSON.parse(oCurrentLotteryIssue.numbers);  //当前数组
       let oPreviousLotteryIssue = aLotteryIssues[iIndex - 2];   
