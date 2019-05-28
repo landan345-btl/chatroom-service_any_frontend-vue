@@ -1,7 +1,7 @@
 <template>
   <div class="board">
     <I-tabs :type="'card'" class="" v-on:handle-click="handleRule"  :animated="false" v-model="tab">
-      <TabPane :label="'即时开奖'" :name="'lottery-issue'" v-if="['PK10', 'SSC', '11X5', 'KLSF', 'K3', '3D', 'XY28', 'SIX', 'KL8'].includes(types)">
+      <TabPane :label="'即时开奖'" :name="'lottery-issue'" v-if="['PK10', 'SSC', '11X5', 'KLSF', 'K3', '3D', 'XY28', 'SIX', 'KL8'].includes(types.toUpperCase())">
         <Lottery-issue
           v-if="code && types"
           :lotteryIssues="lotteryIssues"
@@ -10,10 +10,10 @@
           :code="code"
           :types="types" />
       </TabPane>
-      <TabPane :label="'冷热分析'" :name="'popular-anaylysis'" v-if="['PK10'].includes(types)">
+      <TabPane :label="'冷热分析'" :name="'popular-anaylysis'" v-if="['PK10'].includes(types.toUpperCase())">
         <Popular-analysis v-if="code && types" :code="code" :types="types"/>
       </TabPane>
-      <TabPane :label="'路珠分析'" :name="'result-analysis'" v-if="['PK10'].includes(types)">
+      <TabPane :label="'路珠分析'" :name="'result-analysis'" v-if="['PK10'].includes(types.toUpperCase())">
         <Result-analysis 
           :resultOddOrEvensAndSmallOrLarges="resultOddOrEvensAndSmallOrLarges"
           :oddOrEvensAndSmallOrLargeCount="oddOrEvensAndSmallOrLargeCount"
@@ -22,7 +22,7 @@
           :firstAndSecondSummation="firstAndSecondSummation"
           :firstAndSecondSummationCount="firstAndSecondSummationCount"/>
       </TabPane>
-      <TabPane :label="'冠亚和走势'" :name="'crown-or-second-sum-trend'" v-if="['PK10'].includes(types)">
+      <TabPane :label="'冠亚和走势'" :name="'crown-or-second-sum-trend'" v-if="['PK10'].includes(types.toUpperCase())">
         <Crown-or-second-sum-trend 
           :lotteryIssues="lotteryIssues"
           :lottery="lottery"
@@ -30,19 +30,19 @@
           :code="code"
           :types="types" />
       </TabPane>
-      <TabPane :label="'龙虎统计'" :name="'dragon-or-tiger-count'" v-if="['PK10'].includes(types)">
+      <TabPane :label="'龙虎统计'" :name="'dragon-or-tiger-count'" v-if="['PK10'].includes(types.toUpperCase())">
         <Dragon-or-tiger-count />
       </TabPane>
-      <TabPane :label="'龙虎路珠'" :name="'dragon-or-tiger-result'" v-if="['PK10'].includes(types)">
+      <TabPane :label="'龙虎路珠'" :name="'dragon-or-tiger-result'" v-if="['PK10'].includes(types.toUpperCase())">
         <Dragon-or-tiger-result />
       </TabPane>
-      <TabPane :label="'号码前后路珠'" :name="'number-or-front-or-back-result'" v-if="['PK10'].includes(types)">
+      <TabPane :label="'号码前后路珠'" :name="'number-or-front-or-back-result'" v-if="['PK10'].includes(types.toUpperCase())">
         <Number-or-front-or-back-result/>
       </TabPane>
-      <TabPane :label="'冠亚和路珠'" :name="'crown-or-second-sum-result'" v-if="['PK10'].includes(types)">
+      <TabPane :label="'冠亚和路珠'" :name="'crown-or-second-sum-result'" v-if="['PK10'].includes(types.toUpperCase())">
         <Crown-or-second-sum-result />
       </TabPane>
-      <TabPane :label="'号码规律统计'" :name="'number-or-law-count'" v-if="['PK10'].includes(types)">
+      <TabPane :label="'号码规律统计'" :name="'number-or-law-count'" v-if="['PK10'].includes(types.toUpperCase())">
         <Number-or-law-count
           v-if="code && types"
           :lotteryIssues="lotteryIssues"
@@ -51,52 +51,52 @@
           :code="code"
           :types="types" />
       </TabPane>
-      <TabPane :label="'冠亚和两面历史'" :name="'crown-or-second-sum-two-side-history'" v-if="['PK10'].includes(types)">
+      <TabPane :label="'冠亚和两面历史'" :name="'crown-or-second-sum-two-side-history'" v-if="['PK10'].includes(types.toUpperCase())">
         <Crown-or-second-sum-two-side-history />
       </TabPane>
-      <TabPane :label="'综合分析'" :name="'summary-anaylysis'" v-if="['SSC'].includes(types)">
+      <TabPane :label="'综合分析'" :name="'summary-anaylysis'" v-if="['SSC'].includes(types.toUpperCase())">
         <Summary-analysis v-if="code && types" :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types"/>
       </TabPane>
-      <TabPane :label="'基本走势'" :name="'basic-trend'" v-if="['SSC'].includes(types)">
+      <TabPane :label="'基本走势'" :name="'basic-trend'" v-if="['SSC'].includes(types.toUpperCase())">
         <Basic-trend v-if="code && types" :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types"/>
       </TabPane>
-      <TabPane :label="'龙虎走势'" :name="'dragon-or-Tiger-trend'" v-if="['SSC'].includes(types)">
+      <TabPane :label="'龙虎走势'" :name="'dragon-or-Tiger-trend'" v-if="['SSC'].includes(types.toUpperCase())">
         <Dragon-or-tiger-trend v-if="code && types" />
       </TabPane>
-      <TabPane :label="'今日号码统计'" :name="'today-number-statics'" v-if="['PK10'].includes(types)">
+      <TabPane :label="'今日号码统计'" :name="'today-number-statics'" v-if="['PK10'].includes(types.toUpperCase())">
         <Today-number-statics 
           :code="code"
           :types="types" 
           v-if="code && types" />
       </TabPane>
-      <TabPane :label="'单双大小历史'" :name="'odd-or-even-small-or-large-history'" v-if="['PK10'].includes(types)">
+      <TabPane :label="'单双大小历史'" :name="'odd-or-even-small-or-large-history'" v-if="['PK10'].includes(types.toUpperCase())">
         <Odd-or-even-small-or-large-history v-if="code && types" />
       </TabPane>
-      <TabPane :label="'形态走势'" :name="'state-trend'" v-if="['SSC'].includes(types)">
+      <TabPane :label="'形态走势'" :name="'state-trend'" v-if="['SSC'].includes(types.toUpperCase())">
         <State-trend />
       </TabPane>
-      <TabPane :label="'单双大小路珠'" :name="'odd-or-even-small-or-large-result'" v-if="['PK10'].includes(types)">
+      <TabPane :label="'单双大小路珠'" :name="'odd-or-even-small-or-large-result'" v-if="['PK10'].includes(types.toUpperCase())">
         <Odd-or-even-small-or-large-result v-if="code && types"/>
       </TabPane>
-      <TabPane :label="'历史号码统计'" :name="'history-number-statics'" v-if="['PK10'].includes(types)">
+      <TabPane :label="'历史号码统计'" :name="'history-number-statics'" v-if="['PK10'].includes(types.toUpperCase())">
         <History-number-statics />
       </TabPane>
-      <TabPane :label="'两面统计'" :name="'two-side-statics'" v-if="['PK10'].includes(types)">
+      <TabPane :label="'两面统计'" :name="'two-side-statics'" v-if="['PK10'].includes(types.toUpperCase())">
         <Two-side-statics v-if="code && types"/>
       </TabPane>
-      <TabPane :label="'每日长龙统计'" :name="'everyday-accumulation-statics'" v-if="['PK10'].includes(types)">
+      <TabPane :label="'每日长龙统计'" :name="'everyday-accumulation-statics'" v-if="['PK10'].includes(types.toUpperCase())">
         <Everyday-accumulation-statics v-if="code && types" />
       </TabPane>
-      <TabPane :label="'和值走势'" :name="'sum-value-trend'" v-if="['SSC'].includes(types)">
+      <TabPane :label="'和值走势'" :name="'sum-value-trend'" v-if="['SSC'].includes(types.toUpperCase())">
         <Sum-value-trend v-if="code && types" />
       </TabPane>
-      <TabPane :label="'定位走势'" :name="'position-trend'" v-if="['PK10','SSC'].includes(types)">
+      <TabPane :label="'定位走势'" :name="'position-trend'" v-if="['PK10','SSC'].includes(types.toUpperCase())">
         <Position-trend v-if="code && types" />
       </TabPane>
-      <TabPane :label="'总和路珠'" :name="'summation-result'" v-if="['SSC'].includes(types)">
+      <TabPane :label="'总和路珠'" :name="'summation-result'" v-if="['SSC'].includes(types.toUpperCase())">
         <Summation-result v-if="code && types" :lotteryIssues="lotteryIssues"/>
       </TabPane>
-      <TabPane :label="'玩法规则'" :name="'rule'" v-if="['PK10'].includes(types)">
+      <TabPane :label="'玩法规则'" :name="'rule'" v-if="['PK10'].includes(types.toUpperCase())">
 
       </TabPane>
     </I-tabs>
