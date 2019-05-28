@@ -1,5 +1,5 @@
 <template>
-  <ve-histogram :data="data"></ve-histogram>
+  <ve-histogram :data="data" :settings="settings"></ve-histogram>
 </template>
 <style scoped lang="scss">
 
@@ -14,7 +14,15 @@ import { Component, Prop, Vue, } from 'vue-property-decorator';
 class VHistogram extends Vue {
   @Prop({ default: null, })
   public data: any;
-
+  
+  public settings = {
+    yAxis: {
+      minInterval: 1,
+    },
+    itemStyle: {
+      color: '#fa8e19',
+    },
+  };
 }
 
 export default VHistogram;
