@@ -3,12 +3,7 @@
     <div class="pl-2 pr-2 font-weight-bold d-flex justify-content-between head-top">
       <span class="font-size-2 line-height3">号码规律统计</span>
       <I-radio-group :value="date" @input="date = $event"  type="button" class="line-height3">
-        <Radio label="今天"></Radio>
-        <Radio label="昨天"></Radio>
-        <Radio label="前天"></Radio>
-        <Radio label="最近30期"></Radio>
-        <Radio label="最近60期"></Radio>
-        <Radio label="最近90期" class="d-xs-none"></Radio>
+        <Radio :label="sToday" :key="iIndex" v-for="(sToday, iIndex) in dates" :class="{'d-xs-none': iIndex === dates.length -1 }">{{ sToday }}</Radio>
       </I-radio-group>
     </div>
     <I-divider/>
@@ -65,21 +60,20 @@
               :class="[number ? 'status-number-previous-' + number : '']"
                />
           </td>
-          <td
+          <td 
             :class="{
-              'color-red': '升' === isUpOrDown(JSON.parse(lotteryIssue.numbers),
-              ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
-              ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
-              number),
-              'color-deepskyblue': '降' === isUpOrDown(JSON.parse(lotteryIssue.numbers),
-              ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
-              ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
-              number),
-            }">
-            {{ JSON.parse(lotteryIssue.numbers) | 
-            isUpOrDown(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
+            'color-red': '升' === isUpOrDown(JSON.parse(lotteryIssue.numbers),
+            ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
             ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
-            number) }}
+            number),
+            'color-deepskyblue': '降' === isUpOrDown(JSON.parse(lotteryIssue.numbers),
+            ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
+            ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
+            number)}">
+              {{ JSON.parse(lotteryIssue.numbers) | 
+              isUpOrDown(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
+              ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
+              number) }}
           </td>
           <td>
             <span 
@@ -189,7 +183,15 @@ class NumberOrLawCount extends Vue {
     return oLotteryIssue;
   }
   
-  public date = '最近30期';
+  public date: string = '最近30期';
+  public dates: object = {
+    today: '今天',
+    yesterday: '昨天',
+    beforeYesterday: '前天',
+    recentlyThirty: '最近30期',
+    recentlySixty: '最近60期',
+    recentlyNinety: '最近90期',
+  }
 
   public number: number = 1;
 
