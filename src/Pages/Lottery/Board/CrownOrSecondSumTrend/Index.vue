@@ -24,7 +24,7 @@
     <div class="crown-table p-2">
       <table class="w-100">
         <tr class="font-size-1p5 background-tr">
-          <td>日期</td>
+          <td>期号</td>
           <td>开奖时间</td>
           <td class="w-15">开奖号码</td>
           <td>冠亚和</td>
@@ -46,39 +46,30 @@
           <td>18</td>
           <td>19</td>
         </tr>
-        <tr v-for="( item , i ) in 15" :key="i">
-          <td>20190520916</td>
-          <td>10:10:00</td>
+        <tr v-for="( lotteryIssue , iIndex ) in getLotteryIssues" :key="iIndex">
+          <td class="w-6">{{ lotteryIssue.no }}</td>
+          <td>{{ lotteryIssue.opened_time.split(' ')[1] }}</td>
           <td>
-            <span class="color-red">1</span>
-            <span class="color-deepskyblue">2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-            <span>6</span>
-            <span>7</span>
-            <span>8</span>
-            <span>9</span>
-            <span>10</span>
-            </td>
-          <td>3</td>
-          <td>4</td>
-          <td>5</td>
-          <td>6</td>
-          <td>7</td>
-          <td>8</td>
-          <td>9</td>
-          <td>10</td>
-          <td>11</td>
-          <td>12</td>
-          <td>13</td>
-          <td>14</td>
-          <td>15</td>
-          <td>16</td>
-          <td>17</td>
-          <td>18</td>
-          <td>19</td>
-          <td>19</td>
+            <span v-for="( number, iIndex ) in JSON.parse(lotteryIssue.numbers)" :key="iIndex">{{ number }}</span>
+          </td>
+          <td class="crown-background">{{ JSON.parse(lotteryIssue.numbers) | sum([0, 1]) }}</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
         </tr>
         <tr class="background-tr">
           <td colspan="4" class="font-size-1p5">数据统计</td>
@@ -192,6 +183,7 @@
 import {
   Component,
   Vue,
+  Prop,
 } from 'vue-property-decorator';
 
 import {
@@ -215,6 +207,28 @@ import {
   },
 })
 class DragonOrTigerCount extends Vue {
+  @Prop()
+  public lotteryIssues!: any;
+
+  @Prop()
+  public lottery!: any;
+
+  @Prop()
+  public lotteries!: any;
+
+  @Prop()
+  public code!: any;
+
+  @Prop()
+  public types!: any;
+
+  public get getLotteryIssues (): object {
+    let oLotteryIssues = this.lotteryIssues;
+    let aLotteryIssues = Object.values(oLotteryIssues);
+    let oLotteryIssue = aLotteryIssues.reverse().slice(0, 29);
+    return oLotteryIssue;
+  }
+
   public date = '最近30期';
   public checkList = ['遗漏', '拆线', ];
 }
