@@ -28,7 +28,7 @@
       </I-radio-group>
     </div>
     <div class="ml-2 mr-2">
-      <V-histogram  :data="getVhistogramData"/>
+      <V-histogram  :data="getVhistogramDataAndSettings.data" :settings="getVhistogramDataAndSettings.settings"/>
     </div>
     <div class="p-2">
        <table class="w-100 font-size-1p5">
@@ -144,7 +144,7 @@ import {
   LOTTERIES,
   LOTTERY_TYPES,
 } from '@/CONFIGS/';
-import { lottery } from '../../../../actions';
+
 
 @Component({
   name: 'NumberOrLawCount',
@@ -199,7 +199,7 @@ class NumberOrLawCount extends Vue {
     10: 10,
   };
 
-  public get getVhistogramData () {
+  public get getVhistogramDataAndSettings () {
     let aColumns: string[] = [];
     let aRows: any[] = [];
     let sTypes = this.types;
@@ -213,6 +213,7 @@ class NumberOrLawCount extends Vue {
       oRow = { '号码': `号码 ${iNumber}`, '次数':  0, }
       aRows.push(oRow);
     });
+    let iMax = 4; // y 坐标数值都低于4出现小数点
     for (let iIndex = aLotteryIssues.length; iIndex > aLotteryIssues.length - 29 &&  iIndex >= 2; iIndex--) { //只要大于等于2就计算
       let oCurrentLotteryIssue = aLotteryIssues[iIndex - 1];
       let aCurrentNumbers = JSON.parse(oCurrentLotteryIssue.numbers);  //当前数组
@@ -221,12 +222,22 @@ class NumberOrLawCount extends Vue {
       let iPosition =  aPreviousNumbers.indexOf(iNumber); 
       let iCurrentNumber = aCurrentNumbers[iPosition];  // 当前同位开奖号码
       aRows[iCurrentNumber - 1]['次数'] = aRows[iCurrentNumber - 1]['次数'] + 1;
+      if (aRows[iCurrentNumber - 1]['次数'] > iMax) {
+        iMax = aRows[iCurrentNumber - 1]['次数'];
+      }
     }
     let oVhistogramData = {
       columns: aColumns,
       rows: aRows,
     }
-    return oVhistogramData;
+
+    let oDataAndSettings = {
+      data: oVhistogramData,
+      settings: {
+        max: [iMax],
+      },
+    }
+    return oDataAndSettings;
   }
 
   public isAnnouncementShowed: boolean = false;
