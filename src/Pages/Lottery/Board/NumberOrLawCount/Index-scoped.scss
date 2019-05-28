@@ -1,4 +1,4 @@
-.number-or-law-count {
+.page.lottery .board .number-or-law-count {
   .announcement-wrapper {
     z-index: 3;
     padding: .7vmin 1vmin;
@@ -23,13 +23,13 @@
   .announcement-wrapper + div{
     margin-top: 8vmin;
   }
-  table {
+  .law-count-table table {
     margin: 0 auto 0;
-    td {
+    th,td {
       text-align: center;
       border: 1px solid #D6D6D6;
       span {
-       display: inline-block;
+      display: inline-block;
       }
     }
     tr:nth-child(n+3) {
