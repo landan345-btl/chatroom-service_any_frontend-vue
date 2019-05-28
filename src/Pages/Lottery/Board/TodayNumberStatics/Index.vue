@@ -42,7 +42,7 @@
       </span>
       <Button type="primary" class="ml-1" size="small">确认</Button>
     </div>
-    <table>
+    <table v-if="code && LOTTERIES[code].TYPES.toUpperCase() === 'SSC'">
       <tr>
         <td rowspan="2"> <span class="position-relative">号码</span> </td>
         <td colspan="4">第一球</td>
@@ -97,6 +97,66 @@
         <td>22</td>
       </tr>
     </table>
+    <table v-if="code && LOTTERIES[code].TYPES.toUpperCase() !== 'SSC'">
+      <tr>
+        <td rowspan="2"> <span class="position-relative">号码</span></td>
+        <td colspan="2">冠军</td>
+        <td colspan="2">亚军</td>
+        <td colspan="2">第三名</td>
+        <td colspan="2">第四名</td>
+        <td colspan="2">第五名</td>
+        <td colspan="2">第六名</td>
+        <td colspan="2">第七名</td>
+        <td colspan="2">第八名</td>
+        <td colspan="2">第九名</td>
+        <td colspan="2">第十名</td>
+      </tr>
+      <tr>
+        <td>总开</td>
+        <td>未开</td>
+        <td>总开</td>
+        <td>未开</td>
+        <td>总开</td>
+        <td>未开</td>
+        <td>总开</td>
+        <td>未开</td>
+        <td>总开</td>
+        <td>未开</td>
+        <td>总开</td>
+        <td>未开</td>
+        <td>总开</td>
+        <td>未开</td>
+        <td>总开</td>
+        <td>未开</td>
+        <td>总开</td>
+        <td>未开</td>
+        <td>总开</td>
+        <td>未开</td>
+      </tr>
+      <tr v-for="( item , i ) in 10" :key="i">
+        <td class=" ">{{ i }}</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+        <td>22</td>
+      </tr>
+    </table>
   </div>
 </template>
 <style scoped lang="scss">
@@ -107,6 +167,7 @@
 import {
   Component,
   Vue,
+  Prop,
 } from 'vue-property-decorator';
 
 import {
@@ -126,6 +187,12 @@ import {
   },
 })
 class TodayNumberStatics extends Vue {
+  @Prop()
+  public code!: any;
+
+  @Prop()
+  public types!: any;
+
   public changeHidden = 0;
   public toggleHidden (iNunmber: number) {
     if (this.changeHidden === 2 && iNunmber === 1) {

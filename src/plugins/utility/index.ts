@@ -11,8 +11,7 @@ import isFrontOrBack from '@/utilities/isFrontOrBack/index';
 import linkToPath from '@/utilities/linkToPath/index';
 import linkToQuery from '@/utilities/linkToQuery/index';
 import isUpOrDown from '@/filters/isUpOrDown/index';
-import parNumberSmallOrLarge from '@/filters/parNumberSmallOrLarge/index';
-import parNumberOddOrEven from '@/filters/parNumberOddOrEven/index';
+import parNumber from '@/filters/parNumber/index';
 
 let oUltilityPlugin = {
   // The install method is all that needs to exist on the plugin object.
@@ -42,8 +41,7 @@ let oUltilityPlugin = {
     Vue.prototype.linkToPath = linkToPath;
     Vue.prototype.linkToQuery = linkToQuery;
     Vue.prototype.isUpOrDown = isUpOrDown;
-    Vue.prototype.parNumberSmallOrLarge = parNumberSmallOrLarge;
-    Vue.prototype.parNumberOddOrEven = parNumberOddOrEven;
+    Vue.prototype.parNumber = parNumber;
   },
 };
 

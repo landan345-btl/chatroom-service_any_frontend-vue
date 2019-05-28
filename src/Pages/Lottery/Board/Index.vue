@@ -59,7 +59,10 @@
         <Dragon-or-tiger-trend v-if="code && types" />
       </TabPane>
       <TabPane :label="'今日号码统计'" :name="'today-number-statics'">
-        <Today-number-statics v-if="code && types" />
+        <Today-number-statics 
+          :code="code"
+          :types="types" 
+          v-if="code && types" />
       </TabPane>
       <TabPane :label="'单双大小历史'" :name="'odd-or-even-small-or-large-history'">
         <Odd-or-even-small-or-large-history v-if="code && types" />
