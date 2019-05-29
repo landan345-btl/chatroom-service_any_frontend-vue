@@ -52,7 +52,7 @@ import {
 
 class Live extends Vue {
   public codes: string[] = [
-    'CQSSC', 'BJPK10', 'GDKLSF', 'BJ5FC',
+    'AFGH90', 'BJPK10', 'GDKLSF', 'JLK3',
   ];
 
   @Prop()
