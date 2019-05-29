@@ -262,7 +262,7 @@ import {
 } from '@/Mixins/';
 
 import {
-  LOTTERIES,
+  LOTTERIES, 
 } from '@/CONFIGS/';
 
 import {

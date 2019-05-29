@@ -19,18 +19,8 @@
           <td>第五名龙</td>
           <td>第五名虎</td>
         </tr>
-        <tr v-for="( item , i ) in 15" :key="i">
-          <td>2019-05-20</td>
-          <td>102</td>
-          <td>101</td>
-          <td>101</td>
-          <td>101</td>
-          <td>101</td>
-          <td>101</td>
-          <td>101</td>
-          <td>101</td>
-          <td>101</td>
-          <td>101</td>
+        <tr v-for="(lotteryIssue, iIndex ) in getdragonOrTigerCount" :key="iIndex" >
+          <td v-for="(iCount, index) in lotteryIssue" :key="index">{{ iCount }}</td>
         </tr>
       </table>
       <p class="pl-2 pr-2 pt-2 font-size-1p5">使用说明：统计开奖号码的龙虎出现次数</p>
@@ -45,31 +35,83 @@
 import {
   Component,
   Vue,
+  Prop,
 } from 'vue-property-decorator';
 
 import {
   IDivider,
-  ICheckboxGroup,
-  IRadioGroup,
-  IDatePicker,
 } from '@/Components/';
 
 import {
   LOTTERIES,
 } from '@/CONFIGS/';
+import { JSONparse } from '../../../../filters';
 
 @Component({
   name: 'CrownOrSecondSumTrend',
   components: {
     IDivider,
-    ICheckboxGroup,
-    IRadioGroup,
-    IDatePicker,
   },
 })
 class CrownOrSecondSumTrend extends Vue {
-  public button1 = '今天';
-  public checkList = ['遗漏', '拆线', ];
+
+  @Prop()
+  public lotteryIssues!: any;
+
+  @Prop()
+  public lottery!: any;
+
+  @Prop()
+  public lotteries!: any;
+
+  @Prop()
+  public code!: any;
+
+  @Prop()
+  public types!: any;
+
+  public getdragonOrTigerCount = {
+    "882749": {
+      date: "2019-05-29",
+      first_dragon: 100,
+      first_tiger: 12,
+      second_dragon: 17,
+      second_tiger: 11,
+      third_dragon: 10,
+      third_tiger: 22,
+      fourth_dragon: 182,
+      fourth_tiger: 142,
+      fifth_dragon: 60,
+      fifth_tiger: 182,
+    },
+    "882748": {
+      date: "2019-05-30",
+      first_dragon: 21,
+      first_tiger: 54,
+      second_dragon: 68,
+      second_tiger: 45,
+      third_dragon: 86,
+      third_tiger: 44,
+      fourth_dragon: 54,
+      fourth_tiger: 65,
+      fifth_dragon: 45,
+      fifth_tiger: 88,
+    },
+    "882747": {
+      date: "2019-05-31",
+      first_dragon: 32,
+      first_tiger: 12,
+      second_dragon: 23,
+      second_tiger: 45,
+      third_dragon: 45,
+      third_tiger: 22,
+      fourth_dragon: 142,
+      fourth_tiger: 142,
+      fifth_dragon: 60,
+      fifth_tiger: 18,
+    },
+  }
+
 }
 export default CrownOrSecondSumTrend;
 </script>
