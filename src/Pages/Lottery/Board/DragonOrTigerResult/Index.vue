@@ -1,7 +1,7 @@
 <template>
   <div class="dragon-or-tiger-result pb-2 background-white position-relative">
     <div class="pl-2 pr-2 font-weight-bold d-flex justify-content-between head-top">
-      <span class="font-size-2 line-height3">龙虎露珠</span>
+      <span class="font-size-2 line-height3">龙虎路珠</span>
       <I-radio-group v-model="date" type="button" class="line-height3">
         <Radio label="今天"></Radio>
         <Radio label="昨天"></Radio>

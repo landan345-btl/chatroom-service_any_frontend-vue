@@ -26,12 +26,16 @@
         <span class="color-red"><Icon type="md-arrow-down" /></span>
       </span>
     </div>
-    <div ref="box" dir=rtl class="pb-2">
-      <div>
-        <div class="columns float-right" v-for="( aOddEvenOrSmallOrLarge , iIndex ) in getOddEvenOrSmallOrLarges" :key="iIndex" :class="iIndex % 2 === 0 ? 'background-even':''" >
-          <p v-for="(iCount, index) in aOddEvenOrSmallOrLarge" :key="index">{{ iCount }}</p>
-        </div>
-      </div>
+    <div class="table-con w-100" dir=rtl>
+      <table class="faloat-right text-center">
+        <tbody>
+          <tr>
+            <td  v-for="(aOddEvenOrSmallOrLarge, iIndex ) in oddEvenOrSmallOrLargeStrings" :key="iIndex" :class="iIndex % 2 === 0 ? 'background-even':''" >
+              <p v-for="(iCount, index) in aOddEvenOrSmallOrLarge" :key="index">{{ iCount }}</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
@@ -48,7 +52,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 })
 
 class ResultTable extends Vue {
- @Prop()
+  @Prop()
   public resultOddOrEvensAndSmallOrLarges!: any;
 
   @Prop()
@@ -66,12 +70,12 @@ class ResultTable extends Vue {
   @Prop()
   public firstAndSecondSummationCount!: any;
 
-  public getOddEvenOrSmallOrLarges =[
-    ['双','双'],['单','单','单'],['双','双','双'],['单']
+  public oddEvenOrSmallOrLargeStrings =[
+    ['双','双'],['单','单','单'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双'],['双','双','双']
   ];
 
-  public oddOrEvenOrSmallOrLargeOrDragonOrTiger(str: any) {
-    let obj: any = {
+  public oddOrEvenOrSmallOrLargeOrDragonOrTiger(sKey: string) {
+    let oResult: any = {
       odd: '单',
       even: '双',
       small: '小',
@@ -79,7 +83,7 @@ class ResultTable extends Vue {
       dragon: '龙',
       tiger: '虎',
     };
-    return obj[str];
+    return oResult[sKey];
   }
 
 }

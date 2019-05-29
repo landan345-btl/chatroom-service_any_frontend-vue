@@ -40,7 +40,7 @@
       </div>
       <div class="rank-select dewdrop">
         <p class="mt-1">
-          <span>筛选露珠：</span>
+          <span>筛选路珠：</span>
            <I-checkbox-group class="d-inline-block mr-2" v-model="checkAnalysis">
             <Checkbox label="大小">&nbsp;大小</Checkbox>
             <Checkbox label="单双">&nbsp;单双</Checkbox>
@@ -52,7 +52,7 @@
      <div class="p-2" v-show=" pattern === 'radio'">
       <div class="font-size-1p5 rank-select">
         <p class="mt-1">
-          <span>筛选露珠：</span>
+          <span>筛选路珠：</span>
           <I-checkbox-group class="d-inline-block mr-2" v-model="checkRadioAnalysis">
             <Checkbox label="大小">&nbsp;大小</Checkbox>
             <Checkbox label="单双">&nbsp;单双</Checkbox>
@@ -103,7 +103,7 @@
       </div>
       <div class="font-size-1p5 rank-select">
         <p class="mt-1">
-          <span>筛选露珠：</span>
+          <span>筛选路珠：</span>
           <I-radio-group v-model="checkTwoSidesAnalysis" type="button">
             <Radio label="大小"></Radio>
             <Radio label="单双"></Radio>
