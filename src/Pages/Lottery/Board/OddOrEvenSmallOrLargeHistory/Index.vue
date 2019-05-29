@@ -4,7 +4,7 @@
       <span class="font-size-2 line-height3">单双大小历史</span>
     </div>
     <I-divider/>
-    <div class="pl-2 pr-2 pb-2">
+    <div class="pl-2 mr-2 pb-2">
       <table class="w-100 mt-2">
         <tr v-if="['PK10'].includes(types.toUpperCase())">
           <td rowspan="2">

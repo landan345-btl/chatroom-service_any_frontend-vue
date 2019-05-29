@@ -10,7 +10,12 @@
         <div class="menu font-size-2 d-flex align-self-start">
           <span @mouseenter="showSubMenu(sIndex)" @mouseleave="hideSubMenu()" v-for="(link, sIndex) in MENU_LINKS" :key="sIndex" class="pl-1 pr-1 mr-3" v-if="link.STATUS && 1===link.STATUS">
             <!-- <font-awesome-icon :icon="link.ICON" v-if="link.ICON" class="color-white"/>  nav 最后一个菜单 预留图标-->
-            <router-link :to="{ path: `${link.LINK}` }" class="color-white">{{link.NAME}}</router-link>
+            <template v-if="link.LINK === null || link.LINK === undefined || link.LINK === '' || link.LINK === false">
+              {{link.NAME}}
+            </template>
+            <template v-else>
+              <router-link :to="{ path: `${link.LINK}` }" class="color-white">{{link.NAME}}</router-link>
+            </template>
             <i v-if="link.SUB_MENU_LINKS && 0 < link.SUB_MENU_LINKS.length">▾</i>
           </span>
         </div>
@@ -33,7 +38,7 @@
               <span class="link-right">
                 <p v-for="(subLink , sIndex) in subLink.SUB_MENU_LINKS" :key="sIndex" class="d-inline-block ml-2 position-relative">
                   <!-- <i class="lottery-icon align-middle d-inline-block" :class="'icon-'+lottery.ICON"></i>  ICON 预留图标-->
-                  <span class="link-title align-middle font-size-1p5 d-inline-block text-center" >
+                  <span class="link-title align-middle font-size-1p5 d-inline-block text-center">
                     <router-link @click.native="hideSubMenu()" :to="{ path:`${linkToPath(subLink.LINK)}` , query: linkToQuery(subLink.LINK)}" >{{ subLink.NAME }} </router-link>
                   </span>
                   <i :class=" subLink.IS_HOT ===true ? 'is-hot':''" class="d-inline-block hot-position position-absolute"></i>

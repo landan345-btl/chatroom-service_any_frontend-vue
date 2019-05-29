@@ -23,7 +23,8 @@
         <p class="mt-1">
           <span>筛选名次：</span>
           <I-checkbox-group class="d-inline-block mr-2" v-model="checkRanks">
-            <Checkbox label="冠军">&nbsp;冠军</Checkbox>
+            <Checkbox :label="rank" v-for="(rank, index) in checkRanks" :key="index">&nbsp;{{ rank }}</Checkbox>
+            <!-- <Checkbox label="冠军">&nbsp;冠军</Checkbox>
             <Checkbox label="亚军">&nbsp;亚军</Checkbox>
             <Checkbox label="第三名">&nbsp;第三名</Checkbox>
             <Checkbox label="第四名">&nbsp;第四名</Checkbox>
@@ -33,6 +34,7 @@
             <Checkbox label="第八名">&nbsp;第八名</Checkbox>
             <Checkbox label="第九名">&nbsp;第九名</Checkbox>
             <Checkbox label="第十名">&nbsp;第十名</Checkbox>
+            <Checkbox label="冠亚和">&nbsp;冠亚和</Checkbox> -->
           </I-checkbox-group>
           <span class="mr-2" @click="syntheSizeCheckAll">全选</span>
           <span @click="syntheEmptyAll">清空</span>
@@ -40,7 +42,7 @@
       </div>
       <div class="rank-select dewdrop">
         <p class="mt-1">
-          <span>筛选露珠：</span>
+          <span>筛选路珠：</span>
            <I-checkbox-group class="d-inline-block mr-2" v-model="checkAnalysis">
             <Checkbox label="大小">&nbsp;大小</Checkbox>
             <Checkbox label="单双">&nbsp;单双</Checkbox>
@@ -52,7 +54,7 @@
      <div class="p-2" v-show=" pattern === 'radio'">
       <div class="font-size-1p5 rank-select">
         <p class="mt-1">
-          <span>筛选露珠：</span>
+          <span>筛选路珠：</span>
           <I-checkbox-group class="d-inline-block mr-2" v-model="checkRadioAnalysis">
             <Checkbox label="大小">&nbsp;大小</Checkbox>
             <Checkbox label="单双">&nbsp;单双</Checkbox>
@@ -103,7 +105,7 @@
       </div>
       <div class="font-size-1p5 rank-select">
         <p class="mt-1">
-          <span>筛选露珠：</span>
+          <span>筛选路珠：</span>
           <I-radio-group v-model="checkTwoSidesAnalysis" type="button">
             <Radio label="大小"></Radio>
             <Radio label="单双"></Radio>
@@ -112,14 +114,14 @@
         </p>
       </div>
     </div>
-    <div class=" mb-1 dewdrop-table">
+    <div class="dewdrop-table pb-2"  v-for="(oddOrEvensAndaSmallOrLarge , iIndex ) in mergeOddEvenSmallLargeDragonTiger" :key="iIndex">
       <Result-table 
         :resultOddOrEvensAndSmallOrLarges="resultOddOrEvensAndSmallOrLarges"
-        :oddOrEvensAndSmallOrLargeCount="oddOrEvensAndSmallOrLargeCount"
-        :dragonOrTigerResult="dragonOrTigerResult"
-        :dragonOrTigerCount="dragonOrTigerCount"
-        :firstAndSecondSummation="firstAndSecondSummation"
-        :firstAndSecondSummationCount="firstAndSecondSummationCount"/>
+        :rank="checkRanks[iIndex.split('_')[0]]"
+        :oddEvenOrSmallOrLarge="iIndex.split('_')[1]"
+        :oDragonOrTigerCount="count[iIndex.split('_')[1]][iIndex.split('_')[0]] "
+        v-if=" (toggleOddEvent.indexOf(iIndex.split('_')[1]) !== -1 || toggleOddEvent.length === 0) && actualScreens.indexOf(checkRanks[iIndex.split('_')[0]]) !== -1"
+        />
     </div>
   </div>
 </template>
@@ -177,12 +179,38 @@ class ResultAnalysis extends Vue {
   @Prop()
   public firstAndSecondSummationCount!: any;
 
-  public checkRanks: any = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'];
+  public get mergeOddEvenSmallLargeDragonTiger() {
+    let result = {
+      ...this.resultOddOrEvensAndSmallOrLarges,
+      ...this.dragonOrTigerResult,
+      ...this.firstAndSecondSummation,
+    }; 
+    return result;
+  }
+
+  public toggleOddEvent: any = ['small' , 'odd' , 'dragon' , 'guanyaodd' , 'guanyasmall' ];
+  public checkRanks: any = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名','冠亚和'];
   public checkAnalysis: any = ['大小', '单双', '龙虎'];
-  public checkRadioRank: any= '亚军';
+  public checkRadioRank: any= '冠军';
   public checkRadioAnalysis: any = ['大小', '单双', '龙虎'];
   public checkTwoSidesRanks: any = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'];
   public checkTwoSidesAnalysis: string = '大小';
+  public actualScreens: any[] = [
+    '冠军' ,
+    '亚军' ,
+    '第三名',
+    '第四名',
+    '第五名',
+    '第六名',
+    '第七名',
+    '第八名',
+    '第九名',
+    '第十名',
+    '冠亚和',
+    '单双' ,
+    '大小',
+    '龙虎',
+  ];
 
   public pattern = 'synthesize';
   public ranking = '今天';
@@ -191,8 +219,35 @@ class ResultAnalysis extends Vue {
     this.pattern = pattern;
   }
 
+  public get count() {
+    let oddsmall = this.changeDataStructure(this.oddOrEvensAndSmallOrLargeCount);
+    let obj = {
+      odd: { ...oddsmall.odd },
+      small: { ...oddsmall.small },
+      dragon: { ...this.dragonOrTigerCount },
+      guanyaodd: { 10: { ...this.firstAndSecondSummationCount.odd } },
+      guanyasmall: { 10: { ...this.firstAndSecondSummationCount.small } },
+    };
+    return obj;
+  }
+
+  public changeDataStructure( objSmall: any ) { //  数据格式
+    let odd: any = 'odd';
+    let small: any = 'small';
+    let aObjSmalls = Object.values(objSmall);
+    let _odd = aObjSmalls.reduce((interval: any , item: any , index ) => {
+      interval[index] = item[odd];
+      return interval;
+    } , {});
+    let _small = aObjSmalls.reduce((interval: any , item: any , index ) => {
+      interval[index] = item[small];
+      return interval;
+    } , {});
+    return { odd: _odd , small: _small  };
+  }
+
   public syntheSizeCheckAll() { // 综合模式全选
-    this.checkRanks = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名'];
+    this.checkRanks = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名', '冠亚和'];
     this.checkAnalysis = ['大小', '单双', '龙虎'];
   }
 

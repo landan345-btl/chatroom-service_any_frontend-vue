@@ -219,7 +219,7 @@ class Lottery extends Vue {
   public isDragonOrTigerrResult: any;
   public caculateResult: any;
 
-  public get getResultOddOrEvensAndSmallOrLarges() { // 露珠大小单双
+  public get getResultOddOrEvensAndSmallOrLarges() { // 路珠大小单双
     let helper = new LotteryHelper();
     let mCode: any = this.$route.query.code;
     let type: any = LOTTERIES[mCode].TYPES;
