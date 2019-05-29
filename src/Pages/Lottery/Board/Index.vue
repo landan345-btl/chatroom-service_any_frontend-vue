@@ -77,6 +77,7 @@
       <TabPane :label="'单双大小历史'" :name="'odd-or-even-small-or-large-history'" v-if="['PK10','SSC'].includes(types.toUpperCase())">
         <Odd-or-even-small-or-large-history 
           :types="types"
+          :code="code"
           v-if="code && types" />
       </TabPane>
       <TabPane :label="'形态走势'" :name="'state-trend'" v-if="['SSC'].includes(types.toUpperCase())">

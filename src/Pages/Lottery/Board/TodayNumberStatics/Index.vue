@@ -133,8 +133,10 @@
         <td>总开</td>
         <td>未开</td>
       </tr>
-      <tr v-for="( item , i ) in 10" :key="i">
-        <td class=" ">{{ i }}</td>
+      <tr v-for="( iNunmber , i ) in LOTTERY_TYPES[ types ].NUMBERS" :key="i">
+        <td>
+          {{ iNunmber }}
+        </td>
         <td>22</td>
         <td>22</td>
         <td>22</td>
@@ -173,10 +175,12 @@ import {
 import {
   ITabs,
   IDivider,
+  SNumbers,
 } from '@/Components/';
 
 import {
   LOTTERIES,
+  LOTTERY_TYPES,
 } from '@/CONFIGS/';
 
 @Component({
@@ -184,6 +188,7 @@ import {
   components: {
     ITabs,
     IDivider,
+    SNumbers,
   },
 })
 class TodayNumberStatics extends Vue {
@@ -192,6 +197,9 @@ class TodayNumberStatics extends Vue {
 
   @Prop()
   public types!: any;
+
+  
+ // public numberSsc = ['1','2','3','4','5','6','7','8','9','10'];
 
   public changeHidden = 0;
   public toggleHidden (iNunmber: number) {

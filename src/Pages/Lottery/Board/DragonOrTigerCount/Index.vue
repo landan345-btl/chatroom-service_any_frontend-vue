@@ -20,12 +20,7 @@
           <td>第五名虎</td>
         </tr>
         <tr v-for="(lotteryIssue, iIndex ) in getdragonOrTigerCount" :key="iIndex" >
-          <td>{{lotteryIssue.date}}</td>
-          <template v-for="(oRanksTypesToCounts, iPosition) in lotteryIssue.count">
-            <template v-for="(iCount, sRanksType) in oRanksTypesToCounts">
-              <td :key="iPosition + sRanksType">{{ iCount }}</td>
-            </template>
-          </template>
+          <td v-for="(iCount, index) in lotteryIssue" :key="index">{{ iCount }}</td>
         </tr>
       </table>
       <p class="pl-2 pr-2 pt-2 font-size-1p5">使用说明：统计开奖号码的龙虎出现次数</p>
@@ -76,7 +71,53 @@ class CrownOrSecondSumTrend extends Vue {
   public types!: any;
 
   public getdragonOrTigerCount = {
-    "data": {
+    "882749": {
+      date: "2019-05-29",
+      first_dragon: 100,
+      first_tiger: 12,
+      second_dragon: 17,
+      second_tiger: 11,
+      thirdly_dragon: 10,
+      thirdly_tiger: 22,
+      fourthly_dragon: 182,
+      fourthly_tiger: 142,
+      fifth_dragon: 60,
+      fifth_tiger: 182,
+    },
+    "882748": {
+      date: "2019-05-30",
+      first_dragon: 21,
+      first_tiger: 54,
+      second_dragon: 68,
+      second_tiger: 45,
+      thirdly_dragon: 86,
+      thirdly_tiger: 44,
+      fourthly_dragon: 54,
+      fourthly_tiger: 65,
+      fifth_dragon: 45,
+      fifth_tiger: 88,
+    },
+    "882747": {
+      date: "2019-05-31",
+      first_dragon: 32,
+      first_tiger: 12,
+      second_dragon: 23,
+      second_tiger: 45,
+      thirdly_dragon: 45,
+      thirdly_tiger: 22,
+      fourthly_dragon: 142,
+      fourthly_tiger: 142,
+      fifth_dragon: 60,
+      fifth_tiger: 18,
+    },
+  }
+
+}
+export default CrownOrSecondSumTrend;
+</script>
+
+
+{
       "date": "2019-05-29",
       "count": [
           {
@@ -101,8 +142,3 @@ class CrownOrSecondSumTrend extends Vue {
           },
       ],
     }
-  }
-
-}
-export default CrownOrSecondSumTrend;
-</script>
