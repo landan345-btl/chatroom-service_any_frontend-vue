@@ -26,9 +26,9 @@
         <span class="color-red"><Icon type="md-arrow-down" /></span>
       </span>
     </div>
-    <div ref="box" dir=rtl>
+    <div ref="box" dir=rtl class="pb-2">
       <div>
-        <div class="columns" v-for="( aOddEvenOrSmallOrLarge , iIndex ) in getOddEvenOrSmallOrLarges" :key="iIndex" :class="iIndex % 2 === 0 ? 'background-even':''" >
+        <div class="columns float-right" v-for="( aOddEvenOrSmallOrLarge , iIndex ) in getOddEvenOrSmallOrLarges" :key="iIndex" :class="iIndex % 2 === 0 ? 'background-even':''" >
           <p v-for="(iCount, index) in aOddEvenOrSmallOrLarge" :key="index">{{ iCount }}</p>
         </div>
       </div>

@@ -112,7 +112,7 @@
         </p>
       </div>
     </div>
-    <div class=" mb-1 dewdrop-table">
+    <div class="mb-1 dewdrop-table pb-2">
       <Result-table 
         :resultOddOrEvensAndSmallOrLarges="resultOddOrEvensAndSmallOrLarges"
         :oddOrEvensAndSmallOrLargeCount="oddOrEvensAndSmallOrLargeCount"

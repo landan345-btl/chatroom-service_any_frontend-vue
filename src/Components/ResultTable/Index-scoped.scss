@@ -11,22 +11,23 @@
     width: 100%;
     & > div {
       min-width: 190vmin;
-      min-height: 19.8vmin;
+      min-height: 15.8vmin;
       white-space: nowrap;
       .columns {
         text-align: center;
         display: inline-block;
         width: 4vmin;
-        min-height: 15.8vmin;
       }
       .background-even {
         background: #f0f0f0;
       }
     }
   }
-  input,select {
+  [type="number"] {
     width: 5vmin;
-    height: 3vmin;
+  }
+  select {
+    padding: .2vmin .2vmin 0.4vmin;
   }
 
   button {
