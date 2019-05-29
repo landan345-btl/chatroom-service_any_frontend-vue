@@ -23,8 +23,7 @@
         <p class="mt-1">
           <span>筛选名次：</span>
           <I-checkbox-group class="d-inline-block mr-2" v-model="checkRanks">
-            <Checkbox :label="rank" v-for="(rank, index) in checkRanks" :key="index">&nbsp;{{ rank }}</Checkbox>
-            <!-- <Checkbox label="冠军">&nbsp;冠军</Checkbox>
+            <Checkbox label="冠军">&nbsp;冠军</Checkbox>
             <Checkbox label="亚军">&nbsp;亚军</Checkbox>
             <Checkbox label="第三名">&nbsp;第三名</Checkbox>
             <Checkbox label="第四名">&nbsp;第四名</Checkbox>
@@ -34,7 +33,7 @@
             <Checkbox label="第八名">&nbsp;第八名</Checkbox>
             <Checkbox label="第九名">&nbsp;第九名</Checkbox>
             <Checkbox label="第十名">&nbsp;第十名</Checkbox>
-            <Checkbox label="冠亚和">&nbsp;冠亚和</Checkbox> -->
+            <Checkbox label="冠亚和">&nbsp;冠亚和</Checkbox>
           </I-checkbox-group>
           <span class="mr-2" @click="syntheSizeCheckAll">全选</span>
           <span @click="syntheEmptyAll">清空</span>

@@ -18,8 +18,8 @@
           <span>今天</span>
           <span>累计:</span>
           <span v-for="(count , iIndex) in oDragonOrTigerCount" :key="iIndex"> {{oddOrEvenOrSmallOrLargeOrDragonOrTiger(iIndex)}}({{count}})</span>
-          <span class="color-red">&nbsp;&nbsp;冠军</span>&nbsp;&nbsp;
-          <span class="color-red">龙虎</span>&nbsp;&nbsp;
+          <span class="color-red">&nbsp;&nbsp;{{ rank }}</span>&nbsp;&nbsp;
+          <span class="color-red">{{ isoddEvenOrSmallOrLarge }}</span>&nbsp;&nbsp;
           <span class="color-red">最新</span>&nbsp;&nbsp;
           <span class="color-red"><Icon type="md-arrow-down" /></span>
         </span>
