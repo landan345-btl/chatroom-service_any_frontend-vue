@@ -9,16 +9,15 @@
   & > div:nth-child(2) {
     overflow: auto;
     width: 100%;
-    border: 1px solid #e6e6e6;
     & > div {
       min-width: 190vmin;
+      min-height: 19.8vmin;
       white-space: nowrap;
-      div {
+      .columns {
         text-align: center;
         display: inline-block;
         width: 4vmin;
-        min-height: 12vmin;
-        padding-bottom: 5vmin;
+        min-height: 19.8vmin;
       }
       .background-even {
         background: #f0f0f0;

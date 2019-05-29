@@ -26,10 +26,10 @@
         <span class="color-red"><Icon type="md-arrow-down" /></span>
       </span>
     </div>
-    <div ref="box">
+    <div ref="box" dir=rtl>
       <div>
-        <div v-for="( item , i ) in 1" :key="i" :class="i % 2 === 0 ? 'background-even':''">
-          <p :class="{'text-even':'双' === isOddOrEven(item) }" v-for="( item , i ) in 7" :key="i">{{ item }}</p>
+        <div class="columns" v-for="( aOddEvenOrSmallOrLarge , iIndex ) in getOddEvenOrSmallOrLarges" :key="iIndex" :class="iIndex % 2 === 0 ? 'background-even':''" >
+          <p v-for="(iCount, index) in aOddEvenOrSmallOrLarge" :key="index">{{ iCount }}</p>
         </div>
       </div>
     </div>
@@ -66,20 +66,9 @@ class ResultTable extends Vue {
   @Prop()
   public firstAndSecondSummationCount!: any;
 
-  // public get isoddEvenOrSmallOrLarge() {
-  //   let aOddEvenOrSmallOrLarge: any = {
-  //     smallOrLarge: '大小',
-  //     oddOrEven: '单双',
-  //     odd: '单双',
-  //     small: '大小',
-  //     dragon: '龙虎',
-  //     guanyaodd: '单双',
-  //     guanyasmall: '大小',
-  //   };
-  //   return aOddEvenOrSmallOrLarge[this.oddEvenOrSmallOrLarge];
-  // }
-
-
+  public getOddEvenOrSmallOrLarges =[
+    ['双','双'],['单','单','单'],['双','双','双'],['单']
+  ];
 
   public oddOrEvenOrSmallOrLargeOrDragonOrTiger(str: any) {
     let obj: any = {
