@@ -218,7 +218,7 @@ class Trend extends Vue {
     let oLotteryIssues = this.$store.state.lottery_issues;
     let oLotteries = this.$store.state.lotteries;
     let oData: object = {};
-    let aColums: any[] = [];
+    let aColumns: any[] = [];
     let aRows: any[] = [];
 
     for (let sLotteryIssueId of Object.keys(oLotteryIssues)) {
@@ -231,7 +231,7 @@ class Trend extends Vue {
       let iNowTime = new Date().getTime();
 
       if (sTypes.toUpperCase() === 'PK10' && JSON.parse(oLotteryIssue.numbers) instanceof Array && JSON.parse(oLotteryIssue.numbers).length >= 0 && iBeforeUntilNowTime > iNowTime - iOpenedTime) {
-        aColums = ['no', 'first', 'second', 'third', 'forth', 'fifth', 'sixth', 'seventh', 'eighth', 'nineth', 'tenth', ];
+        aColumns = ['no', 'first', 'second', 'third', 'forth', 'fifth', 'sixth', 'seventh', 'eighth', 'nineth', 'tenth', ];
         let oRow = {
           no: oLotteryIssue.no,
           first: JSON.parse(oLotteryIssue.numbers)[0],
@@ -249,7 +249,7 @@ class Trend extends Vue {
       }
 
       if (sTypes.toUpperCase() === 'SSC' && JSON.parse(oLotteryIssue.numbers) instanceof Array && JSON.parse(oLotteryIssue.numbers).length >= 0 && iBeforeUntilNowTime > iNowTime - iOpenedTime) {
-        aColums = ['no', 'first_ball', 'second_ball', 'third_ball', 'forth_ball', 'fifth_ball', ];
+        aColumns = ['no', 'first_ball', 'second_ball', 'third_ball', 'forth_ball', 'fifth_ball', ];
         let oRow = {
           no: oLotteryIssue.no,
           first_ball: JSON.parse(oLotteryIssue.numbers)[0],
@@ -262,7 +262,7 @@ class Trend extends Vue {
       }
 
       if (sTypes.toUpperCase() === '11X5' && JSON.parse(oLotteryIssue.numbers) instanceof Array && JSON.parse(oLotteryIssue.numbers).length >= 0 && iBeforeUntilNowTime > iNowTime - iOpenedTime) {
-        aColums = ['no', 'first_ball', 'second_ball', 'third_ball', 'forth_ball', 'fifth_ball', ];
+        aColumns = ['no', 'first_ball', 'second_ball', 'third_ball', 'forth_ball', 'fifth_ball', ];
         let oRow = {
           no: oLotteryIssue.no,
           first_ball: JSON.parse(oLotteryIssue.numbers)[0],
@@ -275,7 +275,7 @@ class Trend extends Vue {
       }
 
       if (sTypes.toUpperCase() === 'K3' && JSON.parse(oLotteryIssue.numbers) instanceof Array && JSON.parse(oLotteryIssue.numbers).length >= 0 && iBeforeUntilNowTime > iNowTime - iOpenedTime) {
-        aColums = ['no', 'first_ball', 'second_ball', 'third_ball', ];
+        aColumns = ['no', 'first_ball', 'second_ball', 'third_ball', ];
         let oRow = {
           no: oLotteryIssue.no,
           first_ball: JSON.parse(oLotteryIssue.numbers)[0],
@@ -286,7 +286,7 @@ class Trend extends Vue {
       }
 
       if (sTypes.toUpperCase() === 'KLSF' && JSON.parse(oLotteryIssue.numbers) instanceof Array && JSON.parse(oLotteryIssue.numbers).length >= 0 && iBeforeUntilNowTime > iNowTime - iOpenedTime) {
-        aColums = ['no', 'first_ball', 'second_ball', 'third_ball', 'forth_ball', 'fifth_ball', 'sixth_ball', 'seventh_ball', 'eighth_ball', ];
+        aColumns = ['no', 'first_ball', 'second_ball', 'third_ball', 'forth_ball', 'fifth_ball', 'sixth_ball', 'seventh_ball', 'eighth_ball', ];
         let oRow = {
           no: oLotteryIssue.no,
           first_ball: JSON.parse(oLotteryIssue.numbers)[0],
@@ -302,7 +302,7 @@ class Trend extends Vue {
       }
 
       if (sTypes.toUpperCase() === 'KL8' && JSON.parse(oLotteryIssue.numbers) instanceof Array && JSON.parse(oLotteryIssue.numbers).length >= 0 && iBeforeUntilNowTime > iNowTime - iOpenedTime) {
-        aColums = ['no', 'first_ball', 'second_ball', 'third_ball', 'forth_ball', 'fifth_ball', 'sixth_ball', 'seventh_ball', ];
+        aColumns = ['no', 'first_ball', 'second_ball', 'third_ball', 'forth_ball', 'fifth_ball', 'sixth_ball', 'seventh_ball', ];
         let oRow = {
           no: oLotteryIssue.no,
           first_ball: JSON.parse(oLotteryIssue.numbers)[0],
@@ -317,7 +317,7 @@ class Trend extends Vue {
       }
 
       if (sTypes.toUpperCase() === 'SIX' && JSON.parse(oLotteryIssue.numbers) instanceof Array && JSON.parse(oLotteryIssue.numbers).length >= 0 && iBeforeUntilNowTime > iNowTime - iOpenedTime) {
-        aColums = ['no', 'first_ball', 'second_ball', 'third_ball', 'forth_ball', 'fifth_ball', 'sixth_ball', 'special_ball', ];
+        aColumns = ['no', 'first_ball', 'second_ball', 'third_ball', 'forth_ball', 'fifth_ball', 'sixth_ball', 'special_ball', ];
         let oRow = {
           no: oLotteryIssue.no,
           first_ball: JSON.parse(oLotteryIssue.numbers)[0],
@@ -332,7 +332,7 @@ class Trend extends Vue {
       }
 
       if (sTypes.toUpperCase() === '3D' && JSON.parse(oLotteryIssue.numbers) instanceof Array && JSON.parse(oLotteryIssue.numbers).length >= 0 && iBeforeUntilNowTime > iNowTime - iOpenedTime) {
-        aColums = ['no', 'first_ball', 'second_ball', 'third_ball', ];
+        aColumns = ['no', 'first_ball', 'second_ball', 'third_ball', ];
         let oRow = {
           no: oLotteryIssue.no,
           first_ball: JSON.parse(oLotteryIssue.numbers)[0],
@@ -343,7 +343,7 @@ class Trend extends Vue {
       }
 
       if (sTypes.toUpperCase() === 'XY28' && JSON.parse(oLotteryIssue.numbers) instanceof Array && JSON.parse(oLotteryIssue.numbers).length >= 0 && iBeforeUntilNowTime > iNowTime - iOpenedTime) {
-        aColums = ['no', 'first_ball', 'second_ball', 'third_ball', ];
+        aColumns = ['no', 'first_ball', 'second_ball', 'third_ball', ];
         let oRow = {
           no: oLotteryIssue.no,
           first_ball: JSON.parse(oLotteryIssue.numbers)[0],
@@ -354,7 +354,7 @@ class Trend extends Vue {
       }
     }
     oData = {
-      columns: aColums,
+      columns: aColumns,
       rows: aRows,
     };
     return oData;
