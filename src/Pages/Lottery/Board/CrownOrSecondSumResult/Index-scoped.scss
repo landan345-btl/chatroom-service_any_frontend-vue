@@ -27,4 +27,6 @@
     }
   }
 }
-
+::v-deep .ivu-radio-group-button .ivu-radio-wrapper {
+  border: 0!important;
+}
