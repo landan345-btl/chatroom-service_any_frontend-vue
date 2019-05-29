@@ -1,5 +1,5 @@
 <template>
-  <div class="result-analysis background-white">
+  <div class="result-analysis background-white pb-1">
     <div class="">
       <span class="top m-2 font-weight-bold">
         <span class="d-inline-block mt-2" :class=" pattern === 'synthesize' ? 'background-brown':'' " @click="toggleBackground('synthesize')">综合模式</span>
@@ -21,7 +21,6 @@
     <div class="p-2" v-show=" pattern === 'synthesize'">
       <div class="rank-select">
         <p class="mt-1">
-          <span>筛选名次：</span>
           <I-checkbox-group class="d-inline-block mr-2" v-model="checkRanks">
             <Checkbox label="冠军">&nbsp;冠军</Checkbox>
             <Checkbox label="亚军">&nbsp;亚军</Checkbox>
@@ -113,7 +112,7 @@
         </p>
       </div>
     </div>
-    <div class="dewdrop-table pb-2"  v-for="(oddOrEvensAndaSmallOrLarge , iIndex ) in mergeOddEvenSmallLargeDragonTiger" :key="iIndex">
+    <div class="dewdrop-table mb-1" v-for="(oddOrEvensAndaSmallOrLarge , iIndex ) in mergeOddEvenSmallLargeDragonTiger" :key="iIndex">
       <Result-table 
         :resultOddOrEvensAndSmallOrLarges="resultOddOrEvensAndSmallOrLarges"
         :rank="checkRanks[iIndex.split('_')[0]]"
