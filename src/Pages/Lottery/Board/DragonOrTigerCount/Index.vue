@@ -77,10 +77,10 @@ class CrownOrSecondSumTrend extends Vue {
       first_tiger: 12,
       second_dragon: 17,
       second_tiger: 11,
-      thirdly_dragon: 10,
-      thirdly_tiger: 22,
-      fourthly_dragon: 182,
-      fourthly_tiger: 142,
+      third_dragon: 10,
+      third_tiger: 22,
+      fourth_dragon: 182,
+      fourth_tiger: 142,
       fifth_dragon: 60,
       fifth_tiger: 182,
     },
@@ -90,10 +90,10 @@ class CrownOrSecondSumTrend extends Vue {
       first_tiger: 54,
       second_dragon: 68,
       second_tiger: 45,
-      thirdly_dragon: 86,
-      thirdly_tiger: 44,
-      fourthly_dragon: 54,
-      fourthly_tiger: 65,
+      third_dragon: 86,
+      third_tiger: 44,
+      fourth_dragon: 54,
+      fourth_tiger: 65,
       fifth_dragon: 45,
       fifth_tiger: 88,
     },
@@ -103,10 +103,10 @@ class CrownOrSecondSumTrend extends Vue {
       first_tiger: 12,
       second_dragon: 23,
       second_tiger: 45,
-      thirdly_dragon: 45,
-      thirdly_tiger: 22,
-      fourthly_dragon: 142,
-      fourthly_tiger: 142,
+      third_dragon: 45,
+      third_tiger: 22,
+      fourth_dragon: 142,
+      fourth_tiger: 142,
       fifth_dragon: 60,
       fifth_tiger: 18,
     },
@@ -115,30 +115,3 @@ class CrownOrSecondSumTrend extends Vue {
 }
 export default CrownOrSecondSumTrend;
 </script>
-
-
-{
-      "date": "2019-05-29",
-      "count": [
-          {
-          "championDragon": 100,
-          "championTiger": 122,
-          },
-          {
-          "secondDragon": 105,
-          "secondTiger": 299,
-          },
-          {
-          "thirdlyDragon": 150,
-          "thirdlyTiger": 199,
-          },
-          {
-          "fourthlyDragon": 150,
-          "fourthlyTiger": 399,
-          },
-          {
-          "fifthDragon": 120,
-          "fifthTiger": 288,
-          },
-      ],
-    }
