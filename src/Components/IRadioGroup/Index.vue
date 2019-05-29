@@ -1,5 +1,5 @@
 <template>
-  <RadioGroup :type="type" :value="value" @input="$emit('input', $event)">
+  <RadioGroup :type="type" :value="value" @input="$emit('input', $event)" @change="$emit('change', $event)">
     <slot></slot>
   </RadioGroup>
 </template>

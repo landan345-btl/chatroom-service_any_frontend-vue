@@ -17,7 +17,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'PK10' === oLottery.types">
                 </TabPane>
               </I-tabs>
-              <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
+              <V-line :data="vLineData" :loading="loading" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
                 <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'PK10' === oLottery.types" class="mt-2 background-white"/>
               </div>
@@ -27,7 +27,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'SSC' === oLottery.types">
                 </TabPane>
               </I-tabs>
-              <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
+              <V-line :data="vLineData" :loading="loading" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
                 <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'SSC' === oLottery.types" class="mt-2 background-white"/>
               </div>
@@ -37,7 +37,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && '11X5' === oLottery.types">
                 </TabPane>
               </I-tabs>
-              <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
+              <V-line :data="vLineData" :loading="loading" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
                 <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && '11X5' === oLottery.types" class="mt-2 background-white"/>
               </div>
@@ -47,7 +47,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'K3' === oLottery.types">
                 </TabPane>
               </I-tabs>
-              <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
+              <V-line :data="vLineData" :loading="loading" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
                 <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'K3' === oLottery.types" class="mt-2 background-white"/>
               </div>
@@ -57,7 +57,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'KLSF' === oLottery.types">
                 </TabPane>
               </I-tabs>
-              <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
+              <V-line :data="vLineData" :loading="loading" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
                 <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'KLSF' === oLottery.types" class="mt-2 background-white"/>
               </div>
@@ -67,7 +67,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'KL8' === oLottery.types">
                 </TabPane>
               </I-tabs>
-              <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
+              <V-line :data="vLineData" :loading="loading" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
                 <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'KL8' === oLottery.types" class="mt-2 background-white"/>
               </div>
@@ -77,7 +77,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'SIX' === oLottery.types">
                 </TabPane>
               </I-tabs>
-              <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
+              <V-line :data="vLineData" :loading="loading" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
                 <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'SIX' === oLottery.types" class="mt-2 background-white"/>
               </div>
@@ -87,7 +87,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && '3D' === oLottery.types">
                 </TabPane>
               </I-tabs>
-              <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
+              <V-line :data="vLineData" :loading="loading" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
                 <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && '3D' === oLottery.types" class="mt-2 background-white"/>
               </div>
@@ -97,7 +97,7 @@
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'XY28' === oLottery.types">
                 </TabPane>
               </I-tabs>
-              <V-line :data="vLineData" :settings="vLineSettings" class="background-white p-4"/>
+              <V-line :data="vLineData" :loading="loading" :settings="vLineSettings" class="background-white p-4"/>
               <div class="lotteries d-flex flex-wrap justify-content-between">
                 <Lottery :lottery="oLottery" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'XY28' === oLottery.types" class="mt-2 background-white"/>
               </div>
@@ -176,13 +176,17 @@ class Trend extends Vue {
       right: ['号码', ],
     },
   };
+
+  public loading: boolean = true;
   public created (): void {
     let $root: any = this.$root;
     this.$store.dispatch('LOTTERY_ACTION_SHOW', {});
     let oQueries = {
       code: 'MLAFT',
     };
-    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries).then(() => {
+      this.loading = false;
+    });
   }
 
   public get getLotteries (): any {
@@ -357,10 +361,13 @@ class Trend extends Vue {
   }
 
   public handleSonLotteryIssues (sCode: string): void {
+    this.loading = true;
     let oQueries = {
       code: sCode,
     };
-    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries).then(() => {
+      this.loading = false;
+    });
   }
 }
 
