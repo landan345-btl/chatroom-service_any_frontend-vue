@@ -4,7 +4,8 @@
     :settings="settings"
     :loading="loading"
     :after-config="afterConfig"
-    :extend="extend"></ve-line>
+    :extend="extend">
+  </ve-line>
 </template>
 
 <style scoped lang="scss">

@@ -11,7 +11,7 @@
         :lg="{span: 20, offset: 2}"
         :xl="{span: 16, offset: 4}">
         <main class="mt-2 mb-2">
-          <I-tabs :type="'card'" class="parent" v-on:handle-click="handleParentLotteryIssues" v-if="getLotteries" :name="'1'">
+          <I-tabs :type="'card'" class="parent" v-on:handle-clic="handleParentLotteryIssues" v-if="getLotteries" :name="'1'">
             <TabPane label="PK拾" name="PK10">
               <I-tabs v-on:handle-click="handleSonLotteryIssues" class="son" :name="'PK10'">
                 <TabPane :label="LOTTERIES[oLottery.code].NAME || oLottery.name" :name="oLottery.code" v-for="(oLottery, sLotteryId) in getLotteries" :key="sLotteryId" v-if="oLottery && 'PK10' === oLottery.types">
