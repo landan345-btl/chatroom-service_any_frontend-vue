@@ -31,7 +31,12 @@
           :types="types" />
       </TabPane>
       <TabPane :label="'龙虎统计'" :name="'dragon-or-tiger-count'" v-if="['PK10'].includes(types.toUpperCase())">
-        <Dragon-or-tiger-count />
+        <Dragon-or-tiger-count 
+          :lotteryIssues="lotteryIssues"
+          :lottery="lottery"
+          :lotteries="lotteries"
+          :code="code"
+          :types="types" />
       </TabPane>
       <TabPane :label="'龙虎路珠'" :name="'dragon-or-tiger-result'" v-if="['PK10'].includes(types.toUpperCase())">
         <Dragon-or-tiger-result />
@@ -69,8 +74,10 @@
           :types="types" 
           v-if="code && types" />
       </TabPane>
-      <TabPane :label="'单双大小历史'" :name="'odd-or-even-small-or-large-history'" v-if="['PK10'].includes(types.toUpperCase())">
-        <Odd-or-even-small-or-large-history v-if="code && types" />
+      <TabPane :label="'单双大小历史'" :name="'odd-or-even-small-or-large-history'" v-if="['PK10','SSC'].includes(types.toUpperCase())">
+        <Odd-or-even-small-or-large-history 
+          :types="types"
+          v-if="code && types" />
       </TabPane>
       <TabPane :label="'形态走势'" :name="'state-trend'" v-if="['SSC'].includes(types.toUpperCase())">
         <State-trend />

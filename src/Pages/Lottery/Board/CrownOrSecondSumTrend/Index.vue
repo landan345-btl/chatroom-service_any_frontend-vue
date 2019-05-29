@@ -48,7 +48,7 @@
         </tr>
         <tr v-for="( lotteryIssue , iIndex ) in getLotteryIssues" :key="iIndex">
           <td class="w-6">{{ lotteryIssue.no }}</td>
-          <td>{{ lotteryIssue.opened_time.split(' ')[1] }}</td>
+          <td>{{ lotteryIssue.opened_time.split(' ')[1] && lotteryIssue.opened_time.split(' ')[1] !==undefined ? lotteryIssue.opened_time.split(' ')[1] : lotteryIssue.opened_time.split(' ')[0]}}</td>
           <td>
             <span v-for="( number, iIndex ) in JSON.parse(lotteryIssue.numbers)" :key="iIndex">{{ number }}</span>
           </td>

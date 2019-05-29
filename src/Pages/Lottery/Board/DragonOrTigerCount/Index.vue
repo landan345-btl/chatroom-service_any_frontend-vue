@@ -19,18 +19,13 @@
           <td>第五名龙</td>
           <td>第五名虎</td>
         </tr>
-        <tr v-for="( item , i ) in 15" :key="i">
-          <td>2019-05-20</td>
-          <td>102</td>
-          <td>101</td>
-          <td>101</td>
-          <td>101</td>
-          <td>101</td>
-          <td>101</td>
-          <td>101</td>
-          <td>101</td>
-          <td>101</td>
-          <td>101</td>
+        <tr v-for="(lotteryIssue, iIndex ) in getdragonOrTigerCount" :key="iIndex" >
+          <td>{{lotteryIssue.date}}</td>
+          <template v-for="(oRanksTypesToCounts, iPosition) in lotteryIssue.count">
+            <template v-for="(iCount, sRanksType) in oRanksTypesToCounts">
+              <td :key="iPosition + sRanksType">{{ iCount }}</td>
+            </template>
+          </template>
         </tr>
       </table>
       <p class="pl-2 pr-2 pt-2 font-size-1p5">使用说明：统计开奖号码的龙虎出现次数</p>
@@ -45,31 +40,69 @@
 import {
   Component,
   Vue,
+  Prop,
 } from 'vue-property-decorator';
 
 import {
   IDivider,
-  ICheckboxGroup,
-  IRadioGroup,
-  IDatePicker,
 } from '@/Components/';
 
 import {
   LOTTERIES,
 } from '@/CONFIGS/';
+import { JSONparse } from '../../../../filters';
 
 @Component({
   name: 'CrownOrSecondSumTrend',
   components: {
     IDivider,
-    ICheckboxGroup,
-    IRadioGroup,
-    IDatePicker,
   },
 })
 class CrownOrSecondSumTrend extends Vue {
-  public button1 = '今天';
-  public checkList = ['遗漏', '拆线', ];
+
+  @Prop()
+  public lotteryIssues!: any;
+
+  @Prop()
+  public lottery!: any;
+
+  @Prop()
+  public lotteries!: any;
+
+  @Prop()
+  public code!: any;
+
+  @Prop()
+  public types!: any;
+
+  public getdragonOrTigerCount = {
+    "data": {
+      "date": "2019-05-29",
+      "count": [
+          {
+          "championDragon": 100,
+          "championTiger": 122,
+          },
+          {
+          "secondDragon": 105,
+          "secondTiger": 299,
+          },
+          {
+          "thirdlyDragon": 150,
+          "thirdlyTiger": 199,
+          },
+          {
+          "fourthlyDragon": 150,
+          "fourthlyTiger": 399,
+          },
+          {
+          "fifthDragon": 120,
+          "fifthTiger": 288,
+          },
+      ],
+    }
+  }
+
 }
 export default CrownOrSecondSumTrend;
 </script>
