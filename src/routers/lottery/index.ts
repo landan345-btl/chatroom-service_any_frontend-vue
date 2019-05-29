@@ -1,11 +1,7 @@
-import {
-  Lottery,
-} from '@/Pages/';
-
 let aLotteryRoutes = [{
   path: '/lottery',
   name: 'lottery',
-  component: Lottery,
+  component: () => import(/* webpackChunkName: "about" */ '@/Pages/Lottery/Index.vue'),
   // children: aTrendChildren,
 }, ];
 

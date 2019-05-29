@@ -1,11 +1,7 @@
-import {
-  Home,
-} from '@/Pages/';
-
 let aHomeRoutes = [{
   path: '/',
   name: 'home',
-  component: Home,
+  component: () => import(/* webpackChunkName: "about" */ '@/Pages/Home/Index.vue'),
 }, ];
 
 export default aHomeRoutes;
