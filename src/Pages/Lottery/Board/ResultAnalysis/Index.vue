@@ -113,7 +113,7 @@
       </div>
     </div>
     <div class="dewdrop-table mb-1" v-for="(oddOrEvensAndaSmallOrLarge , iIndex ) in mergeOddEvenSmallLargeDragonTiger" :key="iIndex">
-      <Result-table 
+      <S-result-table 
         :resultOddOrEvensAndSmallOrLarges="resultOddOrEvensAndSmallOrLarges"
         :rank="checkRanks[iIndex.split('_')[0]]"
         :oddEvenOrSmallOrLarge="iIndex.split('_')[1]"
@@ -140,7 +140,7 @@ import {
   ICheckboxGroup,
   IRadioGroup,
   IDatePicker,
-  ResultTable,
+  SResultTable,
 } from '@/Components/';
 
 import {
@@ -155,7 +155,7 @@ import {
     ICheckboxGroup,
     IRadioGroup,
     IDatePicker,
-    ResultTable,
+    SResultTable,
   },
 })
 class ResultAnalysis extends Vue {

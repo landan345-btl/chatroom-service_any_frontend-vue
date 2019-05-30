@@ -23,7 +23,7 @@ import VLine from './VLine/Index.vue';
 import VHistogram from './VHistogram/Index.vue';
 
 import SNumbers from './SNumbers/Index.vue';
-import ResultTable from './ResultTable/Index.vue';
+import SResultTable from './SResultTable/Index.vue';
 
 // ELEMENT 弃用 !!
 export {
@@ -49,5 +49,5 @@ export {
   VLine,
   VHistogram,
   SNumbers,
-  ResultTable,
+  SResultTable,
 };

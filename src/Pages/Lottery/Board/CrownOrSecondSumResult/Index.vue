@@ -25,7 +25,7 @@
       </div>
     </div>
     <div>
-      <Result-table />
+      <S-result-table />
     </div>
   </div>
 </template>
@@ -44,7 +44,7 @@ import {
   IDivider,
   IRadioGroup,
   ICheckboxGroup,
-  ResultTable,
+  SResultTable,
 } from '@/Components/';
 
 import {
@@ -58,7 +58,7 @@ import {
     IDivider,
     IRadioGroup,
     ICheckboxGroup,
-    ResultTable,
+    SResultTable,
   },
 })
 class CrownOrSecondSumResult extends Vue {

@@ -47,10 +47,10 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
 @Component({
-  name: 'ResultTable',
+  name: 'SResultTable',
 })
 
-class ResultTable extends Vue {
+class SResultTable extends Vue {
   @Prop()
   public resultOddOrEvensAndSmallOrLarges!: any;
 
@@ -107,5 +107,5 @@ class ResultTable extends Vue {
 
 }
 
-export default ResultTable;
+export default SResultTable;
 </script>

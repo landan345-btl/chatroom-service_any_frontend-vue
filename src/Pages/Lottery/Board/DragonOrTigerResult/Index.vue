@@ -40,7 +40,7 @@
       <span @click="callAll">清空</span>
     </div>
     <div>
-      <Result-table />
+      <S-result-table />
     </div>
   </div>
 </template>
@@ -59,7 +59,7 @@ import {
   IDivider,
   IRadioGroup,
   ICheckboxGroup,
-  ResultTable,
+  SResultTable,
 } from '@/Components/';
 
 import {
@@ -73,7 +73,7 @@ import {
     IDivider,
     IRadioGroup,
     ICheckboxGroup,
-    ResultTable,
+    SResultTable,
   },
 })
 class DragonOrTigerResult extends Vue {

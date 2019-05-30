@@ -46,7 +46,7 @@
           <td>18</td>
           <td>19</td>
         </tr>
-        <tr v-for="( lotteryIssue , iIndex ) in getLotteryIssues" :key="iIndex">
+        <tr v-for="( lotteryIssue , iIndex ) in getLotteryIssues" :key="iIndex" class="font-size-1">
           <td class="w-6">{{ lotteryIssue.no }}</td>
           <td>{{ lotteryIssue.opened_time.split(' ')[1] && lotteryIssue.opened_time.split(' ')[1] !==undefined ? lotteryIssue.opened_time.split(' ')[1] : lotteryIssue.opened_time.split(' ')[0]}}</td>
           <td>
@@ -71,7 +71,7 @@
           <td>-</td>
           <td>-</td>
         </tr>
-        <tr class="background-tr">
+        <tr class="background-tr font-size-1p5">
           <td colspan="4" class="font-size-1p5">数据统计</td>
           <td>3</td>
           <td>4</td>
