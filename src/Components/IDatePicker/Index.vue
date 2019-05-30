@@ -1,5 +1,6 @@
 <template>
-  <DatePicker type="date" placeholder="选择日期"></DatePicker>
+  <DatePicker type="date" placeholder="选择日期" @on-change="$emit('on-change', $event)">
+  </DatePicker>
 </template>
 
 <style scoped lang="scss">

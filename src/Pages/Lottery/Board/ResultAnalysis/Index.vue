@@ -7,14 +7,14 @@
         <span class="d-inline-block mt-2" :class=" pattern === 'twoSides' ? 'background-brown':'' " @click="toggleBackground('twoSides')">两面模式</span>
       </span>
       <span class="date-selection d-inline-block text-right">
-        <I-radio-group @input="onChangeDateOrLimit" :value="date" type="button" class="line-height8">
+        <I-radio-group @on-change="onChangeDateOrLimit" :value="date" type="button" class="line-height8">
           <Radio label="TODAY">今天</Radio>
           <Radio label="YESTERDAY">昨天</Radio>
           <Radio label="THE_DAY_BEFORE_YESTERDAY">前天</Radio>
         </I-radio-group>
       </span>
       <span class="float-right d-inline mr-2 ml-2 picker d-xs-none">
-        <I-date-picker :value="date" @input="onChangeDateOrLimit"/>
+        <I-date-picker :value="date" @on-change="onChangeDateOrLimit"/>
       </span>
     </div>
     <I-divider/>
@@ -202,7 +202,6 @@ class ResultAnalysis extends Vue {
           date: _sDate,
           code: this.code,
         };
-        this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
         break;
       case 'YESTERDAY':
         _sDate = moment().subtract(1, 'days').format('YYYY-MM-DD');   
