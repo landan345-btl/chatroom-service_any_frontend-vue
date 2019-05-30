@@ -10,7 +10,7 @@ let oLotteryMutation = {
     // debugger;
     if (mLotteryIssues instanceof Array) {
       oLotteryIssues = mLotteryIssues.reduce((_oLotteryIssues, oLotteryIssue) => {
-        let sKey = oLotteryIssue.lottery_issue_id || oLotteryIssue.lottery_id + oLotteryIssue.opened_time;
+        let sKey = oLotteryIssue.lottery_issue_id || oLotteryIssue.lottery_id + '-' +  oLotteryIssue.no;
         _oLotteryIssues[sKey] = oLotteryIssue;
         return _oLotteryIssues;
       }, {});

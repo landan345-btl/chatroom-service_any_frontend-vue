@@ -14,7 +14,7 @@
         </I-radio-group>
       </span>
       <span class="float-right d-inline mr-2 ml-2 picker d-xs-none">
-        <I-date-picker :value="date" @input="onChangeDateOrLimit"/>
+        <I-date-picker :value="date" @on-change="onChangeDateOrLimit"/>
       </span>
     </div>
     <I-divider/>
@@ -202,7 +202,6 @@ class ResultAnalysis extends Vue {
           date: _sDate,
           code: this.code,
         };
-        this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
         break;
       case 'YESTERDAY':
         _sDate = moment().subtract(1, 'days').format('YYYY-MM-DD');   
@@ -211,9 +210,17 @@ class ResultAnalysis extends Vue {
       case 'LIMIT_30':
         oQueries = {
           limit: 30,
-        }
-      break;  
-     default:
+          code: this.code,
+        };
+      break;
+      default:
+        oQueries = {
+          date: sDate,
+          code: this.code,
+        };
+
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
+
 } 
 
     debugger;
