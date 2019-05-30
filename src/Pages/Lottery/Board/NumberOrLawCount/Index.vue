@@ -201,7 +201,7 @@ class NumberOrLawCount extends Vue {
       code: this.code,
     }
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
-   }
+  }
 
   public onChangeDateOrLimit(sDate: string) {
     let oQueries = {};
