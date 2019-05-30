@@ -7,7 +7,7 @@
         <span class="d-inline-block mt-2" :class=" pattern === 'twoSides' ? 'background-brown':'' " @click="toggleBackground('twoSides')">两面模式</span>
       </span>
       <span class="date-selection d-inline-block text-right">
-        <I-radio-group v-model="ranking" type="button" class="line-height8">
+        <I-radio-group v-model="today" type="button" class="line-height8">
           <Radio label="今天"></Radio>
           <Radio label="昨天"></Radio>
           <Radio label="前天"></Radio>
@@ -21,6 +21,7 @@
     <div class="p-2" v-show=" pattern === 'synthesize'">
       <div class="rank-select">
         <p class="mt-1">
+          <span>筛选名次：</span>
           <I-checkbox-group class="d-inline-block mr-2" v-model="checkRanks">
             <Checkbox label="冠军">&nbsp;冠军</Checkbox>
             <Checkbox label="亚军">&nbsp;亚军</Checkbox>
@@ -211,7 +212,7 @@ class ResultAnalysis extends Vue {
   ];
 
   public pattern = 'synthesize';
-  public ranking = '今天';
+  public today = '今天';
 
   public toggleBackground( pattern: string ) {
     this.pattern = pattern;
