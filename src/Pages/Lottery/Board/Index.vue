@@ -17,7 +17,8 @@
           :dragonOrTigerResult="dragonOrTigerResult"
           :dragonOrTigerCount="dragonOrTigerCount"
           :firstAndSecondSummation="firstAndSecondSummation"
-          :firstAndSecondSummationCount="firstAndSecondSummationCount"/>
+          :firstAndSecondSummationCount="firstAndSecondSummationCount"
+          :code="code"/>
       </TabPane>
       <TabPane :label="'冷热分析'" :name="'popular-anaylysis'" v-if="['PK10'].includes(types.toUpperCase())">
         <Popular-analysis v-if="code && types" :code="code" :types="types"/>
