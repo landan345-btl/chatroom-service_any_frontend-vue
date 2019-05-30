@@ -215,9 +215,7 @@ class ResultAnalysis extends Vue {
         }
       break;  
      default:
-} 
-
-    debugger;
+    } 
   }
 
   public toggleOddEvent: any = ['small' , 'odd' , 'dragon' , 'guanyaodd' , 'guanyasmall' ];
