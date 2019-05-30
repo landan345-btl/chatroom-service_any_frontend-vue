@@ -32,6 +32,9 @@
       display: inline-block;
       }
     }
+    .padding-0p5 {
+      padding-top: 0.5vmin;
+    }
     tr:nth-child(n+3) {
       td {
         line-height: 4vmin;
@@ -42,7 +45,9 @@
     }
     tr:nth-child(1),tr:nth-child(2) {
       background: #ebebeb;
+      height: 2.2vmin;
       i {
+        position: relative;
         top: 1.2vmin;
       }
     }

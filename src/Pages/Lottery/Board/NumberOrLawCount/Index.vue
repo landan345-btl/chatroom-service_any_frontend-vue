@@ -26,24 +26,24 @@
       <V-histogram  :data="getVhistogramDataAndSettings.data" :settings="getVhistogramDataAndSettings.settings"/>
     </div>
     <div class="p-2 law-count-table">
-       <table class="w-100 font-size-1p5">
-        <tr class="background-tr">
-          <th class="w-10" rowspan="2"><i class="position-relative">期号</i></th>
-          <th rowspan="2" class="w-10"><i class="position-relative">时间</i></th>
+      <table class="w-100 font-size-1p5">
+        <tr>
+          <th class="w-10" rowspan="2"><i>期号</i></th>
+          <th rowspan="2" class="w-10"><i>时间</i></th>
           <th rowspan="2" colspan="3" class="w-42">
-            <i class="position-relative">同位开奖号码分布:&nbsp;
+            <i>同位开奖号码分布:&nbsp;
               <Checkbox v-model="isPositionShowed"></Checkbox>
             显示同位号码</i> 
           </th>
-          <th rowspan="2" class="w-10"><i class="position-relative">升平降</i></th>
-          <th colspan="2">单双</th>
-          <th colspan="2">大小</th>
+          <th rowspan="2" class="w-10"><i>升平降</i></th>
+          <th colspan="2" class="padding-0p5">单双</th>
+          <th colspan="2" class="padding-0p5">大小</th>
         </tr>
         <tr>
-          <th>单</th>
-          <th>双</th>
-          <th>大</th>
-          <th>小</th>
+          <th class="padding-0p5">单</th>
+          <th class="padding-0p5">双</th>
+          <th class="padding-0p5">大</th>
+          <th class="padding-0p5">小</th>
         </tr>
         <tr v-for="( lotteryIssue ,ikey ) in getLotteryIssues" :key="ikey">
           <td>{{lotteryIssue.no}}</td>
@@ -58,7 +58,7 @@
               :isRandom="false"
               :previousNumbers="ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): []"
               :class="[number ? 'status-number-previous-' + number : '']"
-               />
+              />
           </td>
           <td 
             :class="{
