@@ -7,14 +7,21 @@
         <span class="d-inline-block mt-2" :class=" pattern === 'twoSides' ? 'background-brown':'' " @click="toggleBackground('twoSides')">两面模式</span>
       </span>
       <span class="date-selection d-inline-block text-right">
+<<<<<<< HEAD
         <I-radio-group v-model="today" type="button" class="line-height8">
           <Radio label="今天"></Radio>
           <Radio label="昨天"></Radio>
           <Radio label="前天"></Radio>
+=======
+        <I-radio-group @input="onChangeDateOrLimit" :value="date" type="button" class="line-height8">
+          <Radio label="TODAY">今天</Radio>
+          <Radio label="YESTERDAY">昨天</Radio>
+          <Radio label="THE_DAY_BEFORE_YESTERDAY">前天</Radio>
+>>>>>>> develop
         </I-radio-group>
       </span>
       <span class="float-right d-inline mr-2 ml-2 picker d-xs-none">
-        <I-date-picker />
+        <I-date-picker :value="date" @input="onChangeDateOrLimit"/>
       </span>
     </div>
     <I-divider/>
@@ -129,6 +136,8 @@
 
 </style>
 <script lang="ts">
+import moment from 'moment';
+
 import {
   Component,
   Vue,
@@ -178,13 +187,44 @@ class ResultAnalysis extends Vue {
   @Prop()
   public firstAndSecondSummationCount!: any;
 
+  @Prop()
+  public code!: string;
+
   public get mergeOddEvenSmallLargeDragonTiger() {
-    let result = {
+    let oResult = {
       ...this.resultOddOrEvensAndSmallOrLarges,
       ...this.dragonOrTigerResult,
       ...this.firstAndSecondSummation,
     }; 
-    return result;
+    return oResult;
+  }
+
+  public onChangeDateOrLimit(sDate: string) {
+    debugger;
+    let oQueries = {};
+    let _sDate = ''
+    switch(sDate) {
+      case 'TODAY':
+        _sDate = moment().format('YYYY-MM-DD');   
+        oQueries = {
+          date: _sDate,
+          code: this.code,
+        };
+        this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
+        break;
+      case 'YESTERDAY':
+        _sDate = moment().subtract(1, 'days').format('YYYY-MM-DD');   
+
+        break;
+      case 'LIMIT_30':
+        oQueries = {
+          limit: 30,
+        }
+      break;  
+     default:
+} 
+
+    debugger;
   }
 
   public toggleOddEvent: any = ['small' , 'odd' , 'dragon' , 'guanyaodd' , 'guanyasmall' ];
@@ -212,7 +252,11 @@ class ResultAnalysis extends Vue {
   ];
 
   public pattern = 'synthesize';
+<<<<<<< HEAD
   public today = '今天';
+=======
+  public date = 'TODAY';
+>>>>>>> develop
 
   public toggleBackground( pattern: string ) {
     this.pattern = pattern;
