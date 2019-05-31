@@ -13,6 +13,7 @@ import linkToQuery from '@/utilities/linkToQuery/index';
 import isUpOrDownByPar from '@/filters/isUpOrDownByPar/index';
 import parNumber from '@/filters/parNumber/index';
 import isZeroOrOneOrTwo from '@/filters/isZeroOrOneOrTwo/index';
+import isUpOrDownByRank from '@/filters/isUpOrDownByRank/index';
 
 let oUltilityPlugin = {
   // The install method is all that needs to exist on the plugin object.
@@ -44,6 +45,7 @@ let oUltilityPlugin = {
     Vue.prototype.isUpOrDownByPar = isUpOrDownByPar;
     Vue.prototype.parNumber = parNumber;
     Vue.prototype.isZeroOrOneOrTwo = isZeroOrOneOrTwo;
+    Vue.prototype.isUpOrDownByRank = isUpOrDownByRank;
   },
 };
 

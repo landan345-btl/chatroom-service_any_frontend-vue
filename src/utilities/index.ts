@@ -21,6 +21,7 @@ import numbersToSmallOrLargeStrings from './numbersToSmallOrLargeStrings/';
 import selectType from './selectType/';
 import cparNumber from './parNumber/';
 import cIsZeroOrOneOrTwo from './isZeroOrOneOrTwo/';
+import cIsUpOrDownByRank from './isUpOrDownByRank/';
 
 export {
   selectType,
@@ -46,4 +47,5 @@ export {
   cisUpOrDownByPar as isUpOrDownByPar,
   cparNumber as parNumber,
   cIsZeroOrOneOrTwo as isZeroOrOneOrTwo,
+  cIsUpOrDownByRank as isUpOrDownByRank,
 };

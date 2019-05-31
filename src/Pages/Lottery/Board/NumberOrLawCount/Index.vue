@@ -79,8 +79,7 @@
           <td>
             <span 
               v-if="'单' === 
-              isOddOrEven(parNumber(JSON.parse(lotteryIssue.numbers), 
-              ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], 
+              isOddOrEven(parNumber(JSON.parse(lotteryIssue.numbers),ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], 
               number))">
                 {{ JSON.parse(lotteryIssue.numbers) | 
                 parNumber(ikey < JSON.parse(getLotteryIssues.length - 1) ? 

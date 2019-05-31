@@ -130,9 +130,39 @@
               {{JSON.parse(lotteryIssue.numbers) | substr(0) | isZeroOrOneOrTwo}}
             </template>
           </td>
-          <td>{{JSON.parse(lotteryIssue.numbers) | substr(0)}}</td>
-          <td>16</td>
-          <td>16</td>
+          <td 
+             :class="'升' === 
+             isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), 0 ),index < JSON.parse(getLotteryIssues.length - 1) ? 
+             JSON.parse(getLotteryIssues[index + 1].numbers): [], 0) ? 'background-blue-font-white' : ''
+             ">
+            <template 
+              v-if="'升' === 
+              isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), 0 ),index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], 0)">
+              {{JSON.parse(lotteryIssue.numbers) | substr(0) | isUpOrDownByRank(index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], 0)}}
+            </template>
+          </td>
+          <td 
+             :class="'平' === 
+             isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), 0 ),index < JSON.parse(getLotteryIssues.length - 1) ? 
+             JSON.parse(getLotteryIssues[index + 1].numbers): [], 0) ? 'background-orange-font-white' : ''
+             ">
+            <template 
+              v-if="'平' === 
+              isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), 0 ),index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], 0)">
+              {{JSON.parse(lotteryIssue.numbers) | substr(0) | isUpOrDownByRank(index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], 0)}}
+            </template>
+          </td>
+          <td 
+             :class="'降' === 
+             isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), 0 ),index < JSON.parse(getLotteryIssues.length - 1) ? 
+             JSON.parse(getLotteryIssues[index + 1].numbers): [], 0) ? 'background-blue-font-white' : ''
+             ">
+            <template 
+              v-if="'降' === 
+              isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), 0 ),index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], 0)">
+              {{JSON.parse(lotteryIssue.numbers) | substr(0) | isUpOrDownByRank(index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], 0)}}
+            </template>
+          </td>
         </tr>
         <tr class="background-tr">
           <td rowspan="2" colspan="2"><span>数据统计</span></td>
