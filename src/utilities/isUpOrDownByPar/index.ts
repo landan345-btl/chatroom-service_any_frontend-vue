@@ -1,7 +1,7 @@
 const UP: string = '升';
 const DOWN: string = '降';
 const FLAT: string = '平';
-let isUpOrDown = (aNumbers: number[], aPreviousNumberss: number[], bPreviousNumberss: number[] , iPreviousNumber: number): any => {
+let isUpOrDownByPar = (aNumbers: number[], aPreviousNumberss: number[], bPreviousNumberss: number[] , iPreviousNumber: number): any => {
   let presentNumber = aNumbers[aPreviousNumberss.indexOf(iPreviousNumber)];
   let nextNumber = aPreviousNumberss[bPreviousNumberss.indexOf(iPreviousNumber)];
   if(presentNumber > nextNumber) {
@@ -15,4 +15,4 @@ let isUpOrDown = (aNumbers: number[], aPreviousNumberss: number[], bPreviousNumb
   }
 };
 
-export default isUpOrDown;
+export default isUpOrDownByPar;

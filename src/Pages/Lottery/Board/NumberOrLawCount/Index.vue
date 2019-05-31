@@ -62,16 +62,17 @@
           </td>
           <td 
             :class="{
-            'color-red': '升' === isUpOrDown(JSON.parse(lotteryIssue.numbers),
-            ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
-            ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
-            number),
-            'color-deepskyblue': '降' === isUpOrDown(JSON.parse(lotteryIssue.numbers),
-            ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
-            ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
-            number)}">
+            'color-red': '升' === isUpOrDownByPar(JSON.parse(lotteryIssue.numbers),
+                                  ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
+                                  ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
+                                  number),
+            'color-deepskyblue': '降' === isUpOrDownByPar(JSON.parse(lotteryIssue.numbers),
+                                          ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
+                                          ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
+                                          number)}"
+              >
               {{ JSON.parse(lotteryIssue.numbers) | 
-              isUpOrDown(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
+              isUpOrDownByPar(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
               ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
               number) }}
           </td>

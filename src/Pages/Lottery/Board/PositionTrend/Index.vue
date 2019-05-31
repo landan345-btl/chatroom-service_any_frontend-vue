@@ -89,13 +89,13 @@
           <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),0) === 8 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(0)}}</span></td>
           <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),0) === 9 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(0)}}</span></td>
           <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),0) === 10 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(0)}}</span></td>
-          <td :class="'单'=== isOddOrEven(substr(JSON.parse(lotteryIssue.numbers),0))?'background-blue-font-white':''">
+          <td :class="'单'=== isOddOrEven(substr(JSON.parse(lotteryIssue.numbers),0))?'background-orange-font-white':''">
             <template 
               v-if="'单'=== isOddOrEven(substr(JSON.parse(lotteryIssue.numbers),0))">
               {{JSON.parse(lotteryIssue.numbers) | substr(0) | isOddOrEven}}
             </template >
           </td>
-          <td :class="'双'=== isOddOrEven(substr(JSON.parse(lotteryIssue.numbers),0))?'background-orange-font-white':''">
+          <td :class="'双'=== isOddOrEven(substr(JSON.parse(lotteryIssue.numbers),0))?'background-blue-font-white':''">
             <template 
               v-if="'双'=== isOddOrEven(substr(JSON.parse(lotteryIssue.numbers),0))">
               {{JSON.parse(lotteryIssue.numbers) | substr(0) | isOddOrEven}}
@@ -115,20 +115,22 @@
           </td>
           <td>16</td>
           <td>16</td>
-          <td :class="'0' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))?'background-blue-font-white':''">
+          <td :class="'0' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))?'background-orange-font-white':''">
             <template v-if="'0' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))">
               {{JSON.parse(lotteryIssue.numbers) | substr(0) | isZeroOrOneOrTwo}}
-            </template></td>
-          <td :class="'1' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))?'background-orange-font-white':''">
+            </template>
+          </td>
+          <td :class="'1' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))?'background-blue-font-white':''">
             <template v-if="'1' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))">
               {{JSON.parse(lotteryIssue.numbers) | substr(0) | isZeroOrOneOrTwo}}
-            </template></td>
-          <td :class="'2' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))?'background-blue-font-white':''">
+            </template>
+          </td>
+          <td :class="'2' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))?'background-orange-font-white':''">
             <template v-if="'2' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))">
               {{JSON.parse(lotteryIssue.numbers) | substr(0) | isZeroOrOneOrTwo}}
             </template>
           </td>
-          <td>16</td>
+          <td>{{JSON.parse(lotteryIssue.numbers) | substr(0)}}</td>
           <td>16</td>
           <td>16</td>
         </tr>
