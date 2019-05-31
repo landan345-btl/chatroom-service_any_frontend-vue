@@ -31,13 +31,10 @@
     </div>
     <div class="pl-2 pr-2 font-size-1p5">
       <I-radio-group @on-change="checkRank = $event" :value="checkRank" type="button" class="line-height3">
-        <Radio :label="sKey" v-for="(rank, sKey) in positionRanks" :key="sKey">{{ rank }}</Radio>
+        <Radio :label="sKey" v-for="(rank, sKey) in texts[ types ]" :key="sKey">{{ rank }}</Radio>
       </I-radio-group>
-      <I-checkbox-group v-model="decorator">
-        <Checkbox label="遗漏"></Checkbox>
-        <Checkbox label="折线"></Checkbox>
-        <Checkbox label="遗漏分层"></Checkbox>
-        <Checkbox label="分隔线"></Checkbox>
+      <I-checkbox-group @on-change="pitchOn = $event" :value="pitchOn">
+        <Checkbox :label="sIndex" v-for="(option, sIndex) in decorator" :key="sIndex" :true-value="pitchOn">{{ option }}</Checkbox>
       </I-checkbox-group>
     </div>
     <div class="p-2">
@@ -45,7 +42,7 @@
         <tr class="background-tr">
           <td rowspan="2" class="pl-1 pr-1"><span>期号</span></td>
           <td rowspan="2"><span>开奖号码</span> </td>
-          <td colspan="10">冠军分布</td>
+            <td colspan="10">{{ types && texts[types] && texts[types][checkRank]? texts[types][checkRank ] : '第' + checkRank + '球' }}分布</td>
           <td colspan="6">形态特征</td>
           <td colspan="3">012路</td>
           <td colspan="3">升平降</td>
@@ -74,106 +71,106 @@
           <td>平</td>
           <td>降</td>
         </tr>
-        <tr v-for="(lotteryIssue, index ) in getLotteryIssues" :key="index">
+        <tr v-for="(lotteryIssue, index ) in getLotteryIssues" :key="index" :class="pitchOn==true?'lottery-number':''">
           <td>{{ lotteryIssue.no }}</td>
-          <td class="w-15 lottery-red"> 
-            <span v-for="(iNumbers, iIndex) in JSON.parse(lotteryIssue.numbers)" :key="iIndex">{{iNumbers}}</span>
+          <td class="w-15"> 
+            <span :class="[iIndex === checkRank ? 'color-red': '']" v-for="(iNumbers, iIndex) in JSON.parse(lotteryIssue.numbers)" :key="iIndex">{{iNumbers}}</span>
           </td>
-          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),0) === 1 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(0)}}</span></td>
-          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),0) === 2 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(0)}}</span></td>
-          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),0) === 3 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(0)}}</span></td>
-          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),0) === 4 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(0)}}</span></td>
-          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),0) === 5 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(0)}}</span></td>
-          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),0) === 6 ? 'background-orange-0':'d-none'">{{ JSON.parse(lotteryIssue.numbers) | substr(0) }}</span></td>
-          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),0) === 7 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(0)}}</span></td>
-          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),0) === 8 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(0)}}</span></td>
-          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),0) === 9 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(0)}}</span></td>
-          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),0) === 10 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(0)}}</span></td>
-          <td :class="'单'=== isOddOrEven(substr(JSON.parse(lotteryIssue.numbers),0))?'background-orange-font-white':''">
+          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 1 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(checkRank)}}</span></td>
+          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 2 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(checkRank)}}</span></td>
+          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 3 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(checkRank)}}</span></td>
+          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 4 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(checkRank)}}</span></td>
+          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 5 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(checkRank)}}</span></td>
+          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 6 ? 'background-orange-0':'d-none'">{{ JSON.parse(lotteryIssue.numbers) | substr(checkRank) }}</span></td>
+          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 7 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(checkRank)}}</span></td>
+          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 8 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(checkRank)}}</span></td>
+          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 9 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(checkRank)}}</span></td>
+          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 10 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(checkRank)}}</span></td>
+          <td :class="'单'=== isOddOrEven(substr(JSON.parse(lotteryIssue.numbers),checkRank))?'background-orange-font-white':''">
             <template 
-              v-if="'单'=== isOddOrEven(substr(JSON.parse(lotteryIssue.numbers),0))">
-              {{JSON.parse(lotteryIssue.numbers) | substr(0) | isOddOrEven}}
+              v-if="'单'=== isOddOrEven(substr(JSON.parse(lotteryIssue.numbers),checkRank))">
+              {{JSON.parse(lotteryIssue.numbers) | substr(checkRank) | isOddOrEven}}
             </template >
           </td>
-          <td :class="'双'=== isOddOrEven(substr(JSON.parse(lotteryIssue.numbers),0))?'background-blue-font-white':''">
+          <td :class="'双'=== isOddOrEven(substr(JSON.parse(lotteryIssue.numbers),checkRank))?'background-blue-font-white':''">
             <template 
-              v-if="'双'=== isOddOrEven(substr(JSON.parse(lotteryIssue.numbers),0))">
-              {{JSON.parse(lotteryIssue.numbers) | substr(0) | isOddOrEven}}
+              v-if="'双'=== isOddOrEven(substr(JSON.parse(lotteryIssue.numbers),checkRank))">
+              {{JSON.parse(lotteryIssue.numbers) | substr(checkRank) | isOddOrEven}}
             </template >
           </td>
-          <td :class="'大'=== isSmallOrLarge(substr(JSON.parse(lotteryIssue.numbers),0),5,5)?'background-orange-font-white':''">
+          <td :class="'大'=== isSmallOrLarge(substr(JSON.parse(lotteryIssue.numbers),checkRank),5,5)?'background-orange-font-white':''">
             <template  
-              v-if="'大'=== isSmallOrLarge(substr(JSON.parse(lotteryIssue.numbers),0),5,5)">
-              {{JSON.parse(lotteryIssue.numbers) | substr(0) | isSmallOrLarge(5,5)}}
+              v-if="'大'=== isSmallOrLarge(substr(JSON.parse(lotteryIssue.numbers),checkRank),5,5)">
+              {{JSON.parse(lotteryIssue.numbers) | substr(checkRank) | isSmallOrLarge(5,5)}}
             </template >
           </td>
-          <td :class="'小'=== isSmallOrLarge(substr(JSON.parse(lotteryIssue.numbers),0),5,5)?'background-blue-font-white':''">
+          <td :class="'小'=== isSmallOrLarge(substr(JSON.parse(lotteryIssue.numbers),checkRank),5,5)?'background-blue-font-white':''">
             <template 
-              v-if="'小'=== isSmallOrLarge(substr(JSON.parse(lotteryIssue.numbers),0),5,5)">
-              {{JSON.parse(lotteryIssue.numbers) | substr(0) | isSmallOrLarge(5,5)}}
+              v-if="'小'=== isSmallOrLarge(substr(JSON.parse(lotteryIssue.numbers),checkRank),5,5)">
+              {{JSON.parse(lotteryIssue.numbers) | substr(checkRank) | isSmallOrLarge(5,5)}}
             </template>
           </td>
-          <td :class="'质' === isPrimeOrcompositeNumbers(substr(JSON.parse(lotteryIssue.numbers),0))? 'background-orange-font-white': ''">
-            <template v-if="'质' === isPrimeOrcompositeNumbers(substr(JSON.parse(lotteryIssue.numbers),0))">
-              {{JSON.parse(lotteryIssue.numbers)| substr(0) | isPrimeOrcompositeNumbers}}
+          <td :class="'质' === isPrimeOrcompositeNumbers(substr(JSON.parse(lotteryIssue.numbers),checkRank))? 'background-orange-font-white': ''">
+            <template v-if="'质' === isPrimeOrcompositeNumbers(substr(JSON.parse(lotteryIssue.numbers),checkRank))">
+              {{JSON.parse(lotteryIssue.numbers)| substr(checkRank) | isPrimeOrcompositeNumbers}}
             </template>
           </td>
-          <td :class="'合' === isPrimeOrcompositeNumbers(substr(JSON.parse(lotteryIssue.numbers),0))? 'background-blue-font-white': ''">
-            <template v-if="'合' === isPrimeOrcompositeNumbers(substr(JSON.parse(lotteryIssue.numbers),0))">
-              {{JSON.parse(lotteryIssue.numbers)| substr(0) | isPrimeOrcompositeNumbers}}
+          <td :class="'合' === isPrimeOrcompositeNumbers(substr(JSON.parse(lotteryIssue.numbers),checkRank))? 'background-blue-font-white': ''">
+            <template v-if="'合' === isPrimeOrcompositeNumbers(substr(JSON.parse(lotteryIssue.numbers),checkRank))">
+              {{JSON.parse(lotteryIssue.numbers)| substr(checkRank) | isPrimeOrcompositeNumbers}}
             </template></td>
-          <td :class="'0' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))?'background-orange-font-white':''">
-            <template v-if="'0' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))">
-              {{JSON.parse(lotteryIssue.numbers) | substr(0) | isZeroOrOneOrTwo}}
+          <td :class="'0' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),checkRank))?'background-orange-font-white':''">
+            <template v-if="'0' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),checkRank))">
+              {{JSON.parse(lotteryIssue.numbers) | substr(checkRank) | isZeroOrOneOrTwo}}
             </template>
           </td>
-          <td :class="'1' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))?'background-blue-font-white':''">
-            <template v-if="'1' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))">
-              {{JSON.parse(lotteryIssue.numbers) | substr(0) | isZeroOrOneOrTwo}}
+          <td :class="'1' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),checkRank))?'background-blue-font-white':''">
+            <template v-if="'1' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),checkRank))">
+              {{JSON.parse(lotteryIssue.numbers) | substr(checkRank) | isZeroOrOneOrTwo}}
             </template>
           </td>
-          <td :class="'2' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))?'background-orange-font-white':''">
-            <template v-if="'2' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))">
-              {{JSON.parse(lotteryIssue.numbers) | substr(0) | isZeroOrOneOrTwo}}
+          <td :class="'2' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),checkRank))?'background-orange-font-white':''">
+            <template v-if="'2' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),checkRank))">
+              {{JSON.parse(lotteryIssue.numbers) | substr(checkRank) | isZeroOrOneOrTwo}}
             </template>
           </td>
           <td 
-             :class="'升' === 
-             isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), 0 ),index < JSON.parse(getLotteryIssues.length - 1) ? 
-             JSON.parse(getLotteryIssues[index + 1].numbers): [], 0) ? 'background-blue-font-white' : ''
-             ">
+            :class="'升' === 
+            isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), checkRank ),index < JSON.parse(getLotteryIssues.length - 1) ? 
+            JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank) ? 'background-blue-font-white' : ''
+            ">
             <template 
               v-if="'升' === 
-              isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), 0 ),index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], 0)">
-              {{JSON.parse(lotteryIssue.numbers) | substr(0) | isUpOrDownByRank(index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], 0)}}
+              isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), checkRank ),index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank)">
+              {{JSON.parse(lotteryIssue.numbers) | substr(checkRank) | isUpOrDownByRank(index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank)}}
             </template>
           </td>
           <td 
-             :class="'平' === 
-             isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), 0 ),index < JSON.parse(getLotteryIssues.length - 1) ? 
-             JSON.parse(getLotteryIssues[index + 1].numbers): [], 0) ? 'background-orange-font-white' : ''
-             ">
+            :class="'平' === 
+            isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), checkRank ),index < JSON.parse(getLotteryIssues.length - 1) ? 
+            JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank) ? 'background-orange-font-white' : ''
+            ">
             <template 
               v-if="'平' === 
-              isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), 0 ),index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], 0)">
-              {{JSON.parse(lotteryIssue.numbers) | substr(0) | isUpOrDownByRank(index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], 0)}}
+              isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), checkRank ),index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank)">
+              {{JSON.parse(lotteryIssue.numbers) | substr(checkRank) | isUpOrDownByRank(index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank)}}
             </template>
           </td>
           <td 
-             :class="'降' === 
-             isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), 0 ),index < JSON.parse(getLotteryIssues.length - 1) ? 
-             JSON.parse(getLotteryIssues[index + 1].numbers): [], 0) ? 'background-blue-font-white' : ''
-             ">
+            :class="'降' === 
+            isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), checkRank ),index < JSON.parse(getLotteryIssues.length - 1) ? 
+            JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank) ? 'background-blue-font-white' : ''
+            ">
             <template 
               v-if="'降' === 
-              isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), 0 ),index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], 0)">
-              {{JSON.parse(lotteryIssue.numbers) | substr(0) | isUpOrDownByRank(index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], 0)}}
+              isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), checkRank ),index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank)">
+              {{JSON.parse(lotteryIssue.numbers) | substr(checkRank) | isUpOrDownByRank(index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank)}}
             </template>
           </td>
         </tr>
         <tr class="background-tr">
           <td rowspan="2" colspan="2"><span>数据统计</span></td>
-          <td colspan="10">冠军分布</td>
+          <td colspan="10">{{ types && texts[types] && texts[types][checkRank]? texts[types][checkRank ] : '第' + checkRank + '球' }}分布</td>
           <td colspan="6">形态特征</td>
           <td colspan="3">012路</td>
           <td colspan="3">升平降</td>
@@ -379,21 +376,34 @@ class PositionTrend extends Vue {
   public types!: any;
 
   public date = '今天';
-  public checkRank = 'CHAMPION';
-  public decorator = ['遗漏', ];
+  public checkRank: number = 0;
+  public pitchOn = 'OMIT';
+  public decorator: object = {
+    OMIT: '遗漏',
+    TAKE_OUT_STITCHES: '折线',
+    OMIT_HIERARCHY: '遗漏分层',
+    CUTOFF_RULE: '分割线',
+  }
+
+  public isFalse:boolean = false;
 
   public positionRanks: object = {
-      CHAMPION: '冠军',
-      SECOND: '亚军',
-      THIRD: '第三名',
-      FOURTH: '第四名',
-      FIFTH: '第五名',
-      SIXTH: '第六名',
-      SEVENTH: '第七名',
-      EIGHTH: '第八名',
-      NINTH: '第九名',
-      TENTH: '第十名',
-    }
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 7,
+    8: 8,
+    9: 9,
+    10: 10,
+  }
+
+ public texts = {
+    PK10: ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名', ],
+    SSC: [ '第一球', '第二球', '第三球', '第四球', '第五球', ],
+  };  
 
   public get getLotteryIssues (): object {
     let oLotteryIssues = this.lotteryIssues;
