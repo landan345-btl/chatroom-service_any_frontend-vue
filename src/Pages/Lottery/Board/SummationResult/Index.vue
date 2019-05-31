@@ -35,7 +35,7 @@ import {
 import {
   IDatePicker,
   IDivider,
-  ResultTable,
+  SResultTable,
 } from '@/Components/';
 
 import {
@@ -46,7 +46,7 @@ import {
   name: 'SummationResult',
   components: {
     IDatePicker,
-    ResultTable,
+    SResultTable,
     IDivider,
   },
 })
