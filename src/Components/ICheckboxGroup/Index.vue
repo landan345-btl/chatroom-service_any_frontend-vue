@@ -1,5 +1,5 @@
 <template>
-  <CheckboxGroup :value="value" @input="$emit('input', $event)">
+  <CheckboxGroup :value="value" @on-change="$emit('on-change', $event)">
     <slot></slot>
   </CheckboxGroup>
 </template>

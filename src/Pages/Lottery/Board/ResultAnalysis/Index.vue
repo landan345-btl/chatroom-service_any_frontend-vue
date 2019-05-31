@@ -42,7 +42,7 @@
       <div class="rank-select dewdrop">
         <p class="mt-1">
           <span>筛选路珠：</span>
-          <I-checkbox-group class="d-inline-block mr-2" @input="ranks" :value="checkAnalysis">
+          <I-checkbox-group class="d-inline-block mr-2" @on-change="ranks" :value="checkAnalysis">
             <Checkbox label="大小">&nbsp;大小</Checkbox>
             <Checkbox label="单双">&nbsp;单双</Checkbox>
             <Checkbox label="龙虎">&nbsp;龙虎</Checkbox>
@@ -216,9 +216,9 @@ class ResultAnalysis extends Vue {
     } 
   }
 
-  // public ranks(sRank: string) {
-  //   alert(sRank);
-  // }
+  public ranks(sRank: string) {
+   //  console.log(sRank);
+  }
 
   public toggleOddEvent: any = ['small' , 'odd' , 'dragon' , 'guanyaodd' , 'guanyasmall' ];
   public checkRanks: any = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名','冠亚和'];
