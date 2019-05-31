@@ -33,8 +33,8 @@
       <I-radio-group @on-change="checkRank = $event" :value="checkRank" type="button" class="line-height3">
         <Radio :label="sKey" v-for="(rank, sKey) in texts[ types ]" :key="sKey">{{ rank }}</Radio>
       </I-radio-group>
-      <I-checkbox-group @on-change="pitchOn = $event" :value="pitchOn" :true-value="pitchOn">
-        <Checkbox :label="sIndex" v-for="(option, sIndex) in decorator" :key="sIndex">{{ option }}</Checkbox>
+      <I-checkbox-group @on-change="pitchOn = $event" :value="pitchOn">
+        <Checkbox :label="sIndex" v-for="(option, sIndex) in decorator" :key="sIndex" :true-value="pitchOn">{{ option }}</Checkbox>
       </I-checkbox-group>
     </div>
     <div class="p-2">
@@ -71,7 +71,7 @@
           <td>平</td>
           <td>降</td>
         </tr>
-        <tr v-for="(lotteryIssue, index ) in getLotteryIssues" :key="index" :class="pitchOn===true?'lottery-number':''">
+        <tr v-for="(lotteryIssue, index ) in getLotteryIssues" :key="index" :class="pitchOn==true?'lottery-number':''">
           <td>{{ lotteryIssue.no }}</td>
           <td class="w-15"> 
             <span :class="[iIndex === checkRank ? 'color-red': '']" v-for="(iNumbers, iIndex) in JSON.parse(lotteryIssue.numbers)" :key="iIndex">{{iNumbers}}</span>
@@ -385,7 +385,7 @@ class PositionTrend extends Vue {
     CUTOFF_RULE: '分割线',
   }
 
-  public divide:boolean = false;
+  public isFalse:boolean = false;
 
   public positionRanks: object = {
     1: 1,
