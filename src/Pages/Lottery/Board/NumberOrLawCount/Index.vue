@@ -204,46 +204,41 @@ class NumberOrLawCount extends Vue {
           date: _sDate,
           code: this.code,
         };
-        this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
         break;
       case 'YESTERDAY':
         _sDate = moment().subtract(1, 'days').format('YYYY-MM-DD');
         oQueries = {
           date: _sDate,
           code: this.code,
-        }   
-        this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
+        }
         break;
-      case 'BEFOREYESTERDAY':
+      case 'THE_DAY_BEFORE_YESTERDAY':
         _sDate = moment().subtract(2, 'days').format('YYYY-MM-DD');
         oQueries = {
           date: _sDate,
           code: this.code,
-        }   
-        this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
+        }
         break;
       case 'LIMIT_30':
         oQueries = {
           limit: 30,
           code: this.code,
         }
-        this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
         break;  
       case 'LIMIT_60':
         oQueries = {
           limit: 60,
           code: this.code,
         }
-        this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
         break; 
       case 'LIMIT_90':
         oQueries = {
           limit: 90,
           code: this.code,
         }
-        this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
         break; 
     } 
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
   }
 
   public created() {

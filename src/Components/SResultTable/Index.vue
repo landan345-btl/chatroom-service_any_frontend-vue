@@ -104,8 +104,8 @@ class SResultTable extends Vue {
 
   public get isOddOrEvenOrSmallOrLarge() {
     let aOddEvenOrSmallOrLarge: any = {
-      smallOrLarge: '大小',
-      oddOrEven: '单双',
+      small_Large: '大小',
+      odd_Even: '单双',
       odd: '单双',
       small: '大小',
       dragon: '龙虎',

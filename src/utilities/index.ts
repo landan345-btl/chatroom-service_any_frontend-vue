@@ -22,6 +22,7 @@ import selectType from './selectType/';
 import cparNumber from './parNumber/';
 import cIsZeroOrOneOrTwo from './isZeroOrOneOrTwo/';
 import cIsUpOrDownByRank from './isUpOrDownByRank/';
+import cIsPrimeOrcompositeNumbers from './isPrimeOrcompositeNumbers/';
 
 export {
   selectType,
@@ -48,4 +49,5 @@ export {
   cparNumber as parNumber,
   cIsZeroOrOneOrTwo as isZeroOrOneOrTwo,
   cIsUpOrDownByRank as isUpOrDownByRank,
+  cIsPrimeOrcompositeNumbers as isPrimeOrcompositeNumbers,
 };

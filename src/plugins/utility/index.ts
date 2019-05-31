@@ -14,6 +14,7 @@ import isUpOrDownByPar from '@/filters/isUpOrDownByPar/index';
 import parNumber from '@/filters/parNumber/index';
 import isZeroOrOneOrTwo from '@/filters/isZeroOrOneOrTwo/index';
 import isUpOrDownByRank from '@/filters/isUpOrDownByRank/index';
+import isPrimeOrcompositeNumbers from '@/filters/isPrimeOrcompositeNumbers/index';
 
 let oUltilityPlugin = {
   // The install method is all that needs to exist on the plugin object.
@@ -46,6 +47,7 @@ let oUltilityPlugin = {
     Vue.prototype.parNumber = parNumber;
     Vue.prototype.isZeroOrOneOrTwo = isZeroOrOneOrTwo;
     Vue.prototype.isUpOrDownByRank = isUpOrDownByRank;
+    Vue.prototype.isPrimeOrcompositeNumbers = isPrimeOrcompositeNumbers;
   },
 };
 

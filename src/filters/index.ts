@@ -15,6 +15,7 @@ import cJSONparse from './JSONparse/';
 import cisUpOrDownByPar from './isUpOrDownByPar/';
 import cParNumber from './parNumber/'; 
 import cIsUpOrDownByRank from './isUpOrDownByRank/';
+import cIsPrimeOrcompositeNumbers from "./isPrimeOrcompositeNumbers";
 
 export {
   cCount as count,
@@ -34,4 +35,5 @@ export {
   cisUpOrDownByPar as isUpOrDownByPar,
   cParNumber as parNumber,
   cIsUpOrDownByRank as isUpOrDownByRank,
+  cIsPrimeOrcompositeNumbers as isPrimeOrcompositeNumbers,
 };

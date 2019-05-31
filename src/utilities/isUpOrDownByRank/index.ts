@@ -1,15 +1,15 @@
 const UP: string = '升';
 const DOWN: string = '降';
 const FLAT: string = '平';
-let isUpOrDownByRank = (aNumbers: number , aPreviousNumbers: number[] , iPosition: number) => {
-  let aPreviousNumber = aPreviousNumbers[iPosition];
-  if (aNumbers > aPreviousNumber) {
+let isUpOrDownByRank = (iNumber: number , aPreviousNumbers: number[] , iPosition: number) => {
+  let iPreviousNumber = aPreviousNumbers[iPosition];
+  if (iNumber > iPreviousNumber) {
     return UP;
   }
-  if (aNumbers < aPreviousNumber) {
+  if (iNumber < iPreviousNumber) {
     return DOWN;
   }
-  if (aNumbers === aPreviousNumber) {
+  if (iNumber === iPreviousNumber) {
     return FLAT;
   }
 };

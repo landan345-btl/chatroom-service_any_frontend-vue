@@ -113,8 +113,8 @@
               {{JSON.parse(lotteryIssue.numbers) | substr(0) | isSmallOrLarge(5,5)}}
             </template>
           </td>
-          <td>16</td>
-          <td>16</td>
+          <td>{{JSON.parse(lotteryIssue.numbers)| substr(0) | isPrimeOrcompositeNumbers}}</td>
+          <td>{{JSON.parse(lotteryIssue.numbers)| substr(0) | isPrimeOrcompositeNumbers}}</td>
           <td :class="'0' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))?'background-orange-font-white':''">
             <template v-if="'0' === isZeroOrOneOrTwo(substr(JSON.parse(lotteryIssue.numbers),0))">
               {{JSON.parse(lotteryIssue.numbers) | substr(0) | isZeroOrOneOrTwo}}

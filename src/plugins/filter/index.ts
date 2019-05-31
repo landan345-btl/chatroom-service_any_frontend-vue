@@ -16,6 +16,7 @@ import isUpOrDownByPar from '@/filters/isUpOrDownByPar/index';
 import parNumber from '@/filters/parNumber/index';
 import isZeroOrOneOrTwo from '@/filters/isZeroOrOneOrTwo/index';
 import isUpOrDownByRank from '@/filters/isUpOrDownByRank/index';
+import isPrimeOrcompositeNumbers from '@/filters/isPrimeOrcompositeNumbers/index';
 
 import codeToName from '@/filters/codeToName/index';
 import or from '@/filters/or/index';
@@ -45,6 +46,7 @@ let oFilterPlugin = {
     Vue.filter('parNumber', parNumber);
     Vue.filter('isZeroOrOneOrTwo', isZeroOrOneOrTwo);
     Vue.filter('isUpOrDownByRank', isUpOrDownByRank);
+    Vue.filter('isPrimeOrcompositeNumbers', isPrimeOrcompositeNumbers);
   },
 };
 
