@@ -20,6 +20,7 @@ import numbersToOddOrEvenStrings from './numbersToOddOrEvenStrings/';
 import numbersToSmallOrLargeStrings from './numbersToSmallOrLargeStrings/';
 import selectType from './selectType/';
 import cparNumber from './parNumber/';
+import cIsZeroOrOneOrTwo from './isZeroOrOneOrTwo/';
 
 export {
   selectType,
@@ -44,4 +45,5 @@ export {
   cLinkToQuery as linkToQuery,
   cIsUpOrDown as isUpOrDown,
   cparNumber as parNumber,
+  cIsZeroOrOneOrTwo as isZeroOrOneOrTwo,
 };

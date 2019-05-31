@@ -18,7 +18,7 @@
     </div>
     <div class="mb-1 pl-2 pr-2 font-size-1p5">
       <span class="font-size-1p5 mr-2">号码规律统计: </span>
-      <I-radio-group :value="number" @input="number = $event" type="button" class="line-height3">
+      <I-radio-group :value="number" @on-change="number = $event" type="button" class="line-height3">
         <Radio :label="sNumber" :key="iIndex" v-for="(sNumber, iIndex) in numbers">号码 {{ sNumber }}</Radio>
       </I-radio-group>
     </div>
