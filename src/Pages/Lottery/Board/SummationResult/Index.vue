@@ -16,7 +16,7 @@
     <I-divider/>
     <div class="pt-2 pb-2">
       <div>
-        <Result-table />
+        <S-result-table />
       </div>
     </div>
   </div>

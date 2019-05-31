@@ -30,6 +30,7 @@
       </div>
     </div>
     <div class="pl-2 pr-2 font-size-1p5">
+      
       <I-radio-group @on-change="checkRank = $event" :value="checkRank" type="button" class="line-height3">
         <Radio :label="sKey" v-for="(rank, sKey) in positionRanks" :key="sKey">{{ rank }}</Radio>
       </I-radio-group>
