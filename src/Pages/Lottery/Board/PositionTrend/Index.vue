@@ -155,8 +155,8 @@
              ">
             <template 
               v-if="'平' === 
-              isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), 0 ),index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], 0)">
-              {{JSON.parse(lotteryIssue.numbers) | substr(0) | isUpOrDownByRank(index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], 0)}}
+              isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), checkRank ),index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank)">
+              {{JSON.parse(lotteryIssue.numbers) | substr(checkRank) | isUpOrDownByRank(index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank)}}
             </template>
           </td>
           <td 
@@ -173,7 +173,7 @@
         </tr>
         <tr class="background-tr">
           <td rowspan="2" colspan="2"><span>数据统计</span></td>
-          <td colspan="10">冠军分布</td>
+          <td colspan="10">{{ types && texts[types] && texts[types][checkRank]? texts[types][checkRank ] : '第' + checkRank + '球' }}分布</td>
           <td colspan="6">形态特征</td>
           <td colspan="3">012路</td>
           <td colspan="3">升平降</td>
