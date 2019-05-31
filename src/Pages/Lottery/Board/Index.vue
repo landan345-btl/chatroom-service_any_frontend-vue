@@ -45,7 +45,7 @@
           :code="code"
           :types="types" />
       </TabPane>
-      <TabPane :label="'每日长龙统计'" :name="'everyday-accumulation-statics'" v-if="['PK10'].includes(types.toUpperCase())">
+      <TabPane :label="'每日长龙统计'" :name="'everyday-accumulation-statics'" v-if="['PK10','SSC'].includes(types.toUpperCase())">
         <Everyday-accumulation-statics v-if="code && types" />
       </TabPane>
       <TabPane :label="'龙虎路珠'" :name="'dragon-or-tiger-result'" v-if="['PK10'].includes(types.toUpperCase())">
@@ -101,7 +101,7 @@
       <TabPane :label="'历史号码统计'" :name="'history-number-statics'" v-if="['PK10','SSC'].includes(types.toUpperCase())">
         <History-number-statics />
       </TabPane>
-      <TabPane :label="'两面数据统计'" :name="'two-side-statics'" v-if="['PK10'].includes(types.toUpperCase())">
+      <TabPane :label="'两面数据统计'" :name="'two-side-statics'" v-if="['PK10','SSC'].includes(types.toUpperCase())">
         <Two-side-statics v-if="code && types"/>
       </TabPane>
       <TabPane :label="'和值走势'" :name="'sum-value-trend'" v-if="['SSC'].includes(types.toUpperCase())">
