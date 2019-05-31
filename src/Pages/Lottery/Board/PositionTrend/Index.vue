@@ -30,13 +30,9 @@
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 11 最大连出值：统计期数内连续开出的最大值;</p>
       </div>
     </div>
-    <div class="mb-1 pl-2 pr-2 font-size-1p5">
-      <I-radio-group v-model="position" type="button" class="line-height3">
-        <Radio label="第一球"></Radio>
-        <Radio label="第二球"></Radio>
-        <Radio label="第三球"></Radio>
-        <Radio label="第四球"></Radio>
-        <Radio label="第五球"></Radio>
+    <div class="pl-2 pr-2 font-size-1p5">
+      <I-radio-group @input="checkRank" :value="checkRank" type="button" class="line-height3">
+        <Radio :label="sKey" v-for="(rank, sKey) in positionRanks" :key="sKey">{{ rank }}</Radio>
       </I-radio-group>
       <I-checkbox-group v-model="decorator">
         <Checkbox label="遗漏"></Checkbox>
@@ -50,13 +46,12 @@
         <tr>
           <td rowspan="2"><span>期号</span></td>
           <td rowspan="2"><span>开奖号码</span> </td>
-          <td colspan="10">第一球号码走势</td>
+          <td colspan="10">冠军分布</td>
           <td colspan="6">形态特征</td>
           <td colspan="3">012路</td>
           <td colspan="3">升平降</td>
         </tr>
         <tr>
-          <td>0</td>
           <td>1</td>
           <td>2</td>
           <td>3</td>
@@ -66,6 +61,7 @@
           <td>7</td>
           <td>8</td>
           <td>9</td>
+          <td>10</td>
           <td>大</td>
           <td>小</td>
           <td>单</td>
@@ -79,14 +75,10 @@
           <td>平</td>
           <td>降</td>
         </tr>
-        <tr v-for="( item , i ) in 15" :key="i">
-          <td>20190510059</td>
-          <td>
-            <span class="color-red">1</span>
-            <span>1</span>
-            <span>1</span>
-            <span>1</span>
-            <span>1</span>
+        <tr v-for="(lotteryIssue, index ) in getLotteryIssues" :key="index">
+          <td>{{ lotteryIssue.no }}</td>
+          <td class="w-15">
+            <span v-for="(iNumbers, iIndex) in JSON.parse(lotteryIssue.numbers)" :key="iIndex">{{iNumbers}}</span>
           </td>
           <td class="background-beige"><span>11</span></td>
           <td class="background-beige"><span>11</span></td>
@@ -123,6 +115,7 @@
 import {
   Component,
   Vue,
+  Prop,
 } from 'vue-property-decorator';
 
 import {
@@ -146,9 +139,44 @@ import {
   },
 })
 class PositionTrend extends Vue {
+  @Prop()
+  public lotteryIssues!: any;
+
+  @Prop()
+  public lottery!: any;
+
+  @Prop()
+  public lotteries!: any;
+
+  @Prop()
+  public code!: any;
+
+  @Prop()
+  public types!: any;
+
   public date = '今天';
-  public position = '第一球';
+  public checkRank = '冠军';
   public decorator = ['遗漏', ];
+
+  public positionRanks: object = {
+      CHAMPION: '冠军',
+      SECOND: '亚军',
+      THIRD: '第三名',
+      FOURTH: '第四名',
+      FIFTH: '第五名',
+      SIXTH: '第六名',
+      SEVENTH: '第七名',
+      EIGHTH: '第八名',
+      NINTH: '第九名',
+      TENTH: '第十名',
+    }
+
+  public get getLotteryIssues (): object {
+    let oLotteryIssues = this.lotteryIssues;
+    let aLotteryIssues = Object.values(oLotteryIssues);
+    let oLotteryIssue = aLotteryIssues.reverse();
+    return oLotteryIssue;
+  }
 
   public isAnnouncementShowed: boolean = false;
   public toggleAnnouncement () {

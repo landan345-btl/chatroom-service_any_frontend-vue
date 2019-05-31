@@ -216,9 +216,9 @@ class ResultAnalysis extends Vue {
     } 
   }
 
-  public ranks(sRank: string) {
-    alert(sRank);
-  }
+  // public ranks(sRank: string) {
+  //   alert(sRank);
+  // }
 
   public toggleOddEvent: any = ['small' , 'odd' , 'dragon' , 'guanyaodd' , 'guanyasmall' ];
   public checkRanks: any = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名','冠亚和'];
