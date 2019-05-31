@@ -188,19 +188,10 @@ class NumberOrLawCount extends Vue {
   public dates: object = {
     TODAY: '今天',
     YESTERDAY: '昨天',
-    BEFOREYESTERDAY: '前天',
+    THE_DAY_BEFORE_YESTERDAY: '前天',
     LIMIT_30: '最近30期',
     LIMIT_60: '最近60期',
     LIMIT_90: '最近90期',
-  }
-
-  public created() {
-    let oQueries = {};
-    oQueries = {
-      limit: 30,
-      code: this.code,
-    }
-    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
   }
 
   public onChangeDateOrLimit(sDate: string) {
@@ -253,6 +244,15 @@ class NumberOrLawCount extends Vue {
         this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
         break; 
     } 
+  }
+
+  public created() {
+    let oQueries = {};
+    oQueries = {
+      limit: 30,
+      code: this.code,
+    }
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
   }
 
   public number: number = 1;

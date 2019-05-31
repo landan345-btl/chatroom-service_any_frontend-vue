@@ -19,7 +19,7 @@
           <span>累计:</span>
           <span v-for="(count , iIndex) in oDragonOrTigerCount" :key="iIndex"> {{oddOrEvenOrSmallOrLargeOrDragonOrTiger(iIndex)}}({{count}})</span>
           <span class="color-red">&nbsp;&nbsp;{{ rank }}</span>&nbsp;&nbsp;
-          <span class="color-red">{{ isoddEvenOrSmallOrLarge }}</span>&nbsp;&nbsp;
+          <span class="color-red">{{ isOddOrEvenOrSmallOrLarge }}</span>&nbsp;&nbsp;
           <span class="color-red">最新</span>&nbsp;&nbsp;
           <span class="color-red"><Icon type="md-arrow-down" /></span>
         </span>
@@ -102,7 +102,7 @@ class SResultTable extends Vue {
 
   ];
 
-  public get isoddEvenOrSmallOrLarge() {
+  public get isOddOrEvenOrSmallOrLarge() {
     let aOddEvenOrSmallOrLarge: any = {
       smallOrLarge: '大小',
       oddOrEven: '单双',
