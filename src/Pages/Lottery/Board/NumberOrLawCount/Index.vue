@@ -2,8 +2,8 @@
   <div class="number-or-law-count background-white position-relative">
     <div class="pl-2 pr-2 font-weight-bold d-flex justify-content-between head-top">
       <span class="font-size-2 line-height3">号码规律统计</span>
-      <I-radio-group :value="date" @input="date = $event" @change="changeDateOrLimit" type="button" class="line-height3">
-        <Radio :label="dete" :key="iIndex" v-for="(dete, iIndex) in dates" :class="{'d-xs-none': iIndex === dates.length -1 }">{{ dete }}</Radio>
+      <I-radio-group @input="onChangeDateOrLimit" :value="date" type="button" class="line-height3">
+        <Radio :label="sKey" :key="sKey" v-for="(dete, sKey) in dates" :class="{'d-xs-none': sKey === dates.length -1 }">{{ dete }}</Radio>
       </I-radio-group>
     </div>
     <I-divider/>
@@ -18,7 +18,7 @@
     </div>
     <div class="mb-1 pl-2 pr-2 font-size-1p5">
       <span class="font-size-1p5 mr-2">号码规律统计: </span>
-      <I-radio-group :value="number" @input="number = $event" type="button" class="line-height3">
+      <I-radio-group :value="number" @on-change="number = $event" type="button" class="line-height3">
         <Radio :label="sNumber" :key="iIndex" v-for="(sNumber, iIndex) in numbers">号码 {{ sNumber }}</Radio>
       </I-radio-group>
     </div>
@@ -62,24 +62,24 @@
           </td>
           <td 
             :class="{
-            'color-red': '升' === isUpOrDown(JSON.parse(lotteryIssue.numbers),
-            ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
-            ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
-            number),
-            'color-deepskyblue': '降' === isUpOrDown(JSON.parse(lotteryIssue.numbers),
-            ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
-            ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
-            number)}">
+            'color-red': '升' === isUpOrDownByPar(JSON.parse(lotteryIssue.numbers),
+                                  ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
+                                  ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
+                                  number),
+            'color-deepskyblue': '降' === isUpOrDownByPar(JSON.parse(lotteryIssue.numbers),
+                                          ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
+                                          ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
+                                          number)}"
+              >
               {{ JSON.parse(lotteryIssue.numbers) | 
-              isUpOrDown(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
+              isUpOrDownByPar(ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [],
               ikey < JSON.parse(getLotteryIssues.length - 2) ? JSON.parse(getLotteryIssues[ikey + 2].numbers): [],
               number) }}
           </td>
           <td>
             <span 
               v-if="'单' === 
-              isOddOrEven(parNumber(JSON.parse(lotteryIssue.numbers), 
-              ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], 
+              isOddOrEven(parNumber(JSON.parse(lotteryIssue.numbers),ikey < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[ikey + 1].numbers): [], 
               number))">
                 {{ JSON.parse(lotteryIssue.numbers) | 
                 parNumber(ikey < JSON.parse(getLotteryIssues.length - 1) ? 
@@ -128,6 +128,7 @@
 
 </style>
 <script lang="ts">
+import moment from 'moment';
 import {
   Component,
   Vue,
@@ -179,24 +180,78 @@ class NumberOrLawCount extends Vue {
   public get getLotteryIssues (): object {
     let oLotteryIssues = this.lotteryIssues;
     let aLotteryIssues = Object.values(oLotteryIssues);
-    let oLotteryIssue = aLotteryIssues.reverse().slice(0, 29);
+    let oLotteryIssue = aLotteryIssues.reverse();
     return oLotteryIssue;
   }
   
-  public date: string = '最近30期';
+  public date = 'LIMIT_30'; 
   public dates: object = {
-    today: '今天',
-    yesterday: '昨天',
-    beforeYesterday: '前天',
-    recentlyThirty: '最近30期',
-    recentlySixty: '最近60期',
-    recentlyNinety: '最近90期',
+    TODAY: '今天',
+    YESTERDAY: '昨天',
+    THE_DAY_BEFORE_YESTERDAY: '前天',
+    LIMIT_30: '最近30期',
+    LIMIT_60: '最近60期',
+    LIMIT_90: '最近90期',
+  }
+
+  public onChangeDateOrLimit(sDate: string) {
+    let oQueries = {};
+    let _sDate = ''
+    switch(sDate) {
+      case 'TODAY':
+        _sDate = moment().format('YYYY-MM-DD');   
+        oQueries = {
+          date: _sDate,
+          code: this.code,
+        };
+        break;
+      case 'YESTERDAY':
+        _sDate = moment().subtract(1, 'days').format('YYYY-MM-DD');
+        oQueries = {
+          date: _sDate,
+          code: this.code,
+        }
+        break;
+      case 'THE_DAY_BEFORE_YESTERDAY':
+        _sDate = moment().subtract(2, 'days').format('YYYY-MM-DD');
+        oQueries = {
+          date: _sDate,
+          code: this.code,
+        }
+        break;
+      case 'LIMIT_30':
+        oQueries = {
+          limit: 30,
+          code: this.code,
+        }
+        break;  
+      case 'LIMIT_60':
+        oQueries = {
+          limit: 60,
+          code: this.code,
+        }
+        break; 
+      case 'LIMIT_90':
+        oQueries = {
+          limit: 90,
+          code: this.code,
+        }
+        break; 
+    } 
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
+  }
+
+  public created() {
+    let oQueries = {};
+    oQueries = {
+      limit: 30,
+      code: this.code,
+    }
+    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
   }
 
   public number: number = 1;
-
   public isPositionShowed: boolean = false;
-
   public numbers: object = {
     1: 1,
     2: 2,
@@ -209,10 +264,6 @@ class NumberOrLawCount extends Vue {
     9: 9,
     10: 10,
   };
-
-  public changeDateOrLimit() {
-    console.log(214);
-  }
 
   public get getVhistogramDataAndSettings () {
     let aColumns: string[] = [];

@@ -10,8 +10,11 @@ import last from '@/utilities/last/index';
 import isFrontOrBack from '@/utilities/isFrontOrBack/index';
 import linkToPath from '@/utilities/linkToPath/index';
 import linkToQuery from '@/utilities/linkToQuery/index';
-import isUpOrDown from '@/filters/isUpOrDown/index';
+import isUpOrDownByPar from '@/filters/isUpOrDownByPar/index';
 import parNumber from '@/filters/parNumber/index';
+import isZeroOrOneOrTwo from '@/filters/isZeroOrOneOrTwo/index';
+import isUpOrDownByRank from '@/filters/isUpOrDownByRank/index';
+import isPrimeOrcompositeNumbers from '@/filters/isPrimeOrcompositeNumbers/index';
 
 let oUltilityPlugin = {
   // The install method is all that needs to exist on the plugin object.
@@ -40,8 +43,11 @@ let oUltilityPlugin = {
     Vue.prototype.isFrontOrBack = isFrontOrBack;
     Vue.prototype.linkToPath = linkToPath;
     Vue.prototype.linkToQuery = linkToQuery;
-    Vue.prototype.isUpOrDown = isUpOrDown;
+    Vue.prototype.isUpOrDownByPar = isUpOrDownByPar;
     Vue.prototype.parNumber = parNumber;
+    Vue.prototype.isZeroOrOneOrTwo = isZeroOrOneOrTwo;
+    Vue.prototype.isUpOrDownByRank = isUpOrDownByRank;
+    Vue.prototype.isPrimeOrcompositeNumbers = isPrimeOrcompositeNumbers;
   },
 };
 

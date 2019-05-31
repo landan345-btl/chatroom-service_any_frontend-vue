@@ -11,7 +11,8 @@
     overflow-x: auto;
     direction: rtl;
     border: 1px solid #e6e6e6;
-    background: url("~@/assets/images/table-bg.png") repeat;
+    
+    // background: url("~@/assets/images/table-bg.png") repeat;
     table {
       margin: 0;
       border: none;
@@ -28,7 +29,6 @@
         box-sizing: border-box; 
         p {
           margin-bottom: .5vmin;
-          margin: 0;
         }
       }
       .background-even {

@@ -1,9 +1,12 @@
-::v-deep .ivu-checkbox-checked ::v-deep .ivu-checkbox-inner {
+::v-deep .ivu-checkbox-checked  .ivu-checkbox-inner {
   border-color: #fa8e19;
   background-color: #fa8e19;
-  outline: 0;
 }
 
-::v-deep .ivu-checkbox-checked:hover ::v-deep .ivu-checkbox-inner {
+::v-deep .ivu-checkbox-focus {
+  box-shadow: none;
+}
+
+::v-deep  .ivu-checkbox-checked:hover .ivu-checkbox-inner {
   border-color: #fa8e19;
 }

@@ -1,26 +1,53 @@
 .positon-trend {
-  .say {
-    line-height: 3.2vmin;
+  .announcement-wrapper {
+    z-index: 3;
+    padding: .7vmin 1vmin;
     background: #edf4fa;
-    overflow: hidden;
-    height: 3.2vmin;
-    p:nth-child(1) {
-      span:first-child {
-        span {
-          color: #0079F4;
-        }
-      }
-      span:nth-child(2) {
-        float: right;
-        line-height: 3.2vmin;
+    border: 1px solid #e3e3e3;
+    left:2vmin;
+    right:2vmin;
+    div {
+      overflow: hidden;
+      height: 2.8vmin;
+      padding: 0;
+      transition: height .1s ease;
+      p {
+        line-height: 2.8vmin;
+        cursor: pointer;
       }
     }
+    .announcement-showed {
+      height: 28vmin;
+    }
+  }
+  .announcement-wrapper + div{
+    margin-top: 8vmin;
   }
   table {
+    .background-tr {
+      background: #e6e6e6;
+      span {
+        position: relative;
+        top: 2vmin;
+      }
+    } 
     td {
-      padding: 1vmin 0;
+      padding: 1vmin;
       border: 1px solid #d6d6d6;
       font-size: 1.4vmin;
+    }
+    .background-orange-font-white {
+      background: #FBA75E;
+      color: white;
+    }
+    .background-blue-font-white {
+      background: #3CB0EC;
+      color: white;
+    }
+    .lottery-red {
+      span:nth-child(1) {
+        color: red;
+      }
     }
     tr ~ tr {
       td:nth-child(2) {
@@ -29,19 +56,14 @@
         }
       }
       td:nth-child(2) ~ td {
+        width: 5vmin;
         span {
           border-radius: 50%;
           width: 2.1vmin;
           height: 2.1vmin;
           line-height: 2.1vmin;
+          display: inline-block;
         }
-      }
-    }
-    tr:nth-child(1),tr:nth-child(2) {
-      background: #ebebeb;
-      span {
-        position: relative;
-        top: 2vmin;
       }
     }
   }

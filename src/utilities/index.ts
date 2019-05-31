@@ -15,11 +15,14 @@ import cLast from './last/';
 import cJSONparse from './JSONparse/';
 import cLinkToPath from './linkToPath/';
 import cLinkToQuery from './linkToQuery/';
-import cIsUpOrDown from './isUpOrDown/';
+import cisUpOrDownByPar from './isUpOrDownByPar/';
 import numbersToOddOrEvenStrings from './numbersToOddOrEvenStrings/';
 import numbersToSmallOrLargeStrings from './numbersToSmallOrLargeStrings/';
 import selectType from './selectType/';
 import cparNumber from './parNumber/';
+import cIsZeroOrOneOrTwo from './isZeroOrOneOrTwo/';
+import cIsUpOrDownByRank from './isUpOrDownByRank/';
+import cIsPrimeOrcompositeNumbers from './isPrimeOrcompositeNumbers/';
 
 export {
   selectType,
@@ -42,6 +45,9 @@ export {
   cJSONparse as JSONparse,
   cLinkToPath as linkToPath,
   cLinkToQuery as linkToQuery,
-  cIsUpOrDown as isUpOrDown,
+  cisUpOrDownByPar as isUpOrDownByPar,
   cparNumber as parNumber,
+  cIsZeroOrOneOrTwo as isZeroOrOneOrTwo,
+  cIsUpOrDownByRank as isUpOrDownByRank,
+  cIsPrimeOrcompositeNumbers as isPrimeOrcompositeNumbers,
 };

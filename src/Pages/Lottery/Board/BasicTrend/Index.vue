@@ -23,7 +23,7 @@
     </div>
     <div class="p-2 fictitious">
       <div>
-         <table class="basic-table" >
+         <table class="basic-table" v-canvasTrend>
           <tr>
             <td rowspan="2" class="w-7"> <span>期号</span> </td>
             <td rowspan="2" class="w-6"> <span>开奖号码</span> </td>

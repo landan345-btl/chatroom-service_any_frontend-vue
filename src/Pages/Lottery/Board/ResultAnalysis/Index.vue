@@ -21,7 +21,8 @@
     <div class="p-2" v-show=" pattern === 'synthesize'">
       <div class="rank-select">
         <p class="mt-1">
-          <I-checkbox-group class="d-inline-block mr-2" v-model="checkRanks">
+          <span>筛选名次：</span>
+          <I-checkbox-group class="d-inline-block mr-2" @input="ranks" :value="checkRanks"> 
             <Checkbox label="冠军">&nbsp;冠军</Checkbox>
             <Checkbox label="亚军">&nbsp;亚军</Checkbox>
             <Checkbox label="第三名">&nbsp;第三名</Checkbox>
@@ -41,7 +42,7 @@
       <div class="rank-select dewdrop">
         <p class="mt-1">
           <span>筛选路珠：</span>
-           <I-checkbox-group class="d-inline-block mr-2" v-model="checkAnalysis">
+          <I-checkbox-group class="d-inline-block mr-2" @on-change="ranks" :value="checkAnalysis">
             <Checkbox label="大小">&nbsp;大小</Checkbox>
             <Checkbox label="单双">&nbsp;单双</Checkbox>
             <Checkbox label="龙虎">&nbsp;龙虎</Checkbox>
@@ -113,12 +114,12 @@
       </div>
     </div>
     <div class="dewdrop-table mb-1" v-for="(oddOrEvensAndaSmallOrLarge , iIndex ) in mergeOddEvenSmallLargeDragonTiger" :key="iIndex">
-      <Result-table 
+      <S-result-table 
         :resultOddOrEvensAndSmallOrLarges="resultOddOrEvensAndSmallOrLarges"
         :rank="checkRanks[iIndex.split('_')[0]]"
         :oddEvenOrSmallOrLarge="iIndex.split('_')[1]"
         :oDragonOrTigerCount="count[iIndex.split('_')[1]][iIndex.split('_')[0]] "
-        v-if=" (toggleOddEvent.indexOf(iIndex.split('_')[1]) !== -1 || toggleOddEvent.length === 0) && actualScreens.indexOf(checkRanks[iIndex.split('_')[0]]) !== -1"
+        v-show="(toggleOddEvent.indexOf(iIndex.split('_')[1]) !== -1 || toggleOddEvent.length === 0) && actualScreens.indexOf(checkRanks[iIndex.split('_')[0]]) !== -1"
         />
     </div>
   </div>
@@ -142,7 +143,7 @@ import {
   ICheckboxGroup,
   IRadioGroup,
   IDatePicker,
-  ResultTable,
+  SResultTable,
 } from '@/Components/';
 
 import {
@@ -157,7 +158,7 @@ import {
     ICheckboxGroup,
     IRadioGroup,
     IDatePicker,
-    ResultTable,
+    SResultTable,
   },
 })
 class ResultAnalysis extends Vue {
@@ -192,7 +193,6 @@ class ResultAnalysis extends Vue {
   }
 
   public onChangeDateOrLimit(sDate: string) {
-    debugger;
     let oQueries = {};
     let _sDate = ''
     switch(sDate) {
@@ -210,24 +210,31 @@ class ResultAnalysis extends Vue {
       case 'LIMIT_30':
         oQueries = {
           limit: 30,
-          code: this.code,
-        };
-      break;
-      default:
-        oQueries = {
-          date: sDate,
-          code: this.code,
-        };
+        }
+      break;  
+     default:
+    } 
+  }
 
-    this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries);
-
-} 
-
-    debugger;
+  public ranks(sRank: string) {
+   //  console.log(sRank);
   }
 
   public toggleOddEvent: any = ['small' , 'odd' , 'dragon' , 'guanyaodd' , 'guanyasmall' ];
   public checkRanks: any = ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名','冠亚和'];
+    // public checkRanks: object = {
+    //   CHAMPION: '冠军',
+    //   SECOND: '亚军',
+    //   THIRD: '第三名',
+    //   FOURTH: '第四名',
+    //   FIFTH: '第五名',
+    //   SIXTH: '第六名',
+    //   SEVENTH: '第七名',
+    //   EIGHTH: '第八名',
+    //   NINTH: '第九名',
+    //   TENTH: '第十名',
+    //   CROWNORSECONDSUM: '冠亚和',
+    // }
   public checkAnalysis: any = ['大小', '单双', '龙虎'];
   public checkRadioRank: any= '冠军';
   public checkRadioAnalysis: any = ['大小', '单双', '龙虎'];

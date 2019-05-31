@@ -22,7 +22,7 @@
       </I-checkbox-group>
     </div>
     <div class="pb-1">
-      <Result-table v-for="( utem , i ) in 2" :key="i" class="mb-1"/>
+      <S-result-table v-for="( utem , i ) in 2" :key="i" class="mb-1"/>
     </div>
   </div>
 </template>
@@ -37,7 +37,7 @@ import {
 } from 'vue-property-decorator';
 
 import {
-  ResultTable,
+  SResultTable,
   IDivider,
   IRadioGroup,
   ICheckboxGroup,
@@ -50,7 +50,7 @@ import {
 @Component({
   name: 'OddOrEvenSmallOrLargeResult',
   components: {
-    ResultTable,
+    SResultTable,
     IDivider,
     IRadioGroup,
     ICheckboxGroup,

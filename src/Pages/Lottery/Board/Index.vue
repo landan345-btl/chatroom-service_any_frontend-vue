@@ -76,7 +76,12 @@
           v-if="code && types" />
       </TabPane>
       <TabPane :label="'定位走势'" :name="'position-trend'" v-if="['PK10','SSC'].includes(types.toUpperCase())">
-        <Position-trend v-if="code && types" />
+        <Position-trend v-if="code && types" 
+          :lotteryIssues="lotteryIssues"
+          :lottery="lottery"
+          :lotteries="lotteries"
+          :code="code"
+          :types="types"/>
       </TabPane>
       <TabPane :label="'号码走势'" :name="'basic-trend'" v-if="['PK10'].includes(types.toUpperCase())">
         <Basic-trend v-if="code && types" :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types"/>
