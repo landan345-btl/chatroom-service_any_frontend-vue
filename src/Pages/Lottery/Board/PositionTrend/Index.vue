@@ -33,11 +33,8 @@
       <I-radio-group @on-change="checkRank = $event" :value="checkRank" type="button" class="line-height3">
         <Radio :label="sKey" v-for="(rank, sKey) in texts[ types ]" :key="sKey">{{ rank }}</Radio>
       </I-radio-group>
-      <I-checkbox-group v-model="decorator">
-        <Checkbox label="遗漏"></Checkbox>
-        <Checkbox label="折线"></Checkbox>
-        <Checkbox label="遗漏分层"></Checkbox>
-        <Checkbox label="分隔线"></Checkbox>
+      <I-checkbox-group @on-change="pitchOn = $event" :value="pitchOn" :true-value="pitchOn">
+        <Checkbox :label="sIndex" v-for="(option, sIndex) in decorator" :key="sIndex">{{ option }}</Checkbox>
       </I-checkbox-group>
     </div>
     <div class="p-2">
@@ -74,7 +71,7 @@
           <td>平</td>
           <td>降</td>
         </tr>
-        <tr v-for="(lotteryIssue, index ) in getLotteryIssues" :key="index">
+        <tr v-for="(lotteryIssue, index ) in getLotteryIssues" :key="index" :class="pitchOn===true?'lottery-number':''">
           <td>{{ lotteryIssue.no }}</td>
           <td class="w-15"> 
             <span :class="[iIndex === checkRank ? 'color-red': '']" v-for="(iNumbers, iIndex) in JSON.parse(lotteryIssue.numbers)" :key="iIndex">{{iNumbers}}</span>
@@ -138,10 +135,10 @@
             </template>
           </td>
           <td 
-             :class="'升' === 
-             isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), checkRank ),index < JSON.parse(getLotteryIssues.length - 1) ? 
-             JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank) ? 'background-blue-font-white' : ''
-             ">
+            :class="'升' === 
+            isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), checkRank ),index < JSON.parse(getLotteryIssues.length - 1) ? 
+            JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank) ? 'background-blue-font-white' : ''
+            ">
             <template 
               v-if="'升' === 
               isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), checkRank ),index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank)">
@@ -149,10 +146,10 @@
             </template>
           </td>
           <td 
-             :class="'平' === 
-             isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), checkRank ),index < JSON.parse(getLotteryIssues.length - 1) ? 
-             JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank) ? 'background-orange-font-white' : ''
-             ">
+            :class="'平' === 
+            isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), checkRank ),index < JSON.parse(getLotteryIssues.length - 1) ? 
+            JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank) ? 'background-orange-font-white' : ''
+            ">
             <template 
               v-if="'平' === 
               isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), checkRank ),index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank)">
@@ -160,10 +157,10 @@
             </template>
           </td>
           <td 
-             :class="'降' === 
-             isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), checkRank ),index < JSON.parse(getLotteryIssues.length - 1) ? 
-             JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank) ? 'background-blue-font-white' : ''
-             ">
+            :class="'降' === 
+            isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), checkRank ),index < JSON.parse(getLotteryIssues.length - 1) ? 
+            JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank) ? 'background-blue-font-white' : ''
+            ">
             <template 
               v-if="'降' === 
               isUpOrDownByRank(substr(JSON.parse(lotteryIssue.numbers), checkRank ),index < JSON.parse(getLotteryIssues.length - 1) ? JSON.parse(getLotteryIssues[index + 1].numbers): [], checkRank)">
@@ -380,7 +377,15 @@ class PositionTrend extends Vue {
 
   public date = '今天';
   public checkRank: number = 0;
-  public decorator = ['遗漏', ];
+  public pitchOn = 'OMIT';
+  public decorator: object = {
+    OMIT: '遗漏',
+    TAKE_OUT_STITCHES: '折线',
+    OMIT_HIERARCHY: '遗漏分层',
+    CUTOFF_RULE: '分割线',
+  }
+
+  public divide:boolean = false;
 
   public positionRanks: object = {
     1: 1,
@@ -393,7 +398,7 @@ class PositionTrend extends Vue {
     8: 8,
     9: 9,
     10: 10,
-    }
+  }
 
  public texts = {
     PK10: ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名', ],
