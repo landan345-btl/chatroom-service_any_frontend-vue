@@ -19,16 +19,16 @@ let oLotteryIssueAccumulationMutation = {
     // debugger;
     state.lottery_issue_accumulations = mLotteryIssueAccumulations;
   },
-  LOTTERY_ISSUE_MUTATION_ADD (state: any, mLotteries: any[]): void {
+  LOTTERY_ISSUE_ACCUMULATION_MUTATION_ADD (state: any, mLotteries: any[]): void {
     // debugger;
   },
-  LOTTER_ISSUE_MUTATION_EDIT (state: any, mLotteries: any[]): void {
+  LOTTERY_ISSUE_ACCUMULATION_MUTATION_EDIT (state: any, mLotteries: any[]): void {
     // debugger;
   },
-  LOTTERY_ISSUE_MUTATION_REMOVE (state: any, mLotteries: any[]): void {
+  LOTTERY_ISSUE_ACCUMULATION_MUTATION_REMOVE (state: any, mLotteries: any[]): void {
     // debugger;
   },
-  LOTTERY_ISSUE_MUTATION_EMPTY (state: any, mLotteries: any[]): void {
+  LOTTERY_ISSUE_ACCUMULATION_MUTATION_EMPTY (state: any, mLotteries: any[]): void {
     state.lottery_issue_accumulations = {};
   },
 };
