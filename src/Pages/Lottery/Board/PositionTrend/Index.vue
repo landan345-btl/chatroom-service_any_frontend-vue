@@ -34,7 +34,10 @@
         <Radio :label="sKey" v-for="(rank, sKey) in texts[ types ]" :key="sKey">{{ rank }}</Radio>
       </I-radio-group>
       <I-checkbox-group @on-change="pitchOn = $event" :value="pitchOn">
-        <Checkbox :label="sIndex" v-for="(option, sIndex) in decorator" :key="sIndex" :true-value="pitchOn">{{ option }}</Checkbox>
+        <Checkbox label="遗漏"></Checkbox>
+        <Checkbox label="折线"></Checkbox>
+        <Checkbox label="遗漏分成"></Checkbox>
+        <Checkbox label="分割线"></Checkbox>
       </I-checkbox-group>
     </div>
     <div class="p-2">
@@ -71,7 +74,7 @@
           <td>平</td>
           <td>降</td>
         </tr>
-        <tr v-for="(lotteryIssue, index ) in getLotteryIssues" :key="index" :class="pitchOn==true?'lottery-number':''">
+        <tr v-for="(lotteryIssue, index ) in getLotteryIssues" :key="index" :class="pitchOn.includes('分割线')?'lottery-number':''">
           <td>{{ lotteryIssue.no }}</td>
           <td class="w-15"> 
             <span :class="[iIndex === checkRank ? 'color-red': '']" v-for="(iNumbers, iIndex) in JSON.parse(lotteryIssue.numbers)" :key="iIndex">{{iNumbers}}</span>
@@ -81,7 +84,7 @@
           <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 3 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(checkRank)}}</span></td>
           <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 4 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(checkRank)}}</span></td>
           <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 5 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(checkRank)}}</span></td>
-          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 6 ? 'background-orange-0':'d-none'">{{ JSON.parse(lotteryIssue.numbers) | substr(checkRank) }}</span></td>
+          <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 6 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(checkRank)}}</span></td>
           <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 7 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(checkRank)}}</span></td>
           <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 8 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(checkRank)}}</span></td>
           <td class="background-shallow-beige"><span :class="substr(JSON.parse(lotteryIssue.numbers),checkRank) === 9 ? 'background-orange-0':'d-none'">{{JSON.parse(lotteryIssue.numbers) | substr(checkRank)}}</span></td>
@@ -110,7 +113,7 @@
               {{JSON.parse(lotteryIssue.numbers) | substr(checkRank) | isSmallOrLarge(5,5)}}
             </template>
           </td>
-          <td :class="'质' === isPrimeOrcompositeNumbers(substr(JSON.parse(lotteryIssue.numbers),checkRank))? 'background-orange-font-white': ''">
+          <td :class="'质' === isPrimeOrcompositeNumbers(substr(JSON.parse(lotteryIssue.numbers),checkRank))? 'background-orange-font-white':''">
             <template v-if="'质' === isPrimeOrcompositeNumbers(substr(JSON.parse(lotteryIssue.numbers),checkRank))">
               {{JSON.parse(lotteryIssue.numbers)| substr(checkRank) | isPrimeOrcompositeNumbers}}
             </template>
@@ -377,15 +380,14 @@ class PositionTrend extends Vue {
 
   public date = '今天';
   public checkRank: number = 0;
-  public pitchOn = 'OMIT';
-  public decorator: object = {
-    OMIT: '遗漏',
-    TAKE_OUT_STITCHES: '折线',
-    OMIT_HIERARCHY: '遗漏分层',
-    CUTOFF_RULE: '分割线',
-  }
-
-  public isFalse:boolean = false;
+  public pitchOn = ['遗漏'];
+  public decorator = ['遗漏','折线','遗漏分层','分割线'];
+  // public decorator: object = {
+  //   OMIT: '遗漏',
+  //   TAKE_OUT_STITCHES: '折线',
+  //   OMIT_HIERARCHY: '遗漏分层',
+  //    CUTOFF_RULE: '分割线',
+  // }
 
   public positionRanks: object = {
     1: 1,
