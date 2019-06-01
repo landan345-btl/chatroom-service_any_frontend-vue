@@ -17,7 +17,7 @@ let oLotteryIssueAccumulationMutation = {
       mLotteryIssueAccumulations = oLotteryIssueAccumulations;
     }
     // debugger;
-    state.lottery_issue_accumulation = mLotteryIssueAccumulations;
+    state.lottery_issue_accumulations = mLotteryIssueAccumulations;
   },
   LOTTERY_ISSUE_MUTATION_ADD (state: any, mLotteries: any[]): void {
     // debugger;
