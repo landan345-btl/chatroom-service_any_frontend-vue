@@ -1,6 +1,6 @@
 <template>
   <div class="everyday-accumulation-statics">
-    <div class="top pl-2 d-flex justify-content-start text-center font-size-2">
+    <div class="top d-flex justify-content-start text-center font-size-2">
       <span class="d-inline-block" :class=" iNumber === 1 ? 'background-brown':'' " @click="toggleBackground(1)">单长龙</span>
       <span class="d-inline-block" :class=" iNumber === 2 ? 'background-brown':'' " @click="toggleBackground(2)">双长龙</span>
       <span class="d-inline-block" :class=" iNumber === 3 ? 'background-brown':'' " @click="toggleBackground(3)">大长龙</span>

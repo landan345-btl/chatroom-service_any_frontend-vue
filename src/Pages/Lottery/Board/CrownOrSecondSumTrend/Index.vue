@@ -222,6 +222,8 @@ class DragonOrTigerCount extends Vue {
   @Prop()
   public types!: any;
 
+
+
   public get getLotteryIssues (): object {
     let oLotteryIssues = this.lotteryIssues;
     let aLotteryIssues = Object.values(oLotteryIssues);

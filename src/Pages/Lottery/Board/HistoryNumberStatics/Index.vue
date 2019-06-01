@@ -1,7 +1,7 @@
 <template>
   <div class="history-number-statics background-white">
     <div class="pl-2 font-weight-bold head-top">
-      <span class="font-size-2 line-height3">历史号码记录</span>
+      <span class="font-size-2 line-height3">历史号码统计</span>
     </div>
     <I-divider/>
     <table>
