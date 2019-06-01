@@ -4,7 +4,7 @@ import {
   BACKEND,
 } from '@/CONFIGS/';
 
-let sBaseUrl = BACKEND.BASE_URL.replace(/\/$/, '');
+let sHost = BACKEND.HOST.replace(/\/$/, '');
 
 let oHeaders = {
   'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ class AxiosHelper {
           if (i >= aRequests.length) {
             return Promise.resolve(aResponses);
           }
-          let _sUrl: string = aRequests[i].url || sBaseUrl + aRequests[i].path;
+          let _sUrl: string = aRequests[i].url || sHost + aRequests[i].path;
           let _oParams: any = aRequests[i].params;
           // _reqInit.cache = 'no-cache';
           // _reqInit.mode = 'cors';
@@ -52,7 +52,7 @@ class AxiosHelper {
       }
 
       return Promise.all(aRequests.map((_oRequest) => {
-        let _sUrl: string = _oRequest.url || sBaseUrl + _oRequest.path;
+        let _sUrl: string = _oRequest.url || sHost + _oRequest.path;
         let _oParams: object = _oRequest.params;
 
         oOptions = {};
@@ -64,7 +64,7 @@ class AxiosHelper {
       }));
     }
 
-    let sUrl: string = oRequest.url || sBaseUrl + oRequest.path;
+    let sUrl: string = oRequest.url || sHost + oRequest.path;
     let oParams: any = oRequest.params;
     // params.headers = oHeaders;
     let oOptions = {};
