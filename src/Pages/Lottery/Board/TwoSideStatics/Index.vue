@@ -15,12 +15,12 @@
     </div>
     <div class="pb-2 pl-2 pr-2 two-side-table">
       <table class="w-100 text-center">
-        <tr>
-          <td class="w-30 font-size-2" >日期</td>
-          <td class="font-size-2">单</td>
-          <td class="font-size-2">双</td>
-          <td class="font-size-2">大</td>
-          <td class="font-size-2">小</td>
+        <tr class="font-size-1p5">
+          <td>日期</td>
+          <td>单</td>
+          <td>双</td>
+          <td>大</td>
+          <td>小</td>
         </tr>
         <tr v-for="(item ,i) in 15" :key="i">
           <td>05月08日&nbsp;&nbsp;&nbsp;<span>20190508033</span> - <span>20190508042</span>期</td>

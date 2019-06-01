@@ -1,28 +1,15 @@
 .basic-trend {
-  background: #ffffff;
   .fictitious {
     & > div {
       width: 100%;
       overflow: auto;
+      border-left: .1vmin solid #b1adad;
       border-right: .1vmin solid #b1adad;
       border-bottom: .1vmin solid #b1adad;
     }
     table {
       width: 156%;
       font-size: 1.3vmin;
-      td {
-        border: .2vmin solid #b1adad;
-        padding: 0.7vmin 0;
-        text-align: center;
-        span {
-          display: inline-block;
-          border-radius: 50%;
-          min-width: 2vmin;
-          min-height: 2vmin;
-          text-align: center;
-          line-height: 2vmin;
-        }
-      }
       .background-shallow-beige {
         background: #FCF8F3;
       }
@@ -38,25 +25,63 @@
       .background-shallow-blueness {
         background: #F0FCF7;  
       }
-      .w-7 {
-        width:7%;
+      .background-shallow-pink {
+        background: #fcf0f5;  
       }
-      .w-6 {
-        width:6%;
+      .background-shallow-yellow {
+        background: #fcf8f3;  
       }
-      tr:nth-child(1),tr:nth-child(2),.data-count {
+      .background-shallow-celadon {
+        background: #f0f1fc;  
+      }
+      .background-shallow-prasinous {
+        background: #f0fcf0;  
+      }
+      .background-shallow-red {
+        background: #ffffff;  
+      }
+
+      .background-thead {
         background: #f5f5f5;
-        span {
-          position: relative;
-          top: 2vmin;
+        th{
+          padding: 0.7vmin 0;
+          border: #b1adad 1px solid;
+          span {
+            position: relative;
+            top: 2vmin;
+          }
         }
       }
-      tr:nth-child(2) ~ tr > td:nth-child(2) {
-        span {
-          display: inline;
-          padding: 0.5vmin;
+      .background-tbody {
+        th{
+          border: #b1adad 1px solid;
         }
-      } 
+        td:nth-child(1), td:nth-child(2) {
+          padding:0 1.2vmin ;
+          border: #b1adad 1px solid;
+          text-align: center;
+          span {
+            margin-right: 0.6vmin
+          }
+        }
+        td:nth-child(n+3) {
+          padding: 0 .6vmin;
+          border: #b1adad 1px solid;
+          text-align: center;
+          line-height: 3vmin;
+          height: 3vmin;
+            span {
+              display: inline-block;
+              border-radius: 50%;
+              width: 2.1vmin;
+              height: 2.1vmin;
+              line-height: 2.3vmin;
+            }
+            .option {
+              opacity: 0;
+            }
+        } 
+      }
     }
   }
 }

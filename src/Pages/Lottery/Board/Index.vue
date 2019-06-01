@@ -83,7 +83,7 @@
           :code="code"
           :types="types"/>
       </TabPane>
-      <TabPane :label="'号码走势'" :name="'basic-trend'" v-if="['PK10'].includes(types.toUpperCase())">
+      <TabPane :label="'号码走势'" :name="'basic-trend'" v-if="['PK10','SSC'].includes(types.toUpperCase())">
         <Basic-trend v-if="code && types" :lotteryIssues="lotteryIssues" :lottery="lottery" :code="code" :types="types"/>
       </TabPane>
       <TabPane :label="'冠亚和两面历史'" :name="'crown-or-second-sum-two-side-history'" v-if="['PK10'].includes(types.toUpperCase())">
@@ -98,7 +98,7 @@
       <TabPane :label="'形态走势'" :name="'state-trend'" v-if="['SSC'].includes(types.toUpperCase())">
         <State-trend />
       </TabPane>
-      <TabPane :label="'历史号码统计'" :name="'history-number-statics'" v-if="['PK10','SSC'].includes(types.toUpperCase())">
+      <TabPane :label="'历史号码统计'" :name="'history-number-statics'" v-if="['SSC'].includes(types.toUpperCase())">
         <History-number-statics />
       </TabPane>
       <TabPane :label="'两面数据统计'" :name="'two-side-statics'" v-if="['PK10','SSC'].includes(types.toUpperCase())">
