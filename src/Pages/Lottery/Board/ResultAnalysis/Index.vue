@@ -1,10 +1,10 @@
 <template>
   <div class="result-analysis background-white pb-1">
     <div class="">
-      <span class="top m-2 font-weight-bold">
-        <span class="d-inline-block mt-2" :class=" pattern === 'synthesize' ? 'background-brown':'' " @click="toggleBackground('synthesize')">综合模式</span>
-        <span class="d-inline-block mt-2" :class=" pattern === 'radio' ? 'background-brown':'' " @click="toggleBackground('radio')">单选模式</span>
-        <span class="d-inline-block mt-2" :class=" pattern === 'twoSides' ? 'background-brown':'' " @click="toggleBackground('twoSides')">两面模式</span>
+      <span class="top ml-2 text-center font-size-2">
+        <span class="d-inline-block" :class=" pattern === 'synthesize' ? 'background-brown':'' " @click="toggleBackground('synthesize')">综合模式</span>
+        <span class="d-inline-block" :class=" pattern === 'radio' ? 'background-brown':'' " @click="toggleBackground('radio')">单选模式</span>
+        <span class="d-inline-block" :class=" pattern === 'twoSides' ? 'background-brown':'' " @click="toggleBackground('twoSides')">两面模式</span>
       </span>
       <span class="date-selection d-inline-block text-right">
         <I-radio-group @on-change="onChangeDateOrLimit" :value="date" type="button" class="line-height8">

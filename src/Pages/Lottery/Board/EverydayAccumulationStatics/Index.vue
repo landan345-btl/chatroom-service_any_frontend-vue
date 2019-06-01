@@ -1,12 +1,12 @@
 <template>
   <div class="everyday-accumulation-statics">
-    <div class="top p-2 font-weight-bold d-flex justify-content-start">
-      <div :class=" iNumber === 1 ? 'background-brown':'' " @click="toggleBackground(1)">单长龙</div>
-      <div :class=" iNumber === 2 ? 'background-brown':'' " @click="toggleBackground(2)">双长龙</div>
-      <div :class=" iNumber === 3 ? 'background-brown':'' " @click="toggleBackground(3)">大长龙</div>
-      <div :class=" iNumber === 4 ? 'background-brown':'' " @click="toggleBackground(4)">小长龙</div>
-      <div :class=" iNumber === 5 ? 'background-brown':'' " @click="toggleBackground(5)">龙长龙</div>
-      <div :class=" iNumber === 6 ? 'background-brown':'' " @click="toggleBackground(6)">虎长龙</div>
+    <div class="top pl-2 d-flex justify-content-start text-center font-size-2">
+      <span class="d-inline-block" :class=" iNumber === 1 ? 'background-brown':'' " @click="toggleBackground(1)">单长龙</span>
+      <span class="d-inline-block" :class=" iNumber === 2 ? 'background-brown':'' " @click="toggleBackground(2)">双长龙</span>
+      <span class="d-inline-block" :class=" iNumber === 3 ? 'background-brown':'' " @click="toggleBackground(3)">大长龙</span>
+      <span class="d-inline-block" :class=" iNumber === 4 ? 'background-brown':'' " @click="toggleBackground(4)">小长龙</span>
+      <span class="d-inline-block" :class=" iNumber === 5 ? 'background-brown':'' " @click="toggleBackground(5)">龙长龙</span>
+      <span class="d-inline-block" :class=" iNumber === 6 ? 'background-brown':'' " @click="toggleBackground(6)">虎长龙</span>
     </div>
     <I-divider/>
     <div class="p-2" v-show="iNumber !== 5">
