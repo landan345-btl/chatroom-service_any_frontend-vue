@@ -1,15 +1,12 @@
 .everyday-accumulation-statics{
   .top {
-    div {
+    span {
       border: 1px solid #f0f0f0;
       width: 15vmin;
-      text-align: center;
-      line-height: 6vmin;
-      font-size: 2vmin;
-      font-weight: 200;
+      line-height: 4.8vmin;
       cursor: pointer;
     }
-    div:hover {
+    span:hover {
       color: #fa8e19;
     }
   }
