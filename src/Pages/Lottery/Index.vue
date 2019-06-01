@@ -105,6 +105,8 @@ class Lottery extends Vue {
       code: sCode,
     };
     this.$store.dispatch('LOTTERY_ACTION_SHOW', oQueries);
+    this.$store.dispatch('LOTTERY_ISSUE_ACCUMULATION_ACTION_SHOW', oQueries);
+
     this.$store.dispatch('LOTTERY_ISSUE_ACTION_SHOW', oQueries).then(() => {
       this.isSpinShowed = false;
     });
