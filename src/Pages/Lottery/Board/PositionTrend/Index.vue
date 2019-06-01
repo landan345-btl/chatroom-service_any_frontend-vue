@@ -381,28 +381,7 @@ class PositionTrend extends Vue {
   public date = '今天';
   public checkRank: number = 0;
   public pitchOn = ['遗漏'];
-  public decorator = ['遗漏','折线','遗漏分层','分割线'];
-  // public decorator: object = {
-  //   OMIT: '遗漏',
-  //   TAKE_OUT_STITCHES: '折线',
-  //   OMIT_HIERARCHY: '遗漏分层',
-  //    CUTOFF_RULE: '分割线',
-  // }
-
-  public positionRanks: object = {
-    1: 1,
-    2: 2,
-    3: 3,
-    4: 4,
-    5: 5,
-    6: 6,
-    7: 7,
-    8: 8,
-    9: 9,
-    10: 10,
-  }
-
- public texts = {
+  public texts = {
     PK10: ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名', ],
     SSC: [ '第一球', '第二球', '第三球', '第四球', '第五球', ],
   };  

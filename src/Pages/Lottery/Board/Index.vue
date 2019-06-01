@@ -102,7 +102,7 @@
         <History-number-statics />
       </TabPane>
       <TabPane :label="'两面数据统计'" :name="'two-side-statics'" v-if="['PK10','SSC'].includes(types.toUpperCase())">
-        <Two-side-statics v-if="code && types"/>
+        <Two-side-statics :types="types" v-if="code && types"/>
       </TabPane>
       <TabPane :label="'和值走势'" :name="'sum-value-trend'" v-if="['SSC'].includes(types.toUpperCase())">
         <Sum-value-trend v-if="code && types" />

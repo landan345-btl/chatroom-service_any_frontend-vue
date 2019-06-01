@@ -9,12 +9,8 @@
       <span>以每10期为一组，统计最近20组中单双大小的出现次数。</span>
     </div>
     <div class="ball-number">
-      <I-radio-group v-model="position" type="button" class="line-height3">
-        <Radio label="第一球"></Radio>
-        <Radio label="第二球"></Radio>
-        <Radio label="第三球"></Radio>
-        <Radio label="第四球"></Radio>
-        <Radio label="第五球"></Radio>
+      <I-radio-group @on-change="checkRank = $event" :value="checkRank" type="button" class="line-height3">
+       <Radio :label="sKey" v-for="(rank, sKey) in texts[ types ]" :key="sKey">{{ rank }}</Radio>
       </I-radio-group>
     </div>
     <table>
@@ -43,6 +39,7 @@
 import {
   Component,
   Vue,
+  Prop,
 } from 'vue-property-decorator';
 
 import {
@@ -64,6 +61,13 @@ import LOTTERIES from '@/CONFIGS/LOTTERIES/index';
   },
 })
 class TwoSideStatics extends Vue {
+  @Prop()
+  public types!: any;
+  
+  public texts = {
+    PK10: ['冠军', '亚军', '第三名', '第四名', '第五名', '第六名', '第七名', '第八名', '第九名', '第十名', ],
+    SSC: [ '第一球', '第二球', '第三球', '第四球', '第五球', ],
+  };  
   public position: any = '第一球';
 }
 
