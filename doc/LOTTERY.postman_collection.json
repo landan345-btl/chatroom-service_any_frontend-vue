@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "16743bae-4385-4283-b6dd-bf493a3b56c3",
+		"name": "LOTTERY",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "lottery",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "dev.api.lottery.ques98.cn/service/resource/lottery/show?",
+					"host": [
+						"dev",
+						"api",
+						"lottery",
+						"ques98",
+						"cn"
+					],
+					"path": [
+						"service",
+						"resource",
+						"lottery",
+						"show"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2019-04-03",
+							"disabled": true
+						}
+					]
+				},
+				"description": "lottery-issue (彩种期号列表)"
+			},
+			"response": []
+		},
+		{
+			"name": "lottey-issue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "dev.api.lottery.ques98.cn/service/resource/lottery-issue/show?code=CQSSC&date=2019-04-08",
+					"host": [
+						"dev",
+						"api",
+						"lottery",
+						"ques98",
+						"cn"
+					],
+					"path": [
+						"service",
+						"resource",
+						"lottery-issue",
+						"show"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "CQSSC"
+						},
+						{
+							"key": "date",
+							"value": "2019-04-08"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lottey-issue-accumulation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "dev.api.lottery.ques98.cn/service/resource/lottery-issue/show?code=CQSSC&date=2019-04-08",
+					"host": [
+						"dev",
+						"api",
+						"lottery",
+						"ques98",
+						"cn"
+					],
+					"path": [
+						"service",
+						"resource",
+						"lottery-issue",
+						"show"
+					],
+					"query": [
+						{
+							"key": "code",
+							"value": "CQSSC"
+						},
+						{
+							"key": "date",
+							"value": "2019-04-08"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
