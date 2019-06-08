@@ -43,8 +43,8 @@ export default class App extends Vue {
 </script>
 
 <style lang="scss">
-@import "./styles/App/Index.scss";
-@import "./styles/chunk-vendors/Index.scss";
-@import "./styles/Chatroom/Index.scss";
-@import "./styles/font/Index.scss";
+@import "@/styles/App/Index.scss";
+@import "@/styles/chunk-vendors/Index.scss";
+@import "@/styles/Chatroom/Index.scss";
+@import "@/styles/font/Index.scss";
 </style>
