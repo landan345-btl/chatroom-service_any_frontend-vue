@@ -43,9 +43,8 @@ export default class App extends Vue {
 </script>
 
 <style lang="scss">
-@import "./assets/css/app.scss";
-@import "./assets/css/chunk-vendors.scss";
-@import "./assets/css/chatroom.scss";
-@import "./assets/css/font.scss";
-@import "./assets/css/index.scss";
+@import "./styles/App/Index.scss";
+@import "./styles/chunk-vendors/Index.scss";
+@import "./styles/Chatroom/Index.scss";
+@import "./styles/font/Index.scss";
 </style>
