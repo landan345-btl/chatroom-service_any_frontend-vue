@@ -358,13 +358,21 @@
               </div>
             </x-dialog> -->
 
-            <div class="vux-x-dialog imgpreview-dialog" v-show="isShowImgPreview">
+            <div
+              class="vux-x-dialog imgpreview-dialog"
+              v-show="isShowImgPreview"
+            >
               <div class="weui-mask"></div>
               <div class="weui-dialog">
                 <div>
                   <div ref="previewEl" class="img-wrap"></div>
                   <p>
-                    <input ref="imgDescInput" autocomplete="off" placeholder="输入文字描述" v-model="sendImgDesc" />
+                    <input
+                      ref="imgDescInput"
+                      autocomplete="off"
+                      placeholder="输入文字描述"
+                      v-model="sendImgDesc"
+                    />
                   </p>
 
                   <p style="text-align: center;">
@@ -377,14 +385,17 @@
                     >
                   </p>
                   <p>
-                    <a href="javascript:;" class="action-cancel" @click="isShowImgPreview = false">
+                    <a
+                      href="javascript:;"
+                      class="action-cancel"
+                      @click="isShowImgPreview = false"
+                    >
                       <i class="iconfont icon-close"></i>取消</a
                     >
                   </p>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
         <div
@@ -419,7 +430,7 @@ import $ from "jquery";
 import manage from "../../assets/images/manage.jpg";
 import avatar from "../../assets/images/avatar.png";
 import sys from "../../assets/images/sys.png";
-import icon_admin from "../../assets/images/icon_admin.gif"; 
+import icon_admin from "../../assets/images/icon_admin.gif";
 export default {
   data() {
     return {
@@ -450,7 +461,9 @@ export default {
         case "play":
           $(".chat-view").append(
             $(
-              "<div class='Item type-left'><div class='lay-block'><div class='avatar'><img src='"+sys+"' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>计划消息</h4><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+              "<div class='Item type-left'><div class='lay-block'><div class='avatar'><img src='" +
+                sys +
+                "' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>计划消息</h4><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
                 this.inputText +
                 "</span></p></div></div></div></div>"
             )
@@ -459,7 +472,11 @@ export default {
         case "manager":
           $(".chat-view").append(
             $(
-              "<div class='Item type-left'><div class='lay-block'><div class='avatar'> <img src='"+manage+"' alt='多彩群主'></div><div class='lay-content'><div class='msg-header'><h4>多彩群主</h4><span class='VipMark type-admin'><img src='"+icon_admin+"' alt='管理员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+              "<div class='Item type-left'><div class='lay-block'><div class='avatar'> <img src='" +
+                manage +
+                "' alt='多彩群主'></div><div class='lay-content'><div class='msg-header'><h4>多彩群主</h4><span class='VipMark type-admin'><img src='" +
+                icon_admin +
+                "' alt='管理员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
                 this.inputText +
                 "</span></p></div></div></div></div></div>"
             )
@@ -468,7 +485,9 @@ export default {
         case "VIP":
           $(".chat-view").append(
             $(
-              "<div class='Item type-left'><div class='lay-block'><div class='avatar'> <img src='"+avatar+"' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4>qi***00</h4><span ><img src='/img/icon_member01.cc2364ce.gif' alt='会员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+              "<div class='Item type-left'><div class='lay-block'><div class='avatar'> <img src='" +
+                avatar +
+                "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4>qi***00</h4><span ><img src='/img/icon_member01.cc2364ce.gif' alt='会员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
                 this.inputText +
                 "</span></p></div></div></div></div></div>"
             )
@@ -526,26 +545,36 @@ export default {
       __this.uploadingImg = t;
       __this.$refs.previewEl.appendChild(t);
     },
-    showUserPack(){
+    showUserPack() {
       this.isShowUserPack = true;
     },
     sendImage() {
       let __this = this,
-      wi = 120,
-      e = this.uploadingImg.naturalWidth,
-      i = this.uploadingImg.naturalHeight;
-      e > wi && (i *= wi / e, e = wi),
-      i > wi && (e *= wi / i, i = wi);
-      var  a = document.createElement("canvas");
-      a.width = e,
-      a.height = i;
+        wi = 120,
+        e = this.uploadingImg.naturalWidth,
+        i = this.uploadingImg.naturalHeight;
+      e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
+      var a = document.createElement("canvas");
+      (a.width = e), (a.height = i);
       var n = a.getContext("2d");
-      n.drawImage(this.uploadingImg, 0, 0, this.uploadingImg.naturalWidth, this.uploadingImg.naturalHeight, 0, 0, e, i);
+      n.drawImage(
+        this.uploadingImg,
+        0,
+        0,
+        this.uploadingImg.naturalWidth,
+        this.uploadingImg.naturalHeight,
+        0,
+        0,
+        e,
+        i
+      );
       $(".chat-view").append(
         $(
           "<div class='Item type-left'><div class='lay-block'><div class='avatar'><img src='/img/avatar.1048d71b.png' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>计划消息</h4><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'><img src=''" +
             this.uploadingImg +
-            "'/>"+this.sendImgDesc+"</span></p></div></div></div></div>"
+            "'/>" +
+            this.sendImgDesc +
+            "</span></p></div></div></div></div>"
         )
       );
       __this.isShowImgPreview = false;

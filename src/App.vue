@@ -39,11 +39,8 @@ import HelloWorld from "./components/HelloWorld.vue";
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 @Component({ components: { HelloWorld } })
 export default class App extends Vue {
-  // name: "app",
-  // components: {
-  //   HelloWorld
-  // }
-};
+  // name: "app";
+}
 </script>
 
 <style lang="css" scoped>
