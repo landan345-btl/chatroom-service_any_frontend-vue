@@ -449,7 +449,7 @@ export default {
   mounted() {},
   methods: {
     showMore() {
-      let t = "试玩用户无法使用";
+      let t = '试玩用户无法使用';
       this.moreFlag = !this.moreFlag;
       return (this.isShowMore = false);
     },
@@ -583,8 +583,11 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
-#chat{margin-top:-59px;}
+<style lang="scss" scoped>
+@import "Chat.scss";
+#chat {
+  margin-top: -59px;
+}
 /* .chat-view.s-announce {
     padding-bottom: 4.33rem;
 } */
