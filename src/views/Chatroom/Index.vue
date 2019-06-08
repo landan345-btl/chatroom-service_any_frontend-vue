@@ -584,8 +584,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "Index.scss";
-/* .chat-view.s-announce {
-    padding-bottom: 4.33rem;
-} */
 </style>
