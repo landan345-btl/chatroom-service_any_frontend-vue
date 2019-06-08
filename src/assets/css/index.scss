@@ -14,8 +14,8 @@
 .chesssupport .el-dialog__footer {background:#f2f2f2}
 .chesssupport .warm {color:red;text-align:center}
 .chesssupport .success {text-align:center;font-size:18px;color:red;padding:40px 0}
-/* .ChatSprite {background:url(../../assets/images/sprite.png) no-repeat} */
-/* .chatbar {position:fixed;right:0;top:0;height:calc(100% - 30px);max-height:1080px;padding-left:6px;background:url(../../assets/images/guide_bg.png) repeat-y 0 0;z-index:200} */
+/* .ChatSprite {background:url(~@/assets/images/sprite.png) no-repeat} */
+/* .chatbar {position:fixed;right:0;top:0;height:calc(100% - 30px);max-height:1080px;padding-left:6px;background:url(~@/assets/images/guide_bg.png) repeat-y 0 0;z-index:200} */
 .chatbar .guide {position:absolute;top:38%;right:-70px;padding-left:6px;transition:right .3s;-moz-transition:right .3s;-webkit-transition:right .3s;-o-transition:right .3s}
 .chatbar .guide .lnk-style1 .lay-lnks .lnk {margin-bottom:3px;position:relative;left:0;transition:left ease-out .2s}
 .chatbar .guide .lnk-style1 .lay-lnks .lnk:hover {left:-72px}
@@ -29,20 +29,20 @@
 .chatbar .guide .lnk-style2 .Lnk {display:block;text-align:center;font-size:15px;color:#2161b3;padding:12px 0}
 .chatbar .guide .lnk-style2 .Lnk:not(:last-child) {border-bottom:1px solid #b9c2cb}
 .chatbar .guide .lnk-style2 .Lnk .lnk-icon {display:block}
-/* .chatbar .guide .lnk-style2 .Lnk .lnk-icon i {display:inline-block;background:url(../../assets/images/sprite.png) no-repeat;width:39px;height:35px} */
+/* .chatbar .guide .lnk-style2 .Lnk .lnk-icon i {display:inline-block;background:url(~@/assets/images/sprite.png) no-repeat;width:39px;height:35px} */
 .chatbar .guide .lnk-style2 .Lnk .lnk-icon i.type-chat {background-position:-90px -30px}
 .chatbar .guide .lnk-style2 .Lnk .lnk-icon i.type-qq {background-position:-145px 0}
 .chatbar .guide .lnk-style2 .Lnk .lnk-text {display:block}
 .chatbar .guide .lnk-style2 .Lnk.type-close {border-bottom:none;padding:4px 0;font-size:13px}
 .chatbar .guide .lnk-style2 .Lnk.type-close .lnk-icon {display:inline-block;line-height:12px;vertical-align:middle}
 .chatbar .guide .lnk-style2 .Lnk.type-close .lnk-icon i.type-close {width:18px;height:18px;background-position:-90px -88px}
-/* .chatbar .guide .lnk-min {height:40px;width:110px;background:url(../../assets/images/chat_float_blue2.png) no-repeat;background-size:auto 100%;display:block;cursor:pointer} */
-/* .skin_red .chatbar .guide .lnk-min {background:url(../../assets/images/chat_float_red2.png) no-repeat;background-size:auto 100%} */
+/* .chatbar .guide .lnk-min {height:40px;width:110px;background:url(~@/assets/images/chat_float_blue2.png) no-repeat;background-size:auto 100%;display:block;cursor:pointer} */
+/* .skin_red .chatbar .guide .lnk-min {background:url(~@/assets/images/chat_float_red2.png) no-repeat;background-size:auto 100%} */
 .chatbar .chatwin {height:100%;background:#fffef9}
 .chatbar .chatwin.type-normal {width:310px}
 .chatbar .chatwin.type-expand {min-width:400px;width:400px}
-/* .chatbar .chatbar-handle {background:url(../../assets/images/sprite.png) no-repeat;width:27px;height:60px;line-height:60px;color:#fff;text-align:center;cursor:pointer;position:absolute;left:-18px;top:50%;margin-top:-30px}
-.CIcon {background:url(../../assets/images/sprite.png) no-repeat;display:inline-block;vertical-align:middle} */
+/* .chatbar .chatbar-handle {background:url(~@/assets/images/sprite.png) no-repeat;width:27px;height:60px;line-height:60px;color:#fff;text-align:center;cursor:pointer;position:absolute;left:-18px;top:50%;margin-top:-30px}
+.CIcon {background:url(~@/assets/images/sprite.png) no-repeat;display:inline-block;vertical-align:middle} */
 .CIcon.ico-redpack {width:32px;height:32px;background-position:0 -80px}
 .CIcon.ico-chat {width:25px;height:25px;background-position:-50px 0}
 .CIcon.ico-service {width:25px;height:25px;background-position:-50px -30px}

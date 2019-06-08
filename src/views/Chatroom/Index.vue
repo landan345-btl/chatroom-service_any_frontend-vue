@@ -426,137 +426,137 @@
 </template>
 
 <script>
-import $ from "jquery";
-import manage from "../../assets/images/manage.jpg";
-import avatar from "../../assets/images/avatar.png";
-import sys from "../../assets/images/sys.png";
-import icon_admin from "../../assets/images/icon_admin.gif";
+import $ from 'jquery'
+import manage from '../../assets/images/manage.jpg'
+import avatar from '../../assets/images/avatar.png'
+import sys from '../../assets/images/sys.png'
+import icon_admin from '../../assets/images/icon_admin.gif'
 export default {
-  data() {
+  data () {
     return {
-      inputText: "",
+      inputText: '',
       atScrollBottom: true,
-      user: "manager",
+      user: 'manager',
       redFlag: false,
       moreFlag: false,
       isShowImgPreview: false,
-      sendImgDesc: "",
+      sendImgDesc: '',
       isShowUserPack: false,
       isShowMore: false,
       uploadingImg: null
-    };
+    }
   },
-  mounted() {},
+  mounted () {},
   methods: {
-    showMore() {
-      let t = '试玩用户无法使用';
-      this.moreFlag = !this.moreFlag;
-      return (this.isShowMore = false);
+    showMore () {
+      let t = '试玩用户无法使用'
+      this.moreFlag = !this.moreFlag
+      return (this.isShowMore = false)
     },
-    sendMessage(t) {
-      var e = t || this.inputText;
-      e = e.replace(/(\s)\s+/g);
-      var a = this.$refs.view;
+    sendMessage (t) {
+      var e = t || this.inputText
+      e = e.replace(/(\s)\s+/g)
+      var a = this.$refs.view
       switch (e.length && this.user) {
-        case "play":
-          $(".chat-view").append(
+        case 'play':
+          $('.chat-view').append(
             $(
-              "<div class='Item type-left'><div class='lay-block'><div class='avatar'><img src='" +
+              '<div class=\'Item type-left\'><div class=\'lay-block\'><div class=\'avatar\'><img src=\'' +
                 sys +
-                "' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>计划消息</h4><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+                '\' alt=\'计划消息\' /></div><div class=\'lay-content\'><div class=\'msg-header\'><h4>计划消息</h4><span class=\'MsgTime\'>12:05:54</span></div><div class=\'Bubble type-system\'><p><span style=\'white-space: pre-wrap; word-break: break-all;\'>' +
                 this.inputText +
-                "</span></p></div></div></div></div>"
+                '</span></p></div></div></div></div>'
             )
-          );
-          break;
-        case "manager":
-          $(".chat-view").append(
+          )
+          break
+        case 'manager':
+          $('.chat-view').append(
             $(
-              "<div class='Item type-left'><div class='lay-block'><div class='avatar'> <img src='" +
+              '<div class=\'Item type-left\'><div class=\'lay-block\'><div class=\'avatar\'> <img src=\'' +
                 manage +
-                "' alt='多彩群主'></div><div class='lay-content'><div class='msg-header'><h4>多彩群主</h4><span class='VipMark type-admin'><img src='" +
+                '\' alt=\'多彩群主\'></div><div class=\'lay-content\'><div class=\'msg-header\'><h4>多彩群主</h4><span class=\'VipMark type-admin\'><img src=\'' +
                 icon_admin +
-                "' alt='管理员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+                '\' alt=\'管理员\'></span><span class=\'MsgTime\'>12:05:54</span></div><div class=\'Bubble type-system\' style=\'background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);\'><p><span style=\'white-space: pre-wrap; word-break: break-all;\'>' +
                 this.inputText +
-                "</span></p></div></div></div></div></div>"
+                '</span></p></div></div></div></div></div>'
             )
-          );
-          break;
-        case "VIP":
-          $(".chat-view").append(
+          )
+          break
+        case 'VIP':
+          $('.chat-view').append(
             $(
-              "<div class='Item type-left'><div class='lay-block'><div class='avatar'> <img src='" +
+              '<div class=\'Item type-left\'><div class=\'lay-block\'><div class=\'avatar\'> <img src=\'' +
                 avatar +
-                "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4>qi***00</h4><span ><img src='/img/icon_member01.cc2364ce.gif' alt='会员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+                '\' alt=\'qi***00\'></div><div class=\'lay-content\'><div class=\'msg-header\'><h4>qi***00</h4><span ><img src=\'/img/icon_member01.cc2364ce.gif\' alt=\'会员\'></span><span class=\'MsgTime\'>12:05:54</span></div><div class=\'Bubble type-system\' style=\'background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);\'><p><span style=\'white-space: pre-wrap; word-break: break-all;\'>' +
                 this.inputText +
-                "</span></p></div></div></div></div></div>"
+                '</span></p></div></div></div></div></div>'
             )
-          );
-          break;
+          )
+          break
         default:
-          break;
+          break
       }
 
-      this.inputText = "";
+      this.inputText = ''
     },
-    onHeightChange() {
-      let __this = this;
+    onHeightChange () {
+      let __this = this
 
       // return __this.$emit("updateHeight");
     },
-    inputFocus(t) {},
-    inputBlur(t) {
+    inputFocus (t) {},
+    inputBlur (t) {
       // this.onHeightChange(), setTimeout(this.onHeightChange, 100);
     },
 
-    checkScroll() {
-      this.atScrollBottom && this.setScrollBottom();
+    checkScroll () {
+      this.atScrollBottom && this.setScrollBottom()
     },
-    setScrollBottom() {
+    setScrollBottom () {
       var t = this.$refs.view;
-      (t.scrollTop = t.scrollHeight), (this.atScrollBottom = true);
+      (t.scrollTop = t.scrollHeight), (this.atScrollBottom = true)
     },
-    onScroll() {
-      let __this = this;
-      let e = this.$refs.view,
-        i = e.scrollHeight - e.offsetHeight - e.scrollTop < 10;
-      this.atScrollBottom != i && (this.atScrollBottom = i);
+    onScroll () {
+      let __this = this
+      let e = this.$refs.view
+      let i = e.scrollHeight - e.offsetHeight - e.scrollTop < 10
+      this.atScrollBottom != i && (this.atScrollBottom = i)
     },
-    handleImgUpload(t) {
-      let __this = this,
-        i = t.target.files[0];
-      let reg = /\.(jpe?g|png|gif)$/i;
+    handleImgUpload (t) {
+      let __this = this
+      let i = t.target.files[0]
+      let reg = /\.(jpe?g|png|gif)$/i
       if (reg.test(i.name)) {
-        var a = new FileReader();
+        var a = new FileReader()
         a.addEventListener(
-          "load",
-          function(t) {
+          'load',
+          function (t) {
             var a = new Image();
-            (a.title = i.name), (a.src = t.target.result), __this.previewImg(a);
+            (a.title = i.name), (a.src = t.target.result), __this.previewImg(a)
           },
           false
-        );
-        a.readAsDataURL(i);
+        )
+        a.readAsDataURL(i)
       }
     },
-    previewImg(t) {
+    previewImg (t) {
       let __this = this;
-      (__this.isShowImgPreview = true), (__this.$refs.previewEl.innerHTML = "");
-      __this.uploadingImg = t;
-      __this.$refs.previewEl.appendChild(t);
+      (__this.isShowImgPreview = true), (__this.$refs.previewEl.innerHTML = '')
+      __this.uploadingImg = t
+      __this.$refs.previewEl.appendChild(t)
     },
-    showUserPack() {
-      this.isShowUserPack = true;
+    showUserPack () {
+      this.isShowUserPack = true
     },
-    sendImage() {
-      let __this = this,
-        wi = 120,
-        e = this.uploadingImg.naturalWidth,
-        i = this.uploadingImg.naturalHeight;
-      e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
-      var a = document.createElement("canvas");
-      (a.width = e), (a.height = i);
-      var n = a.getContext("2d");
+    sendImage () {
+      let __this = this
+      let wi = 120
+      let e = this.uploadingImg.naturalWidth
+      let i = this.uploadingImg.naturalHeight
+      e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi))
+      var a = document.createElement('canvas');
+      (a.width = e), (a.height = i)
+      var n = a.getContext('2d')
       n.drawImage(
         this.uploadingImg,
         0,
@@ -567,27 +567,24 @@ export default {
         0,
         e,
         i
-      );
-      $(".chat-view").append(
+      )
+      $('.chat-view').append(
         $(
-          "<div class='Item type-left'><div class='lay-block'><div class='avatar'><img src='/img/avatar.1048d71b.png' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>计划消息</h4><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'><img src=''" +
+          '<div class=\'Item type-left\'><div class=\'lay-block\'><div class=\'avatar\'><img src=\'/img/avatar.1048d71b.png\' alt=\'计划消息\' /></div><div class=\'lay-content\'><div class=\'msg-header\'><h4>计划消息</h4><span class=\'MsgTime\'>12:05:54</span></div><div class=\'Bubble type-system\'><p><span style=\'white-space: pre-wrap; word-break: break-all;\'><img src=\'\'' +
             this.uploadingImg +
-            "'/>" +
+            '\'/>' +
             this.sendImgDesc +
-            "</span></p></div></div></div></div>"
+            '</span></p></div></div></div></div>'
         )
-      );
-      __this.isShowImgPreview = false;
+      )
+      __this.isShowImgPreview = false
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
-@import "Chat.scss";
-#chat {
-  margin-top: -59px;
-}
+@import "Index.scss";
 /* .chat-view.s-announce {
     padding-bottom: 4.33rem;
 } */

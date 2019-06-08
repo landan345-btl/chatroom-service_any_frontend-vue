@@ -35,27 +35,17 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-import { Component, Prop, Watch, Vue } from "vue-property-decorator";
-@Component({ components: { HelloWorld } })
+import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
+@Component({ components: { } })
 export default class App extends Vue {
   // name: "app";
 }
 </script>
 
-<style lang="css" scoped>
-@import "./assets/css/app.css";
-@import "./assets/css/chunk-vendors.css";
-@import "./assets/css/chat.css";
-@import "./assets/css/font.css";
-@import "./assets/css/index.css";
-#app {
-/* font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;  */
-}
-.title{color: #fff;}
+<style lang="scss">
+@import "./assets/css/app.scss";
+@import "./assets/css/chunk-vendors.scss";
+@import "./assets/css/chatroom.scss";
+@import "./assets/css/font.scss";
+@import "./assets/css/index.scss";
 </style>
