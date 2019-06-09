@@ -465,6 +465,8 @@ export default {
       // this.client.onerror = this.websocketonerror;
       // this.client.onclose = this.websocketclose;
       this.client = new SockJS(wsuri);
+      this.client.onopen = this.websocketonopen;
+      this.client.onmessage = this.webSocketonmessage;
     },
     showMore() {
       let t = "试玩用户无法使用";
@@ -607,7 +609,7 @@ export default {
     },
     websocketonopen() {
       let actions = { test: "test" };
-      this.sendText(JSON.stringify(actions));
+      this.sendText(actions);
     },
     websocketonerror() {
       this.init();
@@ -627,9 +629,9 @@ export default {
         iconUrl: "data/icon/4fdabce64e294ce3b75d42036f30df94.jpg",
         remark: null
       };
-      let sMessage = [];
-      sMessage.push(JSON.stringify(oMessage));
-      this.client.send("'" + sMessage + "'");
+      let sMessage;
+      sMessage = JSON.stringify(oMessage);
+      this.client.send(sMessage);
     },
     websocketclose(e) {}
   }
