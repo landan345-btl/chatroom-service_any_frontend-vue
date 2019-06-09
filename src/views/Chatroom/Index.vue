@@ -615,7 +615,7 @@ export default {
       this.init();
     },
     webSocketonmessage(e) {
-      // this.receptData = JSON.parse(e);
+      // this.receptData = JSON.parse(e.data);
     },
     sendText(data) {
       let oMessage = {
