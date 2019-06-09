@@ -370,7 +370,7 @@
                     <input
                       ref="imgDescInput"
                       autocomplete="off"
-                      placeholder="输入文字描述"
+                      placeholder="输入文字描dssd述"
                       v-model="sendImgDesc"
                     />
                   </p>
@@ -426,162 +426,212 @@
 </template>
 
 <script>
-import $ from 'jquery'
-import manage from '../../assets/images/manage.jpg'
-import avatar from '../../assets/images/avatar.png'
-import sys from '../../assets/images/sys.png'
-import icon_admin from '../../assets/images/icon_admin.gif'
+import $ from "jquery";
+import manage from "../../assets/images/manage.jpg";
+import avatar from "../../assets/images/avatar.png";
+import sys from "../../assets/images/sys.png";
+import iconAdmin from "../../assets/images/icon_admin.gif";
+import iconMember from "../../assets/images/icon_member01.gif";
+import { WS } from "@/CONFIGS/";
+
 export default {
-  data () {
+  data() {
     return {
-      inputText: '',
+      inputText: "",
       atScrollBottom: true,
-      user: 'manager',
+      user: "manager",
       redFlag: false,
       moreFlag: false,
       isShowImgPreview: false,
-      sendImgDesc: '',
+      sendImgDesc: "",
       isShowUserPack: false,
       isShowMore: false,
-      uploadingImg: null
-    }
+      uploadingImg: null,
+      client: null,
+      receptData: null
+    };
   },
-  mounted () {},
+  mounted() {
+    this.init();
+  },
   methods: {
-    showMore () {
-      let t = '试玩用户无法使用'
-      this.moreFlag = !this.moreFlag
-      return (this.isShowMore = false)
+    init() {
+      let wsuri = WS.URL + ":" + WS.PORT;
+      this.client = new WebSocket(wsuri);
+      this.client.onmessage = this.webSocketonmessage;
+      this.client.onopen = this.websocketonopen;
+      this.client.onerror = this.websocketonerror;
+      this.client.onclose = this.websocketclose;
     },
-    sendMessage (t) {
-      var e = t || this.inputText
-      e = e.replace(/(\s)\s+/g)
-      var a = this.$refs.view
+    showMore() {
+      let t = "试玩用户无法使用";
+      this.moreFlag = !this.moreFlag;
+      return (this.isShowMore = false);
+    },
+    sendMessage(t) {
+      var e = t || this.inputText;
+      e = e.replace(/(\s)\s+/g);
+      var a = this.$refs.view;
       switch (e.length && this.user) {
-        case 'play':
-          $('.chat-view').append(
+        case "play":
+          $(".chat-view").append(
             $(
-              '<div class=\'Item type-left\'><div class=\'lay-block\'><div class=\'avatar\'><img src=\'' +
+              "<div class='Item type-left'><div class='lay-block'><div class='avatar'><img src='" +
                 sys +
-                '\' alt=\'计划消息\' /></div><div class=\'lay-content\'><div class=\'msg-header\'><h4>计划消息</h4><span class=\'MsgTime\'>12:05:54</span></div><div class=\'Bubble type-system\'><p><span style=\'white-space: pre-wrap; word-break: break-all;\'>' +
+                "' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>计划消息</h4><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
                 this.inputText +
-                '</span></p></div></div></div></div>'
+                "</span></p></div></div></div></div>"
             )
-          )
-          break
-        case 'manager':
-          $('.chat-view').append(
+          );
+          break;
+        case "manager":
+          $(".chat-view").append(
             $(
-              '<div class=\'Item type-left\'><div class=\'lay-block\'><div class=\'avatar\'> <img src=\'' +
+              "<div class='Item type-left'><div class='lay-block'><div class='avatar'> <img src='" +
                 manage +
-                '\' alt=\'多彩群主\'></div><div class=\'lay-content\'><div class=\'msg-header\'><h4>多彩群主</h4><span class=\'VipMark type-admin\'><img src=\'' +
-                icon_admin +
-                '\' alt=\'管理员\'></span><span class=\'MsgTime\'>12:05:54</span></div><div class=\'Bubble type-system\' style=\'background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);\'><p><span style=\'white-space: pre-wrap; word-break: break-all;\'>' +
+                "' alt='多彩群主'></div><div class='lay-content'><div class='msg-header'><h4>多彩群主</h4><span class='VipMark type-admin'><img src='" +
+                iconAdmin +
+                "' alt='管理员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
                 this.inputText +
-                '</span></p></div></div></div></div></div>'
+                "</span></p></div></div></div></div></div>"
             )
-          )
-          break
-        case 'VIP':
-          $('.chat-view').append(
+          );
+          break;
+        case "VIP":
+          $(".chat-view").append(
             $(
-              '<div class=\'Item type-left\'><div class=\'lay-block\'><div class=\'avatar\'> <img src=\'' +
+              "<div class='Item type-left'><div class='lay-block'><div class='avatar'> <img src='" +
                 avatar +
-                '\' alt=\'qi***00\'></div><div class=\'lay-content\'><div class=\'msg-header\'><h4>qi***00</h4><span ><img src=\'/img/icon_member01.cc2364ce.gif\' alt=\'会员\'></span><span class=\'MsgTime\'>12:05:54</span></div><div class=\'Bubble type-system\' style=\'background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);\'><p><span style=\'white-space: pre-wrap; word-break: break-all;\'>' +
+                "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4>qi***00</h4><span ><img src='" +
+                iconMember +
+                "' alt='会员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
                 this.inputText +
-                '</span></p></div></div></div></div></div>'
+                "</span></p></div></div></div></div></div>"
             )
-          )
-          break
+          );
+          break;
         default:
-          break
+          break;
       }
-
-      this.inputText = ''
+      e && this.sendText(e);
+      this.inputText = "";
     },
-    onHeightChange () {
-      let __this = this
+    onHeightChange() {
+      let __this = this;
 
       // return __this.$emit("updateHeight");
     },
-    inputFocus (t) {},
-    inputBlur (t) {
+    inputFocus(t) {},
+    inputBlur(t) {
       // this.onHeightChange(), setTimeout(this.onHeightChange, 100);
     },
 
-    checkScroll () {
-      this.atScrollBottom && this.setScrollBottom()
+    checkScroll() {
+      this.atScrollBottom && this.setScrollBottom();
     },
-    setScrollBottom () {
+    setScrollBottom() {
       var t = this.$refs.view;
-      (t.scrollTop = t.scrollHeight), (this.atScrollBottom = true)
+      t.scrollTop = t.scrollHeight;
+      this.atScrollBottom = true;
     },
-    onScroll () {
-      let __this = this
-      let e = this.$refs.view
-      let i = e.scrollHeight - e.offsetHeight - e.scrollTop < 10
-      this.atScrollBottom != i && (this.atScrollBottom = i)
+    onScroll() {
+      let __this = this;
+      let e = this.$refs.view;
+      let i = e.scrollHeight - e.offsetHeight - e.scrollTop < 10;
+      this.atScrollBottom !== i && (this.atScrollBottom = i);
     },
-    handleImgUpload (t) {
-      let __this = this
-      let i = t.target.files[0]
-      let reg = /\.(jpe?g|png|gif)$/i
+    handleImgUpload(t) {
+      let __this = this;
+      let i = t.target.files[0];
+      let reg = /\.(jpe?g|png|gif)$/i;
       if (reg.test(i.name)) {
-        var a = new FileReader()
+        var a = new FileReader();
         a.addEventListener(
-          'load',
-          function (t) {
+          "load",
+          function(t) {
             var a = new Image();
-            (a.title = i.name), (a.src = t.target.result), __this.previewImg(a)
+            a.title = i.name;
+            a.src = t.target.result;
+            __this.previewImg(a);
           },
           false
-        )
-        a.readAsDataURL(i)
+        );
+        a.readAsDataURL(i);
       }
     },
-    previewImg (t) {
+    previewImg(t) {
       let __this = this;
-      (__this.isShowImgPreview = true), (__this.$refs.previewEl.innerHTML = '')
-      __this.uploadingImg = t
-      __this.$refs.previewEl.appendChild(t)
+      __this.isShowImgPreview = true;
+      __this.$refs.previewEl.innerHTML = "";
+      __this.uploadingImg = t;
+      __this.$refs.previewEl.appendChild(t);
     },
-    showUserPack () {
-      this.isShowUserPack = true
+    showUserPack() {
+      this.isShowUserPack = true;
     },
-    sendImage () {
-      let __this = this
-      let wi = 120
-      let e = this.uploadingImg.naturalWidth
-      let i = this.uploadingImg.naturalHeight
-      e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi))
-      var a = document.createElement('canvas');
-      (a.width = e), (a.height = i)
-      var n = a.getContext('2d')
-      n.drawImage(
-        this.uploadingImg,
-        0,
-        0,
-        this.uploadingImg.naturalWidth,
-        this.uploadingImg.naturalHeight,
-        0,
-        0,
-        e,
-        i
-      )
-      $('.chat-view').append(
+    sendImage() {
+      let __this = this;
+      let wi = 120;
+      let e = this.uploadingImg.naturalWidth;
+      let i = this.uploadingImg.naturalHeight;
+      // e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
+      // var a = document.createElement('canvas');
+      // (a.width = e), (a.height = i);
+      // var n = a.getContext('2d');
+      // n.drawImage(
+      //   this.uploadingImg,
+      //   0,
+      //   0,
+      //   this.uploadingImg.naturalWidth,
+      //   this.uploadingImg.naturalHeight,
+      //   0,
+      //   0,
+      //   e,
+      //   i
+      // );
+      $(".chat-view").append(
         $(
-          '<div class=\'Item type-left\'><div class=\'lay-block\'><div class=\'avatar\'><img src=\'/img/avatar.1048d71b.png\' alt=\'计划消息\' /></div><div class=\'lay-content\'><div class=\'msg-header\'><h4>计划消息</h4><span class=\'MsgTime\'>12:05:54</span></div><div class=\'Bubble type-system\'><p><span style=\'white-space: pre-wrap; word-break: break-all;\'><img src=\'\'' +
+          "<div class='Item type-left'><div class='lay-block'><div class='avatar'><img src='" +
+            avatar +
+            "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4>qi***00</h4><span ><img src='/img/icon_member01.cc2364ce.gif' alt='会员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'><img src=''" +
             this.uploadingImg +
-            '\'/>' +
+            "'/>" +
             this.sendImgDesc +
-            '</span></p></div></div></div></div>'
+            "</span></p></div></div></div></div>"
         )
-      )
-      __this.isShowImgPreview = false
-    }
+      );
+      __this.isShowImgPreview = false;
+    },
+    websocketonopen() {
+      let actions = { test: "test" };
+      this.sendText(JSON.stringify(actions));
+    },
+    websocketonerror() {
+      this.init();
+    },
+    webSocketonmessage(e) {
+      // this.receptData = JSON.parse(e);
+    },
+    sendText(data) {
+      let oMessage = [
+        {
+          id: 46983963,
+          fk: "hCBOEx1e8cxeSWX2PUSC5w==",
+          chatType: 2,
+          nickName: "赖赖",
+          content: data || null,
+          curTime: "2019-06-09 13:12:58",
+          roleId: 8,
+          iconUrl: "data/icon/4fdabce64e294ce3b75d42036f30df94.jpg",
+          remark: null
+        }
+      ];
+      let sMessage = JSON.stringify(oMessage);
+      this.client.send("'" + sMessage + "'");
+    },
+    websocketclose(e) {}
   }
-}
+};
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
