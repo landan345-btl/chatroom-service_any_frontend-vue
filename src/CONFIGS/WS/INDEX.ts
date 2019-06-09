@@ -1,6 +1,7 @@
 const WS: any = {
-  URL: 'ws://localhost',
+  URL: 'http://127.0.0.1',
   PORT: 4001,
+  PREFIX: 'socket',
 };
 
 export default WS;

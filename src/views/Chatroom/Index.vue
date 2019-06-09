@@ -427,6 +427,8 @@
 
 <script>
 import $ from "jquery";
+import SockJS from "sockjs-client";
+
 import manage from "../../assets/images/manage.jpg";
 import avatar from "../../assets/images/avatar.png";
 import sys from "../../assets/images/sys.png";
@@ -456,12 +458,13 @@ export default {
   },
   methods: {
     init() {
-      let wsuri = WS.URL + ":" + WS.PORT;
-      this.client = new WebSocket(wsuri);
-      this.client.onmessage = this.webSocketonmessage;
-      this.client.onopen = this.websocketonopen;
-      this.client.onerror = this.websocketonerror;
-      this.client.onclose = this.websocketclose;
+      let wsuri = WS.URL + ":" + WS.PORT + "/" + WS.PREFIX;
+      // this.client = new WebSocket(wsuri);
+      // this.client.onmessage = this.webSocketonmessage;
+      // this.client.onopen = this.websocketonopen;
+      // this.client.onerror = this.websocketonerror;
+      // this.client.onclose = this.websocketclose;
+      this.client = new SockJS(wsuri);
     },
     showMore() {
       let t = "试玩用户无法使用";
