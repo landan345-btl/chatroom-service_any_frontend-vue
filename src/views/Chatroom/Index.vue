@@ -613,20 +613,19 @@ export default {
       // this.receptData = JSON.parse(e);
     },
     sendText(data) {
-      let oMessage = [
-        {
-          id: 46983963,
-          fk: "hCBOEx1e8cxeSWX2PUSC5w==",
-          chatType: 2,
-          nickName: "赖赖",
-          content: data || null,
-          curTime: "2019-06-09 13:12:58",
-          roleId: 8,
-          iconUrl: "data/icon/4fdabce64e294ce3b75d42036f30df94.jpg",
-          remark: null
-        }
-      ];
-      let sMessage = JSON.stringify(oMessage);
+      let oMessage = {
+        id: 46983963,
+        fk: "hCBOEx1e8cxeSWX2PUSC5w==",
+        chatType: 2,
+        nickName: "赖赖",
+        content: data || null,
+        curTime: "2019-06-09 13:12:58",
+        roleId: 8,
+        iconUrl: "data/icon/4fdabce64e294ce3b75d42036f30df94.jpg",
+        remark: null
+      };
+      let sMessage = [];
+      sMessage.push(JSON.stringify(oMessage));
       this.client.send("'" + sMessage + "'");
     },
     websocketclose(e) {}
