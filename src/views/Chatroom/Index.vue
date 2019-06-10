@@ -78,7 +78,7 @@
                 @scroll="onScroll"
               >
                 <!-- 系统红包 -->
-                <div class="Item type-left">
+                <div class="Item type-left" style="display:none;">
                   <div class="lay-block">
                     <div class="avatar">
                       <img
@@ -106,7 +106,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="Item type-packopen">
+                <div class="Item type-packopen" style="display:none;">
                   <div class="lay-block">
                     <div class="lay-content">
                       <div>
@@ -120,7 +120,7 @@
                   </div>
                 </div>
               </div>
-              <div class="redpack-active">
+              <div class="redpack-active" style="display:none;" >
                 <div class="active-icon">
                   <a href="javascript:;">
                     <img src="../../assets/images/hbao.gif" alt=""
@@ -441,7 +441,7 @@ export default {
     return {
       inputText: "",
       atScrollBottom: true,
-      user: "manager",
+      user: "visitor",
       redFlag: false,
       moreFlag: false,
       isShowImgPreview: false,
@@ -451,24 +451,17 @@ export default {
       uploadingImg: null,
       client: null,
       receptData: null,
-      sendFlag: false
+      sendFlag: false,
+      sendMessageFlag: true
     };
   },
   mounted() {
-    this.init();
+    this.$sockJs.onopen = this.websocketonopen;
+    this.$sockJs.onmessage = this.webSocketonmessage;
+    this.$sockJs.onerror = this.websocketonerror;
+    this.$sockJs.onclose = this.websocketclose;
   },
   methods: {
-    init() {
-      let wsuri = WS.URL + ":" + WS.PORT + "/" + WS.PREFIX;
-      // this.client = new WebSocket(wsuri);
-      // this.client.onmessage = this.webSocketonmessage;
-      // this.client.onopen = this.websocketonopen;
-      // this.client.onerror = this.websocketonerror;
-      // this.client.onclose = this.websocketclose;
-      this.client = new SockJS(wsuri);
-      this.client.onopen = this.websocketonopen;
-      this.client.onmessage = this.webSocketonmessage;
-    },
     showMore() {
       let t = "试玩用户无法使用";
       this.moreFlag = !this.moreFlag;
@@ -478,60 +471,10 @@ export default {
       var e = t || this.inputText;
       e = e.replace(/(\s)\s+/g);
       var a = this.$refs.view;
-      if (this.sendFlag) {
-        switch (e.length && this.user) {
-          case "play":
-            $(".chat-view").append(
-              $(
-                "<div class='Item type-left'><div class='lay-block'><div class='avatar'><img src='" +
-                  sys +
-                  "' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>计划消息</h4><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
-                  e +
-                  "</span></p></div></div></div></div>"
-              )
-            );
-            break;
-          case "manager":
-            $(".chat-view").append(
-              $(
-                "<div class='Item type-left'><div class='lay-block'><div class='avatar'> <img src='" +
-                  manage +
-                  "' alt='多彩群主'></div><div class='lay-content'><div class='msg-header'><h4>多彩群主</h4><span class='VipMark type-admin'><img src='" +
-                  iconAdmin +
-                  "' alt='管理员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
-                  e +
-                  "</span></p></div></div></div></div></div>"
-              )
-            );
-            break;
-          case "VIP":
-            $(".chat-view").append(
-              $(
-                "<div class='Item type-left'><div class='lay-block'><div class='avatar'> <img src='" +
-                  avatar +
-                  "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4>qi***00</h4><span ><img src='" +
-                  iconMember +
-                  "' alt='会员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
-                  e +
-                  "</span></p></div></div></div></div></div>"
-              )
-            );
-            break;
-          default:
-            break;
-        }
-      }
-      if (this.receptData.content) {
-        return;
-      } else {
-        e && this.sendText(e);
-      }
-
-      this.inputText = "";
+      this.sendText(e);
     },
     onHeightChange() {
       let __this = this;
-
       // return __this.$emit("updateHeight");
     },
     inputFocus(t) {},
@@ -624,39 +567,101 @@ export default {
       this.receptData = "";
       this.receptData = JSON.parse(e.data);
       this.sendFlag = false;
-      if (
-        !this.receptData.content ||
-        this.receptData.content == this.inputText
-      ) {
-
+      this.sendMessageFlag = true;
+      if (!this.receptData.content) {
+        return;
       } else {
         this.sendFlag = true;
-        this.sendMessage(this.receptData.content);
+        let data = this.receptData.content || this.inputText;
+        data = data.replace(/(\s)\s+/g);
+        let MsaClass = "type-right";
+        this.receptData.content == this.inputText
+          ? (MsaClass = "type-right")
+          : (MsaClass = "type-left");
+        switch (data.length && this.user) {
+          case "play":
+            $(".chat-view").append(
+              $(
+                "<div class='Item " +
+                  MsaClass +
+                  "'><div class='lay-block'><div class='avatar'><img src='" +
+                  sys +
+                  "' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>计划消息</h4><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+                  data +
+                  "</span></p></div></div></div></div>"
+              )
+            );
+            break;
+          case "manager":
+            $(".chat-view").append(
+              $(
+                "<div class='Item " +
+                  MsaClass +
+                  "'><div class='lay-block'><div class='avatar'> <img src='" +
+                  manage +
+                  "' alt='多彩群主'></div><div class='lay-content'><div class='msg-header'><h4>多彩群主</h4><span class='VipMark type-admin'><img src='" +
+                  iconAdmin +
+                  "' alt='管理员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+                  data +
+                  "</span></p></div></div></div></div></div>"
+              )
+            );
+            break;
+          case "VIP":
+            $(".chat-view").append(
+              $(
+                "<div class='Item" +
+                  MsaClass +
+                  "'><div class='lay-block'><div class='avatar'> <img src='" +
+                  avatar +
+                  "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4>qi***00</h4><span ><img src='" +
+                  iconMember +
+                  "' alt='会员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+                  data +
+                  "</span></p></div></div></div></div></div>"
+              )
+            );
+            break;
+          case "visitor":
+            $(".chat-view").append(
+              $(
+                "<div class='Item "+MsaClass+"'><div class='lay-block'><div class='avatar'> <img src='" +
+                  avatar +
+                  "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>游客</h4><span ><img src='" +
+                  iconMember +
+                  "' alt='游客'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+                  data +
+                  "</span></p></div></div></div></div></div>"
+              )
+            );
+            break;
+          default:
+            break;
+        }
+        this.inputText = "";
       }
     },
     sendText(data) {
+      let date = new Date();
       let oMessage = {
-        id: 46983963,
+        id: "",
         fk: "hCBOEx1e8cxeSWX2PUSC5w==",
         chatType: 2,
         nickName: "赖赖",
         content: data || null,
-        curTime: "2019-06-09 13:12:58",
+        curTime: date,
         roleId: 8,
         iconUrl: "data/icon/4fdabce64e294ce3b75d42036f30df94.jpg",
         remark: null
       };
       let sMessage;
       sMessage = JSON.stringify(oMessage);
-      this.client.send(sMessage);
+      this.$sockJs.send(sMessage);
     },
     websocketclose(e) {}
   },
   watch: {
-    inputText() {
-      // let __this = this;
-      // __this.webSocketonmessage();
-    }
+    inputText() {}
   }
 };
 </script>
