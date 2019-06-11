@@ -18,6 +18,7 @@
                   class=""
                   aria-required="true"
                   aria-invalid="true"
+                  v-model="username"
                 />
               </div>
               <div class="col"></div>
@@ -34,15 +35,19 @@
                   class=""
                   aria-required="true"
                   aria-invalid="true"
+                  v-model="password"
                 />
               </div>
             </div>
           </div>
         </div>
-        <div class="login-btn">
-          <button type="submit" class="FormBtn" @click="Login">登录</button>
-        </div>
+        <!-- <div class="login-btn">
+          <button  class="FormBtn" @click="login">登录</button>
+        </div> -->
       </form>
+      <div class="login-btn">
+          <button  class="FormBtn" @click="login">登录</button>
+        </div>
       <div class="l-bottom-wrap">
         <div class="uc-navs">
           <div class="row options" style="margin-top: 2em;display:flex;">
@@ -68,14 +73,21 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      username: "",
+      password: ""
+    };
+  },
+  mounted(){
   },
   methods: {
-    Login() {
-
+    login() {
+       this.$socket.emit('LOGIN', {'username': this.username, 'password': this.password});
+    },
+    connectWebSocket() {
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

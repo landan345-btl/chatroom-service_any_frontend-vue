@@ -455,10 +455,8 @@ export default {
   },
   mounted() {
     this.$socket.on('connect', this.connectWebSocket);
-    this.$socket.on('MESSAGE',  this.messageWebSocket);
+    this.$socket.on('message', this.webSocketonmessage);
     this.$socket.on('disconnet', this.disconnetWebSocket);
-
-    this.$socket.emit('MESSAGE', '1234567890');
   },
   methods: {
     showMore() {
@@ -556,26 +554,30 @@ export default {
       );
       __this.isShowImgPreview = false;
     },
-    connectWebSocket() {
-      
+    connectWebSocket(data) {
+      this.webSocketonmessage(data);
     },
 
     messageWebSocket(data) {
 
     },
-    webSocketonmessage(e) {
+    webSocketonmessage(data) {
+      debugger;
       this.receptData = "";
-      this.receptData = JSON.parse(e.data);
+      // this.receptData = JSON.parse(data);
+      // debugger
       this.sendFlag = false;
       this.sendMessageFlag = true;
-      if (!this.receptData.content) {
+      this.receptData = data;
+      // data.length > 20 ? this.receptData = JSON.parse(data).content : this.receptData = data;
+      if (!(this.receptData != undefined && this.receptData != '' && this.receptData != null)) {
         return;
       } else {
         this.sendFlag = true;
-        let data = this.receptData.content || this.inputText;
+        let data = this.receptData || this.inputText;
         data = data.replace(/(\s)\s+/g);
         let MsaClass = "type-right";
-        this.receptData.content == this.inputText
+        this.receptData == this.inputText
           ? (MsaClass = "type-right")
           : (MsaClass = "type-left");
         switch (data.length && this.user) {
@@ -625,7 +627,7 @@ export default {
           case "visitor":
             $(".chat-view").append(
               $(
-                "<div class='Item "+MsaClass+"'><div class='lay-block'><div class='avatar'> <img src='" +
+                "<div class='Item type-right'><div class='lay-block'><div class='avatar'> <img src='" +
                   avatar +
                   "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>游客</h4><span ><img src='" +
                   iconMember +
@@ -643,19 +645,22 @@ export default {
     },
     sendText(data) {
       let date = new Date();
-      let oMessage = {
-        id: "",
-        fk: "hCBOEx1e8cxeSWX2PUSC5w==",
-        chatType: 2,
-        nickName: "赖赖",
-        content: data || null,
-        curTime: date,
-        roleId: 8,
-        iconUrl: "data/icon/4fdabce64e294ce3b75d42036f30df94.jpg",
-        remark: null
-      };
-      let sMessage = JSON.stringify(oMessage);
-      this.$sockJs.send(sMessage);
+      let oMessage = data;
+      // let oMessage = {
+      //   id: "",
+      //   fk: "hCBOEx1e8cxeSWX2PUSC5w==",
+      //   chatType: 2,
+      //   nickName: "游客",
+      //   content: data || null,
+      //   curTime: date,
+      //   roleId: 8,
+      //   iconUrl: "data/icon/4fdabce64e294ce3b75d42036f30df94.jpg",
+      //   remark: null
+      // };
+      // let sMessage = JSON.stringify(oMessage);
+      let sMessage = oMessage;
+      // this.$sockJs.send(sMessage);
+      this.$socket.emit('message', sMessage);
     },
     disconnetWebSocket(e) {}
   },
