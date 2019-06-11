@@ -80,7 +80,5 @@ export default {
 
 <style lang="scss" scoped>
 @import "Login.scss";
-.options a {
-  flex: 1;
-}
+
 </style>
