@@ -455,7 +455,7 @@ export default {
   },
   mounted() {
     this.$socket.on('connect', this.connectWebSocket);
-    this.$socket.on('message', this.webSocketonmessage);
+    this.$socket.on('MESSAGE', this.webSocketonmessage);
     this.$socket.on('disconnet', this.disconnetWebSocket);
   },
   methods: {
@@ -562,7 +562,6 @@ export default {
 
     },
     webSocketonmessage(data) {
-      debugger;
       this.receptData = "";
       // this.receptData = JSON.parse(data);
       // debugger
@@ -660,7 +659,7 @@ export default {
       // let sMessage = JSON.stringify(oMessage);
       let sMessage = oMessage;
       // this.$sockJs.send(sMessage);
-      this.$socket.emit('message', sMessage);
+      this.$socket.emit('MESSAGE', sMessage);
     },
     disconnetWebSocket(e) {}
   },
