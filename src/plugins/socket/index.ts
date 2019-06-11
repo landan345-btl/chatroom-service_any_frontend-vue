@@ -1,7 +1,9 @@
 import oIo from 'socket.io-client';
 import { SOCKET } from "@/CONFIGS/";
 
-let sUrl = SOCKET.URL + ":" + SOCKET.PORT + "/" + SOCKET.NAMESPACE;
+let sUrl = SOCKET.URL + 
+         (SOCKET.PORT && (80 !== SOCKET.PORT || '80' !== SOCKET.PORT) ? ":" + SOCKET.PORT : '') +
+          "/" + SOCKET.NAMESPACE;
 // this.client = new WebSocket(wsuri);
 const oSocket = oIo(sUrl);
 

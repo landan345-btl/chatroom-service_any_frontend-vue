@@ -1,6 +1,6 @@
 const SOCKET_IO: any = {
-  URL: 'http://fea.socket.com/',
-  PORT: 4001,
+  URL: 'http://fea.socket.com',
+  PORT: '',
   NAMESPACE: 'webchat',
 };
 

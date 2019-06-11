@@ -457,6 +457,8 @@ export default {
     this.$socket.on('connect', this.connectWebSocket);
     this.$socket.on('MESSAGE',  this.messageWebSocket);
     this.$socket.on('disconnet', this.disconnetWebSocket);
+
+    this.$socket.emit('MESSAGE', '1234567890');
   },
   methods: {
     showMore() {
@@ -557,9 +559,12 @@ export default {
     connectWebSocket() {
       
     },
+
+    messageWebSocket(data) {
+
+    },
     webSocketonmessage(e) {
       this.receptData = "";
-      debugger;
       this.receptData = JSON.parse(e.data);
       this.sendFlag = false;
       this.sendMessageFlag = true;
