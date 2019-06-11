@@ -427,14 +427,12 @@
 
 <script>
 import $ from "jquery";
-import SockJS from "sockjs-client";
 
 import manage from "../../assets/images/manage.jpg";
 import avatar from "../../assets/images/avatar.png";
 import sys from "../../assets/images/sys.png";
 import iconAdmin from "../../assets/images/icon_admin.gif";
 import iconMember from "../../assets/images/icon_member01.gif";
-import { WS } from "@/CONFIGS/";
 
 export default {
   data() {
@@ -456,10 +454,9 @@ export default {
     };
   },
   mounted() {
-    this.$sockJs.onopen = this.websocketonopen;
-    this.$sockJs.onmessage = this.webSocketonmessage;
-    this.$sockJs.onerror = this.websocketonerror;
-    this.$sockJs.onclose = this.websocketclose;
+    this.$socket.on('connect', this.connectWebSocket);
+    this.$socket.on('MESSAGE',  this.messageWebSocket);
+    this.$socket.on('disconnet', this.disconnetWebSocket);
   },
   methods: {
     showMore() {
@@ -557,14 +554,12 @@ export default {
       );
       __this.isShowImgPreview = false;
     },
-    websocketonopen() {
-      this.sendText();
-    },
-    websocketonerror() {
-      this.init();
+    connectWebSocket() {
+      
     },
     webSocketonmessage(e) {
       this.receptData = "";
+      debugger;
       this.receptData = JSON.parse(e.data);
       this.sendFlag = false;
       this.sendMessageFlag = true;
@@ -657,7 +652,7 @@ export default {
       let sMessage = JSON.stringify(oMessage);
       this.$sockJs.send(sMessage);
     },
-    websocketclose(e) {}
+    disconnetWebSocket(e) {}
   },
   watch: {
     inputText() {}
