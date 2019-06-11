@@ -654,8 +654,7 @@ export default {
         iconUrl: "data/icon/4fdabce64e294ce3b75d42036f30df94.jpg",
         remark: null
       };
-      let sMessage;
-      sMessage = JSON.stringify(oMessage);
+      let sMessage = JSON.stringify(oMessage);
       this.$sockJs.send(sMessage);
     },
     websocketclose(e) {}
