@@ -11,7 +11,7 @@
     <header class="nav v-transfer-dom">
       <div class="nav-item">
         <div class="nav-left-wrap">
-          <div class="back" @click="this.$router.go(-1)">
+          <div class="back" @click="back">
             <a href="javascript:void(0)" class="back-btn">首页</a>
           </div>
           <div class="left-slot"></div>
@@ -39,6 +39,9 @@ import { Component, Prop, Watch, Vue } from 'vue-property-decorator'
 @Component({ components: { } })
 export default class App extends Vue {
   // name: "app";
+  back(){
+    this.$router.go(-1)
+  }
 }
 </script>
 
@@ -46,3 +49,4 @@ export default class App extends Vue {
 @import "@/styles/index.scss";
 
 </style>
+
