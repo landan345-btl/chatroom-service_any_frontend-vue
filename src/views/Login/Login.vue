@@ -82,7 +82,11 @@ export default {
   },
   methods: {
     login() {
-       this.$socket.emit('LOGIN', {'username': this.username, 'password': this.password});
+      let oBody = {
+        name: this.username,
+        password: this.password,
+      };
+      this.$socket.emit('AUTHENTICATION LOGIN', oBody );
     },
     connectWebSocket() {
     }
