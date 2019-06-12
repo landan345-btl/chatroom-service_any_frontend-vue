@@ -442,12 +442,18 @@
 
 <script>
 import $ from "jquery";
+import jwtDecode from 'jwt-decode';
 
 import manage from "../../assets/images/manage.jpg";
 import avatar from "../../assets/images/avatar.png";
 import sys from "../../assets/images/sys.png";
 import iconAdmin from "../../assets/images/icon_admin.gif";
 import iconMember from "../../assets/images/icon_member01.gif";
+
+import { AuthenticationHelper } from '../../Helper/';
+
+let oAuthenticationHelper = new AuthenticationHelper();
+
 export default {
   data() {
     return {
@@ -482,12 +488,12 @@ export default {
       return (this.isShowMore = false);
     },
     checkIsLogined() {
-      debugger;
-      let sJwt = window.localStorage.getItem("jwt");
-      if (!sJwt) {
-        this.$router.push({
-          path: "/login"
-        });
+      let sUid = oAuthenticationHelper.getUserId();
+      let oQuery = {
+        path: "/login",
+      };
+      if (!sUid) {
+        this.$router.push(oQuery);
       }
     },
     sendMessage(t) {
@@ -683,8 +689,10 @@ export default {
     sendText(data) {
       let date = new Date();
       // let oMessage = data;
+      let sUid = oUserHelper.getId();
+
       let oMessage = {
-        id: "",
+        id: sUid,
         fk: "hCBOEx1e8cxeSWX2PUSC5w==",
         chatType: 2,
         nickName: "游客",
