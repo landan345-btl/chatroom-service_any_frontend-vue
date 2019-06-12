@@ -442,6 +442,7 @@
 
 <script>
 import $ from "jquery";
+import jwtDecode from 'jwt-decode';
 
 import manage from "../../assets/images/manage.jpg";
 import avatar from "../../assets/images/avatar.png";
@@ -484,10 +485,20 @@ export default {
     },
     checkIsLogined() {
       let sJwt = localStorage.getItem("jwt");
+      let oQuery = {
+        path: "/login",
+      };
       if (!sJwt) {
-        this.$router.push({
-          path: "/login"
-        });
+        this.$router.push(oQuery);
+      }
+
+      try {
+        let oPayload = jwtDecode(sJwt);
+        if (!oPayload.uid) {
+          throw '';
+        }
+      } catch (sException) {
+        this.$router.push(oQuery);
       }
     },
     sendMessage(t) {
