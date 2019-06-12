@@ -4,11 +4,11 @@
       <form>
         <div class="l-wrap">
           <div class="uc-navs">
-            <div class="row">
+            <div class="row" style="border: none;">
               <div class="col" style="line-height:3.66rem;padding-right:5px;">
                 <i class="iconfont icon-weibiao45128"></i>>&nbsp;&nbsp;
               </div>
-              <div class="col">
+              <div class="col" style="margin-left: 9px;">
                 <input
                   type="text"
                   autocomplete="off"
@@ -19,11 +19,12 @@
                   aria-required="true"
                   aria-invalid="true"
                   v-model="username"
+                  style="width:447px;"
                 />
               </div>
               <div class="col"></div>
             </div>
-            <div class="row">
+            <div class="row" style="border:0;">
               <div class="col" style="line-height:3.66rem;padding-right:5px;">
                 <i class="iconfont icon-lock"></i>&nbsp;&nbsp;
               </div>
@@ -50,6 +51,9 @@
       </div>
       <div class="l-bottom-wrap">
         <div class="uc-navs">
+          <div class="row" style="margin-top: 1em;width:586px;margin-left:0;border:0;">
+            <span class="text-center">其他</span>
+          </div>
           <div class="row options" style="margin-top: 2em;display:flex;">
             <a class="col" style="display:none;"
               ><i class="icon-item icon-fast-regisit"></i>
@@ -79,6 +83,7 @@ export default {
     };
   },
   mounted() {
+    
     this.$socket.on("AUTHENTICATION LOGIN", this.logined);
   },
   methods: {
@@ -94,7 +99,7 @@ export default {
         return;
       }
       let sJwt = oBody.jwt || "";
-      localStorage.setItem("jwt", sJwt);
+      window.localStorage.setItem("jwt", sJwt);
       this.$router.push({
         path: "/chatroom"
       });

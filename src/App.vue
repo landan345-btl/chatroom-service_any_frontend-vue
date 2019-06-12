@@ -20,35 +20,43 @@
       <div class="title" @click="goToChatroom()">聊天室</div>
       <div class="nav-item">
         <div class="right-slot">
-          <a href="#/chat/setting" class="" style="margin-right: 0.1em;">
+          <a href="" class="" style="margin-right: 0.1em;">
             <i class="iconfont icon-icon-" style="font-size: 1em;"></i>
           </a>
           <div class="drawer">
-            <a href="javascript:;">
+            <a href="javascript:;" @click="taggle">
               <span class="iconfont icon-guidedrawer"></span>
             </a>
           </div>
         </div>
       </div>
     </header>
+    <Menu :showMenu="showMenu" />
   </div>
 </template>
 
 <script>
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
-
+import Menu from "@/components/Menu/Index.vue";
 @Component({
-  components: {}
+  components: { Menu }
 })
 export default class App extends Vue {
+  showMenu = false;
   back() {
-     this.$router.go(-1);
-   }
-   goToChatroom() {
-     this.$router.push({
-          path: "/chatroom",
-        })
-   }
+    this.$router.go(-1);
+  }
+  goToChatroom() {
+    this.$router.push({
+      path: "/chatroom"
+    });
+  }
+  taggle() {
+    this.showMenu = !this.showMenu;
+  }
+  @Watch("this.$route")
+  RouteChange(newVal) {
+  }
 }
 </script>
 

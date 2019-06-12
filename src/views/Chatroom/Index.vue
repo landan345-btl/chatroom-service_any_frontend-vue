@@ -448,7 +448,6 @@ import avatar from "../../assets/images/avatar.png";
 import sys from "../../assets/images/sys.png";
 import iconAdmin from "../../assets/images/icon_admin.gif";
 import iconMember from "../../assets/images/icon_member01.gif";
-
 export default {
   data() {
     return {
@@ -483,7 +482,8 @@ export default {
       return (this.isShowMore = false);
     },
     checkIsLogined() {
-      let sJwt = localStorage.getItem("jwt");
+      debugger;
+      let sJwt = window.localStorage.getItem("jwt");
       if (!sJwt) {
         this.$router.push({
           path: "/login"
