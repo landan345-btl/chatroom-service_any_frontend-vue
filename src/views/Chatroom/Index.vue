@@ -1,5 +1,5 @@
 <template>
-  <div id="chat">
+  <div id="chat" @click="checkIsLogined()">
     <div class="lay-sticky-container chat router-view">
       <div class="sticky-part sticky-fixed">
         <div
@@ -86,7 +86,6 @@
                           <span
                             style="white-space: pre-wrap; word-break: break-all;"
                             v-html="content"
-
                           ></span>
                         </div>
                       </div>
@@ -467,19 +466,29 @@ export default {
       receptData: null,
       sendFlag: false,
       sendMessageFlag: true,
-      content: "以上为历史消息"
+      content: "以上为历史消息",
+      loginInfo: ""
     };
   },
   mounted() {
     this.$socket.on("connect", this.connectWebSocket);
     this.$socket.on("MESSAGE", this.webSocketonmessage);
     this.$socket.on("disconnet", this.disconnetWebSocket);
+    this.checkIsLogined();
   },
   methods: {
     showMore() {
       let t = "试玩用户无法使用";
       this.moreFlag = !this.moreFlag;
       return (this.isShowMore = false);
+    },
+    checkIsLogined() {
+      let sJwt = localStorage.getItem("jwt");
+      if (!sJwt) {
+        this.$router.push({
+          path: "/login"
+        });
+      }
     },
     sendMessage(t) {
       var e = t || this.inputText;

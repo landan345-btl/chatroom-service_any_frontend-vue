@@ -46,7 +46,7 @@
         </div> -->
       </form>
       <div class="login-btn">
-        <button  class="FormBtn" @click="login">登录</button>
+        <button class="FormBtn" @click="login">登录</button>
       </div>
       <div class="l-bottom-wrap">
         <div class="uc-navs">
@@ -78,29 +78,31 @@ export default {
       password: ""
     };
   },
-  mounted(){
-    this.$socket.on('AUTHENTICATION LOGIN', this.logined );
+  mounted() {
+    this.$socket.on("AUTHENTICATION LOGIN", this.logined);
   },
   methods: {
     login() {
       let oBody = {
         name: this.username,
-        password: this.password,
+        password: this.password
       };
-      this.$socket.emit('AUTHENTICATION LOGIN', oBody );
+      this.$socket.emit("AUTHENTICATION LOGIN", oBody);
     },
     logined(oBody) {
       if (-1 === oBody.result) {
         return;
       }
-      let sJwt = oBody.jwt || '';
-      localStorage.setItem('jwt', sJwt);
+      let sJwt = oBody.jwt || "";
+      localStorage.setItem("jwt", sJwt);
+      this.$router.push({
+        path: "/chatroom"
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
 @import "Login.scss";
-
 </style>
