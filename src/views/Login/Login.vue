@@ -79,6 +79,7 @@ export default {
     };
   },
   mounted(){
+    this.$socket.on('AUTHENTICATION LOGIN', this.logined );
   },
   methods: {
     login() {
@@ -88,7 +89,12 @@ export default {
       };
       this.$socket.emit('AUTHENTICATION LOGIN', oBody );
     },
-    connectWebSocket() {
+    logined(oBody) {
+      if (-1 === oBody.result) {
+        return;
+      }
+      let sJwt = oBody.jwt || '';
+      localStorage.setItem('jwt', sJwt);
     }
   }
 }
