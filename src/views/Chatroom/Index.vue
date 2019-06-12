@@ -450,6 +450,10 @@ import sys from "../../assets/images/sys.png";
 import iconAdmin from "../../assets/images/icon_admin.gif";
 import iconMember from "../../assets/images/icon_member01.gif";
 
+import { UserHelper } from '../../Helper/';
+
+let oUserHelper = new UserHelper();
+
 export default {
   data() {
     return {
@@ -484,20 +488,11 @@ export default {
       return (this.isShowMore = false);
     },
     checkIsLogined() {
-      let sJwt = localStorage.getItem("jwt");
+      let sUid = oUserHelper.getId();
       let oQuery = {
         path: "/login",
       };
-      if (!sJwt) {
-        this.$router.push(oQuery);
-      }
-
-      try {
-        let oPayload = jwtDecode(sJwt);
-        if (!oPayload.uid) {
-          throw '';
-        }
-      } catch (sException) {
+      if (!sUid) {
         this.$router.push(oQuery);
       }
     },
