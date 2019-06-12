@@ -689,8 +689,10 @@ export default {
     sendText(data) {
       let date = new Date();
       // let oMessage = data;
+      let sUid = oUserHelper.getId();
+
       let oMessage = {
-        id: "",
+        id: sUid,
         fk: "hCBOEx1e8cxeSWX2PUSC5w==",
         chatType: 2,
         nickName: "游客",
