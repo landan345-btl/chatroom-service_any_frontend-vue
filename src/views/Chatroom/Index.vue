@@ -77,6 +77,22 @@
                 style="text-align:left;"
                 @scroll="onScroll"
               >
+                <div class="Item type-hint">
+                  <div class="lay-block">
+                    <div class="lay-content">
+                      <div>
+                        <div class="innr">
+                          <!-- <i class="iconfont icon-warning"></i> -->
+                          <span
+                            style="white-space: pre-wrap; word-break: break-all;"
+                            v-html="content"
+
+                          ></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <!-- 系统红包 -->
                 <div class="Item type-left" style="display:none;">
                   <div class="lay-block">
@@ -120,7 +136,7 @@
                   </div>
                 </div>
               </div>
-              <div class="redpack-active" style="display:none;" >
+              <div class="redpack-active" style="display:none;">
                 <div class="active-icon">
                   <a href="javascript:;">
                     <img src="../../assets/images/hbao.gif" alt=""
@@ -450,13 +466,14 @@ export default {
       client: null,
       receptData: null,
       sendFlag: false,
-      sendMessageFlag: true
+      sendMessageFlag: true,
+      content: "以上为历史消息"
     };
   },
   mounted() {
-    this.$socket.on('connect', this.connectWebSocket);
-    this.$socket.on('MESSAGE', this.webSocketonmessage);
-    this.$socket.on('disconnet', this.disconnetWebSocket);
+    this.$socket.on("connect", this.connectWebSocket);
+    this.$socket.on("MESSAGE", this.webSocketonmessage);
+    this.$socket.on("disconnet", this.disconnetWebSocket);
   },
   methods: {
     showMore() {
@@ -558,25 +575,31 @@ export default {
       this.webSocketonmessage(data);
     },
 
-    messageWebSocket(data) {
-
-    },
+    messageWebSocket(data) {},
     webSocketonmessage(data) {
       this.receptData = "";
       // this.receptData = JSON.parse(data);
-      // debugger
       this.sendFlag = false;
       this.sendMessageFlag = true;
       this.receptData = data;
       // data.length > 20 ? this.receptData = JSON.parse(data).content : this.receptData = data;
-      if (!(this.receptData != undefined && this.receptData != '' && this.receptData != null)) {
+      if (
+        !(
+          this.receptData != undefined &&
+          this.receptData != "" &&
+          this.receptData != null
+        )
+      ) {
         return;
       } else {
         this.sendFlag = true;
-        let data = this.receptData || this.inputText;
+        this.receptData;
+        let data = this.receptData.content || this.inputText;
+        let name = this.receptData.nickName;
+        let time = (this.receptData.curTime + "").split(" ")[1];
         data = data.replace(/(\s)\s+/g);
         let MsaClass = "type-right";
-        this.receptData == this.inputText
+        data == this.inputText
           ? (MsaClass = "type-right")
           : (MsaClass = "type-left");
         switch (data.length && this.user) {
@@ -626,11 +649,17 @@ export default {
           case "visitor":
             $(".chat-view").append(
               $(
-                "<div class='Item type-right'><div class='lay-block'><div class='avatar'> <img src='" +
+                "<div class='Item " +
+                  MsaClass +
+                  "'><div class='lay-block'><div class='avatar'> <img src='" +
                   avatar +
-                  "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>游客</h4><span ><img src='" +
+                  "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" +
+                  name +
+                  "</h4><span ><img src='" +
                   iconMember +
-                  "' alt='游客'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+                  "' alt='游客'></span><span class='MsgTime'>" +
+                  time +
+                  "</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
                   data +
                   "</span></p></div></div></div></div></div>"
               )
@@ -644,25 +673,26 @@ export default {
     },
     sendText(data) {
       let date = new Date();
-      let oMessage = data;
-      // let oMessage = {
-      //   id: "",
-      //   fk: "hCBOEx1e8cxeSWX2PUSC5w==",
-      //   chatType: 2,
-      //   nickName: "游客",
-      //   content: data || null,
-      //   curTime: date,
-      //   roleId: 8,
-      //   iconUrl: "data/icon/4fdabce64e294ce3b75d42036f30df94.jpg",
-      //   remark: null
-      // };
+      // let oMessage = data;
+      let oMessage = {
+        id: "",
+        fk: "hCBOEx1e8cxeSWX2PUSC5w==",
+        chatType: 2,
+        nickName: "游客",
+        content: data || null,
+        curTime: date,
+        roleId: 8,
+        iconUrl: "data/icon/4fdabce64e294ce3b75d42036f30df94.jpg",
+        remark: null
+      };
       // let sMessage = JSON.stringify(oMessage);
       let sMessage = oMessage;
       // this.$sockJs.send(sMessage);
-      this.$socket.emit('MESSAGE', sMessage);
+      this.$socket.emit("MESSAGE", sMessage);
     },
     disconnetWebSocket(e) {}
   },
+
   watch: {
     inputText() {}
   }

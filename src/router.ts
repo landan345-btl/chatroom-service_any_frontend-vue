@@ -16,6 +16,11 @@ export default new Router({
       path: "/chatroom",
       name: "chatroom",
       component: () => import("@/views/Chatroom/Index.vue")
+    },
+    {
+      path: "/connect",
+      name: "Connect",
+      component: () => import("@/views/Connection/Index.vue")
     }
   ]
 })

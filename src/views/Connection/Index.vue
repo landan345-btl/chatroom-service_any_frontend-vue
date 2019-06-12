@@ -1,16 +1,17 @@
-<template lang="html">
+<template>
   <div>
-    <sticky-container class="chat" no-tab="true">
-      <x-nav v-show="isActive" show-drawer="true">
+    <div class="chat" no-tab="true">
+      <div v-show="isActive" show-drawer="true">
         <template slot="right">
           <router-link style="margin-right:0.1rem;" to="/chat/setting">
             <i class="iconfont icon-icon-" style="font-size:1em;"></i>
           </router-link>
         </template>
-      </x-nav>
+      </div>
+
       <div class="chat-container" ref="chatContainer" style="height:100%;">
         <div style="height:100%;">
-          <chat-view ref="chatView"></chat-view>
+          <!-- <chat-view ref="chatView"></chat-view> -->
         </div>
       </div>
       <div class="chat-loading">
@@ -30,7 +31,7 @@
         </div>
         <div v-show="!isFail" class="loading">
           <div class="spinner">
-            <spinner type="ripple" size="50px"> </spinner>
+            <!-- <spinner type="ripple" size="50px"> </spinner> -->
           </div>
           <p>正在加载聊天室</p>
           <p class="progress">{{ loadingText }}</p>
@@ -38,39 +39,41 @@
       </div>
       <template slot="bottom">
         <div class="chat-inputs-wrap" ref="bottomInput">
-          <chat-input @updateHeight="updateHeight"> </chat-input>
+          <!-- <chat-input @updateHeight="updateHeight"> </chat-input> -->
+          <input type="text" name="" value="" />
         </div>
       </template>
       <div
         id="followBetModel"
         style="position:absolute;bottom:0;width:100%;z-index:502;"
       ></div>
-    </sticky-container>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      isActive: true,
-      isFail: false,
-      loadingText: "初始化"
-    };
-  },
+import { Component, Prop, Watch, Vue } from "vue-property-decorator";
+
+@Component({
+  components: {}
+})
+export default class Connection extends Vue {
+  isActive = true;
+  isFail = false;
+  loadingText = "初始化";
   mounted() {
     let __this = this;
-    setTimeout(function() {
-      __this.$router.push({
-        path: "/chatroom"
-      });
-    }, 3000);
-  },
-  methods: {
-    updateHeight() {}
+    __this.loadingText = "创建聊天室";
+    this.$socket.on("connect", this.connectWebSocket);
   }
-};
+  updateHeight() {}
+  connectWebSocket(data) {
+    let __this = this;
+    __this.$router.push({
+      path: "/chatroom"
+    });
+  }
+}
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

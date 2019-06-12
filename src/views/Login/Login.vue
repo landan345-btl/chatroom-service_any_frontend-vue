@@ -46,8 +46,8 @@
         </div> -->
       </form>
       <div class="login-btn">
-          <button  class="FormBtn" @click="login">登录</button>
-        </div>
+        <button  class="FormBtn" @click="login">登录</button>
+      </div>
       <div class="l-bottom-wrap">
         <div class="uc-navs">
           <div class="row options" style="margin-top: 2em;display:flex;">

@@ -50,27 +50,23 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      isActive: true,
-      isFail: false,
-      loadingText: "初始化"
-    };
-  },
+import { Component, Prop, Watch, Vue } from "vue-property-decorator";
+
+@Component({
+  components: {}
+})
+export default class Connect extends Vue {
+  isActive: true,
+  isFail: false,
+  loadingText: "初始化"
   mounted() {
     let __this = this;
-    setTimeout(function() {
-      __this.$router.push({
-        path: "/chatroom"
-      });
-    }, 3000);
-  },
-  methods: {
-    updateHeight() {}
+    this.$socket.on("connect", this.connectWebSocket) ;
+  }
+  updateHeight() {}
+  connectWebSocket(data) {
   }
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
