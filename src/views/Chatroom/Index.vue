@@ -450,9 +450,9 @@ import sys from "../../assets/images/sys.png";
 import iconAdmin from "../../assets/images/icon_admin.gif";
 import iconMember from "../../assets/images/icon_member01.gif";
 
-import { UserHelper } from '../../Helper/';
+import { AuthenticationHelper } from '../../Helper/';
 
-let oUserHelper = new UserHelper();
+let oAuthenticationHelper = new AuthenticationHelper();
 
 export default {
   data() {
@@ -488,7 +488,7 @@ export default {
       return (this.isShowMore = false);
     },
     checkIsLogined() {
-      let sUid = oUserHelper.getId();
+      let sUid = oAuthenticationHelper.getUserId();
       let oQuery = {
         path: "/login",
       };

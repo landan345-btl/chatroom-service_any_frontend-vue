@@ -1,5 +1,5 @@
-import User from './User/Index';
+import Authentication from './Authentication/Index';
 
 export {
-  User as UserHelper,
+  Authentication as AuthenticationHelper,
 };

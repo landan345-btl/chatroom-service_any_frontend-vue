@@ -1,10 +1,10 @@
 import jwtDecode from 'jwt-decode';
 
-class UserHelper {
+class authenticationHelper {
   /**
    * getUsrId
    */
-  public getId() {
+  public getUserId() {
     try {
       let sJwt = window.localStorage.getItem("jwt");
       let oPayload = jwtDecode(sJwt);
@@ -14,6 +14,11 @@ class UserHelper {
       return null;
     }
   }
+
+  public getJwt() {
+    let sJwt = window.localStorage.getItem("jwt");
+    return sJwt;
+  }
 }
 
-export default UserHelper;
+export default authenticationHelper;
