@@ -49,6 +49,10 @@ class AuthenticationHelper {
   public removeJwt(): void {
     window.localStorage.removeItem("jwt");
   }
+
+  public setJwt(sJwt: string): void {
+    window.localStorage.setItem("jwt", sJwt);
+  }
 }
 
 export default AuthenticationHelper;
