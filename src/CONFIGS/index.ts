@@ -1,7 +1,7 @@
-import WS from './WS/INDEX';
 import SOCKET from './SOCKET/INDEX';
+import STORAGE from './STORAGE/INDEX';
 
 export {
-  WS,
   SOCKET,
+  STORAGE,
 };
