@@ -66,11 +66,4 @@ export default class App extends Vue {
 
 <style lang="scss">
 @import "@/styles/index.scss";
-
-.viewTransition-enter-active, .viewTransition-leave-active {
-  transition: opacity .5s;
-}
-.viewTransition-enter, .viewTransition-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
 </style>
