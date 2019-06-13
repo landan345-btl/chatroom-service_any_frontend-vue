@@ -26,6 +26,17 @@ class AuthenticationHelper {
     }
   }
 
+  public getUserRole(): string | null {
+    try {
+      let sJwt = window.localStorage.getItem("jwt") || '';
+      let oPayload: any = jwtDecode(sJwt);
+      let sRole = oPayload.role;
+      return sRole;
+    } catch (sException) {
+      return null;
+    }
+  }
+
   public getUserNickname(): string | null {
     try {
       let sJwt = window.localStorage.getItem("jwt") || '';
