@@ -77,48 +77,47 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      username: "",
-      password: ""
-    };
-  },
+<script lang="ts">
+import { Component, Prop, Watch, Vue } from "vue-property-decorator";
+import { AuthenticationHelper } from "@/Helper/";
+
+let oAuthenticationHelper = new AuthenticationHelper();
+@Component({
+  components: {}
+})
+export default class Login extends Vue {
+  username: string = "";
+  password: string = "";
   mounted() {
-    this.init();
-    this.$socket.on("AUTHENTICATION LOGIN", this.logined);
-  },
-  methods: {
-    init() {
-      
-      if (window.localStorage.getItem("jwt") != "") {
-        this.$router.push({
-          path: "/chatroom"
-        });
-      } else {
-        return;
-      }
-    },
-    login() {
-      let oBody = {
-        name: this.username,
-        password: this.password
-      };
-      this.$socket.emit("AUTHENTICATION LOGIN", oBody);
-    },
-    logined(oBody) {
-      if (-1 === oBody.result) {
-        return;
-      }
-      let sJwt = oBody.jwt || "";
-      window.localStorage.setItem("jwt", sJwt);
+    let sUid = oAuthenticationHelper.getUserId();
+    if ("" !== sUid) {
       this.$router.push({
         path: "/chatroom"
       });
+    } else {
+      return;
     }
+    this.$socket.on("AUTHENTICATION LOGIN", this.logined);
   }
-};
+
+  public login() {
+    let oBody = {
+      name: this.username,
+      password: this.password
+    };
+    this.$socket.emit("AUTHENTICATION LOGIN", oBody);
+  }
+  public logined(oBody) {
+    if (-1 === oBody.result) {
+      return;
+    }
+    let sJwt = oBody.jwt || "";
+    oAuthenticationHelper.setJwt(sJwt);
+    this.$router.push({
+      path: "/chatroom"
+    });
+  }
+}
 </script>
 
 <style lang="scss" scoped>
