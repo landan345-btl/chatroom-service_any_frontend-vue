@@ -89,7 +89,7 @@ export default class Login extends Vue {
   username: string = "";
   password: string = "";
   mounted() {
-    this.$authenticaionSocket.on("AUTHENTICATION LOGIN", this.logined);
+    this.$socket['/authentication'].on("AUTHENTICATION LOGIN", this.logined);
     let sUid = oAuthenticationHelper.getUserId();
     if (!("" === sUid || null === sUid)) {
       this.$router.push({
@@ -103,7 +103,7 @@ export default class Login extends Vue {
       name: this.username,
       password: this.password
     };
-    this.$authenticaionSocket.emit("AUTHENTICATION LOGIN", oBody);
+    this.$socket['/authentication'].emit("AUTHENTICATION LOGIN", oBody);
   }
   public logined(oBody: any) {
     if (-1 === oBody.result) {
