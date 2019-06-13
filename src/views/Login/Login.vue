@@ -51,7 +51,10 @@
       </div>
       <div class="l-bottom-wrap">
         <div class="uc-navs">
-          <div class="row" style="margin-top: 1em;width:586px;margin-left:0;border:0;">
+          <div
+            class="row"
+            style="margin-top: 1em;width:586px;margin-left:0;border:0;"
+          >
             <span class="text-center">其他</span>
           </div>
           <div class="row options" style="margin-top: 2em;display:flex;">
@@ -83,10 +86,20 @@ export default {
     };
   },
   mounted() {
-    
+    this.init();
     this.$socket.on("AUTHENTICATION LOGIN", this.logined);
   },
   methods: {
+    init() {
+      
+      if (window.localStorage.getItem("jwt") != "") {
+        this.$router.push({
+          path: "/chatroom"
+        });
+      } else {
+        return;
+      }
+    },
     login() {
       let oBody = {
         name: this.username,
