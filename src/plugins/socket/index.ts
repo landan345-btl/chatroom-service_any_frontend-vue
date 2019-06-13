@@ -1,17 +1,16 @@
 import oIo from 'socket.io-client';
 import { SOCKET } from "@/CONFIGS/";
 
-let sUrl = SOCKET.URL + 
-         (SOCKET.PORT && (80 !== SOCKET.PORT || '80' !== SOCKET.PORT) ? ":" + SOCKET.PORT : '') +
-          "/authentication";
-// this.client = new WebSocket(wsuri);
-const oAuthenticationSocket = oIo(sUrl);
+let sAuthenticationUrl = SOCKET.URL + 
+                        (SOCKET.PORT && (80 !== SOCKET.PORT || '80' !== SOCKET.PORT) ? ":" + SOCKET.PORT : '') +
+                        "/authentication";
 
-sUrl = SOCKET.URL + 
-         (SOCKET.PORT && (80 !== SOCKET.PORT || '80' !== SOCKET.PORT) ? ":" + SOCKET.PORT : '') +
-          "/authentication";
-// this.client = new WebSocket(wsuri);
-const oChatroomSocket = oIo(sUrl);
+let sChatroomUrl = SOCKET.URL + 
+                  (SOCKET.PORT && (80 !== SOCKET.PORT || '80' !== SOCKET.PORT) ? ":" + SOCKET.PORT : '') +
+                  "/chatroom";
+
+const oAuthenticationSocket = oIo(sAuthenticationUrl);
+const oChatroomSocket = oIo(sChatroomUrl);
 
 let oSocketPlugin = {
   // The install method is all that needs to exist on the plugin object.

@@ -20,7 +20,7 @@
       <div class="title" @click="goToChatroom()">聊天室</div>
       <div class="nav-item">
         <div class="right-slot">
-          <a href="" class="" style="margin-right: 0.1em;">
+          <a href="" class="" style="margin-right: 0.1em;" @click="gotoSetting">
             <i class="iconfont icon-icon-" style="font-size: 1em;"></i>
           </a>
           <div class="drawer">
@@ -31,7 +31,9 @@
         </div>
       </div>
     </header>
-    <Menu :showMenu="showMenu" />
+    <transition name="viewTransition">
+      <Menu :showMenu="showMenu" @showmenu="showmenu" />
+    </transition>
   </div>
 </template>
 
@@ -54,9 +56,14 @@ export default class App extends Vue {
   taggle() {
     this.showMenu = !this.showMenu;
   }
-  @Watch("this.$route")
-  RouteChange(newVal) {
+  showmenu(data) {
+    this.showMenu = data;
   }
+  gotoSetting() {
+    this.$router.push({ path: "/setting" });
+  }
+  @Watch("this.$route")
+  RouteChange(newVal) {}
 }
 </script>
 

@@ -5,3 +5,9 @@
 #chat {
   margin-top: -59px;
 }
+.viewTransition-enter-active, .viewTransition-leave-active {
+  transition: opacity .5s;
+}
+.viewTransition-enter, .viewTransition-leave-to {
+  opacity: 0;
+}

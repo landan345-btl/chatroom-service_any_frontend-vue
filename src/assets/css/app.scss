@@ -2484,7 +2484,7 @@ header.nav .nav-link-solid.notran {-webkit-transition:none;transition:none}
 .nums,.Nums {margin-top:-.2em;display:inline-block;text-align:left}
 .nums p,.Nums p {margin:.5em 0}
 .Avatar {display:inline-block;vertical-align:bottom}
-.Avatar img {display:block;max-height:3em;border-radius:50%}
+.Avatar img {display:block;max-height:3em !important;border-radius:50%}
 .data-nomore {text-align:center;color:#ccc}
 .error-info {margin:0 1em;color:red}
 .c-time {color:#929fa8}
