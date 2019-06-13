@@ -89,15 +89,13 @@ export default class Login extends Vue {
   username: string = "";
   password: string = "";
   mounted() {
+    this.$socket.on("AUTHENTICATION LOGIN", this.logined);
     let sUid = oAuthenticationHelper.getUserId();
-    if ("" !== sUid) {
+    if (!("" === sUid || null === sUid || 0 === sUid)) {
       this.$router.push({
         path: "/chatroom"
       });
-    } else {
-      return;
     }
-    this.$socket.on("AUTHENTICATION LOGIN", this.logined);
   }
 
   public login() {

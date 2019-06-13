@@ -1,5 +1,4 @@
 <template>
-  <transition name="viewTransition">
     <div
       class="l-drawer v-transfer-dom"
       style="height: 100%;top: 51px;right: 659px;width: 300px;overflow: hidden;"
@@ -99,7 +98,6 @@
       </div>
       <div class="mask" style=""></div>
     </div>
-  </transition>
 </template>
 
 <script lang="ts">
@@ -121,8 +119,10 @@ export default class Menu extends Vue {
         path: "/login"
       });
     }
+    this.$emit("showmenu", false);
   }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>

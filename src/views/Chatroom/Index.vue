@@ -689,7 +689,7 @@ export default {
     sendText(data) {
       let date = new Date();
       // let oMessage = data;
-      let sUid = oUserHelper.getId();
+      let sUid = oAuthenticationHelper.getUserId();
 
       let oMessage = {
         id: sUid,
