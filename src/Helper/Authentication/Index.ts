@@ -36,7 +36,11 @@ class AuthenticationHelper {
       let sJwt = window.localStorage.getItem("jwt");
       let oPayload = jwtDecode(sJwt);
       let iExp = oPayload.exp;
-      return iExp;
+      let iTime = new Date().getTime() / 1000;
+      if (iExp < iTime) {
+        throw '';
+      }
+      return false;
     } catch (sException) {
       return true;
     }
