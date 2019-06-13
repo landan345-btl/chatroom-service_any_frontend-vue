@@ -6,8 +6,8 @@ class AuthenticationHelper {
    */
   public getUserId(): string | null {
     try {
-      let sJwt = window.localStorage.getItem("jwt");
-      let oPayload = jwtDecode(sJwt);
+      let sJwt = window.localStorage.getItem("jwt") || '';
+      let oPayload: any = jwtDecode(sJwt);
       let sUserId = oPayload.uid;
       return sUserId;
     } catch (sException) {
@@ -22,8 +22,8 @@ class AuthenticationHelper {
 
   public getExp(): number | null {
     try {
-      let sJwt = window.localStorage.getItem("jwt");
-      let oPayload = jwtDecode(sJwt);
+      let sJwt = window.localStorage.getItem("jwt") || '';
+      let oPayload: any = jwtDecode(sJwt);
       let iExp = oPayload.exp;
       return iExp;
     } catch (sException) {
@@ -33,8 +33,8 @@ class AuthenticationHelper {
 
   public isExpired(): boolean {
     try {
-      let sJwt = window.localStorage.getItem("jwt");
-      let oPayload = jwtDecode(sJwt);
+      let sJwt = window.localStorage.getItem("jwt") || '';
+      let oPayload: any = jwtDecode(sJwt);
       let iExp = oPayload.exp;
       let iTime = new Date().getTime() / 1000;
       if (iExp < iTime) {

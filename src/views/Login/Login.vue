@@ -87,7 +87,7 @@ export default {
   },
   mounted() {
     this.init();
-    this.$socket.on("AUTHENTICATION LOGIN", this.logined);
+    this.$authenticaionSocket.on("AUTHENTICATION LOGIN", this.logined);
   },
   methods: {
     init() {
@@ -105,7 +105,7 @@ export default {
         name: this.username,
         password: this.password
       };
-      this.$socket.emit("AUTHENTICATION LOGIN", oBody);
+      this.$authenticaionSocket.emit("AUTHENTICATION LOGIN", oBody);
     },
     logined(oBody) {
       if (-1 === oBody.result) {

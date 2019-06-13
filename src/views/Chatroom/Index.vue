@@ -476,9 +476,9 @@ export default {
     };
   },
   mounted() {
-    this.$socket.on("connect", this.connectWebSocket);
-    this.$socket.on("MESSAGE", this.webSocketonmessage);
-    this.$socket.on("disconnet", this.disconnetWebSocket);
+    this.$chatroomSocket.on("connect", this.connectWebSocket);
+    this.$chatroomSocket.on("MESSAGE", this.webSocketonmessage);
+    this.$chatroomSocket.on("disconnet", this.disconnetWebSocket);
     this.checkIsLogined();
   },
   methods: {
@@ -705,7 +705,7 @@ export default {
       // let sMessage = JSON.stringify(oMessage);
       let sMessage = oMessage;
       // this.$sockJs.send(sMessage);
-      this.$socket.emit("MESSAGE", sMessage);
+      this.$chatroomSocket.emit("MESSAGE", sMessage);
     },
     disconnetWebSocket(e) {}
   },
