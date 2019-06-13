@@ -1,7 +1,7 @@
 <template>
     <div
       class="l-drawer v-transfer-dom"
-      style="height: 100%;top: 51px;right: 659px;width: 300px;overflow: hidden;"
+      style="height: 80vh;top: 51px;right: 659px;width: 300px;overflow: hidden;"
       v-show="showMenu"
     >
       <div class="menu">

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" @click="closeMenu">
     <!-- <x-nav v-show=""></x-nav> -->
     <div class="wrap-router">
       <transition name="viewTransition">
@@ -54,6 +54,7 @@ export default class App extends Vue {
     });
   }
   taggle() {
+    debugger;
     this.showMenu = !this.showMenu;
   }
   showmenu(data) {
@@ -62,6 +63,7 @@ export default class App extends Vue {
   gotoSetting() {
     this.$router.push({ path: "/setting" });
   }
+  closeMenu() {}
   @Watch("this.$route")
   RouteChange(newVal) {}
 }

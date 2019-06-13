@@ -15,6 +15,28 @@ class AuthenticationHelper {
     }
   }
 
+  public getUserUrl(): string | null {
+    try {
+      let sJwt = window.localStorage.getItem("jwt") || '';
+      let oPayload: any = jwtDecode(sJwt);
+      let sUrl = oPayload.url;
+      return sUrl;
+    } catch (sException) {
+      return null;
+    }
+  }
+
+  public getUserNickname(): string | null {
+    try {
+      let sJwt = window.localStorage.getItem("jwt") || '';
+      let oPayload: any = jwtDecode(sJwt);
+      let sNickname = oPayload.nickname;
+      return sNickname;
+    } catch (sException) {
+      return null;
+    }
+  }
+
   public getJwt(): string | null {
     let sJwt = window.localStorage.getItem("jwt");
     return sJwt;

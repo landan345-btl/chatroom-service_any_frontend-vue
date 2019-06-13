@@ -442,15 +442,16 @@
 
 <script>
 import $ from "jquery";
-import jwtDecode from 'jwt-decode';
+import jwtDecode from "jwt-decode";
 
-import manage from "../../assets/images/manage.jpg";
-import avatar from "../../assets/images/avatar.png";
-import sys from "../../assets/images/sys.png";
-import iconAdmin from "../../assets/images/icon_admin.gif";
-import iconMember from "../../assets/images/icon_member01.gif";
+import manage from "@/assets/images/manage.jpg";
+import avatar from "@/assets/images/avatar.png";
+import sys from "@/assets/images/sys.png";
+import iconAdmin from "@/assets/images/icon_admin.gif";
+import iconMember from "@/assets/images/icon_member01.gif";
 
-import { AuthenticationHelper } from '../../Helper/';
+import { AuthenticationHelper } from "@/Helper/";
+import { STORAGE } from "@/CONFIGS";
 
 let oAuthenticationHelper = new AuthenticationHelper();
 
@@ -476,9 +477,9 @@ export default {
     };
   },
   mounted() {
-    this.$socket['/chatroom'].on("connect", this.connectWebSocket);
-    this.$socket['/chatroom'].on("MESSAGE", this.webSocketonmessage);
-    this.$socket['/chatroom'].on("disconnet", this.disconnetWebSocket);
+    this.$socket["/chatroom"].on("connect", () => {});
+    this.$socket["/chatroom"].on("MESSAGE", this.webSocketonmessage);
+    this.$socket["/chatroom"].on("disconnet", this.disconnetWebSocket);
     this.checkIsLogined();
   },
   methods: {
@@ -490,7 +491,7 @@ export default {
     checkIsLogined() {
       let sUid = oAuthenticationHelper.getUserId();
       let oQuery = {
-        path: "/login",
+        path: "/login"
       };
       if (!sUid) {
         this.$router.push(oQuery);
@@ -587,17 +588,15 @@ export default {
       __this.isShowImgPreview = false;
     },
     connectWebSocket(data) {
-      this.webSocketonmessage(data);
+
     },
 
     messageWebSocket(data) {},
     webSocketonmessage(data) {
       this.receptData = "";
-      // this.receptData = JSON.parse(data);
       this.sendFlag = false;
       this.sendMessageFlag = true;
       this.receptData = data;
-      // data.length > 20 ? this.receptData = JSON.parse(data).content : this.receptData = data;
       if (
         !(
           this.receptData != undefined &&
@@ -608,55 +607,63 @@ export default {
         return;
       } else {
         this.sendFlag = true;
-        this.receptData;
-        let data = this.receptData.content || this.inputText;
-        let name = this.receptData.nickName;
-        let time = (this.receptData.curTime + "").split(" ")[1];
-        data = data.replace(/(\s)\s+/g);
-        let MsaClass = "type-right";
-        data == this.inputText
-          ? (MsaClass = "type-right")
-          : (MsaClass = "type-left");
-        switch (data.length && this.user) {
-          case "play":
+        let name = data.nickName;
+        let time = (data.curTime + "").split(" ")[1];
+        let sUrl = data.iconUrl;
+        // data = data.replace(/(\s)\s+/g);
+        let sLefOrRigtClass = "";
+        let sUid = oAuthenticationHelper.getUserId();
+        if (data.id === sUid) {
+          sLefOrRigtClass = "type-right";
+        } else {
+          sLefOrRigtClass = "type-left";
+        }
+        switch (data && name) {
+          case "计划消息":
             $(".chat-view").append(
               $(
                 "<div class='Item " +
-                  MsaClass +
+                  sLefOrRigtClass +
                   "'><div class='lay-block'><div class='avatar'><img src='" +
-                  sys +
-                  "' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>计划消息</h4><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
-                  data +
+                  STORAGE.URL +
+                  STORAGE.PRE_PATH +
+                  sUrl +
+                  "' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>"+name+"</h4><span class='MsgTime'>"+time+"</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+                  data.content +
                   "</span></p></div></div></div></div>"
               )
             );
             break;
-          case "manager":
+          case "管理员":
             $(".chat-view").append(
               $(
                 "<div class='Item " +
-                  MsaClass +
+                  sLefOrRigtClass +
                   "'><div class='lay-block'><div class='avatar'> <img src='" +
-                  manage +
-                  "' alt='多彩群主'></div><div class='lay-content'><div class='msg-header'><h4>多彩群主</h4><span class='VipMark type-admin'><img src='" +
+                  STORAGE.URL +
+                  STORAGE.PRE_PATH +
+                  sUrl +
+                  "' alt='多彩群主'></div><div class='lay-content'><div class='msg-header'><h4>"+name+"</h4><span class='VipMark type-admin'><img src='" +
                   iconAdmin +
-                  "' alt='管理员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
-                  data +
+                  "' alt='管理员'></span><span class='MsgTime'>"+time+"</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+                  data.content +
                   "</span></p></div></div></div></div></div>"
               )
             );
             break;
-          case "VIP":
+          case "用户一":
             $(".chat-view").append(
               $(
-                "<div class='Item" +
-                  MsaClass +
+                "<div class='Item " +
+                  sLefOrRigtClass +
                   "'><div class='lay-block'><div class='avatar'> <img src='" +
-                  avatar +
-                  "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4>qi***00</h4><span ><img src='" +
+                  STORAGE.URL +
+                  STORAGE.PRE_PATH +
+                  sUrl +
+                  "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4"+name+"</h4><span ><img src='" +
                   iconMember +
-                  "' alt='会员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
-                  data +
+                  "' alt='会员'></span><span class='MsgTime'>"+time+"</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+                  data.content +
                   "</span></p></div></div></div></div></div>"
               )
             );
@@ -665,17 +672,17 @@ export default {
             $(".chat-view").append(
               $(
                 "<div class='Item " +
-                  MsaClass +
+                  sLefOrRigtClass +
                   "'><div class='lay-block'><div class='avatar'> <img src='" +
-                  avatar +
+                  STORAGE.URL +
+                  STORAGE.PRE_PATH +
+                  sUrl +
                   "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" +
                   name +
-                  "</h4><span ><img src='" +
-                  iconMember +
-                  "' alt='游客'></span><span class='MsgTime'>" +
+                  "</h4><span class='MsgTime'>" +
                   time +
                   "</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
-                  data +
+                  data.content +
                   "</span></p></div></div></div></div></div>"
               )
             );
@@ -690,22 +697,23 @@ export default {
       let date = new Date();
       // let oMessage = data;
       let sUid = oAuthenticationHelper.getUserId();
-
+      let sUrl = oAuthenticationHelper.getUserUrl();
+      let sUserNickname = oAuthenticationHelper.getUserNickname();
       let oMessage = {
         id: sUid,
         fk: "hCBOEx1e8cxeSWX2PUSC5w==",
         chatType: 2,
-        nickName: "游客",
+        nickName: sUserNickname,
         content: data || null,
         curTime: date,
         roleId: 8,
-        iconUrl: "data/icon/4fdabce64e294ce3b75d42036f30df94.jpg",
+        iconUrl: sUrl, // 原始
         remark: null
       };
       // let sMessage = JSON.stringify(oMessage);
       let sMessage = oMessage;
       // this.$sockJs.send(sMessage);
-      this.$socket['/chatroom'].emit("MESSAGE", sMessage);
+      this.$socket["/chatroom"].emit("MESSAGE", sMessage);
     },
     disconnetWebSocket(e) {}
   },
