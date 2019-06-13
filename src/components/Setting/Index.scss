@@ -1,0 +1,214 @@
+.iconfont {
+    font-family: iconfont!important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.tap-active {
+    -webkit-transition: none!important;
+    transition: none!important;
+    -webkit-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+    -webkit-transition-property: background,color,translate3d,border,-webkit-box-shadow;
+    transition-property: background,color,translate3d,border,-webkit-box-shadow;
+    transition-property: background,color,translate3d,border,box-shadow;
+    transition-property: background,color,translate3d,border,box-shadow,-webkit-box-shadow
+}
+
+.tap-active.notran {
+    -webkit-transition: none;
+    transition: none
+}
+
+.theme-red .tap-active:active {
+    position: relative;
+    overflow: hidden
+}
+
+.theme-red .tap-active:active:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(222,78,65,.73)
+}
+
+.theme-dark .tap-active:active {
+    position: relative;
+    overflow: hidden
+}
+
+.theme-dark .tap-active:active:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(191,160,113,.29)
+}
+
+.theme-blue .tap-active:active {
+    position: relative;
+    overflow: hidden
+}
+
+.theme-blue .tap-active:active:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(168,213,255,.274)
+}
+
+.hightlight-row,.tap-active-basic {
+    -webkit-transition: none!important;
+    transition: none!important;
+    -webkit-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+    -webkit-transition-property: background,color,translate3d,border,-webkit-box-shadow;
+    transition-property: background,color,translate3d,border,-webkit-box-shadow;
+    transition-property: background,color,translate3d,border,box-shadow;
+    transition-property: background,color,translate3d,border,box-shadow,-webkit-box-shadow
+}
+
+.notran.hightlight-row,.tap-active-basic.notran {
+    -webkit-transition: none;
+    transition: none
+}
+
+.theme-red .hightlight-row:active,.theme-red .tap-active-basic:active {
+    background: rgba(222,78,65,.73)
+}
+
+.theme-dark .hightlight-row:active,.theme-dark .tap-active-basic:active {
+    background: rgba(191,160,113,.29)
+}
+
+.theme-blue .hightlight-row:active,.theme-blue .tap-active-basic:active {
+    background: rgba(168,213,255,.274)
+}
+
+.l-cell {
+    font-size: 1rem
+}
+
+.l-cell .l-cell-item {
+    text-align: right;
+    -webkit-box-flex: 0;
+    -ms-flex: 0;
+    flex: 0;
+    white-space: nowrap;
+    padding: 0 .5em
+}
+
+.l-cell .l-cell-item img {
+    display: inline-block;
+    vertical-align: bottom
+}
+
+.l-cell .l-cell-item:first-child {
+    text-align: left
+}
+
+.l-cell .l-cell-item:nth-child(2) {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1
+}
+
+.l-cell .l-cell-item:nth-child(2) a {
+    display: block;
+    padding: .4em 0;
+    margin: -.3em 0;
+    -webkit-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+    -webkit-transition-property: background,color,translate3d,border,-webkit-box-shadow;
+    transition-property: background,color,translate3d,border,-webkit-box-shadow;
+    transition-property: background,color,translate3d,border,box-shadow;
+    transition-property: background,color,translate3d,border,box-shadow,-webkit-box-shadow
+}
+
+.l-cell .l-cell-item:nth-child(2) a.notran {
+    -webkit-transition: none;
+    transition: none
+}
+
+.theme-red .l-cell .l-cell-item:nth-child(2) a {
+    color: rgba(0,0,0,.85)
+}
+
+.theme-dark .l-cell .l-cell-item:nth-child(2) a {
+    color: #8c8c8c
+}
+
+.theme-blue .l-cell .l-cell-item:nth-child(2) a {
+    color: rgba(14,10,10,.85)
+}
+
+.setnickname-dialog input {
+    font-size: 1rem;
+    padding: .5em;
+    width: 80%;
+    border-radius: .3em;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.setnickname-dialog p {
+    margin: .6em 0
+}
+
+.setnickname-dialog {
+    -webkit-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+    -webkit-transition-property: background,color,translate3d,border,-webkit-box-shadow;
+    transition-property: background,color,translate3d,border,-webkit-box-shadow;
+    transition-property: background,color,translate3d,border,box-shadow;
+    transition-property: background,color,translate3d,border,box-shadow,-webkit-box-shadow
+}
+
+.setnickname-dialog.notran {
+    -webkit-transition: none;
+    transition: none
+}
+
+.theme-red .setnickname-dialog input {
+    border: 1px solid #d73e2e;
+    color: rgba(0,0,0,.85);
+    background: #fcfcfc
+}
+
+.theme-red .setnickname-dialog .action-cancel {
+    color: #d73e2e
+}
+
+.theme-dark .setnickname-dialog input {
+    border: 1px solid #c2a470;
+    color: #8c8c8c;
+    background: #3c3c3c
+}
+
+.theme-dark .setnickname-dialog .action-cancel {
+    color: #c2a470
+}
+
+.theme-blue .setnickname-dialog input {
+    border: 1px solid #2f62af;
+    color: rgba(14,10,10,.85);
+    background: #fcfcfc
+}
+
+.theme-blue .setnickname-dialog .action-cancel {
+    color: #2f62af
+}
+.Avatar img {
+    display: block;
+    max-height: 3em;
+    border-radius: 50%;
+}
