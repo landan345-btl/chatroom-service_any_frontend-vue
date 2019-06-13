@@ -1,10 +1,10 @@
 <template>
     <div
       class="l-drawer v-transfer-dom"
-      style="height: 80vh;top: 51px;right: 659px;width: 300px;overflow: hidden;"
+      style="height: 80vh;top: 51px;right: 659px;overflow: hidden;"
       v-show="showMenu"
     >
-      <div class="menu">
+      <div class="menu" style="width: 300px;position: absolute;left:300px;">
         <div class="list" style="top: 0;">
           <div
             class="vue-pull-to-wrapper"
@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <div class="mask" style=""></div>
+      <div class="mask" style="" @click="logout()"></div>
     </div>
 </template>
 
