@@ -4,7 +4,7 @@ class AuthenticationHelper {
   /**
    * getUsrId
    */
-  public getUserId() {
+  public getUserId(): string | null {
     try {
       let sJwt = window.localStorage.getItem("jwt");
       let oPayload = jwtDecode(sJwt);
@@ -15,9 +15,35 @@ class AuthenticationHelper {
     }
   }
 
-  public getJwt() {
+  public getJwt(): string | null {
     let sJwt = window.localStorage.getItem("jwt");
     return sJwt;
+  }
+
+  public getExp(): number | null {
+    try {
+      let sJwt = window.localStorage.getItem("jwt");
+      let oPayload = jwtDecode(sJwt);
+      let iExp = oPayload.exp;
+      return iExp;
+    } catch (sException) {
+      return null;
+    }
+  }
+
+  public isExpired(): boolean {
+    try {
+      let sJwt = window.localStorage.getItem("jwt");
+      let oPayload = jwtDecode(sJwt);
+      let iExp = oPayload.exp;
+      return iExp;
+    } catch (sException) {
+      return true;
+    }
+  }
+
+  public removeJwt(): void {
+    window.localStorage.removeItem("jwt");
   }
 }
 
