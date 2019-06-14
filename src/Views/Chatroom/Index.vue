@@ -703,7 +703,7 @@ export default {
               )
             );
             break;
-          case "USER":
+          case "MEMBER":
             $(".chat-view").append(
               $(
                 "<div class='Item " +
@@ -724,7 +724,7 @@ export default {
               )
             );
             break;
-          case "USER":
+          case "MEMBER":
             $(".chat-view").append(
               $(
                 "<div class='Item " +
