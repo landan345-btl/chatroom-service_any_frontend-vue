@@ -1,7 +1,7 @@
 <template>
   <div
     class="l-drawer v-transfer-dom"
-    style="height: 80vh;top: 51px;right: 659px;overflow: hidden;"
+    style="height: 100vh;top: 51px;right: 652px;overflow: hidden;"
     v-show="showMenu"
   >
     <div class="menu" style="width: 300px;position: absolute;left:300px;">
@@ -51,6 +51,7 @@ export default class Menu extends Vue {
   close() {
     this.$emit("showmenu", false);
   }
+
 }
 </script>
 
