@@ -89,8 +89,19 @@ export default class Login extends Vue {
   username: string = "";
   password: string = "";
   mounted() {
-    this.$socket['/authentication'].on("AUTHENTICATION LOGIN", this.logined);
+    this.$socket["/authentication"].on("AUTHENTICATION LOGIN", this.logined);
     let sUid = oAuthenticationHelper.getUserId();
+    window.onstorage = (oEvent) =>  {
+      if (oEvent.newValue) {
+        this.$router.push({
+          path: "/chatroom"
+        });
+      } else {
+        this.$router.push({
+          path: "/login"
+        });
+      }
+    };
     if (!("" === sUid || null === sUid)) {
       this.$router.push({
         path: "/chatroom"
@@ -103,7 +114,7 @@ export default class Login extends Vue {
       name: this.username,
       password: this.password
     };
-    this.$socket['/authentication'].emit("AUTHENTICATION LOGIN", oBody);
+    this.$socket["/authentication"].emit("AUTHENTICATION LOGIN", oBody);
   }
   public logined(oBody: any) {
     if (-1 === oBody.result) {
@@ -114,6 +125,9 @@ export default class Login extends Vue {
     this.$router.push({
       path: "/chatroom"
     });
+  }
+  public get getJwt() {
+    let sJwt = oAuthenticationHelper.getJwt();
   }
 }
 </script>

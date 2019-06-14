@@ -560,21 +560,6 @@ export default {
       let wi = 120;
       let e = this.uploadingImg.naturalWidth;
       let i = this.uploadingImg.naturalHeight;
-      // e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
-      // var a = document.createElement('canvas');
-      // (a.width = e), (a.height = i);
-      // var n = a.getContext('2d');
-      // n.drawImage(
-      //   this.uploadingImg,
-      //   0,
-      //   0,
-      //   this.uploadingImg.naturalWidth,
-      //   this.uploadingImg.naturalHeight,
-      //   0,
-      //   0,
-      //   e,
-      //   i
-      // );
       $(".chat-view").append(
         $(
           "<div class='Item type-left'><div class='lay-block'><div class='avatar'><img src='" +
@@ -607,6 +592,7 @@ export default {
       } else {
         this.sendFlag = true;
         let name = data.nickName;
+        let role = data.nickName;
         let time = (data.curTime + "").split(" ")[1];
         let sUrl = data.iconUrl;
         // data = data.content.replace(/(\s)\s+/g, "");
@@ -617,16 +603,16 @@ export default {
         } else {
           sLefOrRigtClass = "type-left";
         }
-        switch (data && name) {
+        switch (data && role) {
           case "计划消息":
             $(".chat-view").append(
               $(
                 "<div class='Item " +
                   sLefOrRigtClass +
                   "'><div class='lay-block'><div class='avatar'><img src='" +
-                  STORAGE.URL +
-                  STORAGE.PRE_PATH +
-                  sUrl +
+                  (sUrl.indexOf("http") === 0
+                    ? sUrl
+                    : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
                   "' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>" +
                   name +
                   "</h4><span class='MsgTime'>" +
@@ -643,9 +629,9 @@ export default {
                 "<div class='Item " +
                   sLefOrRigtClass +
                   "'><div class='lay-block'><div class='avatar'> <img src='" +
-                  STORAGE.URL +
-                  STORAGE.PRE_PATH +
-                  sUrl +
+                  (sUrl.indexOf("http") === 0
+                    ? sUrl
+                    : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
                   "' alt='多彩群主'></div><div class='lay-content'><div class='msg-header'><h4>" +
                   name +
                   "</h4><span class='VipMark type-admin'><img src='" +
@@ -664,9 +650,9 @@ export default {
                 "<div class='Item " +
                   sLefOrRigtClass +
                   "'><div class='lay-block'><div class='avatar'> <img src='" +
-                  STORAGE.URL +
-                  STORAGE.PRE_PATH +
-                  sUrl +
+                  (sUrl.indexOf("http") === 0
+                    ? sUrl
+                    : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
                   "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4" +
                   name +
                   "</h4><span ><img src='" +
@@ -679,15 +665,15 @@ export default {
               )
             );
             break;
-          case "visitor":
+          case "用户一":
             $(".chat-view").append(
               $(
                 "<div class='Item " +
                   sLefOrRigtClass +
                   "'><div class='lay-block'><div class='avatar'> <img src='" +
-                  STORAGE.URL +
-                  STORAGE.PRE_PATH +
-                  sUrl +
+                  (sUrl.indexOf("http") === 0
+                    ? sUrl
+                    : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
                   "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" +
                   name +
                   "</h4><span class='MsgTime'>" +
@@ -723,15 +709,17 @@ export default {
       };
       // let sMessage = JSON.stringify(oMessage);
       let sMessage = oMessage;
+      if (sMessage == "" || sMessage == null || sMessage == "undefined") {
+        return;
+      } else {
+        this.$socket["/chatroom"].emit("MESSAGE", sMessage);
+      }
       // this.$sockJs.send(sMessage);
-      this.$socket["/chatroom"].emit("MESSAGE", sMessage);
     },
     disconnetWebSocket(e) {}
-  },
-
-  watch: {
-    inputText() {}
   }
+
+
 };
 </script>
 
