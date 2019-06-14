@@ -54,7 +54,6 @@ export default class App extends Vue {
     });
   }
   taggle() {
-    debugger;
     this.showMenu = !this.showMenu;
   }
   showmenu(data) {

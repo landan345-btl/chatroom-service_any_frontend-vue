@@ -248,6 +248,7 @@
                   @focus="inputFocus"
                   @blur="inputBlur"
                   v-model="inputText"
+                  @keyup.enter.native="sendMessage()"
                 ></el-input>
               </div>
               <a href="javascript:;" @click="sendMessage()">
@@ -600,9 +601,7 @@ export default {
       );
       __this.isShowImgPreview = false;
     },
-    connectWebSocket(data) {
-
-    },
+    connectWebSocket(data) {},
 
     messageWebSocket(data) {},
     webSocketonmessage(data) {
@@ -623,7 +622,7 @@ export default {
         let name = data.nickName;
         let time = (data.curTime + "").split(" ")[1];
         let sUrl = data.iconUrl;
-        // data = data.replace(/(\s)\s+/g);
+        // data = data.content.replace(/(\s)\s+/g, "");
         let sLefOrRigtClass = "";
         let sUid = oAuthenticationHelper.getUserId();
         if (data.id === sUid) {
@@ -641,7 +640,11 @@ export default {
                   STORAGE.URL +
                   STORAGE.PRE_PATH +
                   sUrl +
-                  "' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>"+name+"</h4><span class='MsgTime'>"+time+"</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+                  "' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>" +
+                  name +
+                  "</h4><span class='MsgTime'>" +
+                  time +
+                  "</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
                   data.content +
                   "</span></p></div></div></div></div>"
               )
@@ -656,9 +659,13 @@ export default {
                   STORAGE.URL +
                   STORAGE.PRE_PATH +
                   sUrl +
-                  "' alt='多彩群主'></div><div class='lay-content'><div class='msg-header'><h4>"+name+"</h4><span class='VipMark type-admin'><img src='" +
+                  "' alt='多彩群主'></div><div class='lay-content'><div class='msg-header'><h4>" +
+                  name +
+                  "</h4><span class='VipMark type-admin'><img src='" +
                   iconAdmin +
-                  "' alt='管理员'></span><span class='MsgTime'>"+time+"</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+                  "' alt='管理员'></span><span class='MsgTime'>" +
+                  time +
+                  "</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
                   data.content +
                   "</span></p></div></div></div></div></div>"
               )
@@ -673,9 +680,13 @@ export default {
                   STORAGE.URL +
                   STORAGE.PRE_PATH +
                   sUrl +
-                  "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4"+name+"</h4><span ><img src='" +
+                  "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4" +
+                  name +
+                  "</h4><span ><img src='" +
                   iconMember +
-                  "' alt='会员'></span><span class='MsgTime'>"+time+"</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+                  "' alt='会员'></span><span class='MsgTime'>" +
+                  time +
+                  "</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
                   data.content +
                   "</span></p></div></div></div></div></div>"
               )
