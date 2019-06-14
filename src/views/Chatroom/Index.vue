@@ -443,7 +443,7 @@
 
 <script>
 import $ from "jquery";
-import jwtDecode from "jwt-decode";
+import oIo from 'socket.io-client';
 
 import manage from "@/assets/images/manage.jpg";
 import avatar from "@/assets/images/avatar.png";
@@ -452,7 +452,7 @@ import iconAdmin from "@/assets/images/icon_admin.gif";
 import iconMember from "@/assets/images/icon_member01.gif";
 
 import { AuthenticationHelper } from "@/Helper/";
-import { STORAGE } from "@/CONFIGS";
+import { STORAGE, SOCKET } from "@/CONFIGS";
 
 let oAuthenticationHelper = new AuthenticationHelper();
 
@@ -478,6 +478,19 @@ export default {
     };
   },
   mounted() {
+
+    let sChatroomUrl = SOCKET.URL + 
+                  (SOCKET.PORT && (80 !== SOCKET.PORT || '80' !== SOCKET.PORT) ? ":" + SOCKET.PORT : '') +
+                  "/chatroom";
+    let sJwt = oAuthenticationHelper.getJwt();
+    let oOption = {
+      query: {
+        jwt: sJwt
+      },
+    };
+    let oChatroomSocket = oIo(sChatroomUrl, oOption);
+
+    this.$socket["/chatroom"] = oChatroomSocket
     this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("MESSAGE", this.webSocketonmessage);
     this.$socket["/chatroom"].on("disconnet", this.disconnetWebSocket);

@@ -19,7 +19,7 @@ let oSocketPlugin = {
 
     Vue.prototype.$socket = {
       '/authentication': oAuthenticationSocket,
-      '/chatroom': oChatroomSocket,
+      // '/chatroom': oChatroomSocket,
     };
 
   }
