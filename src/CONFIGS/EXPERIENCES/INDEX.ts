@@ -1,7 +1,8 @@
-const SOCKET: any = {
-  URL: 'http://fea.socket.com',
-  PORT: '',
-  NAMESPACE: 'webchat',
+const EXPERIENCES: any = {
+  '0': {
+    LEVEL: 1,
+  },
+
 };
 
-export default SOCKET;
+export default EXPERIENCES;

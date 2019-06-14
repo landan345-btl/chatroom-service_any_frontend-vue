@@ -79,6 +79,12 @@
 
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
+import Alert from "@/components/Alert";
+
+var ComponentClass = Vue.extend(Alert);
+var instance = new ComponentClass();
+instance.$mount();
+this.$refs.container.appendChild(instance.$el);
 import { AuthenticationHelper } from "@/Helper/";
 
 let oAuthenticationHelper = new AuthenticationHelper();
@@ -91,7 +97,7 @@ export default class Login extends Vue {
   mounted() {
     this.$socket["/authentication"].on("AUTHENTICATION LOGIN", this.logined);
     let sUid = oAuthenticationHelper.getUserId();
-    window.onstorage = (oEvent) =>  {
+    window.onstorage = oEvent => {
       if (oEvent.newValue) {
         this.$router.push({
           path: "/chatroom"
@@ -118,6 +124,7 @@ export default class Login extends Vue {
   }
   public logined(oBody: any) {
     if (-1 === oBody.result) {
+      this.$alert("用户账号或密码错误！", "提示");
       return;
     }
     let sJwt = oBody.jwt || "";
