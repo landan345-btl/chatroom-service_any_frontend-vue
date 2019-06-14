@@ -29,11 +29,11 @@
         <div class="sticky-placeholder" style="height: 0px;"></div>
         <div class="l-wrap">
           <div class="l-cell hightlight-row">
-            <div class="l-cell-item">头像(点击更换)</div>
+            <div class="l-cell-item">头像</div>
             <div class="l-cell-item" style="position: relative;">
               <a for="avatarInput" style="display: block;">
                 <div class="Avatar">
-                  <img src="/img/avatar.png" alt="" />
+                  <img :src="userUrl" alt="" />
                 </div>
               </a>
             </div>
@@ -50,13 +50,13 @@
           <div class="l-cell hightlight-row">
             <div class="l-cell-item">昵称</div>
             <div class="l-cell-item">
-              <a href="javascript:;">qi***21</a>
+              <a href="javascript:;">{{ userNickname }}</a>
             </div>
             <div class="l-cell-item">
               <span class="NavArrow"></span>
             </div>
           </div>
-          <div class="l-cell hightlight-row">
+          <!-- <div class="l-cell hightlight-row">
             <div class="l-cell-item">我的关注</div>
             <div class="l-cell-item">
               <a href="#/chat/setting/myfollow" class="">0</a>
@@ -64,20 +64,20 @@
             <div class="l-cell-item">
               <span class="NavArrow"></span>
             </div>
-          </div>
-          <div class="l-cell">
+          </div> -->
+          <!-- <div class="l-cell">
             <div class="l-cell-item">我的赞</div>
             <div class="l-cell-item">
               <a href="javascript:;">0</a>
             </div>
-          </div>
+          </div> -->
           <div class="l-cell">
             <div class="l-cell-item">我的等级</div>
             <div class="l-cell-item">
               <img src="img/chat/icon_member01.gif" />
             </div>
           </div>
-          <div class="l-cell">
+          <!-- <div class="l-cell">
             <div class="l-cell-item">显示我的投注</div>
             <div class="l-cell-item">
               <input type="checkbox" class="inline-x-switch weui-switch" />
@@ -88,9 +88,9 @@
             <div class="l-cell-item">
               <input type="checkbox" class="inline-x-switch weui-switch" />
             </div>
-          </div>
+          </div> -->
         </div>
-        <div class="vux-x-dialog setnickname-dialog">
+        <!-- <div class="vux-x-dialog setnickname-dialog">
           <div class="weui-mask" style="display: none;"></div>
           <div class="weui-dialog" style="display: none;">
             <div>
@@ -109,13 +109,13 @@
               </p>
               <p>
                 <a href="javascript:;" class="action-cancel">
-                  <i class="iconfont icon-close"></i>取消</a
-                >
+                  <i class="iconfont icon-close"></i>取消
+                </a>
               </p>
             </div>
           </div>
         </div>
-        <div class="bottom-placeholder" style="height: 0px;"></div>
+        <div class="bottom-placeholder" style="height: 0px;"></div> -->
       </div>
       <div class="sticky-bottom sticky-fixed">
         <div
@@ -149,11 +149,21 @@
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 import { AuthenticationHelper } from "@/Helper/";
 
+import oIo from "socket.io-client";
+
 let oAuthenticationHelper = new AuthenticationHelper();
 @Component({
   components: {}
 })
-export default class Setting extends Vue {}
+export default class Setting extends Vue {
+  userUrl: any = "";
+  userNickname: any = "";
+  mounted() {
+    this.userUrl =
+      "http://fea.socket.com/storage/" + oAuthenticationHelper.getUserUrl();
+    this.userNickname = oAuthenticationHelper.getUserNickname();
+  }
+}
 </script>
 
 <style lang="scss" scoped>

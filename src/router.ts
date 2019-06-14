@@ -18,7 +18,7 @@ export default new Router({
     },
     {
       path: "/chatroom",
-      name: "chatroom",
+      name: "Chatroom",
       component: () => import("@/views/Chatroom/Index.vue"),
       children: []
     },
@@ -30,7 +30,7 @@ export default new Router({
     {
       path: "/setting",
       name: "Setting",
-      component: () => import("@/components/Setting/Index.vue")
+      component: () => import("@/views/Setting/Index.vue")
     }
   ]
 });

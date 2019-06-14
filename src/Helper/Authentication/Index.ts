@@ -64,6 +64,17 @@ class AuthenticationHelper {
     }
   }
 
+  public getUserLevel(): number | null {
+    try {
+      let sJwt = window.localStorage.getItem("jwt") || '';
+      let oPayload: any = jwtDecode(sJwt);
+      let ilevel = oPayload.level;
+      return ilevel;
+    } catch (sException) {
+      return null;
+    }
+  }
+
   public isExpired(): boolean {
     try {
       let sJwt = window.localStorage.getItem("jwt") || '';

@@ -20,7 +20,7 @@
       <div class="title" @click="goToChatroom()">聊天室</div>
       <div class="nav-item">
         <div class="right-slot">
-          <a href="" class="" style="margin-right: 0.1em;" @click="gotoSetting">
+          <a href="javascript:;" class="" style="margin-right: 0.1em;" @click="gotoSetting">
             <i class="iconfont icon-icon-" style="font-size: 1em;"></i>
           </a>
           <div class="drawer">
@@ -45,6 +45,7 @@ import Menu from "@/components/Menu/Index.vue";
 })
 export default class App extends Vue {
   showMenu = false;
+  showSetting = false;
   back() {
     this.$router.go(-1);
   }
