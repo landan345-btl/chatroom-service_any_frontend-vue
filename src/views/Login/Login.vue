@@ -126,8 +126,9 @@ export default class Login extends Vue {
       path: "/chatroom"
     });
   }
-  public get getJwt() {
+  public get getJwt(): string | null {
     let sJwt = oAuthenticationHelper.getJwt();
+    return sJwt;
   }
 }
 </script>

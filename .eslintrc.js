@@ -9,7 +9,8 @@ module.exports = {
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
     "space-before-function-paren": ["error", "never"],
     "semi": ["error", "always"],
-    quotes: [1, "double"] // 引号类型 `` "" ''
+    "quotes": [1, "double"],
+    "yoda": [2, "never", { "exceptRange": true }],
   },
   parserOptions: {
     parser: "@typescript-eslint/parser"

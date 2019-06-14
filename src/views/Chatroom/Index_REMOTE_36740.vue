@@ -74,7 +74,7 @@
               <div
                 ref="view"
                 class="chat-view message-list s-announce"
-                style="text-align:left;padding-bottom:2.5rem;"
+                style="text-align:left;"
                 @scroll="onScroll"
               >
                 <div class="Item type-hint">
@@ -457,7 +457,7 @@ import { STORAGE, SOCKET } from "@/CONFIGS";
 
 let oAuthenticationHelper = new AuthenticationHelper();
 
-let sChatroomUrl = SOCKET.URL +
+let sChatroomUrl = SOCKET.URL + 
               (SOCKET.PORT && (80 !== SOCKET.PORT || '80' !== SOCKET.PORT) ? ":" + SOCKET.PORT : '') +
               "/chatroom";
 let sJwt = oAuthenticationHelper.getJwt();
@@ -507,21 +507,8 @@ export default {
     };
   },
   mounted() {
-    let sChatroomUrl =
-      SOCKET.URL +
-      (SOCKET.PORT && (80 !== SOCKET.PORT || "80" !== SOCKET.PORT)
-        ? ":" + SOCKET.PORT
-        : "") +
-      "/chatroom";
-    let sJwt = oAuthenticationHelper.getJwt();
-    let oOption = {
-      query: {
-        jwt: sJwt
-      }
-    };
-    let oChatroomSocket = oIo(sChatroomUrl, oOption);
 
-    this.$socket["/chatroom"] = oChatroomSocket;
+    this.$socket["/chatroom"] = oChatroomSocket
     this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("MESSAGE", this.webSocketonmessage);
     this.$socket["/chatroom"].on("disconnet", this.disconnetWebSocket);
@@ -544,7 +531,7 @@ export default {
     },
     sendMessage(t) {
       var e = t || this.inputText;
-      e = e.replace(/(\s)\s+/g, "&nbsp;");
+      e = e.replace(/(\s)\s+/g);
       var a = this.$refs.view;
       this.sendText(e);
     },
@@ -651,7 +638,7 @@ export default {
       } else {
         this.sendFlag = true;
         let name = data.nickName;
-        let role = data.role;
+        let role = data.nickName;
         let time = (data.curTime + "").split(" ")[1];
         let sUrl = data.iconUrl;
         // data = data.content.replace(/(\s)\s+/g, "");
@@ -663,7 +650,7 @@ export default {
           sLefOrRigtClass = "type-left";
         }
         switch (data && role) {
-          case "SYSTEM":
+          case "计划消息":
             $(".chat-view").append(
               $(
                 "<div class='Item " +
@@ -682,7 +669,7 @@ export default {
               )
             );
             break;
-          case "ADMIN":
+          case "管理员":
             $(".chat-view").append(
               $(
                 "<div class='Item " +
@@ -703,7 +690,7 @@ export default {
               )
             );
             break;
-          case "USER":
+          case "用户一":
             $(".chat-view").append(
               $(
                 "<div class='Item " +
@@ -724,7 +711,7 @@ export default {
               )
             );
             break;
-          case "USER":
+          case "用户一":
             $(".chat-view").append(
               $(
                 "<div class='Item " +
@@ -746,17 +733,15 @@ export default {
           default:
             break;
         }
-        var t = this.$refs.view;
-        t.scrollTop = t.scrollHeight;
         this.inputText = "";
       }
     },
     sendText(data) {
       let date = new Date();
+      // let oMessage = data;
       let sUid = oAuthenticationHelper.getUserId();
       let sUrl = oAuthenticationHelper.getUserUrl();
       let sUserNickname = oAuthenticationHelper.getUserNickname();
-      let sRole = oAuthenticationHelper.getUserRole();
       let oMessage = {
         id: sUid,
         fk: "hCBOEx1e8cxeSWX2PUSC5w==",
@@ -764,21 +749,23 @@ export default {
         nickName: sUserNickname,
         content: data || null,
         curTime: date,
-        role: sRole,
+        roleId: 8,
         iconUrl: sUrl, // 原始
         remark: null
       };
       // let sMessage = JSON.stringify(oMessage);
       let sMessage = oMessage;
-      let M = sMessage.content;
-      if (M === "" || M === null || M === "undefined") {
+      if (sMessage == "" || sMessage == null || sMessage == "undefined") {
         return;
       } else {
         this.$socket["/chatroom"].emit("MESSAGE", sMessage);
       }
+      // this.$sockJs.send(sMessage);
     },
     disconnetWebSocket(e) {}
   }
+
+
 };
 </script>
 

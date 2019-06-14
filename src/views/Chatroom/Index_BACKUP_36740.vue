@@ -443,8 +443,12 @@
 
 <script>
 import $ from "jquery";
+<<<<<<< HEAD
+import oIo from "socket.io-client";
+=======
 import oIo from 'socket.io-client';
 import SocketIOFileClient from 'socket.io-file-client';
+>>>>>>> 2e1116d158d443236beb8664a0f9e4f8f2b1f94e
 
 import manage from "@/assets/images/manage.jpg";
 import avatar from "@/assets/images/avatar.png";
@@ -457,7 +461,7 @@ import { STORAGE, SOCKET } from "@/CONFIGS";
 
 let oAuthenticationHelper = new AuthenticationHelper();
 
-let sChatroomUrl = SOCKET.URL +
+let sChatroomUrl = SOCKET.URL + 
               (SOCKET.PORT && (80 !== SOCKET.PORT || '80' !== SOCKET.PORT) ? ":" + SOCKET.PORT : '') +
               "/chatroom";
 let sJwt = oAuthenticationHelper.getJwt();
@@ -507,6 +511,7 @@ export default {
     };
   },
   mounted() {
+<<<<<<< HEAD
     let sChatroomUrl =
       SOCKET.URL +
       (SOCKET.PORT && (80 !== SOCKET.PORT || "80" !== SOCKET.PORT)
@@ -522,6 +527,10 @@ export default {
     let oChatroomSocket = oIo(sChatroomUrl, oOption);
 
     this.$socket["/chatroom"] = oChatroomSocket;
+=======
+
+    this.$socket["/chatroom"] = oChatroomSocket
+>>>>>>> 2e1116d158d443236beb8664a0f9e4f8f2b1f94e
     this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("MESSAGE", this.webSocketonmessage);
     this.$socket["/chatroom"].on("disconnet", this.disconnetWebSocket);

@@ -443,8 +443,7 @@
 
 <script>
 import $ from "jquery";
-import oIo from 'socket.io-client';
-import SocketIOFileClient from 'socket.io-file-client';
+import oIo from "socket.io-client";
 
 import manage from "@/assets/images/manage.jpg";
 import avatar from "@/assets/images/avatar.png";
@@ -456,34 +455,6 @@ import { AuthenticationHelper } from "@/Helper/";
 import { STORAGE, SOCKET } from "@/CONFIGS";
 
 let oAuthenticationHelper = new AuthenticationHelper();
-
-let sChatroomUrl = SOCKET.URL +
-              (SOCKET.PORT && (80 !== SOCKET.PORT || '80' !== SOCKET.PORT) ? ":" + SOCKET.PORT : '') +
-              "/chatroom";
-let sJwt = oAuthenticationHelper.getJwt();
-let oOption = {
-  query: {
-    jwt: sJwt
-  },
-};
-let oChatroomSocket = oIo(sChatroomUrl, oOption);
-let oSocketIOFileClient = new SocketIOFileClient(oChatroomSocket);
-
-oSocketIOFileClient.on('start', (fileInfo) => {
-    console.log('Start uploading', fileInfo);
-});
-oSocketIOFileClient.on('stream', (fileInfo) => {
-    console.log('Streaming... sent ' + fileInfo.sent + ' bytes.');
-});
-oSocketIOFileClient.on('complete', (fileInfo) => {
-    console.log('Upload Complete', fileInfo);
-});
-oSocketIOFileClient.on('error', (err) => {
-    console.log('Error!', err);
-});
-oSocketIOFileClient.on('abort', (fileInfo) => {
-    console.log('Aborted: ', fileInfo);
-});
 
 export default {
   data() {
@@ -600,25 +571,10 @@ export default {
       this.isShowUserPack = true;
     },
     sendImage() {
+      let __this = this;
       let wi = 120;
       let e = this.uploadingImg.naturalWidth;
       let i = this.uploadingImg.naturalHeight;
-      debugger;
-      // e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
-      // var a = document.createElement('canvas');
-      // (a.width = e), (a.height = i);
-      // var n = a.getContext('2d');
-      // n.drawImage(
-      //   this.uploadingImg,
-      //   0,
-      //   0,
-      //   this.uploadingImg.naturalWidth,
-      //   this.uploadingImg.naturalHeight,
-      //   0,
-      //   0,
-      //   e,
-      //   i
-      // );
       $(".chat-view").append(
         $(
           "<div class='Item type-left'><div class='lay-block'><div class='avatar'><img src='" +
@@ -630,7 +586,7 @@ export default {
             "</span></p></div></div></div></div>"
         )
       );
-      this.isShowImgPreview = false;
+      __this.isShowImgPreview = false;
     },
     connectWebSocket(data) {},
 
@@ -782,5 +738,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
