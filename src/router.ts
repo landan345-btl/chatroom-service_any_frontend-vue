@@ -14,23 +14,23 @@ export default new Router({
     {
       path: "/login",
       name: "Login",
-      component: () => import("@/views/Login/Login.vue")
+      component: () => import("@/Views/Login/Login.vue")
     },
     {
       path: "/chatroom",
       name: "Chatroom",
-      component: () => import("@/views/Chatroom/Index.vue"),
+      component: () => import("@/Views/Chatroom/Index.vue"),
       children: []
     },
     {
       path: "/connect",
       name: "Connect",
-      component: () => import("@/views/Connection/Index.vue")
+      component: () => import("@/Views/Connection/Index.vue")
     },
     {
       path: "/setting",
       name: "Setting",
-      component: () => import("@/views/Setting/Index.vue")
+      component: () => import("@/Views/Setting/Index.vue")
     }
   ]
 });

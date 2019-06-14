@@ -39,7 +39,7 @@
 
 <script>
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
-import Menu from "@/components/Menu/Index.vue";
+import Menu from "@/Components/Menu/Index.vue";
 @Component({
   components: { Menu }
 })
