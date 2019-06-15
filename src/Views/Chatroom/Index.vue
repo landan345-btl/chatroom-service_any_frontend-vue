@@ -493,7 +493,7 @@ export default {
     };
     let oChatroomSocket = oIo(sChatroomUrl, oOption);
 
-    if (!this.$socket["/chatroom"]) {
+    if (this.$socket["/chatroom"]) {
       this.$socket["/chatroom"].emit('disconnect');
     }
     this.$socket["/chatroom"] = oChatroomSocket;

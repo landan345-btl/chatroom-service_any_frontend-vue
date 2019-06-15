@@ -9,8 +9,8 @@ let sChatroomUrl = SOCKET.URL +
                   (SOCKET.PORT && (80 !== SOCKET.PORT || '80' !== SOCKET.PORT) ? ":" + SOCKET.PORT : '') +
                   "/chatroom";
 
-const oAuthenticationSocket = oIo(sAuthenticationUrl);
-const oChatroomSocket = oIo(sChatroomUrl);
+// const oAuthenticationSocket = oIo(sAuthenticationUrl);
+// const oChatroomSocket = oIo(sChatroomUrl);
 
 let oSocketPlugin = {
   // The install method is all that needs to exist on the plugin object.
@@ -18,7 +18,7 @@ let oSocketPlugin = {
   install(Vue: any, options: any) {
 
     Vue.prototype.$socket = {
-      '/authentication': oAuthenticationSocket,
+      // '/authentication': oAuthenticationSocket,
       // '/chatroom': oChatroomSocket,
     };
 
