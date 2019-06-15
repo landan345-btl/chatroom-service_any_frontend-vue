@@ -79,12 +79,6 @@
 
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
-// import Alert from "@/Components/Alert";
-//
-// var ComponentClass = Vue.extend(Alert);
-// var instance = new ComponentClass();
-// instance.$mount();
-// this.$refs.container.appendChild(instance.$el);
 import { AuthenticationHelper } from "@/Helper/";
 
 let oAuthenticationHelper = new AuthenticationHelper();

@@ -36,7 +36,7 @@
         </div>
       </div>
     </header>
-    <transition name="viewTransition">
+    <transition name="fade" mode="out-in">
       <Menu :showMenu="showMenu" @showmenu="showmenu" />
     </transition>
   </div>
@@ -71,19 +71,24 @@ export default class App extends Vue {
   taggle() {
     this.showMenu = !this.showMenu;
   }
-  showmenu(data) {
+  showmenu(data: any) {
     this.showMenu = data;
   }
   gotoSetting() {
-    this.$router.push({ path: "/setting" });
+    this.showSetting = !this.showSetting;
+    if (this.showSetting) {
+      this.$router.push({ path: "/setting" });
+    } else {
+      this.showSetting = true;
+      this.$router.push({ path: "/chatroom" });
+    }
   }
   closeMenu() {}
   @Watch("$route")
-  RouteChange(newVal) {
+  RouteChange(newVal: any) {
     let sJwt = oAuthenticationHelper.getJwt();
     sJwt ? (this.showSetting = true) : (this.showSetting = false);
   }
-
 }
 </script>
 
