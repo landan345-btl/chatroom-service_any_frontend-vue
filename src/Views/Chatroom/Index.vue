@@ -448,7 +448,7 @@ import oIo from "socket.io-client";
 import SocketIOFileClient from "socket.io-file-client";
 
 import manage from "@/assets/images/admin.jpg";
-import avatar from "@/assets/images/system.png";
+import avatar from "@/assets/images/member.png";
 import sys from "@/assets/images/system.png";
 import iconAdmin from "@/assets/images/icon-admin.gif";
 import iconMember1 from "@/assets/images/icon-member-01.gif";
@@ -465,7 +465,7 @@ let oAuthenticationHelper = new AuthenticationHelper();
 
 let sChatroomUrl =
   SOCKET.URL +
-  (SOCKET.PORT && (80 !== SOCKET.PORT || "80" !== SOCKET.PORT)
+  (SOCKET.PORT && (SOCKET.PORT !== 80 || SOCKET.PORT !== "80")
     ? ":" + SOCKET.PORT
     : "") +
   "/chatroom";
@@ -519,7 +519,7 @@ export default {
   mounted() {
     let sChatroomUrl =
       SOCKET.URL +
-      (SOCKET.PORT && (80 !== SOCKET.PORT || "80" !== SOCKET.PORT)
+      (SOCKET.PORT && (SOCKET.PORT !== 80 || SOCKET.PORT !== "80")
         ? ":" + SOCKET.PORT
         : "") +
       "/chatroom";
@@ -530,32 +530,30 @@ export default {
       }
     };
     let oChatroomSocket = oIo(sChatroomUrl, oOption);
-
-    if (!this.$socket["/chatroom"]) {
-      this.$socket["/chatroom"].emit('disconnect');
-    }
     this.$socket["/chatroom"] = oChatroomSocket;
+    if (!this.$socket["/chatroom"]) {
+      this.$socket["/chatroom"].emit("disconnect");
+    }
     this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("MESSAGE", this.webSocketonmessage);
     this.$socket["/chatroom"].on("disconnet", this.disconnetWebSocket);
 
-
     let oSocketIOFileClient = new SocketIOFileClient(oChatroomSocket);
 
-    oSocketIOFileClient.on('start', (fileInfo) => {
-        console.log('Start uploading', fileInfo);
+    oSocketIOFileClient.on("start", fileInfo => {
+      console.log("Start uploading", fileInfo);
     });
-    oSocketIOFileClient.on('stream', (fileInfo) => {
-        console.log('Streaming... sent ' + fileInfo.sent + ' bytes.');
+    oSocketIOFileClient.on("stream", fileInfo => {
+      console.log("Streaming... sent " + fileInfo.sent + " bytes.");
     });
-    oSocketIOFileClient.on('complete', (fileInfo) => {
-        console.log('Upload Complete', fileInfo);
+    oSocketIOFileClient.on("complete", fileInfo => {
+      console.log("Upload Complete", fileInfo);
     });
-    oSocketIOFileClient.on('error', (err) => {
-        console.log('Error!', err);
+    oSocketIOFileClient.on("error", err => {
+      console.log("Error!", err);
     });
-    oSocketIOFileClient.on('abort', (fileInfo) => {
-        console.log('Aborted: ', fileInfo);
+    oSocketIOFileClient.on("abort", fileInfo => {
+      console.log("Aborted: ", fileInfo);
     });
 
     this.checkIsLogined();
@@ -700,17 +698,14 @@ export default {
           this.iconMember = iconMember6;
           break;
         default:
+          this.iconMember = iconMember6;
           break;
       }
       if (
-        !(
-          this.receptData != undefined &&
-          this.receptData != "" &&
-          this.receptData != null
-        )
+        this.receptData !== undefined &&
+        this.receptData !== "" &&
+        this.receptData !== null
       ) {
-        return;
-      } else {
         this.sendFlag = true;
         let name = data.nickName;
         let role = data.role;
@@ -786,7 +781,7 @@ export default {
               )
             );
             break;
-          case "MEMBER":
+          case "游客":
             $(".chat-view").append(
               $(
                 "<div class='Item " +
@@ -836,9 +831,7 @@ export default {
       // let sMessage = JSON.stringify(oMessage);
       let sMessage = oMessage;
       let M = sMessage.content;
-      if (M === "" || M === null || M === "undefined") {
-        return;
-      } else {
+      if (!(M === "" || M === null || M === "undefined")) {
         this.$socket["/chatroom"].emit("MESSAGE", sMessage);
       }
     },

@@ -71,7 +71,7 @@ export default class App extends Vue {
   taggle() {
     this.showMenu = !this.showMenu;
   }
-  showmenu(data) {
+  showmenu(data: any) {
     this.showMenu = data;
   }
   gotoSetting() {
@@ -79,12 +79,13 @@ export default class App extends Vue {
     if (this.showSetting) {
       this.$router.push({ path: "/setting" });
     } else {
+      this.showSetting = true;
       this.$router.push({ path: "/chatroom" });
     }
   }
   closeMenu() {}
   @Watch("$route")
-  RouteChange(newVal) {
+  RouteChange(newVal: any) {
     let sJwt = oAuthenticationHelper.getJwt();
     sJwt ? (this.showSetting = true) : (this.showSetting = false);
   }
