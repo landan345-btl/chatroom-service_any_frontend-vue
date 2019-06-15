@@ -19,8 +19,13 @@
       </div>
       <div class="title" @click="goToChatroom()">聊天室</div>
       <div class="nav-item">
-        <div class="right-slot">
-          <a href="javascript:;" class="" style="margin-right: 0.1em;" @click="gotoSetting">
+        <div v-show="showSetting" class="right-slot">
+          <a
+            href="javascript:;"
+            class=""
+            style="margin-right: 0.1em;"
+            @click="gotoSetting"
+          >
             <i class="iconfont icon-icon-" style="font-size: 1em;"></i>
           </a>
           <div class="drawer">
@@ -37,15 +42,24 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 import Menu from "@/Components/Menu/Index.vue";
+import { AuthenticationHelper } from "@/Helper/";
+
+let oAuthenticationHelper = new AuthenticationHelper();
+
 @Component({
   components: { Menu }
 })
 export default class App extends Vue {
   showMenu = false;
   showSetting = false;
+
+  public get getJwt(): string | null {
+    let sJwt = oAuthenticationHelper.getJwt();
+    return sJwt;
+  }
   back() {
     this.$router.go(-1);
   }
@@ -64,8 +78,12 @@ export default class App extends Vue {
     this.$router.push({ path: "/setting" });
   }
   closeMenu() {}
-  @Watch("this.$route")
-  RouteChange(newVal) {}
+  @Watch("$route")
+  RouteChange(newVal) {
+    let sJwt = oAuthenticationHelper.getJwt();
+    sJwt ? (this.showSetting = true) : (this.showSetting = false);
+  }
+
 }
 </script>
 

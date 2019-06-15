@@ -33,7 +33,7 @@
             <div class="l-cell-item" style="position: relative;">
               <a for="avatarInput" style="display: block;">
                 <div class="Avatar">
-                  <img :src="userUrl" alt="" />
+                  <img v-show="userUrl" :src="userUrl" alt="" />
                 </div>
               </a>
             </div>
@@ -50,72 +50,48 @@
           <div class="l-cell hightlight-row">
             <div class="l-cell-item">昵称</div>
             <div class="l-cell-item">
-              <a href="javascript:;">{{ userNickname }}</a>
+              <a href="javascript:;">{{ userNickname || "-"}}</a>
             </div>
             <div class="l-cell-item">
               <span class="NavArrow"></span>
             </div>
           </div>
-          <!-- <div class="l-cell hightlight-row">
-            <div class="l-cell-item">我的关注</div>
-            <div class="l-cell-item">
-              <a href="#/chat/setting/myfollow" class="">0</a>
-            </div>
-            <div class="l-cell-item">
-              <span class="NavArrow"></span>
-            </div>
-          </div> -->
-          <!-- <div class="l-cell">
-            <div class="l-cell-item">我的赞</div>
-            <div class="l-cell-item">
-              <a href="javascript:;">0</a>
-            </div>
-          </div> -->
           <div class="l-cell">
             <div class="l-cell-item">我的等级</div>
             <div class="l-cell-item">
-              <img src="img/chat/icon_member01.gif" />
-            </div>
-          </div>
-          <!-- <div class="l-cell">
-            <div class="l-cell-item">显示我的投注</div>
-            <div class="l-cell-item">
-              <input type="checkbox" class="inline-x-switch weui-switch" />
-            </div>
-          </div>
-          <div class="l-cell">
-            <div class="l-cell-item">屏蔽所有投注</div>
-            <div class="l-cell-item">
-              <input type="checkbox" class="inline-x-switch weui-switch" />
-            </div>
-          </div> -->
-        </div>
-        <!-- <div class="vux-x-dialog setnickname-dialog">
-          <div class="weui-mask" style="display: none;"></div>
-          <div class="weui-dialog" style="display: none;">
-            <div>
-              <p>请输入昵称, 昵称设置后将无法更改</p>
-              <p>
-                <input placeholder="请输入中文，最多6个字" />
-              </p>
-
-              <p style="text-align: center;">
-                <a
-                  href="javascript:;"
-                  class="FormBtn"
-                  style="width: 83%; padding: 0.6em 0px;"
-                  >设置</a
-                >
-              </p>
-              <p>
-                <a href="javascript:;" class="action-cancel">
-                  <i class="iconfont icon-close"></i>取消
-                </a>
-              </p>
+              <img
+                v-show="
+                  userRole === 'SYSTEM' || userRole === 'ADMIN'
+                "
+                src="../../assets/images/icon-admin.gif"
+              />
+              <img
+                v-show="userLevel == '1'"
+                src="../../assets/images/icon-member-01.gif"
+              />
+              <img
+                v-show="userLevel == '2'"
+                src="../../assets/images/icon-member-02.gif"
+              />
+              <img
+                v-show="userLevel == '3'"
+                src="../../assets/images/icon-member-03.gif"
+              />
+              <img
+                v-show="userLevel == '4'"
+                src="../../assets/images/icon-member-04.gif"
+              />
+              <img
+                v-show="userLevel == '5'"
+                src="../../assets/images/icon-member-05.gif"
+              />
+              <img
+                v-show="userLevel >= '6' && userRole !== 'SYSTEM' && userRole !== 'ADMIN' "
+                src="../../assets/images/icon-member-06.gif"
+              />
             </div>
           </div>
         </div>
-        <div class="bottom-placeholder" style="height: 0px;"></div> -->
       </div>
       <div class="sticky-bottom sticky-fixed">
         <div
@@ -158,10 +134,14 @@ let oAuthenticationHelper = new AuthenticationHelper();
 export default class Setting extends Vue {
   userUrl: any = "";
   userNickname: any = "";
+  userLevel: any = "";
+  userRole: any = "";
   mounted() {
     this.userUrl =
       "http://fea.socket.com/storage/" + oAuthenticationHelper.getUserUrl();
     this.userNickname = oAuthenticationHelper.getUserNickname();
+    this.userLevel = oAuthenticationHelper.getUserLevel();
+    this.userRole = oAuthenticationHelper.getUserRole();
   }
 }
 </script>

@@ -449,8 +449,8 @@ import SocketIOFileClient from 'socket.io-file-client';
 import manage from "@/assets/images/manage.jpg";
 import avatar from "@/assets/images/avatar.png";
 import sys from "@/assets/images/sys.png";
-import iconAdmin from "@/assets/images/icon_admin.gif";
-import iconMember from "@/assets/images/icon_member01.gif";
+import iconAdmin from "@/assets/images/icon-admin.gif";
+import iconMember from "@/assets/images/icon-member-01.gif";
 
 import { AuthenticationHelper } from "@/Helper/";
 import { STORAGE, SOCKET } from "@/CONFIGS";
