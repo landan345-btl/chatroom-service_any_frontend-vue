@@ -531,10 +531,33 @@ export default {
     };
     let oChatroomSocket = oIo(sChatroomUrl, oOption);
 
+    if (!this.$socket["/chatroom"]) {
+      this.$socket["/chatroom"].emit('disconnect');
+    }
     this.$socket["/chatroom"] = oChatroomSocket;
     this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("MESSAGE", this.webSocketonmessage);
     this.$socket["/chatroom"].on("disconnet", this.disconnetWebSocket);
+
+
+    let oSocketIOFileClient = new SocketIOFileClient(oChatroomSocket);
+
+    oSocketIOFileClient.on('start', (fileInfo) => {
+        console.log('Start uploading', fileInfo);
+    });
+    oSocketIOFileClient.on('stream', (fileInfo) => {
+        console.log('Streaming... sent ' + fileInfo.sent + ' bytes.');
+    });
+    oSocketIOFileClient.on('complete', (fileInfo) => {
+        console.log('Upload Complete', fileInfo);
+    });
+    oSocketIOFileClient.on('error', (err) => {
+        console.log('Error!', err);
+    });
+    oSocketIOFileClient.on('abort', (fileInfo) => {
+        console.log('Aborted: ', fileInfo);
+    });
+
     this.checkIsLogined();
   },
   methods: {
