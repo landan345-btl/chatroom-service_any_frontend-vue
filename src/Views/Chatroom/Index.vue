@@ -447,9 +447,6 @@ import $ from "jquery";
 import oIo from "socket.io-client";
 import SocketIOFileClient from "socket.io-file-client";
 
-import manage from "@/assets/images/admin.jpg";
-import avatar from "@/assets/images/member.png";
-import sys from "@/assets/images/system.png";
 import iconAdmin from "@/assets/images/icon-admin.gif";
 import iconMember1 from "@/assets/images/icon-member-01.gif";
 import iconMember2 from "@/assets/images/icon-member-02.gif";
@@ -655,8 +652,8 @@ export default {
       // );
       $(".chat-view").append(
         $(
-          "<div class='Item type-left'><div class='lay-block'><div class='avatar'><img src='" +
-            avatar +
+          "<div class='Item type-left'><div class='lay-block'><div class='member'><img src='" +
+            member +
             "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4>qi***00</h4><span ><img src='/img/icon_member01.cc2364ce.gif' alt='会员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'><img src=''" +
             this.uploadingImg +
             "'/>" +
