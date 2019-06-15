@@ -457,15 +457,6 @@ import { STORAGE, SOCKET } from "@/CONFIGS";
 
 let oAuthenticationHelper = new AuthenticationHelper();
 
-let sChatroomUrl = SOCKET.URL +
-              (SOCKET.PORT && (80 !== SOCKET.PORT || '80' !== SOCKET.PORT) ? ":" + SOCKET.PORT : '') +
-              "/chatroom";
-let sJwt = oAuthenticationHelper.getJwt();
-let oOption = {
-  query: {
-    jwt: sJwt
-  },
-};
 let oChatroomSocket = oIo(sChatroomUrl, oOption);
 let oSocketIOFileClient = new SocketIOFileClient(oChatroomSocket);
 
@@ -521,6 +512,9 @@ export default {
     };
     let oChatroomSocket = oIo(sChatroomUrl, oOption);
 
+    if (!this.$socket["/chatroom"]) {
+      this.$socket["/chatroom"].emit('disconnect');
+    }
     this.$socket["/chatroom"] = oChatroomSocket;
     this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("MESSAGE", this.webSocketonmessage);
