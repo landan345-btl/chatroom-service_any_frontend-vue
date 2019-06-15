@@ -239,7 +239,7 @@
                   ref="typeInput"
                   class="txtinput"
                   type="textarea"
-                  :placeholder="inputText || '试玩用户无法发言'"
+                  placeholder=""
                   :autosize="{
                     maxRows: 5,
                     minRows: 1
@@ -248,10 +248,11 @@
                   @focus="inputFocus"
                   @blur="inputBlur"
                   v-model="inputText"
-                  @keyup.enter.native="sendMessage()"
+                  @keydown.shift.enter="() => {}"
+                  @keydown.enter.native="sendMessage($event)"
                 ></el-input>
               </div>
-              <a href="javascript:;" @click="sendMessage()">
+              <a href="javascript:;" @click="sendText(inputText)">
                 <i class="iconfont icon-send1"></i>发送</a
               >
               <div
@@ -443,46 +444,54 @@
 
 <script>
 import $ from "jquery";
-import oIo from 'socket.io-client';
-import SocketIOFileClient from 'socket.io-file-client';
+import oIo from "socket.io-client";
+import SocketIOFileClient from "socket.io-file-client";
 
-import manage from "@/assets/images/manage.jpg";
-import avatar from "@/assets/images/avatar.png";
-import sys from "@/assets/images/sys.png";
+import manage from "@/assets/images/admin.jpg";
+import avatar from "@/assets/images/system.png";
+import sys from "@/assets/images/system.png";
 import iconAdmin from "@/assets/images/icon-admin.gif";
-import iconMember from "@/assets/images/icon-member-01.gif";
+import iconMember1 from "@/assets/images/icon-member-01.gif";
+import iconMember2 from "@/assets/images/icon-member-02.gif";
+import iconMember3 from "@/assets/images/icon-member-03.gif";
+import iconMember4 from "@/assets/images/icon-member-04.gif";
+import iconMember5 from "@/assets/images/icon-member-05.gif";
+import iconMember6 from "@/assets/images/icon-member-06.gif";
 
 import { AuthenticationHelper } from "@/Helper/";
 import { STORAGE, SOCKET } from "@/CONFIGS";
 
 let oAuthenticationHelper = new AuthenticationHelper();
 
-let sChatroomUrl = SOCKET.URL +
-              (SOCKET.PORT && (80 !== SOCKET.PORT || '80' !== SOCKET.PORT) ? ":" + SOCKET.PORT : '') +
-              "/chatroom";
+let sChatroomUrl =
+  SOCKET.URL +
+  (SOCKET.PORT && (80 !== SOCKET.PORT || "80" !== SOCKET.PORT)
+    ? ":" + SOCKET.PORT
+    : "") +
+  "/chatroom";
 let sJwt = oAuthenticationHelper.getJwt();
 let oOption = {
   query: {
     jwt: sJwt
-  },
+  }
 };
 let oChatroomSocket = oIo(sChatroomUrl, oOption);
 let oSocketIOFileClient = new SocketIOFileClient(oChatroomSocket);
 
-oSocketIOFileClient.on('start', (fileInfo) => {
-    console.log('Start uploading', fileInfo);
+oSocketIOFileClient.on("start", fileInfo => {
+  console.log("Start uploading", fileInfo);
 });
-oSocketIOFileClient.on('stream', (fileInfo) => {
-    console.log('Streaming... sent ' + fileInfo.sent + ' bytes.');
+oSocketIOFileClient.on("stream", fileInfo => {
+  console.log("Streaming... sent " + fileInfo.sent + " bytes.");
 });
-oSocketIOFileClient.on('complete', (fileInfo) => {
-    console.log('Upload Complete', fileInfo);
+oSocketIOFileClient.on("complete", fileInfo => {
+  console.log("Upload Complete", fileInfo);
 });
-oSocketIOFileClient.on('error', (err) => {
-    console.log('Error!', err);
+oSocketIOFileClient.on("error", err => {
+  console.log("Error!", err);
 });
-oSocketIOFileClient.on('abort', (fileInfo) => {
-    console.log('Aborted: ', fileInfo);
+oSocketIOFileClient.on("abort", fileInfo => {
+  console.log("Aborted: ", fileInfo);
 });
 
 export default {
@@ -503,7 +512,8 @@ export default {
       sendFlag: false,
       sendMessageFlag: true,
       content: "以上为历史消息",
-      loginInfo: ""
+      loginInfo: "",
+      iconMember: ""
     };
   },
   mounted() {
@@ -542,12 +552,16 @@ export default {
         this.$router.push(oQuery);
       }
     },
-    sendMessage(t) {
-      var e = t || this.inputText;
-      e = e.replace(/(\s)\s+/g, "&nbsp;");
+    sendMessage(event) {
+      if (event.shiftKey) {
+        return;
+      }
+      var e = this.inputText;
+      // e = e.replace(/(\s)\s+/g, "&nbsp;");
       var a = this.$refs.view;
       this.sendText(e);
     },
+
     onHeightChange() {
       let __this = this;
       // return __this.$emit("updateHeight");
@@ -603,7 +617,6 @@ export default {
       let wi = 120;
       let e = this.uploadingImg.naturalWidth;
       let i = this.uploadingImg.naturalHeight;
-      debugger;
       // e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
       // var a = document.createElement('canvas');
       // (a.width = e), (a.height = i);
@@ -640,6 +653,32 @@ export default {
       this.sendFlag = false;
       this.sendMessageFlag = true;
       this.receptData = data;
+      let level = this.receptData.level;
+      level
+        ? (this.userLevel = level)
+        : (this.userLevel = oAuthenticationHelper.getUserLevel());
+      switch (this.userLevel) {
+        case 1:
+          this.iconMember = iconMember1;
+          break;
+        case 2:
+          this.iconMember = iconMember2;
+          break;
+        case 3:
+          this.iconMember = iconMember3;
+          break;
+        case 4:
+          this.iconMember = iconMember4;
+          break;
+        case 5:
+          this.iconMember = iconMember5;
+          break;
+        case 6:
+          this.iconMember = iconMember6;
+          break;
+        default:
+          break;
+      }
       if (
         !(
           this.receptData != undefined &&
@@ -715,7 +754,7 @@ export default {
                   "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4" +
                   name +
                   "</h4><span ><img src='" +
-                  iconMember +
+                  this.iconMember +
                   "' alt='会员'></span><span class='MsgTime'>" +
                   time +
                   "</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
@@ -755,6 +794,8 @@ export default {
       let date = new Date();
       let sUid = oAuthenticationHelper.getUserId();
       let sUrl = oAuthenticationHelper.getUserUrl();
+      let iUserlLevel = oAuthenticationHelper.getUserLevel();
+
       let sUserNickname = oAuthenticationHelper.getUserNickname();
       let sRole = oAuthenticationHelper.getUserRole();
       let oMessage = {
@@ -765,6 +806,7 @@ export default {
         content: data || null,
         curTime: date,
         role: sRole,
+        level: iUserlLevel,
         iconUrl: sUrl, // 原始
         remark: null
       };
@@ -782,5 +824,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

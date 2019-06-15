@@ -30,7 +30,7 @@ export default new Router({
     {
       path: "/setting",
       name: "Setting",
-      component: () => import("@/Views/Setting/Index.vue")
+      component: () => import("@/Views/User/Index.vue")
     }
   ]
 });
