@@ -457,7 +457,6 @@ import { STORAGE, SOCKET } from "@/CONFIGS";
 
 let oAuthenticationHelper = new AuthenticationHelper();
 
-let oChatroomSocket = oIo(sChatroomUrl, oOption);
 let oSocketIOFileClient = new SocketIOFileClient(oChatroomSocket);
 
 oSocketIOFileClient.on('start', (fileInfo) => {
