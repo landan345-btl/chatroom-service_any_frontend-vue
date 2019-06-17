@@ -510,12 +510,15 @@ export default {
       sendMessageFlag: true,
       content: "以上为历史消息",
       loginInfo: "",
-      iconMember: ""
+      iconMember: "",
+      roomId: null,
+
+
     };
   },
   mounted() {
     if (this.$socket["/chatroom"]) {
-      this.$socket["/chatroom"].emit("disconnect");
+      this.$socket["/chatroom"].disconnect();
     }
 
     let sChatroomUrl =
@@ -533,9 +536,11 @@ export default {
     let oChatroomSocket = oIo(sChatroomUrl, oOption);
     this.$socket["/chatroom"] = oChatroomSocket;
 
+    this.$socket["/chatroom"].emit("ROOM ENTER", this.emitEnterRoom);
+    this.$socket["/chatroom"].on("ROOM ENTER", this.onEnterRoom);
     this.$socket["/chatroom"].on("connect", () => {});
-    this.$socket["/chatroom"].on("MESSAGE", this.webSocketonmessage);
-    this.$socket["/chatroom"].on("disconnet", this.disconnetWebSocket);
+    this.$socket["/chatroom"].on("MESSAGE", this.onMessage);
+    this.$socket["/chatroom"].on("disconnet", () => {});
 
     let oSocketIOFileClient = new SocketIOFileClient(oChatroomSocket);
 
@@ -571,6 +576,15 @@ export default {
       if (!sUid) {
         this.$router.push(oQuery);
       }
+    },
+    emitEnterRoom() {
+
+    },
+
+    onEnterRoom(oBody) {
+      debugger;
+
+
     },
     sendMessage(event) {
       if (event.shiftKey) {
@@ -668,7 +682,7 @@ export default {
     connectWebSocket(data) {},
 
     messageWebSocket(data) {},
-    webSocketonmessage(data) {
+    onMessage(data) {
       this.receptData = "";
       this.sendFlag = false;
       this.sendMessageFlag = true;
@@ -834,7 +848,6 @@ export default {
         this.$socket["/chatroom"].emit("MESSAGE", sMessage);
       }
     },
-    disconnetWebSocket(e) {}
   }
 };
 </script>
