@@ -47,3 +47,22 @@
     transform: rotate(360deg);
   }
 }
+
+.Bubble{
+  position: relative;
+}
+.SYSTEM{
+
+}
+.ADMIN{
+  position:relative;
+  background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26));
+  border-left-color: rgb(231, 193, 26);
+  border-right-color: rgb(255, 115, 0);
+}
+.MEMBER{
+  background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231));
+  border-left-color: rgb(2, 231, 231);
+  border-right-color: rgb(25, 158, 216);
+  color: rgb(255, 255, 255);
+}

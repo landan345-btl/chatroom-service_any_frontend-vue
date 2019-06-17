@@ -512,8 +512,7 @@ export default {
       loginInfo: "",
       iconMember: "",
       roomId: null,
-
-
+      showFlag: true
     };
   },
   mounted() {
@@ -577,15 +576,9 @@ export default {
         this.$router.push(oQuery);
       }
     },
-    emitEnterRoom() {
+    emitEnterRoom() {},
 
-    },
-
-    onEnterRoom(oBody) {
-      debugger;
-
-
-    },
+    onEnterRoom(oBody) {},
     sendMessage(event) {
       if (event.shiftKey) {
         return;
@@ -720,6 +713,9 @@ export default {
         this.receptData !== null
       ) {
         this.sendFlag = true;
+        if ($("#" + this.receptData.virtualId)) {
+          $("#" + this.receptData.virtualId).css("display", "none");
+        }
         let name = data.nickName;
         let role = data.role;
         let time = (data.curTime + "").split(" ")[1];
@@ -732,6 +728,7 @@ export default {
         } else {
           sLefOrRigtClass = "type-left";
         }
+        this.showFlag = false;
         switch (data && role) {
           case "SYSTEM":
             $(".chat-view").append(
@@ -767,7 +764,7 @@ export default {
                   iconAdmin +
                   "' alt='管理员'></span><span class='MsgTime'>" +
                   time +
-                  "</span></div><div class='Bubble type-system' style='position:relative;background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><span class='lds-dual-ring'></span><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+                  "</span></div><div class='Bubble type-system' style='position:relative;background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
                   data.content +
                   "</span></p></div></div></div></div></div>"
               )
@@ -829,6 +826,52 @@ export default {
 
       let sUserNickname = oAuthenticationHelper.getUserNickname();
       let sRole = oAuthenticationHelper.getUserRole();
+      let name = oAuthenticationHelper.getUserNickname();
+      this.showFlag = true;
+      let iTimeStamp = Date.now();
+      let time = (date + "").split(" ")[4];
+      let sVirtualId = sUid + "-" + iTimeStamp;
+      let className = "";
+      switch (sRole) {
+        case 'SYSTEM':
+        className ='SYSTEM';
+        break;
+        case 'ADMIN':
+        className ='ADMIN';
+        break;
+        case 'MEMBER':
+        className ='MEMBER';
+        break;
+        default:
+        className ='MEMBER';
+        break;
+      }
+      $(".chat-view").append(
+        $(
+          "<div id='" + sVirtualId +"' class='Item type-right'>" +
+            "<div class='lay-block'>" +
+              "<div class='avatar'>" +
+                "<img src='" + (sUrl.indexOf("http") === 0 ? sUrl: STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+              "</div>" +
+              "<div class='lay-content'>" +
+                "<div class='msg-header'>" +
+                  "<h4>" + name + "</h4> " +
+                  "<span class='MsgTime'>" + time + "</span>" +
+                "</div>" +
+                "<div class='Bubble "+className+"'>" +
+                  "<span class='lds-dual-ring'></span>" +
+                  "<p>" +
+                    "<span style='white-space: pre-wrap; word-break: break-all;'>" + data +
+                    "</span>" +
+                  "</p>" +
+                "</div>" +
+              "</div>" +
+            "</div>" +
+          "</div>" +
+        "</div>"
+        )
+      );
+
       let oMessage = {
         id: sUid,
         fk: "hCBOEx1e8cxeSWX2PUSC5w==",
@@ -839,7 +882,8 @@ export default {
         role: sRole,
         level: iUserlLevel,
         iconUrl: sUrl, // 原始
-        remark: null
+        remark: null,
+        virtualId: sVirtualId
       };
       // let sMessage = JSON.stringify(oMessage);
       let sMessage = oMessage;
@@ -847,7 +891,7 @@ export default {
       if (!(M === "" || M === null || M === "undefined")) {
         this.$socket["/chatroom"].emit("MESSAGE", sMessage);
       }
-    },
+    }
   }
 };
 </script>
