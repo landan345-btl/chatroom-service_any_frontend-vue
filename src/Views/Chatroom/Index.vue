@@ -579,6 +579,11 @@ export default {
     },
 
     onEnterRoom(oBody) {
+      let oData = oBody['data'];
+      let aRooms = oData['rooms'];
+      let oRoom = aRooms.pop();
+      let sRoomId = oRoom._id;
+      this.roomId = sRoomId;
 
     },
     sendMessage(event) {
@@ -825,6 +830,7 @@ export default {
       let sUserNickname = oAuthenticationHelper.getUserNickname();
       let sRole = oAuthenticationHelper.getUserRole();
       let oMessage = {
+        roomId: this.roomId,
         id: sUid,
         fk: "hCBOEx1e8cxeSWX2PUSC5w==",
         chatType: 2,
