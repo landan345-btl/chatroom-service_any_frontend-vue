@@ -514,6 +514,10 @@ export default {
     };
   },
   mounted() {
+    if (this.$socket["/chatroom"]) {
+      this.$socket["/chatroom"].emit("disconnect");
+    }
+
     let sChatroomUrl =
       SOCKET.URL +
       (SOCKET.PORT && (SOCKET.PORT !== 80 || SOCKET.PORT !== "80")
@@ -528,9 +532,7 @@ export default {
     };
     let oChatroomSocket = oIo(sChatroomUrl, oOption);
     this.$socket["/chatroom"] = oChatroomSocket;
-    if (!this.$socket["/chatroom"]) {
-      this.$socket["/chatroom"].emit("disconnect");
-    }
+
     this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("MESSAGE", this.webSocketonmessage);
     this.$socket["/chatroom"].on("disconnet", this.disconnetWebSocket);
