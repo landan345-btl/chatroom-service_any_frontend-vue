@@ -535,7 +535,7 @@ export default {
     let oChatroomSocket = oIo(sChatroomUrl, oOption);
     this.$socket["/chatroom"] = oChatroomSocket;
 
-    this.$socket["/chatroom"].emit("ROOM ENTER", this.emitEnterRoom);
+    this.$socket["/chatroom"].emit("ROOM ENTER", void 0);
     this.$socket["/chatroom"].on("ROOM ENTER", this.onEnterRoom);
     this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("MESSAGE", this.onMessage);
@@ -576,9 +576,15 @@ export default {
         this.$router.push(oQuery);
       }
     },
-    emitEnterRoom() {},
 
-    onEnterRoom(oBody) {},
+    onEnterRoom(oBody) {
+      let oData = oBody['data'];
+      let aRooms = oData['rooms'];
+      let oRoom = aRooms.pop();
+      let sRoomId = oRoom._id;
+      this.roomId = sRoomId;
+
+    },
     sendMessage(event) {
       if (event.shiftKey) {
         return;
@@ -873,6 +879,7 @@ export default {
       );
 
       let oMessage = {
+        roomId: this.roomId,
         id: sUid,
         fk: "hCBOEx1e8cxeSWX2PUSC5w==",
         chatType: 2,
