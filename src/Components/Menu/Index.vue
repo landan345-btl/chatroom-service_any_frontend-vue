@@ -51,7 +51,6 @@ export default class Menu extends Vue {
   close() {
     this.$emit("showmenu", false);
   }
-
 }
 </script>
 

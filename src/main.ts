@@ -7,10 +7,7 @@ import ElementUI from "element-ui";
 
 import "element-ui/lib/theme-chalk/index.css";
 
-
-import {
-  socket as socketPlugin,
-} from '@/plugins/';
+import { socket as socketPlugin } from "@/plugins/";
 
 Vue.use(ElementUI);
 

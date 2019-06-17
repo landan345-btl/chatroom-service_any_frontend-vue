@@ -19,7 +19,7 @@
       </div>
       <div class="title" @click="goToChatroom()">聊天室</div>
       <div class="nav-item">
-        <div v-show="showSetting" class="right-slot">
+        <div  class="right-slot">
           <a
             href="javascript:;"
             class=""
@@ -79,7 +79,6 @@ export default class App extends Vue {
     if (this.showSetting) {
       this.$router.push({ path: "/setting" });
     } else {
-      this.showSetting = true;
       this.$router.push({ path: "/chatroom" });
     }
   }

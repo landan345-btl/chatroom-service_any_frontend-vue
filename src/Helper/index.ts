@@ -1,5 +1,3 @@
-import Authentication from './Authentication/Index';
+import Authentication from "./Authentication/Index";
 
-export {
-  Authentication as AuthenticationHelper,
-};
+export { Authentication as AuthenticationHelper };

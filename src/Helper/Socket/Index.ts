@@ -1,3 +1,1 @@
-class SocketHelper {
-  
-}
+class SocketHelper {}

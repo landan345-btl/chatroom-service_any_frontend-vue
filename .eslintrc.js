@@ -10,7 +10,7 @@ module.exports = {
     "space-before-function-paren": ["error", "never"],
     "semi": ["error", "always"],
     "quotes": [1, "double"],
-    "yoda": [2, "never", { "exceptRange": true }],
+    "yoda": [2, "always", { "exceptRange": true }],
   },
   parserOptions: {
     parser: "@typescript-eslint/parser"

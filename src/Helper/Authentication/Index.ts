@@ -1,4 +1,4 @@
-import jwtDecode from 'jwt-decode';
+import jwtDecode from "jwt-decode";
 
 class AuthenticationHelper {
   /**
@@ -6,7 +6,7 @@ class AuthenticationHelper {
    */
   public getUserId(): string | null {
     try {
-      let sJwt = window.localStorage.getItem("jwt") || '';
+      let sJwt = window.localStorage.getItem("jwt") || "";
       let oPayload: any = jwtDecode(sJwt);
       let sUserId = oPayload.uid;
       return sUserId;
@@ -17,7 +17,7 @@ class AuthenticationHelper {
 
   public getUserUrl(): string | null {
     try {
-      let sJwt = window.localStorage.getItem("jwt") || '';
+      let sJwt = window.localStorage.getItem("jwt") || "";
       let oPayload: any = jwtDecode(sJwt);
       let sUrl = oPayload.url;
       return sUrl;
@@ -28,7 +28,7 @@ class AuthenticationHelper {
 
   public getUserRole(): string | null {
     try {
-      let sJwt = window.localStorage.getItem("jwt") || '';
+      let sJwt = window.localStorage.getItem("jwt") || "";
       let oPayload: any = jwtDecode(sJwt);
       let sRole = oPayload.role;
       return sRole;
@@ -39,7 +39,7 @@ class AuthenticationHelper {
 
   public getUserNickname(): string | null {
     try {
-      let sJwt = window.localStorage.getItem("jwt") || '';
+      let sJwt = window.localStorage.getItem("jwt") || "";
       let oPayload: any = jwtDecode(sJwt);
       let sNickname = oPayload.nickname;
       return sNickname;
@@ -55,7 +55,7 @@ class AuthenticationHelper {
 
   public getExp(): number | null {
     try {
-      let sJwt = window.localStorage.getItem("jwt") || '';
+      let sJwt = window.localStorage.getItem("jwt") || "";
       let oPayload: any = jwtDecode(sJwt);
       let iExp = oPayload.exp;
       return iExp;
@@ -66,7 +66,7 @@ class AuthenticationHelper {
 
   public getUserLevel(): number | null {
     try {
-      let sJwt = window.localStorage.getItem("jwt") || '';
+      let sJwt = window.localStorage.getItem("jwt") || "";
       let oPayload: any = jwtDecode(sJwt);
       let ilevel = oPayload.level;
       return ilevel;
@@ -77,12 +77,12 @@ class AuthenticationHelper {
 
   public isExpired(): boolean {
     try {
-      let sJwt = window.localStorage.getItem("jwt") || '';
+      let sJwt = window.localStorage.getItem("jwt") || "";
       let oPayload: any = jwtDecode(sJwt);
       let iExp = oPayload.exp;
       let iTime = new Date().getTime() / 1000;
       if (iExp < iTime) {
-        throw '';
+        throw "";
       }
       return false;
     } catch (sException) {
