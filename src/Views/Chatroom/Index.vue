@@ -536,7 +536,7 @@ export default {
     let oChatroomSocket = oIo(sChatroomUrl, oOption);
     this.$socket["/chatroom"] = oChatroomSocket;
 
-    this.$socket["/chatroom"].emit("ROOM ENTER", this.emitEnterRoom);
+    this.$socket["/chatroom"].emit("ROOM ENTER", void 0);
     this.$socket["/chatroom"].on("ROOM ENTER", this.onEnterRoom);
     this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("MESSAGE", this.onMessage);
@@ -577,13 +577,8 @@ export default {
         this.$router.push(oQuery);
       }
     },
-    emitEnterRoom() {
-
-    },
 
     onEnterRoom(oBody) {
-      debugger;
-
 
     },
     sendMessage(event) {
