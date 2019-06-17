@@ -23,7 +23,7 @@ let oSocketPlugin = {
   // It takes the global Vue object as well as user-defined options.
   install(Vue: any, options: any) {
     Vue.prototype.$socket = {
-      '/authentication': oAuthenticationSocket,
+      "/authentication": oAuthenticationSocket
       // '/chatroom': oChatroomSocket,
     };
   }

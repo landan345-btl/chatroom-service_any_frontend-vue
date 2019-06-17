@@ -747,13 +747,13 @@ export default {
                   (sUrl.indexOf("http") === 0
                     ? sUrl
                     : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
-                  "' alt='多彩群主'></div><div class='lay-content'><div class='msg-header'><h4>" +
+                  "' alt='多彩群主'></div><div class='lay-content' style='position:relative;'><div class='msg-header'><h4>" +
                   name +
                   "</h4><span class='VipMark type-admin'><img src='" +
                   iconAdmin +
                   "' alt='管理员'></span><span class='MsgTime'>" +
                   time +
-                  "</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+                  "</span></div><div class='Bubble type-system' style='position:relative;background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><span class='lds-dual-ring'></span><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
                   data.content +
                   "</span></p></div></div></div></div></div>"
               )
@@ -839,4 +839,6 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+@import "Index.scss";
+</style>
