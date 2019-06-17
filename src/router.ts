@@ -23,11 +23,6 @@ export default new Router({
       children: []
     },
     {
-      path: "/connect",
-      name: "Connect",
-      component: () => import("@/Views/Connection/Index.vue")
-    },
-    {
       path: "/setting",
       name: "Setting",
       component: () => import("@/Views/User/Index.vue")
