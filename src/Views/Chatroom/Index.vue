@@ -223,7 +223,7 @@
         ></div>
         <div class="bottom-placeholder no-tab" style="height: 61px;"></div>
       </div>
-      <div class="sticky-bottom sticky-fixed no-tab" style="z-index:-1;">
+      <div class="sticky-bottom sticky-fixed no-tab">
         <div class="chat-inputs-wrap">
           <div class="chat-inputs">
             <div class="input-row">
@@ -265,7 +265,7 @@
             </div>
 
             <div v-show="moreFlag" class="more-row" @click="isShowMore = false">
-              <a for="imgUploadInput">
+              <!-- <a for="imgUploadInput">
                 <i class="iconfont icon-image"></i>
               </a>
               <input
@@ -277,7 +277,11 @@
               />
               <a href="#/chat/setting" class="">
                 <i class="iconfont icon-icon-"></i>
-              </a>
+              </a> -->
+              <form id="form">
+                <input type="file" id="file" multiple />
+                <input type="submit" value="Upload" v-on:click="onSubmit"/>
+              </form>
             </div>
 
             <div class="vux-x-dialog userpack-dialog">
@@ -488,11 +492,12 @@ export default class Chatroom extends Vue {
   iconMember:string = "";
   roomId:any = null;
   showFlag:boolean = true;
+  form: any = null;
   mounted() {
     if (this.$socket["/chatroom"]) {
       this.$socket["/chatroom"].disconnect();
     }
-
+    this.form = document.getElementById('form');
     let sChatroomUrl =
       SOCKET.URL +
       (SOCKET.PORT && (SOCKET.PORT !== 80 || SOCKET.PORT !== "80")
@@ -513,21 +518,21 @@ export default class Chatroom extends Vue {
     this.$socket["/chatroom"].on("MESSAGE", this.onMessage);
     this.$socket["/chatroom"].on("disconnet", () => {});
 
-    let oSocketIOFileClient = new SocketIOFileClient(oChatroomSocket);
+    this.socketIOFileClient = new SocketIOFileClient(oChatroomSocket);
 
-    oSocketIOFileClient.on("start", fileInfo => {
+    this.socketIOFileClient.on("start", fileInfo => {
       console.log("Start uploading", fileInfo);
     });
-    oSocketIOFileClient.on("stream", fileInfo => {
+    this.socketIOFileClient.on("stream", fileInfo => {
       console.log("Streaming... sent " + fileInfo.sent + " bytes.");
     });
-    oSocketIOFileClient.on("complete", fileInfo => {
+    this.socketIOFileClient.on("complete", fileInfo => {
       console.log("Upload Complete", fileInfo);
     });
-    oSocketIOFileClient.on("error", err => {
+    this.socketIOFileClient.on("error", err => {
       console.log("Error!", err);
     });
-    oSocketIOFileClient.on("abort", fileInfo => {
+    this.socketIOFileClient.on("abort", fileInfo => {
       console.log("Aborted: ", fileInfo);
     });
 
@@ -652,6 +657,11 @@ export default class Chatroom extends Vue {
   connectWebSocket(data) {}
 
   messageWebSocket(data) {}
+  onSubmit(event) {
+    event.preventDefault();
+    let fileEl = document.getElementById('file');
+    let uploadIds = this.socketIOFileClient.upload(fileEl);
+  }
   onMessage(data) {
     this.receptData = "";
     this.sendFlag = false;
@@ -820,7 +830,6 @@ export default class Chatroom extends Vue {
                   "<span class='MsgTime'>" + time + "</span>" +
                 "</div>" +
                 "<div class='Bubble "+className+"'>" +
-                  "<span class='lds-dual-ring'></span>" +
                   "<p>" +
                     "<span style='white-space: pre-wrap; word-break: break-all;'>" + data.content +
                     "</span>" +
@@ -866,31 +875,36 @@ export default class Chatroom extends Vue {
       className ='MEMBER';
       break;
     }
-    $(".chat-view").append(
-      $(
-        "<div id='" + sVirtualId +"' class='Item type-right'>" +
-          "<div class='lay-block'>" +
-            "<div class='avatar'>" +
-              "<img src='" + (sUrl.indexOf("http") === 0 ? sUrl: STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
-            "</div>" +
-            "<div class='lay-content'>" +
-              "<div class='msg-header'>" +
-                "<h4>" + name + "</h4> " +
-                "<span class='MsgTime'>" + time + "</span>" +
+    if(data){
+      $(".chat-view").append(
+        $(
+          "<div id='" + sVirtualId +"' class='Item type-right'>" +
+            "<div class='lay-block'>" +
+              "<div class='avatar'>" +
+                "<img src='" + (sUrl.indexOf("http") === 0 ? sUrl: STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
               "</div>" +
-              "<div class='Bubble "+className+"'>" +
-                "<span class='lds-dual-ring'></span>" +
-                "<p>" +
-                  "<span style='white-space: pre-wrap; word-break: break-all;'>" + data +
-                  "</span>" +
-                "</p>" +
+              "<div class='lay-content'>" +
+                "<div class='msg-header'>" +
+                  "<h4>" + name + "</h4> " +
+                  "<span class='MsgTime'>" + time + "</span>" +
+                "</div>" +
+                "<div class='Bubble "+className+"'>" +
+                  "<span class='lds-dual-ring'></span>" +
+                  "<p>" +
+                    "<span style='white-space: pre-wrap; word-break: break-all;'>" + data +
+                    "</span>" +
+                  "</p>" +
+                "</div>" +
               "</div>" +
             "</div>" +
           "</div>" +
-        "</div>" +
-      "</div>"
-      )
-    );
+        "</div>"
+        )
+      );
+    }else {
+      return;
+    }
+
 
     let oMessage = {
       roomId: this.roomId,
@@ -904,7 +918,8 @@ export default class Chatroom extends Vue {
       level: iUserlLevel,
       iconUrl: sUrl, // 原始
       remark: null,
-      virtualId: sVirtualId
+      virtualId: sVirtualId,
+      uploadImage: this.uploadIds
     };
     // let sMessage = JSON.stringify(oMessage);
     let sMessage = oMessage;
