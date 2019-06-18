@@ -27,7 +27,7 @@
       </div>
       <div class="scroll-part" style="">
         <div class="sticky-placeholder" style="height: 0px;"></div>
-        <div class="chat-container" style="height: 825.406px;">
+        <div class="chat-container" style="height: 825.406px;margin-top: 82px;">
           <div style="height: 100%;">
             <div style="height: 100%;">
               <div
@@ -77,7 +77,7 @@
                 style="text-align:left;padding-bottom:2.5rem;"
                 @scroll="onScroll"
               >
-                <div class="Item type-hint">
+                <div class="Item type-hint" style="display:none;">
                   <div class="lay-block">
                     <div class="lay-content">
                       <div>
@@ -223,7 +223,7 @@
         ></div>
         <div class="bottom-placeholder no-tab" style="height: 61px;"></div>
       </div>
-      <div class="sticky-bottom sticky-fixed no-tab">
+      <div class="sticky-bottom sticky-fixed no-tab" style="z-index:-1;">
         <div class="chat-inputs-wrap">
           <div class="chat-inputs">
             <div class="input-row">
@@ -438,14 +438,20 @@
           </div>
         </div>
       </div>
+      <transition name="fade">
+        <Connection v-if="!roomId"></Connection>
+      </transition>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 import $ from "jquery";
 import oIo from "socket.io-client";
 import SocketIOFileClient from "socket.io-file-client";
+
+import Connection from "@/Views/Connection/Index";
 
 import iconAdmin from "@/assets/images/icon-admin.gif";
 import iconMember1 from "@/assets/images/icon-member-01.gif";
@@ -459,62 +465,29 @@ import { AuthenticationHelper } from "@/Helper/";
 import { STORAGE, SOCKET } from "@/CONFIGS";
 
 let oAuthenticationHelper = new AuthenticationHelper();
-
-let sChatroomUrl =
-  SOCKET.URL +
-  (SOCKET.PORT && (SOCKET.PORT !== 80 || SOCKET.PORT !== "80")
-    ? ":" + SOCKET.PORT
-    : "") +
-  "/chatroom";
-let sJwt = oAuthenticationHelper.getJwt();
-let oOption = {
-  query: {
-    jwt: sJwt
-  }
-};
-let oChatroomSocket = oIo(sChatroomUrl, oOption);
-let oSocketIOFileClient = new SocketIOFileClient(oChatroomSocket);
-
-oSocketIOFileClient.on("start", fileInfo => {
-  console.log("Start uploading", fileInfo);
-});
-oSocketIOFileClient.on("stream", fileInfo => {
-  console.log("Streaming... sent " + fileInfo.sent + " bytes.");
-});
-oSocketIOFileClient.on("complete", fileInfo => {
-  console.log("Upload Complete", fileInfo);
-});
-oSocketIOFileClient.on("error", err => {
-  console.log("Error!", err);
-});
-oSocketIOFileClient.on("abort", fileInfo => {
-  console.log("Aborted: ", fileInfo);
-});
-
-export default {
-  data() {
-    return {
-      inputText: "",
-      atScrollBottom: true,
-      user: "visitor",
-      redFlag: false,
-      moreFlag: false,
-      isShowImgPreview: false,
-      sendImgDesc: "",
-      isShowUserPack: false,
-      isShowMore: false,
-      uploadingImg: null,
-      client: null,
-      receptData: null,
-      sendFlag: false,
-      sendMessageFlag: true,
-      content: "以上为历史消息",
-      loginInfo: "",
-      iconMember: "",
-      roomId: null,
-      showFlag: true
-    };
-  },
+@Component({
+  components: { Connection }
+})
+export default class Chatroom extends Vue {
+  inputText:string = "";
+  atScrollBottom:boolean = true;
+  user:string = "visitor";
+  redFlag:boolean = false;
+  moreFlag:boolean = false;
+  isShowImgPreview:boolean = false;
+  sendImgDesc:string = "";
+  isShowUserPack:boolean = false;
+  isShowMore:boolean = false;
+  uploadingImg:any = null;
+  client:any = null;
+  receptData:any = null;
+  sendFlag:boolean = false;
+  sendMessageFlag:boolean = true;
+  content:string = "以上为历史消息";
+  loginInfo:string = "";
+  iconMember:string = "";
+  roomId:any = null;
+  showFlag:boolean = true;
   mounted() {
     if (this.$socket["/chatroom"]) {
       this.$socket["/chatroom"].disconnect();
@@ -534,7 +507,6 @@ export default {
     };
     let oChatroomSocket = oIo(sChatroomUrl, oOption);
     this.$socket["/chatroom"] = oChatroomSocket;
-
     this.$socket["/chatroom"].emit("ROOM ENTER", void 0);
     this.$socket["/chatroom"].on("ROOM ENTER", this.onEnterRoom);
     this.$socket["/chatroom"].on("connect", () => {});
@@ -560,285 +532,267 @@ export default {
     });
 
     this.checkIsLogined();
-  },
-  methods: {
-    showMore() {
-      let t = "试玩用户无法使用";
-      this.moreFlag = !this.moreFlag;
-      return (this.isShowMore = false);
-    },
-    checkIsLogined() {
-      let sUid = oAuthenticationHelper.getUserId();
-      let oQuery = {
-        path: "/login"
-      };
-      if (!sUid) {
-        this.$router.push(oQuery);
-      }
-    },
+  }
+  showMore() {
+    let t = "试玩用户无法使用";
+    this.moreFlag = !this.moreFlag;
+    return (this.isShowMore = false);
+  }
+  checkIsLogined() {
+    let sUid = oAuthenticationHelper.getUserId();
+    let oQuery = {
+      path: "/login"
+    };
+    if (!sUid) {
+      this.$router.push(oQuery);
+    }
+  }
 
-    onEnterRoom(oBody) {
-      let oData = oBody['data'];
-      let aRooms = oData['rooms'];
-      let oRoom = aRooms.pop();
-      let sRoomId = oRoom._id;
-      this.roomId = sRoomId;
+  onEnterRoom(oBody) {
+    let oData = oBody['data'];
+    let aRooms = oData['rooms'];
+    let oRoom = aRooms.pop();
+    let sRoomId = oRoom._id;
+    this.roomId = sRoomId;
 
-    },
-    sendMessage(event) {
-      if (event.shiftKey) {
-        return;
-      }
-      var e = this.inputText;
-      // e = e.replace(/(\s)\s+/g, "&nbsp;");
-      var a = this.$refs.view;
-      this.sendText(e);
-    },
+  }
+  sendMessage(event) {
+    if (event.shiftKey) {
+      return;
+    }
+    var e = this.inputText;
+    // e = e.replace(/(\s)\s+/g, "&nbsp;");
+    var a = this.$refs.view;
+    this.sendText(e);
+  }
 
-    onHeightChange() {
-      let __this = this;
-      // return __this.$emit("updateHeight");
-    },
-    inputFocus(t) {},
-    inputBlur(t) {
-      // this.onHeightChange(), setTimeout(this.onHeightChange, 100);
-    },
-    checkScroll() {
-      this.atScrollBottom && this.setScrollBottom();
-    },
-    setScrollBottom() {
-      var t = this.$refs.view;
-      t.scrollTop = t.scrollHeight;
-      this.atScrollBottom = true;
-    },
-    onScroll() {
-      let __this = this;
-      let e = this.$refs.view;
-      let i = e.scrollHeight - e.offsetHeight - e.scrollTop < 10;
-      this.atScrollBottom !== i && (this.atScrollBottom = i);
-    },
-    handleImgUpload(t) {
-      let __this = this;
-      let i = t.target.files[0];
-      let reg = /\.(jpe?g|png|gif)$/i;
-      if (reg.test(i.name)) {
-        var a = new FileReader();
-        a.addEventListener(
-          "load",
-          function(t) {
-            var a = new Image();
-            a.title = i.name;
-            a.src = t.target.result;
-            __this.previewImg(a);
-          },
-          false
-        );
-        a.readAsDataURL(i);
-      }
-    },
-    previewImg(t) {
-      let __this = this;
-      __this.isShowImgPreview = true;
-      __this.$refs.previewEl.innerHTML = "";
-      __this.uploadingImg = t;
-      __this.$refs.previewEl.appendChild(t);
-    },
-    showUserPack() {
-      this.isShowUserPack = true;
-    },
-    sendImage() {
-      let wi = 120;
-      let e = this.uploadingImg.naturalWidth;
-      let i = this.uploadingImg.naturalHeight;
-      // e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
-      // var a = document.createElement('canvas');
-      // (a.width = e), (a.height = i);
-      // var n = a.getContext('2d');
-      // n.drawImage(
-      //   this.uploadingImg,
-      //   0,
-      //   0,
-      //   this.uploadingImg.naturalWidth,
-      //   this.uploadingImg.naturalHeight,
-      //   0,
-      //   0,
-      //   e,
-      //   i
-      // );
-      $(".chat-view").append(
-        $(
-          "<div class='Item type-left'><div class='lay-block'><div class='member'><img src='" +
-            member +
-            "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4>qi***00</h4><span ><img src='/img/icon_member01.cc2364ce.gif' alt='会员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'><img src=''" +
-            this.uploadingImg +
-            "'/>" +
-            this.sendImgDesc +
-            "</span></p></div></div></div></div>"
-        )
+  onHeightChange() {
+    let __this = this;
+    // return __this.$emit("updateHeight");
+  }
+  inputFocus(t) {}
+  inputBlur(t) {
+    // this.onHeightChange(), setTimeout(this.onHeightChange, 100);
+  }
+  checkScroll() {
+    this.atScrollBottom && this.setScrollBottom();
+  }
+  setScrollBottom() {
+    var t = this.$refs.view;
+    t.scrollTop = t.scrollHeight;
+    this.atScrollBottom = true;
+  }
+  onScroll() {
+    let __this = this;
+    let e = this.$refs.view;
+    let i = e.scrollHeight - e.offsetHeight - e.scrollTop < 10;
+    this.atScrollBottom !== i && (this.atScrollBottom = i);
+  }
+  handleImgUpload(t) {
+    let __this = this;
+    let i = t.target.files[0];
+    let reg = /\.(jpe?g|png|gif)$/i;
+    if (reg.test(i.name)) {
+      var a = new FileReader();
+      a.addEventListener(
+        "load",
+        function(t) {
+          var a = new Image();
+          a.title = i.name;
+          a.src = t.target.result;
+          __this.previewImg(a);
+        },
+        false
       );
-      this.isShowImgPreview = false;
-    },
-    connectWebSocket(data) {},
+      a.readAsDataURL(i);
+    }
+  }
+  previewImg(t) {
+    let __this = this;
+    __this.isShowImgPreview = true;
+    __this.$refs.previewEl.innerHTML = "";
+    __this.uploadingImg = t;
+    __this.$refs.previewEl.appendChild(t);
+  }
+  showUserPack() {
+    this.isShowUserPack = true;
+  }
+  sendImage() {
+    let wi = 120;
+    let e = this.uploadingImg.naturalWidth;
+    let i = this.uploadingImg.naturalHeight;
+    // e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
+    // var a = document.createElement('canvas');
+    // (a.width = e), (a.height = i);
+    // var n = a.getContext('2d');
+    // n.drawImage(
+    //   this.uploadingImg,
+    //   0,
+    //   0,
+    //   this.uploadingImg.naturalWidth,
+    //   this.uploadingImg.naturalHeight,
+    //   0,
+    //   0,
+    //   e,
+    //   i
+    // );
+    $(".chat-view").append(
+      $(
+        "<div class='Item type-left'><div class='lay-block'><div class='member'><img src='" +
+          member +
+          "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4>qi***00</h4><span ><img src='/img/icon_member01.cc2364ce.gif' alt='会员'></span><span class='MsgTime'>12:05:54</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'><img src=''" +
+          this.uploadingImg +
+          "'/>" +
+          this.sendImgDesc +
+          "</span></p></div></div></div></div>"
+      )
+    );
+    this.isShowImgPreview = false;
+  }
+  connectWebSocket(data) {}
 
-    messageWebSocket(data) {},
-    onMessage(data) {
-      this.receptData = "";
-      this.sendFlag = false;
-      this.sendMessageFlag = true;
-      this.receptData = data;
-      let level = this.receptData.level;
-      level
-        ? (this.userLevel = level)
-        : (this.userLevel = oAuthenticationHelper.getUserLevel());
-      switch (this.userLevel) {
-        case 1:
-          this.iconMember = iconMember1;
-          break;
-        case 2:
-          this.iconMember = iconMember2;
-          break;
-        case 3:
-          this.iconMember = iconMember3;
-          break;
-        case 4:
-          this.iconMember = iconMember4;
-          break;
-        case 5:
-          this.iconMember = iconMember5;
-          break;
-        case 6:
-          this.iconMember = iconMember6;
-          break;
-        default:
-          this.iconMember = iconMember6;
-          break;
+  messageWebSocket(data) {}
+  onMessage(data) {
+    this.receptData = "";
+    this.sendFlag = false;
+    this.sendMessageFlag = true;
+    this.receptData = data;
+    let level = this.receptData.level;
+    level
+      ? (this.userLevel = level)
+      : (this.userLevel = oAuthenticationHelper.getUserLevel());
+    switch (this.userLevel) {
+      case 1:
+        this.iconMember = iconMember1;
+        break;
+      case 2:
+        this.iconMember = iconMember2;
+        break;
+      case 3:
+        this.iconMember = iconMember3;
+        break;
+      case 4:
+        this.iconMember = iconMember4;
+        break;
+      case 5:
+        this.iconMember = iconMember5;
+        break;
+      case 6:
+        this.iconMember = iconMember6;
+        break;
+      default:
+        this.iconMember = iconMember6;
+        break;
+    }
+    if (
+      this.receptData !== undefined &&
+      this.receptData !== "" &&
+      this.receptData !== null
+    ) {
+      this.sendFlag = true;
+      if ($("#" + this.receptData.virtualId)) {
+        $("#" + this.receptData.virtualId).css("display", "none");
       }
-      if (
-        this.receptData !== undefined &&
-        this.receptData !== "" &&
-        this.receptData !== null
-      ) {
-        this.sendFlag = true;
-        if ($("#" + this.receptData.virtualId)) {
-          $("#" + this.receptData.virtualId).css("display", "none");
-        }
-        let name = data.nickName;
-        let role = data.role;
-        let time = (data.curTime + "").split(" ")[1];
-        let sUrl = data.iconUrl;
-        // data = data.content.replace(/(\s)\s+/g, "");
-        let sLefOrRigtClass = "";
-        let sUid = oAuthenticationHelper.getUserId();
-        if (data.id === sUid) {
-          sLefOrRigtClass = "type-right";
-        } else {
-          sLefOrRigtClass = "type-left";
-        }
-        this.showFlag = false;
-        switch (data && role) {
-          case "SYSTEM":
-            $(".chat-view").append(
-              $(
-                "<div class='Item " +
-                  sLefOrRigtClass +
-                  "'><div class='lay-block'><div class='avatar'><img src='" +
-                  (sUrl.indexOf("http") === 0
-                    ? sUrl
-                    : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
-                  "' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>" +
-                  name +
-                  "</h4><span class='MsgTime'>" +
-                  time +
-                  "</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
-                  data.content +
-                  "</span></p></div></div></div></div>"
-              )
-            );
-            break;
-          case "ADMIN":
-            $(".chat-view").append(
-              $(
-                "<div class='Item " +
-                  sLefOrRigtClass +
-                  "'><div class='lay-block'><div class='avatar'> <img src='" +
-                  (sUrl.indexOf("http") === 0
-                    ? sUrl
-                    : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
-                  "' alt='多彩群主'></div><div class='lay-content' style='position:relative;'><div class='msg-header'><h4>" +
-                  name +
-                  "</h4><span class='VipMark type-admin'><img src='" +
-                  iconAdmin +
-                  "' alt='管理员'></span><span class='MsgTime'>" +
-                  time +
-                  "</span></div><div class='Bubble type-system' style='position:relative;background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
-                  data.content +
-                  "</span></p></div></div></div></div></div>"
-              )
-            );
-            break;
-          case "MEMBER":
-            $(".chat-view").append(
-              $(
-                "<div class='Item " +
-                  sLefOrRigtClass +
-                  "'><div class='lay-block'><div class='avatar'> <img src='" +
-                  (sUrl.indexOf("http") === 0
-                    ? sUrl
-                    : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
-                  "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4" +
-                  name +
-                  "</h4><span ><img src='" +
-                  this.iconMember +
-                  "' alt='会员'></span><span class='MsgTime'>" +
-                  time +
-                  "</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
-                  data.content +
-                  "</span></p></div></div></div></div></div>"
-              )
-            );
-            break;
-          case "游客":
-            $(".chat-view").append(
-              $(
-                "<div class='Item " +
-                  sLefOrRigtClass +
-                  "'><div class='lay-block'><div class='avatar'> <img src='" +
-                  (sUrl.indexOf("http") === 0
-                    ? sUrl
-                    : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
-                  "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" +
-                  name +
-                  "</h4><span class='MsgTime'>" +
-                  time +
-                  "</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
-                  data.content +
-                  "</span></p></div></div></div></div></div>"
-              )
-            );
-            break;
-          default:
-            break;
-        }
-        var t = this.$refs.view;
-        t.scrollTop = t.scrollHeight;
-        this.inputText = "";
-      }
-    },
-    sendText(data) {
-      let date = new Date();
+      let name = data.nickName;
+      let role = data.role;
+      let time = (data.curTime + "").split(" ")[1];
+      let sUrl = data.iconUrl;
+      // data = data.content.replace(/(\s)\s+/g, "");
+      let sLefOrRigtClass = "";
       let sUid = oAuthenticationHelper.getUserId();
-      let sUrl = oAuthenticationHelper.getUserUrl();
-      let iUserlLevel = oAuthenticationHelper.getUserLevel();
+      if (data.id === sUid) {
+        sLefOrRigtClass = "type-right";
+      } else {
+        sLefOrRigtClass = "type-left";
+      }
+      this.showFlag = false;
+      // switch (data && role) {
+      //   case "SYSTEM":
+      //     $(".chat-view").append(
+      //       $(
+      //         "<div class='Item " +
+      //           sLefOrRigtClass +
+      //           "'><div class='lay-block'><div class='avatar'><img src='" +
+      //           (sUrl.indexOf("http") === 0
+      //             ? sUrl
+      //             : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
+      //           "' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>" +
+      //           name +
+      //           "</h4><span class='MsgTime'>" +
+      //           time +
+      //           "</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+      //           data.content +
+      //           "</span></p></div></div></div></div>"
+      //       )
+      //     );
+      //     break;
+      //   case "ADMIN":
+      //     $(".chat-view").append(
+      //       $(
+      //         "<div class='Item " +
+      //           sLefOrRigtClass +
+      //           "'><div class='lay-block'><div class='avatar'> <img src='" +
+      //           (sUrl.indexOf("http") === 0
+      //             ? sUrl
+      //             : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
+      //           "' alt='多彩群主'></div><div class='lay-content' style='position:relative;'><div class='msg-header'><h4>" +
+      //           name +
+      //           "</h4><span class='VipMark type-admin'><img src='" +
+      //           iconAdmin +
+      //           "' alt='管理员'></span><span class='MsgTime'>" +
+      //           time +
+      //           "</span></div><div class='Bubble type-system' style='position:relative;background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+      //           data.content +
+      //           "</span></p></div></div></div></div></div>"
+      //       )
+      //     );
+      //     break;
+      //   case "MEMBER":
+      //     $(".chat-view").append(
+      //       $(
+      //         "<div class='Item " +
+      //           sLefOrRigtClass +
+      //           "'><div class='lay-block'><div class='avatar'> <img src='" +
+      //           (sUrl.indexOf("http") === 0
+      //             ? sUrl
+      //             : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
+      //           "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4" +
+      //           name +
+      //           "</h4><span ><img src='" +
+      //           this.iconMember +
+      //           "' alt='会员'></span><span class='MsgTime'>" +
+      //           time +
+      //           "</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+      //           data.content +
+      //           "</span></p></div></div></div></div></div>"
+      //       )
+      //     );
+      //     break;
+      //   case "游客":
+      //     $(".chat-view").append(
+      //       $(
+      //         "<div class='Item " +
+      //           sLefOrRigtClass +
+      //           "'><div class='lay-block'><div class='avatar'> <img src='" +
+      //           (sUrl.indexOf("http") === 0
+      //             ? sUrl
+      //             : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
+      //           "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" +
+      //           name +
+      //           "</h4><span class='MsgTime'>" +
+      //           time +
+      //           "</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
+      //           data.content +
+      //           "</span></p></div></div></div></div></div>"
+      //       )
+      //     );
+      //     break;
+      //   default:
+      //     break;
+      // }
 
-      let sUserNickname = oAuthenticationHelper.getUserNickname();
-      let sRole = oAuthenticationHelper.getUserRole();
-      let name = oAuthenticationHelper.getUserNickname();
-      this.showFlag = true;
-      let iTimeStamp = Date.now();
-      let time = (date + "").split(" ")[4];
-      let sVirtualId = sUid + "-" + iTimeStamp;
       let className = "";
-      switch (sRole) {
+      switch (role) {
         case 'SYSTEM':
         className ='SYSTEM';
         break;
@@ -852,14 +806,15 @@ export default {
         className ='MEMBER';
         break;
       }
+
       $(".chat-view").append(
         $(
-          "<div id='" + sVirtualId +"' class='Item type-right'>" +
+          "<div class='Item "+sLefOrRigtClass+"'>" +
             "<div class='lay-block'>" +
               "<div class='avatar'>" +
                 "<img src='" + (sUrl.indexOf("http") === 0 ? sUrl: STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
               "</div>" +
-              "<div class='lay-content'>" +
+              "<div class='lay-content' style='position:relative;'>" +
                 "<div class='msg-header'>" +
                   "<h4>" + name + "</h4> " +
                   "<span class='MsgTime'>" + time + "</span>" +
@@ -867,7 +822,7 @@ export default {
                 "<div class='Bubble "+className+"'>" +
                   "<span class='lds-dual-ring'></span>" +
                   "<p>" +
-                    "<span style='white-space: pre-wrap; word-break: break-all;'>" + data +
+                    "<span style='white-space: pre-wrap; word-break: break-all;'>" + data.content +
                     "</span>" +
                   "</p>" +
                 "</div>" +
@@ -878,26 +833,84 @@ export default {
         )
       );
 
-      let oMessage = {
-        roomId: this.roomId,
-        id: sUid,
-        fk: "hCBOEx1e8cxeSWX2PUSC5w==",
-        chatType: 2,
-        nickName: sUserNickname,
-        content: data || null,
-        curTime: date,
-        role: sRole,
-        level: iUserlLevel,
-        iconUrl: sUrl, // 原始
-        remark: null,
-        virtualId: sVirtualId
-      };
-      // let sMessage = JSON.stringify(oMessage);
-      let sMessage = oMessage;
-      let M = sMessage.content;
-      if (!(M === "" || M === null || M === "undefined")) {
-        this.$socket["/chatroom"].emit("MESSAGE", sMessage);
-      }
+      var t = this.$refs.view;
+      t.scrollTop = t.scrollHeight;
+      this.inputText = "";
+    }
+  }
+  sendText(data) {
+    let date = new Date();
+    let sUid = oAuthenticationHelper.getUserId();
+    let sUrl = oAuthenticationHelper.getUserUrl();
+    let iUserlLevel = oAuthenticationHelper.getUserLevel();
+
+    let sUserNickname = oAuthenticationHelper.getUserNickname();
+    let sRole = oAuthenticationHelper.getUserRole();
+    let name = oAuthenticationHelper.getUserNickname();
+    this.showFlag = true;
+    let iTimeStamp = Date.now();
+    let time = (date + "").split(" ")[4];
+    let sVirtualId = sUid + "-" + iTimeStamp;
+    let className = "";
+    switch (sRole) {
+      case 'SYSTEM':
+      className ='SYSTEM';
+      break;
+      case 'ADMIN':
+      className ='ADMIN';
+      break;
+      case 'MEMBER':
+      className ='MEMBER';
+      break;
+      default:
+      className ='MEMBER';
+      break;
+    }
+    $(".chat-view").append(
+      $(
+        "<div id='" + sVirtualId +"' class='Item type-right'>" +
+          "<div class='lay-block'>" +
+            "<div class='avatar'>" +
+              "<img src='" + (sUrl.indexOf("http") === 0 ? sUrl: STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+            "</div>" +
+            "<div class='lay-content'>" +
+              "<div class='msg-header'>" +
+                "<h4>" + name + "</h4> " +
+                "<span class='MsgTime'>" + time + "</span>" +
+              "</div>" +
+              "<div class='Bubble "+className+"'>" +
+                "<span class='lds-dual-ring'></span>" +
+                "<p>" +
+                  "<span style='white-space: pre-wrap; word-break: break-all;'>" + data +
+                  "</span>" +
+                "</p>" +
+              "</div>" +
+            "</div>" +
+          "</div>" +
+        "</div>" +
+      "</div>"
+      )
+    );
+
+    let oMessage = {
+      roomId: this.roomId,
+      id: sUid,
+      fk: "hCBOEx1e8cxeSWX2PUSC5w==",
+      chatType: 2,
+      nickName: sUserNickname,
+      content: data || null,
+      curTime: date,
+      role: sRole,
+      level: iUserlLevel,
+      iconUrl: sUrl, // 原始
+      remark: null,
+      virtualId: sVirtualId
+    };
+    // let sMessage = JSON.stringify(oMessage);
+    let sMessage = oMessage;
+    let M = sMessage.content;
+    if (!(M === "" || M === null || M === "undefined")) {
+      this.$socket["/chatroom"].emit("MESSAGE", sMessage);
     }
   }
 };
@@ -905,4 +918,11 @@ export default {
 
 <style lang="scss">
 @import "Index.scss";
+.fade-enter-active, .fade-leave-active{
+   transition: all 0.5s ease;
+ }
+
+ .fade-enter, .fade-leave-active {
+   opacity: 0;
+ }
 </style>
