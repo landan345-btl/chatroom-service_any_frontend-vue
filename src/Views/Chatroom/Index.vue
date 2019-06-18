@@ -277,7 +277,7 @@
                 @change="handleImgUpload"
               /> -->
               <!-- onSubmit, -->
-              <input type="file" id="file" multiple  @change="handleImgUpload" style="width: 42.1px; height: 42.1px; opacity: 0; position: absolute; left: 28px;"/>
+              <input type="file" id="file" multiple  @change="onSubmit" style="width: 42.1px; height: 42.1px; opacity: 0; position: absolute; left: 28px;"/>
 
               <a href="#/chat/setting" class="">
                 <i class="iconfont icon-icon-"></i>
@@ -339,7 +339,7 @@
                 </div>
               </div>
             </div>
-            <x-dialog class="userpack-dialog" hide-on-blur="true" v-model="isShowUserPack">
+            <!-- <x-dialog class="userpack-dialog" hide-on-blur="true" v-model="isShowUserPack">
               <user-pack @close="isShowUserPack = false"></user-pack>
             </x-dialog>
             <x-dialog
@@ -378,7 +378,7 @@
                   >
                 </p>
               </div>
-            </x-dialog>
+            </x-dialog> -->
 
             <div
               class="vux-x-dialog imgpreview-dialog"
@@ -629,10 +629,13 @@ export default class Chatroom extends Vue {
     let wi = 120;
     let e = this.uploadingImg.naturalWidth;
     let i = this.uploadingImg.naturalHeight;
-    // e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
-    // var a = document.createElement("canvas");
-    // (a.width = e), (a.height = i);
-    // var n = a.getContext("2d");
+    e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
+    var a = document.createElement("canvas");
+    (a.width = e), (a.height = i);
+    var n = a.getContext("2d");
+    n.drawImage( this.uploadingImg,0,0,this.uploadingImg.naturalWidth,this.uploadingImg.naturalHeight);
+    var base64String = a.toDataURL();
+    console.log(base64String);
     // n.drawImage(
     //   this.uploadingImg,
     //   0,
