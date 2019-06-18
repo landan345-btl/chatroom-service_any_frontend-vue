@@ -265,23 +265,25 @@
             </div>
 
             <div v-show="moreFlag" class="more-row" @click="isShowMore = false">
-              <!-- <a for="imgUploadInput">
+              <a for="imgUploadInput">
                 <i class="iconfont icon-image"></i>
               </a>
-              <input
+
+              <!-- <input
                 id="imgUploadInput"
                 type="file"
                 accept=".jpg, .png, .gif, .jpeg, image/jpeg, image/png, image/gif"
                 style="width: 42.1px; height: 42.1px; opacity: 0; position: absolute; left: 28px;"
                 @change="handleImgUpload"
-              />
-              <a href="#/chat/setting" class="">
-                <i class="iconfont icon-icon-"></i>
-              </a> -->
+              /> -->
               <form id="form">
-                <input type="file" id="file" multiple />
+                <input type="file" id="file" multiple  style="width: 42.1px; height: 42.1px; opacity: 0; position: absolute; left: 28px;"/>
                 <input type="submit" value="Upload" v-on:click="onSubmit"/>
               </form>
+              <a href="#/chat/setting" class="">
+                <i class="iconfont icon-icon-"></i>
+              </a>
+
             </div>
 
             <div class="vux-x-dialog userpack-dialog">
@@ -517,7 +519,7 @@ export default class Chatroom extends Vue {
     this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("MESSAGE", this.onMessage);
     this.$socket["/chatroom"].on("disconnet", () => {});
-
+    this.$socket["/chatroom"].on("IMAGE", this.onImage);
     this.socketIOFileClient = new SocketIOFileClient(oChatroomSocket);
 
     this.socketIOFileClient.on("start", fileInfo => {
@@ -535,7 +537,6 @@ export default class Chatroom extends Vue {
     this.socketIOFileClient.on("abort", fileInfo => {
       console.log("Aborted: ", fileInfo);
     });
-
     this.checkIsLogined();
   }
   showMore() {
@@ -662,12 +663,16 @@ export default class Chatroom extends Vue {
     let fileEl = document.getElementById('file');
     let uploadIds = this.socketIOFileClient.upload(fileEl);
   }
+  onImage(data) {
+    console.log("123"+data);
+  }
   onMessage(data) {
     this.receptData = "";
     this.sendFlag = false;
     this.sendMessageFlag = true;
     this.receptData = data;
     let level = this.receptData.level;
+    console.log(data);
     level
       ? (this.userLevel = level)
       : (this.userLevel = oAuthenticationHelper.getUserLevel());
