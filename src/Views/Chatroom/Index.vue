@@ -528,7 +528,6 @@ export default class Chatroom extends Vue {
       console.log("Start uploading", fileInfo);
       // 根据 fileInfo.uid
       // 打印到 html并且有loading
-      debugger;
       let uploadIds = fileInfo.uploadId;
       let wi = 120;
       let e = this.uploadingImg.naturalWidth;
@@ -582,7 +581,6 @@ export default class Chatroom extends Vue {
     this.socketIOFileClient.on("complete", fileInfo => {
       console.log("Upload Complete", fileInfo);
       let uploadIds = fileInfo.uploadId;
-      debugger;
       // BUG, 使用者 一次传五张 , 
       //      当第一张 complete 的时候, 只需要 把 第一张的 .lds-dual-ring 移除
       uploadIds ? $('.lds-dual-ring').css('display', 'none') : "";
