@@ -514,8 +514,11 @@ export default class Chatroom extends Vue {
     };
     let oChatroomSocket = oIo(sChatroomUrl, oOption);
     this.$socket["/chatroom"] = oChatroomSocket;
-    this.$socket["/chatroom"].emit("ROOM ENTER", void 0);
-    this.$socket["/chatroom"].on("ROOM ENTER", this.onEnterRoom);
+    this.$socket["/chatroom"].emit("ENTER ROOM", void 0);
+    this.$socket["/chatroom"].on("ENTER ROOM", this.onEnterRoom);
+    this.$socket["/chatroom"].emit("SHOW MESSAGE", void 0);
+    this.$socket["/chatroom"].on("SHOW MESSAGE", this.onShowMessage);
+
     this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("MESSAGE", this.onMessage);
     this.$socket["/chatroom"].on("disconnet", () => {});
@@ -611,6 +614,9 @@ export default class Chatroom extends Vue {
     let oRoom = aRooms.pop();
     let sRoomId = oRoom._id;
     this.roomId = sRoomId;
+  }
+  onShowMessage(oBody: any) {
+
   }
   sendMessage(event) {
     if (event.shiftKey) {
