@@ -522,7 +522,6 @@ export default class Chatroom extends Vue {
     this.$socket["/chatroom"].on("MESSAGE", this.onMessage);
     this.$socket["/chatroom"].on("disconnet", () => {});
     this.$socket["/chatroom"].on("IMAGE", this.onImage);
-    this.$socket["/chatroom"].on("FILE", this.onFile);
     this.socketIOFileClient = new SocketIOFileClient(oChatroomSocket);
 
     this.socketIOFileClient.on("start", fileInfo => {
@@ -587,6 +586,37 @@ export default class Chatroom extends Vue {
       // BUG, 使用者 一次传五张 , 
       //      当第一张 complete 的时候, 只需要 把 第一张的 .lds-dual-ring 移除
       uploadIds ? $('.lds-dual-ring').css('display', 'none') : "";
+
+      let sUid = oAuthenticationHelper.getUserId();
+      let sUrl = oAuthenticationHelper.getUserUrl();
+      let iUserlLevel = oAuthenticationHelper.getUserLevel();
+
+      let sUserNickname = oAuthenticationHelper.getUserNickname();
+      let sRole = oAuthenticationHelper.getUserRole();
+      let name = oAuthenticationHelper.getUserNickname();
+      let sSrc = fileInfo.uploadDir.replace(/^public\/storage/, '');
+      let iTimeStamp = Date.now();
+
+      let oBody = {
+        roomId: this.roomId,
+        id: sUid,
+        nickName: sUserNickname,
+        content: '',
+        curTime: iTimeStamp,
+        role: sRole,
+        src: sSrc,
+        level: iUserlLevel,
+        iconUrl: sUrl, // 原始
+        remark: null,
+      };
+      // let sMessage = JSON.stringify(oMessage);
+      let sContent = oBody.content;
+      if (!("" === sContent || null === sContent || "undefined" === sContent)) {
+        this.$socket["/chatroom"].emit("MESSAGE", oBody);
+      }
+
+
+
     });
     this.socketIOFileClient.on("error", err => {
       console.log("Error!", err);
@@ -738,50 +768,6 @@ export default class Chatroom extends Vue {
     //       "</span></p></div></div></div></div>"
     //   )
     // );
-  }
-  onFile(body) {
-
-    let date = new Date();
-    let time = (date + "").split(" ")[4];
-    let sUrl = body.iconUrl;
-    let name = body.nickName;
-    let sRole = oAuthenticationHelper.getUserRole();
-    let imgSrc = body.src;
-    let className = "";
-    let sUid = oAuthenticationHelper.getUserId();
-    let sLefOrRigtClass = "";
-    if (body.id === sUid) {
-      sLefOrRigtClass = "type-right";
-    } else {
-      sLefOrRigtClass = "type-left";
-    }
-    switch (sRole) {
-      case "SYSTEM":
-        className = "SYSTEM";
-        break;
-      case "ADMIN":
-        className = "ADMIN";
-        break;
-      case "MEMBER":
-        className = "MEMBER";
-        break;
-      default:
-        className = "MEMBER";
-        break;
-    }
-    if ($("#sendImg")) {
-      $("#sendImg").css("display", "none");
-    }
-    $(".chat-view").append(
-      $(
-        "<div class='Item "+sLefOrRigtClass+"'><div class='lay-block'><div class='avatar'><img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" + name + "</h4><span class='MsgTime'>"+ time +"</span></div><div class='Bubble'>"+
-        "<p><span style='white-space: pre-wrap; word-break: break-all;'><img src='" +
-          STORAGE.URL + STORAGE.PRE_PATH + imgSrc +
-          "' />" +
-          this.sendImgDesc +
-          "</span></p></div></div></div></div>"
-      )
-    );
   }
   onMessage(data) {
     this.receptData = "";
