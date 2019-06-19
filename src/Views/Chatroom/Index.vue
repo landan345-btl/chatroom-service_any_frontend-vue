@@ -599,7 +599,7 @@ export default class Chatroom extends Vue {
         roomId: this.roomId,
         id: sUid,
         nickName: sUserNickname,
-        content: '',
+        content: '', // TODO 
         curTime: iTimeStamp,
         role: sRole,
         src: sSrc,
@@ -608,8 +608,7 @@ export default class Chatroom extends Vue {
         remark: null,
       };
       // let sMessage = JSON.stringify(oMessage);
-      let sContent = oBody.content;
-      if (!("" === sContent || null === sContent || "undefined" === sContent)) {
+      if (!("" === sSrc || null === sSrc || undefined === sSrc)) {
         this.$socket["/chatroom"].emit("MESSAGE", oBody);
       }
 
