@@ -1042,8 +1042,8 @@ export default class Chatroom extends Vue {
     };
     // let sMessage = JSON.stringify(oMessage);
     let sMessage = oMessage;
-    let M = sMessage.content;
-    if (!("" === M || null === M || "undefined" === M)) {
+    let sContent = sMessage.content;
+    if (!("" === sContent || null === sContent || "undefined" === sContent)) {
       this.$socket["/chatroom"].emit("MESSAGE", sMessage);
     }
   }
