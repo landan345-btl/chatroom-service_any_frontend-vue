@@ -277,7 +277,9 @@
                 @change="handleImgUpload"
               /> -->
               <!-- onSubmit, -->
-              <input type="file" id="file" multiple  @change="handleImgUpload" style="width: 42.1px; height: 42.1px; opacity: 0; position: absolute; left: 28px;"/>
+              <form id="files">
+                <input type="file" id="file" multiple  @change="handleImgUpload" style="width: 42.1px; height: 42.1px; opacity: 0; position: absolute; left: 28px;"/>
+              </form>
 
               <a href="#/chat/setting" class="">
                 <i class="iconfont icon-icon-"></i>
@@ -518,16 +520,67 @@ export default class Chatroom extends Vue {
     this.$socket["/chatroom"].on("MESSAGE", this.onMessage);
     this.$socket["/chatroom"].on("disconnet", () => {});
     this.$socket["/chatroom"].on("IMAGE", this.onImage);
+    this.$socket["/chatroom"].on("FILE", this.onFile);
     this.socketIOFileClient = new SocketIOFileClient(oChatroomSocket);
 
     this.socketIOFileClient.on("start", fileInfo => {
       console.log("Start uploading", fileInfo);
+      // 根据 fileInfo.uid
+      // 打印到 html并且有loading
+      let uploadIds = fileInfo.uploadId;
+      let wi = 120;
+      let e = this.uploadingImg.naturalWidth;
+      let i = this.uploadingImg.naturalHeight;
+      this.isShowImgPreview = false;
+      e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
+      var a = document.createElement("canvas");
+      (a.width = e), (a.height = i);
+      var n = a.getContext("2d");
+      n.drawImage( this.uploadingImg,0,0,this.uploadingImg.naturalWidth,this.uploadingImg.naturalHeight);
+      this.imgUrl = a.toDataURL();
+
+      let date = new Date();
+      let time = (date + "").split(" ")[4];
+      let sUrl = oAuthenticationHelper.getUserUrl();
+      let name = oAuthenticationHelper.getUserNickname();
+      let sRole = oAuthenticationHelper.getUserRole();
+      let className = "";
+      switch (sRole) {
+        case "SYSTEM":
+          className = "SYSTEM";
+          break;
+        case "ADMIN":
+          className = "ADMIN";
+          break;
+        case "MEMBER":
+          className = "MEMBER";
+          break;
+        default:
+          className = "MEMBER";
+          break;
+      }
+
+      $(".chat-view").append(
+        $(
+          "<div id=" + uploadIds  +" class='Item type-right'><div class='lay-block'><div class='avatar'><img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" + name + "</h4><span class='MsgTime'>"+ time +"</span></div><div class='Bubble " + className + "'>"+
+          "<span class='lds-dual-ring'></span>" +
+          "<p><span style='white-space: pre-wrap; word-break: break-all;'><img class='sendImage' width='100%' height='100%' src='" +
+            this.imgUrl +
+            "' />" +
+            this.sendImgDesc +
+            "</span></p></div></div></div></div>"
+        )
+      );
+      this.imgUrl = "";
+      this.isShowImgPreview = false;
     });
     this.socketIOFileClient.on("stream", fileInfo => {
       console.log("Streaming... sent " + fileInfo.sent + " bytes.");
     });
     this.socketIOFileClient.on("complete", fileInfo => {
       console.log("Upload Complete", fileInfo);
+      let uploadIds = fileInfo.uploadId;
+      uploadIds ? $('.lds-dual-ring').css('display', 'none') : "";
     });
     this.socketIOFileClient.on("error", err => {
       console.log("Error!", err);
@@ -592,8 +645,9 @@ export default class Chatroom extends Vue {
     this.atScrollBottom !== i && (this.atScrollBottom = i);
   }
   handleImgUpload(t) {
-    let __this = this;
-    let i = t.target.files[0];
+    let __this = this,
+    i;
+    i = t.target.files[0];
     let reg = /\.(jpe?g|png|gif)$/i;
     if (reg.test(i.name)) {
       var a = new FileReader();
@@ -612,7 +666,6 @@ export default class Chatroom extends Vue {
   }
   previewImg(t) {
     let __this = this;
-
     __this.isShowImgPreview = true;
     __this.$refs.previewEl.innerHTML = "";
     __this.uploadingImg = t;
@@ -621,50 +674,7 @@ export default class Chatroom extends Vue {
   showUserPack() {
     this.isShowUserPack = true;
   }
-  sendImage() {
-    let wi = 120;
-    let e = this.uploadingImg.naturalWidth;
-    let i = this.uploadingImg.naturalHeight;
-    this.isShowImgPreview = false;
-    e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
-    var a = document.createElement("canvas");
-    (a.width = e), (a.height = i);
-    var n = a.getContext("2d");
-    n.drawImage( this.uploadingImg,0,0,this.uploadingImg.naturalWidth,this.uploadingImg.naturalHeight);
-    this.imgUrl = a.toDataURL();
-
-    let date = new Date();
-    let time = (date + "").split(" ")[4];
-    let sUrl = oAuthenticationHelper.getUserUrl();
-    let name = oAuthenticationHelper.getUserNickname();
-    let sRole = oAuthenticationHelper.getUserRole();
-    let className = "";
-    switch (sRole) {
-      case "SYSTEM":
-        className = "SYSTEM";
-        break;
-      case "ADMIN":
-        className = "ADMIN";
-        break;
-      case "MEMBER":
-        className = "MEMBER";
-        break;
-      default:
-        className = "MEMBER";
-        break;
-    }
-    $(".chat-view").append(
-      $(
-        "<div id='sendImg' class='Item type-right'><div class='lay-block'><div class='avatar'><img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" + name + "</h4><span class='MsgTime'>"+ time +"</span></div><div class='Bubble " + className + "'>"+
-        "<span class='lds-dual-ring'></span>" +
-        "<p><span style='white-space: pre-wrap; word-break: break-all;'><img src='" +
-          this.imgUrl +
-          "' />" +
-          this.sendImgDesc +
-          "</span></p></div></div></div></div>"
-      )
-    );
-    this.isShowImgPreview = false;
+  sendImage(uploadIds?:any) {
     this.onSubmit();
   }
   connectWebSocket(data) {}
@@ -673,17 +683,64 @@ export default class Chatroom extends Vue {
   onSubmit(event?:any ) {
     // event.preventDefault();
     let fileEl = document.getElementById("file");
+
     let uploadIds = this.socketIOFileClient.upload(fileEl);
     this.moreFlag = false;
+    $("#files")[0].reset();
   }
   onImage(data) {
+
+    // let date = new Date();
+    // let time = (date + "").split(" ")[4];
+    // let sUrl = oAuthenticationHelper.getUserUrl();
+    // let name = oAuthenticationHelper.getUserNickname();
+    // let sRole = oAuthenticationHelper.getUserRole();
+    // let imgName = data.name;
+    // let className = "";
+    // switch (sRole) {
+    //   case "SYSTEM":
+    //     className = "SYSTEM";
+    //     break;
+    //   case "ADMIN":
+    //     className = "ADMIN";
+    //     break;
+    //   case "MEMBER":
+    //     className = "MEMBER";
+    //     break;
+    //   default:
+    //     className = "MEMBER";
+    //     break;
+    // }
+    // if ($("#sendImg")) {
+    //   $("#sendImg").css("display", "none");
+    // }
+    // $(".chat-view").append(
+    //   $(
+    //     "<div class='Item type-right'><div class='lay-block'><div class='avatar'><img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" + name + "</h4><span class='MsgTime'>"+ time +"</span></div><div class='Bubble " + className + "'>"+
+    //     "<p><span style='white-space: pre-wrap; word-break: break-all;'><img src='" +
+    //       STORAGE.URL + STORAGE.PRE_PATH + '/room/message/' + imgName +
+    //       "' />" +
+    //       this.sendImgDesc +
+    //       "</span></p></div></div></div></div>"
+    //   )
+    // );
+  }
+  onFile(body) {
+
     let date = new Date();
     let time = (date + "").split(" ")[4];
-    let sUrl = oAuthenticationHelper.getUserUrl();
-    let name = oAuthenticationHelper.getUserNickname();
+    let sUrl = body.iconUrl;
+    let name = body.nickName;
     let sRole = oAuthenticationHelper.getUserRole();
-    let imgName = data.name;
+    let imgSrc = body.src;
     let className = "";
+    let sUid = oAuthenticationHelper.getUserId();
+    let sLefOrRigtClass = "";
+    if (body.id === sUid) {
+      sLefOrRigtClass = "type-right";
+    } else {
+      sLefOrRigtClass = "type-left";
+    }
     switch (sRole) {
       case "SYSTEM":
         className = "SYSTEM";
@@ -703,9 +760,9 @@ export default class Chatroom extends Vue {
     }
     $(".chat-view").append(
       $(
-        "<div class='Item type-right'><div class='lay-block'><div class='avatar'><img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" + name + "</h4><span class='MsgTime'>"+ time +"</span></div><div class='Bubble " + className + "'>"+
+        "<div class='Item "+sLefOrRigtClass+"'><div class='lay-block'><div class='avatar'><img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" + name + "</h4><span class='MsgTime'>"+ time +"</span></div><div class='Bubble'>"+
         "<p><span style='white-space: pre-wrap; word-break: break-all;'><img src='" +
-          STORAGE.URL + STORAGE.PRE_PATH + '/room/message/' + imgName +
+          STORAGE.URL + STORAGE.PRE_PATH + imgSrc +
           "' />" +
           this.sendImgDesc +
           "</span></p></div></div></div></div>"
@@ -897,7 +954,7 @@ export default class Chatroom extends Vue {
       this.inputText = "";
     }
   }
-  sendText(data) {
+  sendText(data: any) {
     let date = new Date();
     let sUid = oAuthenticationHelper.getUserId();
     let sUrl = oAuthenticationHelper.getUserUrl();

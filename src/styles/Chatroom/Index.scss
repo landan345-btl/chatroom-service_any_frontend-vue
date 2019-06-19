@@ -168,7 +168,7 @@
 .chat .Item .lay-red .RedPack .lay-pack {padding-right:25px}
 .chat .Item .lay-red .RedPack .pack {-webkit-transform:scale(.5) translateY(-30px);transform:scale(.5) translateY(-30px)}
 .chat .Item .lay-red .lay-redinfo {margin:0 20px}
-.Bubble {position:relative;color:#fff;background:#199ed8;border-left-color:#199ed8;border-right-color:#199ed8;border-radius:5px;padding:6px 9px;font-size:1rem;line-height:1.2;display:inline-block;text-shadow:0 0 1px #35406d;-webkit-user-select:all}
+.Bubble {position:relative;color:#fff;/*background:#199ed8;border-left-color:#199ed8;border-right-color:#199ed8;*/border-radius:5px;padding:6px 9px;font-size:1rem;line-height:1.2;display:inline-block;text-shadow:0 0 1px #35406d;-webkit-user-select:all}
 .Bubble a {color:inherit;text-decoration:underline}
 .Bubble:after {content:"";position:absolute;top:14px;width:0;height:0;border:9px solid transparent;border-top:0;margin-top:-7px}
 .type-left .Bubble:after {left:0;border-left:0;margin-left:-9px;border-right-color:inherit}

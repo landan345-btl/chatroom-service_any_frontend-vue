@@ -68,7 +68,7 @@ export default class Connection extends Vue {
     // this.$socket.on("connect", this.connectWebSocket);
   }
   updateHeight() {}
-  connectWebSocket(data) {
+  connectWebSocket(data: any) {
     let __this = this;
     __this.$router.push({
       path: "/chatroom"
