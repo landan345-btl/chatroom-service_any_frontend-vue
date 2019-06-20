@@ -738,12 +738,12 @@ export default class Chatroom extends Vue {
       oFileReader.readAsDataURL(oFile);
     }
   }
-  public previewImg(t) {
+  public previewImg(oImage: any) {
     let __this:any = this;
     __this.isShowImgPreview = true;
     __this.$refs.previewEl.innerHTML = "";
-    __this.uploadingImg = t;
-    __this.$refs.previewEl.appendChild(t);
+    __this.uploadingImg = oImage;
+    __this.$refs.previewEl.appendChild(oImage);
   }
   public showUserPack() {
     this.isShowUserPack = true;
@@ -753,7 +753,6 @@ export default class Chatroom extends Vue {
   }
 
   public onSubmit(event?:any ) {
-    // event.preventDefault();
     let fileEl = document.getElementById("file");
 
     let uploadIds = this.socketIOFileClient.upload(fileEl);
