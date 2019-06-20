@@ -758,7 +758,8 @@ export default class Chatroom extends Vue {
 
     let uploadIds = this.socketIOFileClient.upload(fileEl);
     this.moreFlag = false;
-    $("#files")[0].reset();
+    let oFile: any =  $("#files")[0];
+    oFile.reset();
   }
   public onMessage(data: any) {
     this.receptData = "";
