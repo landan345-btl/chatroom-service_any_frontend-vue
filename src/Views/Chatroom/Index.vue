@@ -476,27 +476,29 @@ let oAuthenticationHelper = new AuthenticationHelper();
   components: { Connection }
 })
 export default class Chatroom extends Vue {
-  inputText:string = "";
-  atScrollBottom:boolean = true;
-  user:string = "visitor";
-  redFlag:boolean = false;
-  moreFlag:boolean = false;
-  isShowImgPreview:boolean = false;
-  sendImgDesc:string = "";
-  isShowUserPack:boolean = false;
-  isShowMore:boolean = false;
-  uploadingImg:any = null;
-  client:any = null;
-  receptData:any = null;
-  sendFlag:boolean = false;
-  sendMessageFlag:boolean = true;
-  content:string = "以上为历史消息";
-  loginInfo:string = "";
-  iconMember:string = "";
-  roomId:any = null;
-  showFlag:boolean = true;
-  imgUrl:any = '';
-  mounted() {
+  public inputText: string = "";
+  public atScrollBottom: boolean = true;
+  public user: string = "visitor";
+  public redFlag: boolean = false;
+  public moreFlag: boolean = false;
+  public isShowImgPreview: boolean = false;
+  public sendImgDesc: string = "";
+  public isShowUserPack: boolean = false;
+  public isShowMore: boolean = false;
+  public uploadingImg: any = null;
+  public client: any = null;
+  public receptData: any = null;
+  public sendFlag: boolean = false;
+  public sendMessageFlag: boolean = true;
+  public content: string = "以上为历史消息";
+  public loginInfo: string = "";
+  public iconMember: string = "";
+  public roomId: any = null;
+  public showFlag: boolean = true;
+  public imgUrl: any = '';
+  public userLevel: any = '';
+
+  public mounted() {
     if (this.$socket["/chatroom"]) {
       this.$socket["/chatroom"].disconnect();
     }
@@ -623,12 +625,12 @@ export default class Chatroom extends Vue {
     });
     this.checkIsLogined();
   }
-  showMore() {
+  public showMore() {
     let t = "试玩用户无法使用";
     this.moreFlag = !this.moreFlag;
     return (this.isShowMore = false);
   }
-  checkIsLogined() {
+  public checkIsLogined() {
     let sUid = oAuthenticationHelper.getUserId();
     let oQuery = {
       path: "/login"
@@ -638,7 +640,7 @@ export default class Chatroom extends Vue {
     }
   }
 
-  onEnterRoom(oBody: any) {
+  public onEnterRoom(oBody: any) {
     let oData = oBody["data"];
     let aRooms = oData["rooms"];
     let oRoom = aRooms.pop();
@@ -650,7 +652,7 @@ export default class Chatroom extends Vue {
     this.$socket["/chatroom"].emit("SHOW MESSAGE", _oBody);
 
   }
-  onShowMessage(oBody: any) {
+  public onShowMessage(oBody: any) {
     // TODO
     if (-1 === oBody.result) {
       return;
@@ -717,7 +719,7 @@ export default class Chatroom extends Vue {
     });
 
   }
-  sendMessage(event) {
+  public sendMessage(event) {
     if (event.shiftKey) {
       return;
     }
@@ -727,29 +729,29 @@ export default class Chatroom extends Vue {
     this.sendText(e);
   }
 
-  onHeightChange() {
+  public onHeightChange() {
     let __this = this;
     // return __this.$emit("updateHeight");
   }
-  inputFocus(t) {}
-  inputBlur(t) {
+  public inputFocus(t) {}
+  public inputBlur(t) {
     // this.onHeightChange(), setTimeout(this.onHeightChange, 100);
   }
-  checkScroll() {
+  public checkScroll() {
     this.atScrollBottom && this.setScrollBottom();
   }
-  setScrollBottom() {
+  public setScrollBottom() {
     var t = this.$refs.view;
     t.scrollTop = t.scrollHeight;
     this.atScrollBottom = true;
   }
-  onScroll() {
+  public onScroll() {
     let __this = this;
     let e = this.$refs.view;
     let i = 10 > e.scrollHeight - e.offsetHeight - e.scrollTop;
     this.atScrollBottom !== i && (this.atScrollBottom = i);
   }
-  handleImgUpload(t) {
+  public handleImgUpload(t) {
     let __this = this,
     i;
     i = t.target.files[0];
@@ -769,23 +771,23 @@ export default class Chatroom extends Vue {
       a.readAsDataURL(i);
     }
   }
-  previewImg(t) {
+  public previewImg(t) {
     let __this = this;
     __this.isShowImgPreview = true;
     __this.$refs.previewEl.innerHTML = "";
     __this.uploadingImg = t;
     __this.$refs.previewEl.appendChild(t);
   }
-  showUserPack() {
+  public showUserPack() {
     this.isShowUserPack = true;
   }
-  sendImage(uploadIds?:any) {
+  public sendImage(uploadIds?:any) {
     this.onSubmit();
   }
-  connectWebSocket(data) {}
+  public connectWebSocket(data) {}
 
-  messageWebSocket(data) {}
-  onSubmit(event?:any ) {
+  public messageWebSocket(data) {}
+  public onSubmit(event?:any ) {
     // event.preventDefault();
     let fileEl = document.getElementById("file");
 
@@ -793,7 +795,7 @@ export default class Chatroom extends Vue {
     this.moreFlag = false;
     $("#files")[0].reset();
   }
-  onImage(data) {
+  public onImage(data) {
 
     // let date = new Date();
     // let time = (date + "").split(" ")[4];
@@ -830,7 +832,7 @@ export default class Chatroom extends Vue {
     //   )
     // );
   }
-  onMessage(data) {
+  public onMessage(data: any) {
     this.receptData = "";
     this.sendFlag = false;
     this.sendMessageFlag = true;
@@ -1012,14 +1014,15 @@ export default class Chatroom extends Vue {
       );
 
       var t = this.$refs.view;
-      t.scrollTop = t.scrollHeight;
+      // t.scrollTop = t.scrollHeight;
       this.inputText = "";
     }
   }
-  sendText(data: any) {
+  public sendText(data: any) {
     let date = new Date();
     let sUid = oAuthenticationHelper.getUserId();
     let sUrl = oAuthenticationHelper.getUserUrl();
+    type sUrl = string;
     let iUserlLevel = oAuthenticationHelper.getUserLevel();
 
     let sUserNickname = oAuthenticationHelper.getUserNickname();
@@ -1050,7 +1053,7 @@ export default class Chatroom extends Vue {
           "<div id='" + sVirtualId + "' class='Item type-right'>" +
             "<div class='lay-block'>" +
               "<div class='avatar'>" +
-                "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+                "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
               "</div>" +
               "<div class='lay-content'>" +
                 "<div class='msg-header'>" +
