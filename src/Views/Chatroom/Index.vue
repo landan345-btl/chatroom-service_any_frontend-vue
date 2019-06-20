@@ -341,47 +341,6 @@
                 </div>
               </div>
             </div>
-            <!-- <x-dialog class="userpack-dialog" hide-on-blur="true" v-model="isShowUserPack">
-              <user-pack @close="isShowUserPack = false"></user-pack>
-            </x-dialog>
-            <x-dialog
-              v-show="isShowImgPreview"
-              class="imgpreview-dialog"
-              hide-on-blur="true"
-              v-model="isShowImgPreview"
-              >
-              <div>
-                <div ref="previewEl" class="img-wrap"></div>
-                <p>
-                  <input
-                    type="text"
-                    v-model="sendImgDesc"
-                    ref="imgDescInput"
-                    autocomplete="off"
-                    placeholder="输入文字描述"
-                  />
-                </p>
-                <p style="text-align: center;">
-                  <a
-                    href="javascript:;"
-                    class="FormBtn"
-                    style="width: 83%; padding: 0.6em 0px;"
-                    @click="sendImage"
-                    >发送</a
-                  >
-                </p>
-                <p>
-                  <a
-                    href="javascript:;"
-                    class="action-cancel"
-                    @click="isShowImgPreview = false"
-                  >
-                    <i class="iconfont icon-close"></i>取消</a
-                  >
-                </p>
-              </div>
-            </x-dialog> -->
-
             <div
               class="vux-x-dialog imgpreview-dialog"
               v-show="isShowImgPreview"
