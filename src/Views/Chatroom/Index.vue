@@ -566,13 +566,28 @@ export default class Chatroom extends Vue {
 
       $(".chat-view").append(
         $(
-          "<div id=" + uploadIds  +" class='Item type-right'><div class='lay-block'><div class='avatar'><img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" + name + "</h4><span class='MsgTime'>"+ time +"</span></div><div class='Bubble " + className + "'>"+
-          "<span class='lds-dual-ring'></span>" +
-          "<p><span style='white-space: pre-wrap; word-break: break-all;'><img class='sendImage' width='100%' height='100%' src='" +
-            this.imgUrl +
-            "' />" +
-            this.sendImgDesc +
-            "</span></p></div></div></div></div>"
+          "<div id=" + uploadIds  +" class='Item type-right'>" + 
+            "<div class='lay-block'>" + 
+              "<div class='avatar'>" + 
+                "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" + 
+              "</div>" + 
+              "<div class='lay-content'>" + 
+                "<div class='msg-header'>" + 
+                  "<h4>" + name + "</h4>" + 
+                  "<span class='MsgTime'>"+ time + "</span>" + 
+                "</div>" + 
+                "<div class='Bubble " + className + "'>"+
+                  "<span class='lds-dual-ring'></span>" +
+                  "<p>" + 
+                    "<span style='white-space: pre-wrap; word-break: break-all;'>" + 
+                      "<img class='sendImage' width='100%' height='100%' src='" + this.imgUrl + "' />" +
+                      this.sendImgDesc +
+                    "</span>" + 
+                  "</p>" + 
+                "</div>" + 
+              "</div>" + 
+            "</div>" + 
+          "</div>"
         )
       );
       this.imgUrl = "";
