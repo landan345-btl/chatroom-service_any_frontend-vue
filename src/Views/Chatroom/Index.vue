@@ -731,22 +731,18 @@ export default class Chatroom extends Vue {
     let __this = this;
     // return __this.$emit("updateHeight");
   }
-  public inputFocus(t) {}
-  public inputBlur(t) {
-    // this.onHeightChange(), setTimeout(this.onHeightChange, 100);
-  }
   public checkScroll() {
     this.atScrollBottom && this.setScrollBottom();
   }
   public setScrollBottom() {
-    var t = this.$refs.view;
+    var t: any = this.$refs.view;
     t.scrollTop = t.scrollHeight;
     this.atScrollBottom = true;
   }
   public onScroll() {
     let __this = this;
-    let e = this.$refs.view;
-    let i = 10 > e.scrollHeight - e.offsetHeight - e.scrollTop;
+    let oView: any = this.$refs.view;
+    let i = 10 > oView.scrollHeight - oView.offsetHeight - oView.scrollTop;
     this.atScrollBottom !== i && (this.atScrollBottom = i);
   }
   public handleImgUpload(t) {
