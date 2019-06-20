@@ -470,7 +470,7 @@ export default class Chatroom extends Vue {
       this.$socket["/chatroom"].disconnect();
     }
     let sChatroomUrl =
-      SOCKET.URL +
+      SOCKET.HOST +
       (SOCKET.PORT && (80 !== SOCKET.PORT || "80" !== SOCKET.PORT)
         ? ":" + SOCKET.PORT
         : "") +

@@ -2,14 +2,14 @@ import oIo from "socket.io-client";
 import { SOCKET } from "@/CONFIGS/";
 
 let sAuthenticationUrl =
-  SOCKET.URL +
+  SOCKET.HOST +
   (SOCKET.PORT && (80 !== SOCKET.PORT || "80" !== SOCKET.PORT)
     ? ":" + SOCKET.PORT
     : "") +
   "/authentication";
 
 let sChatroomUrl =
-  SOCKET.URL +
+  SOCKET.HOST +
   (SOCKET.PORT && (80 !== SOCKET.PORT || "80" !== SOCKET.PORT)
     ? ":" + SOCKET.PORT
     : "") +
