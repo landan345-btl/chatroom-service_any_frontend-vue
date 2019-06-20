@@ -745,24 +745,23 @@ export default class Chatroom extends Vue {
     let i = 10 > oView.scrollHeight - oView.offsetHeight - oView.scrollTop;
     this.atScrollBottom !== i && (this.atScrollBottom = i);
   }
-  public handleImgUpload(t) {
-    let __this = this,
-    i;
-    i = t.target.files[0];
+  public handleImgUpload(oEvent: any) {
+    let __this = this;
+    let oFile = oEvent.target.files[0];
     let reg = /\.(jpe?g|png|gif)$/i;
-    if (reg.test(i.name)) {
-      var a = new FileReader();
-      a.addEventListener(
+    if (reg.test(oFile.name)) {
+      var oFileReader = new FileReader();
+      oFileReader.addEventListener(
         "load",
         function(t) {
           var a = new Image();
-          a.title = i.name;
-          a.src = t.target.result;
+          a.title = oFile.name;
+          a.src = oEvent.target.result;
           __this.previewImg(a);
         },
         false
       );
-      a.readAsDataURL(i);
+      oFileReader.readAsDataURL(oFile);
     }
   }
   public previewImg(t) {
