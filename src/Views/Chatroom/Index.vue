@@ -415,16 +415,23 @@
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 import $ from "jquery";
 import oIo from "socket.io-client";
+// @ts-ignore
 import SocketIOFileClient from "socket.io-file-client";
 
-import Connection from "@/Views/Connection/Index";
-
+import Connection from "@/Views/Connection/Index.vue";
+// @ts-ignore
 import iconAdmin from "@/assets/images/icon-admin.gif";
+// @ts-ignore
 import iconMember1 from "@/assets/images/icon-member-01.gif";
+// @ts-ignore
 import iconMember2 from "@/assets/images/icon-member-02.gif";
+// @ts-ignore
 import iconMember3 from "@/assets/images/icon-member-03.gif";
+// @ts-ignore
 import iconMember4 from "@/assets/images/icon-member-04.gif";
+// @ts-ignore
 import iconMember5 from "@/assets/images/icon-member-05.gif";
+// @ts-ignore
 import iconMember6 from "@/assets/images/icon-member-06.gif";
 
 import { AuthenticationHelper } from "@/Helper/";
@@ -483,7 +490,6 @@ export default class Chatroom extends Vue {
     this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("MESSAGE", this.onMessage);
     this.$socket["/chatroom"].on("disconnet", () => {});
-    this.$socket["/chatroom"].on("IMAGE", this.onImage);
     this.socketIOFileClient = new SocketIOFileClient(oChatroomSocket);
 
     this.socketIOFileClient.on("start", (oFileInfo: any) => {

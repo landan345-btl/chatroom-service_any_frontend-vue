@@ -11,8 +11,3 @@ declare module 'vue/types/vue' {
     $socket: any,
   }
 }
-
-declare module '*.gif' {
-  let content: any;
-  export default content;
-}
