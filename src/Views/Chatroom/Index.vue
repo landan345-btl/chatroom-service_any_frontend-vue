@@ -527,11 +527,11 @@ export default class Chatroom extends Vue {
     this.$socket["/chatroom"].on("IMAGE", this.onImage);
     this.socketIOFileClient = new SocketIOFileClient(oChatroomSocket);
 
-    this.socketIOFileClient.on("start", fileInfo => {
-      console.log("Start uploading", fileInfo);
+    this.socketIOFileClient.on("start", (oFileInfo: any) => {
+      console.log("Start uploading", oFileInfo);
       // 根据 fileInfo.uid
       // 打印到 html并且有loading
-      let uploadIds = fileInfo.uploadId;
+      let uploadIds = oFileInfo.uploadId;
       let wi = 120;
       let e = this.uploadingImg.naturalWidth;
       let i = this.uploadingImg.naturalHeight;
