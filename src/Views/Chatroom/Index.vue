@@ -599,7 +599,7 @@ export default class Chatroom extends Vue {
         roomId: this.roomId,
         id: sUid,
         nickName: sUserNickname,
-        content: '', // TODO 
+        content: this.sendImgDesc,
         curTime: iTimeStamp,
         role: sRole,
         src: sSrc,
@@ -651,6 +651,70 @@ export default class Chatroom extends Vue {
 
   }
   onShowMessage(oBody: any) {
+    // TODO
+    if (-1 === oBody.result) {
+      return;
+    }
+
+    let aMessages = oBody.data.messages;
+
+    aMessages.forEach((oMessage: any) => {
+      let sRole = oMessage.user.role || "MEMBER";
+      let sUrl = oMessage.user.url || "user/member.png";
+      let sNickname = oMessage.user.nickname;
+      let sSrc = oMessage.src || '';
+      let sText = oMessage.text || '';
+      let sTime = new Date(oMessage.addedTime);
+      let className = '';
+      switch (sRole) {
+        case "SYSTEM":
+          className = "SYSTEM";
+          break;
+        case "ADMIN":
+          className = "ADMIN";
+          break;
+        case "MEMBER":
+          className = "MEMBER";
+          break;
+        default:
+          className = "MEMBER";
+          break;
+      }
+
+      let sLefOrRigtClass = "";
+      let sUid = oAuthenticationHelper.getUserId();
+      if (oMessage.user._id === sUid) {
+        sLefOrRigtClass = "type-right";
+      } else {
+        sLefOrRigtClass = "type-left";
+      }
+
+      $(".chat-view").append(
+        $(
+          "<div class='Item " + sLefOrRigtClass + "'>" +
+            "<div class='lay-block'>" +
+              "<div class='avatar'>" +
+                "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+              "</div>" +
+              "<div class='lay-content' style='position:relative;'>" +
+                "<div class='msg-header'>" +
+                  "<h4>" + sNickname + "</h4> " +
+                  "<span class='MsgTime'>" + sTime + "</span>" +
+                "</div>" +
+                "<div class='Bubble " + className + "'>" +
+                  "<p>" +
+                    (sSrc ? "<img src='" + STORAGE.URL + STORAGE.PRE_PATH + sSrc + "' />" : '' ) +
+                    "<span style='white-space: pre-wrap; word-break: break-all;'>" + sText +
+                    "</span>" +
+                  "</p>" +
+                "</div>" +
+              "</div>" +
+            "</div>" +
+          "</div>" +
+        "</div>"
+        )
+      );
+    });
 
   }
   sendMessage(event) {
@@ -935,6 +999,7 @@ export default class Chatroom extends Vue {
                 "</div>" +
                 "<div class='Bubble " + className + "'>" +
                   "<p>" +
+                    (data.src ? "<img src='" + STORAGE.URL + STORAGE.PRE_PATH + data.src + "' />" : '' ) +
                     "<span style='white-space: pre-wrap; word-break: break-all;'>" + data.content +
                     "</span>" +
                   "</p>" +
@@ -962,7 +1027,7 @@ export default class Chatroom extends Vue {
     let name = oAuthenticationHelper.getUserNickname();
     this.showFlag = true;
     let iTimeStamp = Date.now();
-    let time = (date + "").split(" ")[4];
+    let time = (date + "").split(" ")[4] || '';
     let sVirtualId = sUid + "-" + iTimeStamp;
     let className = "";
     switch (sRole) {

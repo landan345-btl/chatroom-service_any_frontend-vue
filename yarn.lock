@@ -1013,7 +1013,7 @@
     babel-loader "^8.0.5"
     webpack ">=4 < 4.29"
 
-"@vue/cli-plugin-e2e-nightwatch@^3.1.1":
+"@vue/cli-plugin-e2e-nightwatch@^3.8.0":
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/@vue/cli-plugin-e2e-nightwatch/-/cli-plugin-e2e-nightwatch-3.8.0.tgz#91efd14cab2c9363243d923036dc133fb0a0936f"
   integrity sha512-xEsPHf7+NVZRA9IlEziwH4Y3CcqbGWT1+x0PJfzJTbaH79wT0bUt+SauXOLAD07baBfOtDm2C5jk6DCUMfgCwA==
