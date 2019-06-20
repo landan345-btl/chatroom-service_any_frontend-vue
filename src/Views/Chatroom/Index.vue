@@ -1071,7 +1071,7 @@ export default class Chatroom extends Vue {
 <style lang="scss">
 @import "Index.scss";
 .fade-enter-active, .fade-leave-active{
-   transition: all 0.5s ease;
+   transition: all 1s ease;
  }
 
  .fade-enter, .fade-leave-active {
