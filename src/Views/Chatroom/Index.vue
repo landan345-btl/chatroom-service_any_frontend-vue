@@ -496,11 +496,17 @@ export default class Chatroom extends Vue {
       let i = this.uploadingImg.naturalHeight;
       this.isShowImgPreview = false;
       e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
-      var a = document.createElement("canvas");
-      (a.width = e), (a.height = i);
-      var n = a.getContext("2d");
-      n.drawImage( this.uploadingImg,0,0,this.uploadingImg.naturalWidth,this.uploadingImg.naturalHeight);
-      this.imgUrl = a.toDataURL();
+      var oCanvas = document.createElement("canvas");
+      (oCanvas.width = e), (oCanvas.height = i);
+      var oContext: any = oCanvas.getContext("2d");
+      oContext.drawImage( 
+        this.uploadingImg,
+        0,
+        0,
+        this.uploadingImg.naturalWidth,
+        this.uploadingImg.naturalHeight
+      );
+      this.imgUrl = oCanvas.toDataURL();
 
       let date = new Date();
       let time = (date + "").split(" ")[4];
