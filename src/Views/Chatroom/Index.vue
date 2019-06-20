@@ -762,43 +762,6 @@ export default class Chatroom extends Vue {
     this.moreFlag = false;
     $("#files")[0].reset();
   }
-  public onImage(data) {
-
-    // let date = new Date();
-    // let time = (date + "").split(" ")[4];
-    // let sUrl = oAuthenticationHelper.getUserUrl();
-    // let name = oAuthenticationHelper.getUserNickname();
-    // let sRole = oAuthenticationHelper.getUserRole();
-    // let imgName = data.name;
-    // let className = "";
-    // switch (sRole) {
-    //   case "SYSTEM":
-    //     className = "SYSTEM";
-    //     break;
-    //   case "ADMIN":
-    //     className = "ADMIN";
-    //     break;
-    //   case "MEMBER":
-    //     className = "MEMBER";
-    //     break;
-    //   default:
-    //     className = "MEMBER";
-    //     break;
-    // }
-    // if ($("#sendImg")) {
-    //   $("#sendImg").css("display", "none");
-    // }
-    // $(".chat-view").append(
-    //   $(
-    //     "<div class='Item type-right'><div class='lay-block'><div class='avatar'><img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" + name + "</h4><span class='MsgTime'>"+ time +"</span></div><div class='Bubble " + className + "'>"+
-    //     "<p><span style='white-space: pre-wrap; word-break: break-all;'><img src='" +
-    //       STORAGE.URL + STORAGE.PRE_PATH + '/room/message/' + imgName +
-    //       "' />" +
-    //       this.sendImgDesc +
-    //       "</span></p></div></div></div></div>"
-    //   )
-    // );
-  }
   public onMessage(data: any) {
     this.receptData = "";
     this.sendFlag = false;
