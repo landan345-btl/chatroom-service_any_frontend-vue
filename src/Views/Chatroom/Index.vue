@@ -719,14 +719,12 @@ export default class Chatroom extends Vue {
     });
 
   }
-  public sendMessage(event) {
-    if (event.shiftKey) {
+  public sendMessage(oEvent: any) {
+    if (oEvent.shiftKey) {
       return;
     }
-    var e = this.inputText;
-    // e = e.replace(/(\s)\s+/g, "&nbsp;");
-    var a = this.$refs.view;
-    this.sendText(e);
+    var sText = this.inputText;
+    this.sendText(sText);
   }
 
   public onHeightChange() {
