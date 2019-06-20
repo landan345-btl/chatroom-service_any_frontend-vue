@@ -497,6 +497,7 @@ export default class Chatroom extends Vue {
   public showFlag: boolean = true;
   public imgUrl: any = '';
   public userLevel: any = '';
+  public socketIOFileClient: any;
 
   public mounted() {
     if (this.$socket["/chatroom"]) {
@@ -577,12 +578,12 @@ export default class Chatroom extends Vue {
       this.imgUrl = "";
       this.isShowImgPreview = false;
     });
-    this.socketIOFileClient.on("stream", fileInfo => {
-      console.log("Streaming... sent " + fileInfo.sent + " bytes.");
+    this.socketIOFileClient.on("stream", (oFileInfo: any) => {
+      console.log("Streaming... sent " + oFileInfo.sent + " bytes.");
     });
-    this.socketIOFileClient.on("complete", fileInfo => {
-      console.log("Upload Complete", fileInfo);
-      let uploadIds = fileInfo.uploadId;
+    this.socketIOFileClient.on("complete", (oFileInfo: any) => {
+      console.log("Upload Complete", oFileInfo);
+      let uploadIds = oFileInfo.uploadId;
       // BUG, 使用者 一次传五张 , 
       //      当第一张 complete 的时候, 只需要 把 第一张的 .lds-dual-ring 移除
       uploadIds ? $('.lds-dual-ring').css('display', 'none') : "";
@@ -594,7 +595,7 @@ export default class Chatroom extends Vue {
       let sUserNickname = oAuthenticationHelper.getUserNickname();
       let sRole = oAuthenticationHelper.getUserRole();
       let name = oAuthenticationHelper.getUserNickname();
-      let sSrc = fileInfo.uploadDir.replace(/^public\/storage/, '');
+      let sSrc = oFileInfo.uploadDir.replace(/^public\/storage/, '');
       let iTimeStamp = Date.now();
 
       let oBody = {
@@ -617,11 +618,11 @@ export default class Chatroom extends Vue {
 
 
     });
-    this.socketIOFileClient.on("error", err => {
-      console.log("Error!", err);
+    this.socketIOFileClient.on("error", (oError: any) => {
+      console.log("Error!", oError);
     });
-    this.socketIOFileClient.on("abort", fileInfo => {
-      console.log("Aborted: ", fileInfo);
+    this.socketIOFileClient.on("abort", (oFileInfo: any) => {
+      console.log("Aborted: ", oFileInfo);
     });
     this.checkIsLogined();
   }
@@ -751,8 +752,7 @@ export default class Chatroom extends Vue {
     let reg = /\.(jpe?g|png|gif)$/i;
     if (reg.test(oFile.name)) {
       var oFileReader = new FileReader();
-      oFileReader.addEventListener(
-        "load",
+      oFileReader.addEventListener("load",
         function(t) {
           var a = new Image();
           a.title = oFile.name;
