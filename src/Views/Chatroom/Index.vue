@@ -739,7 +739,7 @@ export default class Chatroom extends Vue {
     }
   }
   public previewImg(t) {
-    let __this = this;
+    let __this:any = this;
     __this.isShowImgPreview = true;
     __this.$refs.previewEl.innerHTML = "";
     __this.uploadingImg = t;
@@ -751,9 +751,7 @@ export default class Chatroom extends Vue {
   public sendImage(uploadIds?:any) {
     this.onSubmit();
   }
-  public connectWebSocket(data) {}
 
-  public messageWebSocket(data) {}
   public onSubmit(event?:any ) {
     // event.preventDefault();
     let fileEl = document.getElementById("file");
