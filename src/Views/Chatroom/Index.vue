@@ -437,6 +437,8 @@ import iconMember6 from "@/assets/images/icon-member-06.gif";
 import { AuthenticationHelper } from "@/Helper/";
 import { STORAGE, SOCKET } from "@/CONFIGS";
 
+STORAGE.HOST = STORAGE.HOST.replace(/^http:\/\//, '');
+
 let oAuthenticationHelper = new AuthenticationHelper();
 @Component({
   components: { Connection }
@@ -513,6 +515,7 @@ export default class Chatroom extends Vue {
         this.uploadingImg.naturalHeight
       );
       this.imgUrl = oCanvas.toDataURL();
+      console.log(this.imgUrl);
 
       let date = new Date();
       let time = (date + "").split(" ")[4];
@@ -540,7 +543,7 @@ export default class Chatroom extends Vue {
           "<div id=" + uploadIds  +" class='Item type-right'>" +
             "<div class='lay-block'>" +
               "<div class='avatar'>" +
-                "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+                "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
               "</div>" +
               "<div class='lay-content'>" +
                 "<div class='msg-header'>" +
@@ -678,12 +681,17 @@ export default class Chatroom extends Vue {
         sLefOrRigtClass = "type-left";
       }
 
+      debugger;
+
+      console.log(STORAGE.HOST);
+
+      let a = (0 === sUrl.indexOf("http") ? sUrl : 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sUrl);
       $(".chat-view").append(
         $(
           "<div class='Item " + sLefOrRigtClass + "'>" +
             "<div class='lay-block'>" +
               "<div class='avatar'>" +
-                "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+                "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
               "</div>" +
               "<div class='lay-content' style='position:relative;'>" +
                 "<div class='msg-header'>" +
@@ -692,7 +700,7 @@ export default class Chatroom extends Vue {
                 "</div>" +
                 "<div class='Bubble " + className + "'>" +
                   "<p>" +
-                    (sSrc ? "<img src='" + STORAGE.URL + STORAGE.PRE_PATH + sSrc + "' />" : '' ) +
+                    (sSrc ? "<img src='" + 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sSrc + "' />" : '' ) +
                     "<span style='white-space: pre-wrap; word-break: break-all;'>" + sText +
                     "</span>" +
                   "</p>" +
@@ -826,90 +834,6 @@ export default class Chatroom extends Vue {
         sLefOrRigtClass = "type-left";
       }
       this.showFlag = false;
-      // switch (data && role) {
-      //   case "SYSTEM":
-      //     $(".chat-view").append(
-      //       $(
-      //         "<div class='Item " +
-      //           sLefOrRigtClass +
-      //           "'><div class='lay-block'><div class='avatar'><img src='" +
-      //           (sUrl.indexOf("http") === 0
-      //             ? sUrl
-      //             : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
-      //           "' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>" +
-      //           name +
-      //           "</h4><span class='MsgTime'>" +
-      //           time +
-      //           "</span></div><div class='Bubble type-system'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
-      //           data.content +
-      //           "</span></p></div></div></div></div>"
-      //       )
-      //     );
-      //     break;
-      //   case "ADMIN":
-      //     $(".chat-view").append(
-      //       $(
-      //         "<div class='Item " +
-      //           sLefOrRigtClass +
-      //           "'><div class='lay-block'><div class='avatar'> <img src='" +
-      //           (sUrl.indexOf("http") === 0
-      //             ? sUrl
-      //             : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
-      //           "' alt='多彩群主'></div><div class='lay-content' style='position:relative;'><div class='msg-header'><h4>" +
-      //           name +
-      //           "</h4><span class='VipMark type-admin'><img src='" +
-      //           iconAdmin +
-      //           "' alt='管理员'></span><span class='MsgTime'>" +
-      //           time +
-      //           "</span></div><div class='Bubble type-system' style='position:relative;background: linear-gradient(to right, rgb(255, 115, 0), rgb(231, 193, 26)); border-left-color: rgb(231, 193, 26); border-right-color: rgb(255, 115, 0);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
-      //           data.content +
-      //           "</span></p></div></div></div></div></div>"
-      //       )
-      //     );
-      //     break;
-      //   case "MEMBER":
-      //     $(".chat-view").append(
-      //       $(
-      //         "<div class='Item " +
-      //           sLefOrRigtClass +
-      //           "'><div class='lay-block'><div class='avatar'> <img src='" +
-      //           (sUrl.indexOf("http") === 0
-      //             ? sUrl
-      //             : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
-      //           "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4" +
-      //           name +
-      //           "</h4><span ><img src='" +
-      //           this.iconMember +
-      //           "' alt='会员'></span><span class='MsgTime'>" +
-      //           time +
-      //           "</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
-      //           data.content +
-      //           "</span></p></div></div></div></div></div>"
-      //       )
-      //     );
-      //     break;
-      //   case "游客":
-      //     $(".chat-view").append(
-      //       $(
-      //         "<div class='Item " +
-      //           sLefOrRigtClass +
-      //           "'><div class='lay-block'><div class='avatar'> <img src='" +
-      //           (sUrl.indexOf("http") === 0
-      //             ? sUrl
-      //             : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
-      //           "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" +
-      //           name +
-      //           "</h4><span class='MsgTime'>" +
-      //           time +
-      //           "</span></div><div class='Bubble type-system' style='background: linear-gradient(to right, rgb(25, 158, 216), rgb(2, 231, 231)); border-left-color: rgb(2, 231, 231); border-right-color: rgb(25, 158, 216); color: rgb(255, 255, 255);'><p><span style='white-space: pre-wrap; word-break: break-all;'>" +
-      //           data.content +
-      //           "</span></p></div></div></div></div></div>"
-      //       )
-      //     );
-      //     break;
-      //   default:
-      //     break;
-      // }
 
       let className = "";
       switch (role) {
@@ -932,7 +856,7 @@ export default class Chatroom extends Vue {
           "<div class='Item " + sLefOrRigtClass + "'>" +
             "<div class='lay-block'>" +
               "<div class='avatar'>" +
-                "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+                "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
               "</div>" +
               "<div class='lay-content' style='position:relative;'>" +
                 "<div class='msg-header'>" +
@@ -941,7 +865,7 @@ export default class Chatroom extends Vue {
                 "</div>" +
                 "<div class='Bubble " + className + "'>" +
                   "<p>" +
-                    (data.src ? "<img src='" + STORAGE.URL + STORAGE.PRE_PATH + data.src + "' />" : '' ) +
+                    (data.src ? "<img src='" + 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + data.src + "' />" : '' ) +
                     "<span style='white-space: pre-wrap; word-break: break-all;'>" + data.content +
                     "</span>" +
                   "</p>" +
@@ -993,7 +917,7 @@ export default class Chatroom extends Vue {
           "<div id='" + sVirtualId + "' class='Item type-right'>" +
             "<div class='lay-block'>" +
               "<div class='avatar'>" +
-                "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+                "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
               "</div>" +
               "<div class='lay-content'>" +
                 "<div class='msg-header'>" +
