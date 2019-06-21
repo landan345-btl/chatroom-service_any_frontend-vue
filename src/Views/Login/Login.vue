@@ -85,7 +85,7 @@ let oAuthenticationHelper = new AuthenticationHelper();
 @Component({
   components: {}
 })
-export default class Login extends Vue {
+class Login extends Vue {
   username: string = "";
   password: string = "";
   mounted() {
@@ -132,6 +132,8 @@ export default class Login extends Vue {
     return sJwt;
   }
 }
+
+export default Login;
 </script>
 
 <style lang="scss" scoped>
