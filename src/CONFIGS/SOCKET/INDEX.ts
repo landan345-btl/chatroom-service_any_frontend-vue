@@ -1,7 +1,8 @@
-console.log(process.env);
+import dotenv from 'dotenv';
+dotenv.config();
 
 const SOCKET: any = {
-  HOST: process.env.SOCKET_HOST,
+  HOST: process.env.SOCKET_HOST || "http://fea.socket.chatroom.ques98.cn",
   PORT: "",
 };
 
