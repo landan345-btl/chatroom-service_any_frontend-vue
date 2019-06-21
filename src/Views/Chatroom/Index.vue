@@ -848,7 +848,7 @@ export default class Chatroom extends Vue {
           "<div class='Item " + sLefOrRigtClass + "'>" +
             "<div class='lay-block'>" +
               "<div class='avatar'>" +
-                "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : 'http://' + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+                "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
               "</div>" +
               "<div class='lay-content' style='position:relative;'>" +
                 "<div class='msg-header'>" +
