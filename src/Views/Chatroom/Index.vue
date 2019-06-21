@@ -740,13 +740,13 @@ export default class Chatroom extends Vue {
     let oFile = oEvent.target.files[0];
     let reg = /\.(jpe?g|png|gif)$/i;
     if (reg.test(oFile.name)) {
-      var oFileReader = new FileReader();
+      let oFileReader = new FileReader();
       oFileReader.addEventListener("load",
-        function(t) {
-          var a = new Image();
-          a.title = oFile.name;
-          a.src = oEvent.target.result;
-          __this.previewImg(a);
+        function(_oEvent) {
+          let oImage = new Image();
+          oImage.title = oFile.name;
+          oImage.src = _oEvent.target.result;
+          __this.previewImg(oImage);
         },
         false
       );
