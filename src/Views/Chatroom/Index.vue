@@ -681,11 +681,6 @@ export default class Chatroom extends Vue {
         sLefOrRigtClass = "type-left";
       }
 
-      debugger;
-
-      console.log(STORAGE.HOST);
-
-      let a = (0 === sUrl.indexOf("http") ? sUrl : 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sUrl);
       $(".chat-view").append(
         $(
           "<div class='Item " + sLefOrRigtClass + "'>" +
