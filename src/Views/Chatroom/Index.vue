@@ -27,7 +27,7 @@
       </div>
       <div class="scroll-part" style="">
         <div class="sticky-placeholder" style="height: 0px;"></div>
-        <div class="chat-container" style="height: 49.5rem;margin-top: 82px;">
+        <div class="chat-container" style="height: 51.5rem;margin-top: 82px;">
           <div style="height: 100%;">
             <div style="height: 100%;">
               <div
@@ -74,7 +74,7 @@
               <div
                 ref="view"
                 class="chat-view message-list s-announce"
-                style="text-align:left;padding-bottom:2.5rem;"
+                style="text-align:left;"
                 @scroll="onScroll"
               >
                 <div class="Item type-hint" style="display:none;">
@@ -265,7 +265,7 @@
             </div>
 
             <div v-show="moreFlag" class="more-row" @click="isShowMore = false">
-              <a for="imgUploadInput">
+              <a  for="imgUploadInput" style="cursor:pointer;">
                 <i class="iconfont icon-image"></i>
               </a>
 
@@ -278,7 +278,7 @@
               /> -->
               <!-- onSubmit, -->
               <form id="files">
-                <input type="file" id="file" multiple  @change="handleImgUpload" style="width: 42.1px; height: 42.1px; opacity: 0; position: absolute; left: 28px;"/>
+                <input type="file" id="file" multiple  @change="handleImgUpload" style="cursor:pointer;width: 42.1px; height: 42.1px; opacity: 0; position: absolute; left: 28px;"/>
               </form>
 
               <a href="#/chat/setting" class="">
@@ -500,11 +500,11 @@ export default class Chatroom extends Vue {
       // 根据 fileInfo.uid
       // 打印到 html并且有loading
       let uploadIds = oFileInfo.uploadId;
-      let wi = 120;
+      let wi = 240;
       let e = this.uploadingImg.naturalWidth;
       let i = this.uploadingImg.naturalHeight;
       this.isShowImgPreview = false;
-      e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
+      // e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
       var oCanvas = document.createElement("canvas");
       (oCanvas.width = e), (oCanvas.height = i);
       var oContext: any = oCanvas.getContext("2d");
@@ -516,8 +516,6 @@ export default class Chatroom extends Vue {
         this.uploadingImg.naturalHeight
       );
       this.imgUrl = oCanvas.toDataURL();
-      console.log(this.imgUrl);
-
       let date = new Date();
       let time = (date + "").split(" ")[4];
       let sUrl = oAuthenticationHelper.getUserUrl();
@@ -555,7 +553,7 @@ export default class Chatroom extends Vue {
                   "<span class='lds-dual-ring'></span>" +
                   "<p>" +
                     "<span style='white-space: pre-wrap; word-break: break-all;'>" +
-                      "<img class='sendImage' width='100%' height='100%' src='" + this.imgUrl + "' />" +
+                      "<img src="+this.imgUrl+" />" +
                       this.sendImgDesc +
                     "</span>" +
                   "</p>" +
@@ -765,6 +763,7 @@ export default class Chatroom extends Vue {
     __this.isShowImgPreview = true;
     __this.$refs.previewEl.innerHTML = "";
     __this.uploadingImg = oImage;
+
     __this.$refs.previewEl.appendChild(oImage);
   }
   public showUserPack() {
@@ -974,7 +973,6 @@ export default class Chatroom extends Vue {
 .fade-enter-active, .fade-leave-active{
    transition: all 1s ease;
  }
-
  .fade-enter, .fade-leave-active {
    opacity: 0;
  }
