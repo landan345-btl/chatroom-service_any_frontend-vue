@@ -437,6 +437,8 @@ import iconMember6 from "@/assets/images/icon-member-06.gif";
 import { AuthenticationHelper } from "@/Helper/";
 import { STORAGE, SOCKET } from "@/CONFIGS";
 
+STORAGE.HOST = STORAGE.HOST.replace(/^http:\/\//, '');
+
 let oAuthenticationHelper = new AuthenticationHelper();
 @Component({
   components: { Connection }
@@ -513,6 +515,7 @@ export default class Chatroom extends Vue {
         this.uploadingImg.naturalHeight
       );
       this.imgUrl = oCanvas.toDataURL();
+      console.log(this.imgUrl);
 
       let date = new Date();
       let time = (date + "").split(" ")[4];
@@ -678,6 +681,11 @@ export default class Chatroom extends Vue {
         sLefOrRigtClass = "type-left";
       }
 
+      debugger;
+
+      console.log(STORAGE.HOST);
+
+      let a = (0 === sUrl.indexOf("http") ? sUrl : 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sUrl);
       $(".chat-view").append(
         $(
           "<div class='Item " + sLefOrRigtClass + "'>" +
