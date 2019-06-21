@@ -540,7 +540,7 @@ export default class Chatroom extends Vue {
           "<div id=" + uploadIds  +" class='Item type-right'>" +
             "<div class='lay-block'>" +
               "<div class='avatar'>" +
-                "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+                "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : STORAGE.HOST + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
               "</div>" +
               "<div class='lay-content'>" +
                 "<div class='msg-header'>" +
@@ -683,7 +683,7 @@ export default class Chatroom extends Vue {
           "<div class='Item " + sLefOrRigtClass + "'>" +
             "<div class='lay-block'>" +
               "<div class='avatar'>" +
-                "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+                "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.HOST + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
               "</div>" +
               "<div class='lay-content' style='position:relative;'>" +
                 "<div class='msg-header'>" +
@@ -692,7 +692,7 @@ export default class Chatroom extends Vue {
                 "</div>" +
                 "<div class='Bubble " + className + "'>" +
                   "<p>" +
-                    (sSrc ? "<img src='" + STORAGE.URL + STORAGE.PRE_PATH + sSrc + "' />" : '' ) +
+                    (sSrc ? "<img src='" + STORAGE.HOST + STORAGE.PRE_PATH + sSrc + "' />" : '' ) +
                     "<span style='white-space: pre-wrap; word-break: break-all;'>" + sText +
                     "</span>" +
                   "</p>" +
@@ -835,7 +835,7 @@ export default class Chatroom extends Vue {
       //           "'><div class='lay-block'><div class='avatar'><img src='" +
       //           (sUrl.indexOf("http") === 0
       //             ? sUrl
-      //             : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
+      //             : STORAGE.HOST + STORAGE.PRE_PATH + sUrl) +
       //           "' alt='计划消息' /></div><div class='lay-content'><div class='msg-header'><h4>" +
       //           name +
       //           "</h4><span class='MsgTime'>" +
@@ -854,7 +854,7 @@ export default class Chatroom extends Vue {
       //           "'><div class='lay-block'><div class='avatar'> <img src='" +
       //           (sUrl.indexOf("http") === 0
       //             ? sUrl
-      //             : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
+      //             : STORAGE.HOST + STORAGE.PRE_PATH + sUrl) +
       //           "' alt='多彩群主'></div><div class='lay-content' style='position:relative;'><div class='msg-header'><h4>" +
       //           name +
       //           "</h4><span class='VipMark type-admin'><img src='" +
@@ -875,7 +875,7 @@ export default class Chatroom extends Vue {
       //           "'><div class='lay-block'><div class='avatar'> <img src='" +
       //           (sUrl.indexOf("http") === 0
       //             ? sUrl
-      //             : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
+      //             : STORAGE.HOST + STORAGE.PRE_PATH + sUrl) +
       //           "' alt='qi***00'></div><div class='lay-content'><div class='msg-header'><h4" +
       //           name +
       //           "</h4><span ><img src='" +
@@ -896,7 +896,7 @@ export default class Chatroom extends Vue {
       //           "'><div class='lay-block'><div class='avatar'> <img src='" +
       //           (sUrl.indexOf("http") === 0
       //             ? sUrl
-      //             : STORAGE.URL + STORAGE.PRE_PATH + sUrl) +
+      //             : STORAGE.HOST + STORAGE.PRE_PATH + sUrl) +
       //           "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" +
       //           name +
       //           "</h4><span class='MsgTime'>" +
@@ -932,7 +932,7 @@ export default class Chatroom extends Vue {
           "<div class='Item " + sLefOrRigtClass + "'>" +
             "<div class='lay-block'>" +
               "<div class='avatar'>" +
-                "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+                "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.HOST + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
               "</div>" +
               "<div class='lay-content' style='position:relative;'>" +
                 "<div class='msg-header'>" +
@@ -941,7 +941,7 @@ export default class Chatroom extends Vue {
                 "</div>" +
                 "<div class='Bubble " + className + "'>" +
                   "<p>" +
-                    (data.src ? "<img src='" + STORAGE.URL + STORAGE.PRE_PATH + data.src + "' />" : '' ) +
+                    (data.src ? "<img src='" + STORAGE.HOST + STORAGE.PRE_PATH + data.src + "' />" : '' ) +
                     "<span style='white-space: pre-wrap; word-break: break-all;'>" + data.content +
                     "</span>" +
                   "</p>" +
@@ -993,7 +993,7 @@ export default class Chatroom extends Vue {
           "<div id='" + sVirtualId + "' class='Item type-right'>" +
             "<div class='lay-block'>" +
               "<div class='avatar'>" +
-                "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+                "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : STORAGE.HOST + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
               "</div>" +
               "<div class='lay-content'>" +
                 "<div class='msg-header'>" +
