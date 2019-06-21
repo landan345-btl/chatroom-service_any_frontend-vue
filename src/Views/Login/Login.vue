@@ -37,6 +37,7 @@
                   aria-required="true"
                   aria-invalid="true"
                   v-model="password"
+                  @keydown.enter.native="login"
                 />
               </div>
             </div>
