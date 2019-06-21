@@ -872,8 +872,8 @@ export default class Chatroom extends Vue {
         )
       );
 
-      var t = this.$refs.view;
-      // t.scrollTop = t.scrollHeight;
+      var oView: any = this.$refs.view;
+      oView.scrollTop = oView.scrollHeight;
       this.inputText = "";
     }
   }
