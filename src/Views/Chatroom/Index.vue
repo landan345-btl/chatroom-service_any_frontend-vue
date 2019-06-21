@@ -27,7 +27,7 @@
       </div>
       <div class="scroll-part" style="">
         <div class="sticky-placeholder" style="height: 0px;"></div>
-        <div class="chat-container" style="height: 825.406px;margin-top: 82px;">
+        <div class="chat-container" style="height: 49.5rem;margin-top: 82px;">
           <div style="height: 100%;">
             <div style="height: 100%;">
               <div

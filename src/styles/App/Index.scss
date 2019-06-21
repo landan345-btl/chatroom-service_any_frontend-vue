@@ -400,8 +400,10 @@ to {background-position-x:100vw}
 .app-mode .sticky-part.no-nav {padding-top:0}
 .sticky-bottom {position:absolute;width:100%;max-width:600px;bottom:4.3rem;bottom:calc(4.3rem + constant(safe-area-inset-bottom));bottom:calc(4.3rem + env(safe-area-inset-bottom))}
 .sticky-bottom.no-tab {bottom:constant(safe-area-inset-bottom);bottom:env(safe-area-inset-bottom)}
-@media (display-mode:standalone) {.sticky-bottom.no-tab {bottom:1em}
-}
+@media screen and (min-width:320px) {.sticky-bottom.no-tab{margin-bottom:0px;}}
+@media screen and (min-width:375px) {}
+@media screen and (min-width:420px) {.sticky-bottom.no-tab{margin-bottom:-30px}}
+@media (display-mode:standalone) {.sticky-bottom.no-tab {bottom:1em}}
 .sticky-fixed {position:fixed!important;z-index:110}
 .sticky-placeholder {padding-top:3.2rem;padding-top:calc(3.2rem + constant(safe-area-inset-top));padding-top:calc(3.2rem + env(safe-area-inset-top))}
 .app-mode .sticky-placeholder {padding-top:3.2rem}
@@ -2722,4 +2724,4 @@ header.nav .nav-link-solid.notran {-webkit-transition:none;transition:none}
 .wrap-content.no-nav {padding-top:constant(safe-area-inset-top);padding-top:env(safe-area-inset-top)}
 .wrap-content.no-tab {padding-bottom:constant(safe-area-inset-bottom);padding-bottom:env(safe-area-inset-bottom)}
 
-.title{color: #fff;}
+.title{color: #fff}
