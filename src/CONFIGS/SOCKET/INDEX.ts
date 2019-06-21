@@ -1,6 +1,6 @@
 
 const SOCKET: any = {
-  HOST: process.env.VUE_APP_SOCKET_HOST || "http://fea.socket.chatroom.ques98.cn",
+  HOST: process.env.VUE_APP_SOCKET_HOST || "fea.socket.chatroom.ques98.cn",
   PORT: "",
 };
 
