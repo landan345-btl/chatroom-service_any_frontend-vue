@@ -127,6 +127,10 @@ import { AuthenticationHelper } from "@/Helper/";
 
 import oIo from "socket.io-client";
 
+import { STORAGE } from "@/CONFIGS";
+STORAGE.HOST = STORAGE.HOST.replace(/^http:\/\//, '');
+
+
 let oAuthenticationHelper = new AuthenticationHelper();
 @Component({
   components: {}
@@ -137,8 +141,8 @@ export default class Setting extends Vue {
   userLevel: any = "";
   userRole: any = "";
   mounted() {
-    this.userUrl =
-      "http://fea.socket.com/storage/" + oAuthenticationHelper.getUserUrl();
+    let sUrl = oAuthenticationHelper.getUserUrl();
+    this.userUrl = (sUrl && 0 === sUrl.indexOf("http") ? sUrl : 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sUrl);
     this.userNickname = oAuthenticationHelper.getUserNickname();
     this.userLevel = oAuthenticationHelper.getUserLevel();
     this.userRole = oAuthenticationHelper.getUserRole();
