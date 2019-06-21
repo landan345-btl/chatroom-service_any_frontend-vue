@@ -747,7 +747,7 @@ export default class Chatroom extends Vue {
     if (reg.test(oFile.name)) {
       let oFileReader = new FileReader();
       oFileReader.addEventListener("load",
-        function(_oEvent) {
+        function(_oEvent: any) {
           let oImage = new Image();
           oImage.title = oFile.name;
           oImage.src = _oEvent.target.result;
