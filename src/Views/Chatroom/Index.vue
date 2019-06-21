@@ -505,7 +505,7 @@ export default class Chatroom extends Vue {
       var oCanvas = document.createElement("canvas");
       (oCanvas.width = e), (oCanvas.height = i);
       var oContext: any = oCanvas.getContext("2d");
-      oContext.drawImage( 
+      oContext.drawImage(
         this.uploadingImg,
         0,
         0,
@@ -537,27 +537,27 @@ export default class Chatroom extends Vue {
 
       $(".chat-view").append(
         $(
-          "<div id=" + uploadIds  +" class='Item type-right'>" + 
-            "<div class='lay-block'>" + 
-              "<div class='avatar'>" + 
-                "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" + 
-              "</div>" + 
-              "<div class='lay-content'>" + 
-                "<div class='msg-header'>" + 
-                  "<h4>" + name + "</h4>" + 
-                  "<span class='MsgTime'>"+ time + "</span>" + 
-                "</div>" + 
+          "<div id=" + uploadIds  +" class='Item type-right'>" +
+            "<div class='lay-block'>" +
+              "<div class='avatar'>" +
+                "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+              "</div>" +
+              "<div class='lay-content'>" +
+                "<div class='msg-header'>" +
+                  "<h4>" + name + "</h4>" +
+                  "<span class='MsgTime'>"+ time + "</span>" +
+                "</div>" +
                 "<div class='Bubble " + className + "'>"+
                   "<span class='lds-dual-ring'></span>" +
-                  "<p>" + 
-                    "<span style='white-space: pre-wrap; word-break: break-all;'>" + 
+                  "<p>" +
+                    "<span style='white-space: pre-wrap; word-break: break-all;'>" +
                       "<img class='sendImage' width='100%' height='100%' src='" + this.imgUrl + "' />" +
                       this.sendImgDesc +
-                    "</span>" + 
-                  "</p>" + 
-                "</div>" + 
-              "</div>" + 
-            "</div>" + 
+                    "</span>" +
+                  "</p>" +
+                "</div>" +
+              "</div>" +
+            "</div>" +
           "</div>"
         )
       );
@@ -570,7 +570,7 @@ export default class Chatroom extends Vue {
     this.socketIOFileClient.on("complete", (oFileInfo: any) => {
       console.log("Upload Complete", oFileInfo);
       let uploadIds = oFileInfo.uploadId;
-      // BUG, 使用者 一次传五张 , 
+      // BUG, 使用者 一次传五张 ,
       //      当第一张 complete 的时候, 只需要 把 第一张的 .lds-dual-ring 移除
       uploadIds ? $('.lds-dual-ring').css('display', 'none') : "";
 
@@ -1038,6 +1038,8 @@ export default class Chatroom extends Vue {
       this.$socket["/chatroom"].emit("MESSAGE", sMessage);
     }
   }
+  public inputFocus() {}
+  public inputBlur() {}
 };
 </script>
 

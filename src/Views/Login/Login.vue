@@ -20,6 +20,7 @@
                   aria-invalid="true"
                   v-model="username"
                   style="width:447px;"
+                  @keydown.enter= "login()"
                 />
               </div>
               <div class="col"></div>
@@ -37,7 +38,7 @@
                   aria-required="true"
                   aria-invalid="true"
                   v-model="password"
-                  @keydown.enter.native="login"
+                  @keydown.enter= "login()"
                 />
               </div>
             </div>
