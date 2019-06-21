@@ -1,7 +1,6 @@
 const SOCKET: any = {
-  URL: "http://fea.socket.com",
+  HOST: process.env.SOCKET_HOST || "http://fea.socket.chatroom.ques98.cn",
   PORT: "",
-  NAMESPACE: "webchat"
 };
 
 export default SOCKET;

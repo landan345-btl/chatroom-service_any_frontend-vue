@@ -341,47 +341,6 @@
                 </div>
               </div>
             </div>
-            <!-- <x-dialog class="userpack-dialog" hide-on-blur="true" v-model="isShowUserPack">
-              <user-pack @close="isShowUserPack = false"></user-pack>
-            </x-dialog>
-            <x-dialog
-              v-show="isShowImgPreview"
-              class="imgpreview-dialog"
-              hide-on-blur="true"
-              v-model="isShowImgPreview"
-              >
-              <div>
-                <div ref="previewEl" class="img-wrap"></div>
-                <p>
-                  <input
-                    type="text"
-                    v-model="sendImgDesc"
-                    ref="imgDescInput"
-                    autocomplete="off"
-                    placeholder="输入文字描述"
-                  />
-                </p>
-                <p style="text-align: center;">
-                  <a
-                    href="javascript:;"
-                    class="FormBtn"
-                    style="width: 83%; padding: 0.6em 0px;"
-                    @click="sendImage"
-                    >发送</a
-                  >
-                </p>
-                <p>
-                  <a
-                    href="javascript:;"
-                    class="action-cancel"
-                    @click="isShowImgPreview = false"
-                  >
-                    <i class="iconfont icon-close"></i>取消</a
-                  >
-                </p>
-              </div>
-            </x-dialog> -->
-
             <div
               class="vux-x-dialog imgpreview-dialog"
               v-show="isShowImgPreview"
@@ -456,16 +415,23 @@
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 import $ from "jquery";
 import oIo from "socket.io-client";
+// @ts-ignore
 import SocketIOFileClient from "socket.io-file-client";
 
-import Connection from "@/Views/Connection/Index";
-
+import Connection from "@/Views/Connection/Index.vue";
+// @ts-ignore
 import iconAdmin from "@/assets/images/icon-admin.gif";
+// @ts-ignore
 import iconMember1 from "@/assets/images/icon-member-01.gif";
+// @ts-ignore
 import iconMember2 from "@/assets/images/icon-member-02.gif";
+// @ts-ignore
 import iconMember3 from "@/assets/images/icon-member-03.gif";
+// @ts-ignore
 import iconMember4 from "@/assets/images/icon-member-04.gif";
+// @ts-ignore
 import iconMember5 from "@/assets/images/icon-member-05.gif";
+// @ts-ignore
 import iconMember6 from "@/assets/images/icon-member-06.gif";
 
 import { AuthenticationHelper } from "@/Helper/";
@@ -476,32 +442,35 @@ let oAuthenticationHelper = new AuthenticationHelper();
   components: { Connection }
 })
 export default class Chatroom extends Vue {
-  inputText:string = "";
-  atScrollBottom:boolean = true;
-  user:string = "visitor";
-  redFlag:boolean = false;
-  moreFlag:boolean = false;
-  isShowImgPreview:boolean = false;
-  sendImgDesc:string = "";
-  isShowUserPack:boolean = false;
-  isShowMore:boolean = false;
-  uploadingImg:any = null;
-  client:any = null;
-  receptData:any = null;
-  sendFlag:boolean = false;
-  sendMessageFlag:boolean = true;
-  content:string = "以上为历史消息";
-  loginInfo:string = "";
-  iconMember:string = "";
-  roomId:any = null;
-  showFlag:boolean = true;
-  imgUrl:any = '';
-  mounted() {
+  public inputText: string = "";
+  public atScrollBottom: boolean = true;
+  public user: string = "visitor";
+  public redFlag: boolean = false;
+  public moreFlag: boolean = false;
+  public isShowImgPreview: boolean = false;
+  public sendImgDesc: string = "";
+  public isShowUserPack: boolean = false;
+  public isShowMore: boolean = false;
+  public uploadingImg: any = null;
+  public client: any = null;
+  public receptData: any = null;
+  public sendFlag: boolean = false;
+  public sendMessageFlag: boolean = true;
+  public content: string = "以上为历史消息";
+  public loginInfo: string = "";
+  public iconMember: string = "";
+  public roomId: any = null;
+  public showFlag: boolean = true;
+  public imgUrl: any = '';
+  public userLevel: any = '';
+  public socketIOFileClient: any;
+
+  public mounted() {
     if (this.$socket["/chatroom"]) {
       this.$socket["/chatroom"].disconnect();
     }
     let sChatroomUrl =
-      SOCKET.URL +
+      SOCKET.HOST +
       (SOCKET.PORT && (80 !== SOCKET.PORT || "80" !== SOCKET.PORT)
         ? ":" + SOCKET.PORT
         : "") +
@@ -514,30 +483,36 @@ export default class Chatroom extends Vue {
     };
     let oChatroomSocket = oIo(sChatroomUrl, oOption);
     this.$socket["/chatroom"] = oChatroomSocket;
-    this.$socket["/chatroom"].emit("ROOM ENTER", void 0);
-    this.$socket["/chatroom"].on("ROOM ENTER", this.onEnterRoom);
+    this.$socket["/chatroom"].emit("ENTER ROOM", void 0);
+    this.$socket["/chatroom"].on("ENTER ROOM", this.onEnterRoom);
+    this.$socket["/chatroom"].on("SHOW MESSAGE", this.onShowMessage);
+
     this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("MESSAGE", this.onMessage);
     this.$socket["/chatroom"].on("disconnet", () => {});
-    this.$socket["/chatroom"].on("IMAGE", this.onImage);
-    this.$socket["/chatroom"].on("FILE", this.onFile);
     this.socketIOFileClient = new SocketIOFileClient(oChatroomSocket);
 
-    this.socketIOFileClient.on("start", fileInfo => {
-      console.log("Start uploading", fileInfo);
+    this.socketIOFileClient.on("start", (oFileInfo: any) => {
+      console.log("Start uploading", oFileInfo);
       // 根据 fileInfo.uid
       // 打印到 html并且有loading
-      let uploadIds = fileInfo.uploadId;
+      let uploadIds = oFileInfo.uploadId;
       let wi = 120;
       let e = this.uploadingImg.naturalWidth;
       let i = this.uploadingImg.naturalHeight;
       this.isShowImgPreview = false;
       e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
-      var a = document.createElement("canvas");
-      (a.width = e), (a.height = i);
-      var n = a.getContext("2d");
-      n.drawImage( this.uploadingImg,0,0,this.uploadingImg.naturalWidth,this.uploadingImg.naturalHeight);
-      this.imgUrl = a.toDataURL();
+      var oCanvas = document.createElement("canvas");
+      (oCanvas.width = e), (oCanvas.height = i);
+      var oContext: any = oCanvas.getContext("2d");
+      oContext.drawImage( 
+        this.uploadingImg,
+        0,
+        0,
+        this.uploadingImg.naturalWidth,
+        this.uploadingImg.naturalHeight
+      );
+      this.imgUrl = oCanvas.toDataURL();
 
       let date = new Date();
       let time = (date + "").split(" ")[4];
@@ -562,40 +537,87 @@ export default class Chatroom extends Vue {
 
       $(".chat-view").append(
         $(
-          "<div id=" + uploadIds  +" class='Item type-right'><div class='lay-block'><div class='avatar'><img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" + name + "</h4><span class='MsgTime'>"+ time +"</span></div><div class='Bubble " + className + "'>"+
-          "<span class='lds-dual-ring'></span>" +
-          "<p><span style='white-space: pre-wrap; word-break: break-all;'><img class='sendImage' width='100%' height='100%' src='" +
-            this.imgUrl +
-            "' />" +
-            this.sendImgDesc +
-            "</span></p></div></div></div></div>"
+          "<div id=" + uploadIds  +" class='Item type-right'>" + 
+            "<div class='lay-block'>" + 
+              "<div class='avatar'>" + 
+                "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" + 
+              "</div>" + 
+              "<div class='lay-content'>" + 
+                "<div class='msg-header'>" + 
+                  "<h4>" + name + "</h4>" + 
+                  "<span class='MsgTime'>"+ time + "</span>" + 
+                "</div>" + 
+                "<div class='Bubble " + className + "'>"+
+                  "<span class='lds-dual-ring'></span>" +
+                  "<p>" + 
+                    "<span style='white-space: pre-wrap; word-break: break-all;'>" + 
+                      "<img class='sendImage' width='100%' height='100%' src='" + this.imgUrl + "' />" +
+                      this.sendImgDesc +
+                    "</span>" + 
+                  "</p>" + 
+                "</div>" + 
+              "</div>" + 
+            "</div>" + 
+          "</div>"
         )
       );
       this.imgUrl = "";
       this.isShowImgPreview = false;
     });
-    this.socketIOFileClient.on("stream", fileInfo => {
-      console.log("Streaming... sent " + fileInfo.sent + " bytes.");
+    this.socketIOFileClient.on("stream", (oFileInfo: any) => {
+      console.log("Streaming... sent " + oFileInfo.sent + " bytes.");
     });
-    this.socketIOFileClient.on("complete", fileInfo => {
-      console.log("Upload Complete", fileInfo);
-      let uploadIds = fileInfo.uploadId;
+    this.socketIOFileClient.on("complete", (oFileInfo: any) => {
+      console.log("Upload Complete", oFileInfo);
+      let uploadIds = oFileInfo.uploadId;
+      // BUG, 使用者 一次传五张 , 
+      //      当第一张 complete 的时候, 只需要 把 第一张的 .lds-dual-ring 移除
       uploadIds ? $('.lds-dual-ring').css('display', 'none') : "";
+
+      let sUid = oAuthenticationHelper.getUserId();
+      let sUrl = oAuthenticationHelper.getUserUrl();
+      let iUserlLevel = oAuthenticationHelper.getUserLevel();
+
+      let sUserNickname = oAuthenticationHelper.getUserNickname();
+      let sRole = oAuthenticationHelper.getUserRole();
+      let name = oAuthenticationHelper.getUserNickname();
+      let sSrc = oFileInfo.uploadDir.replace(/^public\/storage/, '');
+      let iTimeStamp = Date.now();
+
+      let oBody = {
+        roomId: this.roomId,
+        id: sUid,
+        nickName: sUserNickname,
+        content: this.sendImgDesc,
+        curTime: iTimeStamp,
+        role: sRole,
+        src: sSrc,
+        level: iUserlLevel,
+        iconUrl: sUrl, // 原始
+        remark: null,
+      };
+      // let sMessage = JSON.stringify(oMessage);
+      if (!("" === sSrc || null === sSrc || undefined === sSrc)) {
+        this.$socket["/chatroom"].emit("MESSAGE", oBody);
+      }
+
+
+
     });
-    this.socketIOFileClient.on("error", err => {
-      console.log("Error!", err);
+    this.socketIOFileClient.on("error", (oError: any) => {
+      console.log("Error!", oError);
     });
-    this.socketIOFileClient.on("abort", fileInfo => {
-      console.log("Aborted: ", fileInfo);
+    this.socketIOFileClient.on("abort", (oFileInfo: any) => {
+      console.log("Aborted: ", oFileInfo);
     });
     this.checkIsLogined();
   }
-  showMore() {
+  public showMore() {
     let t = "试玩用户无法使用";
     this.moreFlag = !this.moreFlag;
     return (this.isShowMore = false);
   }
-  checkIsLogined() {
+  public checkIsLogined() {
     let sUid = oAuthenticationHelper.getUserId();
     let oQuery = {
       path: "/login"
@@ -605,171 +627,152 @@ export default class Chatroom extends Vue {
     }
   }
 
-  onEnterRoom(oBody) {
+  public onEnterRoom(oBody: any) {
     let oData = oBody["data"];
     let aRooms = oData["rooms"];
     let oRoom = aRooms.pop();
     let sRoomId = oRoom._id;
     this.roomId = sRoomId;
+    let _oBody = {
+      roomId: sRoomId,
+    }
+    this.$socket["/chatroom"].emit("SHOW MESSAGE", _oBody);
+
   }
-  sendMessage(event) {
-    if (event.shiftKey) {
+  public onShowMessage(oBody: any) {
+    // TODO
+    if (-1 === oBody.result) {
       return;
     }
-    var e = this.inputText;
-    // e = e.replace(/(\s)\s+/g, "&nbsp;");
-    var a = this.$refs.view;
-    this.sendText(e);
+
+    let aMessages = oBody.data.messages;
+
+    aMessages.forEach((oMessage: any) => {
+      let sRole = oMessage.user.role || "MEMBER";
+      let sUrl = oMessage.user.url || "user/member.png";
+      let sNickname = oMessage.user.nickname;
+      let sSrc = oMessage.src || '';
+      let sText = oMessage.text || '';
+      let sTime = new Date(oMessage.addedTime);
+      let className = '';
+      switch (sRole) {
+        case "SYSTEM":
+          className = "SYSTEM";
+          break;
+        case "ADMIN":
+          className = "ADMIN";
+          break;
+        case "MEMBER":
+          className = "MEMBER";
+          break;
+        default:
+          className = "MEMBER";
+          break;
+      }
+
+      let sLefOrRigtClass = "";
+      let sUid = oAuthenticationHelper.getUserId();
+      if (oMessage.user._id === sUid) {
+        sLefOrRigtClass = "type-right";
+      } else {
+        sLefOrRigtClass = "type-left";
+      }
+
+      $(".chat-view").append(
+        $(
+          "<div class='Item " + sLefOrRigtClass + "'>" +
+            "<div class='lay-block'>" +
+              "<div class='avatar'>" +
+                "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+              "</div>" +
+              "<div class='lay-content' style='position:relative;'>" +
+                "<div class='msg-header'>" +
+                  "<h4>" + sNickname + "</h4> " +
+                  "<span class='MsgTime'>" + sTime + "</span>" +
+                "</div>" +
+                "<div class='Bubble " + className + "'>" +
+                  "<p>" +
+                    (sSrc ? "<img src='" + STORAGE.URL + STORAGE.PRE_PATH + sSrc + "' />" : '' ) +
+                    "<span style='white-space: pre-wrap; word-break: break-all;'>" + sText +
+                    "</span>" +
+                  "</p>" +
+                "</div>" +
+              "</div>" +
+            "</div>" +
+          "</div>" +
+        "</div>"
+        )
+      );
+    });
+
+  }
+  public sendMessage(oEvent: any) {
+    if (oEvent.shiftKey) {
+      return;
+    }
+    var sText = this.inputText;
+    this.sendText(sText);
   }
 
-  onHeightChange() {
+  public onHeightChange() {
     let __this = this;
     // return __this.$emit("updateHeight");
   }
-  inputFocus(t) {}
-  inputBlur(t) {
-    // this.onHeightChange(), setTimeout(this.onHeightChange, 100);
-  }
-  checkScroll() {
+  public checkScroll() {
     this.atScrollBottom && this.setScrollBottom();
   }
-  setScrollBottom() {
-    var t = this.$refs.view;
+  public setScrollBottom() {
+    var t: any = this.$refs.view;
     t.scrollTop = t.scrollHeight;
     this.atScrollBottom = true;
   }
-  onScroll() {
+  public onScroll() {
     let __this = this;
-    let e = this.$refs.view;
-    let i = 10 > e.scrollHeight - e.offsetHeight - e.scrollTop;
+    let oView: any = this.$refs.view;
+    let i = 10 > oView.scrollHeight - oView.offsetHeight - oView.scrollTop;
     this.atScrollBottom !== i && (this.atScrollBottom = i);
   }
-  handleImgUpload(t) {
-    let __this = this,
-    i;
-    i = t.target.files[0];
+  public handleImgUpload(oEvent: any) {
+    let __this = this;
+    let oFile = oEvent.target.files[0];
     let reg = /\.(jpe?g|png|gif)$/i;
-    if (reg.test(i.name)) {
-      var a = new FileReader();
-      a.addEventListener(
-        "load",
+    if (reg.test(oFile.name)) {
+      var oFileReader = new FileReader();
+      oFileReader.addEventListener("load",
         function(t) {
           var a = new Image();
-          a.title = i.name;
-          a.src = t.target.result;
+          a.title = oFile.name;
+          a.src = oEvent.target.result;
           __this.previewImg(a);
         },
         false
       );
-      a.readAsDataURL(i);
+      oFileReader.readAsDataURL(oFile);
     }
   }
-  previewImg(t) {
-    let __this = this;
+  public previewImg(oImage: any) {
+    let __this:any = this;
     __this.isShowImgPreview = true;
     __this.$refs.previewEl.innerHTML = "";
-    __this.uploadingImg = t;
-    __this.$refs.previewEl.appendChild(t);
+    __this.uploadingImg = oImage;
+    __this.$refs.previewEl.appendChild(oImage);
   }
-  showUserPack() {
+  public showUserPack() {
     this.isShowUserPack = true;
   }
-  sendImage(uploadIds?:any) {
+  public sendImage(uploadIds?:any) {
     this.onSubmit();
   }
-  connectWebSocket(data) {}
 
-  messageWebSocket(data) {}
-  onSubmit(event?:any ) {
-    // event.preventDefault();
+  public onSubmit(event?:any ) {
     let fileEl = document.getElementById("file");
 
     let uploadIds = this.socketIOFileClient.upload(fileEl);
     this.moreFlag = false;
-    $("#files")[0].reset();
+    let oFile: any =  $("#files")[0];
+    oFile.reset();
   }
-  onImage(data) {
-
-    // let date = new Date();
-    // let time = (date + "").split(" ")[4];
-    // let sUrl = oAuthenticationHelper.getUserUrl();
-    // let name = oAuthenticationHelper.getUserNickname();
-    // let sRole = oAuthenticationHelper.getUserRole();
-    // let imgName = data.name;
-    // let className = "";
-    // switch (sRole) {
-    //   case "SYSTEM":
-    //     className = "SYSTEM";
-    //     break;
-    //   case "ADMIN":
-    //     className = "ADMIN";
-    //     break;
-    //   case "MEMBER":
-    //     className = "MEMBER";
-    //     break;
-    //   default:
-    //     className = "MEMBER";
-    //     break;
-    // }
-    // if ($("#sendImg")) {
-    //   $("#sendImg").css("display", "none");
-    // }
-    // $(".chat-view").append(
-    //   $(
-    //     "<div class='Item type-right'><div class='lay-block'><div class='avatar'><img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" + name + "</h4><span class='MsgTime'>"+ time +"</span></div><div class='Bubble " + className + "'>"+
-    //     "<p><span style='white-space: pre-wrap; word-break: break-all;'><img src='" +
-    //       STORAGE.URL + STORAGE.PRE_PATH + '/room/message/' + imgName +
-    //       "' />" +
-    //       this.sendImgDesc +
-    //       "</span></p></div></div></div></div>"
-    //   )
-    // );
-  }
-  onFile(body) {
-
-    let date = new Date();
-    let time = (date + "").split(" ")[4];
-    let sUrl = body.iconUrl;
-    let name = body.nickName;
-    let sRole = oAuthenticationHelper.getUserRole();
-    let imgSrc = body.src;
-    let className = "";
-    let sUid = oAuthenticationHelper.getUserId();
-    let sLefOrRigtClass = "";
-    if (body.id === sUid) {
-      sLefOrRigtClass = "type-right";
-    } else {
-      sLefOrRigtClass = "type-left";
-    }
-    switch (sRole) {
-      case "SYSTEM":
-        className = "SYSTEM";
-        break;
-      case "ADMIN":
-        className = "ADMIN";
-        break;
-      case "MEMBER":
-        className = "MEMBER";
-        break;
-      default:
-        className = "MEMBER";
-        break;
-    }
-    if ($("#sendImg")) {
-      $("#sendImg").css("display", "none");
-    }
-    $(".chat-view").append(
-      $(
-        "<div class='Item "+sLefOrRigtClass+"'><div class='lay-block'><div class='avatar'><img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'></div><div class='lay-content'><div class='msg-header'><h4>" + name + "</h4><span class='MsgTime'>"+ time +"</span></div><div class='Bubble'>"+
-        "<p><span style='white-space: pre-wrap; word-break: break-all;'><img src='" +
-          STORAGE.URL + STORAGE.PRE_PATH + imgSrc +
-          "' />" +
-          this.sendImgDesc +
-          "</span></p></div></div></div></div>"
-      )
-    );
-  }
-  onMessage(data) {
+  public onMessage(data: any) {
     this.receptData = "";
     this.sendFlag = false;
     this.sendMessageFlag = true;
@@ -938,6 +941,7 @@ export default class Chatroom extends Vue {
                 "</div>" +
                 "<div class='Bubble " + className + "'>" +
                   "<p>" +
+                    (data.src ? "<img src='" + STORAGE.URL + STORAGE.PRE_PATH + data.src + "' />" : '' ) +
                     "<span style='white-space: pre-wrap; word-break: break-all;'>" + data.content +
                     "</span>" +
                   "</p>" +
@@ -950,14 +954,15 @@ export default class Chatroom extends Vue {
       );
 
       var t = this.$refs.view;
-      t.scrollTop = t.scrollHeight;
+      // t.scrollTop = t.scrollHeight;
       this.inputText = "";
     }
   }
-  sendText(data: any) {
+  public sendText(data: any) {
     let date = new Date();
     let sUid = oAuthenticationHelper.getUserId();
     let sUrl = oAuthenticationHelper.getUserUrl();
+    type sUrl = string;
     let iUserlLevel = oAuthenticationHelper.getUserLevel();
 
     let sUserNickname = oAuthenticationHelper.getUserNickname();
@@ -965,7 +970,7 @@ export default class Chatroom extends Vue {
     let name = oAuthenticationHelper.getUserNickname();
     this.showFlag = true;
     let iTimeStamp = Date.now();
-    let time = (date + "").split(" ")[4];
+    let time = (date + "").split(" ")[4] || '';
     let sVirtualId = sUid + "-" + iTimeStamp;
     let className = "";
     switch (sRole) {
@@ -988,7 +993,7 @@ export default class Chatroom extends Vue {
           "<div id='" + sVirtualId + "' class='Item type-right'>" +
             "<div class='lay-block'>" +
               "<div class='avatar'>" +
-                "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+                "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : STORAGE.URL + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
               "</div>" +
               "<div class='lay-content'>" +
                 "<div class='msg-header'>" +
@@ -1028,8 +1033,8 @@ export default class Chatroom extends Vue {
     };
     // let sMessage = JSON.stringify(oMessage);
     let sMessage = oMessage;
-    let M = sMessage.content;
-    if (!("" === M || null === M || "undefined" === M)) {
+    let sContent = sMessage.content;
+    if (!("" === sContent || null === sContent || "undefined" === sContent)) {
       this.$socket["/chatroom"].emit("MESSAGE", sMessage);
     }
   }
@@ -1039,7 +1044,7 @@ export default class Chatroom extends Vue {
 <style lang="scss">
 @import "Index.scss";
 .fade-enter-active, .fade-leave-active{
-   transition: all 0.5s ease;
+   transition: all 1s ease;
  }
 
  .fade-enter, .fade-leave-active {
