@@ -414,6 +414,7 @@
 <script lang="ts">
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 import $ from "jquery";
+import moment from "moment";
 import oIo from "socket.io-client";
 // @ts-ignore
 import SocketIOFileClient from "socket.io-file-client";
@@ -435,7 +436,7 @@ import iconMember5 from "@/assets/images/icon-member-05.gif";
 import iconMember6 from "@/assets/images/icon-member-06.gif";
 
 import { AuthenticationHelper } from "@/Helper/";
-import { STORAGE, SOCKET } from "@/CONFIGS";
+import { STORAGE, SOCKET, MOMENT } from "@/CONFIGS";
 
 STORAGE.HOST = STORAGE.HOST.replace(/^http:\/\//, '');
 
@@ -656,7 +657,13 @@ export default class Chatroom extends Vue {
       let sNickname = oMessage.user.nickname;
       let sSrc = oMessage.src || '';
       let sText = oMessage.text || '';
-      let sTime = new Date(oMessage.addedTime);
+      let sLocale = MOMENT.LOCALE;
+
+      let sFormat = 'YYYY-MM-DD HH:mm:ss';
+      moment.locale(MOMENT.LOCALE);
+      let sDateTime = moment(oMessage.addedTime).format(sFormat);
+
+      let sTime = moment(oMessage.addedTime).format(sFormat);
       let className = '';
       switch (sRole) {
         case "SYSTEM":
