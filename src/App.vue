@@ -55,10 +55,13 @@ let oAuthenticationHelper = new AuthenticationHelper();
 export default class App extends Vue {
   showMenu = false;
   showSetting = false;
-
+  isShowSetting = false;
   public get getJwt(): string | null {
     let sJwt = oAuthenticationHelper.getJwt();
     return sJwt;
+  }
+  mounted() {
+    this.showSetting = false;
   }
   back() {
     this.$router.go(-1);
@@ -75,7 +78,7 @@ export default class App extends Vue {
     this.showMenu = data;
   }
   gotoSetting() {
-    this.showSetting = !this.showSetting;
+    this.showSetting = !this.showSetting
     if (this.showSetting) {
       this.$router.push({ path: "/setting" });
     } else {
@@ -83,11 +86,6 @@ export default class App extends Vue {
     }
   }
   closeMenu() {}
-  @Watch("$route")
-  RouteChange(newVal: any) {
-    let sJwt = oAuthenticationHelper.getJwt();
-    sJwt ? (this.showSetting = true) : (this.showSetting = false);
-  }
 }
 </script>
 

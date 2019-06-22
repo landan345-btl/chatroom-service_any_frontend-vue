@@ -467,7 +467,7 @@ export default class Chatroom extends Vue {
   public imgUrl: any = '';
   public userLevel: any = '';
   public socketIOFileClient: any;
-
+  public scrollFlag: boolean = false;
   public mounted() {
     if (this.$socket["/chatroom"]) {
       this.$socket["/chatroom"].disconnect();
@@ -612,7 +612,6 @@ export default class Chatroom extends Vue {
     this.socketIOFileClient.on("abort", (oFileInfo: any) => {
       console.log("Aborted: ", oFileInfo);
     });
-    this.checkIsLogined();
   }
   public showMore() {
     let t = "试玩用户无法使用";
@@ -648,7 +647,6 @@ export default class Chatroom extends Vue {
     }
 
     let aMessages = oBody.data.messages;
-
     aMessages.forEach((oMessage: any) => {
       let sRole = oMessage.user.role || "MEMBER";
       let sUrl = oMessage.user.url || "user/member.png";
@@ -711,7 +709,15 @@ export default class Chatroom extends Vue {
         "</div>"
         )
       );
+      this.setScrollBottom();
+
     });
+
+    // this.$nextTick(() => {
+    //   this.setScrollBottom();
+    // })
+  }
+  updated() {
 
   }
   public sendMessage(oEvent: any) {
@@ -726,18 +732,19 @@ export default class Chatroom extends Vue {
     let __this = this;
     // return __this.$emit("updateHeight");
   }
-  public checkScroll() {
-    this.atScrollBottom && this.setScrollBottom();
-  }
+
   public setScrollBottom() {
     var t: any = this.$refs.view;
-    t.scrollTop = t.scrollHeight;
+    // t.scrollTop = t.scrollHeight;
+    t.scrollTop = t.scrollHeight - t.clientHeight;
+
     this.atScrollBottom = true;
   }
   public onScroll() {
     let __this = this;
     let oView: any = this.$refs.view;
     let i = 10 > oView.scrollHeight - oView.offsetHeight - oView.scrollTop;
+    __this.scrollFlag = true;
     this.atScrollBottom !== i && (this.atScrollBottom = i);
   }
   public handleImgUpload(oEvent: any) {
@@ -765,6 +772,7 @@ export default class Chatroom extends Vue {
     __this.uploadingImg = oImage;
 
     __this.$refs.previewEl.appendChild(oImage);
+    // __this.setScrollBottom();
   }
   public showUserPack() {
     this.isShowUserPack = true;
@@ -775,7 +783,6 @@ export default class Chatroom extends Vue {
 
   public onSubmit(event?:any ) {
     let fileEl = document.getElementById("file");
-
     let uploadIds = this.socketIOFileClient.upload(fileEl);
     this.moreFlag = false;
     let oFile: any =  $("#files")[0];
@@ -887,7 +894,6 @@ export default class Chatroom extends Vue {
     let date = new Date();
     let sUid = oAuthenticationHelper.getUserId();
     let sUrl = oAuthenticationHelper.getUserUrl();
-    type sUrl = string;
     let iUserlLevel = oAuthenticationHelper.getUserLevel();
 
     let sUserNickname = oAuthenticationHelper.getUserNickname();
