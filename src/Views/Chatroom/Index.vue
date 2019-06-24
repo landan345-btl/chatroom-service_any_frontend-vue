@@ -951,8 +951,6 @@ export default class Chatroom extends Vue {
     let oMessage = {
       roomId: this.roomId,
       id: sUid,
-      fk: "hCBOEx1e8cxeSWX2PUSC5w==",
-      chatType: 2,
       nickName: sUserNickname,
       content: data || null,
       curTime: date,
