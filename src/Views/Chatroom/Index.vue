@@ -586,17 +586,39 @@ export default class Chatroom extends Vue {
       let sSrc = oFileInfo.uploadDir.replace(/^public\/storage/, '');
       let iTimeStamp = Date.now();
 
+      // let oBody = {
+      //   roomId: this.roomId,
+      //   id: sUid,
+      //   nickName: sUserNickname,
+      //   content: this.sendImgDesc,
+      //   curTime: iTimeStamp,
+      //   role: sRole,
+      //   src: sSrc,
+      //   level: iUserlLevel,
+      //   iconUrl: sUrl, // 原始
+      //   remark: null,
+      // };
+
       let oBody = {
         roomId: this.roomId,
-        id: sUid,
-        nickName: sUserNickname,
-        content: this.sendImgDesc,
-        curTime: iTimeStamp,
-        role: sRole,
+        user: {
+          '_id': sUid,
+          'nickname': sUserNickname,
+          'role': sRole,
+          'level': iUserlLevel,
+          'url': sUrl, // 原始
+        },
         src: sSrc,
-        level: iUserlLevel,
-        iconUrl: sUrl, // 原始
-        remark: null,
+        // id: sUid,
+        // nickName: sUserNickname,
+        text: this.sendImgDesc,
+        // content: data || null,
+        addedTime: iTimeStamp,
+        // curTime: date,
+        // role: sRole,
+        // level: iUserlLevel,
+        // iconUrl: sUrl, // 原始
+        // remark: null,
       };
       // let sMessage = JSON.stringify(oMessage);
       if (!("" === sSrc || null === sSrc || undefined === sSrc)) {
@@ -829,14 +851,14 @@ export default class Chatroom extends Vue {
       if ($("#" + this.receptData.virtualId)) {
         $("#" + this.receptData.virtualId).css("display", "none");
       }
-      let name = data.nickName;
-      let role = data.role;
-      let time = (data.curTime + "").split(" ")[1];
-      let sUrl = data.iconUrl;
+      let name = data.user.nickname;
+      let role = data.user.role;
+      let time = (data.addedTime + "").split(" ")[1];
+      let sUrl = data.user.url;
       // data = data.content.replace(/(\s)\s+/g, "");
       let sLefOrRigtClass = "";
       let sUid = oAuthenticationHelper.getUserId();
-      if (data.id === sUid) {
+      if (data.user['_id'] === sUid) {
         sLefOrRigtClass = "type-right";
       } else {
         sLefOrRigtClass = "type-left";
@@ -874,7 +896,7 @@ export default class Chatroom extends Vue {
                 "<div class='Bubble " + className + "'>" +
                   "<p>" +
                     (data.src ? "<img src='" + 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + data.src + "' />" : '' ) +
-                    "<span style='white-space: pre-wrap; word-break: break-all;'>" + data.content +
+                    "<span style='white-space: pre-wrap; word-break: break-all;'>" + data.text +
                     "</span>" +
                   "</p>" +
                 "</div>" +
@@ -950,19 +972,30 @@ export default class Chatroom extends Vue {
 
     let oMessage = {
       roomId: this.roomId,
-      id: sUid,
-      nickName: sUserNickname,
-      content: data || null,
-      curTime: date,
-      role: sRole,
-      level: iUserlLevel,
-      iconUrl: sUrl, // 原始
-      remark: null,
+      user: {
+        '_id': sUid,
+        'nickname': sUserNickname,
+        'role': sRole,
+        'level': iUserlLevel,
+        'url': sUrl, // 原始
+      },
+      // id: sUid,
+      // nickName: sUserNickname,
+      text: data,
+      // content: data || null,
+      addedTime: date,
+      // curTime: date,
+      // role: sRole,
+      // level: iUserlLevel,
+      // iconUrl: sUrl, // 原始
+      // remark: null,
       virtualId: sVirtualId
     };
 
-    let sContent = oMessage.content;
-    if (!("" === sContent || null === sContent || "undefined" === sContent)) {
+
+
+    let sText = oMessage.text;
+    if (!("" === sText || null === sText || "undefined" === sText)) {
       this.$socket["/chatroom"].emit("MESSAGE", oMessage);
     }
   }
