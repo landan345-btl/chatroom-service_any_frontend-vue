@@ -586,19 +586,6 @@ export default class Chatroom extends Vue {
       let sSrc = oFileInfo.uploadDir.replace(/^public\/storage/, '');
       let iTimeStamp = Date.now();
 
-      // let oBody = {
-      //   roomId: this.roomId,
-      //   id: sUid,
-      //   nickName: sUserNickname,
-      //   content: this.sendImgDesc,
-      //   curTime: iTimeStamp,
-      //   role: sRole,
-      //   src: sSrc,
-      //   level: iUserlLevel,
-      //   iconUrl: sUrl, // 原始
-      //   remark: null,
-      // };
-
       let oBody = {
         roomId: this.roomId,
         user: {
@@ -609,24 +596,12 @@ export default class Chatroom extends Vue {
           'url': sUrl, // 原始
         },
         src: sSrc,
-        // id: sUid,
-        // nickName: sUserNickname,
         text: this.sendImgDesc,
-        // content: data || null,
         addedTime: iTimeStamp,
-        // curTime: date,
-        // role: sRole,
-        // level: iUserlLevel,
-        // iconUrl: sUrl, // 原始
-        // remark: null,
       };
-      // let sMessage = JSON.stringify(oMessage);
       if (!("" === sSrc || null === sSrc || undefined === sSrc)) {
         this.$socket["/chatroom"].emit("MESSAGE", oBody);
       }
-
-
-
     });
     this.socketIOFileClient.on("error", (oError: any) => {
       console.log("Error!", oError);
@@ -1006,10 +981,5 @@ export default class Chatroom extends Vue {
 
 <style lang="scss">
 @import "Index.scss";
-.fade-enter-active, .fade-leave-active{
-   transition: all 1s ease;
- }
- .fade-enter, .fade-leave-active {
-   opacity: 0;
- }
+
 </style>
