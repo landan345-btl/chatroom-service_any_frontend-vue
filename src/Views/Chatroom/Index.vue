@@ -962,11 +962,10 @@ export default class Chatroom extends Vue {
       remark: null,
       virtualId: sVirtualId
     };
-    // let sMessage = JSON.stringify(oMessage);
-    let sMessage = oMessage;
-    let sContent = sMessage.content;
+
+    let sContent = oMessage.content;
     if (!("" === sContent || null === sContent || "undefined" === sContent)) {
-      this.$socket["/chatroom"].emit("MESSAGE", sMessage);
+      this.$socket["/chatroom"].emit("MESSAGE", oMessage);
     }
   }
   public inputFocus() {}
