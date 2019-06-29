@@ -497,14 +497,11 @@ export default class Chatroom extends Vue {
 
     this.socketIOFileClient.on("start", (oFileInfo: any) => {
       console.log("Start uploading", oFileInfo);
-      // 根据 fileInfo.uid
-      // 打印到 html并且有loading
       let uploadIds = oFileInfo.uploadId;
       let wi = 240;
       let e = this.uploadingImg.naturalWidth;
       let i = this.uploadingImg.naturalHeight;
       this.isShowImgPreview = false;
-      // e > wi && ((i *= wi / e), (e = wi)), i > wi && ((e *= wi / i), (i = wi));
       var oCanvas = document.createElement("canvas");
       (oCanvas.width = e), (oCanvas.height = i);
       var oContext: any = oCanvas.getContext("2d");
@@ -537,8 +534,6 @@ export default class Chatroom extends Vue {
           break;
       }
 
-
-
       $(".chat-view").append(
         $(
           "<div id=" + uploadIds  +" class='Item type-right'>" +
@@ -565,8 +560,6 @@ export default class Chatroom extends Vue {
           "</div>"
         )
       );
-      // this.loadImage(this.imgUrl,e,i,"#uploadImg");
-
       this.imgUrl = "";
       this.isShowImgPreview = false;
     });
@@ -723,17 +716,8 @@ export default class Chatroom extends Vue {
       } else {
         $(".chat-view").append($(sMessage));
         self.setScrollBottom();
-
       }
-
-
     });
-
-    // this.$nextTick(() => {
-    //   this.setScrollBottom();
-    // })
-  }
-  updated() {
 
   }
   public sendMessage(oEvent: any) {
@@ -746,14 +730,11 @@ export default class Chatroom extends Vue {
 
   public onHeightChange() {
     let __this = this;
-    // return __this.$emit("updateHeight");
   }
 
   public setScrollBottom() {
     var t: any = this.$refs.view;
-    // t.scrollTop = t.scrollHeight;
     t.scrollTop = t.scrollHeight - t.clientHeight;
-
     this.atScrollBottom = true;
   }
   public onScroll() {
@@ -782,13 +763,11 @@ export default class Chatroom extends Vue {
     }
   }
   public previewImg(oImage: any) {
-    let __this:any = this;
-    __this.isShowImgPreview = true;
-    __this.$refs.previewEl.innerHTML = "";
-    __this.uploadingImg = oImage;
-
-    __this.$refs.previewEl.appendChild(oImage);
-    // __this.setScrollBottom();
+    let self:any = this;
+    self.isShowImgPreview = true;
+    self.$refs.previewEl.innerHTML = "";
+    self.uploadingImg = oImage;
+    self.$refs.previewEl.appendChild(oImage);
   }
   public showUserPack() {
     this.isShowUserPack = true;
@@ -908,13 +887,14 @@ export default class Chatroom extends Vue {
   }
   public sendText(data: any) {
     let date = new Date();
+
     let sUid = oAuthenticationHelper.getUserId();
     let sUrl = oAuthenticationHelper.getUserUrl();
     let iUserlLevel = oAuthenticationHelper.getUserLevel();
-
     let sUserNickname = oAuthenticationHelper.getUserNickname();
     let sRole = oAuthenticationHelper.getUserRole();
     let name = oAuthenticationHelper.getUserNickname();
+
     this.showFlag = true;
     let iTimeStamp = Date.now();
     let time = (date + "").split(" ")[4] || '';
@@ -973,20 +953,10 @@ export default class Chatroom extends Vue {
         'level': iUserlLevel,
         'url': sUrl, // 原始
       },
-      // id: sUid,
-      // nickName: sUserNickname,
       text: data,
-      // content: data || null,
       addedTime: date,
-      // curTime: date,
-      // role: sRole,
-      // level: iUserlLevel,
-      // iconUrl: sUrl, // 原始
-      // remark: null,
       virtualId: sVirtualId
     };
-
-
 
     let sText = oMessage.text;
     if (!("" === sText || null === sText || "undefined" === sText)) {
