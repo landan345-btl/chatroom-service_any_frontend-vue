@@ -565,7 +565,6 @@ export default class Chatroom extends Vue {
           "</div>"
         )
       );
-        // console.log(e,i,"<img src="+this.imgUrl+"></img>");
       // this.loadImage(this.imgUrl,e,i,"#uploadImg");
 
       this.imgUrl = "";
@@ -694,7 +693,7 @@ export default class Chatroom extends Vue {
         sLefOrRigtClass = "type-left";
       }
 
-      let sMessage = "<div class='Item " + sLefOrRigtClass + "'>" +
+      let sMessage = "<div " + "id='" + oMessage._id + "' class='Item " + sLefOrRigtClass + "'>" +
                       "<div class='lay-block'>" +
                         "<div class='avatar'>" +
                           "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
@@ -717,12 +716,8 @@ export default class Chatroom extends Vue {
                   "</div>";
       let self = this;
       if (sSrc) {
-        console.log(719);
-        debugger;
-        $("<img src='" + "http://" + STORAGE.HOST + STORAGE.PRE_PATH + sSrc + "' />").on("load", function( event) {
-
-          console.log(722, event, this);
-          $(".chat-view").append($(sMessage));
+        $(".chat-view").append($(sMessage));
+        $("#" + oMessage._id + " img").on("load", function( event) {
           self.setScrollBottom();
         });
       } else {
