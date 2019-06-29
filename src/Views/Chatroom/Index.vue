@@ -501,6 +501,7 @@ export default class Chatroom extends Vue {
       let wi = 240;
       let e = this.uploadingImg.naturalWidth;
       let i = this.uploadingImg.naturalHeight;
+      let self = this;
       this.isShowImgPreview = false;
       var oCanvas = document.createElement("canvas");
       (oCanvas.width = e), (oCanvas.height = i);
@@ -534,9 +535,8 @@ export default class Chatroom extends Vue {
           break;
       }
 
-      $(".chat-view").append(
-        $(
-          "<div id=" + uploadIds  +" class='Item type-right'>" +
+
+  let sMessage =   "<div id=" + uploadIds  +" class='Item type-right'>" +
             "<div class='lay-block'>" +
               "<div class='avatar'>" +
                 "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
@@ -557,9 +557,11 @@ export default class Chatroom extends Vue {
                 "</div>" +
               "</div>" +
             "</div>" +
-          "</div>"
-        )
-      );
+          "</div>";
+      $(".chat-view").append($(sMessage));
+      $("#" + uploadIds + " img").on("load", function( event) {
+        self.setScrollBottom();
+      });
       this.imgUrl = "";
       this.isShowImgPreview = false;
     });
@@ -632,7 +634,6 @@ export default class Chatroom extends Vue {
       roomId: sRoomId,
     }
     this.$socket["/chatroom"].emit("SHOW MESSAGE", _oBody);
-
   }
 
   public loadImage(path: any, width: any, height: any, target: any) {
