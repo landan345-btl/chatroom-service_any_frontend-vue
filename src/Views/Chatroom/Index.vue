@@ -537,6 +537,8 @@ export default class Chatroom extends Vue {
           break;
       }
 
+
+
       $(".chat-view").append(
         $(
           "<div id=" + uploadIds  +" class='Item type-right'>" +
@@ -552,8 +554,8 @@ export default class Chatroom extends Vue {
                 "<div class='Bubble " + className + "'>"+
                   "<span class='lds-dual-ring'></span>" +
                   "<p>" +
-                    "<span style='white-space: pre-wrap; word-break: break-all;'>" +
-                      "<img src="+this.imgUrl+" />" +
+                    "<span id='uploadImg' style='white-space: pre-wrap; word-break: break-all;'>" +
+                      "<img  src="+this.imgUrl+" />" +
                       this.sendImgDesc +
                     "</span>" +
                   "</p>" +
@@ -563,6 +565,9 @@ export default class Chatroom extends Vue {
           "</div>"
         )
       );
+        // console.log(e,i,"<img src="+this.imgUrl+"></img>");
+      // this.loadImage(this.imgUrl,e,i,"#uploadImg");
+
       this.imgUrl = "";
       this.isShowImgPreview = false;
     });
@@ -637,6 +642,14 @@ export default class Chatroom extends Vue {
     this.$socket["/chatroom"].emit("SHOW MESSAGE", _oBody);
 
   }
+
+  public loadImage(path: any, width: any, height: any, target: any) {
+    $('<img src="'+ path +'" />').load(function() {
+      $(this).width(width).height(height).appendTo(target)
+      console.log($(this));
+    })
+  }
+
   public onShowMessage(oBody: any) {
     // TODO
     if (-1 === oBody.result) {
@@ -681,32 +694,43 @@ export default class Chatroom extends Vue {
         sLefOrRigtClass = "type-left";
       }
 
-      $(".chat-view").append(
-        $(
-          "<div class='Item " + sLefOrRigtClass + "'>" +
-            "<div class='lay-block'>" +
-              "<div class='avatar'>" +
-                "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
-              "</div>" +
-              "<div class='lay-content' style='position:relative;'>" +
-                "<div class='msg-header'>" +
-                  "<h4>" + sNickname + "</h4> " +
-                  "<span class='MsgTime'>" + sTime + "</span>" +
-                "</div>" +
-                "<div class='Bubble " + className + "'>" +
-                  "<p>" +
-                    (sSrc ? "<img src='" + 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sSrc + "' />" : '' ) +
-                    "<span style='white-space: pre-wrap; word-break: break-all;'>" + sText +
-                    "</span>" +
-                  "</p>" +
-                "</div>" +
-              "</div>" +
-            "</div>" +
-          "</div>" +
-        "</div>"
-        )
-      );
-      this.setScrollBottom();
+      let sMessage = "<div class='Item " + sLefOrRigtClass + "'>" +
+                      "<div class='lay-block'>" +
+                        "<div class='avatar'>" +
+                          "<img src='" + (0 === sUrl.indexOf("http") ? sUrl : 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+                        "</div>" +
+                        "<div class='lay-content' style='position:relative;'>" +
+                          "<div class='msg-header'>" +
+                            "<h4>" + sNickname + "</h4> " +
+                            "<span class='MsgTime'>" + sTime + "</span>" +
+                          "</div>" +
+                          "<div class='Bubble " + className + "'>" +
+                            "<p>" +
+                              (sSrc ? "<img src='" + 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sSrc + "' />" : '' ) +
+                              "<span style='white-space: pre-wrap; word-break: break-all;'>" + sText +
+                              "</span>" +
+                            "</p>" +
+                          "</div>" +
+                        "</div>" +
+                      "</div>" +
+                    "</div>" +
+                  "</div>";
+      let self = this;
+      if (sSrc) {
+        console.log(719);
+        debugger;
+        $("<img src='" + "http://" + STORAGE.HOST + STORAGE.PRE_PATH + sSrc + "' />").on("load", function( event) {
+
+          console.log(722, event, this);
+          $(".chat-view").append($(sMessage));
+          self.setScrollBottom();
+        });
+      } else {
+        $(".chat-view").append($(sMessage));
+        self.setScrollBottom();
+
+      }
+
 
     });
 
