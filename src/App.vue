@@ -63,7 +63,7 @@ export default class App extends Vue {
   mounted() {
 
   }
-  flagChange(data) {
+  flagChange(data: any) {
     this.isShowSetting = data;
   }
   back() {

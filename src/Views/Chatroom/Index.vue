@@ -469,8 +469,7 @@ export default class Chatroom extends Vue {
   public socketIOFileClient: any;
   public scrollFlag: boolean = false;
   public mounted() {
-    this.$flag = true;
-    this.$emit('flagChange', true)
+    this.$emit('flagChange', true);
     if (this.$socket["/chatroom"]) {
       this.$socket["/chatroom"].disconnect();
     }
@@ -639,9 +638,8 @@ export default class Chatroom extends Vue {
   }
 
   public loadImage(path: any, width: any, height: any, target: any) {
-    $('<img src="'+ path +'" />').load(function() {
+    $('<img src="'+ path +'" />').load(function(): any {
       $(this).width(width).height(height).appendTo(target)
-      console.log($(this));
     })
   }
 
