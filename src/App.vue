@@ -61,6 +61,7 @@ export default class App extends Vue {
     return sJwt;
   }
   mounted() {
+
   }
   flagChange(data) {
     this.isShowSetting = data;
