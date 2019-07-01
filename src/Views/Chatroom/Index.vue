@@ -469,6 +469,8 @@ export default class Chatroom extends Vue {
   public socketIOFileClient: any;
   public scrollFlag: boolean = false;
   public mounted() {
+    this.$flag = true;
+    this.$emit('flagChange', true)
     if (this.$socket["/chatroom"]) {
       this.$socket["/chatroom"].disconnect();
     }

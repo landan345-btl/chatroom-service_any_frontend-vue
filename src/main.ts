@@ -9,6 +9,8 @@ import "element-ui/lib/theme-chalk/index.css";
 
 import { socket as socketPlugin } from "@/plugins/";
 
+Vue.prototype.$flag = false;
+
 Vue.use(ElementUI);
 
 Vue.use(socketPlugin);

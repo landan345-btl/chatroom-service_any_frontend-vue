@@ -4,7 +4,7 @@
     <div class="wrap-router">
       <transition name="viewTransition">
         <keep-alive include="chat">
-          <router-view></router-view>
+          <router-view @flagChange="flagChange"></router-view>
         </keep-alive>
       </transition>
     </div>
@@ -17,9 +17,9 @@
           <div class="left-slot"></div>
         </div>
       </div>
-      <div class="title" @click="goToChatroom()">聊天室</div>
-      <div class="nav-item">
-        <div  class="right-slot">
+      <div class="title" @click="goToChatroom()" style="text-align:center;">聊天室</div>
+      <div class="nav-item" style="width:224px;">
+        <div  class="right-slot" v-if="isShowSetting">
           <a
             href="javascript:;"
             class=""
@@ -61,7 +61,9 @@ export default class App extends Vue {
     return sJwt;
   }
   mounted() {
-    this.showSetting = false;
+  }
+  flagChange(data) {
+    this.isShowSetting = data;
   }
   back() {
     this.$router.go(-1);
@@ -86,6 +88,11 @@ export default class App extends Vue {
     }
   }
   closeMenu() {}
+  @Watch("getJwt")
+  FlagChange(newVal: any) {
+    console.log(newVal);
+    newVal ? this.isShowSetting = true : this.isShowSetting = false;
+  }
 }
 </script>
 
