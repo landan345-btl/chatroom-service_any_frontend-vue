@@ -99,7 +99,9 @@ class AuthenticationHelper {
   }
 
   public getAccessToken() {
-    let sAccessToken = window.localStorage.getItem("access-token") || "";
+    let sLoginState = window.localStorage.getItem("loginState") || "";
+    let oLoginState = JSON.parse(sLoginState);
+    let sAccessToken = oLoginState['accessToken'];
     return sAccessToken;
   }
 }
