@@ -490,6 +490,9 @@ export default class Chatroom extends Vue {
     };
     let oChatroomSocket = oIo(sChatroomUrl, oOption);
     this.$socket["/chatroom"] = oChatroomSocket;
+    this.$socket["/chatroom"].emit("LOGIN VIA ACCESS TOKEN", void 0);
+    this.$socket["/chatroom"].on("LOGIN VIA ACCESS TOKEN",this.onLoginViaAccessToken);
+
     this.$socket["/chatroom"].emit("ENTER ROOM", void 0);
     this.$socket["/chatroom"].on("ENTER ROOM", this.onEnterRoom);
     this.$socket["/chatroom"].on("SHOW MESSAGE", this.onShowMessage);
@@ -628,6 +631,9 @@ export default class Chatroom extends Vue {
     }
   }
 
+  public onLoginViaAccessToken(oBody: any) {
+    debugger;
+  }
   public onEnterRoom(oBody: any) {
     let oData = oBody["data"];
     let aRooms = oData["rooms"];
