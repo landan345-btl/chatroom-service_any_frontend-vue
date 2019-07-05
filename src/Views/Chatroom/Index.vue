@@ -480,9 +480,12 @@ export default class Chatroom extends Vue {
         : "") +
       "/chatroom";
     let sJwt = oAuthenticationHelper.getJwt();
+    let sAccessToken = oAuthenticationHelper.getAccessToken();
+
     let oOption = {
       query: {
-        jwt: sJwt
+        jwt: sJwt,
+        accessToken: sAccessToken
       }
     };
     let oChatroomSocket = oIo(sChatroomUrl, oOption);

@@ -92,7 +92,7 @@ class Login extends Vue {
   password: string = "";
   mounted() {
     this.$emit("flagChange", false);
-    this.$socket["/authentication"].on("AUTHENTICATION LOGIN", this.logined);
+    this.$socket["/login"].on("AUTHENTICATION LOGIN", this.logined);
     let sUid = oAuthenticationHelper.getUserId();
     window.onstorage = oEvent => {
       if (oEvent.newValue) {
