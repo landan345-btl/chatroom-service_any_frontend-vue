@@ -103,7 +103,6 @@ class AuthenticationHelper {
 
     try {
       let sLoginState = window.localStorage.getItem("loginState") || "";
-      debugger;
       let oLoginState = JSON.parse(sLoginState);
       sAccessToken = oLoginState['accessToken'];
       return sAccessToken;
