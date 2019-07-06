@@ -244,7 +244,6 @@
                     maxRows: 5,
                     minRows: 1
                   }"
-                  @change="onHeightChange"
                   @focus="inputFocus"
                   @blur="inputBlur"
                   v-model="inputText"
@@ -444,7 +443,8 @@ let oAuthenticationHelper = new AuthenticationHelper();
 @Component({
   components: { Connection }
 })
-export default class Chatroom extends Vue {
+class Chatroom extends Vue {
+
   public inputText: string = "";
   public atScrollBottom: boolean = true;
   public user: string = "visitor";
@@ -632,7 +632,9 @@ export default class Chatroom extends Vue {
   }
 
   public onLoginViaAccessToken(oBody: any) {
-    debugger;
+    if (1 === oBody.result && oBody.jwt) {
+      oAuthenticationHelper.setJwt(oBody.jwt);
+    }
   }
   public onEnterRoom(oBody: any) {
     let oData = oBody["data"];
@@ -738,20 +740,15 @@ export default class Chatroom extends Vue {
     this.sendText(sText);
   }
 
-  public onHeightChange() {
-    let __this = this;
-  }
-
   public setScrollBottom() {
     var t: any = this.$refs.view;
     t.scrollTop = t.scrollHeight - t.clientHeight;
     this.atScrollBottom = true;
   }
   public onScroll() {
-    let __this = this;
     let oView: any = this.$refs.view;
     let i = 10 > oView.scrollHeight - oView.offsetHeight - oView.scrollTop;
-    __this.scrollFlag = true;
+    this.scrollFlag = true;
     this.atScrollBottom !== i && (this.atScrollBottom = i);
   }
   public handleImgUpload(oEvent: any) {
@@ -976,6 +973,8 @@ export default class Chatroom extends Vue {
   public inputFocus() {}
   public inputBlur() {}
 };
+
+export default Chatroom;
 </script>
 
 <style lang="scss">
