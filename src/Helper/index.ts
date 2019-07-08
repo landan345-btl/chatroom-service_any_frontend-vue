@@ -1,3 +1,7 @@
-import Authentication from "./Authentication/Index";
+import AuthenticationHelper from "./Authentication/Index";
+import WordHelper from "./Word/Index";
 
-export { Authentication as AuthenticationHelper };
+export {
+  AuthenticationHelper,
+  WordHelper,
+};

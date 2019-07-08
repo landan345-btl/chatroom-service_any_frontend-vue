@@ -12,6 +12,11 @@ export default new Router({
       redirect: "/chatroom"
     },
     {
+      path: "/login",
+      name: "Login",
+      component: () => import("@/Views/Login/Login.vue")
+    },
+    {
       path: "/chatroom",
       name: "Chatroom",
       component: () => import("@/Views/Chatroom/Index.vue"),

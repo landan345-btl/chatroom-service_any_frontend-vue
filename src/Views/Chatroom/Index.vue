@@ -434,8 +434,16 @@ import iconMember5 from "@/assets/images/icon-member-05.gif";
 // @ts-ignore
 import iconMember6 from "@/assets/images/icon-member-06.gif";
 
-import { AuthenticationHelper } from "@/Helper/";
-import { STORAGE, SOCKET, MOMENT } from "@/CONFIGS";
+import {
+  AuthenticationHelper,
+  WordHelper,
+} from "@/Helper/";
+
+import {
+  STORAGE,
+  SOCKET,
+  MOMENT
+} from "@/CONFIGS";
 
 STORAGE.HOST = STORAGE.HOST.replace(/^http:\/\//, '');
 
@@ -468,6 +476,7 @@ class Chatroom extends Vue {
   public userLevel: any = '';
   public socketIOFileClient: any;
   public scrollFlag: boolean = false;
+  public words: any = [];
   public mounted() {
     this.$emit('flagChange', true);
     if (this.$socket["/chatroom"]) {
@@ -492,14 +501,21 @@ class Chatroom extends Vue {
     let oChatroomSocket = oIo(sChatroomUrl, oOption);
     this.$socket["/chatroom"] = oChatroomSocket;
 
+    setInterval(() => {
+      this.$socket["/chatroom"].emit("SHOW WORD POLLING", void 0);
+    }, 15000);
+
     if (sAccessToken && !sJwt) {
       this.$socket["/chatroom"].emit("LOGIN VIA ACCESS TOKEN", void 0);
     }
-
-    this.$socket["/chatroom"].emit("ENTER ROOM", void 0);
+    this.$socket["/chatroom"].emit("SHOW WORD", void 0);
 
     this.$socket["/chatroom"].on("LOGIN VIA ACCESS TOKEN",this.onLoginViaAccessToken);
     this.$socket["/chatroom"].on("ENTER ROOM", this.onEnterRoom);
+    
+    this.$socket["/chatroom"].on("SHOW WORD", this.onShowWord);
+    this.$socket["/chatroom"].on("SHOW WORD POLLING", this.onShowWordPolling);
+
     this.$socket["/chatroom"].on("SHOW MESSAGE", this.onShowMessage);
     this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("MESSAGE", this.onMessage);
@@ -671,6 +687,16 @@ class Chatroom extends Vue {
       $(this).width(width).height(height).appendTo(target)
     })
   }
+  public onShowWord(oBody: any) {
+    let aWords = oBody.data.words;
+    this.words = aWords;
+    this.$socket["/chatroom"].emit("ENTER ROOM", void 0);
+  }
+
+  public onShowWordPolling(oBody: any) {
+    let aWords = oBody.data.words;
+    this.words = aWords;
+  }
 
   public onShowMessage(oBody: any) {
     // TODO
@@ -678,8 +704,11 @@ class Chatroom extends Vue {
       return;
     }
 
+    let aWords = this.words;
+
     let aMessages = oBody.data.messages;
     aMessages.forEach((oMessage: any) => {
+      oMessage = WordHelper.filter(oMessage, aWords);
       let sRole = oMessage.user.role || "MEMBER";
       let sUrl = oMessage.user.url || "user/member.png";
       let sNickname = oMessage.user.nickname;
@@ -817,8 +846,7 @@ class Chatroom extends Vue {
     oFile.reset();
   }
   public onMessage(oBody: any) {
-
-
+    debugger;
     if (-1 === oBody.result && -1.05 === oBody.code) {
       this.$alert("访客无法发言", "提示");
       return;
@@ -833,11 +861,13 @@ class Chatroom extends Vue {
       this.$alert("发送失败", "提示");
       return;
     }
-    let data = oBody.data.messages.pop();
+    let oMessage = oBody.data.messages.pop();
+    let aWords = this.words;
+    oMessage = WordHelper.filter(oMessage, aWords);
     this.receptData = "";
     this.sendFlag = false;
     this.sendMessageFlag = true;
-    this.receptData = data;
+    this.receptData = oMessage;
     let level = this.receptData.level;
     level
       ? (this.userLevel = level)
@@ -871,17 +901,22 @@ class Chatroom extends Vue {
       null !== this.receptData
     ) {
       this.sendFlag = true;
-      if ($("#" + this.receptData.virtualId)) {
-        $("#" + this.receptData.virtualId).css("display", "none");
+      debugger;
+      if (this.receptData.virtualId && $("#" + this.receptData.virtualId)) {
+        $("#" + this.receptData.virtualId + " " + '.lds-dual-ring').css("display", "none");
+        var oView: any = this.$refs.view;
+        oView.scrollTop = oView.scrollHeight;
+        this.inputText = "";
+        return;
       }
-      let name = data.user.nickname;
-      let role = data.user.role;
-      let time = (data.addedTime + "").split(" ")[1];
-      let sUrl = data.user.url;
+      let name = oMessage.user.nickname;
+      let role = oMessage.user.role;
+      let time = (oMessage.addedTime + "").split(" ")[1];
+      let sUrl = oMessage.user.url;
       // data = data.content.replace(/(\s)\s+/g, "");
       let sLefOrRigtClass = "";
       let sUid = oAuthenticationHelper.getUserId();
-      if (data.user['_id'] === sUid) {
+      if (oMessage.user['_id'] === sUid) {
         sLefOrRigtClass = "type-right";
       } else {
         sLefOrRigtClass = "type-left";
@@ -918,8 +953,8 @@ class Chatroom extends Vue {
                 "</div>" +
                 "<div class='Bubble " + className + "'>" +
                   "<p>" +
-                    (data.src ? "<img src='" + 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + data.src + "' />" : '' ) +
-                    "<span style='white-space: pre-wrap; word-break: break-all;'>" + data.text +
+                    (oMessage.src ? "<img src='" + 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + oMessage.src + "' />" : '' ) +
+                    "<span style='white-space: pre-wrap; word-break: break-all;'>" + oMessage.text +
                     "</span>" +
                   "</p>" +
                 "</div>" +
