@@ -771,6 +771,13 @@ class Chatroom extends Vue {
     this.atScrollBottom !== i && (this.atScrollBottom = i);
   }
   public handleImgUpload(oEvent: any) {
+    let sJwt = oAuthenticationHelper.getJwt();
+
+    if (!sJwt) {
+      this.inputText = "";
+      this.$alert("访客无法发言", "提示");
+      return;
+    }
     let __this = this;
     let oFile = oEvent.target.files[0];
     let reg = /\.(jpe?g|png|gif)$/i;
@@ -810,8 +817,15 @@ class Chatroom extends Vue {
     oFile.reset();
   }
   public onMessage(oBody: any) {
+
+
     if (-1 === oBody.result && -1.05 === oBody.code) {
       this.$alert("访客无法发言", "提示");
+      return;
+    }
+
+    if (-1 === oBody.result && -1.06 === oBody.code) {
+      this.$alert("你已被禁言，请联系管理员", "提示");
       return;
     }
 
@@ -820,7 +834,6 @@ class Chatroom extends Vue {
       return;
     }
     let data = oBody.data.messages.pop();
-    debugger;
     this.receptData = "";
     this.sendFlag = false;
     this.sendMessageFlag = true;
@@ -927,7 +940,7 @@ class Chatroom extends Vue {
     let sJwt = oAuthenticationHelper.getJwt();
     if (!sJwt) {
       this.inputText = "";
-      this.$alert("访客无法发言!!", "提示");
+      this.$alert("访客无法发言", "提示");
       return;
     }
     let date = new Date();
@@ -987,7 +1000,7 @@ class Chatroom extends Vue {
     } else {
       return;
     }
-
+    this.setScrollBottom();
     let oMessage = {
       roomId: this.roomId,
       user: {
