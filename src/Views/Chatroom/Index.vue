@@ -1,5 +1,5 @@
 <template>
-  <div id="chat" @click="checkIsLogined()">
+  <div id="chat">
     <div class="lay-sticky-container chat router-view">
       <div class="sticky-part sticky-fixed">
         <div
@@ -480,6 +480,7 @@ class Chatroom extends Vue {
         : "") +
       "/chatroom";
     let sJwt = oAuthenticationHelper.getJwt();
+    
     let sAccessToken = oAuthenticationHelper.getAccessToken();
 
     let oOption = {
@@ -490,13 +491,16 @@ class Chatroom extends Vue {
     };
     let oChatroomSocket = oIo(sChatroomUrl, oOption);
     this.$socket["/chatroom"] = oChatroomSocket;
-    this.$socket["/chatroom"].emit("LOGIN VIA ACCESS TOKEN", void 0);
-    this.$socket["/chatroom"].on("LOGIN VIA ACCESS TOKEN",this.onLoginViaAccessToken);
+
+    if (sAccessToken && !sJwt) {
+      this.$socket["/chatroom"].emit("LOGIN VIA ACCESS TOKEN", void 0);
+    }
 
     this.$socket["/chatroom"].emit("ENTER ROOM", void 0);
+
+    this.$socket["/chatroom"].on("LOGIN VIA ACCESS TOKEN",this.onLoginViaAccessToken);
     this.$socket["/chatroom"].on("ENTER ROOM", this.onEnterRoom);
     this.$socket["/chatroom"].on("SHOW MESSAGE", this.onShowMessage);
-
     this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("MESSAGE", this.onMessage);
     this.$socket["/chatroom"].on("disconnet", () => {});
@@ -557,7 +561,7 @@ class Chatroom extends Vue {
                   "<span class='lds-dual-ring'></span>" +
                   "<p>" +
                     "<span id='uploadImg' style='white-space: pre-wrap; word-break: break-all;'>" +
-                      "<img  src="+this.imgUrl+" />" +
+                      "<img  src=" + this.imgUrl + " />" +
                       this.sendImgDesc +
                     "</span>" +
                   "</p>" +
@@ -617,24 +621,38 @@ class Chatroom extends Vue {
     });
   }
   public showMore() {
-    let t = "试玩用户无法使用";
+    let t = "访客无法使用";
     this.moreFlag = !this.moreFlag;
     return (this.isShowMore = false);
-  }
-  public checkIsLogined() {
-    let sUid = oAuthenticationHelper.getUserId();
-    let oQuery = {
-      path: "/login"
-    };
-    if (!sUid) {
-      this.$router.push(oQuery);
-    }
   }
 
   public onLoginViaAccessToken(oBody: any) {
     if (1 === oBody.result && oBody.jwt) {
       oAuthenticationHelper.setJwt(oBody.jwt);
+      let sJwt = oAuthenticationHelper.getJwt();
+    
+      let sAccessToken = oAuthenticationHelper.getAccessToken();
+      let sChatroomUrl =
+        SOCKET.HOST +
+        (SOCKET.PORT && (80 !== SOCKET.PORT || "80" !== SOCKET.PORT)
+          ? ":" + SOCKET.PORT
+          : "") +
+        "/chatroom";
+
+      let oOption = {
+        query: {
+          jwt: sJwt,
+          accessToken: sAccessToken,
+          forceNew: true,
+        }
+      };
+      
+      let oChatroomSocket = oIo(sChatroomUrl, oOption);
+      this.$socket["/chatroom"] = oChatroomSocket;
+      this.$socket["/chatroom"].emit("ENTER ROOM", void 0);
     }
+
+    
   }
   public onEnterRoom(oBody: any) {
     let oData = oBody["data"];
@@ -736,6 +754,7 @@ class Chatroom extends Vue {
     if (oEvent.shiftKey) {
       return;
     }
+
     var sText = this.inputText;
     this.sendText(sText);
   }
@@ -790,7 +809,18 @@ class Chatroom extends Vue {
     let oFile: any =  $("#files")[0];
     oFile.reset();
   }
-  public onMessage(data: any) {
+  public onMessage(oBody: any) {
+    if (-1 === oBody.result && -1.05 === oBody.code) {
+      this.$alert("访客无法发言", "提示");
+      return;
+    }
+
+    if (-1 === oBody.result) {
+      this.$alert("发送失败", "提示");
+      return;
+    }
+    let data = oBody.data.messages.pop();
+    debugger;
     this.receptData = "";
     this.sendFlag = false;
     this.sendMessageFlag = true;
@@ -893,6 +923,13 @@ class Chatroom extends Vue {
     }
   }
   public sendText(data: any) {
+
+    let sJwt = oAuthenticationHelper.getJwt();
+    if (!sJwt) {
+      this.inputText = "";
+      this.$alert("访客无法发言!!", "提示");
+      return;
+    }
     let date = new Date();
 
     let sUid = oAuthenticationHelper.getUserId();

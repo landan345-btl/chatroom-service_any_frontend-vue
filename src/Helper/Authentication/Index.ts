@@ -49,7 +49,7 @@ class AuthenticationHelper {
   }
 
   public getJwt(): string | null {
-    let sJwt = window.localStorage.getItem("jwt");
+    let sJwt = window.localStorage.getItem("jwt") || "";
     return sJwt;
   }
 
