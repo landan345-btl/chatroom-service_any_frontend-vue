@@ -9,12 +9,7 @@ export default new Router({
   routes: [
     {
       path: "/",
-      redirect: "/login"
-    },
-    {
-      path: "/login",
-      name: "Login",
-      component: () => import("@/Views/Login/Login.vue")
+      redirect: "/chatroom"
     },
     {
       path: "/chatroom",
