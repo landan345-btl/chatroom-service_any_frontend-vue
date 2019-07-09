@@ -505,7 +505,7 @@ class Chatroom extends Vue {
       this.$socket["/chatroom"].emit("SHOW WORD POLLING", void 0);
     }, 15000);
 
-    if (sAccessToken && !sJwt) {
+    if (sAccessToken) {
       this.$socket["/chatroom"].emit("LOGIN VIA ACCESS TOKEN", void 0);
     }
     this.$socket["/chatroom"].emit("SHOW WORD", void 0);
@@ -683,6 +683,7 @@ class Chatroom extends Vue {
   }
 
   public loadImage(path: any, width: any, height: any, target: any) {
+      // @ts-ignore: Unreachable code error
     $('<img src="'+ path +'" />').load(function(): any {
       $(this).width(width).height(height).appendTo(target)
     })
@@ -846,7 +847,6 @@ class Chatroom extends Vue {
     oFile.reset();
   }
   public onMessage(oBody: any) {
-    debugger;
     if (-1 === oBody.result && -1.05 === oBody.code) {
       this.$alert("访客无法发言", "提示");
       return;
@@ -902,7 +902,8 @@ class Chatroom extends Vue {
     ) {
       this.sendFlag = true;
       debugger;
-      if (this.receptData.virtualId && $("#" + this.receptData.virtualId)) {
+      let a = $("#" + this.receptData.virtualId);
+      if (this.receptData.virtualId && 1 <= $("#" + this.receptData.virtualId).length) {
         $("#" + this.receptData.virtualId + " " + '.lds-dual-ring').css("display", "none");
         var oView: any = this.$refs.view;
         oView.scrollTop = oView.scrollHeight;
