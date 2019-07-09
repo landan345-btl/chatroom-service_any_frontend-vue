@@ -911,8 +911,6 @@ class Chatroom extends Vue {
       null !== this.receptData
     ) {
       this.sendFlag = true;
-      debugger;
-      let a = $("#" + this.receptData.virtualId);
       if (this.receptData.virtualId && 1 <= $("#" + this.receptData.virtualId).length) {
         $("#" + this.receptData.virtualId + " " + '.lds-dual-ring').css("display", "none");
         var oView: any = this.$refs.view;
