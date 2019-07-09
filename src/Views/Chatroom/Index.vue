@@ -685,6 +685,7 @@ class Chatroom extends Vue {
   public loadImage(path: any, width: any, height: any, target: any) {
       // @ts-ignore: Unreachable code error
     $('<img src="'+ path +'" />').load(function(): any {
+      // @ts-ignore: Unreachable code error
       $(this).width(width).height(height).appendTo(target)
     })
   }
