@@ -848,17 +848,26 @@ class Chatroom extends Vue {
   }
   public onMessage(oBody: any) {
     if (-1 === oBody.result && -1.05 === oBody.code) {
-      this.$alert("访客无法发言", "提示");
+      this.$message({
+        message:'访客无法发言',
+        type: 'warning'
+      });
       return;
     }
 
     if (-1 === oBody.result && -1.06 === oBody.code) {
-      this.$alert("你已被禁言，请联系管理员", "提示");
+      this.$message({
+        message: '你已被禁言，请联系管理员',
+        type: 'warning'
+      });
       return;
     }
 
     if (-1 === oBody.result) {
-      this.$alert("发送失败", "提示");
+      this.$message({
+        message: '发送失败',
+        type: 'warning'
+      });
       return;
     }
     let oMessage = oBody.data.messages.pop();
@@ -976,7 +985,10 @@ class Chatroom extends Vue {
     let sJwt = oAuthenticationHelper.getJwt();
     if (!sJwt) {
       this.inputText = "";
-      this.$alert("访客无法发言", "提示");
+      this.$message({
+        message: "访客无法发言",
+        type: 'warning'
+      });
       return;
     }
     let date = new Date();

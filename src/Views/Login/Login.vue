@@ -80,8 +80,11 @@
 </template>
 
 <script lang="ts">
+import oIo from "socket.io-client";
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
 import { AuthenticationHelper } from "@/Helper/";
+import { SOCKET } from '@/CONFIGS'
+
 
 let oAuthenticationHelper = new AuthenticationHelper();
 @Component({
@@ -92,24 +95,23 @@ class Login extends Vue {
   password: string = "";
   mounted() {
     this.$emit("flagChange", false);
+
+    let sLoginUrl =
+      SOCKET.HOST +
+      (SOCKET.PORT && (80 !== SOCKET.PORT || "80" !== SOCKET.PORT)
+        ? ":" + SOCKET.PORT
+        : "") +
+      "/login";
+    let sJwt = oAuthenticationHelper.getJwt();
+
+    let sAccessToken = oAuthenticationHelper.getAccessToken();
+
+    let oLoginSocket = oIo(sLoginUrl);
+    this.$socket["/login"] = oLoginSocket;
+
     this.$socket["/login"].on("LOGIN", this.logined);
     let sUid = oAuthenticationHelper.getUserId();
-    window.onstorage = oEvent => {
-      if (oEvent.newValue) {
-        this.$router.push({
-          path: "/chatroom"
-        });
-      } else {
-        this.$router.push({
-          path: "/login"
-        });
-      }
-    };
-    if (!("" === sUid || null === sUid)) {
-      this.$router.push({
-        path: "/chatroom"
-      });
-    }
+
   }
 
   public login() {
@@ -117,7 +119,7 @@ class Login extends Vue {
       name: this.username,
       password: this.password
     };
-    this.$socket["/authentication"].emit("LOGIN", oBody);
+    this.$socket["/login"].emit("LOGIN", oBody);
   }
   public logined(oBody: any) {
     if (-1 === oBody.result) {
