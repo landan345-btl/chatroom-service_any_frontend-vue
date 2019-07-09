@@ -506,6 +506,10 @@ class Chatroom extends Vue {
     if (sAccessToken && !sJwt) {
       this.$socket["/chatroom"].emit("LOGIN VIA ACCESS TOKEN", void 0);
     }
+
+    if (sJwt) {
+      this.$socket["/chatroom"].emit("ENTER ROOM", void 0);
+    }
     this.$socket["/chatroom"].emit("SHOW WORD", void 0);
 
     this.$socket["/chatroom"].on("LOGIN VIA ACCESS TOKEN",this.onLoginViaAccessToken);
@@ -737,7 +741,6 @@ class Chatroom extends Vue {
           break;
       }
 
-      debugger;
       let sLefOrRigtClass = "";
       let sUid = oAuthenticationHelper.getUserId();
       if (oMessage.user._id === sUid) {
