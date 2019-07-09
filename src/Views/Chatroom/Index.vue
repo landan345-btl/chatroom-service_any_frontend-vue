@@ -495,17 +495,15 @@ class Chatroom extends Vue {
     let oOption = {
       query: {
         jwt: sJwt,
-        accessToken: sAccessToken
+        accessToken: sAccessToken,
+        forceNew: true,
       }
     };
     let oChatroomSocket = oIo(sChatroomUrl, oOption);
     this.$socket["/chatroom"] = oChatroomSocket;
+    this.$socket["/chatroom"].emit("SHOW WORD POLLING", void 0);
 
-    setInterval(() => {
-      this.$socket["/chatroom"].emit("SHOW WORD POLLING", void 0);
-    }, 15000);
-
-    if (sAccessToken) {
+    if (sAccessToken && !sJwt) {
       this.$socket["/chatroom"].emit("LOGIN VIA ACCESS TOKEN", void 0);
     }
     this.$socket["/chatroom"].emit("SHOW WORD", void 0);
@@ -517,8 +515,8 @@ class Chatroom extends Vue {
     this.$socket["/chatroom"].on("SHOW WORD POLLING", this.onShowWordPolling);
 
     this.$socket["/chatroom"].on("SHOW MESSAGE", this.onShowMessage);
-    this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("MESSAGE", this.onMessage);
+    this.$socket["/chatroom"].on("connect", () => {});
     this.$socket["/chatroom"].on("disconnet", () => {});
     this.socketIOFileClient = new SocketIOFileClient(oChatroomSocket);
 
@@ -739,6 +737,7 @@ class Chatroom extends Vue {
           break;
       }
 
+      debugger;
       let sLefOrRigtClass = "";
       let sUid = oAuthenticationHelper.getUserId();
       if (oMessage.user._id === sUid) {
