@@ -481,11 +481,23 @@ class Chatroom extends Vue {
   public words: any = [];
   public mounted() {
     this.$emit('flagChange', true);
+    let sAccessToken = oAuthenticationHelper.getAccessToken();
+
+    let oOptions: any = {
+      headers: {
+        'access-token': sAccessToken
+      }
+    };
 
     oAxiosHelper.post({
-      path: '/authentication/authentication/access-token-to-jwt'
-    }).then(() => {
+      path: '/service/authentication/authentication/access-token-to-jwt',
+      options: oOptions
+    }).then((oResponse) => {
       debugger;
+      oResponse;
+    }).catch((oResponse) => {
+      debugger;
+      oResponse;
     });
     if (this.$socket["/chatroom"]) {
       this.$socket["/chatroom"].disconnect();
@@ -498,27 +510,25 @@ class Chatroom extends Vue {
       "/chatroom";
     let sJwt = oAuthenticationHelper.getJwt();
     
-    let sAccessToken = oAuthenticationHelper.getAccessToken();
-
-    let oOption = {
+    oOptions = {
       query: {
         jwt: sJwt,
         accessToken: sAccessToken,
         forceNew: true,
       }
     };
-    let oChatroomSocket = oIo(sChatroomUrl, oOption);
-    this.$socket["/chatroom"] = oChatroomSocket;
-    this.$socket["/chatroom"].emit("SHOW WORD POLLING", void 0);
+    // let oChatroomSocket = oIo(sChatroomUrl, oOptions);
+    // this.$socket["/chatroom"] = oChatroomSocket;
+    // this.$socket["/chatroom"].emit("SHOW WORD POLLING", void 0);
 
-    if (sAccessToken && !sJwt) {
-      this.$socket["/chatroom"].emit("LOGIN VIA ACCESS TOKEN", void 0);
-    }
+    // if (sAccessToken && !sJwt) {
+    //   this.$socket["/chatroom"].emit("LOGIN VIA ACCESS TOKEN", void 0);
+    // }
 
-    if (sJwt) {
-      this.$socket["/chatroom"].emit("ENTER ROOM", void 0);
-    }
-    this.$socket["/chatroom"].emit("SHOW WORD", void 0);
+    // if (sJwt) {
+    //   this.$socket["/chatroom"].emit("ENTER ROOM", void 0);
+    // }
+    // this.$socket["/chatroom"].emit("SHOW WORD", void 0);
 
     this.$socket["/chatroom"].on("LOGIN VIA ACCESS TOKEN",this.onLoginViaAccessToken);
     this.$socket["/chatroom"].on("ENTER ROOM", this.onEnterRoom);

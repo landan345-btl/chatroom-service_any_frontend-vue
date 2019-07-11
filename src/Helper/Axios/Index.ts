@@ -106,6 +106,7 @@ class AxiosHelper {
     bRecursive = !!bRecursive;
     let oParams: any;
     let sParams: string;
+    let oOptions: any;
     if (oRequest instanceof Array) {
       let aRequests: any[] = oRequest;
       let aResponses: any[] = [];
@@ -116,13 +117,15 @@ class AxiosHelper {
           }
           let _sUrl: string = aRequests[i].url || sHost + aRequests[i].path;
           oParams = aRequests[i].params;
+          oOptions = aRequests[i].options;
+
           sParams = qs.stringify(oParams);
 
           // _reqInit.cache = 'no-cache';
           // _reqInit.mode = 'cors';
           // _reqInit.credentials = 'include';
 
-          return axios.post(_sUrl, sParams).then((oAxiosReponse) => {
+          return axios.post(_sUrl, sParams, oOptions).then((oAxiosReponse) => {
             // 舍弃 Axios 打包的 response 格式
             let oReponse = oAxiosReponse.data;
             aResponses.push(oReponse);
@@ -136,12 +139,14 @@ class AxiosHelper {
         let _sUrl: string = _oRequest.url || sHost + _oRequest.path;
         oParams = _oRequest.params;
         sParams = qs.stringify(oParams);
+        oOptions = _oRequest.options;
 
-        return axios.post(_sUrl, sParams).then((oAxiosResponse) => {
+        return axios.post(_sUrl, sParams, oOptions).then((oAxiosResponse) => {
           // 舍弃 Axios 打包的 response 格式
           let oResponse = oAxiosResponse.data;
           return oResponse;
         }).catch((oAxiosError) => {
+          debugger;
           let oResponse = oAxiosError.response.data;
           return Promise.reject(oResponse);
         });
@@ -151,13 +156,15 @@ class AxiosHelper {
     let sUrl: string = oRequest.url || sHost + oRequest.path;
     oParams = oRequest.params;
     sParams = qs.stringify(oParams);
+    oOptions = oRequest.options;
 
     // params.headers = oHeaders;
-    return axios.post(sUrl, sParams).then((oAxiosResponse) => {
+    return axios.post(sUrl, sParams, oOptions).then((oAxiosResponse) => {
       // 舍弃 Axios 打包的 response 格式
       let oResponse = oAxiosResponse.data;
       return oResponse;
     }).catch((oAxiosError) => {
+      debugger;
       let oResponse = oAxiosError.response.data;
       return Promise.reject(oResponse);
     });
