@@ -123,9 +123,9 @@ class Login extends Vue {
     }).then((oResponse) => {
       let sJwt = oResponse.jwt;
       oAuthenticationHelper.setJwt(sJwt);
-      // this.$router.push({
-      //   path: "/chatroom"
-      // });
+      this.$router.push({
+        path: "/chatroom"
+      });
     }).catch((oResponse) => {
       this.$alert("用户账号或密码错误！", "提示");
     });
