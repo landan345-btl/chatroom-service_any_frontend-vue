@@ -102,7 +102,7 @@ class AxiosHelper {
   public post(oRequest: any | any[], bRecursive: boolean = false): Promise<any> {
     bRecursive = !!bRecursive;
     let oParams: any;
-
+    let sParams: string;
     if (oRequest instanceof Array) {
       let aRequests: any[] = oRequest;
       let aResponses: any[] = [];
@@ -113,11 +113,13 @@ class AxiosHelper {
           }
           let _sUrl: string = aRequests[i].url || sHost + aRequests[i].path;
           oParams = aRequests[i].params;
+          sParams = qs.stringify(oParams);
+
           // _reqInit.cache = 'no-cache';
           // _reqInit.mode = 'cors';
           // _reqInit.credentials = 'include';
 
-          return axios.post(_sUrl, oParams).then((oAxiosReponse) => {
+          return axios.post(_sUrl, sParams).then((oAxiosReponse) => {
             // 舍弃 Axios 打包的 response 格式
             let oReponse = oAxiosReponse.data;
             aResponses.push(oReponse);
@@ -130,8 +132,9 @@ class AxiosHelper {
       return Promise.all(aRequests.map((_oRequest) => {
         let _sUrl: string = _oRequest.url || sHost + _oRequest.path;
         oParams = _oRequest.params;
+        sParams = qs.stringify(oParams);
 
-        return axios.post(_sUrl, oParams).then((oAxiosReponse) => {
+        return axios.post(_sUrl, sParams).then((oAxiosReponse) => {
           // 舍弃 Axios 打包的 response 格式
           let oReponse = oAxiosReponse.data;
           return oReponse;
@@ -141,8 +144,10 @@ class AxiosHelper {
 
     let sUrl: string = oRequest.url || sHost + oRequest.path;
     oParams = oRequest.params;
+    sParams = qs.stringify(oParams);
+
     // params.headers = oHeaders;
-    return axios.post(sUrl, oParams).then((oAxiosReponse) => {
+    return axios.post(sUrl, sParams).then((oAxiosReponse) => {
       // 舍弃 Axios 打包的 response 格式
       let oReponse = oAxiosReponse.data;
       return oReponse;
