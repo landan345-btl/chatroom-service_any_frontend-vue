@@ -437,6 +437,7 @@ import iconMember6 from "@/assets/images/icon-member-06.gif";
 import {
   AuthenticationHelper,
   WordHelper,
+  AxiosHelper,
 } from "@/Helper/";
 
 import {
@@ -448,6 +449,7 @@ import {
 STORAGE.HOST = STORAGE.HOST.replace(/^http:\/\//, '');
 
 let oAuthenticationHelper = new AuthenticationHelper();
+let oAxiosHelper = new AxiosHelper();
 @Component({
   components: { Connection }
 })
@@ -479,6 +481,12 @@ class Chatroom extends Vue {
   public words: any = [];
   public mounted() {
     this.$emit('flagChange', true);
+
+    oAxiosHelper.post({
+      path: '/authentication/authentication/access-token-to-jwt'
+    }).then(() => {
+      debugger;
+    });
     if (this.$socket["/chatroom"]) {
       this.$socket["/chatroom"].disconnect();
     }

@@ -82,11 +82,13 @@
 <script lang="ts">
 import oIo from "socket.io-client";
 import { Component, Prop, Watch, Vue } from "vue-property-decorator";
-import { AuthenticationHelper } from "@/Helper/";
+import { AuthenticationHelper, AxiosHelper } from "@/Helper/";
 import { SOCKET } from '@/CONFIGS'
 
 
 let oAuthenticationHelper = new AuthenticationHelper();
+let oAxiosHelper = new AxiosHelper();
+
 @Component({
   components: {}
 })
@@ -96,30 +98,23 @@ class Login extends Vue {
   mounted() {
     this.$emit("flagChange", false);
 
-    let sLoginUrl =
-      SOCKET.HOST +
-      (SOCKET.PORT && (80 !== SOCKET.PORT || "80" !== SOCKET.PORT)
-        ? ":" + SOCKET.PORT
-        : "") +
-      "/login";
-    let sJwt = oAuthenticationHelper.getJwt();
-
-    let sAccessToken = oAuthenticationHelper.getAccessToken();
-
-    let oLoginSocket = oIo(sLoginUrl);
-    this.$socket["/login"] = oLoginSocket;
-
-    this.$socket["/login"].on("LOGIN", this.logined);
     let sUid = oAuthenticationHelper.getUserId();
 
   }
 
   public login() {
-    let oBody = {
+    let oParams = {
       name: this.username,
       password: this.password
     };
-    this.$socket["/login"].emit("LOGIN", oBody);
+    oAxiosHelper.post({
+      path: '/service/authentication/authentication/login',
+      params: oParams
+    }).then((error) => {
+      console.log(error.message);
+    }).catch(error => {
+      console.log(error.message);
+    });
   }
   public logined(oBody: any) {
     if (-1 === oBody.result) {
