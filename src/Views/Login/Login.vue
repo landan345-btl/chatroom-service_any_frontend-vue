@@ -130,9 +130,6 @@ class Login extends Vue {
       this.$alert("用户账号或密码错误！", "提示");
     });
   }
-  public logined(oBody: any) {
-
-  }
 
 }
 
