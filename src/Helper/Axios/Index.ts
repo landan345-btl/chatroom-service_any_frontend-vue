@@ -1,4 +1,5 @@
 import axios from "axios";
+import qs from "qs";
 
 import {
   HTTP
@@ -45,7 +46,7 @@ class AxiosHelper {
    */
   public get(oRequest: any | any[], bRecursive: boolean = false): Promise<any> {
     bRecursive = !!bRecursive;
-
+    let oParams;
     if (oRequest instanceof Array) {
       let aRequests: any[] = oRequest;
       let aResponses: any[] = [];
@@ -55,12 +56,12 @@ class AxiosHelper {
             return Promise.resolve(aResponses);
           }
           let _sUrl: string = aRequests[i].url || sHost + aRequests[i].path;
-          let _oParams: any = aRequests[i].params;
+          oParams = aRequests[i].params;
           // _reqInit.cache = 'no-cache';
           // _reqInit.mode = 'cors';
           // _reqInit.credentials = 'include';
 
-          return axios.get(_sUrl, _oParams).then((oAxiosReponse) => {
+          return axios.get(_sUrl, oParams).then((oAxiosReponse) => {
             // 舍弃 Axios 打包的 response 格式
             let oReponse = oAxiosReponse.data;
             aResponses.push(oReponse);
@@ -72,10 +73,9 @@ class AxiosHelper {
 
       return Promise.all(aRequests.map((_oRequest) => {
         let _sUrl: string = _oRequest.url || sHost + _oRequest.path;
-        let _oParams: object = _oRequest.params;
+        let oParams = _oRequest.params;
 
-        oOptions = {};
-        return axios.get(_sUrl, oOptions).then((oAxiosReponse) => {
+        return axios.get(_sUrl, oParams).then((oAxiosReponse) => {
           // 舍弃 Axios 打包的 response 格式
           let oReponse = oAxiosReponse.data;
           return oReponse;
@@ -84,10 +84,10 @@ class AxiosHelper {
     }
 
     let sUrl: string = oRequest.url || sHost + oRequest.path;
-    let oParams: any = oRequest.params;
+    oParams = oRequest.params;
     // params.headers = oHeaders;
     let oOptions = {};
-    return axios.get(sUrl, oOptions).then((oAxiosReponse) => {
+    return axios.get(sUrl, oParams).then((oAxiosReponse) => {
       // 舍弃 Axios 打包的 response 格式
       let oReponse = oAxiosReponse.data;
       return oReponse;
