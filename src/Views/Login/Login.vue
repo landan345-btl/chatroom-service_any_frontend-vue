@@ -93,9 +93,9 @@ let oAxiosHelper = new AxiosHelper();
   components: {}
 })
 class Login extends Vue {
-  username: string = "";
-  password: string = "";
-  mounted() {
+  public username: string = "";
+  public password: string = "";
+  public mounted() {
     this.$emit("flagChange", false);
 
     let sUid = oAuthenticationHelper.getUserId();
