@@ -107,30 +107,33 @@ class Login extends Vue {
       name: this.username,
       password: this.password
     };
+
+    if (!this.username) {
+      this.$alert("请输入用户名称！", "提示");
+      return;
+    }
+
+    if (!this.password) {
+      this.$alert("请输入用户密码！", "提示");
+      return;
+    }
     oAxiosHelper.post({
       path: '/service/authentication/authentication/login',
       params: oParams
-    }).then((error) => {
-      console.log(error.message);
-    }).catch(error => {
-      console.log(error.message);
+    }).then((oResponse) => {
+      let sJwt = oResponse.jwt;
+      oAuthenticationHelper.setJwt(sJwt);
+      // this.$router.push({
+      //   path: "/chatroom"
+      // });
+    }).catch((oResponse) => {
+      this.$alert("用户账号或密码错误！", "提示");
     });
   }
   public logined(oBody: any) {
-    if (-1 === oBody.result) {
-      this.$alert("用户账号或密码错误！", "提示");
-      return;
-    }
-    let sJwt = oBody.jwt || "";
-    oAuthenticationHelper.setJwt(sJwt);
-    this.$router.push({
-      path: "/chatroom"
-    });
+
   }
-  public get getJwt(): string | null {
-    let sJwt = oAuthenticationHelper.getJwt();
-    return sJwt;
-  }
+
 }
 
 export default Login;
