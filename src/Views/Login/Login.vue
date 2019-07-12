@@ -120,13 +120,17 @@ class Login extends Vue {
     oAxiosHelper.post({
       path: '/service/authentication/authentication/login',
       params: oParams
-    }).then((oResponse) => {
-      let sJwt = oResponse.jwt;
-      oAuthenticationHelper.setJwt(sJwt);
-      this.$router.push({
-        path: "/chatroom"
-      });
-    }).catch((oResponse) => {
+    }).then((oResponse: any) => {
+      if (-1 !== oResponse.result) {
+        let sJwt = oResponse.jwt;
+        oAuthenticationHelper.setJwt(sJwt);
+        this.$router.push({
+          path: "/chatroom"
+        });
+        return;
+      }
+      this.$alert("用户账号或密码错误！", "提示");
+    }).catch((oResponse: any) => {
       this.$alert("用户账号或密码错误！", "提示");
     });
   }
