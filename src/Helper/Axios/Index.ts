@@ -9,7 +9,8 @@ let sHost = HTTP.HOST.replace(/\/$/, "");
 sHost.replace(/^http(s)?:\/\//, "");
 sHost = "http://" + sHost;
 
-axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded;charset=UTF-8";
+axios.defaults.headers.post["Content-Type"] = "application/json;charset=utf-8";
+
 // axios.defaults.headers.put["Content-Type"] = "application/x-www-form-urlencoded";
 // axios.defaults.headers.get["Content-Type"] = "application/x-www-form-urlencoded";
 // axios.defaults.headers.delete["Content-Type"] = "application/x-www-form-urlencoded";
@@ -165,8 +166,12 @@ class AxiosHelper {
       return oResponse;
     }).catch((oAxiosError) => {
       debugger;
-      let oResponse = oAxiosError.response.data;
-      return Promise.reject(oResponse);
+      if (oAxiosError.response && oAxiosError.response.data) {
+        let oResponse = oAxiosError.response.data;
+        return Promise.reject(oResponse);
+      }
+
+      return Promise.reject(null);
     });
   }
 

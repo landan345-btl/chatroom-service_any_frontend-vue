@@ -480,12 +480,13 @@ class Chatroom extends Vue {
   public scrollFlag: boolean = false;
   public words: any = [];
   public mounted() {
-    this.$emit('flagChange', true);
+    // this.$emit('flagChange', true);
     let sAccessToken = oAuthenticationHelper.getAccessToken();
 
     let oOptions: any = {
       headers: {
-        'access-token': sAccessToken
+        'access-token': sAccessToken,
+        // 'Access-Control-Request-Headers': "X-PINGOTHER, Content-Type",
       }
     };
 
@@ -517,144 +518,144 @@ class Chatroom extends Vue {
         forceNew: true,
       }
     };
-    // let oChatroomSocket = oIo(sChatroomUrl, oOptions);
-    // this.$socket["/chatroom"] = oChatroomSocket;
-    // this.$socket["/chatroom"].emit("SHOW WORD POLLING", void 0);
+  //   let oChatroomSocket = oIo(sChatroomUrl, oOptions);
+  //   this.$socket["/chatroom"] = oChatroomSocket;
+  //   this.$socket["/chatroom"].emit("SHOW WORD POLLING", void 0);
 
-    // if (sAccessToken && !sJwt) {
-    //   this.$socket["/chatroom"].emit("LOGIN VIA ACCESS TOKEN", void 0);
-    // }
+  //   if (sAccessToken && !sJwt) {
+  //     this.$socket["/chatroom"].emit("LOGIN VIA ACCESS TOKEN", void 0);
+  //   }
 
-    // if (sJwt) {
-    //   this.$socket["/chatroom"].emit("ENTER ROOM", void 0);
-    // }
-    // this.$socket["/chatroom"].emit("SHOW WORD", void 0);
+  //   if (sJwt) {
+  //     this.$socket["/chatroom"].emit("ENTER ROOM", void 0);
+  //   }
+  //   this.$socket["/chatroom"].emit("SHOW WORD", void 0);
 
-    this.$socket["/chatroom"].on("LOGIN VIA ACCESS TOKEN",this.onLoginViaAccessToken);
-    this.$socket["/chatroom"].on("ENTER ROOM", this.onEnterRoom);
+  //   this.$socket["/chatroom"].on("LOGIN VIA ACCESS TOKEN",this.onLoginViaAccessToken);
+  //   this.$socket["/chatroom"].on("ENTER ROOM", this.onEnterRoom);
     
-    this.$socket["/chatroom"].on("SHOW WORD", this.onShowWord);
-    this.$socket["/chatroom"].on("SHOW WORD POLLING", this.onShowWordPolling);
+  //   this.$socket["/chatroom"].on("SHOW WORD", this.onShowWord);
+  //   this.$socket["/chatroom"].on("SHOW WORD POLLING", this.onShowWordPolling);
 
-    this.$socket["/chatroom"].on("SHOW MESSAGE", this.onShowMessage);
-    this.$socket["/chatroom"].on("MESSAGE", this.onMessage);
-    this.$socket["/chatroom"].on("connect", () => {});
-    this.$socket["/chatroom"].on("disconnet", () => {});
-    this.socketIOFileClient = new SocketIOFileClient(oChatroomSocket);
+  //   this.$socket["/chatroom"].on("SHOW MESSAGE", this.onShowMessage);
+  //   this.$socket["/chatroom"].on("MESSAGE", this.onMessage);
+  //   this.$socket["/chatroom"].on("connect", () => {});
+  //   this.$socket["/chatroom"].on("disconnet", () => {});
+  //   this.socketIOFileClient = new SocketIOFileClient(oChatroomSocket);
 
-    this.socketIOFileClient.on("start", (oFileInfo: any) => {
-      console.log("Start uploading", oFileInfo);
-      let uploadIds = oFileInfo.uploadId;
-      let wi = 240;
-      let e = this.uploadingImg.naturalWidth;
-      let i = this.uploadingImg.naturalHeight;
-      let self = this;
-      this.isShowImgPreview = false;
-      var oCanvas = document.createElement("canvas");
-      (oCanvas.width = e), (oCanvas.height = i);
-      var oContext: any = oCanvas.getContext("2d");
-      oContext.drawImage(
-        this.uploadingImg,
-        0,
-        0,
-        this.uploadingImg.naturalWidth,
-        this.uploadingImg.naturalHeight
-      );
-      this.imgUrl = oCanvas.toDataURL();
-      let date = new Date();
-      let time = (date + "").split(" ")[4];
-      let sUrl = oAuthenticationHelper.getUserUrl();
-      let name = oAuthenticationHelper.getUserNickname();
-      let sRole = oAuthenticationHelper.getUserRole();
-      let className = "";
-      switch (sRole) {
-        case "SYSTEM":
-          className = "SYSTEM";
-          break;
-        case "ADMIN":
-          className = "ADMIN";
-          break;
-        case "MEMBER":
-          className = "MEMBER";
-          break;
-        default:
-          className = "MEMBER";
-          break;
-      }
+  //   this.socketIOFileClient.on("start", (oFileInfo: any) => {
+  //     console.log("Start uploading", oFileInfo);
+  //     let uploadIds = oFileInfo.uploadId;
+  //     let wi = 240;
+  //     let e = this.uploadingImg.naturalWidth;
+  //     let i = this.uploadingImg.naturalHeight;
+  //     let self = this;
+  //     this.isShowImgPreview = false;
+  //     var oCanvas = document.createElement("canvas");
+  //     (oCanvas.width = e), (oCanvas.height = i);
+  //     var oContext: any = oCanvas.getContext("2d");
+  //     oContext.drawImage(
+  //       this.uploadingImg,
+  //       0,
+  //       0,
+  //       this.uploadingImg.naturalWidth,
+  //       this.uploadingImg.naturalHeight
+  //     );
+  //     this.imgUrl = oCanvas.toDataURL();
+  //     let date = new Date();
+  //     let time = (date + "").split(" ")[4];
+  //     let sUrl = oAuthenticationHelper.getUserUrl();
+  //     let name = oAuthenticationHelper.getUserNickname();
+  //     let sRole = oAuthenticationHelper.getUserRole();
+  //     let className = "";
+  //     switch (sRole) {
+  //       case "SYSTEM":
+  //         className = "SYSTEM";
+  //         break;
+  //       case "ADMIN":
+  //         className = "ADMIN";
+  //         break;
+  //       case "MEMBER":
+  //         className = "MEMBER";
+  //         break;
+  //       default:
+  //         className = "MEMBER";
+  //         break;
+  //     }
 
 
-  let sMessage =   "<div id=" + uploadIds  +" class='Item type-right'>" +
-            "<div class='lay-block'>" +
-              "<div class='avatar'>" +
-                "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
-              "</div>" +
-              "<div class='lay-content'>" +
-                "<div class='msg-header'>" +
-                  "<h4>" + name + "</h4>" +
-                  "<span class='MsgTime'>"+ time + "</span>" +
-                "</div>" +
-                "<div class='Bubble " + className + "'>"+
-                  "<span class='lds-dual-ring'></span>" +
-                  "<p>" +
-                    "<span id='uploadImg' style='white-space: pre-wrap; word-break: break-all;'>" +
-                      "<img  src=" + this.imgUrl + " />" +
-                      this.sendImgDesc +
-                    "</span>" +
-                  "</p>" +
-                "</div>" +
-              "</div>" +
-            "</div>" +
-          "</div>";
-      $(".chat-view").append($(sMessage));
-      $("#" + uploadIds + " img").on("load", function( event) {
-        self.setScrollBottom();
-      });
-      this.imgUrl = "";
-      this.isShowImgPreview = false;
-    });
-    this.socketIOFileClient.on("stream", (oFileInfo: any) => {
-      console.log("Streaming... sent " + oFileInfo.sent + " bytes.");
-    });
-    this.socketIOFileClient.on("complete", (oFileInfo: any) => {
-      console.log("Upload Complete", oFileInfo);
-      let uploadIds = oFileInfo.uploadId;
-      // BUG, 使用者 一次传五张 ,
-      //      当第一张 complete 的时候, 只需要 把 第一张的 .lds-dual-ring 移除
-      uploadIds ? $('.lds-dual-ring').css('display', 'none') : "";
+  // let sMessage =   "<div id=" + uploadIds  +" class='Item type-right'>" +
+  //           "<div class='lay-block'>" +
+  //             "<div class='avatar'>" +
+  //               "<img src='" + (sUrl && 0 === sUrl.indexOf("http") ? sUrl : 'http://' + STORAGE.HOST + STORAGE.PRE_PATH + sUrl) + "' alt='游客'>" +
+  //             "</div>" +
+  //             "<div class='lay-content'>" +
+  //               "<div class='msg-header'>" +
+  //                 "<h4>" + name + "</h4>" +
+  //                 "<span class='MsgTime'>"+ time + "</span>" +
+  //               "</div>" +
+  //               "<div class='Bubble " + className + "'>"+
+  //                 "<span class='lds-dual-ring'></span>" +
+  //                 "<p>" +
+  //                   "<span id='uploadImg' style='white-space: pre-wrap; word-break: break-all;'>" +
+  //                     "<img  src=" + this.imgUrl + " />" +
+  //                     this.sendImgDesc +
+  //                   "</span>" +
+  //                 "</p>" +
+  //               "</div>" +
+  //             "</div>" +
+  //           "</div>" +
+  //         "</div>";
+  //     $(".chat-view").append($(sMessage));
+  //     $("#" + uploadIds + " img").on("load", function( event) {
+  //       self.setScrollBottom();
+  //     });
+  //     this.imgUrl = "";
+  //     this.isShowImgPreview = false;
+  //   });
+  //   this.socketIOFileClient.on("stream", (oFileInfo: any) => {
+  //     console.log("Streaming... sent " + oFileInfo.sent + " bytes.");
+  //   });
+  //   this.socketIOFileClient.on("complete", (oFileInfo: any) => {
+  //     console.log("Upload Complete", oFileInfo);
+  //     let uploadIds = oFileInfo.uploadId;
+  //     // BUG, 使用者 一次传五张 ,
+  //     //      当第一张 complete 的时候, 只需要 把 第一张的 .lds-dual-ring 移除
+  //     uploadIds ? $('.lds-dual-ring').css('display', 'none') : "";
 
-      let sUid = oAuthenticationHelper.getUserId();
-      let sUrl = oAuthenticationHelper.getUserUrl();
-      let iUserlLevel = oAuthenticationHelper.getUserLevel();
+  //     let sUid = oAuthenticationHelper.getUserId();
+  //     let sUrl = oAuthenticationHelper.getUserUrl();
+  //     let iUserlLevel = oAuthenticationHelper.getUserLevel();
 
-      let sUserNickname = oAuthenticationHelper.getUserNickname();
-      let sRole = oAuthenticationHelper.getUserRole();
-      let name = oAuthenticationHelper.getUserNickname();
-      let sSrc = oFileInfo.uploadDir.replace(/^public\/storage/, '');
-      let iTimeStamp = Date.now();
+  //     let sUserNickname = oAuthenticationHelper.getUserNickname();
+  //     let sRole = oAuthenticationHelper.getUserRole();
+  //     let name = oAuthenticationHelper.getUserNickname();
+  //     let sSrc = oFileInfo.uploadDir.replace(/^public\/storage/, '');
+  //     let iTimeStamp = Date.now();
 
-      let oBody = {
-        roomId: this.roomId,
-        user: {
-          '_id': sUid,
-          'nickname': sUserNickname,
-          'role': sRole,
-          'level': iUserlLevel,
-          'url': sUrl, // 原始
-        },
-        src: sSrc,
-        text: this.sendImgDesc,
-        addedTime: iTimeStamp,
-      };
-      if (!("" === sSrc || null === sSrc || undefined === sSrc)) {
-        this.$socket["/chatroom"].emit("MESSAGE", oBody);
-      }
-    });
-    this.socketIOFileClient.on("error", (oError: any) => {
-      console.log("Error!", oError);
-    });
-    this.socketIOFileClient.on("abort", (oFileInfo: any) => {
-      console.log("Aborted: ", oFileInfo);
-    });
+  //     let oBody = {
+  //       roomId: this.roomId,
+  //       user: {
+  //         '_id': sUid,
+  //         'nickname': sUserNickname,
+  //         'role': sRole,
+  //         'level': iUserlLevel,
+  //         'url': sUrl, // 原始
+  //       },
+  //       src: sSrc,
+  //       text: this.sendImgDesc,
+  //       addedTime: iTimeStamp,
+  //     };
+  //     if (!("" === sSrc || null === sSrc || undefined === sSrc)) {
+  //       this.$socket["/chatroom"].emit("MESSAGE", oBody);
+  //     }
+  //   });
+  //   this.socketIOFileClient.on("error", (oError: any) => {
+  //     console.log("Error!", oError);
+  //   });
+  //   this.socketIOFileClient.on("abort", (oFileInfo: any) => {
+  //     console.log("Aborted: ", oFileInfo);
+  //   });
   }
   public showMore() {
     let t = "访客无法使用";
