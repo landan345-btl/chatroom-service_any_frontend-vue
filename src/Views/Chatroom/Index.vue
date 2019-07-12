@@ -498,7 +498,7 @@ class Chatroom extends Vue {
       oAxiosHelper.get({
         path: '/service/resource/word/show',
       })
-    ]).then((aResponses) => {
+    ]).then((aResponses: any) => {
       if (-1 === aResponses[0].result) {
         oAuthenticationHelper.setJwt("");
         this.$message({
@@ -517,7 +517,7 @@ class Chatroom extends Vue {
         let aWords = aResponses[1].data.words;
         this.words = aWords;
       }
-    }).catch((aResponses) => {
+    }).catch((aResponses: any) => {
       oAuthenticationHelper.setJwt("");
         this.$message({
           message: '您以游客身份进入',
