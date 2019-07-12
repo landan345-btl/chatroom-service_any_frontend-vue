@@ -490,19 +490,40 @@ class Chatroom extends Vue {
       }
     };
 
-    oAxiosHelper.post({
-      path: '/service/authentication/authentication/access-token-to-jwt',
-      options: oOptions
-    }).then((oResponse) => {
-      let sJwt = oResponse.jwt;
-      oAuthenticationHelper.setJwt(sJwt);
-      debugger;
-    }).catch((oResponse) => {
+    Promise.all([
+      oAxiosHelper.post({
+        path: '/service/authentication/authentication/access-token-to-jwt',
+        options: oOptions
+      }),
+      oAxiosHelper.get({
+        path: '/service/resource/word/show',
+        options: oOptions
+      })
+    ]).then((aResponses) => {
+      if (-1 === aResponses[0].result) {
+        oAuthenticationHelper.setJwt("");
+        this.$message({
+          message: '您以游客身份进入',
+          type: 'warning'
+        });
+      }
+
+      if (aResponses[0].jwt) {
+        let sJwt = aResponses[0].jwt;
+        oAuthenticationHelper.setJwt(sJwt);
+
+      }
+
+      if (-1 !== aResponses[1].result && aResponses[1].data && aResponses[1].data.words) {
+        let aWords = aResponses[1].data.words;
+        this.words = aWords;
+      }
+    }).catch((aResponses) => {
       oAuthenticationHelper.setJwt("");
-      this.$message({
-        message: '您以游客身份进入',
-        type: 'warning'
-      });
+        this.$message({
+          message: '您以游客身份进入',
+          type: 'warning'
+        });
     }).finally(() =>{
       if (this.$socket["/chatroom"]) {
         this.$socket["/chatroom"].disconnect();
@@ -513,7 +534,7 @@ class Chatroom extends Vue {
           ? ":" + SOCKET.PORT
           : "") +
         "/chatroom";
-      let sJwt = oAuthenticationHelper.getJwt();
+      let sJwt = oAuthenticationHelper.getJwt() || '';
       
       oOptions = {
         query: {
@@ -524,23 +545,10 @@ class Chatroom extends Vue {
 
       let oChatroomSocket = oIo(sChatroomUrl, oOptions);
       this.$socket["/chatroom"] = oChatroomSocket;
-      this.$socket["/chatroom"].emit("SHOW WORD POLLING", void 0);
-
-      if (sAccessToken && !sJwt) {
-        this.$socket["/chatroom"].emit("LOGIN VIA ACCESS TOKEN", void 0);
-      }
-
-      if (sJwt) {
-        this.$socket["/chatroom"].emit("ENTER ROOM", void 0);
-      }
-      this.$socket["/chatroom"].emit("SHOW WORD", void 0);
-
-      this.$socket["/chatroom"].on("LOGIN VIA ACCESS TOKEN",this.onLoginViaAccessToken);
-      this.$socket["/chatroom"].on("ENTER ROOM", this.onEnterRoom);
       
-      this.$socket["/chatroom"].on("SHOW WORD", this.onShowWord);
-      this.$socket["/chatroom"].on("SHOW WORD POLLING", this.onShowWordPolling);
+      this.$socket["/chatroom"].emit("ENTER ROOM", void 0);
 
+      this.$socket["/chatroom"].on("ENTER ROOM", this.onEnterRoom);
       this.$socket["/chatroom"].on("SHOW MESSAGE", this.onShowMessage);
       this.$socket["/chatroom"].on("MESSAGE", this.onMessage);
       this.$socket["/chatroom"].on("connect", () => {});
@@ -660,11 +668,7 @@ class Chatroom extends Vue {
       this.socketIOFileClient.on("abort", (oFileInfo: any) => {
         console.log("Aborted: ", oFileInfo);
       });
-
     });
-
-
-
 
   }
   public showMore() {
@@ -719,16 +723,6 @@ class Chatroom extends Vue {
       // @ts-ignore: Unreachable code error
       $(this).width(width).height(height).appendTo(target)
     })
-  }
-  public onShowWord(oBody: any) {
-    let aWords = oBody.data.words;
-    this.words = aWords;
-    this.$socket["/chatroom"].emit("ENTER ROOM", void 0);
-  }
-
-  public onShowWordPolling(oBody: any) {
-    let aWords = oBody.data.words;
-    this.words = aWords;
   }
 
   public onShowMessage(oBody: any) {
@@ -864,9 +858,7 @@ class Chatroom extends Vue {
     self.uploadingImg = oImage;
     self.$refs.previewEl.appendChild(oImage);
   }
-  public showUserPack() {
-    this.isShowUserPack = true;
-  }
+
   public sendImage(uploadIds?:any) {
     this.onSubmit();
   }
