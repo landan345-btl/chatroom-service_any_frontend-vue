@@ -124,6 +124,7 @@ class Login extends Vue {
       if (-1 !== oResponse.result) {
         let sJwt = oResponse.jwt;
         oAuthenticationHelper.setJwt(sJwt);
+        oAuthenticationHelper.removeLoginState();
         this.$router.push({
           path: "/chatroom"
         });

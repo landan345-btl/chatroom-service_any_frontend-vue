@@ -482,6 +482,7 @@ class Chatroom extends Vue {
   public mounted() {
     // this.$emit('flagChange', true);
     let sAccessToken = oAuthenticationHelper.getAccessToken();
+    let sJwt = oAuthenticationHelper.getJwt() || '';
 
     let oOptions: any = {
       headers: {
@@ -490,16 +491,26 @@ class Chatroom extends Vue {
       }
     };
 
-    Promise.all([
-      oAxiosHelper.post({
-        path: '/service/authentication/authentication/access-token-to-jwt',
-        options: oOptions
-      }),
-      oAxiosHelper.get({
-        path: '/service/resource/word/show',
-      })
-    ]).then((aResponses: any) => {
-      if (-1 === aResponses[0].result) {
+    Promise.resolve().then((): any => {
+      if (sAccessToken) {
+        return Promise.all([
+          oAxiosHelper.post({
+          path: '/service/authentication/authentication/access-token-to-jwt',
+          options: oOptions
+        }),
+          oAxiosHelper.get({
+            path: '/service/resource/word/show',
+          })
+        ])
+      }
+      return Promise.all([
+        void 0,
+        oAxiosHelper.get({
+          path: '/service/resource/word/show',
+        })
+      ]);
+    }).then((aResponses: any) => {
+      if (sAccessToken && aResponses[0].result && -1 === aResponses[0].result) {
         oAuthenticationHelper.setJwt("");
         this.$message({
           message: '您以游客身份进入',
@@ -507,12 +518,10 @@ class Chatroom extends Vue {
         });
       }
 
-      if (aResponses[0].jwt) {
+      if (sAccessToken && aResponses[0].jwt) {
         let sJwt = aResponses[0].jwt;
         oAuthenticationHelper.setJwt(sJwt);
-
       }
-
       if (-1 !== aResponses[1].result && aResponses[1].data && aResponses[1].data.words) {
         let aWords = aResponses[1].data.words;
         this.words = aWords;

@@ -126,7 +126,7 @@ class AxiosHelper {
           // _reqInit.mode = 'cors';
           // _reqInit.credentials = 'include';
 
-          return axios.post(_sUrl, sParams, oOptions).then((oAxiosReponse) => {
+          return axios.post(_sUrl, oParams, oOptions).then((oAxiosReponse) => {
             // 舍弃 Axios 打包的 response 格式
             let oReponse = oAxiosReponse.data;
             aResponses.push(oReponse);
@@ -142,7 +142,7 @@ class AxiosHelper {
         sParams = qs.stringify(oParams);
         oOptions = _oRequest.options;
 
-        return axios.post(_sUrl, sParams, oOptions).then((oAxiosResponse) => {
+        return axios.post(_sUrl, oParams, oOptions).then((oAxiosResponse) => {
           // 舍弃 Axios 打包的 response 格式
           let oResponse = oAxiosResponse.data;
           return oResponse;
@@ -159,7 +159,7 @@ class AxiosHelper {
     oOptions = oRequest.options;
 
     // params.headers = oHeaders;
-    return axios.post(sUrl, sParams, oOptions).then((oAxiosResponse) => {
+    return axios.post(sUrl, oParams, oOptions).then((oAxiosResponse) => {
       // 舍弃 Axios 打包的 response 格式
       let oResponse: any = oAxiosResponse.data;
       return oResponse;

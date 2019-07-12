@@ -98,18 +98,21 @@ class AuthenticationHelper {
     window.localStorage.setItem("jwt", sJwt);
   }
 
-  public getAccessToken() {
+  public getAccessToken(): string {
     let sAccessToken = "";
 
     try {
       let sLoginState = window.localStorage.getItem("loginState") || "";
       let oLoginState = JSON.parse(sLoginState);
-      sAccessToken = oLoginState['accessToken'];
+      sAccessToken = oLoginState["accessToken"];
       return sAccessToken;
-    } catch(sException) {
+    } catch (sException) {
       return sAccessToken;
     }
+  }
 
+  public removeLoginState(): void {
+    window.localStorage.removeItem("loginState");
   }
 }
 
