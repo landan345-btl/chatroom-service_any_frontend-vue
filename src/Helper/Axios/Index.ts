@@ -45,7 +45,7 @@ class AxiosHelper {
    * @param {object | Array<object>} request The request of HTTP body
    * @param {boolean} isRecursive 使用同步模式 (递归模式), 也就是一个 AJAX 等待回应后才发下一个请求
    */
-  public get(oRequest: any | any[], bRecursive: boolean = false): Promise<any> {
+  public get(oRequest: any | any[], bRecursive: boolean = false): any {
     bRecursive = !!bRecursive;
     let oParams;
     if (oRequest instanceof Array) {
@@ -103,7 +103,7 @@ class AxiosHelper {
    * @param {object | Array<object>} params The params of HTTP body
    * @param {boolean} isPolling Use polling (recursive) to send the request
    */
-  public post(oRequest: any | any[], bRecursive: boolean = false): Promise<any> {
+  public post(oRequest: any | any[], bRecursive: boolean = false): any {
     bRecursive = !!bRecursive;
     let oParams: any;
     let sParams: string;
@@ -161,7 +161,7 @@ class AxiosHelper {
     // params.headers = oHeaders;
     return axios.post(sUrl, sParams, oOptions).then((oAxiosResponse) => {
       // 舍弃 Axios 打包的 response 格式
-      let oResponse = oAxiosResponse.data;
+      let oResponse: any = oAxiosResponse.data;
       return oResponse;
     }).catch((oAxiosError) => {
       if (oAxiosError.response && oAxiosError.response.data) {
@@ -169,7 +169,7 @@ class AxiosHelper {
         return Promise.reject(oResponse);
       }
 
-      return Promise.reject(null);
+      return Promise.reject(new Error(""));
     });
   }
 
