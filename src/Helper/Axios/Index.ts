@@ -147,7 +147,6 @@ class AxiosHelper {
           let oResponse = oAxiosResponse.data;
           return oResponse;
         }).catch((oAxiosError) => {
-          debugger;
           let oResponse = oAxiosError.response.data;
           return Promise.reject(oResponse);
         });
@@ -165,7 +164,6 @@ class AxiosHelper {
       let oResponse = oAxiosResponse.data;
       return oResponse;
     }).catch((oAxiosError) => {
-      debugger;
       if (oAxiosError.response && oAxiosError.response.data) {
         let oResponse = oAxiosError.response.data;
         return Promise.reject(oResponse);

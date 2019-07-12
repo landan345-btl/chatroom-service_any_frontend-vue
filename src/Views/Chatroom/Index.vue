@@ -658,7 +658,7 @@ class Chatroom extends Vue {
   //   });
   }
   public showMore() {
-    let t = "访客无法使用";
+    let t = "游客无法使用";
     this.moreFlag = !this.moreFlag;
     return (this.isShowMore = false);
   }
@@ -827,7 +827,7 @@ class Chatroom extends Vue {
 
     if (!sJwt) {
       this.inputText = "";
-      this.$alert("访客无法发言", "提示");
+      this.$alert("游客无法发言", "提示");
       return;
     }
     let __this = this;
@@ -871,7 +871,7 @@ class Chatroom extends Vue {
   public onMessage(oBody: any) {
     if (-1 === oBody.result && -1.05 === oBody.code) {
       this.$message({
-        message:'访客无法发言',
+        message:'游客无法发言',
         type: 'warning'
       });
       return;
@@ -1006,7 +1006,7 @@ class Chatroom extends Vue {
     if (!sJwt) {
       this.inputText = "";
       this.$message({
-        message: "访客无法发言",
+        message: "游客无法发言",
         type: 'warning'
       });
       return;
