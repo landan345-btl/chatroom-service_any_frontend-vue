@@ -497,7 +497,6 @@ class Chatroom extends Vue {
       }),
       oAxiosHelper.get({
         path: '/service/resource/word/show',
-        options: oOptions
       })
     ]).then((aResponses) => {
       if (-1 === aResponses[0].result) {
