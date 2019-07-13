@@ -551,6 +551,27 @@ class Chatroom extends Vue {
           : "") +
         "/chatroom";
       let sJwt = oAuthenticationHelper.getJwt() || '';
+
+      setInterval(() => {
+        let sAccessToken = oAuthenticationHelper.getAccessToken();
+        let sJwt = oAuthenticationHelper.getJwt() || '';
+
+        let oOptions: any = {
+          headers: {
+            'access-token': sAccessToken,
+            'jwt': sJwt
+          },
+        };
+        oAxiosHelper.post({
+          path: '/service/authentication/authentication/refresh',
+          options: oOptions
+        }).then((oResponse: any) => {
+          if (oResponse.jwt) {
+            sJwt = oResponse.jwt;
+            oAuthenticationHelper.setJwt(sJwt);
+          }
+        });
+      }, 10 * 1000);
       
       oOptions = {
         query: {
@@ -882,6 +903,23 @@ class Chatroom extends Vue {
       return;
     }
 
+    if (-1 === oBody.result && -1.08 === oBody.code) {
+      this.$message({
+        message: '无法发言，前两天充值未达',
+        type: 'warning'
+      });
+      return;
+    }
+
+    if (-1 === oBody.result && -1.09 === oBody.code) {
+      this.$message({
+        message: '无法发言，前两天打码量未达',
+        type: 'warning'
+      });
+      return;
+    }
+
+
     if (-1 === oBody.result) {
       this.$message({
         message: '发送失败',
@@ -1024,6 +1062,24 @@ class Chatroom extends Vue {
       this.inputText = "";
       this.$message({
         message: "试玩用户无法发言，请注册",
+        type: 'warning'
+      });
+      return;
+    }
+
+    if (50 > oPayload.chargeMoney) {
+      this.inputText = "";
+      this.$message({
+        message: '无法发言，前两天充值未达 50 元',
+        type: 'warning'
+      });
+      return;
+    }
+
+    if (100 > oPayload.chargeMoney) {
+      this.inputText = "";
+      this.$message({
+        message: '无法发言，前两天打码量未达 100 元',
         type: 'warning'
       });
       return;
