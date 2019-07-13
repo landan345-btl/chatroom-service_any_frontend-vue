@@ -571,7 +571,7 @@ class Chatroom extends Vue {
             oAuthenticationHelper.setJwt(sJwt);
           }
         });
-      }, 10 * 1000);
+      }, 60 * 1000);
       
       oOptions = {
         query: {
@@ -1153,7 +1153,8 @@ class Chatroom extends Vue {
       },
       text: data,
       addedTime: date,
-      virtualId: sVirtualId
+      virtualId: sVirtualId,
+      jwt: oAuthenticationHelper.getJwt()  
     };
 
     let sText = oMessage.text;
