@@ -456,7 +456,7 @@ const USER_TYPE_MEMBER = 1; // 1.会员 2代理 3试玩 4测试
 const USER_TYPE_PROXY = 2;
 const USER_TYPE_DEMO = 3;
 const USER_TYPE_TEST = 4;
-
+const CODE_THE_ACCESS_TOKEN_IS_EXPIERED = -1.07;
 
 @Component({
   components: { Connection }
@@ -518,7 +518,7 @@ class Chatroom extends Vue {
         })
       ]);
     }).then((aResponses: any) => {
-      if (sAccessToken && aResponses[0].result && -1 === aResponses[0].result) {
+      if (sAccessToken && aResponses[0].result && -1 === aResponses[0].result && CODE_THE_ACCESS_TOKEN_IS_EXPIERED !== aResponses[0].code) {
         oAuthenticationHelper.setJwt("");
         this.$message({
           message: '您以游客身份进入',
@@ -526,7 +526,7 @@ class Chatroom extends Vue {
         });
       }
 
-      if (sAccessToken && aResponses[0].jwt) {
+      if (sAccessToken && aResponses[0].jwt && CODE_THE_ACCESS_TOKEN_IS_EXPIERED !== aResponses[0].code) {
         let sJwt = aResponses[0].jwt;
         oAuthenticationHelper.setJwt(sJwt);
       }
@@ -691,35 +691,6 @@ class Chatroom extends Vue {
     let t = "游客无法使用";
     this.moreFlag = !this.moreFlag;
     return (this.isShowMore = false);
-  }
-
-  public onLoginViaAccessToken(oBody: any) {
-    if (1 === oBody.result && oBody.jwt) {
-      oAuthenticationHelper.setJwt(oBody.jwt);
-      let sJwt = oAuthenticationHelper.getJwt();
-    
-      let sAccessToken = oAuthenticationHelper.getAccessToken();
-      let sChatroomUrl =
-        SOCKET.HOST +
-        (SOCKET.PORT && (80 !== SOCKET.PORT || "80" !== SOCKET.PORT)
-          ? ":" + SOCKET.PORT
-          : "") +
-        "/chatroom";
-
-      let oOption = {
-        query: {
-          jwt: sJwt,
-          accessToken: sAccessToken,
-          forceNew: true,
-        }
-      };
-      
-      let oChatroomSocket = oIo(sChatroomUrl, oOption);
-      this.$socket["/chatroom"] = oChatroomSocket;
-      this.$socket["/chatroom"].emit("ENTER ROOM", void 0);
-    }
-
-    
   }
   public onEnterRoom(oBody: any) {
     let oData = oBody["data"];
