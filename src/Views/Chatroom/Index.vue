@@ -417,6 +417,7 @@ import moment from "moment";
 import oIo from "socket.io-client";
 // @ts-ignore
 import SocketIOFileClient from "socket.io-file-client";
+import jwtDecode from "jwt-decode";
 
 import Connection from "@/Views/Connection/Index.vue";
 // @ts-ignore
@@ -450,6 +451,13 @@ STORAGE.HOST = STORAGE.HOST.replace(/^http:\/\//, '');
 
 let oAuthenticationHelper = new AuthenticationHelper();
 let oAxiosHelper = new AxiosHelper();
+
+const USER_TYPE_MEMBER = 1; // 1.会员 2代理 3试玩 4测试
+const USER_TYPE_PROXY = 2;
+const USER_TYPE_DEMO = 3;
+const USER_TYPE_TEST = 4;
+
+
 @Component({
   components: { Connection }
 })
@@ -887,9 +895,17 @@ class Chatroom extends Vue {
       return;
     }
 
-    if (-1 === oBody.result && -1.06 === oBody.code) {
+    if (-1 === oBody.result && -1.07 === oBody.code) {
       this.$message({
         message: '您已被禁言，请联系管理员',
+        type: 'warning'
+      });
+      return;
+    }
+
+    if (-1 === oBody.result && -1.06 === oBody.code) {
+      this.$message({
+        message: '试玩用户无法发言，请注册',
         type: 'warning'
       });
       return;
@@ -1013,10 +1029,30 @@ class Chatroom extends Vue {
   public sendText(data: any) {
 
     let sJwt = oAuthenticationHelper.getJwt();
+    let oPayload: any;
     if (!sJwt) {
       this.inputText = "";
       this.$message({
         message: "游客无法发言",
+        type: 'warning'
+      });
+      return;
+    }
+    try {
+      oPayload = jwtDecode(sJwt);
+
+    } catch (sExeption) {
+      this.inputText = "";
+      this.$message({
+        message: "游客无法发言",
+        type: 'warning'
+      });
+      return;
+    }
+    if (USER_TYPE_DEMO === oPayload.type) {
+      this.inputText = "";
+      this.$message({
+        message: "试玩用户无法发言，请注册",
         type: 'warning'
       });
       return;
